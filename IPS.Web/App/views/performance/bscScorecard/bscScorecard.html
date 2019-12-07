@@ -1,0 +1,36 @@
+﻿<div pane name="scorecard">
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a class="newhead title fa fa-long-arrow-left" ng-click="scorecard.goBack()"></a>
+            <h1 class="title">{{'COMMON_SCORECARD' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                        <span ng-show='profileForm.profileOrganizationId.$invalid' class="required">*</span>
+                        <select class="form-control" name="profileOrganizationId" required data-ng-model="scorecard.organizationId" data-ng-options="obj.id as obj.name for obj in scorecard.organizations"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE' | translate }}</label>
+                        <span ng-show='profileForm.profileOrganizationId.$invalid' class="required">*</span>
+                        <select class="form-control"
+                                name="profileOrganizationId"
+                                required
+                                data-ng-model="scorecard.profileId"
+                                ng-change="scorecard.loadScorecard(scorecard.profileId)"
+                                data-ng-options="obj.id as obj.name for obj in scorecard.profiles | filter:scorecard.filterProfiles"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" ng-show="scorecard.isShowReport">
+            <div kendo-grid="scorecardGrid" k-options="scorecard.gridOptions" k-rebind="gridOptions.selectable"></div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

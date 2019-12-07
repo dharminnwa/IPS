@@ -1,0 +1,127 @@
+﻿
+.ips-button.primary.submit-button {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.profile-name {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 700;
+    color: #515151;
+    text-align: center;
+}
+
+.answer-steps {
+    text-align: center;
+}
+
+.answer-steps .performance-group-name {
+    font-size: 45px;
+    line-height: 47px;
+    font-weight: 500;
+    color: #515151;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+.answer-steps .skill-names {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 32px;
+    color: #b5b5b5;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 0 50px 20px;
+    border-bottom: 1px solid #c9c9c9;
+}
+
+.answer-steps .question {
+    font-size: 29px;
+    line-height: 31px;
+    color: #515151;
+    margin: 10px 0;
+}
+
+.answer-steps .answer {
+    max-width:600px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answer-steps .answer-label {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 31px;
+    color: #515151;
+}
+
+.answer-steps .correct-answer {
+    max-width:600px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answer-steps .correct-answer-label {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 31px;
+    color: #515151;
+}
+
+.answer-steps .comment {
+    max-width:600px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answer-steps .comment-label {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; 
+    margin-bottom: 10px;
+    border-top: 1px solid #c9c9c9;
+    font-size: 20px;
+    line-height: 31px;
+    color: #515151;
+}
+
+.control-buttons {
+    text-align: center;
+}
+
+.control-buttons .ips-survey-button {
+    padding: 10px 25px;
+    height: 45px;
+}
+
+.control-buttons .button-correct-answer {
+    background-color: #009902;
+    margin-right: 150px;
+}
+
+.control-buttons .button-wrong-answer {
+    background-color: #ff8b00;
+}
+
+.navigation-buttons {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #c9c9c9;
+}
+
+.navigation-buttons .ips-survey-button {
+    padding: 10px 25px;
+    height: 45px;
+}
+

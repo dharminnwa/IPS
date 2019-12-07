@@ -1,0 +1,17 @@
+﻿<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">{{'COMMON_PERSPECTIVE' | translate }}</label>
+            <select class="form-control tab-control" ng-disabled="isDisabled()" data-ng-model="performanceGroup.scorecardPerspectiveId" name="performanceGroupPerspective" data-ng-options="i.id as i.name for i in perspectives"></select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="profiles-menu">
+            <img src="images/organization/organization-icon.png" />
+            <span>{{'SOFTPROFILE_OBJECTIVES' | translate }}</span>
+        </div>
+        <kendo-tooltip options="tooltipOptions">
+            <div kendo-grid k-options="objectivesGridOptions" k-rebind="gridOptions.selectable"></div>
+        </kendo-tooltip>
+    </div>
+</div>

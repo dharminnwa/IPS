@@ -1,0 +1,67 @@
+﻿<div class="row">
+    <section class="portlet-light">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-title">
+                        <a href="organization.html">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            &nbsp;Organizations
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="portlet-light">
+        <div class="row">
+            <div class="col-md-12 heding-bg">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-sub-title"> CSV Upload</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                        {{selectedOrganization != null?selectedOrganization.name:'-- Select Organization--'}}
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="scroller" style="height: 250px;">
+                                <ul class="dropdown-menu-list">
+                                    <li ng-click="changeOrganization(organization.id)" ng-repeat="organization in organizations">
+                                        <a href="javascript:;"> {{organization.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-5">
+                <div class="form-group  mt-2">
+                    <label for="exampleInputFile" class="control-label"></label>
+                    <div class="col-md-12">
+                        <input id="organizationCsvUploadFile" type="file" class="cstm-input-file" ngf-select="onFileSelect($files)" ng-disabled="(!selectedOrganization.id > 0)">
+                        <p class="help-block">
+                            <span class="text-red" ng-show="(!selectedOrganization.id > 0)">{{'ORGANIZATIONS_CUSTOMERS_PLEASE_SELECT_ORGANIZATION_TO_UPLOAD_CSV' | translate }}</span>
+                            <input type="hidden" ng-value="fileName" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn dropdown-toggle btn-cstm" type="button" ng-show="fileName != null" ng-click="saveOrganizations()">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    Save
+                </button>
+            </div>
+
+        </div>
+    </section>
+</div>

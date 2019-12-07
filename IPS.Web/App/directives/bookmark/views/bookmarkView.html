@@ -1,0 +1,48 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div ng-show="bookmark.isShow" class="bookmarks-container">
+                <div class="bookmark bookmark-star">
+                    <span data-toggle="modal" data-target=".bs-bookmark-md" ng-class="bookmark.isBookmarked()">☆</span>
+                </div>
+                <div class="bookmark bookmarks">
+                    <span ng-repeat="bookmark in bookmark.bookmarksToDisplay" class="clickable"><a href="#{{bookmark.url}}">/{{bookmark.title}}</a></span>
+                </div>
+                <div class="bookmark form-group">
+                    <select class="form-control natural-width"
+                            ng-model="bookmark.selectedBookmark"
+                            ng-options="bmark as bmark.title for bmark in bookmark.dropDownbookmarks"
+                            ng-change="bookmark.selectFromBookmarkList()"
+                            ng-show="bookmark.dropDownbookmarks.length > 0">
+                        <option value="">{{'BOOKMARKMANAGER_OR_SELECT_BOOKMARK' | translate }}</option>
+                    </select>
+                </div>
+                <div class="bookmark"><button class="btn btn-cstm cancel" ng-click="bookmark.goToManager()">{{'BOOKMARKMANAGER_BOOKMARK_MANAGER' | translate }}</button> </div>
+                <div class="modal fade bs-bookmark-md" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemBookmarkLabel">{{'BOOKMARKMANAGER_ADD_BOOKMARK' | translate }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control" ng-model="bookmark.newBookmark.title" />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="button" class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                            <button type="button" class="btn btn-cstm primary pull-right" data-dismiss="modal" aria-label="Close" ng-click="bookmark.addNewBookmark()">{{'COMMON_ADD' | translate }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span kendo-notification="bookmark.notificationSavedSuccess" k-options="notificationOptions"></span>
+        </div>
+    </div>
+</div>

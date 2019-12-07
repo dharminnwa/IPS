@@ -1,0 +1,96 @@
+<div class="row hr-tab">
+    <div class="col-sm-12">
+        <div class="col-sm-6">
+            <span class="smallhead">{{'COMMON_SORT_BY' | translate }}</span>
+            <ul class="select-group">
+                <li>
+                    <input type="radio" id="group" name="sort" checked="checked" value="departments" ng-model="groupTab.name" />
+                    <label for="group">{{'COMMON_GROUP' | translate }}</label>
+                </li>
+                <li>
+                    <input type="radio" id="user" name="sort" value="users" ng-model="groupTab.name" />
+                    <label for="user">{{'COMMON_USER' | translate }}</label>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-5">
+            <span class="smallhead">{{'ORGANIZATIONS_HR_CREATE_NEW' | translate }}</span>
+            <div>
+                <button class="btn btn-cstm" ng-click="newDepartment(selectedOrganizationDetailsTab.id)" ng-disabled="!selectedOrganizationDetailsTab || isDisabled('Departments', authService.actions.Create)">{{'COMMON_DEPARTMENT' | translate }}</button>
+                <button class="btn btn-cstm" ng-click="newTeam(selectedOrganizationDetailsTab.id)" ng-disabled="!selectedOrganizationDetailsTab || isDisabled('Teams', authService.actions.Create)">{{'COMMON_TEAM' | translate }}</button>
+                <button class="btn btn-cstm" ng-click="newUser(selectedOrganizationDetailsTab.id)" ng-disabled="isDisabled('Users', authService.actions.Create)">{{'COMMON_USER' | translate }}</button>
+            </div>
+        </div>
+    </div>
+    <div ng-switch on="groupTab.name">
+        <div class="col-sm-12 departments" ng-switch-when="departments">
+            <div class="teams">
+                <div class="department-title" ng-hide="!isOrganizationTeams()">
+                    <span class="teams-title">{{'COMMON_ORGANIZATION' | translate }} </span><span class="department-line">{{'COMMON_TEAMS' | translate }}</span>
+                </div>
+                <ul class="department-teams">
+                    <li ng-repeat="team in selectedOrganizationDetailsTab.teams | orderBy:'name' " ng-click="editTeam(team.id,team.departmentId)" ng-hide="team.departmentId">
+                        <span>
+                            <img src="{{team.imagePath && team.imagePath || 'images/team-placeholder.png' }}" class="img-responsive user-avatar" />
+                        </span>
+                        <span class="team-name">{{team.name}}</span>
+                    </li>
+                </ul>
+                <div class="expand-buttons" ng-if="department.users.length > 6">
+                    <button id="expand-button-{{department.id}}" class="btn btn-cstm" ng-click="expandUsers(department.id)">{{'COMMON_SHOW_ALL' | translate }}</button>
+                    <button id="collapse-button-{{department.id}}" class="btn btn-cstm hide" ng-click="collapseUsers(department.id)">{{'COMMON_HIDE' | translate }}</button>
+                </div>
+            </div>
+            <div ng-repeat="department in selectedOrganizationDetailsTab.departments | orderBy:'name'" class="department">
+                <div class="department-title">
+                    <span class="department-name">{{department.name}}</span> <span class="department-line">{{'COMMON_DEPARTMENT' | translate }}</span>
+                    <span class="edit-button"><a class="fa fa-edit" ng-click="editDepartment(department.id)"></a></span>
+                </div>
+                <ul id="department-team-{{department.id}}" class="department-teams">
+                    <li ng-repeat="team in department.teams | orderBy: 'name'" ng-click="editTeam(team.id, department.id)">
+                        <span>
+                            <img src="{{team.imagePath && team.imagePath || 'images/team-placeholder.png' }}" class="img-responsive user-avatar" />
+                        </span>
+                        <span class="team-name">{{team.name}}</span>
+                    </li>
+                </ul>
+                <ul id="department-{{department.id}}" class="department-users linked-users">
+                    <li ng-repeat="user in department.users | orderBy: ['firstName', 'lastName']" ng-class="{hide: $index >= 6}" ng-click="previewUser(user.id)">
+                        <span><img src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" /></span>
+                        <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                        <div ng-show="user.jobPositions.length > 0" class="position desTitle">
+                            <div ng-repeat="position in user.jobPositions">{{position.jobPosition1}}</div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="expand-buttons" ng-if="department.users.length > 6">
+                    <button id="expand-button-{{department.id}}" class="btn btn-cstm" ng-click="expandUsers(department.id)">{{'COMMON_SHOW_ALL' | translate }}</button>
+                    <button id="collapse-button-{{department.id}}" class="btn btn-cstm hide" ng-click="collapseUsers(department.id)">{{'COMMON_HIDE' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 users" ng-switch-when="users">
+            <input type="text" class="form-control search-input" placeholder="Search for users" name="userSearch" ng-model="userSearch" ng-change="userCurrentPage=0" />
+            <ul id="" class="organization-users linked-users">
+                <li ng-repeat="user in selectedOrganizationDetailsTab.users | filter:userSearch | orderBy:['firstName', 'lastName'] | startFrom:userCurrentPage*userPageSize | limitTo:userPageSize" ng-click="previewUser(user.id)">
+                    <span>
+                        <img src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                    </span>
+                    <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                    <div ng-show="user.jobPositions.length > 0" class="position">
+                        <div ng-repeat="position in user.jobPositions">{{position.jobPosition1}}</div>
+                    </div>
+                </li>
+            </ul>
+            <div ng-class="{hide: (selectedOrganizationDetailsTab.users | filter:userSearch).length < userPageSize}">
+                <button ng-disabled="userCurrentPage == 0" ng-click="userCurrentPage=userCurrentPage-1" class="pagination-button">
+                    <
+                </button>
+                {{userCurrentPage+1}}/{{Math.ceil((selectedOrganizationDetailsTab.users | filter:userSearch).length/userPageSize)}}
+                <button ng-disabled="userCurrentPage >= (selectedOrganizationDetailsTab.users | filter:userSearch).length/userPageSize - 1" ng-click="userCurrentPage=userCurrentPage+1" class="pagination-button">
+                        >
+                    </button>
+</div>
+        </div>
+    </div>
+</div>

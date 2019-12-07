@@ -1,0 +1,156 @@
+﻿.card-header {
+    background-color: #efefef;
+    border: 1px solid #e2e2e2;
+    color: #122B46;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-header-number {
+    color: #122B46;
+    font-size: 15px;
+}
+
+.activity-record-box {
+    border: 1px solid #e6e6e6;
+    padding: 20px;
+    display: flow-root;
+}
+
+
+.activity-record-one {
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 4px 3px 7px -2px #e2e2e2;
+    border: 1px solid #e8e8e8;
+    padding: 10px 0px;
+}
+
+    .activity-record-one h6 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #ff6e19;
+    }
+
+    .activity-record-one span {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 21px;
+        color: #ff6e19;
+    }
+
+.activity-record-two {
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 4px 3px 7px -2px #e2e2e2;
+    border: 1px solid #e8e8e8;
+    padding: 10px 0px;
+}
+
+    .activity-record-two h6 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #5bc0de;
+    }
+
+    .activity-record-two span {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 21px;
+        color: #5bc0de;
+    }
+
+.activity-record-three {
+    text-align: center;
+    margin-top: 25px;
+    box-shadow: 4px 3px 7px -2px #e2e2e2;
+    border: 1px solid #e8e8e8;
+    padding: 10px 0px;
+}
+
+    .activity-record-three h6 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #495fda;
+    }
+
+    .activity-record-three span {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 21px;
+        color: #495fda;
+    }
+
+.collapse-header {
+    background-color: #ececec !important;
+}
+
+.department-team-title h5 {
+    font-size: 15px !important;
+    color: black !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+}
+
+    .department-team-title h5 span {
+        font-size: 13px;
+        color: black;
+        padding-left: 5px;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+.portlet > .portlet-title > .tools {
+    padding: 10px 16px 8px !important;
+}
+
+.portlet.box > .portlet-title > .caption {
+    padding: 12px 0px 5px !important;
+}
+
+.activity-record-box {
+    border: 1px solid #e6e6e6;
+    padding: 15px 5px;
+    display: flow-root;
+}
+
+.activity-card-header {
+    color: #ffffff;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.activity-record {
+    text-align: center;
+    margin-top: 15px;
+}
+
+    .activity-record .calls-number-achieve {
+        color: #ff6e19;
+    }
+
+    .activity-record h6 {
+        font-size: 15px;
+        font-weight: 600;
+        color: #262626;
+    }
+
+    .activity-record span {
+        font-weight: 600;
+        margin-bottom: 21px;
+        color: #8e8d8d;
+    }
+
+    .activity-record .talks-number-achieve {
+        color: #5bc0de;
+    }
+
+    .activity-record .meeting-number-achieve {
+        color: #495fda;
+    }
+
+.tools i:hover {
+    cursor: pointer;
+}

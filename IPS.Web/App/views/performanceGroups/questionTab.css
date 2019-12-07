@@ -1,0 +1,32 @@
+﻿.k-widget .question-tab * {
+    -webkit-box-sizing : border-box;‌​
+    -moz-box-sizing : border-box;
+    box-sizing : border-box;
+}
+
+.display-rule {
+    padding-right: 20px;
+}
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .remove-icon {
+    background: url('../../images/remove.png') no-repeat;
+}
+
+.notifications-row input[type=checkbox] {
+    margin-left: 20px;
+}
+
+.ips-button.add-from-template{
+    margin-top: 18px;
+    margin-left: 10px;
+    height: 34px;
+}
+input.invalidSeqNo {
+    border: 1px solid red;
+}

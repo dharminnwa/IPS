@@ -1,0 +1,94 @@
+<div pane name="cmsmanage"  ng-init="getAllCategories()">
+    <div class="row" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="return-menu">
+                <a ng-click="getscopes()" class="newhead title fa fa-long-arrow-left"></a>
+                <a class="addOrg" ng-show="!categoryId" href="#/home/template/category/add">+ Add New Category</a>
+                <a class="addOrg" ng-show="categoryId" href="#/home/template/category/add/sub">+ Add New Sub Category</a>
+                <h1 class="title newhead">Template {{categoryId?'Sub':''}} Category List</h1>
+
+
+
+
+                <div class="top-border"></div>
+            </div>
+            <input type="text" placeholder="Search your Category Here...." ng-model="pageFilter" class="form-control search-input_left">
+            <!--<div class="organizations-menu">
+               <img src="images/organization/organization-icon.png" />
+               <span>Organizations</span>
+
+            </div>-->
+            <div class="chart-loading"></div>
+
+            <!--<div kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable" ></div>
+      <button ng-click="addNewOrganization()" class="btn btn-cstm primary pull-right">Add Organization</button>-->
+            <div class="ng-tab" ng-show="!categoryId">
+                <table class="k-selected table" kendo-grid>
+
+                    <thead role="rowgroup">
+                        <tr role="row" class="tabHead">
+                            <th role="columnheader" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="k-header ng-scope" data-role="columnsorter">#</th>
+                            <th role="columnheader" data-field="logo" rowspan="1" data-title="Logo" data-index="1" class="k-header ng-scope" data-role="columnsorter">Category</th>
+                            <th role="columnheader" data-field="name" rowspan="1" data-title="Name" data-index="2" class="k-header ng-scope" data-role="columnsorter">Is Parent</th>
+
+                            <th role="columnheader" data-field="contactName" rowspan="1" data-title="Contact Name" data-index="5" class="k-header ng-scope" data-role="columnsorter">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tbody class="newtbody">
+                        <tr class='oraganization-row' dir-paginate="dataItem in categories | filter:pageFilter | itemsPerPage:10" category-href="dataItem">
+                            <td><span class='row-number'>{{$index+1}}</span></td>
+                            <td class='org-logo'>{{dataItem.title}}</td>
+                            <!--<td class='org-name'>{{dataItem.name}}</td>-->
+                            <td>{{dataItem.isParentCategory}}</td>
+
+                            <td><a class="tab_edit" href="#/home/template/category/{{dataItem.templateCategoryID}}"><i style="cursor: pointer;" class="fa fa-pencil" ng-click="transferEdit(dataItem.pageID)"></i></a><a class="tab_delete"><i class="fa fa-trash" style="cursor: pointer;" ng-click="removePage(dataItem.pageID)"></i></a></td>
+                            <!-- //<td>
+                         //<div class='icon-groups'><a class='icon-groups icon-groups-item view-icon' ng-click='getOrganizationDetails(dataItem.id)' ></a></div>
+                         //<div class='icon-groups'><a class='icon-groups icon-groups-item edit-icon' ng-click='editOrganization(dataItem.id)' ></a></div>
+                        // </td>-->
+                        </tr>
+
+                    </tbody>
+
+                </table><dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+            </div>
+            <div class="ng-tab" ng-show="categoryId">
+                <table class="k-selected table" kendo-grid>
+
+                    <thead role="rowgroup">
+                        <tr role="row" class="tabHead">
+                            <th role="columnheader" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="k-header ng-scope" data-role="columnsorter">#</th>
+                            <th role="columnheader" data-field="logo" rowspan="1" data-title="Logo" data-index="1" class="k-header ng-scope" data-role="columnsorter">Category</th>
+                            <th role="columnheader" data-field="name" rowspan="1" data-title="Name" data-index="2" class="k-header ng-scope" data-role="columnsorter">Is Parent</th>
+
+                            <th role="columnheader" data-field="contactName" rowspan="1" data-title="Contact Name" data-index="5" class="k-header ng-scope" data-role="columnsorter">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tbody class="newtbody">
+                        <tr class='oraganization-row' dir-paginate="dataItem in subCategories | filter:pageFilter | itemsPerPage:10" category-href="dataItem">
+                            <td><span class='row-number'>{{$index+1}}</span></td>
+                            <td class='org-logo'>{{dataItem.title}}</td>
+                            <!--<td class='org-name'>{{dataItem.name}}</td>-->
+                            <td>{{dataItem.isParentCategory}}</td>
+
+                            <td><a class="tab_edit" href="#/home/template/category/{{dataItem.templateCategoryID}}"><i style="cursor: pointer;" class="fa fa-pencil" ng-click="transferEdit(dataItem.pageID)"></i></a><a class="tab_delete"><i class="fa fa-trash" style="cursor: pointer;" ng-click="removePage(dataItem.pageID)"></i></a></td>
+                            <!-- //<td>
+                         //<div class='icon-groups'><a class='icon-groups icon-groups-item view-icon' ng-click='getOrganizationDetails(dataItem.id)' ></a></div>
+                         //<div class='icon-groups'><a class='icon-groups icon-groups-item edit-icon' ng-click='editOrganization(dataItem.id)' ></a></div>
+                        // </td>-->
+                        </tr>
+
+                    </tbody>
+
+                </table><dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+<div ui-view></div>

@@ -1,0 +1,116 @@
+<div pane>
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top: 0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span>{{'COMMON_SEARCH' | translate }}</span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme-option">
+                <div class="form-group">
+                    <select class="form-control" data-ng-model="filter.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" id="checkbox1" class="md-check" data-ng-model="filter.isShowActive" ng-change="doFilter()"> {{'SOFTPROFILE_SHOW_ACTIVE_PERFORMANCE_GROUPS' | translate }}
+                            <span></span>
+                        </label>
+                        <!--<label class="mt-checkbox">
+                            <input type="checkbox" id="checkbox2" class="md-check" data-ng-model="filter.isShowInactive" ng-change="doFilter()"> Show Inactive Performance Groups
+                            <span></span>
+                        </label>-->
+                        <label class="mt-checkbox">
+                            <input type="checkbox" id="checkbox3" class="md-check" data-ng-model="filter.isTemplate" ng-change="doFilter()"> {{'COMMON_SHOW_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form_control_1">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control" id="form_control_1" data-ng-model="filter.industryId" data-ng-options="obj.id as obj.name for obj in industries" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>{{'COMMON_PERFORMANCE_GROUP' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.performanceGroupId" data-ng-options="obj.id as obj.name for obj in performanceGroupsFilter | unique:'name'" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddlSkills" class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                    <select id="ddlSkills" class="form-control select2"
+                            data-ng-model="filter.skillId"
+                            ng-change="doFilter()"
+                            style="width: 100%"
+                            data-ng-options="obj.id as obj.name for obj in skillsFlatList">
+                        <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddlProfileLevel">{{'COMMON_LEVEL' | translate }}</label>
+                    <select class="form-control" id="ddlProfileLevel" data-ng-model="filter.levelId" data-ng-options="obj.id as obj.name for obj in levels" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddlTargetGroup">{{'COMMON_TARGET_GROUP' | translate }}</label>
+                    <select class="form-control select2-multiple" multiple id="ddlTargetGroup" style="width: 100%"
+                            data-ng-options="obj.id as obj.jobPosition1 for obj in selectJobPositionsOptions" data-ng-model="filter.jobPositions"></select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-init="pgInit()">
+        <header-navigation page-name="{{'COMMON_PERFORMANCE_GROUPS' | translate }}"></header-navigation>
+
+        <div class="col-lg-12">
+            <br />
+            <div class="alert alert-warning" ng-hide="!isInUse">
+                <strong>{{'COMMON_WARNING' | translate }}!</strong> {{'SOFTPROFILE_CURRENT_PROFILE_IS_IN_USE' | translate }} {{'SOFTPROFILE_CHANGES_CAN_NOT_BE_SAVED' | translate }}
+            </div>
+        </div>
+
+        <div class="col-sm-12" ng-hide="!hideFilter">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="add();" ng-show="!isInUse && !isDisabled(authService.authentication.user.organizationId, authService.actions.Delete)"></a>
+            </div>
+
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable"></div>
+            </kendo-tooltip>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="top-border"></div>
+                    <button class="btn btn-cstm primary pull-right" ng-hide="isInUse" ng-click="addPerformanceGroupFromTemplate();" ng-disabled="isDisabled(authService.authentication.user.organizationId, authService.actions.Delete)">{{'SOFTPROFILE_ADD_PERFORMANCE_GROUP_FROM_TEMPLATE' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12" ng-hide="hideFilter">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="add();" ng-show="!isInUse && !isDisabled(authService.authentication.user.organizationId, authService.actions.Delete)"></a>
+            </div>
+
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid="performanceGroupsGrid" k-options="gridOptions" k-rebind="gridOptions.selectable" id="pgGrid"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

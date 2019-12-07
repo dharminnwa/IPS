@@ -1,0 +1,114 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">
+                    <a href="javascript:;">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        CRM {{'COMMON_CUSTOMERS' | translate}}
+                    </a>
+                </span>
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                        {{selectedOrganization != null?selectedOrganization.name:'-- Select Organization--'}}
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="scroller" style="height: 250px;">
+                                <ul class="dropdown-menu-list">
+                                    <li ng-click="changeOrganization(organization.id)" ng-repeat="organization in organizations">
+                                        <a href="javascript:;"> {{organization.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title"> CSV Upload</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <label class="form-cstm-lable">{{'COMMON_SALES_MAN' | translate }}</label>
+            <select class="form-control" ng-options="salesman.id as (salesman.firstName + ' ' + salesman.lastName)  for salesman in salesMans"
+                    ng-model="salesManId"
+                    ng-change="salesmanChangedManually()"></select>
+
+        </div>
+        <div class="col-md-4 mt-5">
+            <label class="control-label db_title">{{'ORGANIZATIONS_CUSTOMERS_UPLOADED_FILES' | translate }}</label>
+            <select class="form-control" ng-options="salesManFile for salesManFile in salesManFiles"
+                    ng-model="salesManFile"
+                    ng-change="salesManFileChanged()" ng-disabled="!(salesManFiles.length > 1)"></select>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="form-group  mt-2">
+                <label for="exampleInputFile" class="control-label"></label>
+                <div class="col-md-12">
+                    <input type="file" class="cstm-input-file" ngf-select="onFileSelect($files)" ng-disabled="(!selectedOrganizationId > 0)">
+                    <p class="help-block">
+                        <span class="text-red" ng-show="(!selectedOrganizationId > 0)">{{'ORGANIZATIONS_CUSTOMERS_PLEASE_SELECT_ORGANIZATION_TO_UPLOAD_CSV' | translate }}</span>
+                        <span class="text-red" ng-show="(!salesManId > 0)">{{'ORGANIZATIONS_CUSTOMERS_PLEASE_SELECT_SALESMAN_TO_UPLOAD_CSV_FOR_THAT_SALES_PERSON' | translate }}</span>
+                        <input type="hidden" ng-value="fileName" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn  btn-cstm" type="button" ng-show="fileName && salesManId" ng-click="saveCustomer()">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                {{'COMMON_SAVE' | translate }}
+            </button>
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="portlet-light profile-result">
+    <div class="row">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title"> Customers List</span>
+                <div class="btn-group">
+                    <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                        {{customerFilterText}}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li ng-click="changeCustomerFilter(customerFilterOptionItem.id,customerFilterOptionItem.name)" ng-repeat="customerFilterOptionItem in customerFilterOptions">
+                            <a href="javascript:;"> {{customerFilterOptionItem.name}} </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box">
+                <div class="portlet-body">
+                    <div class="table-scrollable kpi-tbl">
+                        <div id="organization-customers-grid" class="organization-customers-grid" kendo-grid k-options="organizationCustomersOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,51 @@
+
+Add Profile Type After Description  in Profile Setup
+Add Option to directly view Training Materials 
+Make change for Training Actions Icon
+Add TM Count in action button
+
+Remove 1 day  from milestone send out 
+
+Make alarm label in Green/Yellow/Red 
+Take away 0 from that label
+
+
+
+For Add Training
+Default  Name,wht,what,how,Training Type,Level is Required
+
+on selection of Trainning type Search for Why what how content  
+
+
+Action Phase 
+
+After Submit Recurrent Training Ask User to Start the Project
+"Do you want to start the Project?"
+Yes : 
+=> Start Project 
+- User will Receive Start Stage Notifications
+- they will Run Survey individually
+- They will Set KPI 
+- Final Score Manager Set Final KPI And Training for Particular Participant
+- Development Contract
+- Recurrent Training Time Span is linked to Final KPI  
+No : ???
+ 
+Future Enhancement 
+ Auto Open Milestone 
+ Visualize Recurrences Dates and Time Based on Training Start and ENd Date
+ for Example 
+ Start  - 8/23/2018 8:19 PM
+ End Date - 9/30/2018 12:00 AM
+ Daily
+  23-8
+  24-8
+  25-8
+  till 30-9
+  
+  
+  
+  
+  
+  
+

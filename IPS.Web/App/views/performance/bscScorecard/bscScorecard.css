@@ -1,0 +1,40 @@
+﻿.k-grid-header th.k-header{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.k-grid tr td .trend-Up{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #22B14C;
+  margin: 0 auto;
+}
+
+.k-grid tr td .trend-Down{
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ED1C24;
+  margin: 0 auto;
+}
+
+.k-grid tr td .center-text{
+    text-align: center;
+}
+
+.k-grid tr td .trend-Equal{
+    position: relative;
+}
+
+.k-grid tr td .trend-Equal:before{
+    content: "=";
+    position: absolute;
+    font-weight: 700;
+    color: #00AFF0;
+    font-size: 50px;
+    left: 44%;
+    top: -15px;
+}

@@ -1,0 +1,156 @@
+﻿<div class="row">
+    <div class="col-md-12 " ng-init="init()">
+        <section class="portlet-light portlet-light-box">
+            <div class="row">
+                <div class="col-md-3 mt-5">
+                    <label for="profileOrganizationId" class="form-cstm-lable">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control" name="profileOrganizationId" data-ng-model="filter.organizationId"
+                            ng-change="organizationChanged()" data-ng-options="obj.id as obj.name for obj in organizations">
+                        <option value="">--{{'COMMON_SELECT_ORGANIZATION' | translate }}--</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <label class="form-cstm-lable">{{'COMMON_PROJECTS' | translate }}</label>
+                    <div ng-dropdown-multiselect options="projectsOptions" selected-model="filter.projectsModel" ng-disabled="projects.length < 1"
+                         translation-texts="projectsCustomTexts" extra-settings="smartButtonSettings" events="projectsEvents" class=""></div>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <label for="exampleInputEmail1" class="form-cstm-lable">{{'COMMON_DEPARTMENTS' | translate }}</label>
+                    <div ng-dropdown-multiselect options="departmentsOptions" selected-model="filter.departmentsModel" ng-disabled="departments.length < 1"
+                         translation-texts="departmentsCustomTexts" extra-settings="smartButtonSettings" events="departmentsEvents" class=""></div>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <label for="exampleInputEmail1" class="form-cstm-lable">{{'COMMON_TEAMS' | translate }}</label>
+                    <div ng-dropdown-multiselect options="teamsOptions" selected-model="filter.teamsModel" ng-disabled="teams.length < 1"
+                         translation-texts="teamsCustomTexts" extra-settings="smartButtonSettings" events="teamsEvents" class=""></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mt-5">
+                    <label for="profileTypeId" class="form-cstm-lable">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                    <select class="form-control" name="profileTypeId" ng-disabled="profileTypes.length < 1"
+                            ng-model="filter.profileTypeId" ng-change="profileTypeChanged()"
+                            ng-options="obj.id as obj.name for obj in profileTypes"></select>
+                </div>
+
+                <div class="col-md-3 mt-5">
+                    <label for="profileStatus" class="form-cstm-lable">{{'COMMON_STATUS' | translate }}</label>
+                    <select class="form-control" name="profileStatus" ng-disabled="profileStatusOptions.length < 1"
+                            data-ng-model="filter.profileStatus" ng-change="profileStatusChanged()"
+                            data-ng-options="obj.id as obj.name for obj in profileStatusOptions"></select>
+                </div>
+
+                <div class="col-md-3 mt-5">
+                    <label for="profileId" class="form-cstm-lable">{{'COMMON_PROFILE' | translate }}</label>
+                    <select class="form-control" name="profileId" ng-disabled="profiles.length < 1"
+                            data-ng-model="filter.profileId" ng-change="profileChanged()"
+                            data-ng-options="obj.id as obj.name for obj in profiles">
+                        <option disabled value="">--{{'COMMON_SELECT_PROFILE' | translate }}--</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mt-5">
+                    <label for="profileStageGroupId" class="form-cstm-lable">{{'ORGANIZATIONS_DASHBOARD_SEND_OUTS' | translate }}</label>
+                    <select class="form-control" name="profileStageGroupId" ng-disabled="filter.profileStageGroups.length < 2" data-ng-model="filter.profileStageGroupId" ng-change="profileStageGroupChanged()" data-ng-options="obj.id as obj.name for obj in filter.profileStageGroups"></select>
+                </div>
+
+            </div>
+        </section>
+        <section class="portlet-light portlet-light-box">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="portlet box">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'COMMON_MAIN_PARTICIPANTS' | translate}}</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="portlet box">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'COMMON_COMPARE_WITH' | translate }}</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="mainParticipants" class="form-cstm-lable"> {{'COMMON_MAIN_PARTICIPANTS' | translate }}</label>
+                    <div ng-dropdown-multiselect options="filter.mainParticipantsOptions" selected-model="filter.mainParticipantsModel"
+                         ng-disabled="participants.length < 1" translation-texts="mainParticipantsCustomTexts"
+                         extra-settings="smartButtonSettings" events="mainParticipantsEvents" class=""></div>
+
+                    <label ng-if="filter.profileType == profilesTypesEnum.soft" for="exampleInputEmail1" class="form-cstm-lable mt-5">
+                        {{'COMMON_MAIN_EVALUATORS' | translate }}
+                    </label>
+                    <div ng-if="filter.profileType == profilesTypesEnum.soft" ng-dropdown-multiselect options="filter.mainEvaluatorsOptions" selected-model="filter.mainEvaluatorsModel"
+                         ng-disabled="!isMainEvaluatorsEnabled" translation-texts="mainEvaluatorsCustomTexts"
+                         extra-settings="smartButtonSettings" events="mainEvaluatorsEvents" class=""></div>
+
+
+                    <label for="mainStageId" class="form-cstm-lable mt-5">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATIONS' | translate }})</label>
+                    <select class="form-control" name="mainStageId" ng-disabled="mainStages.length < 1" data-ng-model="filter.mainStageId"
+                            ng-change="mainStageChanged();" data-ng-options="obj.id as obj.name for obj in mainStages">
+                        <option disabled value="">--{{'COMMON_SELECT_STAGE' | translate }}--</option>
+                    </select>
+
+                    <label ng-if="filter.profileType == profilesTypesEnum.knowledgetest" for="mainStageId" class="form-cstm-lable mt-5">{{'ORGANIZATIONS_DASHBOARD_EVOLUTION_STAGE' | translate }}</label>
+                    <select ng-if="filter.profileType == profilesTypesEnum.knowledgetest" class="form-control" name="mainEvolutionStageId" ng-disabled="mainEvolutionStages.length <= 1" data-ng-model="filter.mainEvolutionStageId"
+                            ng-change="mainEvolutionStagesChanged();" data-ng-options="obj.id as obj.name for obj in mainEvolutionStages"></select>
+
+                    <label for="mainProfileType" class="form-cstm-lable mt-5">{{'COMMON_PROFILE_STEPS' | translate }} ({{'COMMON_PERFORMANCE_EVALUATIONS' | translate }})</label>
+                    <select class="form-control" name="mainProfileType" data-ng-model="filter.mainProfileStepId" ng-change="mainProfileStepChanged()"
+                            data-ng-options="obj.id as obj.label for obj in filter.mainStepsOfProfile" ng-disabled="!filter.profileId">
+                        <option value="">--{{'COMMON_SELECT_PROFILE_STEPS' | translate }}--</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="exampleInputEmail1" class="form-cstm-lable"> {{'COMMON_PARTICIPANTS' | translate }}</label>
+                    <div ng-dropdown-multiselect options="filter.participantsOptions" selected-model="filter.participantsModel"
+                         ng-disabled="participants.length < 1 || (!filter.mainParticipantsModel || filter.mainParticipantsModel.length == 0)"
+                         translation-texts="participantsCustomTexts"
+                         extra-settings="smartButtonSettings" events="participantsEvents" class=""></div>
+
+                    <label ng-if="filter.profileType == profilesTypesEnum.soft" for="exampleInputEmail1" class="form-cstm-lable mt-5">
+                        {{'COMMON_EVALUATORS' | translate }}
+                    </label>
+                    <div ng-if="filter.profileType == profilesTypesEnum.soft" ng-dropdown-multiselect options="filter.evaluatorsOptions" selected-model="filter.evaluatorsModel" ng-disabled="!isEvaluatorsEnabled"
+                         translation-texts="evaluatorsCustomTexts" extra-settings="smartButtonSettings" events="evaluatorsEvents" class=""></div>
+
+                    <label for="stageId" class="form-cstm-lable mt-5">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATIONS' | translate }})</label>
+                    <select class="form-control " name="stageId" data-ng-model="filter.stageId"
+                            ng-disabled="stages.length < 1 || (!filter.mainParticipantsModel || filter.mainParticipantsModel.length == 0)"
+                            ng-change="stageChanged();" data-ng-options="obj.id as obj.name for obj in stages">
+                        <option disabled value="">--{{'COMMON_SELECT_STAGE' | translate }}--</option>
+                    </select>
+
+                    <label ng-if="filter.profileType == profilesTypesEnum.knowledgetest" for="evolutionStageId" class="form-cstm-lable mt-5">{{'ORGANIZATIONS_DASHBOARD_EVOLUTION_STAGE' | translate }}</label>
+                    <select ng-if="filter.profileType == profilesTypesEnum.knowledgetest" class="form-control" name="evolutionStageId" ng-disabled="evolutionStages.length <= 1" data-ng-model="filter.evolutionStageId"
+                            ng-change="evolutionStagesChanged();" data-ng-options="obj.id as obj.name for obj in evolutionStages"></select>
+
+
+                    <label for="profileType" class="form-cstm-lable mt-5">{{'COMMON_PROFILE_STEPS' | translate }} ({{'COMMON_PERFORMANCE_EVALUATIONS' | translate }})</label>
+                    <select class="form-control" name="profileType" data-ng-model="filter.profileStepId" ng-change="profileStepChanged()"
+                            data-ng-options="obj.id as obj.label for obj in filter.stepsOfProfile" ng-disabled="!filter.profileId">
+                        <option value="">--{{'COMMON_SELECT_PROFILE_STEPS' | translate }}--</option>
+                    </select>
+
+                </div>
+
+                <div class="col-lg-12 mt-5">
+
+                    <label class="mt-checkbox form-cstm-chekbox" ng-disabled="!filter.isLoadReport">
+                        {{'COMMON_SHOW_BENCHMARK' | translate }}
+                        <input type="checkbox" ng-disabled="!filter.isLoadReport" data-ng-model="filter.isShowBenchmark" ng-change="getBenchmark()">
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+

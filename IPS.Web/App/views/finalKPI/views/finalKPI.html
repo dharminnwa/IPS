@@ -1,0 +1,563 @@
+﻿<div pane name="finalKPI">
+    <ng-form name="finalKPIForm">
+        <div class="row">
+            <header-navigation page-name="{{(kpi.isFirstStage ? (('MYPROFILES_FINAL_KPI_FOR') | translate) + ' ' + kpi.profile.name + '. ' + kpi.currentStageName : (('MYPROFILES_SET_TRAININGS_AND_ACTIONS_FOR') | translate) + ' ' + kpi.profile.name + '. ' + kpi.currentStageName) }}"></header-navigation>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="organizations-menu">
+                            <img src="images/brain-icon.png" ng-click="kpi.showInfoPopup()" />
+                            <span>{{(kpi.isFirstStage ?(kpi.isEditMode ?'MYPROFILES_EDIT_FINAL_KPI' : 'MYPROFILES_SET_FINAL_KPI' ): (kpi.isEditMode ? 'MYPROFILES_EDIT_TRAININGS_AND_ACTIONS' : 'MYPROFILES_SET_TRAININGS_AND_ACTIONS')) | translate }}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="content-border content-border-left remove-scroll">
+                            <img class="info-icon" src="images/info-icon.png" ng-click="kpi.showInfoPopup()" />
+                            <span class="submit-info">{{'MYPROFILES_HERE_YOU_CAN' | translate }} {{(kpi.isEditMode? 'COMMON_EDIT' : 'MYPROFILES_SET') | translate }} {{(kpi.isFirstStage ? 'MYPROFILES_FINAL_KPIS' : 'MYPROFILES_TRAININGS_AND_ACTIONS') | translate }} {{'MYPROFILES_FOR' | translate }} {{kpi.participantUser.firstName}} {{kpi.participantUser.lastName}}</span>
+                            <button class="btn btn-cstm primary ips-row-button submit-button"
+                                    ng-disabled="kpi.isRequired() || finalKPIForm.$error.required"
+                                    ng-click="kpi.submitFinalKPI()">
+                                {{'COMMON_SUBMIT' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 margin-top10">
+                        <div class="content-border content-border-right remove-scroll">
+                            <div class="form-group col-sm-3">
+                                <label class="control-label">{{'MYPROFILES_FINAL_KPI_MANAGER' | translate }} <i class="fa fa-info-circle textBlue" ng-click="kpi.openInfoPopup(10)"></i> </label>
+                                <div>{{kpi.defaultEvaluatorName}}</div>
+                            </div>
+                            <div class="form-group col-sm-5">
+                                <label class="control-label">{{'MYPROFILES_MULTIPLE_EVALUATORS' | translate }} <i class="fa fa-info-circle textBlue" ng-click="kpi.openInfoPopup(9)"></i></label>
+                                <div style="width: 240px; z-index:100;" ng-dropdown-multiselect options="kpi.evaluatorsOptions" selected-model="kpi.evaluatorsModel" translation-texts="kpi.evaluatorsCustomTexts" extra-settings="kpi.smartButtonSettings" events="kpi.evaluatorsEvents"></div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label">{{'MYPROFILES_PREVIOUS_PERFORMANCE_EVALUATION_STAGES' | translate }} <i class="fa fa-info-circle textBlue" ng-click="kpi.openInfoPopup(11)"></i></label>
+                                <div class="btn-group">
+                                    <button type="button" ng-click="kpi.showAllStage = true" class="btn " ng-class="kpi.showAllStage == true?'btn-ips':'btn-default'">{{'MYPROFILES_SHOW' | translate }}</button>
+                                    <button type="button" ng-click="kpi.showAllStage = false" class="btn btn-default" ng-class="kpi.showAllStage == false?'btn-ips':'btn-default'">{{'MYPROFILES_HIDE' | translate }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="content-border content-border-left content-border-right">
+                            <table class="table">
+                                <tr class="table-header">
+                                    <th ng-repeat="(i,th) in kpi.tableHead track by $index" ng-click="kpi.copyAllScores(kpi.scorecardData)" ng-class="[kpi.addClickableClass(th.clickable), kpi.isActiveStage(th,kpi.showAllStage)]">
+                                        <i ng-show="th.infoIndex > 0" class="fa fa-info-circle textBlue pull-left" ng-click="kpi.openInfoPopup(th.infoIndex)"></i>
+                                        <span ng-class="kpi.addSortingClass(i,th)" ng-click="kpi.changeSorting(i,th)">
+                                            {{th.name}}
+                                            <span class="no-wrap-normal" ng-if="th.from && th.to">({{th.from}} -</span>
+                                            <span class="no-wrap-normal" ng-if="th.from && th.to">{{th.to}})</span>
+                                            <span class="glyphicon glyphicon-chevron-up" ng-show="th.currentSort && kpi.sortCondition.descending"></span>
+                                            <span class="glyphicon glyphicon-chevron-down" ng-show="th.currentSort && !kpi.sortCondition.descending"></span>
+                                        </span>
+                                    </th>
+                                </tr>
+                                <tr ng-repeat-start="data in kpi.scorecardData" ng-required="data.agreement.kpiType > 0">
+                                    <td class="answer-number">{{data.questionNo}}</td>
+                                    <td>{{data.skill.name}}</td>
+                                    <td>{{data.performanceGroup.name}}</td>
+                                    <td>{{data.question.questionText}}</td>
+                                    <td ng-hide="!kpi.isFirstStage">
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(data.participantAnswer.kpiType) && data.participantAnswer.kpiType || '0' }}"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="kpi-align-center">{{data.participantAnswer.answer1}}</td>
+                                    <td>{{data.participantAnswer.comment}}</td>
+
+                                    <td ng-hide="!kpi.isFirstStage" ng-repeat-start="eAnswer in data.evaluatorAnswers">
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(eAnswer.kpiType) && eAnswer.kpiType || '0' }}"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="kpi-align-center">{{eAnswer.answer1}}</td>
+                                    <td ng-repeat-end>
+                                        {{eAnswer.comment}}
+                                    </td>
+
+                                    <td class="kpi-align-center">{{data.avgAnswer.answer1}}</td>
+                                    <td ng-click="kpi.copyScore(data)" ng-class="kpi.addClickableClass(true)">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-show='finalKPIForm.finalScore{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="finalScore{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.finalScore" ng-required="data.agreement.kpiType > 0" style="width: 100px" />
+                                    </td>
+                                    <td>
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(data.agreement.kpiType) && data.agreement.kpiType || '0' }}" ng-click="kpi.increaseKPI(data.agreement)"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td ng-class="kpi.isCurrentStage(milestoneAgreementGoal,kpi.showAllStage)" ng-repeat="milestoneAgreementGoal in data.agreement.milestoneAgreementGoals">
+                                        <span ng-show='finalKPIForm.goal{{milestoneAgreementGoal.id}}.$error.required' class="required">* {{$index}}</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="goal{{milestoneAgreementGoal.id}}" class="form-control kpi-align-center" ng-model="data.agreement.milestoneAgreementGoals[$index].goal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>
+
+                                    <!--<td ng-class="kpi.isCurrentStage(kpi.stages[1],kpi.showAllStage)">
+                                        <span ng-show='finalKPIForm.shortGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="shortGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.shortGoal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>
+                                    <td ng-class="kpi.isCurrentStage(kpi.stages[2],kpi.showAllStage)">
+                                        <span ng-show='finalKPIForm.midGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="midGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.midGoal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>
+                                    <td ng-class="kpi.isCurrentStage(kpi.stages[3],kpi.showAllStage)">
+                                        <span ng-show='finalKPIForm.longGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="longGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.longGoal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>
+                                    <td ng-class="kpi.isCurrentStage(kpi.stages[4],kpi.showAllStage)">
+                                        <span ng-show='finalKPIForm.finalGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="finalGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.finalGoal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>-->
+                                    <td>
+                                        <textarea class="form-control comment-text-area" rows="4" ng-model="data.agreement.comment" ng-required="data.agreement.kpiType > 0 && (!data.agreement.trainings || data.agreement.trainings.length == 0)"></textarea>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <button class="btn btn-cstm ips-row-button"
+                                                    ng-click="kpi.setTrainings(data.trainings, data)">
+                                                {{'MYPROFILES_ADD_PRESET_TRAINING' | translate }}
+                                            </button>
+                                            <i class="fa fa-info-circle textBlue pull-left" ng-click="kpi.openInfoPopup(5)"></i>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-cstm ips-row-button"
+                                                    ng-click="kpi.openNewTrainingDialog($index)">
+                                                {{'COMMON_ADD_NEW_TRAINING' | translate }}
+                                            </button>
+                                            <i class="fa fa-info-circle textBlue pull-left" ng-click="kpi.openInfoPopup(6)"></i>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-cstm ips-row-button"
+                                                    ng-click="kpi.openSearchWindow($index)">
+                                                {{'MYPROFILES_SEARCH_FOR_TRAININGS' | translate }}
+                                            </button>
+                                            <i class="fa fa-info-circle textBlue pull-left" ng-click="kpi.openInfoPopup(7)"></i>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <training-popup scorecard-answer="scorecardAnswer"
+                                                organization-id="kpi.profile.organizationId"
+                                                save-mode="saveMode"
+                                                open-training-popup-mode="openTrainingPopupMode"
+                                                editing-training-index="editingTrainingIndex"
+                                                editing-training="editingTraining"
+                                                notification-Templates="notificationTemplates">
+                                </training-popup>
+
+                                <tr ng-show="data.agreement.trainings.length > 0">
+                                    <th class="no-border"></th>
+                                    <th class="trainings-title">{{'MYPROFILES_TRAININGS' | translate }}</th>
+                                </tr>
+                                <tr ng-show="data.agreement.trainings.length > 0">
+                                    <th class="no-border"></th>
+                                    <th class="first-training-header" colspan="2">{{'COMMON_NAME' | translate }}</th>
+                                    <th>{{'COMMON_START' | translate }}</th>
+                                    <th>{{'COMMON_END' | translate }}</th>
+                                    <th>{{'COMMON_DURATION' | translate }}</th>
+                                    <th class="last-training-header"></th>
+
+                                </tr>
+                                <tr ng-repeat-end="" ng-show="data.agreement.trainings.length > 0" ng-repeat="training in data.agreement.trainings">
+                                    <td class="no-border"></td>
+                                    <td class="training-body" colspan="2">
+                                        {{training.name}}
+                                    </td>
+                                    <td class="training-body">
+                                        {{kpi.getDateTime(training.startDate)}}
+                                    </td>
+                                    <td class="training-body">
+                                        {{kpi.getDateTime(training.endDate)}}
+                                    </td>
+                                    <td class="training-body no-wrap-normal">
+                                        {{kpi.getTrainingDuration(training)}}
+                                    </td>
+                                    <td class="training-body">
+                                        <div class="icon-groups">
+                                            <a class="icon-groups icon-groups-item edit-icon" ng-click="kpi.editTraining(training, $index,data.questionNo)"></a>
+                                            <a class="icon-groups icon-groups-item remove-icon" ng-click="kpi.removeTraining(training.id, data.agreement.trainings)"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </ng-form>
+
+    <div id="restartStageModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROFILES_PLEASE_DEFINE_NEW_STAGE_GROUP_FOR_FURTHER_EVALUATION' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_NAME' | translate }}:</label>
+                                            <input type="text" class="form-control" ng-model="kpi.stageRestart.name" name="stageRestartName" required />
+                                            <div class="validation-error-label" ng-show="finalKPIForm.stageRestartName.$dirty && finalKPIForm.stageRestartName.$error.required">{{'MYPROFILES_NAME_IS_REQUIRED' | translate }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_START_DATE' | translate }}</label>
+                                            <br />
+                                            <input kendo-date-picker ng-model="kpi.stageRestart.startDate"
+                                                   require-valid-date="{ minDate: kpi.stageRestart.endDate, laterThanToday: true }"
+                                                   name="stageRestartStartDate"
+                                                   required />
+                                            <div class="validation-error-label" ng-show="finalKPIForm.stageRestartStartDate.$dirty && finalKPIForm.stageRestartStartDate.$error.invalidDate">{{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                <textarea class="form-control" name="stageDescription" ng-model="kpi.stageRestart.description" rows="5"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12">{{'MYPROFILES_PERFORMANCE_EVALUATION_TIME_SPAN' | translate }}:</label>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'COMMON_MONTH' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="kpi.stageRestart.monthsSpan" ng-change="stageEdit.stageTimespanChanged()" placeholder="Months">
+                                        <div class="validation-error-label"
+                                             ng-hide="(kpi.stageRestart.monthsSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_MONTH_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_WEEKS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="kpi.stageRestart.weeksSpan" ng-change="stageEdit.stageTimespanChanged()" placeholder="Weeks">
+                                        <div class="validation-error-label"
+                                             ng-hide="(kpi.stageRestart.weeksSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_WEEKS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_DAYS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="kpi.stageRestart.daysSpan" ng-change="stageEdit.stageTimespanChanged()" placeholder="Days">
+                                        <div class="validation-error-label"
+                                             ng-hide="(kpi.stageRestart.daysSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_DAYS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_HOURS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="kpi.stageRestart.hoursSpan" ng-change="stageEdit.stageTimespanChanged()" placeholder="Hours">
+                                        <div class="validation-error-label"
+                                             ng-hide="(kpi.stageRestart.hoursSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_HOURS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'COMMON_MINUTES' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="kpi.stageRestart.minutesSpan" ng-change="stageEdit.stageTimespanChanged()" placeholder="Minutes">
+                                        <div class="validation-error-label"
+                                             ng-hide="(kpi.stageRestart.minutesSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_MINUTES_SPAN' | translate }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <button class="btn btn-cstm primary cancel pull-right" ng-click="kpi.cancelRestartStage()" data-dismiss="modal" aria-label="Close">{{'COMMON_NO' | translate }}</button>
+                                <button class="btn btn-cstm primary pull-right" ng-click="kpi.restartStage()" data-dismiss="modal" aria-label="Ok" ng-disabled="finalKPIForm.$invalid">{{'COMMON_YES' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="showKPIInfoModal" class="modal fade modal-overflow" tabindex="-2" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROFILES_INFORMATION' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="portlet light">
+                        <div class="portlet-body">
+                            <div class="mt-element-list">
+                                <div class="mt-list-head list-todo red">
+                                    <div class="list-toggle-title bold">{{'MYPROFILES_COMPONENTS' | translate }}</div>
+                                </div>
+                                <div class="mt-list-container list-todo" id="accordion1" role="tablist" aria-multiselectable="true">
+                                    <div class="">
+                                        <img class="img img-responsive" src="images/IPS-KPI-Info.png" />
+                                    </div>
+                                    <ul>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-1" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_AVERAGE' | translate }} <span class="badge badge-default pull-left bold margin-right-10">1</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-1">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>{{'MYPROFILES_AVERAGE_SCORE_IS_THE_AVERAGE_SCORE_OF_MAIN_PARTICIPANT_SCORE__EVALUATORS_SCORE' | translate }}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-2" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold"><span class="badge badge-default pull-left bold margin-right-10">2</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-2">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+
+                                                            <div class="task-content">
+                                                                <p>{{'MYPROFILES_WHEN_YOU_CLICK_ON_THIS_THE_AVERAGE_SCORE_WILL_BE_ADDED_INTO_FINAL_SCORE_ACTIVE_STAGE_COLUMN' | translate }}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-3" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_FINAL_SCORE_ACTIVE_STAGE' | translate }} <span class="badge badge-default pull-left bold margin-right-10">3</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-3">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>{{'MYPROFILES_FINAL_SCORE_IS_CURRENT_PERFORMANCE_VERSUS_YOUR_GOAL_FOR_THIS_STAGE' | translate }}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-4" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_FREETEXT_TRAINING' | translate }} <span class="badge badge-default pull-left bold margin-right-10">4</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-4">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>{{'MYPROFILES_HERE_YOU_MAY_ADD_TRAININGS_TOWARDS_NEXT_PERFORMANCE_EVALUATION_BY_ADDING_TEXT' | translate }}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-5" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_PRESET_TRAININGS' | translate }} <span class="badge badge-default pull-left bold margin-right-10">5</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-5">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_PRESET_TRAININGS_ARE_TRAININGS_ADDED_BY_ADMIN_TO_FIT_OR_SUGGEST_TRAININGS_TOWARDS_THE_SKILL' | translate }} {{'MYPROFILES_ONCE_YOU_SELECT_THE_TRAININGS_YOU_WILL_PROCEED_TO_A_DETAIL_PAGE_TELLING_MORE_ABOUT_THE_TRAINING' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-6" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'COMMON_ADD_NEW_TRAINING' | translate }}<span class="badge badge-default pull-left bold margin-right-10">6</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-6">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_HERE_YOU_MAY_ADD_A_NEW_TRAININHG_THAT_SUITS_YOUR_NEEDS' | translate }} {{'MYPROFILES_IT_WILL_BECOME_YOUR_INDEPENDENT_AND_EXCLUSICE_TRAINING' | translate }} {{'MYPROFILES_YOU_MAY_KEEP_IT_FOR_YOUR_SELF_OR_MAKE_IT_PUBLIC_SO_OTHER_USERS_MAY_USE_IT' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-7" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_SEARCH_FOR_TRAINING' | translate }}<span class="badge badge-default pull-left bold margin-right-10">7</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-7">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_HERE_YOU_CAN_SEARCH_FOR_OTHER_TRAININGS_INSIDE_IMPROVE_SYSTEMS_AND_ADD_IT_ON_YOUR_DEVELOPMENT_CONTRACT_TOWARDS_NEXT_PERFORMANCE_EVALUATION' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-8" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'COMMON_KPI' | translate }}<span class="badge badge-default pull-left bold margin-right-10">8</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-8">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_KPIS_ARE_SELECTED_FOCUS_AREAS_STRONG_AND_WEAK_AREAS' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-9" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'COMMON_EVALUATORS' | translate }} <span class="badge badge-default pull-left bold margin-right-10">9</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-9">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_HERE_EVALUATORS_ARE_ADDED' | translate }} {{'MYPROFILES_YOU_MAY_SELECT_ONE_OR_MORE_AND_THEIR_SCORES_WILL_APPEAR_IN_THE_LIST_BELOW' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-10" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_FINAL_KPI_MANAGER' | translate }} <span class="badge badge-default pull-left bold margin-right-10">10</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-10">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_PERSON_WITH_FINAL_SCORE_RIGHTS_MEANING_HE_SHE_IS_THE_ONE_IN_CHARGE_FOR_THE_PROJECT' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mt-list-item">
+                                            <div class="list-todo-item dark">
+                                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" data-target="#task-11" onclick=" " href="javascript:;" aria-expanded="false">
+                                                    <div class="list-toggle done uppercase">
+                                                        <div class="list-toggle-title bold">{{'MYPROFILES_PREVIOUS_PERFORMANCE_EVALUATION' | translate }} <span class="badge badge-default pull-left bold margin-right-10">11</span></div>
+                                                    </div>
+                                                </a>
+                                                <div class="task-list panel-collapse collapse" id="task-11">
+                                                    <ul>
+                                                        <li class="task-list-item done">
+                                                            <div class="task-content">
+                                                                <p>
+                                                                    {{'MYPROFILES_PREVIOUS_PERFORMANCE_EVALUATION' | translate }} - {{'MYPROFILES_IT_GIVES_A_OPTION_TO_USER_TO_SHOW_OR_HIDE_PREVIOUS_PERFORMANCE_EVALUATION_GOALS' | translate }}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="InfoModal" class="modal fade" tabindex="-3" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{kpi.infoModal.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {{kpi.infoModal.description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span kendo-notification="kpi.notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

@@ -1,0 +1,128 @@
+﻿<div pane name="notification">
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span>{{'COMMON_SEARCH' | translate }}</span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme-option">
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select ng-selected="filter.organizationId > 0?filter.organizationId:null" class="form-control" ng-model="filter.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-change="organizationChange()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="ips-label">{{'NOTIFICATION_TEMPLATE_FOR' | translate }}</label>
+                    <select class="form-control" ng-model="filter.notificationTemplateTypeId" data-ng-options="obj.value as obj.text for obj in templateTypes" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="ips-label">{{'NOTIFICATION_EVALUATION_ROLE' | translate }}</label>
+                    <select class="form-control" ng-model="filter.evaluationRoleId" data-ng-options="obj.id as obj.name for obj in evaluationRoles" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_CULTURE' | translate }}</label>
+                    <select class="form-control" ng-model="filter.cultureId" data-ng-options="obj.id as obj.cultureName for obj in cultures" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'NOTIFICATION_STAGE_TYPE' | translate }}</label>
+                    <select class="form-control" ng-model="filter.stageTypeId" data-ng-options="obj.value as obj.text for obj in selectableStages" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label>{{'COMMON_EMAIL' | translate }}</label>
+                    <div class="mt-radio-inline">
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.email" value="1" ng-change="doFilter()">{{'NOTIFICATION_FILLED' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.email" value="2" ng-change="doFilter()">{{'NOTIFICATION_EMPTY' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.email" value="3" ng-change="doFilter()">{{'COMMON_ALL' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>{{'COMMON_SMS' | translate }}</label>
+                    <div class="mt-radio-inline">
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.sms" value="1" ng-change="doFilter()">{{'NOTIFICATION_FILLED' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.sms" value="2" ng-change="doFilter()">{{'NOTIFICATION_EMPTY' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-radio">
+                            <input type="radio" ng-model="filter.sms" value="3" ng-change="doFilter()">{{'COMMON_ALL' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox mt-checkbox-outline">
+                            <input type="checkbox" name="filterIsDefault" id="filterIsDefault" ng-model="filter.isDefualt" class="md-check ng-pristine ng-untouched ng-valid" ng-change="doFilter()">{{'NOTIFICATION_SHOW_DEFAULT_NOTIFICATION_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'NOTIFICATION_NOTIFICATION_TEMPLATES' | translate }}</span> &nbsp;
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inputs pull-right">
+                            <div class="portlet-input input-inline pull-right">
+                                <a href="javascript:;" class="btn btn-cstm" ng-click="addNotification(filter.organizationId)">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                    {{'NOTIFICATION_ADD_TEMPLATE' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-sm-12">
+                        <kendo-tooltip options="tooltipOptions">
+                            <div kendo-grid="notificationGrid" k-options="gridOptions"></div>
+                        </kendo-tooltip>
+                    </div>
+                    <div kendo-window="removal" k-title="'Confirm Delete'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+                        {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+                        <button class="k-button" ng-click="remove(dataItem.id); removal.close();">{{'COMMON_YES' | translate }}</button>
+                        <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+</div>
+<div ui-view></div>

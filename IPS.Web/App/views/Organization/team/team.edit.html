@@ -1,0 +1,176 @@
+﻿<div pane>
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a ng-click="goBack()" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title" ng-show="!isEdit">{{'ORGANIZATIONS_NEW_TEAM' | translate }}</h1>
+            <h1 class="title" ng-show="isEdit">{{teamInfo.name}}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-sm-4">
+            <form class="create-team create-department" name="newTeamForm" novalidate>
+                <div class="form-group">
+                    <label class="control-label">{{'ORGANIZATIONS_TEAM_NAME' | translate }}</label>
+                    <span ng-show='newTeamForm.teamName.$error.required' class="required">*</span>
+                    <input type="text" class="form-control edtxt_input" ng-required='!teamInfo.name' name="teamName" ng-model="teamInfo.name" autofocus ng-disabled="isDisabled(authService.actions.Update)" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                    <input type="text" class="form-control edtxt_input" ng-model="teamInfo.description" ng-disabled="isDisabled(authService.actions.Update)" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'ORGANIZATIONS_PARENT_DEPARTMENT' | translate }}</label>
+                    <select class="form-control edSel_input"
+                            value="Select Parent Department"
+                            name="parentId"
+                            ng-options="department.name for department in allDepartments"
+                            ng-model="parentDepartment"
+                            ng-disabled="isDisabled(authService.actions.Update)">
+                        <option value="">{{'ORGANIZATIONS_SELECT_PARENT_DEPARTMENT' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'ORGANIZATIONS_TEAM_LEAD' | translate }}</label>
+                    <select class="form-control edSel_input"
+                            value="Select Team Lead"
+                            name="teamLead"
+                            ng-options="user.firstName + ' ' + user.lastName for user in organizationUsers"
+                            ng-model="teamInfo.lead"
+                            ng-change="setDefaultTeamInfo()"
+                            ng-disabled="isDisabled(authService.actions.Update)">
+                        <option value="">{{'ORGANIZATIONS_SELECT_TEAM_LEAD' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_EMAIL' | translate }}</label>
+                    <span ng-show='newTeamForm.teamEmail.$error.email' class="required">
+                        {{'ORGANIZATIONS_PLEASE_ENTER_VALID_EMAIL' | translate }}
+                    </span>
+                    <input type="email" name='teamEmail' class="form-control edtxt_input" ng-model="teamInfo.email" ng-disabled="isDisabled(authService.actions.Update)" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_PHONE' | translate }}</label>
+                    <input type="text" placeholder="(xxx) xxx-xxxx" class="form-control edtxt_input" ng-model="teamInfo.phone" ng-disabled="isDisabled(authService.actions.Update)" />
+                </div>
+                <div class="form-group">
+                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-disabled="isDisabled(authService.actions.Update)">
+                        <input type="checkbox" class="checkboxes" value="1" ng-checked="teamInfo.isActive">
+                        <span></span>
+                    </label>
+                    {{'ORGANIZATIONS_IS_ACTIVE' | translate }}
+                </div>
+            </form>
+            <span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+        </div>
+        <div class="col-sm-4 users">
+            <h3 class="title">{{'ORGANIZATIONS_TEAM_USERS' | translate }}<span class="users-count" ng-show="teamInfo.link_TeamUsers.length > 0">({{teamInfo.link_TeamUsers.length}} {{'ORGANIZATIONS_USERS' | translate }})</span></h3>
+            <ul id="" class="team-users linked-team-users">
+                <li ng-hide="!teamInfo.lead" ng-click="previewUser(teamInfo.lead.id)">
+                    <span>
+                        <img src="{{departmentInfo.manager.imagePath && departmentInfo.manager.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                    </span>
+                    <span class="user-name">{{teamInfo.lead.firstName}} {{teamInfo.lead.lastName}}</span>
+                    <span class="department-manager">{{'ORGANIZATIONS_DETAILS_LEADER' | translate }}</span>
+                </li>
+                <li ng-repeat="user in teamInfo.link_TeamUsers | startFrom:userListCurrentPage*userPageSize(userListCurrentPage,20) | limitTo:userPageSize(userListCurrentPage,20) | orderBy:['firstName', 'lastName'] " ng-hide=" user.user.isteamlead" ng-click="previewUser(user.user.id)">
+                    <span>
+                        <img src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                    </span>
+                    <span class="user-name">{{user.user.firstName}} {{user.user.lastName}}</span>
+                    <div ng-show="user.user.jobPositions.length > 0" class="position">
+                        <div ng-repeat="position in user.user.jobPositions">{{position.jobPosition1}}</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="pagination" ng-show="teamInfo.link_TeamUsers" ng-class="{hide: teamInfo.link_TeamUsers.length <= userPageSize(userListCurrentPage,20)}">
+                <button ng-disabled="userListCurrentPage == 0" ng-click="userListCurrentPage=userListCurrentPage-1" class="pagination-button">
+                    <
+                </button>
+                {{userListCurrentPage+1}}/{{numberOfUserPages(teamInfo.link_TeamUsers)}}
+                <button ng-disabled="userListCurrentPage >= teamInfo.link_TeamUsers.length/userPageSize(userListCurrentPage,20) - 1" ng-click="userListCurrentPage=userListCurrentPage+1" class="pagination-button">
+                    >
+                </button>
+            </div>
+            <button type="button" class="btn btn-cstm" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="refreshUsersArray()" ng-disabled="isDisabled(authService.actions.Update)">{{'ORGANIZATIONS_EDIT_USERS' | translate }}</button>
+        </div>
+        <div class="col-sm-12">
+            <div class="top-border"></div>
+            <button class="btn btn-cstm primary cancel pull-right" ng-click="goBack()">{{'COMMON_CANCEL' | translate }}</button>
+            <button class="btn btn-cstm primary pull-right" ng-disabled="!isRequired() || isDisabled(authService.actions.Update)" ng-click="saveTeam()">{{'COMMON_SAVE' | translate }}</button>
+            <button class="btn btn-cstm primary" ng-show="isEdit" ng-click="removal.open().center()" ng-disabled="isDisabled(authService.actions.Delete)">{{'COMMON_REMOVE' | translate }}</button>
+        </div>
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_EDIT_USERS' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 users">
+                                    <input type="text" class="form-control" placeholder="{{'ORGANIZATIONS_SEARCH_FOR_USERS' | translate }}" name="userSearch" ng-model="userSearch" ng-change="resetCurrentPage()" />
+                                    <!--<ul id="" class="team-users">
+                                        <li ng-repeat="user in organizationUsers | startFrom:userCurrentPage*userPageSize(userCurrentPage, 20) | limitTo:userPageSize(userCurrentPage, 20) | filter:userSearch | orderBy:['firstName', 'lastName']">
+                                            <span>
+                                                <img src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                                            </span>
+                                            <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                                            <button ng-show="!isTeamUser(user.id)" class="btn btn-cstm" ng-click="addTeamUser(user)">Add User</button>
+                                            <button ng-show="isTeamUser(user.id)" class="btn btn-cstm" ng-disabled="user.isTeamLead" ng-click="removeTeamUser(user.id)">Remove User</button>
+                                        </li>
+                                    </ul>-->
+
+                                    <div class="mt-element-list">
+
+                                        <div class="mt-list-container list-news ext-1">
+                                            <ul>
+                                                <li class="mt-list-item" ng-repeat="user in organizationUsers | startFrom:userCurrentPage*userPageSize(userCurrentPage, 20) | limitTo:userPageSize(userCurrentPage, 20) | filter:userSearch | orderBy:['firstName', 'lastName']">
+                                                    <div class="list-thumb">
+                                                        <a href="javascript:;">
+                                                            <img class="img-circle" alt="" src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="list-item-content">
+                                                        <h3 class="uppercase">
+                                                            <a href="javascript:;">{{user.firstName}} {{user.lastName}}</a>
+                                                        </h3>
+                                                        <p>
+                                                            <button ng-show="!isTeamUser(user.id)" class="btn btn-cstm" ng-click="addTeamUser(user)">{{'ORGANIZATIONS_ADD_USER' | translate }}</button>
+                                                            <button ng-show="isTeamUser(user.id)" class="btn btn-cstm" ng-disabled="user.isTeamLead" ng-click="removeTeamUser(user.id)">{{'ORGANIZATIONS_REMOVE_USER' | translate }}</button>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="pagination" ng-show="organizationUsers" ng-class="{hide: organizationUsers.length <= userPageSize(userCurrentPage,20)}">
+                                        <button ng-disabled="userCurrentPage == 0" ng-click="userCurrentPage=userCurrentPage-1" class="pagination-button">
+                                            <
+                                        </button>
+                                        {{userCurrentPage+1}}/{{numberOfUserPages(organizationUsers)}}
+                                        <button ng-disabled="userCurrentPage >= organizationUsers.length/userPageSize(userCurrentPage,20) - 1" ng-click="userCurrentPage=userCurrentPage+1" class="pagination-button">
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="pull-right apply-button">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click="addUsersToTeam()">{{'ORGANIZATIONS_APPLY' | translate }}  </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div kendo-window="removal" k-title="'Confirm Delete'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+            {{'ORGANIZATIONS_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+            <button class="k-button" ng-click="removeTeam()">{{'COMMON_YES' | translate }}</button>
+            <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

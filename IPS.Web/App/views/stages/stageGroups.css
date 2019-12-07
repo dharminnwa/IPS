@@ -1,0 +1,14 @@
+﻿.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    background: url('../../../images/edit.png') no-repeat;
+}
+
+.icon-groups .remove-icon {
+    background: url('../../../images/remove.png') no-repeat;
+}

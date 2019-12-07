@@ -1,0 +1,162 @@
+<div class="row" ng-init="init()">
+    <div class="col-md-12">
+        <button class="btn btn-cstm pull-left ips-tab-button marginbottom10" data-toggle="modal" data-target=".selectUsers">{{'SOFTPROFILE_ADD_PARTICIPANT' | translate }}</button>
+    </div>
+    <div class="col-md-12">
+        <kendo-tooltip options="tooltipOptions">
+            <div kendo-grid="participantsGrid" k-options="participantsOptions"></div>
+        </kendo-tooltip>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-cstm pull-right  mt-5" ng-hide="training.id <= 0" ng-click="cleanParticipantsList()">{{'SOFTPROFILE_REMOVE_ALL' | translate }}</button>
+    </div>
+    <div class="col-md-12">
+
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-cstm pull-left ips-tab-button marginbottom10" ng-disabled="!selectedParticipantName || selectedParticipant.isSelfEvaluation"
+                data-toggle="modal" data-target=".selectEvaluators">
+            <span> {{'SOFTPROFILE_ADD_EVALUATOR_OF' | translate }} </span><span ng-bind="selectedParticipantName"></span>
+        </button>
+    </div>
+    <div class="col-md-12">
+        <kendo-tooltip options="tooltipOptions">
+            <div kendo-grid="evaluationGrid" k-options="evaluationOptions"></div>
+        </kendo-tooltip>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-cstm pull-left ips-tab-button margintop10" ng-click="sendStartStageNotification();">{{'SOFTPROFILE_SEND_WELCOME_NOTIFICATION_FOR' | translate }}</button>
+        <select class="form-control pull-left tab-control marginleft10 select-stages margintop10" data-ng-model="selectedStageId" data-ng-options="obj.id as obj.name for obj in unlockedStages"></select>
+    </div>
+    <div class="col-md-8">
+        <button class="btn btn-cstm pull-right mt-5" ng-hide="training.id <= 0" ng-click="cleanEvaluatorsList()">{{'SOFTPROFILE_REMOVE_ALL' | translate }}</button>
+    </div>
+
+    <div class="modal fade selectUsers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'SOFTPROFILE_ADD_PARTICIPANTS' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 users">
+                                <input type="text" class="form-control tab-control" placeholder="{{'SOFTPROFILE_SEARCH_FOR_USERS' | translate }}" name="userSearch" ng-model="userSearch" />
+
+
+                                <div class="mt-element-list">
+
+                                    <div class="mt-list-container list-news ext-1">
+                                        <ul>
+                                            <li class="mt-list-item" ng-repeat="user in users | startFrom:userPageFrom(20) | limitTo:userPageSize(userCurrentPage, 20) | filter:userSearch | orderBy:['firstName', 'lastName']">
+                                                <div class="list-thumb">
+                                                    <a href="javascript:;">
+                                                        <img class="img-circle" alt="" src="user.imagePath && user.imagePath || ../../images/user-placeholder.png">
+                                                    </a>
+                                                </div>
+                                                <div class="list-item-content">
+                                                    <h3 class="uppercase">
+                                                        <a href="javascript:;">{{user.firstName}} {{user.lastName}}</a>
+                                                    </h3>
+                                                    <p>
+                                                        <button ng-show="!isSelectedUser(user.id)" class="btn btn-cstm" ng-click="addUserToParticipant(user)">{{'SOFTPROFILE_SELECT_USER' | translate }}</button>
+                                                        <button ng-show="isSelectedUser(user.id)" class="btn btn-cstm" ng-click="removeParticipant(user.id)">{{'SOFTPROFILE_REMOVE_USER' | translate }}</button>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <!--<ul id="" class="organization-users">
+                                    <li ng-repeat="user in users | startFrom:userPageFrom(20) | limitTo:userPageSize(userCurrentPage, 20) | filter:userSearch | orderBy:['firstName', 'lastName']">
+                                        <span>
+                                            <img src="user.imagePath && user.imagePath || ../../images/user-placeholder.png" class="img-responsive user-avatar" />
+                                        </span>
+                                        <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                                        <button ng-show="!isSelectedUser(user.id)" class="btn btn-cstm" ng-click="addUserToParticipant(user)">Select User</button>
+                                        <button ng-show="isSelectedUser(user.id)" class="btn btn-cstm" ng-click="removeParticipant(user.id)">Remove User</button>
+                                    </li>
+                                </ul>-->
+
+
+
+                                <div class="pagination" ng-show="users" ng-class="{hide: users.length <= userPageSize(userCurrentPage, 20)}">
+                                    <button ng-disabled="userCurrentPage == 0" ng-click="userCurrentPage=userCurrentPage-1" class="pagination-button">
+                                        <
+                                    </button>
+                                    {{userCurrentPage+1}}/{{numberOfUserPages(users)}}
+                                    <button ng-disabled="userCurrentPage >= users.length/userPageSize(userCurrentPage, 20) - 1" ng-click="userCurrentPage=userCurrentPage+1" class="pagination-button">
+                                        >
+                                    </button>
+                                </div>
+                                <div class="pull-right apply-button">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> {{'COMMON_CLOSE' | translate }} </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade selectEvaluators" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div ng-if="!selectedParticipant.isSelfEvaluation">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'SOFTPROFILE_ADD_EVALUATORS' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12 users">
+                                    <input type="text" class="form-control tab-control" placeholder="{{'SOFTPROFILE_SEARCH_FOR_USERS' | translate }}" name="userSearch" ng-model="userSearch" />
+                                    <ul id="" class="organization-users">
+                                        <li ng-repeat="user in users | startFrom:userCurrentPage*userPageSize(userCurrentPage, 20) | limitTo:userPageSize(userCurrentPage, 20) | filter:userSearch | orderBy:['firstName', 'lastName']">
+                                            <span>
+                                                <img src="user.imagePath && user.imagePath || ../../images/user-placeholder.png" class="img-responsive user-avatar" />
+                                            </span>
+                                            <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                                            <button ng-show="!isSelectedEvaluatorUser(user.id)" class="btn btn-cstm" ng-click="addUserToEvaluator(user)">{{'SOFTPROFILE_SELECT_USER' | translate }}</button>
+                                            <button ng-show="isSelectedEvaluatorUser(user.id)" class="btn btn-cstm" ng-click="removeEvaluator(user.id)">{{'SOFTPROFILE_REMOVE_USER' | translate }}</button>
+                                        </li>
+                                    </ul>
+                                    <div class="pagination" ng-show="users" ng-class="{hide: users.length <= userPageSize(userCurrentPage, 20)}">
+                                        <button ng-disabled="userCurrentPage == 0" ng-click="userCurrentPage=userCurrentPage-1" class="pagination-button">
+                                            <
+                                        </button>
+                                        {{userCurrentPage+1}}/{{numberOfUserPages(users)}}
+                                        <button ng-disabled="userCurrentPage >= users.length/userPageSize(userCurrentPage, 20) - 1" ng-click="userCurrentPage=userCurrentPage+1" class="pagination-button">
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="pull-right apply-button">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"> {{'COMMON_CLOSE' | translate }} </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div ng-if="selectedParticipant.isSelfEvaluation">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'COMMON_WARNING' | translate }}!</h4>
+                    </div>
+                    <div class="modal-body">{{'SOFTPROFILE_CANT_SET_EVALUATORS_FOR_SELF_EVALUATED_PARTICIPANT' | translate }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

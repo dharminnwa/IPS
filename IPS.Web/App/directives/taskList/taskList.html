@@ -1,0 +1,26 @@
+﻿<div class="dropdown">
+    <a href="#/tasks" data-toggle="dropdown" class="dropdown-toggle">
+        <img src="images/tasks.png" class="ips-navbar-item-link" />
+    </a>
+    <ul class="dropdown-menu todo-list">
+        <li ng-repeat="todo in filteredItems  =  (task.todos | filter:task.isToday | orderBy: task.orderProp )" class="todo-li">
+            <a ng-click="task.completed(todo)" class="list-element">
+                <div class="todo-list-element">
+                    <label class="checkbox">
+                        <input type="checkbox"
+                               name="checkbox-inline"
+                               ng-model="todo.isCompleted">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="todo-list-element">
+                    <label class="todo-label" ng-if="todo.title">{{todo.title}}</label>
+                </div>
+            </a>
+            <div class="todo-list-element todo-marker" ng-style="todo.buttonStyle">
+                <label>{{todo.taskCategoryListItem.name}}</label>
+            </div>
+        </li>
+    </ul>
+    <span class="badge" ng-show="task.todos.length">{{filteredItems.length}}</span>
+</div>

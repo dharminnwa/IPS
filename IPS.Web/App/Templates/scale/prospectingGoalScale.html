@@ -1,0 +1,86 @@
+﻿<form name="prospectingGoalScaleForm" novalidate>
+    <div class="row">
+        <div class="col-md-4" ng-hide="!ngIsTamplate">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">
+                    {{'COMMON_SCALE_NAME' | translate }}
+                </label>
+                <span ng-show='prospectingGoalScaleForm.scaleName.$error.required' class="required">*</span>
+                <input class="form-control tab-control" data-ng-model="prospectingGoalScale.name" type="text" name="scaleName" ng-required="!prospectingGoalScale.name && ngIsRequired" />
+            </div>
+        </div>
+        <div class="col-md-4" ng-hide="ngIsTamplate">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">
+                    {{'COMMON_SCALE_NAME' | translate }}
+                </label>
+                <input class="form-control tab-control" data-ng-model="prospectingGoalScale.name" type="text" ng-required="required" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="exampleInputEmail1" class="form-cstm-lable">
+                {{'TASKPROSPECTING_NG_PROSPECTING_GOAL_SCALE_CATEGORY' | translate }}
+            </label>
+            <select ng-selected="$first" class="form-control tab-control" data-ng-model="prospectingGoalScale.scaleCategory" data-ng-options="obj as obj.name for obj in categories" placeholder="Select measure unit" ng-change="scaleCategoryUpdate()" ng-required="ngIsRequired"></select>
+
+        </div>
+        <div class="col-md-4">
+            <label for="exampleInputEmail1" class="form-cstm-lable">
+                {{'TASKPROSPECTING_NG_PROSPECTING_GOAL_SCALE_MEASURE_UNIT' | translate }}
+            </label>
+            <select ng-selected="$first" class="form-control tab-control" data-ng-model="prospectingGoalScale.measureUnit" data-ng-options="obj as obj.name for obj in measureUnits" placeholder="Select measure unit" ng-change="measureUnitUpdate()" ng-required="ngIsRequired"></select>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">{{'COMMON_SCALE_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control tab-control" rows="3" data-ng-model="prospectingGoalScale.description" id="description"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">
+                    {{'COMMON_SCALE_START' | translate }}
+                </label>
+                <input class="form-control tab-control" data-ng-model="prospectingGoalScale.scaleStart" type="number" min="0" ng-required="ngIsRequired" />
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">
+                    {{'COMMON_SCALE_END' | translate }}
+                </label>
+                <input class="form-control tab-control" data-ng-model="prospectingGoalScale.scaleEnd" type="number" min="1" ng-required="ngIsRequired" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">
+                    {{'COMMON_INTERVALS' | translate }}
+                </label>
+                <input class="form-control tab-control" data-ng-model="prospectingGoalScale.scaleInterval" type="number" min="1" ng-required="ngIsRequired" />
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-cstm m-0" ng-click="generateScales()" ng-disabled="prospectingGoalScaleForm.$invalid"><i class="fa fa-balance-scale" aria-hidden="true"></i> {{'COMMON_APPLY_SCALE_INTERVALS' | translate }}</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <div id="gridProspectingGpalScaleRanges">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

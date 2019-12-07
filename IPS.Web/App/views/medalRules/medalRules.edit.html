@@ -1,0 +1,115 @@
+<div pane>
+    <form name="editMedalRule" novalidate>
+        <div class="row">
+            <div class="col-sm-12 return-menu">
+                <a ng-click="back()" class="newhead title fa fa-long-arrow-left"></a>
+                <h1 class="title">{{'SOFTPROFILE_MEDAL_RULE' | translate }}</h1>
+                <div class="top-border"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="medal-rule">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                        <span ng-show='editMedalRule.name.$error.required' class="required">*</span>
+                        <input type="text" class="form-control" ng-model="medalRule.name"
+                               name="name" required/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <div class="icon bronze-icon" title="{{'SOFTPROFILE_BRONZE' | translate }}"></div>
+                            </div>
+                            <div class="col-md-offset-1 col-md-3">
+                                            <span ng-show='editMedalRule.bronzeFrom.$error.required'
+                                                  class="required">*</span>
+                                <div class="input-group">
+                                    <input type="number" class="form-control"
+                                           required
+                                           min="0"
+                                           ng-max="{{minThan(medalRule.bronzeTo)}}"
+                                           ng-model="medalRule.bronzeStart"
+                                           name="bronzeFrom"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="pull-left">
+                                <div class="dash"></div>
+                            </div>
+                            <div class="col-md-3">
+                                            <span ng-show='editMedalRule.bronzeTo.$error.required'
+                                                  class="required">*</span>
+                                <div class="input-group">
+                                    <input type="number" class="form-control"
+                                           required
+                                           ng-min="{{moreThan(medalRule.bronzeStart)}}"
+                                           ng-max="{{minThan(medalRule.silverEnd)}}"
+                                           ng-model="medalRule.bronzeEnd"
+                                           name="bronzeTo"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <div class="icon silver-icon" title="{{'SOFTPROFILE_SILVER' | translate }}"></div>
+                            </div>
+                            <div class="col-md-1">
+                                <label class="control-label">{{'SOFTPROFILE_OVER' | translate }}</label>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" disabled
+                                           ng-model="medalRule.bronzeEnd"
+                                           name="silverFrom"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="pull-left">
+                                <div class="dash"></div>
+                            </div>
+                            <div class="col-md-3">
+                                            <span ng-show='editMedalRule.silverTo.$error.required'
+                                                  class="required">*</span>
+                                <div class="input-group">
+                                    <input type="number" class="form-control"
+                                           required
+                                           ng-min="{{moreThan(medalRule.bronzeTo)}}"
+                                           ng-model="medalRule.silverEnd"
+                                           name="silverTo"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <div class="icon gold-icon" title="{{'SOFTPROFILE_GOLD' | translate }}"></div>
+                            </div>
+                            <div class="col-md-1">
+                                <label class="control-label">{{'SOFTPROFILE_OVER' | translate }}</label>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" disabled
+                                           ng-model="medalRule.silverEnd"
+                                           name="goldFrom"/>
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-click="save()" ng-disabled="editMedalRule.$invalid">{{'COMMON_SAVE' | translate }}</button>
+                <button class="btn btn-cstm primary" ng-hide="medalRule.id <= 0" ng-click="remove()">{{'COMMON_REMOVE' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div ui-view></div>

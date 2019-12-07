@@ -1,0 +1,78 @@
+﻿<div pane name="surveyAnalysis">
+    <div class="row">
+        <header-navigation ng-show="analysis.isAnalysis" page-name="{{ ( analysis.isFirstStage? 'MYPROFILES_VIEW_INITIAL_PROFILE' : 'MYPROFILES_VIEW_PROFILE_PROGRESS' ) | translate }} {{analysis.profile.name}}"></header-navigation>
+        <header-navigation ng-show="!analysis.isAnalysis" page-name="{{'MYPROFILES_SCORECARD_FOR_PROFILE' | translate }} {{analysis.profile.name}}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="organizations-menu">
+                        <img src="images/brain-icon.png" />
+                        <span ng-show="analysis.isAnalysis">{{ ( analysis.isFirstStage? "MYPROFILES_VIEW_INITIAL_PROFILE" : "MYPROFILES_VIEW_PROFILE_PROGRESS" ) | translate }}</span>
+                        <span ng-show="!analysis.isAnalysis">{{'COMMON_SCORECARD' | translate }}</span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="content-border content-border-left content-border-right">
+                        <img class="info-icon" src="images/info-icon.png" />
+                        <span ng-show="analysis.isAnalysis" class="submit-info">{{'MYPROFILES_HERE_YOU_CAN_VIEW' | translate }} {{ ( analysis.isFirstStage? "MYPROFILES_VIEW_INITIAL_PROFILE" : "MYPROFILES_VIEW_PROFILE_PROGRESS" ) | translate }}. {{'COMMON_STAGE' | translate }}: {{analysis.stageName}}. {{'COMMON_PARTICIPANT' | translate }}: {{analysis.participant.firstName}} {{analysis.participant.lastName}}.</span>
+                        <span ng-show="!analysis.isAnalysis" class="submit-info">{{'MYPROFILES_HERE_YOU_CAN_SEE_SCORECARD' | translate }}</span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="content-border content-border-left content-border-right">
+                        <table class="table">
+                            <tr class="table-header">
+                                <th ng-repeat="(i,th) in analysis.tableHead track by $index" ng-class="analysis.hideIfNoPreviousScore(i,th)">
+                                    <span ng-class="analysis.addSortingClass(i,th)" ng-click="analysis.changeSorting(i,th)">
+                                        {{th.name}}
+                                        <span class="glyphicon glyphicon-chevron-up" ng-show="th.currentSort && analysis.sortCondition.descending"></span>
+                                        <span class="glyphicon glyphicon-chevron-down" ng-show="th.currentSort && !analysis.sortCondition.descending"></span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="answer in analysis.answers">
+                                <td class="answer-number">{{answer.questionNo}}</td>
+                                <td width="15%">{{answer.skillName}}</td>
+                                <td width="15%">{{answer.performanceGroupName}}</td>
+                                <td width="12%">{{answer.question.questionText}}</td>
+                                <td width="10%" ng-show="analysis.isAnalysis && answer.perviousAnswer.answer1">
+                                    <div class="score-result text-align-center">{{answer.perviousAnswer.answer1}}</div>
+                                </td>
+                                <td width="10%" ng-hide="analysis.isFirstStage">
+                                    <div class="score-outer-circle text-align-center">
+                                        <div class="score-inner-circle" style="background: {{analysis.getAnswerColor(answer.currentGoalValue)}}">
+                                            <div class="score-result">{{answer.currentGoalValue}}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="10%">
+                                    <div class="score-outer-circle text-align-center">
+                                        <div class="score-inner-circle" style="background: {{analysis.getAnswerColor(answer.answer1)}}">
+                                            <div class="score-result">{{answer.answer1}}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="10%" ng-show="analysis.isAnalysis && answer.perviousAnswer.answer1" class="text-align-center">
+                                    <div ng-class="analysis.getProgressClass(answer.answer1, answer.currentGoalValue)" class="text-align-center"></div>
+                                </td>
+                                <td width="8%">
+                                    <div class="kpi-outer-circle text-align-center">
+                                        <div class="kpi-inner-circle kpi-inner-circle-0">
+                                            <div class="kpi-control kpi-{{(answer.kpiType) && answer.kpiType || '0' }}"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="12%">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="4" readonly>{{answer.comment}}</textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

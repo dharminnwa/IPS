@@ -1,0 +1,639 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="db_topSec">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="db_topLink">
+                    <div class="db_topBox db_blue">
+                        <span class="fa fa-comment db_topFa"></span>
+                        <div class="db_toptext">
+                            <span class="text1">1349</span>
+                            <span class="textTitle">New Survey Feedbacks</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="db_topLink">
+                    <div class="db_topBox db_red">
+                        <span class="fa fa-bar-chart db_topFa"></span>
+                        <div class="db_toptext">
+                            <span class="text1">12,5M$</span>
+                            <span class="textTitle">Monthly Sales Profit</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="db_topLink">
+                    <div class="db_topBox db_green">
+                        <span class="fa fa-shopping-cart db_topFa"></span>
+                        <div class="db_toptext">
+                            <span class="text1">549</span>
+                            <span class="textTitle">New Leads</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a class="db_topLink">
+                    <div class="db_topBox db_purple">
+                        <span class="fa fa-globe db_topFa"></span>
+                        <div class="db_toptext">
+
+                            <span class="text1">89</span>
+                            <span class="textTitle">Lead Contacted</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="db_ta_div">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="db_ta_Box">
+                    <div class="db_ta_head">
+                        <h3 class="db_ta_headText">Site Visits</h3>
+                    </div>
+                    <canvas id="myChart" width="400" height="400" style="display: block; height: auto !important; width: 100% !important;"></canvas>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="db_ta_Box">
+                    <div class="db_ta_head">
+                        <h3 class="db_ta_headText">Revenue</h3>
+                        <div class="dropdown db_ta_drop">
+                            <button class="btn db_ta_Btn db_ta_Btnblue dropdown-toggle" type="button" data-toggle="dropdown">Filter Range<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Q1 2016 <span class="db_ta_tag lightGray">past</span></a></li>
+                                <li><a href="#">Q1 2016 <span class="db_ta_tag lightGray">past</span></a></li>
+                                <li><a href="#">Q1 2016 <span class="db_ta_tag Green">Current</span></a></li>
+                                <li><a href="#">Q1 2016 <span class="db_ta_tag Yellow">Upcoming</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="db_ta_div">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                <div class="db_ta_Box">
+                    <div class="db_ta_head">
+                        <h3 class="db_ta_headText">Tasks</h3>
+                    </div>
+                    <div class="taskH">
+                        <div class="table-responsive">
+                            <table class="table db_ta_table">
+                                <thead class="db_ta_thead">
+                                    <tr>
+                                        <th class="ta_thead_title">Title and Description</th>
+                                        <th class="ta_thead_time"><span class="fa fa-clock-o"></span></th>
+                                        <th class="ta_thead_prio">Priority</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="db_ta_tbody">
+                                    <!--<h6 class="taskDay">TODAY</h6>-->
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td class="tabTime"><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td class="tabPrio"><span class="priorotySpan Red"><span class="fa fa-arrow-up"></span>Critical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan"><span class="fa fa-arrow-down"></span>Trival</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan Red"><span class="fa fa-arrow-up"></span>Critical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan"><span class="fa fa-arrow-down"></span>Trival</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan"><span class="fa fa-arrow-down"></span>Trival</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan Red"><span class="fa fa-arrow-up"></span>Critical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="fa fa-user db_ta_tbl_fa"></span>
+                                            <span class="db_ta_tbl_Title">Weekly Standup</span>
+                                            <p class=" db_ta_tbl_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        </td>
+                                        <td><span class="db_ta_tbl_time">11am - 12am</span></td>
+                                        <td><span class="priorotySpan"><span class="fa fa-arrow-down"></span>Trival</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <hr class="db_hr" />
+                    <button class="addtsk_btn">Add New Task</button>
+                    <a class="allRecord">See All Records</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12">
+                <div class="db_ta_Box">
+                    <div class="db_ta_head">
+                        <h3 class="db_ta_headText">Activity Stream</h3>
+
+                        <div class="dropdown db_ta_drop">
+                            <button class="btn db_ta_Btn db_ta_Btnblue dropdown-toggle" type="button" data-toggle="dropdown">Filter By<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><input type="checkbox" class="db_ta_check" /><a href="#">Finance</a></li>
+                                <li><input type="checkbox" class="db_ta_check" /><a href="#">Membership</a></li>
+                                <li><input type="checkbox" class="db_ta_check" /><a href="#">Customer Support</a></li>
+                                <li><input type="checkbox" class="db_ta_check" /><a href="#">HR</a></li>
+                                <li><input type="checkbox" class="db_ta_check" /><a href="#">System</a></li>
+                                <!--<li><a href="#">Air Asia</a></li>
+                                <li><a href="#">Cruise</a></li>
+                                <li><a href="#">HSBC</a></li>
+                                <li class="nav-divider"></li>
+                                <li><a href="#">Pending</a><span class="db_ta_counter ctr_red">4</span></li>
+                                <li><a href="#">Completed</a><span class="db_ta_counter ctr_red">12</span></li>
+                                <li><a href="#">OverDue</a><span class="db_ta_counter ctr_red">9</span></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="taskH">
+                        <ul class="db_ta_ul">
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">Hold An Interview for Marketing Manager Position</p>
+                                <span class="db_ta_tag Red">Marketing</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Green">Company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Red">Air Asia</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag Yellow">company</span>
+                            </li>
+                            <li class="db_ta_li">
+                                <input class="db_ta_check" type="checkbox" />
+
+                                <p class="db_ta_para">You have 5 pending membership that requires a quick review. </p>
+                                <span class="db_ta_tag">company</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="db_hr" />
+                    <a class="allRecord">See All Records</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End chart Section-->
+    <!--Start New calender-->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+            <div class="calmainDiv">
+                <div id="calendar"></div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+        </div>
+    </div>
+    <!--End New calender-->
+    <!--Start Profile Section-->
+    <div class="profileSec">
+        <div class="row">
+            <h3 class="db_ta_headText">QUICK PROFILE VIEW</h3>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="searchDiv"><input class="inputSearch" placeholder="Search user Profile" /><button class="btnSearch">Search</button></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
+        </div>
+        <div class="row">
+            <div class="db_ta_div">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1_1">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="list-unstyled profile-nav">
+                                    <li> <img src="views/Home/img/people19.png" class="img-responsive pic-bordered" alt=""> </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-8 profile-info">
+                                        <h1 class="p_userName">John Doe</h1>
+                                        <p class="p_abt">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat
+                                            volutpat.
+                                        </p>
+                                        <p> <a href="javascript:;"> www.mywebsite.com </a> </p>
+                                        <ul class="list-inline">
+                                            <li> <i class="fa fa-map-marker"></i> Spain </li>
+                                            <li> <i class="fa fa-calendar"></i> 18 Jan 1982 </li>
+                                            <li> <i class="fa fa-briefcase"></i> Design </li>
+                                            <li> <i class="fa fa-star"></i> Top Seller </li>
+                                            <li> <i class="fa fa-heart"></i> BASE Jumping </li>
+                                        </ul>
+                                    </div>
+                                    <!--end col-md-8-->
+                                    <div class="col-md-4">
+                                        <div class="sale-summaryDiv">
+
+                                            <div class="saleTitle_Div"><span class="salesum_Title">Sales Summary</span><span class="fa fa-recycle"></span></div>
+
+                                            <ul class="summaryUL">
+                                                <li class="summaryLI"><span class="sale-info"> TODAY SOLD <i class="fa fa-img-up"></i> </span> <span class="sale-num"> 23 </span> </li>
+                                                <li class="summaryLI"><span class="sale-info"> WEEKLY SALES <i class="fa fa-img-down"></i> </span> <span class="sale-num"> 87 </span> </li>
+                                                <li class="summaryLI"><span class="sale-info"> TOTAL SOLD </span> <span class="sale-num"> 2377 </span> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--end col-md-4-->
+                                </div>
+                                <!--end row-->
+                                <div class="tabbable-line tabbable-custom-profile">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"> <a aria-expanded="true" href="#tab_1_11" data-toggle="tab"> Latest Customers </a> </li>
+                                        <li class=""> <a aria-expanded="false" href="#tab_1_22" data-toggle="tab"> Feeds </a> </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_1_11">
+                                            <div class="portlet-body">
+                                                <table class="table table-hover lc_table">
+                                                    <thead class="lc_thead">
+                                                        <tr>
+                                                            <th> <i class="fa fa-briefcase"></i> Company </th>
+                                                            <th class="hidden-xs"> <i class="fa fa-question"></i> Descrition </th>
+                                                            <th> <i class="fa fa-bookmark"></i> Amount </th>
+                                                            <th> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> Pixel Ltd </a></td>
+                                                            <td class="hidden-xs"> Server hardware purchase </td>
+                                                            <td> 52560.10$ <span class="label label-success label-sm"> Paid </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> Smart House </a></td>
+                                                            <td class="hidden-xs"> Office furniture purchase </td>
+                                                            <td> 5760.00$ <span class="label label-warning label-sm"> Pending </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> FoodMaster Ltd </a></td>
+                                                            <td class="hidden-xs"> Company Anual Dinner Catering </td>
+                                                            <td> 12400.00$ <span class="label label-success label-sm"> Paid </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> WaterPure Ltd </a></td>
+                                                            <td class="hidden-xs"> Payment for Jan 2013 </td>
+                                                            <td> 610.50$ <span class="label label-danger label-sm"> Overdue </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> Pixel Ltd </a></td>
+                                                            <td class="hidden-xs"> Server hardware purchase </td>
+                                                            <td> 52560.10$ <span class="label label-success label-sm"> Paid </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> Smart House </a></td>
+                                                            <td class="hidden-xs"> Office furniture purchase </td>
+                                                            <td> 5760.00$ <span class="label label-warning label-sm"> Pending </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="javascript:;"> FoodMaster Ltd </a></td>
+                                                            <td class="hidden-xs"> Company Anual Dinner Catering </td>
+                                                            <td> 12400.00$ <span class="label label-success label-sm"> Paid </span></td>
+                                                            <td><a class="btn btn-sm grey-salsa btn-outline" href="javascript:;"> View </a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--tab-pane-->
+                                        <div class="tab-pane" id="tab_1_22">
+                                            <div class="tab-pane active" id="tab_1_1_1">
+                                                <div>
+                                                    <div>
+                                                        <ul class="feeds">
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Green"><span class="fa fa-bell"></span></span><p class="feedPara">Database server #12 overloaded. Please fix the issue.<span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Red"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons Yellow"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. <span class="actionTag Red">Take Action</span></span></p><span class="feedsJust">Just Now</span></li>
+                                                            <li class="feedsli"><span class="feedsicons bg-primary"><span class="fa fa-bell"></span></span><p class="feedPara">You have 4 pending tasks. </span></p><span class="feedsJust">Just Now</span></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--tab-pane-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--tab_1_2-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End Profile Section-->
+
+    <div class="profileSec">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-zero">
+            <div k-title="'Calendar'" k-on-open="winCalendarvisible = true" k-on-close="winCalendarvisible = false">
+                <div class="calendar-menu">
+                    <span class="fa fa-calendar fa_cal"></span><span class="calText">Calendar</span>
+                </div>
+                <script id="event-template" type="text/x-kendo-template">
+                    <div>
+                        <a style="color:white;" href="\#/home/todos/todos/edit/#= id #">#: title #</a>
+                        #if(trainingId){#
+                        (<a style="color:white;" href="\#/home/profiles/profiles/soft/trainings/edit/#= trainingId #">#: training.name #</a>)
+                        #}#
+                    </div>
+                </script>
+                <div id="taskCalendar"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!--
+            <div class="col-xs-12 col-sm-12">
+                <div k-title="'Reminders'">
+                    <div class="reminders-menu">
+                        <img src="images/organization/organization-icon.png" />
+                        <span>Reminders</span>
+                    </div>
+                    <reminders-list></reminders-list>
+                </div>
+            </div>
+            <!--div class="col-xs-4 col-sm-4">
+                <div k-title="'Activities'">
+                    <div class="activities-menu">
+                        <img src="images/organization/organization-icon.png" />
+                        <span>Activities</span>
+                    </div>
+                    <activities-list></activities-list>
+                </div>
+            </div--
+            <div class="col-xs-8">
+                <div k-title="'Calendar'" k-on-open="winCalendarvisible = true" k-on-close="winCalendarvisible = false">
+                    <div class="calendar-menu">
+                        <img src="images/organization/organization-icon.png" />
+                        <span>Calendar</span>
+                    </div>
+                    <script id="event-template" type="text/x-kendo-template">
+                        <div >
+                            <a style="color:white;" href="\#/home/todos/todos/edit/#= id #">#: title #</a>
+                            #if(trainingId){#
+                                (<a style="color:white;" href="\#/home/profiles/profiles/soft/trainings/edit/#= trainingId #">#: training.name #</a>)
+                            #}#
+                        </div>
+                    </script>
+                    <div id="taskCalendar"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div k-title="'To Do'">
+                    <div class="todo-menu">
+                        <img src="images/organization/organization-icon.png" />
+                        <span>To Do</span>
+                        <!--<a class="add-button pull-right" href="#/todos"></a>--
+                    </div>
+                    <todos-list></todos-list>
+                </div>
+                <button class="btn btn-cstm primary pull-right margin-left" ng-click="addNewTask();">Add Task</button>
+                <button class="btn btn-cstm primary pull-right" ng-click="showMoreToDos();">Show More Tasks</button>
+            </div>
+         </div>
+    </div></div>-->
+<section ui-view></section>
+

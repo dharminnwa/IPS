@@ -1,0 +1,473 @@
+﻿<div pane name="todo">
+
+    <section class="portlet-light header-blue">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-title">{{'TASKPROSPECTING_NEW_TASK' | translate}}</span> &nbsp;
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="portlet-light pb-1">
+        <form name="newToDoTask" novalidate>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_TITLE' | translate }}</label>
+                        <span ng-show='newToDoTask.title.$error.required' class="required">*</span>
+                        <input type="text" class="form-control" name="title" ng-model="task.title" required />
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                        <textarea class="form-control" rows="3" ng-model="task.description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="form-cstm-lable"> {{'TASKMANAGEMENT_CATEGORIES' | translate }} :</label>
+                        <div class="form-check">
+                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                <input type="checkbox" name="isCompleted" data-ng-model="task.isCompleted">
+                                {{'COMMON_IS_COMPLETED' | translate }}
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_CATEGORY' | translate }} <span ng-show='newToDoTask.taskCategoryId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="taskCategoryId" required data-ng-model="task.categoryId" data-ng-options="obj.id as obj.name for obj in categories" ng-change="categoryChange()"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_PROJECT' | translate }}
+                            <span ng-show='newToDoTask.projectId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="projectId" data-ng-model="task.projectId" data-ng-options="obj.id as obj.name for obj in projects" ng-change="projectChange()"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-4" ng-show="hasDelegateTasksPermition()">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'TASKMANAGEMENT_ASSIGNED_TO' | translate }}
+                        </label>
+                        <select class="form-control" data-ng-model="task.assignedToId" data-ng-options="obj.id as obj.firstName + ' ' + obj.lastName for obj in users" ng-change="assignedToChange()"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2" ng-show="isKPITraining">
+                    <div class="form-group">
+                        <label class="form-cstm-lable"> {{'COMMON_PROFILE' | translate }} :</label>
+                        <span ng-show='newToDoTask.taskProfileId.$invalid' class="required">*</span>
+                        <select class="form-control" name="taskProfileId" ng-required="isKPITraining" data-ng-model="task.profileId" data-ng-options="obj.id as obj.name for obj in profiles" ng-change="profileChange()"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-3" ng-show="isKPITraining">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_STAGES' | translate }}
+                            <span ng-show='newToDoTask.taskStageId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="taskStageId" ng-required="isKPITraining && newToDoTask.taskProfileId > 0" data-ng-model="task.stageId" data-ng-options="obj.id as obj.name for obj in stages" ng-change="stageChange()"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-4" ng-show="checkisTraining()">
+                    <div class="form-group">
+                        <i title="View Training" class="fa fa-eye pull-right" ng-show="task.trainingId > 0" ng-click="showTraining(task.trainingId)"></i>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'COMMON_TRAINING' | translate }}</label>
+                            <select class="form-control" data-ng-model="task.trainingId" data-ng-options="obj.id as obj.name for obj in trainings"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div id="taskStartDate">
+                            <div class="demo-section k-content">
+                                <label>
+                                    {{'COMMON_START_DATE' | translate }}
+                                    <span ng-show='newToDoTask.taskStartDate.$error.required' class="required">*</span>
+                                </label>
+                                <input name="taskStartDate" required kendo-date-time-picker
+                                       k-on-change="startDateChnage(kendoEvent)"
+                                       k-on-open="startDateOpen(kendoEvent)"
+                                       ng-model="task.startDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div id="taskDueDate">
+                            <div class="demo-section k-content">
+                                <label>{{'COMMON_DUE_DATE' | translate }} <span ng-show='newToDoTask.taskDueDate.$error.required' class="required">*</span> </label>
+                                <input name="taskDueDate" required
+                                       kendo-date-time-picker
+                                       k-options="taskDueDateOptions"
+                                       k-on-open="dueDateOpen(kendoEvent)"
+                                       ng-model="task.dueDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_PRIORITY' | translate }}
+                            <span ng-show='newToDoTask.taskPriorityId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="taskPriorityId" required data-ng-model="task.priorityId" data-ng-options="obj.id as obj.name for obj in priorities"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_STATUS' | translate }}
+                            <span ng-show='newToDoTask.taskStatusId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="taskStatusId" required data-ng-model="task.statusId" data-ng-options="obj.id as obj.name for obj in statuses"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 heding-bg">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-sub-title"> {{'TASKMANAGEMENT_RECURRENCE' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-recurency ng-model="task" ng-property="recurrenceRule"></div>
+            </div>
+
+
+            <div class="row mt-5">
+                <div class="col-md-12 heding-bg">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-sub-title"> {{'COMMON_NOTIFICATION' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="mt-checkbox mt-checkbox-outline dark">
+                                <input type="checkbox" ng-model="task.isEmailNotification">
+                                {{'COMMON_EMAIL_NOTIFICATION' | translate }}
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="mt-checkbox mt-checkbox-outline dark">
+                                <input type="checkbox" ng-model="task.issmsNotification">
+                                {{'COMMON_SMS_NOTIFICATION' | translate }}
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'COMMON_EMAIL_REMINDER' | translate }}
+                        </div>
+                        <select ng-disabled="!(task.isEmailNotification)" class="form-control " data-ng-model="task.emailBefore" data-ng-options="obj.value as obj.text for obj in reminders">
+                            <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'COMMON_SMS_REMINDER' | translate }}
+                        </div>
+                        <select ng-disabled="!(task.issmsNotification)" class="form-control" data-ng-model="task.smsBefore" data-ng-options="obj.value as obj.text for obj in reminders">
+                            <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'COMMON_EMAIL_NOTIFICATION' | translate }}
+                            <i title="{{'COMMON_VIEW' | translate }} {{'COMMON_EMAIL_NOTIFICATION' | translate }}" class=" fa fa-eye fa-lg text-blue pull-right" ng-show="task.notificationTemplateId > 0" ng-click="showNotificationTemplate(task.notificationTemplateId)"></i>
+                        </div>
+                        <select class="form-control" ng-disabled="!(task.issmsNotification || task.isEmailNotification)" data-ng-model="task.notificationTemplateId" data-ng-options="obj.id as obj.name for obj in notifcations | filter: filterTaskReminderNotifications">
+                            <option value="?" selected="selected" label=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="isProspectingCategory()">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'NOTIFICATIONTEMPLATES_MEETING_SCHEDULE' | translate }}
+                            <i ng-title="{{'COMMON_VIEW' | translate }} {{'NOTIFICATIONTEMPLATES_MEETING_SCHEDULE' | translate }}" class="fa fa-eye fa-lg text-blue pull-right" ng-show="task.meetingNotificationTemplateId > 0" ng-click="showNotificationTemplate(task.meetingNotificationTemplateId)"></i>
+                        </div>
+                        <select class="form-control" ng-disabled="!(task.issmsNotification || task.isEmailNotification)" data-ng-model="task.meetingNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notifcations | filter: filterMeetingScheduleNotifications"><option value="?" selected="selected" label=""></option></select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'NOTIFICATIONTEMPLATES_FOLLOWUP_SCHEDULE' | translate }}
+                            <i title="{{'COMMON_VIEW' | translate }} {{'NOTIFICATIONTEMPLATES_FOLLOWUP_SCHEDULE' | translate }}" class="fa fa-eye fa-lg text-blue pull-right" ng-show="task.followUpNotificationTemplateId > 0" ng-click="showNotificationTemplate(task.followUpNotificationTemplateId)"></i>
+                        </div>
+                        <select class="form-control" ng-disabled="!(task.issmsNotification || task.isEmailNotification)" data-ng-model="task.followUpNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notifcations | filter: filterFollowupScheduleNotifications"><option value="?" selected="selected" label=""></option></select>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-cstm-lable">
+                            {{'NOTIFICATIONTEMPLATES_SALES_AGREED' | translate }}
+                            <i title="{{'COMMON_VIEW' | translate }} {{'NOTIFICATIONTEMPLATES_SALES_AGREED' | translate }}" class="fa fa-eye fa-lg text-blue pull-right" ng-show="task.salesNotificationTemplateId > 0" ng-click="showNotificationTemplate(task.salesNotificationTemplateId)"></i>
+                        </div>
+                        <select class="form-control" ng-disabled="!(task.issmsNotification || task.isEmailNotification)" data-ng-model="task.salesNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notifcations | filter: filterSalesNotificationTemplates"><option value="?" selected="selected" label=""></option></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12 heding-bg">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-sub-title"> {{'TASKMANAGEMENT_ESTIMATE' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-duration ng-model="task" ng-property="timeEstimateMinutes"></div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12 heding-bg">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-sub-title"> {{'COMMON_SPENT' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-duration ng-model="task" ng-property="timeSpentMinutes"></div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <button class="btn btn-cstm" ng-click="remove()">
+                        <i class="fa fa-trash"></i>
+                        {{'COMMON_REMOVE' | translate }}
+                    </button>
+                    <button class="btn btn-cstm cancel pull-right" ng-click="back()">
+                        <i class="fa fa-close"></i>
+                        {{'COMMON_CANCEL' | translate }}
+                    </button>
+                    <button class="btn btn-cstm cancel pull-right" ng-disabled="newToDoTask.$error.required" ng-click="save()">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        {{'COMMON_SAVE' | translate }}
+                    </button>
+                    <button class="btn btn-cstm pull-right" ng-disabled="newToDoTask.$error.required" ng-click="saveAndNew()">
+                        <i class="fa fa-floppy-o"></i>
+                        {{'TASKMANAGEMENT_SAVE_AND_NEW_TASK' | translate }}
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+    <div id="trainingInfoModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="trainingDetailSystemModalLabel">{{'COMMON_TRAINING_DETAIL' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                    <div>{{trainingInfo.name}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" ng-if="isStandardPanel">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                                    <div>{{trainingInfo.skills[0].name}}</div>
+                                    <div>{{trainingInfo.skills[0].description}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_WHY' | translate }} - {{'COMMON_WHY_IS_THE_TRAINING_NEEDED' | translate }} {{'COMMON_WHY_DO_YOU_WANT_TO_DO_THIS_TRAINING' | translate }} {{'COMMON_REASONS_BEHIND_YOUR_ACTION' | translate }}</label>
+                                    <div>{{trainingInfo.why}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_WHAT' | translate }} - {{'COMMON_WHAT_DO_YOU_WANT_TO_ACCOMPLISH' | translate }} {{'COMMON_WHAT_ARE_THE_BENEFITS_OF_THESE_TRAININGS' | translate }}</label>
+                                    <div>{{trainingInfo.what}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_HOW' | translate }} - {{'COMMON_HOW_WILL_YOU_DO_THE_TRAINING_STEP_BY_STEP' | translate }}</label>
+                                    <div>{{trainingInfo.how}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="description">{{'COMMON_ADDITIONAL_INFO' | translate }}</label>
+                                    <div>{{trainingInfo.additionalInfo}}</div>
+                                </div>
+                            </div>
+
+                            <div class="row margin-left0-bottom15">
+                                <div class="form-group date-group">
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="starDate">{{'COMMON_START_DATE' | translate }}</label>
+                                        <div>{{trainingInfo.startDate}}</div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <label class="control-label" for="endDate">{{'COMMON_END_DATE' | translate }}</label>
+                                        <div>{{trainingInfo.endDate}}</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row margin-left0-bottom15">
+                                <div class="form-group date-group">
+                                    <div class="col-md-3">
+
+                                        <label class="control-label" for="duration">{{'COMMON_HOW_LONG' | translate }}</label>
+                                        <div>{{trainingInfo.duration}}</div>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="durationMetrics">{{'COMMON_DURATION_METRICS' | translate }}</label>
+                                        <div>{{trainingInfo.durationMetricId}}</div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <label class="control-label">{{'COMMON_HOW_OFTEN' | translate }}</label>
+                                        <div>{{trainingInfo.frequency}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row margin-left0-bottom15">
+                                <div class="form-group date-group">
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="howmuch">{{'COMMON_HOW_MUCH_OR_MANY' | translate }}</label>
+                                        <div>{{trainingInfo.howMany}}</div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="exerciseMetrics">{{'COMMON_METRICS' | translate }}</label>
+                                        <div>{{trainingInfo.exerciseMetricId}}</div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="sets">{{'COMMON_HOW_MANY_SETS' | translate }}</label>
+                                        <div>{{trainingInfo.howManySets}}</div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label" for="actions">{{'COMMON_HOW_MANY_ACTIONS' | translate }}</label>
+                                        <div>{{trainingInfo.howManyActions}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div id="tmGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="notificationTemplateModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="trainingDetailSystemModalLabel">{{'COMMON_TRAINING_DETAIL' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                    <div>{{templateInfo.name}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_CULTURE' | translate }}</label>
+                                    <div>{{templateInfo.culture[0].cultureName}}</div>
+                                    <div>{{templateInfo.culture[0].region}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_EMAIL_SUBJECT' | translate }}</label>
+                                    <div>{{templateInfo.emailSubject}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_EMAIL_BODY' | translate }}</label>
+                                    <div id="emailBody">{{templateInfo.emailBody}}</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_SMS' | translate }}</label>
+                                    <div>{{templateInfo.smsMessage}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ui-view></div>

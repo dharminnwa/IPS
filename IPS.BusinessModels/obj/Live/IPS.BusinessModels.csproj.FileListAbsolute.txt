@@ -1,0 +1,11 @@
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.BusinessModels.dll.config
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.BusinessModels.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.BusinessModels.pdb
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Live\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.BusinessModels\obj\Live\IPS.BusinessModels.csprojResolveAssemblyReference.cache
+D:\DotNetProjects\IPS\IPS.BusinessModels\obj\Live\IPS.BusinessModels.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\obj\Live\IPS.BusinessModels.pdb

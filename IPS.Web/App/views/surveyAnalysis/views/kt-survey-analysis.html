@@ -1,0 +1,61 @@
+﻿
+<div pane name="survey" ng-init="init()" class="row">
+    <div class="col-sm-12">
+        <div class="profile-name">{{profileName}}</div>
+    </div>
+
+
+    <div class="analysis-steps">
+        <div class="col-sm-12">
+            <div class="performance-group-name">{{currentStepAnswer.performanceGroupName}}</div>
+            <div class="skill-name">{{currentStepAnswer.skillNames}}</div>
+            <div class="question">{{currentStepAnswer.questionText}}</div>
+
+            <label class="user-answer-label">{{'MYPROFILES_YOUR_ANSWER' | translate }}:</label>
+            <div class="disable">
+                <answer type="currentStepAnswer.answerTypeId" 
+                        possible-answers="currentStepAnswer.possibleAnswers"
+                        user-answer="currentStepAnswer.userAnswer" 
+                        single-choice-radio-group-id="currentStepAnswer.userAnswerId">
+                </answer>
+            </div>
+
+            <label class="correct-answer-label">{{'MYPROFILES_CORRECT_ANSWER' | translate }}:</label>
+            <div class="disable">
+                <answer type="currentStepAnswer.answerTypeId" 
+                        possible-answers="currentStepAnswer.possibleAnswers"
+                        user-answer="currentStepAnswer.correctAnswer"
+                        single-choice-radio-group-id="currentStepAnswer.questionId">
+                </answer>
+            </div>
+        </div>
+
+        <label class="comment-label">{{'MYPROFILES_COMMENT' | translate }}:</label>
+        <div class="comment">
+            <textarea class="form-control disable" ng-model="currentStepAnswer.comment"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-12 question-navigation">
+        <div class="question-navigation-info">{{'MYPROFILES_QUESTION' | translate }} {{currentAnswerIndex + 1}} {{'MYPROFILES_OF' | translate }} {{answers.length}}</div>
+        <button ng-repeat="answer in answers track by $index" class="button-question-navigation button-red"
+                ng-class="{'button-green': isCorrectAnswer($index)}"
+                ng-click="changeAnswer($index)"></button>
+    </div>
+
+    <div class="col-sm-12 buttons-align-center">
+        <button class="btn btn-cstm ips-row-button ips-survey-button"
+                ng-disabled="isNotShowPreviousAnswer()"
+                ng-click="previousAnswer()">
+            {{'MYPROFILES_PREVIOUS' | translate }}
+        </button>
+        <button class="btn btn-cstm ips-row-button ips-survey-button"
+                ng-disabled="isNotShowNextAnswer()"
+                ng-click="nextAnswer()">
+            {{'MYPROFILES_NEXT' | translate }}
+        </button>
+    </div>
+</div>
+
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

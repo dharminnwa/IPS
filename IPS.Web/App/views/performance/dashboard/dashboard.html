@@ -1,0 +1,160 @@
+
+<div pane name="dashboard">
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a class="newhead title fa fa-long-arrow-left" ng-click="dashboard.goBack()"></a>
+            <h1 class="title">{{'COMMON_DASHBOARD' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                        <span ng-show='profileForm.profileOrganizationId.$invalid' class="required">*</span>
+                        <select class="form-control" name="profileOrganizationId" data-ng-model="dashboard.organizationId" ng-change="dashboard.organizationChanged()" data-ng-options="obj.id as obj.name for obj in dashboard.organizations"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROJECTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.projectsOptions" selected-model="dashboard.projectsModel" ng-disabled="dashboard.projects.length < 1" translation-texts="dashboard.projectsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.projectsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_DEPARTMENTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.departmentsOptions" selected-model="dashboard.departmentsModel" ng-disabled="dashboard.departments.length < 1" translation-texts="dashboard.departmentsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.departmentsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_TEAMS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.teamsOptions" selected-model="dashboard.teamsModel" ng-disabled="dashboard.teams.length < 1" translation-texts="dashboard.teamsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.teamsEvents"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE' | translate }}</label>
+                        <select class="form-control" name="profileOrganizationId" ng-disabled="dashboard.profiles.length < 2" data-ng-model="dashboard.profileId" ng-change="dashboard.profileChanged()" data-ng-options="obj.id as obj.name for obj in dashboard.profiles"></select>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_MAIN_PARTICIPANTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.mainParticipantsOptions" selected-model="dashboard.mainParticipantsModel" ng-disabled="dashboard.participants.length < 1" translation-texts="dashboard.mainParticipantsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.mainParticipantsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_MAIN_EVALUATORS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.mainEvaluatorsOptions" selected-model="dashboard.mainEvaluatorsModel" ng-disabled="!dashboard.isMainEvaluatorsEnabled" translation-texts="dashboard.mainEvaluatorsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.mainEvaluatorsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATION'| translate}})</label>
+                        <select class="form-control" name="mainStageId" ng-disabled="dashboard.mainStages.length < 2" data-ng-model="dashboard.mainStageId" ng-change="dashboard.stageChanged(1);" data-ng-options="obj.id as obj.name for obj in dashboard.mainStages"></select>
+                    </div>
+                    <div>
+                        <button id="mainContract" class="dashboard-btn" ng-click="dashboard.goToDevContract(1)" ng-disabled="dashboard.mainParticipantsModel.length != 1 || dashboard.mainEvaluatorsModel.length != 1">{{'COMMON_DEVELOPMENT_CONTRACT' | translate }}</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE_STEPS' | translate }}</label>
+                        <select class="form-control" name="mainProfileStep" data-ng-model="dashboard.mainProfileStepId" ng-change="dashboard.mainProfileStepChanged()" data-ng-options="obj.id as obj.label for obj in dashboard.mainStepsOfProfile"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_COMPARE_WITH' | translate }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PARTICIPANTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.participantsOptions" selected-model="dashboard.participantsModel" ng-disabled="dashboard.participants.length < 1" translation-texts="dashboard.participantsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.participantsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_EVALUATORS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="dashboard.evaluatorsOptions" selected-model="dashboard.evaluatorsModel" ng-disabled="!dashboard.isEvaluatorsEnabled" translation-texts="dashboard.evaluatorsCustomTexts" extra-settings="dashboard.smartButtonSettings" events="dashboard.evaluatorsEvents"></div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATION'| translate}})</label>
+                        <select class="form-control" name="stageId" ng-disabled="dashboard.stages.length < 2" data-ng-model="dashboard.stageId" ng-change="dashboard.stageChanged(2);" data-ng-options="obj.id as obj.name for obj in dashboard.stages"></select>
+                    </div>
+                    <div>
+                        <button id="compareContract" class="dashboard-btn" ng-click="dashboard.goToDevContract(2)" ng-disabled="dashboard.mainParticipantsModel.length != 1 || dashboard.mainEvaluatorsModel.length != 1">{{'COMMON_DEVELOPMENT_CONTRACT' | translate }}</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE_STEPS' | translate }}</label>
+                        <select class="form-control" name="profileStep" data-ng-model="dashboard.profileStepId" ng-change="dashboard.profileStepChanged()" data-ng-options="obj.id as obj.label for obj in dashboard.stepsOfProfile"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="dashboard.isShowBenchmark" ng-change="dashboard.getBenchmark()"><label class="control-label">{{'COMMON_SHOW_BENCHMARK' | translate }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <!--<div ng-dashboard-filter show-report="filteredResult.isShowReport" show-compare-report="filteredResult.isShowCompareReport" profile-type="dashboard.profileType"
+                     profile-id="dashboard.profileId"
+                     period-id="null" organization-id="dashboard.organizationId" user-id="null"
+                     ng-report-data="filteredResult.reportData" ng-compare-report-data="filteredResult.compareReportData" main-stage-name="dashboard.mainStageName"
+                     stage-name="dashboard.stageName" kt-stages-results="filteredResult.ktStagesResults"
+                     kt-compare-stages-result="filteredResult.ktCompareStagesResults"
+                     show-gauge="filteredResult.showGauge"
+                     show-graph="filteredResult.showGraph"
+                     show-kpi-bar="filteredResult.showKpiBar"
+                     show-compare-kpi="filteredResult.showCompareKpi"
+                     show-compare-gauge="filteredResult.showCompareGauge"></div>-->
+
+                <!--<div ng-dashboard show-report="dashboard.isShowReport"
+                     profile-id="dashboard.profileId"
+                     period-id="dashboard.periodId"
+                     organization-id="dashboard.organizationId"
+                     user-id="dashboard.participantId"
+                     ng-report-data="dashboard.reportData"
+                     main-stage-name="dashboard.mainStageName"
+                     stage-name="dashboard.stageName"
+                     profile-type="dashboard.profileType"
+                     kt-stages-results="dashboard.ktStagesResults"
+                     show-gauge="dashboard.reportData.showGauge"
+                     show-graph="dashboard.reportData.showGraph"
+                     show-kpi-bar="dashboard.reportData.showKpiBar"
+                     show-compare-kpi="dashboard.reportData.showCompareKpi"
+                     show-compare-gauge="dashboard.reportData.showCompareGauge"></div>-->
+                <!--<div ng-dashboard show-report="dashboard.isShowReport" show-compare-report="dashboard.isShowCompareReport" profile-type="dashboard.profileType"
+                     profile-id="dashboard.profileId"
+                     period-id="dashboard.periodId" organization-id="dashboard.organizationId" user-id="dashboard.participantId"
+                     ng-report-data="filteredResult.reportData" ng-compare-report-data="dashboard.compareReportData" main-stage-name="dashboard.mainStageName"
+                     stage-name="dashboard.stageName" kt-stages-results="dashboard.ktStagesResults"
+                     kt-compare-stages-result="dashboard.ktCompareStagesResults"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

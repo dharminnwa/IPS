@@ -1,0 +1,619 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet box collapse-light-box">
+            <div class="row tab-header header-blue mt-5 m-0">
+                <div class="col-lg-12 col-xs-12">
+                    <h3> {{'TASKPROSPECTING_TODAYS_ACTIVITY' | translate }} <small> {{todayStartDate | date:'short'}} - {{todayEndDate | date:'short'}}</small> </h3>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-8 col-xs-6">
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                            {{activityProspectingGoalFilterText ?activityProspectingGoalFilterText : "-- " + ('COMMON_SELECT' | translate ) + " --" }}
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li ng-click="ActivityProspectingGoalFilterChanged(null)">
+                                <a href="javascript:;">   {{'TASKPROSPECTING_ALL' | translate }}</a>
+                            </li>
+                            <li ng-click="ActivityProspectingGoalFilterChanged(prospectingGoalItem.id)" ng-repeat="prospectingGoalItem in prospectingGoals | filter : showFilteredProspectingGoals">
+                                <a href="javascript:;"> {{prospectingGoalItem.name}} ({{prospectingGoalItem.userName}})</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                            {{activityFilterText ? activityFilterText : "-- " + ('COMMON_SELECT' | translate ) + " --" }}
+
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-click="ActivityFilterChanged(null)">
+                                <a href="javascript:;">   {{'TASKPROSPECTING_ALL' | translate }}</a>
+                            </li>
+                            <li ng-click="ActivityFilterChanged(activityFilterOption.value)" ng-repeat="activityFilterOption in ActivityFilterOptions">
+                                <a href="javascript:;"> {{activityFilterOption.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12 col-xs-6 mt-3 hide">
+                    <button class="btn dropdown-toggle btn-cstm pull-right" type="button" ng-click="openAddActivity()" ng-show="isForCurrentUserOnly()">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        {{'TASKPROSPECTING_ADD_ACTIVITY' | translate }}
+                    </button>
+                </div>
+            </div>
+
+            <div class="row mt-5 ">
+                <div class="col-md-4" ng-repeat="prospectingActivity in viewProspectingActivityResultData | orderBy:'activityStart'">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h1 class="card-heading">
+                                    <i class="fa fa-pencil-square-o mt-3" ng-click="viewProspectingGoalActivityInfoes(prospectingGoalActivityInfo.id)"></i>
+                                    {{prospectingGoalActivityInfo.goalName}}
+                                </h1>
+                            </div>
+                            <div class="card-body">
+                                <h3>{{prospectingActivity.name}}</h3>
+                                <div class="date-section">
+                                    <h5> <label>{{'COMMON_START_DATE' | translate}} : &nbsp;</label> <i class="fa fa-calendar" aria-hidden="true"></i> {{prospectingActivity.activityStart}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> </h5>
+                                    <h5> <label>{{'COMMON_END_DATE' | translate}} : &nbsp;</label> <i class="fa fa-calendar" aria-hidden="true"></i> {{prospectingActivity.activityEnd}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> </h5>
+                                </div>
+                            </div>
+
+                            <div class="card-icons text-center mt-3">
+                                <a href="javascript:;" data-toggle="tooltip" data-placement="left" title=""
+                                   data-original-title="{{'TASKPROSPECTING_START_ACTIVITY' | translate }}"
+                                   ng-click="startActvity(prospectingActivity.id,prospectingGoalActivityInfo.id,prospectingGoalActivityInfo.prospectingGoalId)"
+                                   ng-hide="(isActivityStart || (!isActivtyOpen(prospectingGoalActivityInfo.id,prospectingActivity.id)))">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                                <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{'TASKPROSPECTING_EDIT' | translate }}" ng-hide="prospectingActivity.stopTime || (!isForCurrentUserOnly())" ng-click="editActivity(prospectingGoalActivityInfo.id,prospectingActivity.id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{'TASKPROSPECTING_VIEW' | translate }}" ng-click="viewActivity(prospectingGoalActivityInfo.id,prospectingActivity.id)">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </a>
+                                <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{'TASKPROSPECTING_VIEW_RESULT' | translate }}" ng-click="viewActivityDetail(prospectingGoalActivityInfo.prospectingGoalId,prospectingActivity.id)">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                </a>
+                                <a href="javascript:;" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{'TASKPROSPECTING_ADD_REASON' | translate }}" ng-show="activityFilterValue == ActivityFilterOptionsEnum.Expired && (!prospectingActivity.stopTime) && (!prospectingActivity.expiredProspectingActivityReasons.length > 0) && isForCurrentUserOnly()" ng-click="openAddActivityReason(prospectingGoalActivityInfo.id,prospectingActivity.id)">
+                                    <i class="fa fa-comments"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="modal fade add-activity-pop-up" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header pop-up-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Add Extra Activity</h5>
+                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="exampleInputEmail1" class="form-cstm-lable">
+                                            Activity Name
+                                        </label>
+                                        <select class="form-control">
+                                            <option>Select Activity Name </option>
+                                            <option>Activity 1 </option>
+                                            <option>Activity 2 </option>
+                                            <option>Activity 3 </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> Activity Start</label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="activity-start-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="activity-start-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="activity-start-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> Activity End </label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="activity-end-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="activity-end-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="activity-end-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-5">
+                                    <div class="col-md-4">
+                                        <label for="exampleInputEmail1" class="form-cstm-lable">
+                                            Activity Type
+                                        </label>
+
+                                        <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="" aria-hidden="true" data-original-title=" 1) One Time Activity : It will give you an option to set one time activity as per recurrent setting.
+                                                                                                                          2) Recurrent and Multiple Activities : It gives you an option to set Multiple activities for each recurrent.">
+
+                                        </i>
+                                        <select class="form-control">
+                                            <option>Select Activity Type </option>
+                                            <option>Activity 1 </option>
+                                            <option>Activity 2 </option>
+                                            <option>Activity 3 </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                Activity Time (minutes)
+                                            </label>
+                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                Break Time (minutes)
+                                            </label>
+                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 mt-3">
+                                        <label for="exampleInputEmail1" class="form-cstm-lable">
+                                            Recurrence Setting
+                                        </label>
+                                        <select class="form-control">
+                                            <option>Select Recurrence Setting </option>
+                                            <option>Never</option>
+                                            <option>Daily </option>
+                                            <option>Monthly </option>
+                                            <option>Yearly </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row mt-5">
+                                            <div class="col-md-3">
+                                                <label for="exampleInputEmail1">
+                                                    <b>Repeat Every : </b>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row m-0">
+                                                    <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-2 ">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="optradio">After
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                            </div>
+                                                            <div class="col-lg-4 mt-3">
+                                                                <label>Week(s)</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-5">
+                                            <label for="exampleInputEmail1">
+                                                Repeat <b>On :</b>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1">Sunday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Monday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Tuesday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Wednesday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Thursday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Friday
+                                                <span></span>
+                                            </label>
+                                            <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                <input type="checkbox" name="remember" value="1"> Saturday
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="exampleInputEmail1">
+                                                    <b>End : </b>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row m-0">
+                                                    <div class="col-12">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="optradio" checked=""> Never
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="row mt-5">
+                                                            <div class="col-lg-2 ">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="optradio">After
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                            </div>
+                                                            <div class="col-lg-4 mt-3">
+                                                                <label>Occurrence (s)</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-5">
+                                                            <div class="col-lg-2">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="optradio">On
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div id="example">
+                                                                    <div class="demo-section k-content">
+                                                                        <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="repeat-on-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="repeat-on-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="repeat-on-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row  mt-6">
+                                            <div class="col-md-4">
+                                                <div class="activity-record-box">
+                                                    <div class="activity-card-header header-blue text-center">
+                                                        Total Goals
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>15</h6>
+                                                            <span>Calls</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>12</h6>
+                                                            <span>Talks</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>10</h6>
+                                                            <span>Meetings</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="activity-record-box">
+                                                    <div class="activity-card-header header-blue text-center">
+                                                        Daily Goals
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>5.26</h6>
+                                                            <span>Calls</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>4.21</h6>
+                                                            <span>Talks</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>2.63</h6>
+                                                            <span>Meetings</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="activity-record-box">
+                                                    <div class="activity-card-header header-blue text-center">
+                                                        Weekly Goals
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>100</h6>
+                                                            <span>Calls</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>80</h6>
+                                                            <span>Talks</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="activity-record">
+                                                            <h6>50</h6>
+                                                            <span>Meetings</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-6">
+                                            <div class="col-md-12">
+                                                <div id="example">
+                                                    <div id="addextraactivitygrid" data-role="grid" class="k-grid k-widget k-display-block" style="height: 250px;"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable"><table role="grid"><colgroup><col style="width:50px"><col style="width:210px"><col style="width:200px"><col style="width:200px"></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader" aria-haspopup="true" rowspan="1" data-title="Select All" data-index="0" id="2829b3ef-8782-4e28-8f42-2f0d924bffaf" class="k-header"><input type="checkbox" id="header-chb"><label class="" for="header-chb"></label></th><th scope="col" role="columnheader" data-field="Activity" aria-haspopup="true" rowspan="1" data-index="1" id="7be1568f-b21b-4e24-bec9-a9236f636828" class="k-header" data-role="columnsorter"><a class="k-link" href="#">Activity</a></th><th scope="col" role="columnheader" data-field="StartTime" aria-haspopup="true" rowspan="1" data-title="Start Time" data-index="2" id="d1c35724-47d5-4cef-8b70-36406262f57d" class="k-header" data-role="columnsorter"><a class="k-link" href="#">Start Time</a></th><th scope="col" role="columnheader" data-field="endtime" aria-haspopup="true" rowspan="1" data-title="End Time" data-index="3" id="83094fc5-781f-4d88-b755-fa46e2e174f1" class="k-header" data-role="columnsorter"><a class="k-link" href="#">End Time</a></th></tr></thead></table></div></div><div class="k-grid-content k-auto-scrollable"><table role="grid" style="height: auto;"><colgroup><col style="width:50px"><col style="width:210px"><col style="width:200px"><col style="width:200px"></colgroup><tbody role="rowgroup"><tr data-uid="515f495a-5eda-4dbf-9b7d-28c8c7274796" role="row"><td role="gridcell"><input type="checkbox"></td><td class="" role="gridcell">Activity 1</td><td class="" role="gridcell">02/05/2019 4:16 PM</td><td class="" role="gridcell">02/05/2019 4:26 PM</td></tr><tr class="k-alt" data-uid="504ee35e-6554-414c-935c-01078730313d" role="row"><td role="gridcell"><input type="checkbox"></td><td class="" role="gridcell">Activity 2</td><td class="" role="gridcell">02/05/2019 4:27 PM</td><td class="" role="gridcell">02/05/2019 4:57 PM</td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap k-pager-sm" data-role="pager"><a href="#" aria-label="Go to the first page" title="Go to the first page" class="k-link k-pager-nav k-pager-first k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-end-left"></span></a><a href="#" aria-label="Go to the previous page" title="Go to the previous page" class="k-link k-pager-nav  k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-60-left"></span></a><span class="k-pager-input k-label">Page<input class="k-textbox" aria-label="1">of 1</span><a href="#" aria-label="Go to the next page" title="Go to the next page" class="k-link k-pager-nav  k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-60-right"></span></a><a href="#" aria-label="Go to the last page" title="Go to the last page" class="k-link k-pager-nav k-pager-last k-state-disabled" data-page="1" tabindex="-1"><span class="k-icon k-i-arrow-end-right"></span></a><span class="k-pager-info k-label">1 - 2 of 2 items</span></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary  btn-cstm m-0"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                    <button type="button" class="btn btn-secondary  btn-cstm m-0" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="editActivityModal" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_ACTIVITY_INFO' | translate }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <ng-form id="formEditActivity" name="formEditActivity">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="form-cstm-lable">{{'COMMON_NAME' | translate }}</label>
+                                                            <input type="text" class="form-control" ng-model="prospectingActivity.name" name="name" placeholder="Name" ng-required="true" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_START_TIME' | translate }}</label>
+                                                            <input kendo-date-time-picker
+                                                                   id="activityStart"
+                                                                   name="activityStart"
+                                                                   ng-model="prospectingActivity.activityStart"
+                                                                   ng-disabled="(prospectingActivity.startTime != null)" />
+                                                            <span ng-show="(prospectingActivity.startTime != null)">{{'TASKPROSPECTING_YOU_HAVE_ALREADY_STARTED_THIS_ACTIVITY_AT' | translate }} {{prospectingActivity.startTime | date:'short'}}</span>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_END_TIME' | translate }}</label>
+                                                            <input kendo-date-time-picker
+                                                                   id="activityEnd"
+                                                                   name="activityEnd"
+                                                                   k-on-open="activityEndOpen(kendoEvent)"
+                                                                   ng-model="prospectingActivity.activityEnd"
+                                                                   ng-disabled="(prospectingActivity.stopTime != null)" />
+                                                            <span ng-show="(prospectingActivity.stopTime != null)">{{'TASKPROSPECTING_YOU_HAVE_ALREADY_FINISH_THIS_ACTIVITY_AT' | translate }} {{prospectingActivity.stopTime | date:'short'}}</span>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelActivity()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                <button class="btn btn-cstm primary pull-right" ng-click="saveProspectingActivity()" ng-hide="isActivityReadOnly" ng-disabled="formEditActivity.$invalid" data-dismiss="modal" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                            </div>
+                                        </div>
+                                    </ng-form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade activity-info-pop-up" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header pop-up-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">View Activity Info</h5>
+                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                Name
+                                            </label>
+                                            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> Start Time</label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="info-activity-start-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="info-activity-start-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="info-activity-start-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> End Time </label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="info-activity-end-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="info-activity-end-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="info-activity-end-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary  btn-cstm m-0" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade edit-activity-info-pop-up" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header pop-up-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Activity Info</h5>
+                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                Name
+                                            </label>
+                                            <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> Start Time</label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="edit-activity-info-start-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="edit-activity-info-start-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="edit-activity-info-start-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="example">
+                                            <div class="demo-section k-content">
+                                                <label for="exampleInputEmail1"> End Time </label>
+                                                <span class="k-widget k-datetimepicker" style="width: 100%;"><span class="k-picker-wrap k-state-default"><input id="edit-activity-info-end-date" title="datetimepicker" style="width: 100%;" data-role="datetimepicker" type="text" class="k-input" role="combobox" aria-expanded="false" autocomplete="off" aria-disabled="false"><span class="k-icon k-i-warning"></span><span unselectable="on" class="k-select"><span class="k-link k-link-date" aria-label="Open the date view" aria-controls="edit-activity-info-end-date_dateview"><span unselectable="on" class="k-icon k-i-calendar"></span></span><span class="k-link k-link-time" aria-label="Open the time view" aria-controls="edit-activity-info-end-date_timeview"><span unselectable="on" class="k-icon k-i-clock"></span></span></span></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary  btn-cstm m-0"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                    <button type="button" class="btn btn-secondary  btn-cstm m-0" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade reason-pop-up" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header pop-up-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Reason</h5>
+                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="exampleInputEmail1" class="form-cstm-lable">
+                                            Please Select Reason Category For Not Fullfill Task
+                                        </label>
+                                        <select class="form-control">
+                                            <option>Select Reason </option>
+                                            <option>Reason 1 </option>
+                                            <option>Reason 2 </option>
+                                            <option>Reason 3 </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mt-5">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Please specify more why the task is not completed, Thank You</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary  btn-cstm m-0"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                    <button type="button" class="btn btn-secondary  btn-cstm m-0" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="restart-poup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered  modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header pop-up-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <b>Are you sure you want to Re-Start this Activity?</b>
+                            </div>
+                            <div class="modal-footer m-0">
+                                <button type="button" class="btn btn-primary btn-cstm m-0"> <i class="fa fa-check" aria-hidden="true"></i> Yes </button>
+                                <button type="button" class="btn btn-secondary btn-cstm m-0" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

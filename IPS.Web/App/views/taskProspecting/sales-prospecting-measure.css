@@ -1,0 +1,374 @@
+.portlet-light {
+    padding: 15px 10px 15px;
+}
+
+.tab-header {
+    background-color: #eef1f5;
+}
+
+    .tab-header h5 {
+        font-size: 15px;
+        color: black;
+        font-weight: 600;
+        line-height: 1.6;
+    }
+
+    .tab-header span {
+        font-size: 13px;
+        color: black;
+        padding-left: 5px;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+.current-project-details .current-project-details-body-stat {
+    font-size: 20px;
+    padding-top: 13px;
+}
+
+.edit-icon {
+    margin-bottom: 10px;
+}
+
+.tab-header {
+    background-color: #eef1f5;
+}
+
+    .tab-header .btn-group {
+        padding-top: 22px;
+    }
+
+    .tab-header h3 {
+        color: #000;
+        font-size: 18px;
+        margin: 5px 0px;
+        padding: 10px;
+        font-weight: 500;
+    }
+
+.btn-cstm {
+    padding: 5px 10px;
+}
+
+.goals-chart-details h5 {
+    font-size: 18px;
+}
+
+    .goals-chart-details h5 span {
+        font-size: 18px;
+    }
+
+.goals-chart-view-details h4 {
+    border: 1px solid #dadada;
+    color: #000000;
+    padding: 7px;
+}
+
+    .goals-chart-view-details h4 b {
+        font-weight: 600;
+    }
+
+.k-content h2 {
+    font-size: 14px;
+}
+
+#gauge3 {
+    margin: 0px;
+}
+/* #gauge6 {
+  width: 200px;
+  height: 250px;
+  margin: 25px auto 0;
+} */
+
+.service-gauge6 {
+    margin: 0 !important;
+}
+
+.theme-panel > .toggler {
+    top: -77px !important;
+}
+
+.nav-tabs {
+    background: #fff none repeat scroll 0% 0%;
+    border-bottom: 2px solid #ddd;
+}
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover {
+        border-width: 0;
+    }
+
+    .nav-tabs > li > a {
+        border: none;
+        color: #464646;
+        padding: 20px;
+        /* background: #ff7829; */
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+        .nav-tabs > li.active > a,
+        .nav-tabs > li > a:hover {
+            border: none;
+            color: #5a4080 !important;
+            background: #fff;
+        }
+
+        .nav-tabs > li > a::after {
+            content: "";
+            background: #ff7829;
+            height: 2px;
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            bottom: -1px;
+            transition: all 250ms ease 0s;
+            transform: scale(0);
+        }
+
+    .nav-tabs > li.active > a::after,
+    .nav-tabs > li:hover > a::after {
+        transform: scale(1);
+    }
+
+.tab-nav > li > a::after {
+    background: #5a4080 none repeat scroll 0% 0%;
+    color: #fff;
+}
+
+/* .tab-pane {
+  padding: 15px 0;
+} */
+
+/* .tab-content {
+  padding: 20px;
+} */
+
+.nav-tabs > li {
+    width: auto;
+}
+
+    .nav-tabs > li.active > a > span {
+        color: #464646;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+/* .card {
+  background: #fff none repeat scroll 0% 0%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+} */
+
+@media (min-width: 768px) {
+    div.col-sm-7.five-three {
+        width: 60% !important;
+    }
+
+    div.col-sm-5.five-two {
+        width: 40% !important;
+    }
+}
+
+@media all and (max-width: 724px) {
+    .nav-tabs > li > a > span {
+        display: none;
+    }
+
+    .nav-tabs > li > a {
+        padding: 5px 5px;
+    }
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px !important;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.vs {
+    text-transform: lowercase !important;
+    color: #5f5f5f !important;
+    font-size: 18px !important;
+}
+
+.theme-panel > .toggler-close {
+    top: -77px !important;
+}
+
+.theme-panel > .theme-options {
+    top: -37px !important;
+}
+
+/* .btn-left{
+  left: -120px;
+}
+
+.btn-group>.dropdown-menu:after, .dropdown-toggle>.dropdown-menu:after, .dropdown>.dropdown-menu:after{
+  left:144px;
+} */
+
+.header-widget h4 {
+    background-color: #e8e8e8;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
+
+#gauge-container {
+    background: transparent url(../../img/gauge-container-partial.png) no-repeat 50% 50%;
+    width: 268px;
+    height: 268px;
+    background-size: 240px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+
+#gauge1 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+#gauge2 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+#gauge3 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+#gauge4 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+#gauge5 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+#gauge6 {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 0;
+    top: -5%;
+}
+
+.goals-chart-details {
+    margin-top: -97px;
+}
+
+.k-content h6 {
+    margin-top: 54px !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .btn-cstm {
+        font-size: 11px !important;
+    }
+
+    .current-project-details {
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .page-bar .page-breadcrumb {
+        line-height: 2;
+    }
+
+    .page-content-wrapper .page-content {
+        overflow: unset !important;
+    }
+
+    .portlet > .portlet-title > .caption {
+        font-size: 16px !important;
+    }
+
+    .btn-cstm {
+        font-size: 11px !important;
+        margin: 2px 0px;
+    }
+
+    .current-project-details {
+        margin-top: 5px;
+    }
+}
+
+.img-circle {
+    width: 30px;
+    height: 30px;
+}

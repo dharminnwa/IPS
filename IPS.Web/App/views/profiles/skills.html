@@ -1,0 +1,476 @@
+﻿<div class="row">
+    <section class="portlet-light portlet-light-box">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <div class="card new-soft-profile-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/profile/{{profileId}}" aria-controls="ProfileSetup" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    {{'MYPROJECTS_PROFILE_SETUP' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" aria-controls="PerformanceGroups" role="tab">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>{{'COMMON_PERFORMANCE_GROUP' | translate}}- {{'COMMON_SKILL' | translate}} - {{'SOFTPROFILE_QUESTIONS' | translate}} - {{'SOFTPROFILE_TRAININGS' | translate}}</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/milestones" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    {{'SOFTPROFILE_SEND_OUTS' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="performanceGroups">
+                            <div class="row">
+                                <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable mt-6">
+                                    <div id="wid-id-0">
+                                        <!-- widget div-->
+                                        <div role="contentinfo">
+                                            <!-- widget content -->
+                                            <div class="widget-body">
+                                                <div class="row">
+
+                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                        <div class="form-bootstrapWizard">
+                                                            <ul class="bootstrapWizard form-wizard">
+                                                                <li data-target="#performanceGroups" data-toggle="tab">
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" class="active" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'COMMON_PERFORMANCE_GROUPS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="active">
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{profileId}}/skills" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_SKILLS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/questions" aria-expanded="true" ng-click="gotoQuestions()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_QUESTIONS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/trainings" aria-expanded="true" ng-click="gotoTrainings()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_TRAININGS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <div class="tab-content">
+
+                                                            <div class="tab-pane active" id="pgSkills">
+                                                                <div class="row">
+                                                                    <!-- Modal -->
+                                                                    <!--<div class="modal fade" id="skillModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header pop-up-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                                        Please, Add
+                                                                                        new
+                                                                                        Skills
+                                                                                    </h5>
+                                                                                    <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">×</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form>
+                                                                                        <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                                                            Select
+                                                                                            performance
+                                                                                            Group
+                                                                                        </label>
+                                                                                        <select class="form-control">
+                                                                                            <option> Option 1 </option>
+                                                                                            <option> Option 2 </option>
+                                                                                            <option> Option 3 </option>
+                                                                                            <option> Option 4 </option>
+                                                                                        </select>
+
+                                                                                        <div class="form-group mt-5">
+                                                                                            <label for="exampleInputEmail1">
+                                                                                                Skill
+                                                                                                Name
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleFormControlTextarea1">
+                                                                                                Description
+                                                                                            </label>
+                                                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                                        </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">
+                                                                                                Benchmark
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <label for="exampleInputEmail1">
+                                                                                                Weight
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                                        </div>
+                                                                                        <div class="mt-3">
+                                                                                            <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                                                                CSF
+                                                                                            </label>
+                                                                                            <div class="input-group">
+                                                                                                <input type="text" class="form-control">
+                                                                                                <span class="input-group-addon">
+                                                                                                    <i class="fa fa-plus"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div <div="" class="mt-5">
+                                                                                                                <label for="exampleInputEmail1" class="form-cstm-lable">
+                                                                                                                    Action
+                                                                                                                </label>
+                                                                                                                <div class="input-group">
+                                                                                                                    <input type="text" class="form-control">
+                                                                                                                    <span class="input-group-addon">
+                                                                                                                        <i class="fa fa-plus"></i>
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button class="btn dropdown-toggle btn-cstm mt-3" type="button" data-toggle="dropdown" aria-expanded="false">
+                                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                                        Add
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-secondary btn-cstm mt-3" data-dismiss="modal">
+                                                                                        <i class=" " aria-hidden="true"></i>
+                                                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                                                        Cancel
+                                                                                    </button>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>-->
+
+                                                                    <div id="skillModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-lg">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                    <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PLEASE_ADD_NEW_SKILL' | translate }}</h4>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="container-fluid">
+
+                                                                                        <div class="row">
+                                                                                            <ng-form class="form-horizontal" name="formSkill" action="#" id="formSkill" novalidate="novalidate">
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_PERFORMANCE_GROUP' | translate}}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.performanceGroupId.$dirty && formSkill.performanceGroupId.$error.required"> * </span>
+                                                                                                        <select class="form-control" data-ng-model="link_PerformanceGroupSkill.performanceGroupId" name="performanceGroupId" data-ng-options="obj.id as obj.name for obj in performanceGroups" ng-required="performanceGroups.length > 0 ? true:false"></select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_SKILL_NAME' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.name.$dirty && formSkill.name.$error.required"> * </span>
+                                                                                                        <input type="text" class="form-control" placeholder="Enter Skill Name" name="name" ng-model="link_PerformanceGroupSkill.name" ng-required="true">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_DESCRIPTION' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.description.$dirty && formSkill.description.$error.required"> * </span>
+                                                                                                        <textarea class="form-control" placeholder="Enter Description" name="description" ng-model="link_PerformanceGroupSkill.description" ng-required="true"></textarea>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_BENCHMARK' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.benchmark.$dirty && formSkill.benchmark.$error.required"> * </span>
+                                                                                                        <input type="number" class="form-control" placeholder="Enter Benchmark" name="benchmark" ng-model="link_PerformanceGroupSkill.benchmark" ng-required="true">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_WEIGHT' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.weight.$dirty && formSkill.weight.$error.required"> * </span>
+                                                                                                        <input type="number" class="form-control" placeholder="Enter Weight" name="weight" ng-model="link_PerformanceGroupSkill.weight" ng-required="true">
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_CSF' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.csf.$dirty && formSkill.csf.$error.required"> * </span>
+
+                                                                                                        <div class="input-group">
+                                                                                                            <textarea type="text" class="form-control" placeholder="Enter CSF" name="csf" ng-model="link_PerformanceGroupSkill.csf" ng-hide="link_PerformanceGroupSkill.csfList.length > 0" ng-required="link_PerformanceGroupSkill.csfList.length  > 0 ? false:true"></textarea>
+                                                                                                            <select class="form-control" data-ng-model="link_PerformanceGroupSkill.csf" name="csf" data-ng-options="i for i in link_PerformanceGroupSkill.csfList" ng-show="link_PerformanceGroupSkill.csfList.length > 0" ng-required="link_PerformanceGroupSkill.csfList.length > 0 ? true:false"></select>
+                                                                                                            <span class="input-group-addon">
+                                                                                                                <i class="fa fa-plus" ng-click="openNewCSFModal()"></i>
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_ACTION' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formSkill.action.$dirty && formSkill.action.$error.required"> * </span>
+                                                                                                        <div class="input-group">
+                                                                                                            <textarea type="text" class="form-control" placeholder="Enter Action" name="action" ng-model="link_PerformanceGroupSkill.action" ng-hide="link_PerformanceGroupSkill.actionList.length > 0" ng-required="link_PerformanceGroupSkill.actionList.length > 0 ? false:true"></textarea>
+                                                                                                            <select class="form-control" data-ng-model="link_PerformanceGroupSkill.action" name="action" data-ng-options="i for i in link_PerformanceGroupSkill.actionList" ng-show="link_PerformanceGroupSkill.actionList.length > 0" ng-required="link_PerformanceGroupSkill.actionList.length > 0 ? true:false"></select>
+                                                                                                            <span class="input-group-addon">
+                                                                                                                <i class="fa fa-plus" ng-click="openNewActionModal()"></i>
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <button class="btn btn-cstm cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                    <button class="btn btn-cstm pull-right" ng-disabled="(formSkill.$invalid)" ng-click="addNewSkill()" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                                                </div>
+                                                                                            </ng-form>
+                                                                                        </div>
+
+                                                                                        <div class="row">
+                                                                                            <div id="DescriptionReasonModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="DescriptionReasonModal" aria-hidden="true">
+                                                                                                <div class="modal-dialog modal-lg">
+                                                                                                    <div class="modal-content">
+                                                                                                        <div class="modal-header">
+                                                                                                            <div class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close"></span></div>
+                                                                                                            <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_SELECT_CRITICAL_SUCCESS_FACTOR_OR_ACTION_TEMPLATES' | translate }}</h4>
+                                                                                                        </div>
+                                                                                                        <div class="modal-body">
+                                                                                                            <div class="container-fluid">
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-lg-12 form-group">
+                                                                                                                        <div class="col-md-3 btn btn-success pull-right" ng-click="openAddCSFAction()">
+                                                                                                                            <span class="fa fa-plus"></span> {{'MYPROJECTS_ADD_NEW_CSF_OR_ACTION' | translate }}
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <table class="table table-striped table-bordered table-hover table-checkable order-column dataTable no-footer" id="sample_3" role="grid" aria-describedby="sample_3_info">
+                                                                                                                        <thead>
+                                                                                                                            <tr role="row">
+                                                                                                                                <th class="table-checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 30px;">
+                                                                                                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-click="selectAllDescription()">
+                                                                                                                                        <input type="checkbox" class="group-checkable" ng-checked="checkAll">
+                                                                                                                                        <span></span>
+                                                                                                                                    </label>
+                                                                                                                                </th>
+                                                                                                                                <th class="sorting_asc" tabindex="0" aria-controls="sample_3" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" Username : activate to sort column descending" style="width: 120px;"> {{'COMMON_DESCRIPTION' | translate }} </th>
+                                                                                                                            </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <tr class="gradeX" role="row" ng-repeat="reasonDescriptionItem in trainingDescriptions">
+                                                                                                                                <td>
+                                                                                                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                                                                        <input type="checkbox" class="checkboxes" id="{{reasonDescriptionItem.id}}" ng-model="reasonDescriptionItem.isChecked" ng-checked="reasonDescriptionItem.isChecked">
+                                                                                                                                        <span></span>
+                                                                                                                                    </label>
+                                                                                                                                </td>
+                                                                                                                                <td class="sorting_1"> {{reasonDescriptionItem.description}} </td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+
+
+                                                                                                                </div>
+                                                                                                                <div class="row">
+                                                                                                                    <div class="col-sm-12">
+                                                                                                                        <button class="btn btn-cstm cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                                        <button class="btn btn-cstm pull-right" ng-disabled="" ng-click="addSelectedDescriptions()" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="row">
+                                                                                            <div id="AddReasonModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="AddReasonModal" aria-hidden="true">
+                                                                                                <div class="modal-dialog modal-lg">
+                                                                                                    <div class="modal-content">
+                                                                                                        <div class="modal-header">
+                                                                                                            <div class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close"></span></div>
+                                                                                                            <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PLEASE_ADD_NEW_REASON' | translate }}</h4>
+                                                                                                        </div>
+                                                                                                        <div class="modal-body">
+                                                                                                            <div class="container-fluid">
+                                                                                                                <div class="row">
+                                                                                                                    <ng-form class="form-horizontal" name="formAddReason" action="#" id="formAddReason" novalidate="novalidate">
+
+
+                                                                                                                        <div class="col-sm-12">
+                                                                                                                            <div class="form-group">
+                                                                                                                                <label class="col-md-3 control-label">
+                                                                                                                                    {{'COMMON_DESCRIPTION' | translate }}
+                                                                                                                                    <span class="required" ng-show="formAddReason.description.$dirty && formAddReason.description.$error.required"> * </span>
+                                                                                                                                </label>
+                                                                                                                                <div class="col-md-4">
+                                                                                                                                    <textarea class="form-control" placeholder="Enter description" name="description" ng-model="trainingDescription.description" ng-required="true"></textarea>
+                                                                                                                                    <div class="validation-error-label" ng-show="formAddReason.description.$dirty && formAddReason.description.$error.required">{{'MYPROJECTS_DESCRIPTION_IS_REQUIRED' | translate }}</div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-sm-12">
+                                                                                                                            <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                                            <button class="btn btn-cstm primary pull-right" ng-disabled="(formAddReason.$invalid)" ng-click="addCSFAction()" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                                                                        </div>
+                                                                                                                    </ng-form>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row tab-header header-blue ">
+                                                                    <div class="col-lg-12">
+                                                                        <h3>{{'SOFTPROFILE_SKILLS' | translate }}</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-2">
+                                                                    <div class="col-lg-12">
+                                                                        <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="openNewSkillModal()">
+                                                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                            {{'COMMON_ADD' | translate }} {{'COMMON_SKILL' | translate }}
+                                                                        </a>
+                                                                        <div class="tab-search pull-right">
+                                                                            <a href="javascript:;" ng-click="addSkillFromTemplate()">
+                                                                                <i class="fa fa-search" aria-hidden="true"></i> {{'COMMON_SEARCH' | translate }}
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="modal fade" id="skillTemplates" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg">
+                                                                                <div class="modal-header pop-up-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                                        Skills Templates
+                                                                                    </h5>
+                                                                                    <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">×</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-content">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12 mt-5">
+                                                                                            <div id="skillsTemplateGrid" kendo-grid k-options="skillsTemplateGridOptions" k-rebind="gridOptions.selectable"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12 mt-5">
+                                                                        <kendo-tooltip options="skillsGridTooltipOptions">
+                                                                            <div id="skillsGrid" kendo-grid k-options="skillsGridOptions" k-rebind="gridOptions.selectable"></div>
+                                                                        </kendo-tooltip>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row m-0">
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" class="btn btn-cstm pull-right">
+                                                                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                                            {{'COMMON_BACK' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/questions" class="btn dropdown-toggle btn-cstm" ng-disabled="(!((profileId > 0) && (skills.length > 0)))" ng-click="gotoQuestions()">
+                                                                            {{'COMMON_NEXT' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

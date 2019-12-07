@@ -1,0 +1,11 @@
+﻿<div class="row">
+    <div class="col-md-2" ng-show="stageEdit.showStages()">
+        <label class="control-label">{{'COMMON_STAGE' | translate }}</label>
+        <select class="form-control tab-control" ng-change="stageEdit.stageChanged()" data-ng-model="stageEdit.stagesAndAlarmsStageId" data-ng-options="obj.id as obj.name for obj in stageEdit.stageInfo.stages" ng-init="statusAndProgress"></select>
+    </div>
+    <div class="col-md-12 status-and-progress-grid">
+        <kendo-tooltip options="tooltipOptions">
+            <div kendo-grid="stagesAndAlarmsGrid" k-options="stageEdit.stagesAndAlarmsOptions" id="stagesAndAlarmsGridId"></div>
+        </kendo-tooltip>
+    </div>
+</div>

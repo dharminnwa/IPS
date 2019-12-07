@@ -1,0 +1,60 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="modal.cancel()">&times;</span></button>
+    <h3 class="modal-title">{{'MYPROFILES_SELECT_NOTIFICATION_TEMPLATE' | translate }}</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'MYPROFILES_NOTIFICATION_TEMPLATES' | translate }}</span>
+            </div>
+            <div id="notificationGrid" kendo-grid="modal.notificationGrid" k-options="modal.gridOptions"></div>
+        </div>
+        <div class="col-sm-3 hide">
+            <div class="filter-group">
+                <div class="profiles-menu">
+                    <img src="images/icon-view.png" />
+                    <span>Search</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control filter" ng-model="modal.searchText" ng-change="modal.doSearch(modal.searchText)" />
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="profiles-menu">
+                    <img src="images/organization/organization-icon.png" />
+                    <span>Filter</span>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">Evaluation Role</label>
+                    <select class="form-control" ng-model="modal.filter.evaluationRoleId" data-ng-options="obj.id as obj.name for obj in modal.evaluationRoles" ng-change="modal.doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">Culture</label>
+                    <select class="form-control" ng-model="modal.filter.cultureId" data-ng-options="obj.id as obj.cultureName for obj in modal.cultures" ng-change="modal.doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">Stage Type</label>
+                    <select class="form-control" ng-model="modal.filter.stageTypeId" data-ng-options="obj.value as obj.text for obj in modal.selectableStages" ng-change="modal.doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">Email</label><br />
+                    <input type="radio" ng-model="modal.filter.email" value="1" ng-change="modal.doFilter()"> Filled
+                    <input type="radio" ng-model="modal.filter.email" value="2" ng-change="modal.doFilter()"> Empty
+                    <input type="radio" ng-model="modal.filter.email" value="3" checked ng-change="modal.doFilter()"> All
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">SMS</label><br />
+                    <input type="radio" ng-model="modal.filter.sms" value="1" ng-change="modal.doFilter()"> Filled
+                    <input type="radio" ng-model="modal.filter.sms" value="2" ng-change="modal.doFilter()"> Empty
+                    <input type="radio" ng-model="modal.filter.sms" value="3" checked ng-change="modal.doFilter()"> All
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-cstm" ng-click="modal.confirm()">{{'COMMON_OK' | translate }}</button>
+    <button class="btn btn-cstm" ng-click="modal.cancel()">{{'COMMON_CANCEL' | translate }}</button>
+</div>

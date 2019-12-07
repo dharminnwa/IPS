@@ -1,0 +1,161 @@
+<div class="row">
+    <div pane class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 return-menu">
+                    <a href="#/home/profiles/profiles/soft" class="newhead title fa fa-long-arrow-left"></a>
+                    <h1 class="title">{{'COMMON_SOFT_PROFILE' | translate }}</h1>
+                    <div class="top-border"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                        <br />
+                        <span class="form-">{{selectedProfile.name}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.organizationName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.rootIndustryName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="ips-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.subIndustryName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="ips-label">{{'COMMON_PROFILE_LEVEL' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.levelName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="ips-label">{{'SOFTPROFILE_PROFILE_CATEGORY' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.categoryName}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" ng-show="selectedProfile.kpiWeak!=0">
+                            <div class="form-group">
+                                <label class="ips-label">{{'SOFTPROFILE_KPI_WEAK' | translate }}</label>
+                                <br />
+                                <span class="control-preview">{{selectedProfile.kpiWeak}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6" ng-show="selectedProfile.kpiStrong!=0">
+                            <div class="form-group">
+                                <label class="ips-label">{{'SOFTPROFILE_KPI_STRONG' | translate }}</label>
+                                <br />
+                                <span class="control-preview">{{selectedProfile.kpiStrong}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="ips-label">{{'COMMON_TARGET_GROUP' | translate }}</label>
+                        <select kendo-multi-select k-options="selectOptions" k-ng-model="selectedProfile.jobPositions" ng-disabled="true"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="ips-label" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.description}}</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.isActive" ng-disabled="true"> {{'COMMON_IS_ACTIVE' | translate }}
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.isTemplate" ng-disabled="true"> {{'COMMON_IS_TEMPLATE' | translate }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'SOFTPROFILE_SCALE_SETTINGS_RULE' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.scaleSettingsRuleName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">{{'SOFTPROFILE_QUESTION_DISPLAY_RULE' | translate }}</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.questionDisplayRuleName}}</span>
+                    </div>
+                    <div class="form-group" ng-hide="selectedProfile.scaleSettingsRuleId != 1" ng-show="selectedProfile.scaleSettingsRuleId == 1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12" ng-hide="ngIsTamplate">
+                                        <div class="form-group">
+                                            <label class="ips-label">{{'COMMON_SCALE_NAME' | translate }}</label>
+                                            <br />
+                                            <span class="control-preview">{{selectedProfile.scale.name}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="ips-label">{{'COMMON_CATEGORY' | translate }}</label>
+                                                    <br />
+                                                    <span class="control-preview">{{selectedProfile.scale.scaleCategory.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="ips-label">{{'SOFTPROFILE_MEASURE_UNIT' | translate }}</label>
+                                                    <br />
+                                                    <span class="control-preview">{{selectedProfile.scale.measureUnit.name}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="ips-label" for="description">{{'COMMON_SCALE_DESCRIPTION' | translate }}</label>
+                                    <textarea class="form-control" rows="5" data-ng-model="scale.description" id="description" ng-disabled="true"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="ips-label">{{'COMMON_SCALE_START' | translate }}</label>
+                                    <br />
+                                    <span class="control-preview">{{selectedProfile.scale.scaleRanges[0].min}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="ips-label">{{'COMMON_SCALE_END' | translate }}</label>
+                                    <br />
+                                    <span class="control-preview">{{selectedProfile.scale.scaleRanges[selectedProfile.scale.scaleRanges.length-1].max}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="ips-label">{{'COMMON_INTERVALS' | translate }}</label>
+                                    <br />
+                                    <span class="control-preview">{{selectedProfile.scale.scaleRanges.length}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <kendo-tooltip options="tooltipOptions">
+                                    <div kendo-grid k-options="gridScaleRangesOptions" k-rebind="gridOptions.selectable"></div>
+                                </kendo-tooltip>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <kendo-tooltip options="tooltipOptions">
+                        <div kendo-grid k-options="gridFinalProfileOptions" k-rebind="gridOptions.selectable"></div>
+                    </kendo-tooltip>
+                </div>
+                <div class="col-sm-12">
+                    <div class="top-border"></div>
+                    <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+    </div>
+    <div ui-view></div>
+</div>

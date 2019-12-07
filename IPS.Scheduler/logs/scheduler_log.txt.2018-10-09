@@ -1,0 +1,60 @@
+2018-10-09 16:35:59,041 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-10-09 16:35:59,226 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:36:32,891 [1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Exception: FrequencyType.NONE cannot be evaluated. Please specify a FrequencyType before evaluating the recurrence.
+   at DDay.iCal.Evaluator.IncrementDate(DateTime& dt, IRecurrencePattern pattern, Int32 interval)
+   at DDay.iCal.RecurrencePatternEvaluator.GetDates(IDateTime seed, DateTime periodStart, DateTime periodEnd, Int32 maxCount, IRecurrencePattern pattern, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrencePatternEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.EvaluateRRule(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrenceUtil.GetOccurrences(IRecurrable recurrable, IDateTime periodStart, IDateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringComponent.GetOccurrences(DateTime startTime, DateTime endTime)
+   at IPS.Business.Utils.RecurrenceRuleParser.GetRecurrenceDateTime(String RRule, DateTime RecStartDate, DateTime RecDueDate) in D:\DotNetProjects\IPS\IPS.Business\Utils\RecurrenceRuleParser.cs:line 23
+   at IPS.Business.TrainingDiaryService.GetAllPersonalTrainingRecurrencesForEmail() in D:\DotNetProjects\IPS\IPS.Business\TrainingDiaryService.cs:line 3759
+   at IPSScheduler.JobScheduler.LoadFuturePersonalRecurrenceTrainingForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1299
+2018-10-09 16:36:32,903 [1] INFO  JobScheduler - List of Personal Training Recurrence email in the database is empty.
+2018-10-09 16:36:32,903 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:36:32,960 [1] INFO  JobScheduler - Scheduler Started
+2018-10-09 16:37:00,019 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:37:11,235 [DefaultQuartzScheduler_Worker-1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Exception: FrequencyType.NONE cannot be evaluated. Please specify a FrequencyType before evaluating the recurrence.
+   at DDay.iCal.Evaluator.IncrementDate(DateTime& dt, IRecurrencePattern pattern, Int32 interval)
+   at DDay.iCal.RecurrencePatternEvaluator.GetDates(IDateTime seed, DateTime periodStart, DateTime periodEnd, Int32 maxCount, IRecurrencePattern pattern, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrencePatternEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.EvaluateRRule(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrenceUtil.GetOccurrences(IRecurrable recurrable, IDateTime periodStart, IDateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringComponent.GetOccurrences(DateTime startTime, DateTime endTime)
+   at IPS.Business.Utils.RecurrenceRuleParser.GetRecurrenceDateTime(String RRule, DateTime RecStartDate, DateTime RecDueDate) in D:\DotNetProjects\IPS\IPS.Business\Utils\RecurrenceRuleParser.cs:line 23
+   at IPS.Business.TrainingDiaryService.GetAllPersonalTrainingRecurrencesForEmail() in D:\DotNetProjects\IPS\IPS.Business\TrainingDiaryService.cs:line 3759
+   at IPSScheduler.JobScheduler.LoadFuturePersonalRecurrenceTrainingForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1299
+2018-10-09 16:37:11,236 [DefaultQuartzScheduler_Worker-1] INFO  JobScheduler - List of Personal Training Recurrence email in the database is empty.
+2018-10-09 16:37:11,236 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:38:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:39:50,896 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:40:00,536 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:44:21,523 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-10-09 16:44:21,675 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:45:05,865 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:45:05,901 [1] INFO  JobScheduler - Scheduler Started
+2018-10-09 16:46:00,014 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:46:37,522 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:47:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:48:00,167 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:48:49,156 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled Recurrence scheduled task Email Job! Job key: Recurrence_683_1810091650_1854; PersonalTrainingEmailRecurrence on 10/9/2018 4:50:00 PM
+2018-10-09 16:48:49,157 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:49:01,855 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:49:54,956 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:50:00,009 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:50:00,012 [DefaultQuartzScheduler_Worker-5] DEBUG StartTrainingEmailJob - Training Email Job! Job key: Recurrence_683_1810091650_1854; PersonalTrainingEmailRecurrence
+2018-10-09 16:50:29,720 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:51:04,422 [DefaultQuartzScheduler_Worker-5] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: Recurrence_683_1810091650_1854; PersonalTrainingEmailRecurrence
+2018-10-09 16:51:04,424 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:52:02,730 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:52:50,296 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:53:03,615 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:53:09,905 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:53:17,647 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-10-09 16:53:22,674 [6] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1854, name Anand Agarwal successful
+2018-10-09 16:54:00,000 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-10-09 16:54:36,983 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Completed

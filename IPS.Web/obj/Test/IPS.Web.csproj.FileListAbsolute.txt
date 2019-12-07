@@ -1,0 +1,7 @@
+D:\DotNetProjects\IPS\IPS.Web\bin\IPS.Web.dll.config
+D:\DotNetProjects\IPS\IPS.Web\bin\IPS.Web.dll
+D:\DotNetProjects\IPS\IPS.Web\bin\IPS.Web.pdb
+D:\DotNetProjects\IPS\IPS.Web\bin\Newtonsoft.Json.dll
+D:\DotNetProjects\IPS\IPS.Web\bin\Newtonsoft.Json.xml
+D:\DotNetProjects\IPS\IPS.Web\obj\Test\IPS.Web.dll
+D:\DotNetProjects\IPS\IPS.Web\obj\Test\IPS.Web.pdb

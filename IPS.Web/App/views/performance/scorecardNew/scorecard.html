@@ -1,0 +1,83 @@
+<div pane name="scorecard">
+    <div class="clearfix scorecard-row-container">
+
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <a class="newhead title fa fa-long-arrow-left" ng-click="scorecard.goBack()"></a>
+                        <span class="caption-subject box-title">{{'COMMON_SCORECARD' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <performance-managment-filter result="filteredResult" filter="filter"></performance-managment-filter>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light tasks-widget bordered" ng-show="scorecard.legends.length > 0">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-6 db_drop">
+                                        <div class="form-group">
+                                            <label class="control-label db_title">{{'COMMON_GROUP_BY' | translate }}</label>
+                                            <div class="sel_outer">
+                                                <i class="fa fa-caret-down catDown" aria-hidden="true"></i>
+                                                <select ng-disabled="!scorecard.isShowReport" class="form-control db_select" data-ng-model="scorecard.groupById" ng-change="GroupByChanged()" data-ng-options="obj.id as obj.name for obj in scorecard.groupBy"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-12" style="text-align:center">
+                                            <div class="margintop10" ng-show="scorecard.legends.length > 0 && scorecard.isShowReport" data-ng-repeat="legend in scorecard.legends track by $index">
+                                                <div class="scorecard-legend pull-left margin-left-10" style="background-color: {{legend.color}}"></div>
+                                                <span class="pull-left margin-left-5">{{legend.name}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet light tasks-widget bordered" ng-show="scorecard.isShowReport">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-right">
+                                            <span class="btn btn-ips" ng-show="false" ng-click="scorecard.SetKPI()">{{'SCORECARD_SET_KPI' | translate }}</span>
+                                        </div>
+                                        <div id="scorecardGrid" kendo-treelist="ipsTreeList" k-options="scorecard.treelistOptions"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="col-md-12">
+
+            
+
+
+        </div>
+
+        
+
+
+    </div>
+</div>
+<div ui-view></div>

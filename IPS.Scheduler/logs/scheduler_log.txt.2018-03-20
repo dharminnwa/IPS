@@ -1,0 +1,1332 @@
+2018-03-20 11:11:42,784 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 11:16:48,836 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 11:16:51,965 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_G_1804152200; Alarms on 4/15/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_Y_1804161900; Alarms on 4/16/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_R_1804162100; Alarms on 4/16/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_G_1805272200; Alarms on 5/27/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_Y_1805281900; Alarms on 5/28/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_R_1805282100; Alarms on 5/28/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_G_1804222200; Alarms on 4/22/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_Y_1804231900; Alarms on 4/23/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_R_1804232201; Alarms on 4/23/2018 10:01:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_G_1806032200; Alarms on 6/3/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_Y_1806041900; Alarms on 6/4/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_R_1806042201; Alarms on 6/4/2018 10:01:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_G_1804162200; Alarms on 4/16/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_Y_1804171900; Alarms on 4/17/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_R_1804172100; Alarms on 4/17/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_G_1805282200; Alarms on 5/28/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_Y_1805291900; Alarms on 5/29/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_R_1805292100; Alarms on 5/29/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_G_1807092200; Alarms on 7/9/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_Y_1807101900; Alarms on 7/10/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_R_1807102100; Alarms on 7/10/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_G_1804092200; Alarms on 4/9/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_Y_1804101900; Alarms on 4/10/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_R_1804102100; Alarms on 4/10/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_G_1805212200; Alarms on 5/21/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_Y_1805221900; Alarms on 5/22/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_R_1805222100; Alarms on 5/22/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_G_1807022200; Alarms on 7/2/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_Y_1807031900; Alarms on 7/3/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_R_1807032100; Alarms on 7/3/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_G_1808131520; Alarms on 8/13/2018 3:20:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_Y_1808141220; Alarms on 8/14/2018 12:20:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_R_1808141521; Alarms on 8/14/2018 3:21:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_G_1808152200; Alarms on 8/15/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_Y_1808161900; Alarms on 8/16/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_R_1808162100; Alarms on 8/16/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_G_1808161712; Alarms on 8/16/2018 5:12:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_Y_1808171412; Alarms on 8/17/2018 2:12:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_R_1808171612; Alarms on 8/17/2018 4:12:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_G_1808182200; Alarms on 8/18/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_Y_1808191900; Alarms on 8/19/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_R_1808192100; Alarms on 8/19/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_G_1808200938; Alarms on 8/20/2018 9:38:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_Y_1808210638; Alarms on 8/21/2018 6:38:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_R_1808210838; Alarms on 8/21/2018 8:38:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_G_1808210129; Alarms on 8/21/2018 1:29:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_Y_1808212229; Alarms on 8/21/2018 10:29:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_R_1808220029; Alarms on 8/22/2018 12:29:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_G_1808192200; Alarms on 8/19/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_Y_1808201900; Alarms on 8/20/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_R_1808202100; Alarms on 8/20/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_G_1808201514; Alarms on 8/20/2018 3:14:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_Y_1808211214; Alarms on 8/21/2018 12:14:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_R_1808211414; Alarms on 8/21/2018 2:14:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_G_1808210841; Alarms on 8/21/2018 8:41:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_Y_1808220541; Alarms on 8/22/2018 5:41:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_R_1808220741; Alarms on 8/22/2018 7:41:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_G_1808202200; Alarms on 8/20/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_Y_1808211900; Alarms on 8/21/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_R_1808212100; Alarms on 8/21/2018 9:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_G_1808210855; Alarms on 8/21/2018 8:55:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_Y_1808220555; Alarms on 8/22/2018 5:55:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_R_1808220755; Alarms on 8/22/2018 7:55:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_G_1808212007; Alarms on 8/21/2018 8:07:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_Y_1808221707; Alarms on 8/22/2018 5:07:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_R_1808221907; Alarms on 8/22/2018 7:07:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_G_1811080200; Alarms on 11/8/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_Y_1811082300; Alarms on 11/8/2018 11:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_R_1811090100; Alarms on 11/9/2018 1:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_G_1812200300; Alarms on 12/20/2018 3:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_Y_1812210000; Alarms on 12/21/2018 12:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_R_1812210200; Alarms on 12/21/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_G_1901310400; Alarms on 1/31/2019 4:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_Y_1902010100; Alarms on 2/1/2019 1:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_R_1902010300; Alarms on 2/1/2019 3:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_G_1903140500; Alarms on 3/14/2019 5:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_Y_1903150200; Alarms on 3/15/2019 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_R_1903150400; Alarms on 3/15/2019 4:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_G_1808160200; Alarms on 8/16/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_Y_1808162300; Alarms on 8/16/2018 11:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_R_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_G_1808160300; Alarms on 8/16/2018 3:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_Y_1808170000; Alarms on 8/17/2018 12:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_R_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_G_1808160400; Alarms on 8/16/2018 4:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_Y_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_R_1808170300; Alarms on 8/17/2018 3:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_G_1808160500; Alarms on 8/16/2018 5:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_Y_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_R_1808170400; Alarms on 8/17/2018 4:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_G_1808230200; Alarms on 8/23/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_Y_1808230600; Alarms on 8/23/2018 6:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_R_1808230900; Alarms on 8/23/2018 9:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_G_1808231200; Alarms on 8/23/2018 12:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_Y_1808231600; Alarms on 8/23/2018 4:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_R_1808231900; Alarms on 8/23/2018 7:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_G_1808232200; Alarms on 8/23/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_Y_1808240200; Alarms on 8/24/2018 2:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_R_1808240500; Alarms on 8/24/2018 5:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_G_1808240800; Alarms on 8/24/2018 8:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_Y_1808241200; Alarms on 8/24/2018 12:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_R_1808241500; Alarms on 8/24/2018 3:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_G_1808241800; Alarms on 8/24/2018 6:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_Y_1808242200; Alarms on 8/24/2018 10:00:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_R_1808250100; Alarms on 8/25/2018 1:00:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_Y_1803310506; Alarms on 3/31/2018 5:06:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_R_1804121939; Alarms on 4/12/2018 7:39:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_G_1804251012; Alarms on 4/25/2018 10:12:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_Y_1805120536; Alarms on 5/12/2018 5:36:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_R_1805242009; Alarms on 5/24/2018 8:09:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_G_1806061042; Alarms on 6/6/2018 10:42:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_Y_1806230606; Alarms on 6/23/2018 6:06:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_R_1807052039; Alarms on 7/5/2018 8:39:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_G_1807181112; Alarms on 7/18/2018 11:12:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_Y_1808040636; Alarms on 8/4/2018 6:36:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_R_1808162109; Alarms on 8/16/2018 9:09:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_G_1808291142; Alarms on 8/29/2018 11:42:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_Y_1809150706; Alarms on 9/15/2018 7:06:00 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_R_1809272139; Alarms on 9/27/2018 9:39:00 PM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_G_1808310952; Alarms on 8/31/2018 9:52:48 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_Y_1809170506; Alarms on 9/17/2018 5:06:24 AM
+2018-03-20 11:16:51,981 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_R_1809291931; Alarms on 9/29/2018 7:31:36 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 907_1803280000; StartStageGroup on 3/28/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1977_1803310000; StartStageGroup on 3/31/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 869_1804030000; StartStageGroup on 4/3/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 881_1804040000; StartStageGroup on 4/4/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 876_1804100000; StartStageGroup on 4/10/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2210_1804170030; StartStageGroup on 4/17/2018 12:30:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 908_1805090000; StartStageGroup on 5/9/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1978_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1983_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 870_1805150000; StartStageGroup on 5/15/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 882_1805160000; StartStageGroup on 5/16/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 877_1805220000; StartStageGroup on 5/22/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2124_1805240430; StartStageGroup on 5/24/2018 4:30:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2211_1805290100; StartStageGroup on 5/29/2018 1:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 909_1806200000; StartStageGroup on 6/20/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1979_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1984_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 883_1806270000; StartStageGroup on 6/27/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2212_1807100130; StartStageGroup on 7/10/2018 1:30:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 910_1808010000; StartStageGroup on 8/1/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1985_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1980_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 901_1808160000; StartStageGroup on 8/16/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 902_1808161230; StartStageGroup on 8/16/2018 12:30:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 903_1808161335; StartStageGroup on 8/16/2018 1:35:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 904_1808161345; StartStageGroup on 8/16/2018 1:45:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 905_1808161358; StartStageGroup on 8/16/2018 1:58:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1971_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2189_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2194_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2195_1808170100; StartStageGroup on 8/17/2018 1:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2196_1808170200; StartStageGroup on 8/17/2018 2:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2197_1808170300; StartStageGroup on 8/17/2018 3:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2198_1808170400; StartStageGroup on 8/17/2018 4:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1972_1808171800; StartStageGroup on 8/17/2018 6:00:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1973_1808171807; StartStageGroup on 8/17/2018 6:07:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1974_1808171910; StartStageGroup on 8/17/2018 7:10:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1975_1808171912; StartStageGroup on 8/17/2018 7:12:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2081_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2086_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2087_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2082_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2083_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2078_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2088_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2089_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2079_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2084_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2085_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2080_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2090_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2213_1808210200; StartStageGroup on 8/21/2018 2:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2199_1808230000; StartStageGroup on 8/23/2018 12:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2228_1808230016; StartStageGroup on 8/23/2018 12:16:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2200_1808231000; StartStageGroup on 8/23/2018 10:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2201_1808232000; StartStageGroup on 8/23/2018 8:00:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2202_1808240600; StartStageGroup on 8/24/2018 6:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2203_1808241600; StartStageGroup on 8/24/2018 4:00:00 PM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2190_1809280100; StartStageGroup on 9/28/2018 1:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2191_1811090200; StartStageGroup on 11/9/2018 2:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2192_1812210300; StartStageGroup on 12/21/2018 3:00:00 AM
+2018-03-20 11:16:52,678 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2193_1902010400; StartStageGroup on 2/1/2019 4:00:00 AM
+2018-03-20 11:50:27,100 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 11:50:30,902 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 11:50:33,307 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_G_1804152200; Alarms on 4/15/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_Y_1804161900; Alarms on 4/16/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_R_1804162100; Alarms on 4/16/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_G_1805272200; Alarms on 5/27/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_Y_1805281900; Alarms on 5/28/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_R_1805282100; Alarms on 5/28/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_G_1804222200; Alarms on 4/22/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_Y_1804231900; Alarms on 4/23/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_R_1804232201; Alarms on 4/23/2018 10:01:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_G_1806032200; Alarms on 6/3/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_Y_1806041900; Alarms on 6/4/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_R_1806042201; Alarms on 6/4/2018 10:01:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_G_1804162200; Alarms on 4/16/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_Y_1804171900; Alarms on 4/17/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_R_1804172100; Alarms on 4/17/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_G_1805282200; Alarms on 5/28/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_Y_1805291900; Alarms on 5/29/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_R_1805292100; Alarms on 5/29/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_G_1807092200; Alarms on 7/9/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_Y_1807101900; Alarms on 7/10/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_R_1807102100; Alarms on 7/10/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_G_1804092200; Alarms on 4/9/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_Y_1804101900; Alarms on 4/10/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_R_1804102100; Alarms on 4/10/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_G_1805212200; Alarms on 5/21/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_Y_1805221900; Alarms on 5/22/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_R_1805222100; Alarms on 5/22/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_G_1807022200; Alarms on 7/2/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_Y_1807031900; Alarms on 7/3/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_R_1807032100; Alarms on 7/3/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_G_1808131520; Alarms on 8/13/2018 3:20:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_Y_1808141220; Alarms on 8/14/2018 12:20:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_R_1808141521; Alarms on 8/14/2018 3:21:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_G_1808152200; Alarms on 8/15/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_Y_1808161900; Alarms on 8/16/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_R_1808162100; Alarms on 8/16/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_G_1808161712; Alarms on 8/16/2018 5:12:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_Y_1808171412; Alarms on 8/17/2018 2:12:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_R_1808171612; Alarms on 8/17/2018 4:12:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_G_1808182200; Alarms on 8/18/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_Y_1808191900; Alarms on 8/19/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_R_1808192100; Alarms on 8/19/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_G_1808200938; Alarms on 8/20/2018 9:38:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_Y_1808210638; Alarms on 8/21/2018 6:38:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_R_1808210838; Alarms on 8/21/2018 8:38:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_G_1808210129; Alarms on 8/21/2018 1:29:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_Y_1808212229; Alarms on 8/21/2018 10:29:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_R_1808220029; Alarms on 8/22/2018 12:29:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_G_1808192200; Alarms on 8/19/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_Y_1808201900; Alarms on 8/20/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_R_1808202100; Alarms on 8/20/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_G_1808201514; Alarms on 8/20/2018 3:14:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_Y_1808211214; Alarms on 8/21/2018 12:14:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_R_1808211414; Alarms on 8/21/2018 2:14:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_G_1808210841; Alarms on 8/21/2018 8:41:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_Y_1808220541; Alarms on 8/22/2018 5:41:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_R_1808220741; Alarms on 8/22/2018 7:41:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_G_1808202200; Alarms on 8/20/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_Y_1808211900; Alarms on 8/21/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_R_1808212100; Alarms on 8/21/2018 9:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_G_1808210855; Alarms on 8/21/2018 8:55:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_Y_1808220555; Alarms on 8/22/2018 5:55:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_R_1808220755; Alarms on 8/22/2018 7:55:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_G_1808212007; Alarms on 8/21/2018 8:07:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_Y_1808221707; Alarms on 8/22/2018 5:07:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_R_1808221907; Alarms on 8/22/2018 7:07:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_G_1811080200; Alarms on 11/8/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_Y_1811082300; Alarms on 11/8/2018 11:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_R_1811090100; Alarms on 11/9/2018 1:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_G_1812200300; Alarms on 12/20/2018 3:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_Y_1812210000; Alarms on 12/21/2018 12:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_R_1812210200; Alarms on 12/21/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_G_1901310400; Alarms on 1/31/2019 4:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_Y_1902010100; Alarms on 2/1/2019 1:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_R_1902010300; Alarms on 2/1/2019 3:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_G_1903140500; Alarms on 3/14/2019 5:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_Y_1903150200; Alarms on 3/15/2019 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_R_1903150400; Alarms on 3/15/2019 4:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_G_1808160200; Alarms on 8/16/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_Y_1808162300; Alarms on 8/16/2018 11:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_R_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_G_1808160300; Alarms on 8/16/2018 3:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_Y_1808170000; Alarms on 8/17/2018 12:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_R_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_G_1808160400; Alarms on 8/16/2018 4:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_Y_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_R_1808170300; Alarms on 8/17/2018 3:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_G_1808160500; Alarms on 8/16/2018 5:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_Y_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_R_1808170400; Alarms on 8/17/2018 4:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_G_1808230200; Alarms on 8/23/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_Y_1808230600; Alarms on 8/23/2018 6:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_R_1808230900; Alarms on 8/23/2018 9:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_G_1808231200; Alarms on 8/23/2018 12:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_Y_1808231600; Alarms on 8/23/2018 4:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_R_1808231900; Alarms on 8/23/2018 7:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_G_1808232200; Alarms on 8/23/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_Y_1808240200; Alarms on 8/24/2018 2:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_R_1808240500; Alarms on 8/24/2018 5:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_G_1808240800; Alarms on 8/24/2018 8:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_Y_1808241200; Alarms on 8/24/2018 12:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_R_1808241500; Alarms on 8/24/2018 3:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_G_1808241800; Alarms on 8/24/2018 6:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_Y_1808242200; Alarms on 8/24/2018 10:00:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_R_1808250100; Alarms on 8/25/2018 1:00:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_Y_1803310506; Alarms on 3/31/2018 5:06:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_R_1804121939; Alarms on 4/12/2018 7:39:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_G_1804251012; Alarms on 4/25/2018 10:12:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_Y_1805120536; Alarms on 5/12/2018 5:36:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_R_1805242009; Alarms on 5/24/2018 8:09:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_G_1806061042; Alarms on 6/6/2018 10:42:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_Y_1806230606; Alarms on 6/23/2018 6:06:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_R_1807052039; Alarms on 7/5/2018 8:39:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_G_1807181112; Alarms on 7/18/2018 11:12:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_Y_1808040636; Alarms on 8/4/2018 6:36:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_R_1808162109; Alarms on 8/16/2018 9:09:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_G_1808291142; Alarms on 8/29/2018 11:42:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_Y_1809150706; Alarms on 9/15/2018 7:06:00 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_R_1809272139; Alarms on 9/27/2018 9:39:00 PM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_G_1808310952; Alarms on 8/31/2018 9:52:48 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_Y_1809170506; Alarms on 9/17/2018 5:06:24 AM
+2018-03-20 11:50:33,316 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_R_1809291931; Alarms on 9/29/2018 7:31:36 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 907_1803280000; StartStageGroup on 3/28/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1977_1803310000; StartStageGroup on 3/31/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 869_1804030000; StartStageGroup on 4/3/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 881_1804040000; StartStageGroup on 4/4/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 876_1804100000; StartStageGroup on 4/10/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2210_1804170030; StartStageGroup on 4/17/2018 12:30:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 908_1805090000; StartStageGroup on 5/9/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1978_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1983_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 870_1805150000; StartStageGroup on 5/15/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 882_1805160000; StartStageGroup on 5/16/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 877_1805220000; StartStageGroup on 5/22/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2124_1805240430; StartStageGroup on 5/24/2018 4:30:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2211_1805290100; StartStageGroup on 5/29/2018 1:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 909_1806200000; StartStageGroup on 6/20/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1979_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1984_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 883_1806270000; StartStageGroup on 6/27/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2212_1807100130; StartStageGroup on 7/10/2018 1:30:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 910_1808010000; StartStageGroup on 8/1/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1985_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1980_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 901_1808160000; StartStageGroup on 8/16/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 902_1808161230; StartStageGroup on 8/16/2018 12:30:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 903_1808161335; StartStageGroup on 8/16/2018 1:35:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 904_1808161345; StartStageGroup on 8/16/2018 1:45:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 905_1808161358; StartStageGroup on 8/16/2018 1:58:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1971_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2189_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2194_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2195_1808170100; StartStageGroup on 8/17/2018 1:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2196_1808170200; StartStageGroup on 8/17/2018 2:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2197_1808170300; StartStageGroup on 8/17/2018 3:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2198_1808170400; StartStageGroup on 8/17/2018 4:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1972_1808171800; StartStageGroup on 8/17/2018 6:00:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1973_1808171807; StartStageGroup on 8/17/2018 6:07:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1974_1808171910; StartStageGroup on 8/17/2018 7:10:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1975_1808171912; StartStageGroup on 8/17/2018 7:12:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2081_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2086_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2087_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2082_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2083_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2078_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2088_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2089_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2079_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2084_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2085_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2080_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2090_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2213_1808210200; StartStageGroup on 8/21/2018 2:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2199_1808230000; StartStageGroup on 8/23/2018 12:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2228_1808230016; StartStageGroup on 8/23/2018 12:16:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2200_1808231000; StartStageGroup on 8/23/2018 10:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2201_1808232000; StartStageGroup on 8/23/2018 8:00:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2202_1808240600; StartStageGroup on 8/24/2018 6:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2203_1808241600; StartStageGroup on 8/24/2018 4:00:00 PM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2190_1809280100; StartStageGroup on 9/28/2018 1:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2191_1811090200; StartStageGroup on 11/9/2018 2:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2192_1812210300; StartStageGroup on 12/21/2018 3:00:00 AM
+2018-03-20 11:50:33,952 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2193_1902010400; StartStageGroup on 2/1/2019 4:00:00 AM
+2018-03-20 11:54:04,154 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 11:54:07,962 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 11:54:12,573 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_G_1804152200; Alarms on 4/15/2018 10:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_Y_1804161900; Alarms on 4/16/2018 7:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_R_1804162100; Alarms on 4/16/2018 9:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_G_1805272200; Alarms on 5/27/2018 10:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_Y_1805281900; Alarms on 5/28/2018 7:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_R_1805282100; Alarms on 5/28/2018 9:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_G_1804222200; Alarms on 4/22/2018 10:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_Y_1804231900; Alarms on 4/23/2018 7:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_R_1804232201; Alarms on 4/23/2018 10:01:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_G_1806032200; Alarms on 6/3/2018 10:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_Y_1806041900; Alarms on 6/4/2018 7:00:00 PM
+2018-03-20 11:54:12,583 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_R_1806042201; Alarms on 6/4/2018 10:01:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_G_1804162200; Alarms on 4/16/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_Y_1804171900; Alarms on 4/17/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_R_1804172100; Alarms on 4/17/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_G_1805282200; Alarms on 5/28/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_Y_1805291900; Alarms on 5/29/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_R_1805292100; Alarms on 5/29/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_G_1807092200; Alarms on 7/9/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_Y_1807101900; Alarms on 7/10/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_R_1807102100; Alarms on 7/10/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_G_1804092200; Alarms on 4/9/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_Y_1804101900; Alarms on 4/10/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_R_1804102100; Alarms on 4/10/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_G_1805212200; Alarms on 5/21/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_Y_1805221900; Alarms on 5/22/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_R_1805222100; Alarms on 5/22/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_G_1807022200; Alarms on 7/2/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_Y_1807031900; Alarms on 7/3/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_R_1807032100; Alarms on 7/3/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_G_1808131520; Alarms on 8/13/2018 3:20:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_Y_1808141220; Alarms on 8/14/2018 12:20:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_R_1808141521; Alarms on 8/14/2018 3:21:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_G_1808152200; Alarms on 8/15/2018 10:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_Y_1808161900; Alarms on 8/16/2018 7:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_R_1808162100; Alarms on 8/16/2018 9:00:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_G_1808161712; Alarms on 8/16/2018 5:12:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_Y_1808171412; Alarms on 8/17/2018 2:12:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_R_1808171612; Alarms on 8/17/2018 4:12:00 PM
+2018-03-20 11:54:12,584 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:54:12,585 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_G_1808182200; Alarms on 8/18/2018 10:00:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_Y_1808191900; Alarms on 8/19/2018 7:00:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_R_1808192100; Alarms on 8/19/2018 9:00:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_G_1808200938; Alarms on 8/20/2018 9:38:00 AM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_Y_1808210638; Alarms on 8/21/2018 6:38:00 AM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_R_1808210838; Alarms on 8/21/2018 8:38:00 AM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_G_1808210129; Alarms on 8/21/2018 1:29:00 AM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_Y_1808212229; Alarms on 8/21/2018 10:29:00 PM
+2018-03-20 11:54:12,586 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_R_1808220029; Alarms on 8/22/2018 12:29:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_G_1808192200; Alarms on 8/19/2018 10:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_Y_1808201900; Alarms on 8/20/2018 7:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_R_1808202100; Alarms on 8/20/2018 9:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_G_1808201514; Alarms on 8/20/2018 3:14:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_Y_1808211214; Alarms on 8/21/2018 12:14:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_R_1808211414; Alarms on 8/21/2018 2:14:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_G_1808210841; Alarms on 8/21/2018 8:41:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_Y_1808220541; Alarms on 8/22/2018 5:41:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_R_1808220741; Alarms on 8/22/2018 7:41:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_G_1808202200; Alarms on 8/20/2018 10:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_Y_1808211900; Alarms on 8/21/2018 7:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_R_1808212100; Alarms on 8/21/2018 9:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_G_1808210855; Alarms on 8/21/2018 8:55:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_Y_1808220555; Alarms on 8/22/2018 5:55:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_R_1808220755; Alarms on 8/22/2018 7:55:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_G_1808212007; Alarms on 8/21/2018 8:07:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_Y_1808221707; Alarms on 8/22/2018 5:07:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_R_1808221907; Alarms on 8/22/2018 7:07:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_G_1811080200; Alarms on 11/8/2018 2:00:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_Y_1811082300; Alarms on 11/8/2018 11:00:00 PM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_R_1811090100; Alarms on 11/9/2018 1:00:00 AM
+2018-03-20 11:54:12,587 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_G_1812200300; Alarms on 12/20/2018 3:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_Y_1812210000; Alarms on 12/21/2018 12:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_R_1812210200; Alarms on 12/21/2018 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_G_1901310400; Alarms on 1/31/2019 4:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_Y_1902010100; Alarms on 2/1/2019 1:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_R_1902010300; Alarms on 2/1/2019 3:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_G_1903140500; Alarms on 3/14/2019 5:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_Y_1903150200; Alarms on 3/15/2019 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_R_1903150400; Alarms on 3/15/2019 4:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_G_1808160200; Alarms on 8/16/2018 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_Y_1808162300; Alarms on 8/16/2018 11:00:00 PM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_R_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_G_1808160300; Alarms on 8/16/2018 3:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_Y_1808170000; Alarms on 8/17/2018 12:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_R_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_G_1808160400; Alarms on 8/16/2018 4:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_Y_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_R_1808170300; Alarms on 8/17/2018 3:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_G_1808160500; Alarms on 8/16/2018 5:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_Y_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_R_1808170400; Alarms on 8/17/2018 4:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_G_1808230200; Alarms on 8/23/2018 2:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_Y_1808230600; Alarms on 8/23/2018 6:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_R_1808230900; Alarms on 8/23/2018 9:00:00 AM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_G_1808231200; Alarms on 8/23/2018 12:00:00 PM
+2018-03-20 11:54:12,588 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_Y_1808231600; Alarms on 8/23/2018 4:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_R_1808231900; Alarms on 8/23/2018 7:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_G_1808232200; Alarms on 8/23/2018 10:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_Y_1808240200; Alarms on 8/24/2018 2:00:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_R_1808240500; Alarms on 8/24/2018 5:00:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_G_1808240800; Alarms on 8/24/2018 8:00:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_Y_1808241200; Alarms on 8/24/2018 12:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_R_1808241500; Alarms on 8/24/2018 3:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_G_1808241800; Alarms on 8/24/2018 6:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_Y_1808242200; Alarms on 8/24/2018 10:00:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_R_1808250100; Alarms on 8/25/2018 1:00:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_Y_1803310506; Alarms on 3/31/2018 5:06:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_R_1804121939; Alarms on 4/12/2018 7:39:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_G_1804251012; Alarms on 4/25/2018 10:12:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_Y_1805120536; Alarms on 5/12/2018 5:36:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_R_1805242009; Alarms on 5/24/2018 8:09:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_G_1806061042; Alarms on 6/6/2018 10:42:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_Y_1806230606; Alarms on 6/23/2018 6:06:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_R_1807052039; Alarms on 7/5/2018 8:39:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_G_1807181112; Alarms on 7/18/2018 11:12:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_Y_1808040636; Alarms on 8/4/2018 6:36:00 AM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_R_1808162109; Alarms on 8/16/2018 9:09:00 PM
+2018-03-20 11:54:12,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_G_1808291142; Alarms on 8/29/2018 11:42:00 AM
+2018-03-20 11:54:12,590 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_Y_1809150706; Alarms on 9/15/2018 7:06:00 AM
+2018-03-20 11:54:12,590 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_R_1809272139; Alarms on 9/27/2018 9:39:00 PM
+2018-03-20 11:54:12,590 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_G_1808310952; Alarms on 8/31/2018 9:52:48 AM
+2018-03-20 11:54:12,590 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_Y_1809170506; Alarms on 9/17/2018 5:06:24 AM
+2018-03-20 11:54:12,590 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_R_1809291931; Alarms on 9/29/2018 7:31:36 PM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 907_1803280000; StartStageGroup on 3/28/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1977_1803310000; StartStageGroup on 3/31/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 869_1804030000; StartStageGroup on 4/3/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 881_1804040000; StartStageGroup on 4/4/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 876_1804100000; StartStageGroup on 4/10/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2210_1804170030; StartStageGroup on 4/17/2018 12:30:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 908_1805090000; StartStageGroup on 5/9/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1978_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1983_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:54:12,646 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 870_1805150000; StartStageGroup on 5/15/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 882_1805160000; StartStageGroup on 5/16/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 877_1805220000; StartStageGroup on 5/22/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2124_1805240430; StartStageGroup on 5/24/2018 4:30:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2211_1805290100; StartStageGroup on 5/29/2018 1:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 909_1806200000; StartStageGroup on 6/20/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1979_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1984_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 883_1806270000; StartStageGroup on 6/27/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2212_1807100130; StartStageGroup on 7/10/2018 1:30:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 910_1808010000; StartStageGroup on 8/1/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1985_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1980_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 901_1808160000; StartStageGroup on 8/16/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 902_1808161230; StartStageGroup on 8/16/2018 12:30:00 PM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 903_1808161335; StartStageGroup on 8/16/2018 1:35:00 PM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 904_1808161345; StartStageGroup on 8/16/2018 1:45:00 PM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 905_1808161358; StartStageGroup on 8/16/2018 1:58:00 PM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1971_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2189_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:54:12,647 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2194_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2195_1808170100; StartStageGroup on 8/17/2018 1:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2196_1808170200; StartStageGroup on 8/17/2018 2:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2197_1808170300; StartStageGroup on 8/17/2018 3:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2198_1808170400; StartStageGroup on 8/17/2018 4:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1972_1808171800; StartStageGroup on 8/17/2018 6:00:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1973_1808171807; StartStageGroup on 8/17/2018 6:07:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1974_1808171910; StartStageGroup on 8/17/2018 7:10:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1975_1808171912; StartStageGroup on 8/17/2018 7:12:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2081_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2086_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2087_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2082_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2083_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2078_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2088_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2089_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2079_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2084_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2085_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2080_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:54:12,648 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2090_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2213_1808210200; StartStageGroup on 8/21/2018 2:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2199_1808230000; StartStageGroup on 8/23/2018 12:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2228_1808230016; StartStageGroup on 8/23/2018 12:16:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2200_1808231000; StartStageGroup on 8/23/2018 10:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2201_1808232000; StartStageGroup on 8/23/2018 8:00:00 PM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2202_1808240600; StartStageGroup on 8/24/2018 6:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2203_1808241600; StartStageGroup on 8/24/2018 4:00:00 PM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2190_1809280100; StartStageGroup on 9/28/2018 1:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2191_1811090200; StartStageGroup on 11/9/2018 2:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2192_1812210300; StartStageGroup on 12/21/2018 3:00:00 AM
+2018-03-20 11:54:12,649 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2193_1902010400; StartStageGroup on 2/1/2019 4:00:00 AM
+2018-03-20 11:58:01,541 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 11:58:05,311 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 11:58:07,574 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_G_1804152200; Alarms on 4/15/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_Y_1804161900; Alarms on 4/16/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 869_R_1804162100; Alarms on 4/16/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_G_1805272200; Alarms on 5/27/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_Y_1805281900; Alarms on 5/28/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 870_R_1805282100; Alarms on 5/28/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_G_1804222200; Alarms on 4/22/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_Y_1804231900; Alarms on 4/23/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 876_R_1804232201; Alarms on 4/23/2018 10:01:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_G_1806032200; Alarms on 6/3/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_Y_1806041900; Alarms on 6/4/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 877_R_1806042201; Alarms on 6/4/2018 10:01:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_G_1804162200; Alarms on 4/16/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_Y_1804171900; Alarms on 4/17/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 881_R_1804172100; Alarms on 4/17/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_G_1805282200; Alarms on 5/28/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_Y_1805291900; Alarms on 5/29/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 882_R_1805292100; Alarms on 5/29/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_G_1807092200; Alarms on 7/9/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_Y_1807101900; Alarms on 7/10/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_R_1807102100; Alarms on 7/10/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_G_1804092200; Alarms on 4/9/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_Y_1804101900; Alarms on 4/10/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 907_R_1804102100; Alarms on 4/10/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_G_1805212200; Alarms on 5/21/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_Y_1805221900; Alarms on 5/22/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 908_R_1805222100; Alarms on 5/22/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_G_1807022200; Alarms on 7/2/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_Y_1807031900; Alarms on 7/3/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 909_R_1807032100; Alarms on 7/3/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_G_1808131520; Alarms on 8/13/2018 3:20:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_Y_1808141220; Alarms on 8/14/2018 12:20:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 910_R_1808141521; Alarms on 8/14/2018 3:21:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_G_1808152200; Alarms on 8/15/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_Y_1808161900; Alarms on 8/16/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1965_R_1808162100; Alarms on 8/16/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_G_1808161712; Alarms on 8/16/2018 5:12:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_Y_1808171412; Alarms on 8/17/2018 2:12:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1975_R_1808171612; Alarms on 8/17/2018 4:12:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1977_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1978_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1979_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1980_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_G_1804122200; Alarms on 4/12/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_Y_1804131900; Alarms on 4/13/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1982_R_1804132100; Alarms on 4/13/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_G_1805242200; Alarms on 5/24/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_Y_1805251900; Alarms on 5/25/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1983_R_1805252100; Alarms on 5/25/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_G_1807052200; Alarms on 7/5/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_Y_1807061900; Alarms on 7/6/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1984_R_1807062100; Alarms on 7/6/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_G_1808162200; Alarms on 8/16/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_Y_1808171900; Alarms on 8/17/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 1985_R_1808172100; Alarms on 8/17/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_G_1808182200; Alarms on 8/18/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_Y_1808191900; Alarms on 8/19/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2075_R_1808192100; Alarms on 8/19/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2080_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2085_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_G_1808191652; Alarms on 8/19/2018 4:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_Y_1808201352; Alarms on 8/20/2018 1:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2090_R_1808201552; Alarms on 8/20/2018 3:52:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_G_1808200938; Alarms on 8/20/2018 9:38:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_Y_1808210638; Alarms on 8/21/2018 6:38:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2100_R_1808210838; Alarms on 8/21/2018 8:38:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_G_1808210129; Alarms on 8/21/2018 1:29:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_Y_1808212229; Alarms on 8/21/2018 10:29:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2105_R_1808220029; Alarms on 8/22/2018 12:29:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_G_1808192200; Alarms on 8/19/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_Y_1808201900; Alarms on 8/20/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2110_R_1808202100; Alarms on 8/20/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_G_1808201514; Alarms on 8/20/2018 3:14:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_Y_1808211214; Alarms on 8/21/2018 12:14:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2115_R_1808211414; Alarms on 8/21/2018 2:14:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_G_1808210841; Alarms on 8/21/2018 8:41:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_Y_1808220541; Alarms on 8/22/2018 5:41:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2120_R_1808220741; Alarms on 8/22/2018 7:41:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_G_1808202200; Alarms on 8/20/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_Y_1808211900; Alarms on 8/21/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2125_R_1808212100; Alarms on 8/21/2018 9:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_G_1808210855; Alarms on 8/21/2018 8:55:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_Y_1808220555; Alarms on 8/22/2018 5:55:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2130_R_1808220755; Alarms on 8/22/2018 7:55:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_G_1808212007; Alarms on 8/21/2018 8:07:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_Y_1808221707; Alarms on 8/22/2018 5:07:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2135_R_1808221907; Alarms on 8/22/2018 7:07:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_G_1811080200; Alarms on 11/8/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_Y_1811082300; Alarms on 11/8/2018 11:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2190_R_1811090100; Alarms on 11/9/2018 1:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_G_1812200300; Alarms on 12/20/2018 3:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_Y_1812210000; Alarms on 12/21/2018 12:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2191_R_1812210200; Alarms on 12/21/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_G_1901310400; Alarms on 1/31/2019 4:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_Y_1902010100; Alarms on 2/1/2019 1:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2192_R_1902010300; Alarms on 2/1/2019 3:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_G_1903140500; Alarms on 3/14/2019 5:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_Y_1903150200; Alarms on 3/15/2019 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2193_R_1903150400; Alarms on 3/15/2019 4:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_G_1808160200; Alarms on 8/16/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_Y_1808162300; Alarms on 8/16/2018 11:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2195_R_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_G_1808160300; Alarms on 8/16/2018 3:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_Y_1808170000; Alarms on 8/17/2018 12:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2196_R_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_G_1808160400; Alarms on 8/16/2018 4:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_Y_1808170100; Alarms on 8/17/2018 1:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2197_R_1808170300; Alarms on 8/17/2018 3:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_G_1808160500; Alarms on 8/16/2018 5:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_Y_1808170200; Alarms on 8/17/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2198_R_1808170400; Alarms on 8/17/2018 4:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_G_1808230200; Alarms on 8/23/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_Y_1808230600; Alarms on 8/23/2018 6:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2199_R_1808230900; Alarms on 8/23/2018 9:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_G_1808231200; Alarms on 8/23/2018 12:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_Y_1808231600; Alarms on 8/23/2018 4:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2200_R_1808231900; Alarms on 8/23/2018 7:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_G_1808232200; Alarms on 8/23/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_Y_1808240200; Alarms on 8/24/2018 2:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2201_R_1808240500; Alarms on 8/24/2018 5:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_G_1808240800; Alarms on 8/24/2018 8:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_Y_1808241200; Alarms on 8/24/2018 12:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2202_R_1808241500; Alarms on 8/24/2018 3:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_G_1808241800; Alarms on 8/24/2018 6:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_Y_1808242200; Alarms on 8/24/2018 10:00:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2203_R_1808250100; Alarms on 8/25/2018 1:00:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_Y_1803310506; Alarms on 3/31/2018 5:06:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2209_R_1804121939; Alarms on 4/12/2018 7:39:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_G_1804251012; Alarms on 4/25/2018 10:12:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_Y_1805120536; Alarms on 5/12/2018 5:36:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2210_R_1805242009; Alarms on 5/24/2018 8:09:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_G_1806061042; Alarms on 6/6/2018 10:42:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_Y_1806230606; Alarms on 6/23/2018 6:06:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2211_R_1807052039; Alarms on 7/5/2018 8:39:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_G_1807181112; Alarms on 7/18/2018 11:12:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_Y_1808040636; Alarms on 8/4/2018 6:36:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2212_R_1808162109; Alarms on 8/16/2018 9:09:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_G_1808291142; Alarms on 8/29/2018 11:42:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_Y_1809150706; Alarms on 9/15/2018 7:06:00 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2213_R_1809272139; Alarms on 9/27/2018 9:39:00 PM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_G_1808310952; Alarms on 8/31/2018 9:52:48 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_Y_1809170506; Alarms on 9/17/2018 5:06:24 AM
+2018-03-20 11:58:07,589 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 2228_R_1809291931; Alarms on 9/29/2018 7:31:36 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 907_1803280000; StartStageGroup on 3/28/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1977_1803310000; StartStageGroup on 3/31/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 869_1804030000; StartStageGroup on 4/3/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 881_1804040000; StartStageGroup on 4/4/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 876_1804100000; StartStageGroup on 4/10/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2210_1804170030; StartStageGroup on 4/17/2018 12:30:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 908_1805090000; StartStageGroup on 5/9/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1978_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1983_1805120000; StartStageGroup on 5/12/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 870_1805150000; StartStageGroup on 5/15/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 882_1805160000; StartStageGroup on 5/16/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 877_1805220000; StartStageGroup on 5/22/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2124_1805240430; StartStageGroup on 5/24/2018 4:30:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2211_1805290100; StartStageGroup on 5/29/2018 1:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 909_1806200000; StartStageGroup on 6/20/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1979_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1984_1806230000; StartStageGroup on 6/23/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 883_1806270000; StartStageGroup on 6/27/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2212_1807100130; StartStageGroup on 7/10/2018 1:30:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 910_1808010000; StartStageGroup on 8/1/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1985_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1980_1808040000; StartStageGroup on 8/4/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 901_1808160000; StartStageGroup on 8/16/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 902_1808161230; StartStageGroup on 8/16/2018 12:30:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 903_1808161335; StartStageGroup on 8/16/2018 1:35:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 904_1808161345; StartStageGroup on 8/16/2018 1:45:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 905_1808161358; StartStageGroup on 8/16/2018 1:58:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1971_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2189_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2194_1808170000; StartStageGroup on 8/17/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2195_1808170100; StartStageGroup on 8/17/2018 1:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2196_1808170200; StartStageGroup on 8/17/2018 2:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2197_1808170300; StartStageGroup on 8/17/2018 3:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2198_1808170400; StartStageGroup on 8/17/2018 4:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1972_1808171800; StartStageGroup on 8/17/2018 6:00:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1973_1808171807; StartStageGroup on 8/17/2018 6:07:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1974_1808171910; StartStageGroup on 8/17/2018 7:10:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1975_1808171912; StartStageGroup on 8/17/2018 7:12:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2081_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2086_1808200000; StartStageGroup on 8/20/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2087_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2082_1808201706; StartStageGroup on 8/20/2018 5:06:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2083_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2078_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2088_1808201848; StartStageGroup on 8/20/2018 6:48:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2089_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2079_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2084_1808201850; StartStageGroup on 8/20/2018 6:50:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2085_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2080_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2090_1808201852; StartStageGroup on 8/20/2018 6:52:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2213_1808210200; StartStageGroup on 8/21/2018 2:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2199_1808230000; StartStageGroup on 8/23/2018 12:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2228_1808230016; StartStageGroup on 8/23/2018 12:16:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2200_1808231000; StartStageGroup on 8/23/2018 10:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2201_1808232000; StartStageGroup on 8/23/2018 8:00:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2202_1808240600; StartStageGroup on 8/24/2018 6:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2203_1808241600; StartStageGroup on 8/24/2018 4:00:00 PM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2190_1809280100; StartStageGroup on 9/28/2018 1:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2191_1811090200; StartStageGroup on 11/9/2018 2:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2192_1812210300; StartStageGroup on 12/21/2018 3:00:00 AM
+2018-03-20 11:58:07,636 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2193_1902010400; StartStageGroup on 2/1/2019 4:00:00 AM
+2018-03-20 16:41:31,192 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 16:41:33,065 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:43:05,828 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301645; TaskEmail on 3/30/2018 4:45:00 PM
+2018-03-20 16:43:05,836 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803261645; TaskEmail on 3/26/2018 4:45:00 PM
+2018-03-20 16:43:05,836 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:43:05,853 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 16:46:01,912 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:46:09,119 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:47:11,495 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:48:12,015 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:48:27,591 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:48:27,593 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:48:27,607 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:48:27,621 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:49:00,000 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:49:00,016 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:54:20,915 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 16:54:21,164 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:54:25,561 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803221710; TaskEmail on 3/22/2018 5:10:00 PM
+2018-03-20 16:54:25,568 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803261700; TaskEmail on 3/26/2018 5:00:00 PM
+2018-03-20 16:54:25,569 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301715; TaskEmail on 3/30/2018 5:15:00 PM
+2018-03-20 16:54:25,569 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301715; TaskEmail on 3/30/2018 5:15:00 PM
+2018-03-20 16:54:25,569 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 16:54:25,590 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 16:55:00,018 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:56:24,089 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:57:02,925 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 16:59:47,419 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 16:59:47,556 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:02:46,737 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803221715; TaskEmail on 3/22/2018 5:15:00 PM
+2018-03-20 17:02:48,667 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803261705; TaskEmail on 3/26/2018 5:05:00 PM
+2018-03-20 17:02:57,969 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301720; TaskEmail on 3/30/2018 5:20:00 PM
+2018-03-20 17:03:02,809 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301720; TaskEmail on 3/30/2018 5:20:00 PM
+2018-03-20 17:13:34,066 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:13:34,182 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:14:13,663 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301710; TaskEmail on 3/30/2018 5:10:00 PM
+2018-03-20 17:14:13,663 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231710; TaskEmail on 3/23/2018 5:10:00 PM
+2018-03-20 17:14:13,663 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301710; TaskEmail on 3/30/2018 5:10:00 PM
+2018-03-20 17:14:13,663 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301710; TaskEmail on 3/30/2018 5:10:00 PM
+2018-03-20 17:14:16,406 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: Recurrence_1075_1803211720; TaskEmailRecurrence on 3/30/2018 5:10:00 PM
+2018-03-20 17:14:16,406 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:14:16,452 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:15:00,036 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:15:21,163 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:16:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:16:39,541 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:17:00,009 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:17:03,830 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:19:02,103 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:19:02,306 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:21:04,019 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301716; TaskEmail on 3/30/2018 5:16:00 PM
+2018-03-20 17:21:04,034 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231716; TaskEmail on 3/23/2018 5:16:00 PM
+2018-03-20 17:21:04,034 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301716; TaskEmail on 3/30/2018 5:16:00 PM
+2018-03-20 17:21:04,034 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301716; TaskEmail on 3/30/2018 5:16:00 PM
+2018-03-20 17:22:28,975 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: Recurrence_1078_1803211726; TaskEmailRecurrence on 3/30/2018 5:26:00 PM
+2018-03-20 17:22:28,975 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:22:28,991 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:23:00,033 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:23:06,989 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:24:00,005 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:24:00,019 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:25:00,007 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:25:00,023 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:26:00,000 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:27:00,013 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:29:13,282 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:29:13,412 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:29:19,458 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301726; TaskEmail on 3/30/2018 5:26:00 PM
+2018-03-20 17:29:19,476 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231726; TaskEmail on 3/23/2018 5:26:00 PM
+2018-03-20 17:29:19,476 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301726; TaskEmail on 3/30/2018 5:26:00 PM
+2018-03-20 17:29:41,247 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:29:41,285 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:30:17,258 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:30:17,537 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:31:33,849 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301726; TaskEmail on 3/30/2018 5:26:00 PM
+2018-03-20 17:31:33,849 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301728; TaskEmail on 3/30/2018 5:28:00 PM
+2018-03-20 17:31:33,849 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231728; TaskEmail on 3/23/2018 5:28:00 PM
+2018-03-20 17:31:33,849 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301728; TaskEmail on 3/30/2018 5:28:00 PM
+2018-03-20 17:31:45,241 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: Recurrence_1075_1803211738; TaskEmailRecurrence on 3/30/2018 5:28:00 PM
+2018-03-20 17:31:45,241 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:31:45,260 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:32:00,041 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:33:06,721 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:33:48,153 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: Recurrence_1078_1803211736; TaskEmailRecurrence on 3/30/2018 5:26:00 PM
+2018-03-20 17:33:48,153 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:34:00,000 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:34:04,277 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:36:04,940 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:36:05,080 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:36:13,246 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301728; TaskEmail on 3/30/2018 5:28:00 PM
+2018-03-20 17:36:13,246 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301733; TaskEmail on 3/30/2018 5:33:00 PM
+2018-03-20 17:36:13,246 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231733; TaskEmail on 3/23/2018 5:33:00 PM
+2018-03-20 17:36:13,246 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301733; TaskEmail on 3/30/2018 5:33:00 PM
+2018-03-20 17:36:15,456 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:36:15,487 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:36:54,454 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:36:54,619 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:37:21,778 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301733; TaskEmail on 3/20/2018 5:39:07 PM
+2018-03-20 17:37:25,659 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301734; TaskEmail on 3/20/2018 5:39:22 PM
+2018-03-20 17:37:26,818 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231734; TaskEmail on 3/20/2018 5:39:26 PM
+2018-03-20 17:37:27,844 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301734; TaskEmail on 3/20/2018 5:39:27 PM
+2018-03-20 17:37:28,669 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:37:28,700 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:38:00,041 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:38:06,299 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:39:00,004 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:39:23,687 [DefaultQuartzScheduler_Worker-2] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803301733; TaskEmail
+2018-03-20 17:39:23,687 [DefaultQuartzScheduler_Worker-6] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803301734; TaskEmail
+2018-03-20 17:39:23,687 [DefaultQuartzScheduler_Worker-4] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803231734; TaskEmail
+2018-03-20 17:39:23,719 [DefaultQuartzScheduler_Worker-3] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803301734; TaskEmail
+2018-03-20 17:39:39,003 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:40:05,148 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:40:09,117 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:40:40,164 [DefaultQuartzScheduler_Worker-4] ERROR StartStageJob - Task execution failed! Job key: 1076_1803231734; TaskEmail
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.) ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at IPS.Business.NotificationService.SelectTemplate(Nullable`1 templateId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 686
+   at IPS.Business.NotificationService.SendTaskEmailNotification(Task task) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 432
+   at IPS.Business.NotificationService.SendTaskEmailNotification(Int32 taskId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 427
+   at IPSScheduler.Jobs.TaskEmailJob.Execute(IJobExecutionContext context) in D:\DotNetProjects\IPS\IPS.Scheduler\Jobs\TaskEmailJob.cs:line 32
+2018-03-20 17:40:40,242 [DefaultQuartzScheduler_Worker-2] INFO  StartStageJob - Task execution completed. Job key: 1078_1803301733; TaskEmail
+2018-03-20 17:40:40,242 [DefaultQuartzScheduler_Worker-3] INFO  StartStageJob - Task execution completed. Job key: 1075_1803301734; TaskEmail
+2018-03-20 17:41:04,613 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:41:06,643 [DefaultQuartzScheduler_Worker-6] INFO  StartStageJob - Task execution completed. Job key: 1077_1803301734; TaskEmail
+2018-03-20 17:41:12,213 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301733; TaskEmail on 3/20/2018 5:43:10 PM
+2018-03-20 17:41:14,125 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301734; TaskEmail on 3/20/2018 5:43:13 PM
+2018-03-20 17:41:15,470 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231734; TaskEmail on 3/20/2018 5:43:14 PM
+2018-03-20 17:41:16,828 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301734; TaskEmail on 3/20/2018 5:43:16 PM
+2018-03-20 17:41:16,828 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:41:53,090 [17] ERROR IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 failed
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__167_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.<ExecuteStoreCommandsAsync>d__c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.<ExecuteAsync>d__0`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<ForEachAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<EnsureRolesLoaded>d__64.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__6c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.AsyncHelper.RunSync[TResult](Func`1 func)
+   at Microsoft.AspNet.Identity.UserManagerExtensions.FindById[TUser,TKey](UserManager`2 manager, TKey userId)
+   at IPS.Business.AuthService.GetUserPlainPassword(String userId) in D:\DotNetProjects\IPS\IPS.Business\AuthService.cs:line 210
+   at IPS.Business.NotificationService.GetUserPassword(String userKey) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1064
+   at IPS.Business.NotificationService.GetMacrosValue(String macros, NotificationRecipient recipient) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 955
+   at IPS.Business.NotificationService.ReplaceMacroses(String templateText, NotificationRecipient recipient) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 907
+   at IPS.Business.NotificationService.SendEmailNotification(NotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 845
+   at IPS.Business.NotificationService.TaskSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 504
+2018-03-20 17:42:03,518 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:42:07,318 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:42:10,652 [18] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:42:37,649 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:43:00,000 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:43:11,642 [DefaultQuartzScheduler_Worker-7] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803301733; TaskEmail
+2018-03-20 17:43:11,643 [DefaultQuartzScheduler_Worker-10] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803231734; TaskEmail
+2018-03-20 17:43:11,645 [DefaultQuartzScheduler_Worker-5] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803301734; TaskEmail
+2018-03-20 17:43:11,646 [DefaultQuartzScheduler_Worker-4] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803301734; TaskEmail
+2018-03-20 17:43:19,705 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:43:19,721 [DefaultQuartzScheduler_Worker-7] INFO  StartStageJob - Task execution completed. Job key: 1078_1803301733; TaskEmail
+2018-03-20 17:43:20,377 [DefaultQuartzScheduler_Worker-5] INFO  StartStageJob - Task execution completed. Job key: 1077_1803301734; TaskEmail
+2018-03-20 17:43:23,955 [DefaultQuartzScheduler_Worker-10] INFO  StartStageJob - Task execution completed. Job key: 1076_1803231734; TaskEmail
+2018-03-20 17:43:26,898 [DefaultQuartzScheduler_Worker-4] INFO  StartStageJob - Task execution completed. Job key: 1075_1803301734; TaskEmail
+2018-03-20 17:44:00,280 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:50:44,116 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 17:50:44,257 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:50:56,220 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301750; TaskEmail on 3/20/2018 5:52:52 PM
+2018-03-20 17:50:57,230 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231750; TaskEmail on 3/20/2018 5:52:56 PM
+2018-03-20 17:50:58,158 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301750; TaskEmail on 3/20/2018 5:52:57 PM
+2018-03-20 17:50:59,153 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301750; TaskEmail on 3/20/2018 5:52:58 PM
+2018-03-20 17:50:59,153 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:50:59,177 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 17:51:00,038 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:51:00,038 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:52:00,013 [DefaultQuartzScheduler_Worker-2] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803301750; TaskEmail
+2018-03-20 17:52:00,013 [DefaultQuartzScheduler_Worker-3] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803231750; TaskEmail
+2018-03-20 17:52:00,013 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:52:00,013 [DefaultQuartzScheduler_Worker-5] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803301750; TaskEmail
+2018-03-20 17:52:00,013 [DefaultQuartzScheduler_Worker-6] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803301750; TaskEmail
+2018-03-20 17:52:00,044 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 17:52:06,232 [DefaultQuartzScheduler_Worker-3] INFO  StartStageJob - Task execution completed. Job key: 1076_1803231750; TaskEmail
+2018-03-20 17:52:08,765 [DefaultQuartzScheduler_Worker-2] INFO  StartStageJob - Task execution completed. Job key: 1078_1803301750; TaskEmail
+2018-03-20 17:52:08,765 [DefaultQuartzScheduler_Worker-6] INFO  StartStageJob - Task execution completed. Job key: 1077_1803301750; TaskEmail
+2018-03-20 17:52:08,765 [DefaultQuartzScheduler_Worker-5] INFO  StartStageJob - Task execution completed. Job key: 1075_1803301750; TaskEmail
+2018-03-20 17:52:41,664 [22] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:52:42,015 [23] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:52:42,428 [20] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:52:42,940 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 17:53:00,000 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 17:53:13,484 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301750; TaskEmail on 3/20/2018 5:55:09 PM
+2018-03-20 17:53:14,997 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231750; TaskEmail on 3/20/2018 5:55:14 PM
+2018-03-20 17:53:16,629 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301750; TaskEmail on 3/20/2018 5:55:15 PM
+2018-03-20 17:53:24,353 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301750; TaskEmail on 3/20/2018 5:55:17 PM
+2018-03-20 17:53:24,353 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:00:50,844 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 18:00:51,019 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:01:05,519 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301800; TaskEmail on 3/20/2018 6:02:57 PM
+2018-03-20 18:01:25,519 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803231800; TaskEmail on 3/20/2018 6:03:06 PM
+2018-03-20 18:01:30,029 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803301800; TaskEmail on 3/20/2018 6:03:29 PM
+2018-03-20 18:01:31,030 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803301800; TaskEmail on 3/20/2018 6:03:30 PM
+2018-03-20 18:01:31,030 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:01:31,053 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 18:02:00,029 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:02:00,030 [DefaultQuartzScheduler_Worker-1] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803301800; TaskEmail
+2018-03-20 18:02:00,039 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:02:10,055 [DefaultQuartzScheduler_Worker-1] INFO  StartStageJob - Task execution completed. Job key: 1075_1803301800; TaskEmail
+2018-03-20 18:02:34,889 [18] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 18:03:00,001 [DefaultQuartzScheduler_Worker-3] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803301800; TaskEmail
+2018-03-20 18:03:00,001 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:03:00,001 [DefaultQuartzScheduler_Worker-5] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803301800; TaskEmail
+2018-03-20 18:03:00,003 [DefaultQuartzScheduler_Worker-6] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803231800; TaskEmail
+2018-03-20 18:03:04,201 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803301800; TaskEmail on 3/20/2018 6:05:04 PM
+2018-03-20 18:03:04,201 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:03:18,544 [DefaultQuartzScheduler_Worker-5] INFO  StartStageJob - Task execution completed. Job key: 1077_1803301800; TaskEmail
+2018-03-20 18:03:19,561 [DefaultQuartzScheduler_Worker-3] INFO  StartStageJob - Task execution completed. Job key: 1078_1803301800; TaskEmail
+2018-03-20 18:03:21,088 [DefaultQuartzScheduler_Worker-6] ERROR StartStageJob - Task execution failed! Job key: 1076_1803231800; TaskEmail
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.) ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at IPS.Business.NotificationService.SelectTask(Int32 taskId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 683
+   at IPS.Business.NotificationService.SendTaskEmailNotification(Int32 taskId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 426
+   at IPSScheduler.Jobs.TaskEmailJob.Execute(IJobExecutionContext context) in D:\DotNetProjects\IPS\IPS.Scheduler\Jobs\TaskEmailJob.cs:line 32
+2018-03-20 18:03:24,621 [19] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 18:03:24,974 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 18:43:43,491 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 18:43:43,616 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:44:26,554 [1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Exception: FrequencyType.NONE cannot be evaluated. Please specify a FrequencyType before evaluating the recurrence.
+   at DDay.iCal.Evaluator.IncrementDate(DateTime& dt, IRecurrencePattern pattern, Int32 interval)
+   at DDay.iCal.RecurrencePatternEvaluator.GetDates(IDateTime seed, DateTime periodStart, DateTime periodEnd, Int32 maxCount, IRecurrencePattern pattern, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrencePatternEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.EvaluateRRule(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrenceUtil.GetOccurrences(IRecurrable recurrable, IDateTime periodStart, IDateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringComponent.GetOccurrences(DateTime startTime, DateTime endTime)
+   at IPS.Business.Utils.RecurrenceRuleParser.GetRecurrenceDateTime(String RRule, DateTime RecStartDate, DateTime RecDueDate) in D:\DotNetProjects\IPS\IPS.Business\Utils\RecurrenceRuleParser.cs:line 23
+   at IPS.Business.TaskService.GetAllRecurrenceTasks() in D:\DotNetProjects\IPS\IPS.Business\TaskService.cs:line 205
+   at IPSScheduler.JobScheduler.LoadFutureRecurrenceTaskForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 620
+2018-03-20 18:44:27,333 [1] INFO  JobScheduler - List of Recurrence scheduled task email in the database is empty.
+2018-03-20 18:44:27,333 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:44:27,367 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 18:45:00,046 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:46:21,189 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 18:46:21,449 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:47:07,994 [1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Exception: FrequencyType.NONE cannot be evaluated. Please specify a FrequencyType before evaluating the recurrence.
+   at DDay.iCal.Evaluator.IncrementDate(DateTime& dt, IRecurrencePattern pattern, Int32 interval)
+   at DDay.iCal.RecurrencePatternEvaluator.GetDates(IDateTime seed, DateTime periodStart, DateTime periodEnd, Int32 maxCount, IRecurrencePattern pattern, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrencePatternEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.EvaluateRRule(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrenceUtil.GetOccurrences(IRecurrable recurrable, IDateTime periodStart, IDateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringComponent.GetOccurrences(DateTime startTime, DateTime endTime)
+   at IPS.Business.Utils.RecurrenceRuleParser.GetRecurrenceDateTime(String RRule, DateTime RecStartDate, DateTime RecDueDate) in D:\DotNetProjects\IPS\IPS.Business\Utils\RecurrenceRuleParser.cs:line 23
+   at IPS.Business.TaskService.GetAllRecurrenceTasks() in D:\DotNetProjects\IPS\IPS.Business\TaskService.cs:line 205
+   at IPSScheduler.JobScheduler.LoadFutureRecurrenceTaskForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 620
+2018-03-20 18:47:10,869 [1] INFO  JobScheduler - List of Recurrence scheduled task email in the database is empty.
+2018-03-20 18:47:10,869 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:47:10,900 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 18:48:00,033 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:48:19,326 [DefaultQuartzScheduler_Worker-1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Exception: FrequencyType.NONE cannot be evaluated. Please specify a FrequencyType before evaluating the recurrence.
+   at DDay.iCal.Evaluator.IncrementDate(DateTime& dt, IRecurrencePattern pattern, Int32 interval)
+   at DDay.iCal.RecurrencePatternEvaluator.GetDates(IDateTime seed, DateTime periodStart, DateTime periodEnd, Int32 maxCount, IRecurrencePattern pattern, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrencePatternEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.EvaluateRRule(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringEvaluator.Evaluate(IDateTime referenceDate, DateTime periodStart, DateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurrenceUtil.GetOccurrences(IRecurrable recurrable, IDateTime periodStart, IDateTime periodEnd, Boolean includeReferenceDateInResults)
+   at DDay.iCal.RecurringComponent.GetOccurrences(DateTime startTime, DateTime endTime)
+   at IPS.Business.Utils.RecurrenceRuleParser.GetRecurrenceDateTime(String RRule, DateTime RecStartDate, DateTime RecDueDate) in D:\DotNetProjects\IPS\IPS.Business\Utils\RecurrenceRuleParser.cs:line 23
+   at IPS.Business.TaskService.GetAllRecurrenceTasks() in D:\DotNetProjects\IPS\IPS.Business\TaskService.cs:line 205
+   at IPSScheduler.JobScheduler.LoadFutureRecurrenceTaskForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 620
+2018-03-20 18:48:20,069 [DefaultQuartzScheduler_Worker-1] INFO  JobScheduler - List of Recurrence scheduled task email in the database is empty.
+2018-03-20 18:48:20,069 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:49:00,013 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:55:32,072 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 18:55:32,185 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:56:03,101 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803201859; TaskEmail on 3/20/2018 6:59:00 PM
+2018-03-20 18:56:10,613 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803201859; TaskEmail on 3/20/2018 6:59:00 PM
+2018-03-20 18:56:13,615 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803201859; TaskEmail on 3/20/2018 6:59:00 PM
+2018-03-20 18:56:45,954 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:56:45,970 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 18:57:00,033 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:57:48,297 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803201901; TaskEmail on 3/20/2018 7:01:00 PM
+2018-03-20 18:57:53,911 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:58:00,013 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:58:36,796 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:59:00,008 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 18:59:00,008 [DefaultQuartzScheduler_Worker-6] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803201859; TaskEmail
+2018-03-20 18:59:00,008 [DefaultQuartzScheduler_Worker-3] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803201859; TaskEmail
+2018-03-20 18:59:00,008 [DefaultQuartzScheduler_Worker-4] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803201859; TaskEmail
+2018-03-20 18:59:15,621 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 18:59:29,797 [DefaultQuartzScheduler_Worker-4] INFO  StartStageJob - Task execution completed. Job key: 1078_1803201859; TaskEmail
+2018-03-20 18:59:29,828 [DefaultQuartzScheduler_Worker-3] INFO  StartStageJob - Task execution completed. Job key: 1077_1803201859; TaskEmail
+2018-03-20 18:59:30,882 [DefaultQuartzScheduler_Worker-6] INFO  StartStageJob - Task execution completed. Job key: 1076_1803201859; TaskEmail
+2018-03-20 19:00:00,011 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:00:10,520 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:00:10,520 [22] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:00:10,536 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:00:12,848 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:01:00,014 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:01:00,014 [DefaultQuartzScheduler_Worker-9] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803201901; TaskEmail
+2018-03-20 19:01:06,029 [DefaultQuartzScheduler_Worker-9] INFO  StartStageJob - Task execution completed. Job key: 1075_1803201901; TaskEmail
+2018-03-20 19:01:14,332 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:01:17,225 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:07:10,715 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 19:07:10,871 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:07:23,330 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1075_1803201911; TaskEmail on 3/20/2018 7:11:00 PM
+2018-03-20 19:07:23,338 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1076_1803201911; TaskEmail on 3/20/2018 7:11:00 PM
+2018-03-20 19:07:23,338 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1077_1803201911; TaskEmail on 3/20/2018 7:11:00 PM
+2018-03-20 19:07:23,338 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803201911; TaskEmail on 3/20/2018 7:11:00 PM
+2018-03-20 19:07:25,905 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:07:25,925 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 19:08:00,029 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:08:00,062 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:09:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:09:00,040 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:10:00,001 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:10:00,032 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:11:00,009 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:11:00,009 [DefaultQuartzScheduler_Worker-4] DEBUG StartStageJob - Start Stage Job! Job key: 1077_1803201911; TaskEmail
+2018-03-20 19:11:00,009 [DefaultQuartzScheduler_Worker-6] DEBUG StartStageJob - Start Stage Job! Job key: 1076_1803201911; TaskEmail
+2018-03-20 19:11:00,009 [DefaultQuartzScheduler_Worker-5] DEBUG StartStageJob - Start Stage Job! Job key: 1075_1803201911; TaskEmail
+2018-03-20 19:11:00,009 [DefaultQuartzScheduler_Worker-8] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803201911; TaskEmail
+2018-03-20 19:11:00,055 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:11:04,884 [DefaultQuartzScheduler_Worker-6] INFO  StartStageJob - Task execution completed. Job key: 1076_1803201911; TaskEmail
+2018-03-20 19:11:04,888 [DefaultQuartzScheduler_Worker-5] INFO  StartStageJob - Task execution completed. Job key: 1075_1803201911; TaskEmail
+2018-03-20 19:11:04,889 [DefaultQuartzScheduler_Worker-4] INFO  StartStageJob - Task execution completed. Job key: 1077_1803201911; TaskEmail
+2018-03-20 19:11:08,010 [DefaultQuartzScheduler_Worker-8] INFO  StartStageJob - Task execution completed. Job key: 1078_1803201911; TaskEmail
+2018-03-20 19:11:21,433 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:11:21,755 [24] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:11:22,194 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:11:24,956 [25] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:12:00,005 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:12:00,045 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:18:25,619 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-20 19:18:25,822 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:18:28,204 [1] DEBUG JobScheduler - Scheduled new Task Email Job! Job key: 1078_1803201919; TaskEmail on 3/20/2018 7:19:00 PM
+2018-03-20 19:18:28,345 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:18:28,376 [1] INFO  JobScheduler - Scheduler Started
+2018-03-20 19:19:00,037 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:19:00,037 [DefaultQuartzScheduler_Worker-2] DEBUG StartStageJob - Start Stage Job! Job key: 1078_1803201919; TaskEmail
+2018-03-20 19:19:00,068 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-20 19:19:39,293 [DefaultQuartzScheduler_Worker-2] INFO  StartStageJob - Task execution completed. Job key: 1078_1803201919; TaskEmail
+2018-03-20 19:19:47,306 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-20 19:20:00,000 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-20 19:20:00,027 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed

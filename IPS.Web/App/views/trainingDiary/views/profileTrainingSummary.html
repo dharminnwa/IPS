@@ -1,0 +1,182 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">Training Summary</span> &nbsp;
+
+                <div class="btn-group">
+                    <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        {{filterType}}
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <!--<li ng-click="changeFilterTrainingType('Own Aggregate')">
+                            <a href="javascript:;">{{'TRAININGDAIRY_OWN_AGREEGATE' | translate }}</a>
+                        </li>-->
+                        <!--<li ng-click="changeFilterTrainingType('Selected Profile')">
+                            <a href="javascript:;">{{'TRAININGDAIRY_SELECTED_PROFILE' | translate }}</a>
+                        </li>-->
+                        <li ng-click="changeFilterTrainingType('All Aggregate')">
+                            <a href="javascript:;">{{'TRAININGDAIRY_ALL_AGREEGATE' | translate }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="btn-group" ng-show="filteredTrainings.length > 0 ">
+                    <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <span ng-show="selectedFilteredTrainingId == null"> All</span>
+                        <span ng-show="selectedFilteredTraining.id > 0"> {{selectedFilteredTraining.name}}</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <div class="scroller" data-width="10px" style="height: 250px;" data-always-visible="1" data-rail-visible1="1">
+                            <li ng-click="selectFilteredTraining(training.id)" ng-repeat="training in filteredTrainings">
+                                <a href="javascript:;">{{training.name}}</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light pb-1">
+    <div class="row m-0">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="time-mang-table">
+                        <th scope="col" class="text-center"> {{'TRAININGDAIRY_SUMMARY' | translate }} </th>
+                        <th scope="col" class="text-center"> {{'TRAININGDAIRY_TIME_PERIOD' | translate }} </th>
+                        <th scope="col" class="text-center">
+                            {{'TRAININGDAIRY_ACTUAL_SPENT_TIME' | translate }}
+                        </th>
+                        <th scope="col" class="text-center">
+                            {{'TRAININGDAIRY_PLANNED_TIME' | translate }}
+                        </th>
+                        <th scope="col" class="text-center"> {{'TRAININGDAIRY_RESULT' | translate }} </th>
+                        <th scope="col" class="text-center"> {{'COMMON_PERFORMANCE' | translate }} </th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+
+                    <tr>
+                        <td>
+                            {{'TRAININGDAIRY_TODAY' | translate }}
+                        </td>
+                        <td> {{dayStartDate | date:'short'}} - {{dayEndDate | date:'short'}} </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <span ng-show="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="totalOwnTrainingSpentHoursToday > 60"> {{totalOwnTrainingSpentHoursToday > 0 ? (totalOwnTrainingSpentHoursToday > 60 ? totalOwnTrainingSpentHoursToday/60 :totalOwnTrainingSpentHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingSpentHoursToday > 60"> {{totalOwnTrainingSpentHoursToday > 0 ? (totalOwnTrainingSpentHoursToday > 60 ? totalOwnTrainingSpentHoursToday/60 :totalOwnTrainingSpentHoursToday) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+
+                        <td ng-show="summaryFor == 'Profile'">
+                            <span ng-show="trainingProfileHoursToday > 60"> {{trainingProfileHoursToday > 0? (trainingProfileHoursToday > 60 ? trainingProfileHoursToday/60 :trainingProfileHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="trainingProfileHoursToday > 60"> {{trainingProfileHoursToday > 0? (trainingProfileHoursToday > 60 ? trainingProfileHoursToday/60 :trainingProfileHoursToday) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="trainingOwnHoursToday > 60"> {{trainingOwnHoursToday > 0? (trainingOwnHoursToday > 60 ? trainingOwnHoursToday/60 :trainingOwnHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="trainingOwnHoursToday > 60"> {{trainingOwnHoursToday > 0? (trainingOwnHoursToday > 60 ? trainingOwnHoursToday/60 :trainingOwnHoursToday) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHoursToday,trainingProfileHoursToday)"></i>
+                            <span ng-show="totalProfileTrainingTodayResult > 60"> {{totalProfileTrainingTodayResult > 0? (totalProfileTrainingTodayResult > 60 ? totalProfileTrainingTodayResult/60 :totalProfileTrainingTodayResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingTodayResult > 60"> {{totalProfileTrainingTodayResult > 0? (totalProfileTrainingTodayResult > 60 ? totalProfileTrainingTodayResult/60 :totalProfileTrainingTodayResult) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalOwnTrainingSpentHoursToday,trainingOwnHoursToday)"></i>
+                            <span ng-show="totalOwnTrainingTodayResult > 60"> {{totalOwnTrainingTodayResult > 0? (totalOwnTrainingTodayResult > 60 ? totalOwnTrainingTodayResult/60 :totalOwnTrainingTodayResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingTodayResult > 60"> {{totalOwnTrainingTodayResult > 0? (totalOwnTrainingTodayResult > 60 ? totalOwnTrainingTodayResult/60 :totalOwnTrainingTodayResult) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td>
+                            <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursToday,trainingProfileHoursToday)"></i>
+                            <i ng-show="summaryFor == 'Own'" class="font-hg fa " ng-class="trainingHourPerformance(totalOwnTrainingSpentHoursToday,trainingOwnHoursToday)"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{'TRAININGDAIRY_WEEK' | translate }}
+                        </td>
+                        <td class=""> {{weekStartDate | date:'short'}} - {{weekEndDate | date:'short'}} </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <span ng-show="totalProfileTrainingSpentHoursWeek > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingSpentHoursWeek  > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="totalOwnTrainingSpentHoursWeek > 60">{{totalOwnTrainingSpentHoursWeek > 0? (totalOwnTrainingSpentHoursWeek > 60 ? totalOwnTrainingSpentHoursWeek/60 :totalOwnTrainingSpentHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide=" totalOwnTrainingSpentHoursWeek > 60">{{totalOwnTrainingSpentHoursWeek > 0? (totalOwnTrainingSpentHoursWeek > 60 ? totalOwnTrainingSpentHoursWeek/60 :totalOwnTrainingSpentHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <span ng-show="trainingProfileHoursWeek > 60">{{trainingProfileHoursWeek > 0? (trainingProfileHoursWeek > 60 ? trainingProfileHoursWeek/60 :trainingProfileHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="trainingProfileHoursWeek > 60">{{trainingProfileHoursWeek > 0? (trainingProfileHoursWeek > 60 ? trainingProfileHoursWeek/60 :trainingProfileHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="trainingOwnHoursWeek > 60">{{trainingOwnHoursWeek > 0? (trainingOwnHoursWeek > 60 ? trainingOwnHoursWeek/60 :trainingOwnHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="trainingOwnHoursWeek > 60">{{trainingOwnHoursWeek > 0? (trainingOwnHoursWeek > 60 ? trainingOwnHoursWeek/60 :trainingOwnHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHoursWeek,trainingProfileHoursWeek)"></i>
+                            <span ng-show="totalProfileTrainingWeekResult > 60">{{totalProfileTrainingWeekResult > 0? (totalProfileTrainingWeekResult > 60 ? totalProfileTrainingWeekResult/60 :totalProfileTrainingWeekResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingWeekResult > 60">{{totalProfileTrainingWeekResult > 0? (totalProfileTrainingWeekResult > 60 ? totalProfileTrainingWeekResult/60 :totalProfileTrainingWeekResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalOwnTrainingSpentHoursWeek,trainingOwnHoursWeek)"></i>
+                            <span ng-show="totalOwnTrainingWeekResult > 60">{{totalOwnTrainingWeekResult > 0? (totalOwnTrainingWeekResult > 60 ? totalOwnTrainingWeekResult/60 :totalOwnTrainingWeekResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingWeekResult > 60">{{totalOwnTrainingWeekResult > 0? (totalOwnTrainingWeekResult > 60 ? totalOwnTrainingWeekResult/60 :totalOwnTrainingWeekResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td>
+                            <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursWeek,trainingProfileHoursWeek)"></i>
+                            <i ng-show="summaryFor == 'Own'" class="font-hg fa " ng-class="trainingHourPerformance(totalOwnTrainingSpentHoursWeek,trainingOwnHoursWeek)"></i>
+                        </td>
+                    </tr>
+                    <tr class="hightlight-text">
+                        <td>
+                            {{'TRAININGDAIRY_TOTAL' | translate }}
+                        </td>
+                        <td>
+                            {{trainingStartDate | date:'short'}} - {{trainingEndDate | date:'short'}}
+
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <span ng-show="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="totalOwnTrainingSpentHours > 60">{{totalOwnTrainingSpentHours > 0? (totalOwnTrainingSpentHours > 60 ? totalOwnTrainingSpentHours/60 :totalOwnTrainingSpentHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingSpentHours > 60">{{totalOwnTrainingSpentHours > 0? (totalOwnTrainingSpentHours > 60 ? totalOwnTrainingSpentHours/60 :totalOwnTrainingSpentHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+
+                            <span ng-show="totalProfileTrainingHours > 60">{{totalProfileTrainingHours > 0? (totalProfileTrainingHours > 60 ? totalProfileTrainingHours/60 :totalProfileTrainingHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingHours > 60">{{totalProfileTrainingHours > 0? (totalProfileTrainingHours > 60 ? totalProfileTrainingHours/60 :totalProfileTrainingHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+
+                        <td ng-show="summaryFor == 'Own'">
+                            <span ng-show="totalOwnTrainingHours > 60">{{totalOwnTrainingHours > 0? (totalOwnTrainingHours > 60 ? totalOwnTrainingHours/60 :totalOwnTrainingHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingHours > 60">{{totalOwnTrainingHours > 0? (totalOwnTrainingHours > 60 ? totalOwnTrainingHours/60 :totalOwnTrainingHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Profile'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHours,totalProfileTrainingHours)"></i>
+                            <span ng-show="totalProfileTrainingResult > 60">{{totalProfileTrainingResult > 0? (totalProfileTrainingResult > 60 ? totalProfileTrainingResult/60 :totalProfileTrainingResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalProfileTrainingResult > 60">{{totalProfileTrainingResult > 0? (totalProfileTrainingResult > 60 ? totalProfileTrainingResult/60 :totalProfileTrainingResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td ng-show="summaryFor == 'Own'">
+                            <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalOwnTrainingSpentHours,totalOwnTrainingHours)"></i>
+                            <span ng-show="totalOwnTrainingResult > 60">{{totalOwnTrainingResult > 0? (totalOwnTrainingResult > 60 ? totalOwnTrainingResult/60 :totalOwnTrainingResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                            <span ng-hide="totalOwnTrainingResult > 60">{{totalOwnTrainingResult > 0? (totalOwnTrainingResult > 60 ? totalOwnTrainingResult/60 :totalOwnTrainingResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                        </td>
+                        <td>
+                            <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHours,totalProfileTrainingHours)"></i>
+                            <i ng-show="summaryFor == 'Own'" class="font-hg fa " ng-class="trainingHourPerformance(totalOwnTrainingSpentHours,totalOwnTrainingHours)"></i>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

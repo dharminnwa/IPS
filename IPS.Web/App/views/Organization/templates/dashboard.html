@@ -1,0 +1,24 @@
+
+<div pane name="dashboard">
+    <div class="col-md-12">
+        <dashboard-managment-filter result="filteredResult" filter="dashboard"></dashboard-managment-filter>
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-dashboard-filter show-report="filteredResult.isShowReport" show-compare-report="filteredResult.isShowCompareReport" profile-type="dashboard.profileType"
+                     profile-id="dashboard.profileId"
+                     period-id="null" organization-id="dashboard.organizationId" user-id="null"
+                     ng-report-data="filteredResult.reportData" ng-compare-report-data="filteredResult.compareReportData" main-stage-name="dashboard.mainStageName"
+                     stage-name="dashboard.stageName" kt-stages-results="filteredResult.ktStagesResults"
+                     kt-compare-stages-result="filteredResult.ktCompareStagesResults"
+                     show-gauge="filteredResult.showGauge"
+                     show-compare-gauge="filteredResult.showCompareGauge"
+                     show-graph="filteredResult.showGraph"
+                     show-kpi-bar="filteredResult.showKpiBar"
+                     show-compare-kpi="filteredResult.showCompareKpi"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div ui-view></div>

@@ -1,0 +1,209 @@
+﻿<div ng-controller="organizationSalesCtrl as organizationSales" id="organizationSales">
+    <div class="clearfix">
+        <div class="">
+            <div class="portlet box">
+                <div class="portlet-title">
+                    <div class="caption">
+                        {{'ORGANIZATIONS_SALES_PROSPECTING_DETAILS' | translate }}
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="control-label db_title">{{'COMMON_SALES_MAN' | translate }}</label>
+                            <select class="form-control" ng-options="salesman.id as (salesman.firstName + ' ' + salesman.lastName)  for salesman in salesMans"
+                                    ng-model="salesManId"
+                                    ng-change="salesmanChangedManually()"></select>
+                        </div>
+
+
+                        <ul class="nav nav-tabs">
+                            <li class="active ">
+                                <a href="javascript:;" data-target="#Project-Profile-Prospecting" data-toggle="tab">{{'ORGANIZATIONS_SALES_PROJECT_PROFILE_PROSPECTING' | translate }}</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" data-target="#Task-Prospecting" data-toggle="tab">{{'ORGANIZATIONS_SALES_TASK_PROSPECTING' | translate }}</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Project-Profile-Prospecting">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label class="control-label db_title">{{'COMMON_PROJECT' | translate }}</label>
+                                        <select class="form-control" ng-options="project.id as project.name  for project in salesManProjects"
+                                                ng-model="salesManProjectId"
+                                                ng-change="salesmanProjectChangedManually()"></select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label db_title">{{'COMMON_PROFILES' | translate }}</label>
+                                        <select class="form-control" ng-options="profile.id as profile.name  for profile in projectProfiles"
+                                                ng-model="salesManProfileId"
+                                                ng-change="salesmanProfileChangedManually()"></select>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <div class="col-lg-12">
+                                        <div class="portlet box ips-primary-color">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    {{'ORGANIZATIONS_SALES_AGREEGATE_PROSPECTING' | translate }}
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div id="salesmanAggregatedSalesActivitiesGrid" class="salesman-Aggregated-Sales-Activities-Grid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="clearfix">
+
+                                    <div class="col-lg-12">
+                                        <div class="portlet box ips-primary-color">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    {{'ORGANIZATIONS_SALES_PROSPECTING_ACTIVITY_RESULT' | translate }}
+                                                </div>
+                                                <div class="actions" ng-show="users.length > 0">
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-sm green" href="javascript:;" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fa fa-user"></i> {{selectedUser ? selectedUser.name : "User"}}
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li ng-repeat="user in users" ng-click="changeUser(user.id)">
+                                                                <a href="javascript:;">
+                                                                    {{user.name}}
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div id="salesmanActivityGrid" class="salesman-activity-grid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="Task-Prospecting">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="control-label db_title">{{'ORGANIZATIONS_SALES_PROSPECTING_TASKS' | translate }}</label>
+                                        <select class="form-control" ng-options="prospectingTask.id as prospectingTask.title  for prospectingTask in salesManProspectingTasks"
+                                                ng-model="salesManProspectingTaskId"
+                                                ng-change="salesManProspectingTaskChangedManually()"></select>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="col-lg-12">
+                                        <label class="control-label db_title">{{'COMMON_DATE_RANGE' | translate }}</label>
+                                        <div class="form-group">
+                                            <div class="col-md-3">
+                                                <span class="control-item">
+                                                    <label class="control-label" for="starDate">{{'COMMON_START_DATE' | translate }}</label>
+                                                    <input kendo-date-time-picker
+                                                           name="starDate"
+                                                           k-on-open="salesManProspectingTaskStartDateOpen(kendoEvent)"
+                                                           k-on-change="salesManProspectingTaskStartDateChange(kendoEvent)"
+                                                           ng-model="salesManProspectingTaskStartDate" />
+                                                </span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="control-item">
+                                                    <label class="control-label" for="endDate">{{'COMMON_END_DATE' | translate }}</label>
+                                                    <input kendo-date-time-picker
+                                                           name="endDate"
+                                                           k-on-open="salesManProspectingTaskEndDateOpen(kendoEvent)"
+                                                           k-on-change="salesManProspectingTaskEndDateChange(kendoEvent)"
+                                                           ng-model="salesManProspectingTaskEndDate" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="col-lg-12">
+                                        <div class="portlet box ips-primary-color">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    {{'ORGANIZATIONS_SALES_AGREEGATE_PROSPECTING' | translate }}
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div id="salesmanTaskAggregatedSalesActivitiesGrid" class="salesman-Task-Aggregated-Sales-Activities-Grid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+
+                                    <div class="col-lg-12">
+                                        <div class="portlet box ips-primary-color">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    {{'ORGANIZATIONS_SALES_PROSPECTING_ACTIVITY_RESULT' | translate }}
+                                                </div>
+                                                <div class="actions" ng-show="users.length > 0">
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-sm green" href="javascript:;" data-toggle="dropdown" aria-expanded="false">
+                                                            <i class="fa fa-user"></i> {{selectedUser ? selectedUser.name : "User"}}
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li ng-repeat="user in users" ng-click="changeUser(user.id)">
+                                                                <a href="javascript:;">
+                                                                    {{user.name}}
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div id="salesmanTaskActivityGrid" class="salesman--task-activity-grid"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="prospectingResultModel" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_SALES_PROSPECTING_RESULT' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="prospectingResultGrid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

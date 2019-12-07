@@ -1,0 +1,94 @@
+<section class="panel" ng-init="(portfolioId)?getPortfolio():''">
+    <header class="panel-heading newPanelHead create-department ">
+        {{(portfolioId)?'COMMON_EDIT':'COMMON_ADD' | translate }} {{'PORTFOLIO_PORTFOLIO_PROJECT' | translate }}
+    </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form  class="newForm"  ng-submit="(portfolioId)?updatePortfolio():addPortfolio()" >
+            <div class="row">
+                <div class="form-group col-sm-12 col-sm-12">
+                    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'MYPROJECTS_PROJECT_TITLE' | translate }} (*)</label>
+                    <div class="col-lg-9" >
+                        <input class="form-control"  id="cname" name="project" ng-model="portfolio.projectTitle" minlength="2" type="text" value="" >
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-sm-12 ">
+                    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'TASKPROSPECTING_PROJECT_NAME' | translate }} (*)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control"  id="cname" name="project" ng-model="portfolio.projectName" minlength="2" type="text" value="" >
+                    </div>
+                </div>
+<div class="form-group col-sm-12 col-sm-12 ">
+    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'PORTFOLIO_PROJECT_DATE' | translate }} (*)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control"  id="cname" name="project" ng-model="portfolio.projectDate" minlength="2" type="text" value="" >
+                    </div>
+                </div>
+<div class="form-group col-sm-12 col-sm-12 ">
+    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'PORTFOLIO_PROJECT_RESULT' | translate }} (*)</label>
+                    <div class="col-lg-9">
+                        <textarea ckeditor="editorOptions" class="Meta Description form-control ng-pristine ng-untouched ng-valid" ng-model="portfolio.projectResult"></textarea>
+                    </div>
+                </div>
+<div class="form-group col-sm-12 col-sm-12 ">
+    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'PORTFOLIO_PROJECT_URL' | translate }} (*)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control"  id="cname" name="project" ng-model="portfolio.projectUrl" minlength="2" type="text" value="" >
+                    </div>
+                </div>
+
+
+                <div class="form-group col-sm-12 col-sm-12 ">
+                    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'PORTFOLIO_UPLOAD_IMAGES' | translate }}</label>
+                    <div class="col-lg-9">
+                        <file-upload class="btn btn-success btn-rad btn-trans file-upload" name="File" resize="true" max-width="1280" max-height="1280" preview="true" ng-model="portfolioImages" multiple="true" uri="http://ips.omsoftware.co/api/api/Upload/UploadPortfolioImages" accept="image/png, image/jpg">
+                            <i class="fa fa-upload"></i>
+                            <span>{{'PORTFOLIO_UPLOAD_FILES' | translate }}</span>
+                            <ul>
+                                <li ng-repeat="p in my.foo.model" ng-hide="p.percent == 100">
+                                    <small>{{ p.name }}</small>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: {{ p.percent }}%;"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </file-upload>  </div>
+                </div>
+
+                <div class="form-group col-sm-12 col-sm-12 ">
+                    <label class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">{{'PORTFOLIO_ABOUT_COMPANY' | translate }}</label>
+                    <div class="col-lg-9">
+                        <textarea ckeditor="editorOptions" class="Meta Description form-control ng-pristine ng-untouched ng-valid" ng-model="portfolio.aboutCompany"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <!--                <div class="form-group col-sm-6 col-sm-6">
+                                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Parent</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control"  ng-model="category.parentID" ng-init="category.parentID=0" required>
+
+                                            <option ng-repeat="language in parent" value="{{language.id}}">{{language.name}}</option>
+
+                                        </select>
+                                        <span ng-show="category.parentID.$touched && category.parentID.$invalid">The project field is required.</span>
+                                    </div>
+                                </div> -->
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <div class="col-lg-offset-1 btmBtn">
+                        <button class="btn btnAdd" type="submit" name="submit">{{(portfolioId)?'SECURITY_UPDATE':'COMMON_ADD' | translate }}</button>
+                        <a class="btn btnclose" name="cancel" href="#/home/portfolio/list/{{catgeoryId}}">{{'COMMON_CANCEL' | translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</section>

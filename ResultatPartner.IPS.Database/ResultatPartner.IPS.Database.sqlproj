@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ResultatPartner.IPS.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{d10d078f-10de-4355-94c7-9743e50cc736}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ResultatPartner.IPS.Database</RootNamespace>
+    <AssemblyName>ResultatPartner.IPS.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Live|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Demo|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="Snapshots" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ScorecardGoals.sql" />
+    <Build Include="dbo\Tables\KPITypes.sql" />
+    <Build Include="dbo\Tables\TrainingMaterials.sql" />
+    <Build Include="dbo\Tables\ScorecardPerspectives.sql" />
+    <Build Include="dbo\Tables\Trends.sql" />
+    <Build Include="dbo\Tables\TaskStatusListItems.sql" />
+    <Build Include="dbo\Tables\ReminderTypes.sql" />
+    <Build Include="dbo\Tables\Link_PerformanceGroupGoals.sql" />
+    <Build Include="dbo\Tables\EvaluationParticipants.sql" />
+    <Build Include="dbo\Tables\TaskPriorityLists.sql" />
+    <Build Include="dbo\Tables\EvaluationRoles.sql" />
+    <Build Include="dbo\Tables\TaskPriorityListItems.sql" />
+    <Build Include="dbo\Tables\Link_DepartmentUsers.sql" />
+    <Build Include="dbo\Tables\AnswerType.sql" />
+    <Build Include="dbo\Tables\Reminders.sql" />
+    <Build Include="dbo\Tables\Link_PerformanceGroupSkills.sql" />
+    <Build Include="dbo\Tables\Scales.sql" />
+    <Build Include="dbo\Tables\MeasureUnits.sql" />
+    <Build Include="dbo\Tables\Link_UsersJobPositions.sql" />
+    <Build Include="dbo\Tables\Bookmarks.sql" />
+    <Build Include="dbo\Tables\Link_PerformanceGroupQuestions.sql" />
+    <Build Include="dbo\Tables\Departments.sql" />
+    <Build Include="dbo\Tables\Trainings.sql" />
+    <Build Include="dbo\Tables\Link_ProfileStageGroups.sql" />
+    <Build Include="dbo\Tables\DurationMetrics.sql" />
+    <Build Include="dbo\Tables\Link_PerformancGroupTrainings.sql" />
+    <Build Include="dbo\Tables\Teams.sql" />
+    <Build Include="dbo\Tables\PerformanceGroups.sql" />
+    <Build Include="dbo\Tables\TrainingLevels.sql" />
+    <Build Include="dbo\Tables\UserTypes.sql" />
+    <Build Include="dbo\Tables\TrainingTypes.sql" />
+    <Build Include="dbo\Tables\Answers.sql" />
+    <Build Include="dbo\Tables\JobPositions.sql" />
+    <Build Include="dbo\Tables\Tasks.sql" />
+    <Build Include="dbo\Tables\Cultures.sql" />
+    <Build Include="dbo\Tables\TrainingDescriptions.sql" />
+    <Build Include="dbo\Tables\Organizations_tmp.sql" />
+    <Build Include="dbo\Tables\TaskStatusLists.sql" />
+    <Build Include="dbo\Tables\Users_tmp.sql" />
+    <Build Include="dbo\Tables\Link_TeamUsers.sql" />
+    <Build Include="dbo\Tables\Industries.sql" />
+    <Build Include="dbo\Tables\Link_TrainingParticipants.sql" />
+    <Build Include="dbo\Tables\LookupItems.sql" />
+    <Build Include="dbo\Tables\TaskCategoryLists.sql" />
+    <Build Include="dbo\Tables\TaskCategoryListItems.sql" />
+    <Build Include="dbo\Tables\Questions.sql" />
+    <Build Include="dbo\Tables\Organizations.sql" />
+    <Build Include="dbo\Tables\Link_OrganizationPartners.sql" />
+    <Build Include="dbo\Tables\Countries.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\Skills.sql" />
+    <Build Include="dbo\Tables\Link_PerformanceGroupProfileTypes.sql" />
+    <Build Include="dbo\Tables\EvaluationAgreements.sql" />
+    <Build Include="dbo\Tables\Link_IndustrySkills.sql" />
+    <Build Include="dbo\Tables\Link_PerformanceGroupTargetAudience.sql" />
+    <Build Include="dbo\Tables\KTMedalRules.sql" />
+    <Build Include="dbo\Tables\Link_SkillQuestions.sql" />
+    <Build Include="dbo\Tables\Link_SkillTargetAudience.sql" />
+    <Build Include="dbo\Tables\ScaleCategories.sql" />
+    <Build Include="dbo\Tables\TaskLists.sql" />
+    <Build Include="dbo\Tables\Link_EvaluationAgreementTrainings.sql" />
+    <Build Include="dbo\Tables\StageGroups.sql" />
+    <Build Include="dbo\Tables\UpdatesHistory.sql" />
+    <Build Include="dbo\Tables\EvaluationStatuses.sql" />
+    <Build Include="dbo\Tables\Link_ProfileTargetAudience.sql" />
+    <Build Include="dbo\Tables\ProfileTypes.sql" />
+    <Build Include="dbo\Tables\Link_SkillTrainings.sql" />
+    <Build Include="dbo\Tables\StructureLevels.sql" />
+    <Build Include="dbo\Tables\Stages.sql" />
+    <Build Include="dbo\Tables\ProfileCategories.sql" />
+    <Build Include="dbo\Tables\Profiles.sql" />
+    <Build Include="dbo\Tables\ScaleRanges.sql" />
+    <Build Include="dbo\Tables\NotificationTemplates.sql" />
+    <Build Include="dbo\Tables\Projects.sql" />
+    <Build Include="dbo\Tables\ProjectRoles.sql" />
+    <Build Include="dbo\Tables\Link_ProjectUsers.sql" />
+    <Build Include="dbo\Tables\ProfileScaleSettingsRules.sql" />
+    <Build Include="ExtendedProperties.sql" />
+    <Build Include="dbo\Tables\ExerciseMetrics.sql" />
+    <Build Include="dbo\Tables\NotificationTypes.sql" />
+    <Build Include="dbo\Tables\NotificationIntervals.sql" />
+    <Build Include="dbo\Tables\Link_Training_NotificationType_NotificationInterval.sql" />
+    <Build Include="dbo\Tables\IpsPlans.sql" />
+    <Build Include="dbo\Tables\IpsPlanRoles.sql" />
+    <Build Include="dbo\Tables\IPSPlanFieldsLookup.sql" />
+    <Build Include="dbo\Tables\IPSPlanFields.sql" />
+    <Build Include="dbo\Tables\IPSPlanFeatures.sql" />
+    <Build Include="dbo\Tables\HelpContent.sql" />
+    <Build Include="dbo\Tables\HelpCategory.sql" />
+    <Build Include="dbo\Tables\CmsPages.sql" />
+    <Build Include="dbo\Tables\Testimonials.sql" />
+    <Build Include="dbo\Tables\TemplateContentImage.sql" />
+    <Build Include="dbo\Tables\TemplateContent.sql" />
+    <Build Include="dbo\Tables\TemplateCategory.sql" />
+    <Build Include="dbo\Tables\PortfolioProjects.sql" />
+    <Build Include="dbo\Tables\PortfolioImages.sql" />
+    <Build Include="dbo\Tables\PortfolioCategory.sql" />
+    <Build Include="dbo\Tables\PlanFeaturesKeys.sql" />
+    <Build Include="dbo\Tables\IpsSurveyPlan.sql" />
+    <Build Include="dbo\Tables\ContactUs.sql" />
+    <Build Include="dbo\Tables\PossibleAnswers.sql" />
+    <Build Include="dbo\Tables\SurveyResults.sql" />
+    <Build Include="dbo\Tables\SurveyAnswers.sql" />
+    <Build Include="dbo\Tables\StagesEvolution.sql" />
+    <Build Include="dbo\Tables\StagesEvolutionQuestions.sql" />
+    <Build Include="dbo\Tables\Documents.sql" />
+    <Build Include="dbo\Tables\QuestionMaterials.sql" />
+    <Build Include="dbo\Tables\Link_SurveyAnswersTrainings.sql" />
+    <Build Include="dbo\Tables\TrainingFeedback.sql" />
+    <Build Include="dbo\Tables\TaskScales.sql" />
+    <Build Include="dbo\Tables\TaskScaleRanges.sql" />
+    <Build Include="dbo\Tables\TrainingMaterialRatings.sql" />
+    <Build Include="dbo\Tables\TaskActivity.sql" />
+    <Build Include="dbo\Tables\ProjectGoals.sql" />
+    <Build Include="dbo\Tables\ProjectSteeringGroups.sql" />
+    <Build Include="dbo\Tables\Tags.sql" />
+    <Build Include="dbo\Tables\Link_ProfileTags.sql" />
+    <Build Include="dbo\Tables\ProjectGlobalSettings.sql" />
+    <Build Include="dbo\Tables\UserRecurrentNotificationSetting.sql" />
+    <Build Include="dbo\Tables\IpsEmails.sql" />
+    <Build Include="dbo\Tables\NotificationTemplateTypes.sql" />
+    <Build Include="dbo\Tables\TrainingNote.sql" />
+    <Build Include="dbo\Tables\MilestoneAgreementGoals.sql" />
+    <Build Include="dbo\Tables\ProjectDefaultNotificationSettings.sql" />
+    <Build Include="dbo\Tables\ProspectingCustomers.sql" />
+    <Build Include="dbo\Tables\ProspectingGoalActivityInfo.sql" />
+    <Build Include="dbo\Tables\ProspectingActivities.sql" />
+    <Build Include="dbo\Tables\ProspectingSkillGoals.sql" />
+    <Build Include="dbo\Tables\ProspectingGoalInfo.sql" />
+    <Build Include="dbo\Tables\ProspectingSchedule.sql" />
+    <Build Include="dbo\Tables\ProspectingCustomerResult.sql" />
+    <Build Include="dbo\Tables\ProspectingActivityLog.sql" />
+    <Build Include="dbo\Tables\Customers.sql" />
+    <Build Include="dbo\Tables\CustomerSalesData.sql" />
+    <Build Include="dbo\Tables\ProspectingGoalScales.sql" />
+    <Build Include="dbo\Tables\ProspectingGoalScaleRanges.sql" />
+    <Build Include="dbo\Tables\ProspectingActivityFeedback.sql" />
+    <Build Include="dbo\Tables\ExpiredProspectingActivityReason.sql" />
+    <Build Include="dbo\Tables\ProspectingCustomerOfferDetail.sql" />
+    <Build Include="dbo\Tables\OfferClosingDetail.sql" />
+    <Build Include="dbo\Tables\ProspectingCustomerSalesAgreedData.sql" />
+    <Build Include="dbo\Tables\IPSEMailAttachments.sql" />
+    <Build Include="dbo\Tables\IpsAttachmentUser.sql" />
+    <Build Include="dbo\Tables\IpsAttachments.sql" />
+    <Build Include="dbo\Tables\IpsAttachmentFileDetail.sql" />
+    <Build Include="dbo\Tables\SensorData.sql" />
+    <Build Include="dbo\Tables\Packages.sql" />
+    <Build Include="dbo\Tables\DailyEvaluation.sql" />
+  </ItemGroup>
+</Project>

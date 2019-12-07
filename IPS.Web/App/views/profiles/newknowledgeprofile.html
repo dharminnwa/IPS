@@ -1,0 +1,497 @@
+﻿<div class="row" ng-init="init()">
+    <section class="portlet-light portlet-light-box">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <div class="card new-soft-profile-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="javascript:;" data-target="#ProfileSetup" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    {{'MYPROJECTS_PROFILE_SETUP' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+
+                            <a href="javascript:;" data-href="#/home/soft/{{selectedProfile.id}}/performancegroups" role="tab" ng-click="gotoPerformanceGroup()">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>{{'COMMON_PERFORMANCE_GROUP' | translate}}- {{'COMMON_SKILL' | translate}} - {{'SOFTPROFILE_QUESTIONS' | translate}} - {{'SOFTPROFILE_TRAININGS' | translate}}</span>
+                            </a>
+                        </li>
+
+                        <li role="presentation">
+                            <a href="javascript:;" data-href="#/home/soft/{{selectedProfile.id}}/milestones" class="middleText" role="tab" ng-click="gotoSendOut()">
+                                <span>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    {{'SOFTPROFILE_SEND_OUTS' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <div class="col-lg-12 mt-5 mb-5 hide">
+                        <div class="row">
+                            <div class="progress-outer task-progress">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success progress-bar-striped active" style="width:50%;">
+                                    </div>
+                                    <div class="progress-value">50%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="ProfileSetup">
+                            <div class="row">
+                                <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable mt-6">
+                                    <div id="wid-id-0">
+                                        <!-- widget div-->
+                                        <div role="contentinfo">
+                                            <!-- widget content -->
+                                            <div class="widget-body">
+
+                                                <div class="row">
+                                                    <form name="profileForm" novalidate="novalidate">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-bootstrapWizard">
+                                                                <ul class="bootstrapWizard form-wizard">
+                                                                    <li class="active" data-target="#ProfileInfo" data-toggle="tab">
+                                                                        <a href="javascript:;" class="active">
+                                                                            <span class="step">
+                                                                                <i class="fa fa-info-circle fa-4x" aria-hidden="true"></i>
+                                                                            </span>
+                                                                            <span class="title">
+                                                                                {{'MYPROJECTS_PROFILE_DETAILS' | translate}}
+                                                                            </span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="" data-target="#KPIQuestionDetails" data-toggle="tab">
+                                                                        <a href="javascript:;">
+                                                                            <span class="step">
+                                                                                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                                                            </span>
+                                                                            <span class="title">
+                                                                                {{'COMMON_KPI' | translate}} & {{'SOFTPROFILE_QUESTIONS' | translate}} {{'COMMON_DETAILS' | translate}}
+                                                                            </span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="" data-target="#ScaleDetails" data-toggle="tab">
+                                                                        <a ref="javascript:;">
+                                                                            <span class="step">
+                                                                                <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                                                                            </span>
+                                                                            <span class="title">
+                                                                                {{'SOFTPROFILE_PASS_CRITERIA' | translate}}
+                                                                            </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+
+                                                            <div class="tab-content">
+                                                                <div class="tab-pane active" id="ProfileInfo">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="portlet box collapse-light-box ">
+                                                                                <div class="portlet-title  header-blue">
+                                                                                    <div class="caption ">
+                                                                                        {{'PROVIDE_PROFILE_DETAILS' | translate}}
+                                                                                    </div>
+                                                                                    <div class="tools">
+                                                                                        <a href="javascript:;" class="collapse" data-original-title="" title="">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="portlet-body department-team-section" style="display: block;">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">
+                                                                                                    {{'COMMON_PROJECT' | translate }}
+                                                                                                </label>
+                                                                                                <span class="required" ng-show="profileForm.projectId.$dirty && profileForm.projectId.$error.required"> * </span>
+                                                                                                <select class="form-control" name="projectId" data-ng-model="selectedProfile.projectId" data-ng-options="obj.id as obj.name for obj in projects" ng-change="projectChanged()"></select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'COMMON_NAME' | translate }}</label>
+                                                                                                <span ng-show='profileForm.profileName.$error.required' class="required">*</span>
+                                                                                                <input type="text" class="form-control" ng-model="selectedProfile.name" ng-required="!selectedProfile.name" name="profileName" autofocus />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                                                                                <input type="text" class="form-control" data-ng-model="selectedProfile.description" />
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-3">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'COMMON_ORGANIZATION' | translate }}</label>
+                                                                                                <select class="form-control" name="profileOrganizationId" data-ng-model="selectedProfile.organizationId" data-ng-options="obj.id as obj.name for obj in organizations"></select>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 mt-3">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'COMMON_INDUSTRY' | translate }}</label>
+                                                                                                <select class="form-control" data-ng-model="selectedProfile.rootIndustryId" data-ng-options="i.id as i.name for i in industries" ng-change="industryUpdate(selectedProfile.rootIndustryId)"></select>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 mt-3">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                                                                                                <select class="form-control" data-ng-model="selectedProfile.subIndustryId" data-ng-options="i.id as i.name for i in industry.subIndustries" ng-change="subIndustryUpdate(selectedProfile.subIndustryId)" ng-disabled="industry.subIndustries.length == 0 || industry.subIndustries == undefined"></select>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <profile-level name="{{'COMMON_PROFILE_LEVEL' | translate }}" type="profile" selected="selectedProfile.levelId"></profile-level>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <profile-category name="{{'SOFTPROFILE_PROFILE_CATEGORY' | translate }}" type="category" selected="selectedProfile.categoryId" organization="selectedProfile.organizationId"></profile-category>
+                                                                                        </div>
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">
+                                                                                                {{'MYPROJECTS_PROFILE_TAG' | translate }}
+                                                                                            </label>
+                                                                                            <div class="input-group">
+                                                                                                <select id="tagId" kendo-multi-select k-options="selectTagOptions" k-ng-model="selectedProfile.tags"></select>
+                                                                                                <span class="input-group-addon">
+                                                                                                    <i class="fa fa-plus" ng-click="openNewProfileTagModal()"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">
+                                                                                                {{'COMMON_TARGET_GROUP' | translate }}
+                                                                                            </label>
+                                                                                            <select kendo-multi-select k-options="selectOptions" k-ng-model="selectedProfile.jobPositions"></select>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 pt-4">
+                                                                                            <div class="form-check">
+                                                                                                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                                                                                                    <input type="checkbox" ng-model="selectedProfile.isTemplate"> {{'COMMON_IS_TEMPLATE' | translate }}
+                                                                                                    <span></span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 text-center mt-5">
+                                                                                        <button class="btn dropdown-toggle btn-cstm" data-target="#KPIQuestionDetails" data-toggle="tab" ng-disabled="!selectedProfile.name">
+                                                                                            {{'COMMON_NEXT' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="KPIQuestionDetails">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="portlet box collapse-light-box">
+                                                                                <div class="portlet-title header-blue">
+                                                                                    <div class="caption">
+                                                                                        {{'COMMON_KPI' | translate}} & {{'SOFTPROFILE_QUESTIONS' | translate}} {{'COMMON_DETAILS' | translate}}
+                                                                                    </div>
+                                                                                    <div class="tools">
+
+                                                                                        <a href="javascript:;" class="collapse" data-original-title="" title="">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="portlet-body department-team-section" style="display: block;">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6 mt-5">
+                                                                                            <div class="form-group" ng-hide="selectedProfile.kpiWeak==0">
+                                                                                                <label class="ips-label">{{'SOFTPROFILE_KPI_WEAK' | translate }}</label>
+                                                                                                <span ng-show='profileForm.profileKpiWeak.$error.required' class="required">*</span>
+                                                                                                <input class="form-control" data-ng-model="selectedProfile.kpiWeak" type="number" name="profileKpiWeak" min="0" ng-required="!selectedProfile.kpiWeak" />
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6 mt-5">
+                                                                                            <div class="form-group" ng-hide="selectedProfile.kpiStrong==0">
+                                                                                                <label class="ips-label">{{'SOFTPROFILE_KPI_STRONG' | translate }}</label>
+                                                                                                <span ng-show='profileForm.profileKpiStrong.$error.required' class="required">*</span>
+                                                                                                <input class="form-control" data-ng-model="selectedProfile.kpiStrong" type="number" name="profileKpiStrong" min="0" ng-required="!selectedProfile.kpiStrong" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-3">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'SOFTPROFILE_QUESTION_DISPLAY_RULE' | translate }}</label>
+                                                                                                <select class="form-control display-rule"
+                                                                                                        ng-disabled="selectedProfile.allowRevisitAnsweredQuestions"
+                                                                                                        data-ng-model="selectedProfile.questionDisplayRuleId"
+                                                                                                        data-ng-options="displayRule.id as displayRule.name for displayRule in questionDisplayRule"></select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        
+
+
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-3 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <div class="form-check mt-3">
+                                                                                                    <label class="mt-checkbox mt-checkbox-outline dark">
+                                                                                                        <input type="checkbox" data-ng-model="selectedProfile.setKPIInSurvey">
+                                                                                                        {{'SOFTPROFILE_SET_KPI_IN_SURVEY' | translate }}
+                                                                                                        <span></span>
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <div class="form-check mt-3">
+                                                                                                    <label class="mt-checkbox mt-checkbox-outline dark">
+                                                                                                        <input type="checkbox" data-ng-model="selectedProfile.randomizeQuestions">
+                                                                                                        {{'SOFTPROFILE_RANDOMIZE_QUESTIONS' | translate }}
+                                                                                                        <span></span>
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-3 mt-5">
+                                                                                            <div class="form-group">
+                                                                                                <div class="form-check mt-3">
+                                                                                                    <label class="mt-checkbox mt-checkbox-outline dark">
+                                                                                                        <input type="checkbox" data-ng-model="selectedProfile.allowRevisitAnsweredQuestions" ng-click="setQuestionDisplayRule()">
+                                                                                                        {{'SOFTPROFILE_ALLOW_TO_REVISIT_ANSWERED_QUESTIONS' | translate }}
+                                                                                                        <span></span>
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 text-center mt-6">
+                                                                                        <button class="btn btn-cstm" type="button" data-target="#ScaleDetails" data-toggle="tab">
+                                                                                            {{'COMMON_NEXT' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="ScaleDetails">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <div class="portlet box collapse-light-box">
+                                                                                <div class="portlet-title header-blue">
+                                                                                    <div class="caption">
+                                                                                        {{'SOFTPROFILE_PASS_CRITERIA' | translate}}
+                                                                                    </div>
+                                                                                    <div class="tools">
+
+                                                                                        <a href="javascript:;" class="collapse" data-original-title="" title="">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="portlet-body department-team-section" style="display: block;">
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-cstm-lable">{{'SOFTPROFILE_PASS_CRITERIA' | translate }}</label>
+                                                                                        <select class="form-control" name="passCriterion" ng-change="changePassCriteria(passCriterion)"
+                                                                                                data-ng-model="passCriterion"
+                                                                                                data-ng-options="obj.id as obj.name for obj in passCriteria"></select>
+                                                                                    </div>
+                                                                                    <div class="form-group" ng-show="passCriterion == passCriteriaEnum.passScore">
+                                                                                        <label class="form-cstm-lable">{{'SOFTPROFILE_PASS_SCORE' | translate }}</label>
+                                                                                        <div class="input-group">
+                                                                                            <input type="number" class="form-control"
+                                                                                                   ng-required="passCriterion == passCriteriaEnum.passScore"
+                                                                                                   min="0"
+                                                                                                   max="100"
+                                                                                                   ng-model="selectedProfile.passScore"
+                                                                                                   name="passScore" />
+                                                                                            <span class="input-group-addon">%</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group" ng-show="passCriterion == passCriteriaEnum.medalRules">
+                                                                                        <label class="form-cstm-lable">{{'SOFTPROFILE_MEDAL_RULES' | translate }}</label>
+                                                                                        <select class="form-control" name="medalRules" ng-change="changeMedalRule()"
+                                                                                                data-ng-model="selectedProfile.medalRuleId"
+                                                                                                data-ng-options="obj.id as obj.name for obj in medalRules">
+                                                                                            <option value=''>{{'SOFTPROFILE_SELECT_MEDAL_RULE' | translate }}</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="medal-rule" ng-show="passCriterion == passCriteriaEnum.medalRules">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'SOFTPROFILE_MEDAL_RULE_NAME' | translate }}</label>
+                                                                                            <span ng-show='profileForm.medalRuleName.$error.required' class="required">*</span>
+                                                                                            <input type="text" class="form-control" ng-model="selectedProfile.ktMedalRule.name"
+                                                                                                   name="medalRuleName" ng-required="isMedalRuleRequired" />
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="pull-left">
+                                                                                                    <div class="icon bronze-icon" title="Bronze"></div>
+                                                                                                </div>
+                                                                                                <div class="col-md-offset-1 col-md-3">
+                                                                                                    <span ng-show='profileForm.bronzeFrom.$error.required'
+                                                                                                          class="required">*</span>
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="number" class="form-control"
+                                                                                                               ng-required="isMedalRuleRequired"
+                                                                                                               min="0"
+                                                                                                               ng-max="{{minThan(selectedProfile.ktMedalRule.bronzeTo)}}"
+                                                                                                               ng-model="selectedProfile.ktMedalRule.bronzeStart"
+                                                                                                               name="bronzeFrom" />
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="pull-left">
+                                                                                                    <div class="dash"></div>
+                                                                                                </div>
+                                                                                                <div class="col-md-3">
+                                                                                                    <span ng-show='profileForm.bronzeTo.$error.required'
+                                                                                                          class="required">*</span>
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="number" class="form-control"
+                                                                                                               ng-required="isMedalRuleRequired"
+                                                                                                               ng-min="{{moreThan(selectedProfile.ktMedalRule.bronzeStart)}}"
+                                                                                                               ng-max="{{minThan(selectedProfile.ktMedalRule.silverEnd)}}"
+                                                                                                               ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                                                                                               name="bronzeTo" />
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="pull-left">
+                                                                                                    <div class="icon silver-icon" title="Silver"></div>
+                                                                                                </div>
+                                                                                                <div class="col-md-1">
+                                                                                                    <label class="form-cstm-lable">{{'SOFTPROFILE_OVER' | translate }}</label>
+                                                                                                </div>
+                                                                                                <div class="col-md-3">
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="number" class="form-control" disabled
+                                                                                                               ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                                                                                               name="silverFrom" />
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="pull-left">
+                                                                                                    <div class="dash"></div>
+                                                                                                </div>
+                                                                                                <div class="col-md-3">
+                                                                                                    <span ng-show='profileForm.silverTo.$error.required'
+                                                                                                          class="required">*</span>
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="number" class="form-control"
+                                                                                                               ng-required="isMedalRuleRequired"
+                                                                                                               ng-min="{{moreThan(selectedProfile.ktMedalRule.bronzeTo)}}"
+                                                                                                               ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                                                                                               name="silverTo" />
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="pull-left">
+                                                                                                    <div class="icon gold-icon" title="Gold"></div>
+                                                                                                </div>
+                                                                                                <div class="col-md-1">
+                                                                                                    <label class="form-cstm-lable">{{'SOFTPROFILE_OVER' | translate }}</label>
+                                                                                                </div>
+                                                                                                <div class="col-md-3">
+                                                                                                    <div class="input-group">
+                                                                                                        <input type="number" class="form-control" disabled
+                                                                                                               ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                                                                                               name="goldFrom" />
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-12 text-center mt-5">
+                                                                                        <button class="btn btn-cstm" type="button" ng-click="saveProfile(true);" ng-disabled="profileForm.$invalid">
+                                                                                            {{'COMMON_NEXT' | translate }} <i class="fa fa-chevron-right"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                            <div id="profileTagModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PLEASE_ADD_NEW_TAG' | translate }}</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <ng-form class="form-horizontal" name="formProfileTag" action="#" id="formProfileTag" novalidate="novalidate">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">
+                                                                                    {{'MYPROJECTS_PROFILE_TAG' | translate }}
+                                                                                    <span class="required" ng-show="formProfileTag.tag.$dirty && formProfileTag.tag.$error.required"> * </span>
+                                                                                </label>
+                                                                                <div class="col-md-4">
+                                                                                    <input type="text" class="form-control" placeholder="Enter Tag" name="tag" ng-model="newProfileTag.name" ng-required="true">
+                                                                                    <div class="validation-error-label" ng-show="formProfileTag.tag.$dirty && formProfileTag.tag.$error.required">{{'MYPROJECTS_PROFILE_TAG_IS_REQUIRED' | translate }}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="col-sm-12">
+                                                                            <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                            <button class="btn btn-cstm primary pull-right" ng-disabled="(formProfileTag.$invalid)" ng-click="addProfileTag()" data-dismiss="modal" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                        </div>
+                                                                    </ng-form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

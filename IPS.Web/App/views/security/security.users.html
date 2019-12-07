@@ -1,0 +1,26 @@
+<div id="usersGrid" kendo-grid="usersGrid" >
+
+</div>
+
+<div ng-hide="selectedUser.id == -1" >
+    <form name="addNewOrganizationForm">
+        <div class="row ips-add-role-row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="ips-label">Organization</label>
+                    <select class="form-control" data-ng-init="userOrganization = -1" data-ng-model="userOrganization" data-ng-options="org.value as org.text for org in organizations | notInArray:selectedUser.userOrganizations:'value'" placeholder="Select organization"></select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <button id="btn-save" type="submit" class="btn btn-cstm" ng-disabled="userOrganization == -1" ng-click="addNewOrganization(userOrganization); userOrganization = -1;">Grant access to Organization</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="organizationsTabs">
+
+</div>
+

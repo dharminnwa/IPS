@@ -1,0 +1,267 @@
+<div class="row" ng-init="init()">
+    <div ng-class="selectedProfile.id <= 0 ? 'col-md-12':'col-md-10'">
+        <div class="row">
+            <div pane class="col-md-12">
+                <form class="profileForm" name="profileForm" novalidate>
+                    <div class="row">
+                        <div class="col-sm-12 return-menu">
+                            <a href="#/home/profiles/profiles/knowledgetest" class="newhead title fa fa-long-arrow-left"></a>
+                            <h1 class="title">{{'LEFTMENU_KNOWLEDGE_PROFILE' | translate }}</h1>
+                            <div class="top-border"></div>
+                        </div>
+                        <div class="col-lg-12">
+                            <br/>
+                            <div class="alert alert-warning" ng-hide="!isInUse">
+                                <strong>{{'COMMON_WARNING' | translate }}!</strong> {{'SOFTPROFILE_THIS_PROFILE_IS_IN_USE' | translate }} {{'SOFTPROFILE_CHANGES_CAN_NOT_BE_SAVED' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                <span ng-show='profileForm.profileName.$error.required' class="required">*</span>
+                                <input type="text" class="form-control" ng-model="selectedProfile.name"
+                                       ng-required="!selectedProfile.name" name="profileName" autofocus/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                                <select class="form-control" name="profileOrganizationId"
+                                        data-ng-model="selectedProfile.organizationId"
+                                        data-ng-options="obj.id as obj.name for obj in organizations"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                                <select class="form-control" data-ng-model="selectedProfile.rootIndustryId"
+                                        data-ng-options="i.id as i.name for i in industries"
+                                        ng-change="industryUpdate(selectedProfile.rootIndustryId)"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                                <select class="form-control" data-ng-model="selectedProfile.subIndustryId"
+                                        data-ng-options="i.id as i.name for i in industry.subIndustries"
+                                        ng-change="subIndustryUpdate(selectedProfile.subIndustryId)"
+                                        ng-disabled="industry.subIndustries.length == 0 || industry.subIndustries == undefined"></select>
+                            </div>
+
+                            <profile-level name="{{'COMMON_PROFILE_LEVEL' | translate }}" type="profile"
+                                           selected="selectedProfile.levelId"></profile-level>
+
+                            <profile-category name="{{'SOFTPROFILE_PROFILE_CATEGORY' | translate }}" type="category"
+                                              selected="selectedProfile.categoryId"
+                                              organization="selectedProfile.organizationId"></profile-category>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-hide="selectedProfile.kpiWeak==0">
+                                        <label class="control-label">{{'SOFTPROFILE_KPI_WEAK' | translate }}</label>
+                                        <span ng-show='profileForm.profileKpiWeak.$error.required'
+                                              class="required">*</span>
+                                        <input class="form-control" data-ng-model="selectedProfile.kpiWeak"
+                                               type="number" name="profileKpiWeak" min="0"
+                                               ng-required="!selectedProfile.kpiWeak"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-hide="selectedProfile.kpiStrong==0">
+                                        <label class="control-label">{{'SOFTPROFILE_KPI_STRONG' | translate }}</label>
+                                        <span ng-show='profileForm.profileKpiStrong.$error.required'
+                                              class="required">*</span>
+                                        <input class="form-control" data-ng-model="selectedProfile.kpiStrong"
+                                               type="number" name="profileKpiStrong" min="0"
+                                               ng-required="!selectedProfile.kpiStrong"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_TARGET_GROUP' | translate }}</label>
+                                <select kendo-multi-select k-options="selectOptions"
+                                        k-ng-model="selectedProfile.jobPositions"></select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.isActive"> {{'COMMON_IS_ACTIVE' | translate }}
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.isTemplate"> {{'COMMON_IS_TEMPLATE' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                <textarea class="form-control" rows="5"
+                                          data-ng-model="selectedProfile.description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'SOFTPROFILE_QUESTION_DISPLAY_RULE' | translate }}</label>
+                                <select class="form-control display-rule"
+                                        ng-disabled="selectedProfile.allowRevisitAnsweredQuestions"
+                                        data-ng-model="selectedProfile.questionDisplayRuleId"
+                                        data-ng-options="displayRule.id as displayRule.name for displayRule in questionDisplayRule"></select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.setKPIInSurvey"> <strong>{{'SOFTPROFILE_SET_KPI_IN_SURVEY' | translate }}</strong>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.randomizeQuestions"> <strong>{{'SOFTPROFILE_RANDOMIZE_QUESTIONS' | translate }}</strong>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" ng-click="setQuestionDisplayRule()" data-ng-model="selectedProfile.allowRevisitAnsweredQuestions">
+                                <strong>{{'SOFTPROFILE_ALLOW_TO_REVISIT_ANSWERED_QUESTIONS' | translate }}</strong>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'SOFTPROFILE_PASS_CRITERIA' | translate }}</label>
+                                <select class="form-control" name="passCriterion" ng-change="changePassCriteria(passCriterion)"
+                                        data-ng-model="passCriterion"
+                                        data-ng-options="obj.id as obj.name for obj in passCriteria">
+                                </select>
+                            </div>
+                            <div class="form-group" ng-show="passCriterion == passCriteriaEnum.passScore">
+                                <label class="control-label">{{'SOFTPROFILE_PASS_SCORE' | translate }}</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control"
+                                           ng-required="passCriterion == passCriteriaEnum.passScore"
+                                           min="0"
+                                           max="100"
+                                           ng-model="selectedProfile.passScore"
+                                           name="passScore" />
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="passCriterion == passCriteriaEnum.medalRules">
+                                <label class="control-label">{{'SOFTPROFILE_MEDAL_RULES' | translate }}</label>
+                                <select class="form-control" name="medalRules" ng-change="changeMedalRule()"
+                                        data-ng-model="selectedProfile.medalRuleId"
+                                        data-ng-options="obj.id as obj.name for obj in medalRules">
+                                    <option value=''>{{'SOFTPROFILE_SELECT_MEDAL_RULE' | translate }}</option>
+                                </select>
+                            </div>
+                            <div class="medal-rule" ng-show="passCriterion == passCriteriaEnum.medalRules">
+                                <div class="form-group">
+                                    <label class="control-label">{{'SOFTPROFILE_MEDAL_RULE_NAME' | translate }}</label>
+                                    <span ng-show='profileForm.medalRuleName.$error.required' class="required">*</span>
+                                    <input type="text" class="form-control" ng-model="selectedProfile.ktMedalRule.name"
+                                           name="medalRuleName" ng-required="isMedalRuleRequired"/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="pull-left">
+                                            <div class="icon bronze-icon" title="Bronze"></div>
+                                        </div>
+                                        <div class="col-md-offset-1 col-md-3">
+                                            <span ng-show='profileForm.bronzeFrom.$error.required'
+                                                  class="required">*</span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control"
+                                                       ng-required="isMedalRuleRequired"
+                                                       min="0"
+                                                       ng-max="{{minThan(selectedProfile.ktMedalRule.bronzeTo)}}"
+                                                       ng-model="selectedProfile.ktMedalRule.bronzeStart"
+                                                       name="bronzeFrom"/>
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="dash"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span ng-show='profileForm.bronzeTo.$error.required'
+                                                  class="required">*</span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control"
+                                                       ng-required="isMedalRuleRequired"
+                                                       ng-min="{{moreThan(selectedProfile.ktMedalRule.bronzeStart)}}"
+                                                       ng-max="{{minThan(selectedProfile.ktMedalRule.silverEnd)}}"
+                                                       ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                                       name="bronzeTo"/>
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="pull-left">
+                                            <div class="icon silver-icon" title="Silver"></div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <label class="control-label">{{'SOFTPROFILE_OVER' | translate }}</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" disabled
+                                                       ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                                       name="silverFrom"/>
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="pull-left">
+                                            <div class="dash"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span ng-show='profileForm.silverTo.$error.required'
+                                                  class="required">*</span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control"
+                                                       ng-required="isMedalRuleRequired"
+                                                       ng-min="{{moreThan(selectedProfile.ktMedalRule.bronzeTo)}}"
+                                                       ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                                       name="silverTo"/>
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="pull-left">
+                                            <div class="icon gold-icon" title="Gold"></div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <label class="control-label">{{'SOFTPROFILE_OVER' | translate }}</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" disabled
+                                                       ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                                       name="goldFrom"/>
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="top-border"></div>
+                            <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                            <button ng-hide="isInUse" class="btn btn-cstm primary save-and-go pull-right"
+                                    ng-click="selectedProfileSave(true);" ng-disabled="profileForm.$invalid">
+                                {{'SOFTPROFILE_SAVE_AND_GO_TO_PERFORMANCE_GROUPS' | translate }}
+                            </button>
+                            <button ng-hide="isInUse" class="btn btn-cstm primary pull-right"
+                                    ng-click="selectedProfileSave(false);" ng-disabled="profileForm.$invalid">
+                                {{'COMMON_SAVE' | translate }}
+                            </button>
+                            <button ng-hide="isInUse || selectedProfile.id <= 0" class="btn btn-cstm primary" 
+                                    ng-click="removeProfile()">
+                                {{'COMMON_REMOVE' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12" ui-view></div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <div class="grid-header-menu">
+                <img src="images/tree.png"/>
+                <span>{{'SOFTPROFILE_NAVIGATION_TREE' | translate }}</span>
+            </div>
+            <div kendo-tree-view="rightTree" id="treeview" style="overflow:hidden"
+                 k-data-source="profileTreeOptions"
+                 k-on-change="profileTreeItemChenged(dataItem.link)">
+            </div>
+        </div>
+    </div>
+
+</div>

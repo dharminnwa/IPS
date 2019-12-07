@@ -1,0 +1,126 @@
+﻿<div class="row">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="col-lg-12">
+        <form name="formRoleLevelPermissionTemplate" class="form-horizontal form-row-seperated" action="#">
+            <div class="row margin-top-30">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-body">
+                            <label class="label-control font-ips">{{'ROLELEVEL_LOAD_TEMPLATE' | translate }}</label>
+                            <select class="form-control" ng-model="roleLevelPermissionTemplate.id" ng-options="obj.id as obj.name for obj in permissionTemplates" ng-change="permissionTemplateChanged()" ng-required="true"></select>
+
+                            <label class="label-control font-ips" style="margin-top: 20px;">{{'ROLELEVEL_TEMPLATE_NAME' | translate }}</label>
+                            <input type="text" ng-model="roleLevelPermissionTemplate.name" name="templateName" class="form-control" ng-required="true">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet">
+                        <div class="portlet-body">
+                            <div class="tabbable-bordered">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="javascript:;" data-target="#tab_ResourcePermission" data-toggle="tab">{{'ROLELEVEL_RESOURCE_PERMISSION' | translate }}</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_ResourcePermission">
+                                        <div class="table-container">
+                                            <table class="table  table-hover" id="datatable_ResourcePermission">
+                                                <thead>
+                                                    <tr role="row" class="heading">
+                                                        <th>{{'ROLELEVEL_RESOURCE' | translate }}</th>
+                                                        <th ng-repeat="operation in operations">
+                                                            <label class="mt-checkbox mt-checkbox-outline margin-left-10">
+                                                                <input type="checkbox" class="chkAll" ng-click="checkkAll(operation.id,$event)">
+                                                                <span></span>
+                                                            </label>
+                                                            {{operation.name}}
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="resource in resources" role="row" class="filter">
+                                                        <td>
+                                                            {{resource.name}}
+                                                        </td>
+                                                        <td ng-repeat="operation in operations" data-resourceId="{{resource.id}}" data-operationId="{{operation.id}}" class="chkPermissionTD">
+                                                            <label class="mt-checkbox mt-checkbox-outline margin-left-10">
+                                                                <input type="checkbox" data-resourceId="{{resource.id}}" data-operationId="{{operation.id}}" class="chkPermission" ng-click="setPermission(resource.id,operation.id,$event)">
+                                                                <span></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portlet-body">
+                            <div class="tabbable-bordered">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="javascript:;" data-target="#tab_PageLevelPermission" data-toggle="tab">{{'ROLELEVEL_PAGE_PERMISSION' | translate }}</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_PageLevelPermission">
+                                        <div class="table-container">
+                                            <div class="table-scrollable">
+                                                <table class="table table-striped table-hover">
+                                                    <thead>
+
+                                                        <tr role="row" class="heading">
+                                                            <th>{{'ROLELEVEL_PERMISSION' | translate }}</th>
+                                                            <th ng-repeat="operation in pageOperations"> {{operation.name}} </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="resource in pageResources" role="row" class="filter">
+                                                            <td>
+                                                                {{resource.name}}
+                                                            </td>
+                                                            <td ng-repeat="operation in pageOperations">
+                                                                <label class="mt-checkbox mt-checkbox-outline margin-left-10">
+                                                                    <input type="checkbox">
+                                                                    <span></span>
+                                                                </label>
+                                                            </td>
+
+
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions margin-top-30 margin-bottom-30">
+                            <a href="javascript:void(0);" class="btn btn-cstm" ng-show="roleLevelPermissionTemplate.id == 0" ng-click="SaveRoleLevelPermissionTemplate()">{{'COMMON_SUBMIT' | translate }}</a>
+                            <a href="javascript:void(0);" class="btn btn-cstm" ng-show="roleLevelPermissionTemplate.id > 0" ng-click="SaveRoleLevelPermissionTemplate()">{{'ROLELEVEL_UPDATE' | translate }}</a>
+                            <a href="javascript:void(0);" class="btn btn-cstm" ng-click="ClearRoleLevelPermissionTemplate()">{{'ROLELEVEL_CLEAR' | translate }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+
+
+

@@ -1,0 +1,69 @@
+﻿
+<div pane name="survey" ng-init="init()" class="row">
+
+    <div class="row">
+        <header-navigation ng-hide="survey.isStandAlone" page-name="{{'MYPROFILES_SURVEY' | translate }}"></header-navigation>
+
+        <div class="col-sm-12">
+            <div class="profile-name">{{profileName}}</div>
+        </div>
+
+
+        <div class="answer-steps">
+            <div class="col-sm-12">
+                <div class="performance-group-name">{{currentStepAnswer.performanceGroupName}}</div>
+                <div class="skill-names">{{currentStepAnswer.skillNames}}</div>
+                <div class="question">{{currentStepAnswer.questionText}}</div>
+                <question-material-view material="currentStepAnswer.questionMaterial"></question-material-view>
+                <label class="answer-label">{{'MYPROFILES_ANSWER' | translate }}:</label>
+                <div class="answer">   
+                    <textarea class="form-control" readonly>{{currentStepAnswer.answer}}</textarea>
+                </div>
+
+                <label class="correct-answer-label">{{'MYPROFILES_CORRECT_ANSWER' | translate }}:</label>
+                <div class="answer">
+                    <textarea class="form-control" readonly>{{currentStepAnswer.correctAnswer}}</textarea>
+                </div>
+
+                <label class="comment-label">{{'MYPROFILES_COMMENT' | translate }}:</label>
+                <div class="comment">
+                    <textarea class="form-control" contenteditable="true" ng-model="currentStepAnswer.comment"></textarea>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <div class="control-buttons">
+            <button class="btn btn-cstm ips-row-button ips-survey-button button-correct-answer"
+                    ng-click="correctAnswer()">
+                {{'MYPROFILES_CORRECT' | translate }}
+            </button>
+            <button class="btn btn-cstm ips-row-button ips-survey-button button-wrong-answer"
+                    ng-click="wrongAnswer()">
+                {{'MYPROFILES_WRONG' | translate }}
+            </button>
+        </div>
+
+        <div class="col-sm-12 navigation-buttons">
+            <button class="btn btn-cstm ips-row-button ips-survey-button"
+                    ng-disabled="isNotShowPreviousAnswer()"
+                    ng-click="previousAnswer()">
+                {{'MYPROFILES_PREVIOUS' | translate }}
+            </button>
+            <button class="btn btn-cstm ips-row-button ips-survey-button"
+                    ng-if="!isShowConfirmButton()"
+                    ng-disabled="isNotShowNextAnswer()"
+                    ng-click="nextAnswer()">
+                {{'MYPROFILES_NEXT' | translate }}
+            </button>
+            <button class="btn btn-cstm ips-row-button ips-survey-button"
+                    ng-if="isShowConfirmButton()"
+                    ng-click="confirm()">
+                {{'MYPROFILES_CONFIRM_EVALUATION' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

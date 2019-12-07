@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{797F1010-F9F3-4D4F-A5CF-3BDFC62C0461}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IPS.BusinessModels</RootNamespace>
+    <AssemblyName>IPS.BusinessModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo|AnyCPU'">
+    <OutputPath>bin\Demo\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnswerModel\IpsAnswerModel.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="CustomerModels\CustomerHistoryModel.cs" />
+    <Compile Include="EmailModel\IpsEmailModel.cs" />
+    <Compile Include="EmailModel\IpsGmailUserModel.cs" />
+    <Compile Include="EmailModel\IpsUnreadMessageModel.cs" />
+    <Compile Include="Entities\IpsAddress.cs" />
+    <Compile Include="Entities\IpsDevContractInfo.cs" />
+    <Compile Include="Entities\IpsKTSurveySkillModel.cs" />
+    <Compile Include="Entities\IpsStageGroupEvaluation.cs" />
+    <Compile Include="Entities\IpsEvaluationUser.cs" />
+    <Compile Include="Entities\IpsKTAnalysisAnswer.cs" />
+    <Compile Include="Entities\IpsKTAnalysisInfo.cs" />
+    <Compile Include="Entities\IpsKTEvaluationAnswer.cs" />
+    <Compile Include="Entities\IpsKTEvaluationInfo.cs" />
+    <Compile Include="Entities\IpsKTFinalKPI.cs" />
+    <Compile Include="Entities\IpsKTFinalKPIItem.cs" />
+    <Compile Include="Entities\IpsKtMedalRules.cs" />
+    <Compile Include="Entities\IPSKTScorecard.cs" />
+    <Compile Include="Entities\IpsKTStageResult.cs" />
+    <Compile Include="Entities\IpsKTSurveyEvaluate.cs" />
+    <Compile Include="Entities\IpsKTSurveyInfo.cs" />
+    <Compile Include="Entities\IpsKTSurveyQuestions.cs" />
+    <Compile Include="Entities\IpsKTSurveyResult.cs" />
+    <Compile Include="Entities\IpsKTSurveyResultAnswer.cs" />
+    <Compile Include="Entities\IpsKTSurveySave.cs" />
+    <Compile Include="Entities\IpsMessage.cs" />
+    <Compile Include="Entities\IpsStageResultNotification.cs" />
+    <Compile Include="Enum\ProjectRoleEnum.cs" />
+    <Compile Include="Enum\ProspectingTypeEnum.cs" />
+    <Compile Include="ProjectModel\IpsProjectDefaultNotificationSettingModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectTaskModel.cs" />
+    <Compile Include="ResourceModels\IpsResourceDependencyModel.cs" />
+    <Compile Include="SalesActivityModels\ActivityResultFilterOptionModel.cs" />
+    <Compile Include="SalesActivityModels\ProsepectingActvitiyResult.cs" />
+    <Compile Include="SalesActivityModels\ProspectingCustomerModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingCustomerResultModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingFollowupCustomerModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingGoalActivityInfoModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingGoalModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingGoalResultModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingGoalResultSummaryModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingSkillGoalResultModel.cs" />
+    <Compile Include="SalesActivityModels\ProspectingSkillResultModel.cs" />
+    <Compile Include="SalesActivityModels\UserCusotmerModel.cs" />
+    <Compile Include="SalesActivityModels\UserSalesActivityResultDataModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsMilestoneAgreementGoal.cs" />
+    <Compile Include="Entities\IpsOrganisationResourcePermission.cs" />
+    <Compile Include="Entities\IpsParticipantInfo.cs" />
+    <Compile Include="Entities\IpsParticipantSurveyResult.cs" />
+    <Compile Include="Entities\IpsPerformanceGroup.cs" />
+    <Compile Include="Entities\IpsPerformanceGroupSkillQuestion.cs" />
+    <Compile Include="Entities\IpsPerformanceGroupSkillTraining.cs" />
+    <Compile Include="Entities\IpsPermitionResource.cs" />
+    <Compile Include="Entities\IpsProfile.cs" />
+    <Compile Include="Entities\IpsProfileScorecard.cs" />
+    <Compile Include="Entities\IpsProfileScorecardInputParemeter.cs" />
+    <Compile Include="Entities\IpsQuestionFilter.cs" />
+    <Compile Include="Entities\IpsQuestionInfo.cs" />
+    <Compile Include="Entities\IpsReminder.cs" />
+    <Compile Include="Entities\IpsRestartProfile.cs" />
+    <Compile Include="Entities\IpsRole.cs" />
+    <Compile Include="Entities\IpsScorecardPeriod.cs" />
+    <Compile Include="Entities\IpsStage.cs" />
+    <Compile Include="Entities\IpsStageEvolution.cs" />
+    <Compile Include="Entities\IpsStageGroupParticipant.cs" />
+    <Compile Include="Entities\IpsStageNotification.cs" />
+    <Compile Include="Entities\IpsStageStatusInfo.cs" />
+    <Compile Include="Entities\IpsSurveyAnswerAgreement.cs" />
+    <Compile Include="Entities\IpsSurveyInfo.cs" />
+    <Compile Include="Entities\IpsSurveyProgress.cs" />
+    <Compile Include="Entities\IpsUser.cs" />
+    <Compile Include="Entities\IpsUserOrganization.cs" />
+    <Compile Include="Entities\IpsUserPermition.cs" />
+    <Compile Include="Entities\IpsUserProfile.cs" />
+    <Compile Include="Entities\IpsUserProfiles.cs" />
+    <Compile Include="Entities\IpsUserRole.cs" />
+    <Compile Include="Entities\IpsUserRolePermission.cs" />
+    <Compile Include="Enum\AnswerTypeEnum.cs" />
+    <Compile Include="Enum\KPIType.cs" />
+    <Compile Include="Enum\OperationEnum.cs" />
+    <Compile Include="Enum\OwnTrainingStatusEnum.cs" />
+    <Compile Include="Enum\PermissionLevelEnum.cs" />
+    <Compile Include="Enum\ReminderType.cs" />
+    <Compile Include="Enum\ResourceEnum.cs" />
+    <Compile Include="Enum\StageStatusEnum.cs" />
+    <Compile Include="Enum\Trend.cs" />
+    <Compile Include="Enum\TypeOfProfile.cs" />
+    <Compile Include="IndustryModels\IpsIndustryModel.cs" />
+    <Compile Include="IndustryModels\IpsSubIndustryModel.cs" />
+    <Compile Include="NotificationTemplateModels\IPSNotificationTemplateModel.cs" />
+    <Compile Include="ProfileModels\IpsKpiTypeModel.cs" />
+    <Compile Include="ProfileModels\IpsLink_PerformanceGroupSkillsModel.cs" />
+    <Compile Include="ProfileModels\IpsPerformanceGroupModel.cs" />
+    <Compile Include="ProfileModels\IpsProfile.cs" />
+    <Compile Include="ProfileModels\IpsProfileFilterModel.cs" />
+    <Compile Include="ProfileModels\IpsProjectProfileModel.cs" />
+    <Compile Include="ProfileModels\IpsRecurrentTrainingModel.cs" />
+    <Compile Include="ProfileModels\IpsStageGroupModel.cs" />
+    <Compile Include="ProfileModels\IpsStageModel.cs" />
+    <Compile Include="ProfileModels\PerformanceGroupModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectGlobalSettingModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectGoalModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectListModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectStatusModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectSteeringGroupModel.cs" />
+    <Compile Include="ProjectModel\IpsProjectUsersModel.cs" />
+    <Compile Include="ProjectModel\IpsUserProjectListModel.cs" />
+    <Compile Include="ProjectModel\IpsUserProjects.cs" />
+    <Compile Include="ProjectRoleModels\IpsProjectRoleModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceModels\IpsOperationModel.cs" />
+    <Compile Include="ResourceModels\IpsPermissionLevelModel.cs" />
+    <Compile Include="ResourceModels\IpsPermissionModel.cs" />
+    <Compile Include="ResourceModels\IpsPermissionTemplateResourcesModel.cs" />
+    <Compile Include="ResourceModels\IpsPermissionTemplatesModel.cs" />
+    <Compile Include="ResourceModels\IpsResourceModel.cs" />
+    <Compile Include="ResourceModels\IpsRoleLevelAdvancePermission.cs" />
+    <Compile Include="ResourceModels\IpsRoleLevelPermissionModel.cs" />
+    <Compile Include="ResourceModels\IpsRoleLevelResourcesPermissionModel.cs" />
+    <Compile Include="RoleModels\IpsRoleLevelModel.cs" />
+    <Compile Include="SkillModels\IpsSkillDDL.cs" />
+    <Compile Include="SkillModels\IpsSkillFilter.cs" />
+    <Compile Include="SkillModels\IpsSkillModel.cs" />
+    <Compile Include="TaskModels\IPSTaskActivityModel.cs" />
+    <Compile Include="TaskModels\IPSTaskModel.cs" />
+    <Compile Include="TaskModels\TaskCategoriesListItemModel.cs" />
+    <Compile Include="TaskModels\TaskListModel.cs" />
+    <Compile Include="TaskModels\TaskPriorityListItemModel.cs" />
+    <Compile Include="TaskModels\TaskRecurrenceModel.cs" />
+    <Compile Include="TaskModels\TaskStatusListItemModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsAnswersModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsCalenderEventFilterModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationAgreement.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationAgreementParticipantTrainings.cs" />
+    <Compile Include="TrainingDiaryModels\IpsCalenderEvents.cs" />
+    <Compile Include="TrainingDiaryModels\IPSDepartment.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationAgreementItem.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationParticipant.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationParticipantProfileStagesAnswer.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationAgreementTrainings.cs" />
+    <Compile Include="TrainingDiaryModels\IpsEvaluationParticipantProfileStages.cs" />
+    <Compile Include="TrainingDiaryModels\IPSJobPosition.cs" />
+    <Compile Include="TrainingDiaryModels\IpsOwnTrainingsCounts.cs" />
+    <Compile Include="TrainingDiaryModels\IpsQuestionModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsSurveyAnswerModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsSurveyResultModel.cs" />
+    <Compile Include="TrainingDiaryModels\IpsTrainingDiary.cs" />
+    <Compile Include="TrainingDiaryModels\IpsTrainingDiaryStage.cs" />
+    <Compile Include="TrainingDiaryModels\IPSUserStatsModel.cs" />
+    <Compile Include="TrainingModels\IPSLink_PerformanceGroupSkillsModel.cs" />
+    <Compile Include="TrainingModels\IpsProjectTrainingStatusModel.cs" />
+    <Compile Include="TrainingModels\IPSTrainingFeedback.cs" />
+    <Compile Include="TrainingModels\IpsTrainingFilter.cs" />
+    <Compile Include="TrainingModels\IPSTrainingMaterial.cs" />
+    <Compile Include="TrainingModels\IpsTrainingModel.cs" />
+    <Compile Include="TrainingModels\IPSTrainingNote.cs" />
+    <Compile Include="UserModel\IpsUserModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPS.AuthData\IPS.AuthData.csproj">
+      <Project>{d190f9d6-0302-40fd-a256-f8feb22f46c5}</Project>
+      <Name>IPS.AuthData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPS.Data\IPS.Data.csproj">
+      <Project>{98da4c1b-0343-4211-8c98-0484427c281d}</Project>
+      <Name>IPS.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ReminderModels\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,48 @@
+<section>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center mt-5">
+            <div class="col-md-offset-4 col-sm-offset-2 col-md-4 col-sm-8 col-xs-12 mt-2 login-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="..." width="100%">
+                </div>
+                <div class="demo">
+                    <form id="loginform" action="javascript:;">
+                        <h2 class="text-center text-orange hide">{{'LOGIN_LOGIN' | translate }}</h2>
+                        <!-- <p class="text-center"> Please Enter your username and password to log in.</p> -->
+
+                        <div class="form-group mt-5">
+                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username" data-ng-model="loginData.userName" ng-change="messageClean();" required autofocus ng-keypress="enterKey($event)" />
+                        </div>
+                        <div class="form-group">
+                            <input id="login-password" type="password" class="form-control" name="password" placeholder="Password" data-ng-model="loginData.password" required ng-change="messageClean();" ng-keypress="enterKey($event)" />
+                        </div>
+                        <div class="form-check mt-5">
+                            <label class="rememberme font-grey-cascade mt-checkbox mt-checkbox-outline">
+                                <input type="checkbox" id="signed" name="signedIn" ng-model="loginData.keepSignedIn" /> {{'LOGIN_REMEMBERME' | translate }}
+                                <span></span>
+                            </label>
+                            <!-- <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label grey" for="exampleCheck1">Remember Me</label> -->
+
+                            <label class="form-check-label pull-right">
+                                <a href="#/forgotPassword" class="forgot-password">
+                                    {{'LOGIN_FORGOTPASSWORD' | translate }}
+                                </a>
+                            </label>
+                        </div>
+
+                        <div data-ng-hide="message == ''" class="alert alert-danger">
+                            {{message}}
+                        </div>
+
+                        <div class="text-center">
+                            <!-- <a href="" class="login-btn mt-5">Login</a> -->
+                            <button class="btn login-btn mt-5 " ng-enter="login();" data-ng-click="login()"> {{'LOGIN_LOGIN' | translate }} </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

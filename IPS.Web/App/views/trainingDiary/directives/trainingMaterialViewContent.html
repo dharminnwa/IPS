@@ -1,0 +1,60 @@
+﻿
+<div class='portfolio-content'>
+    <div class='cbp-l-project-container'>
+        <div class='cbp-l-project-desc'>
+            <div class='cbp-l-project-desc-title'>
+                <span>{{materialInfo.skill}}</span>
+                <div class="pull-right">
+                    Total Rating:  {{materialInfo.totalRating}}
+                    Avg. Rating:  {{materialInfo.avgRating}}
+                </div>
+            </div>
+            <div class='cbp-l-project-desc-text'>
+                <strong>{{'TRAININGDAIRY_SKILL_DESCRIPTION' | translate }}</strong>
+                <div>{{materialInfo.skillDescription}}</div>
+            </div>
+            <div class='cbp-l-project-desc-text'>
+                <strong>{{'COMMON_WHY' | translate }}</strong>
+                <div>{{trainingInfo.why}}</div>
+            </div>
+            <div class='cbp-l-project-desc-text'>
+                <strong>{{'COMMON_WHAT' | translate }}</strong>
+                <div>
+                    {{trainingInfo.what}}
+                </div>
+            </div>
+            <div class='cbp-l-project-desc-text'>
+                <strong>{{'COMMON_HOW' | translate }}</strong>
+                <div>{{trainingInfo.how}}</div>
+            </div>
+        </div>
+        <div class='cbp-l-project-details'>
+            <div class='cbp-l-project-details-title'>
+                <span>{{'TRAININGDAIRY_MATERIAL_DETAILS' | translate }}</span>
+            </div>
+            <ul class='cbp-l-project-details-list'>
+                <li>
+                    <strong>{{'COMMON_TITLE' | translate }}</strong> {{materialInfo.title}}
+                </li>
+                <li>
+                    <strong>{{'COMMON_TYPE' | translate }}</strong>{{materialInfo.materialType}}
+                </li>
+                <li>
+                    <strong>{{'COMMON_LINK' | translate }}</strong>{{materialInfo.link}}
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class='cbp-l-project-container' ng-if="materialInfo.IsInsecureLink">
+        <div class="note note-danger">
+            <h4 class="block">{{'TRAININGDAIRY_URL_NOT_SECURE_CLICK_LINK_TO_OPEN_NEW_TAB' | translate }}</h4>
+            <p>
+                <a ng-href={{materialInfo.link}} target="_blank">{{materialInfo.link}}</a>
+            </p>
+        </div>
+    </div>
+    <div class='cbp-l-project-container' ng-if="!materialInfo.IsInsecureLink">
+        <iframe ng-src={{materialInfo.link}} height='600px' width="100%" frameborder=0></iframe>
+    </div>
+</div>

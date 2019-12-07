@@ -1,0 +1,81 @@
+﻿<div class="create-team">
+    <div class="row question-tab" ng-controller="ktQuestionTabCtrl" ng-init="init()">
+        <div class="col-sm-offset-8 display-rule">
+        </div>
+        <div class="col-sm-12">
+            <div kendo-grid k-options="gridOptions"></div>
+        </div>
+        <div ng-form="newTabQuestion" novalidate ng-cloak>
+            <div class="col-md-12">
+                <div class="details-info">New Question</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">Skill</label>
+                    <span ng-show='newTabQuestion.primarySkill.$error.required' class="required">*</span>
+                    <select class="form-control" ng-disabled="isDisabled()"
+                            name="primarySkill"
+                            ng-required='!newQuestion.skillId'
+                            ng-options="skill.skillId as skill.name for skill in skillsD"
+                            ng-model="newQuestion.skillId"
+                            ng-change="initializeSubSkills()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sub Skill</label>
+                    <select class="form-control" ng-disabled="isDisabled()"
+                            ng-options="subSkill.id as subSkill.name for subSkill in subSkills"
+                            ng-model="newQuestion.subSkillId">
+                        <option value="">Select Sub Skill...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">Question Type</label>
+                    <select class="form-control"
+                            name="questionType"
+                            ng-options="questionType.id as questionType.name for questionType in questionTypes"
+                            ng-model="newQuestion.answerTypeId"
+                            ng-change="resetAnswer()">
+                        <option value="">Select Question Type...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Points</label>
+                    <input type="number" class="form-control" name="points" required
+                           ng-model="newQuestion.points" min="1" />
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label">Time for question</label><br />
+                    <span>Minutes: </span> <input required min="0" type="number" ng-model="newQuestion.minutesForQuestion" />
+                    <span>Seconds: </span> <input required min="0" type="number" ng-model="newQuestion.secondsForQuestion" />
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label">Question</label>
+                    <textarea required class="form-control" name="questionText" rows="5" ng-model="newQuestion.questionText"
+                              ng-disabled="isDisabled()"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <question-material material="newQuestion.questionMaterial"></question-material>
+            </div>
+            <div class="col-sm-12">
+                <correct-answer></correct-answer>
+            </div>
+            <div class="col-sm-12">
+                <button class="btn btn-cstm add-from-template pull-right" ng-click="addQuestionFromTemplate()"
+                        ng-disabled="isDisabled()">
+                    Add Question From Template
+                </button>
+                <button class="btn btn-cstm primary pull-right" ng-disabled="newTabQuestion.$error.required || !newTabQuestion.$valid || isDisabled()"
+                        ng-click="createQuestion()">
+                    Save New Question
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,230 @@
+﻿<div id="taskDetailWindow">
+
+    <div name="todo">
+        <form name="newToDoTask" novalidate>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_TITLE' | translate }}</label>
+                                <input type="text" class="form-control" name="title" ng-model="taskDetailInfo.title" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                <textarea class="form-control" rows="5" ng-model="taskDetailInfo.description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{'TASKPROSPECTING_CATEGORIES' | translate }}
+                                <input type="checkbox" data-ng-model="taskDetailInfo.isCompleted"> {{'TASKPROSPECTING_IS_COMPLETED' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'COMMON_CATEGORY' | translate }}</label>
+                                        <select class="form-control" name="taskCategoryId" required data-ng-model="taskDetailInfo.categoryId" data-ng-options="obj.id as obj.name for obj in taskCategories"></select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <fieldset>
+                                    <legend class="col-lg-12">{{'COMMON_NOTIFICATION' | translate }} <i title="View Template" class="fa fa-eye pull-right" ng-show="taskDetailInfo.notificationTemplateId > 0" ng-click="showNotificationTemplate(taskDetailInfo.notificationTemplateId)"></i></legend>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                <input type="checkbox" ng-model="taskDetailInfo.isEmailNotification">
+                                                {{'COMMON_EMAIL_NOTIFICATION' | translate }}
+                                            </label>
+                                            <div>
+                                                <label class="control-label">{{'COMMON_EMAIL_REMINDER' | translate }}</label>
+                                                <select ng-disabled="!(taskDetailInfo.isEmailNotification)" class="form-control ng-pristine ng-valid ng-touched" data-ng-model="taskDetailInfo.emailBefore" data-ng-options="obj.value as obj.text for obj in reminders">
+                                                    <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                <input type="checkbox" ng-model="taskDetailInfo.issmsNotification">
+                                                {{'COMMON_SMS_NOTIFICATION' | translate }}
+                                            </label>
+                                            <div>
+                                                <label class="control-label">{{'COMMON_SMS_REMINDER' | translate }}</label>
+                                                <select ng-disabled="!(taskDetailInfo.issmsNotification)" class="form-control ng-pristine ng-valid ng-touched" data-ng-model="taskDetailInfo.smsBefore" data-ng-options="obj.value as obj.text for obj in reminders">
+                                                    <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="!(taskDetailInfo.issmsNotification || taskDetailInfo.isEmailNotification)" data-ng-model="taskDetailInfo.notificationTemplateId" data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : filterTaskReminderNotifications"><option value="?" selected="selected" label=""></option></select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="isProspectingCategory()">
+                            <div class="form-group">
+                                <label class="control-label">Meeting Schedule Notification <i title="View Meeting Schedule Notification Template" class="fa fa-eye pull-right" ng-show="taskDetailInfo.meetingNotificationTemplateId > 0" ng-click="showNotificationTemplate(taskDetailInfo.meetingNotificationTemplateId)"></i></label>
+                                <select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="!(taskDetailInfo.issmsNotification || taskDetailInfo.isEmailNotification)" data-ng-model="taskDetailInfo.meetingNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter: filterMeetingScheduleNotifications"><option value="?" selected="selected" label=""></option></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="isProspectingCategory()">
+                            <div class="form-group">
+                                <label class="control-label">Follow-up Schedule Notification <i title="View Follow-up Schedule Notification Template" class="fa fa-eye pull-right" ng-show="taskDetailInfo.followUpNotificationTemplateId > 0" ng-click="showNotificationTemplate(taskDetailInfo.followUpNotificationTemplateId)"></i></label>
+                                <select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="!(taskDetailInfo.issmsNotification || taskDetailInfo.isEmailNotification)" data-ng-model="taskDetailInfo.followUpNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter: filterFollowupScheduleNotifications"><option value="?" selected="selected" label=""></option></select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" ng-show="isProspectingCategory()">
+                            <div class="form-group">
+                                <label class="control-label">Sales Notification <i title="View Sales Notification Template" class="fa fa-eye pull-right" ng-show="taskDetailInfo.salesNotificationTemplateId > 0" ng-click="showNotificationTemplate(taskDetailInfo.salesNotificationTemplateId)"></i></label>
+                                <select class="form-control ng-pristine ng-untouched ng-valid" ng-disabled="!(taskDetailInfo.issmsNotification || taskDetailInfo.isEmailNotification)" data-ng-model="taskDetailInfo.salesNotificationTemplateId" data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter: filterSalesNotificationTemplates"><option value="?" selected="selected" label=""></option></select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_START_DATE' | translate }}</label>
+                                <br />
+                                <input name="taskStartDate" required
+                                       kendo-date-time-picker
+                                       ng-model="taskDetailInfo.startDate" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_DUE_DATE' | translate }}</label>
+                                <br />
+                                <input name="taskDueDate" required
+                                       kendo-date-time-picker
+                                       ng-model="taskDetailInfo.dueDate" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label">{{'TASKPROSPECTING_RECURRENCE' | translate }}</label>
+                            <div ng-recurency ng-model="taskDetailInfo" ng-property="recurrenceRule"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'COMMON_PRIORITY' | translate }}</label>
+                                        <select class="form-control" name="taskPriorityId" required data-ng-model="taskDetailInfo.priorityId" data-ng-options="obj.id as obj.name for obj in taskPriorities"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'COMMON_STATUS' | translate }}</label>
+                                        <select class="form-control" name="taskStatusId" required data-ng-model="taskDetailInfo.statusId" data-ng-options="obj.id as obj.name for obj in taskStatuses"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'TASKPROSPECTING_ESTIMATE' | translate }}</label>
+                                        <div ng-duration ng-model="taskDetailInfo" ng-property="timeEstimateMinutes"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'COMMON_SPENT' | translate }}</label>
+                                        <div ng-duration ng-model="taskDetailInfo" ng-property="timeSpentMinutes"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="top-border"></div>
+
+                    <button class="btn btn-cstm primary cancel pull-right" ng-click="closeTaskDetailPopup()">{{'COMMON_CLOSE' | translate }}</button>
+                </div>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+    <div id="notificationTemplateModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="trainingDetailSystemModalLabel">{{'COMMON_TRAINING_DETAIL' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                    <div>{{templateInfo.name}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_CULTURE' | translate }}</label>
+                                    <div>{{templateInfo.culture[0].cultureName}}</div>
+                                    <div>{{templateInfo.culture[0].region}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_EMAIL_SUBJECT' | translate }}</label>
+                                    <div>{{templateInfo.emailSubject}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_EMAIL_BODY' | translate }}</label>
+                                    <div id="emailBody">{{templateInfo.emailBody}}</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_SMS' | translate }}</label>
+                                    <div>{{templateInfo.smsMessage}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

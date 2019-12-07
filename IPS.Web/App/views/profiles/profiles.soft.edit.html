@@ -1,0 +1,122 @@
+<div class="row">
+    <div ng-class="selectedProfile.id <= 0 ? 'col-md-12':'col-md-10'">
+        <div class="row">
+            <div pane class="col-md-12">
+                <form class="profileForm" name="profileForm" novalidate>
+                    <div class="row">
+                        <div class="col-sm-12 return-menu">
+                            <a href="#/home/profiles/profiles/soft" class="newhead title fa fa-long-arrow-left"></a>
+                            <h1 class="title">{{'COMMON_SOFT_PROFILE' | translate }}</h1>
+                            <div class="top-border"></div>
+                        </div>
+                        <div class="col-lg-12">
+                            <br />
+                            <div ng-hide="isReadOnly">
+                                <div class="alert alert-warning" ng-hide="!isInUse">
+                                    <strong>{{'COMMON_WARNING' | translate }}!</strong> {{'SOFTPROFILE_THIS_PROFILE_IS_IN_USE' | translate }} {{'SOFTPROFILE_CHANGES_CAN_NOT_BE_SAVED' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                <span ng-show='profileForm.profileName.$error.required' class="required">*</span>
+                                <input type="text" class="form-control" ng-model="selectedProfile.name" ng-required="!selectedProfile.name" name="profileName" autofocus />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                                <select class="form-control" name="profileOrganizationId" data-ng-model="selectedProfile.organizationId" data-ng-options="obj.id as obj.name for obj in organizations"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                                <select class="form-control" data-ng-model="selectedProfile.rootIndustryId" data-ng-options="i.id as i.name for i in industries" ng-change="industryUpdate(selectedProfile.rootIndustryId)"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="ips-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                                <select class="form-control" data-ng-model="selectedProfile.subIndustryId" data-ng-options="i.id as i.name for i in industry.subIndustries" ng-change="subIndustryUpdate(selectedProfile.subIndustryId)" ng-disabled="industry.subIndustries.length == 0 || industry.subIndustries == undefined"></select>
+                            </div>
+
+                            <profile-level name="{{'COMMON_PROFILE_LEVEL' | translate }}" type="profile" selected="selectedProfile.levelId"></profile-level>
+
+                            <profile-category name="{{'SOFTPROFILE_PROFILE_CATEGORY' | translate }}" type="category" selected="selectedProfile.categoryId" organization="selectedProfile.organizationId"></profile-category>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-hide="selectedProfile.kpiWeak==0">
+                                        <label class="ips-label">{{'SOFTPROFILE_KPI_WEAK' | translate }}</label>
+                                        <span ng-show='profileForm.profileKpiWeak.$error.required' class="required">*</span>
+                                        <input class="form-control" data-ng-model="selectedProfile.kpiWeak" type="number" name="profileKpiWeak" min="0" ng-required="!selectedProfile.kpiWeak" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-hide="selectedProfile.kpiStrong==0">
+                                        <label class="ips-label">{{'SOFTPROFILE_KPI_STRONG' | translate }}</label>
+                                        <span ng-show='profileForm.profileKpiStrong.$error.required' class="required">*</span>
+                                        <input class="form-control" data-ng-model="selectedProfile.kpiStrong" type="number" name="profileKpiStrong" min="0" ng-required="!selectedProfile.kpiStrong" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="ips-label">{{'COMMON_TARGET_GROUP' | translate }}</label>
+                                <select kendo-multi-select k-options="selectOptions" k-ng-model="selectedProfile.jobPositions"></select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.isActive"> {{'COMMON_IS_ACTIVE' | translate }}
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.isTemplate"> {{'COMMON_IS_TEMPLATE' | translate }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="ips-label" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                <textarea class="form-control" rows="5" data-ng-model="selectedProfile.description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'SOFTPROFILE_SCALE_SETTINGS_RULE' | translate }}</label>
+                                <select class="form-control" ng-model="selectedProfile.scaleSettingsRuleId" data-ng-options="obj.id as obj.name for obj in scaleSettingsRules"></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'SOFTPROFILE_QUESTION_DISPLAY_RULE' | translate }}</label>
+                                <select class="form-control display-rule"
+                                        data-ng-model="selectedProfile.questionDisplayRuleId"
+                                        data-ng-options="displayRule.id as displayRule.name for displayRule in questionDisplayRule"></select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="selectedProfile.setKPIInSurvey"> <strong>{{'SOFTPROFILE_SET_KPI_IN_SURVEY' | translate }}</strong>
+                            </div>
+                            <div class="form-group" ng-hide="selectedProfile.scaleSettingsRuleId != 1" ng-show="selectedProfile.scaleSettingsRuleId == 1">
+                                <label class="control-label">{{'SOFTPROFILE_SCALE' | translate }}</label>
+                                <span ng-show='profileForm.profileScaleyId.$invalid' class="required">*</span>
+                                <select class="form-control" data-ng-model="selectedProfile.scaleId" ng-required="selectedProfile.scaleSettingsRuleId == 1" name="profileScaleyId" data-ng-options="i.id as i.name for i in scales" ng-change="scaleUpdate(selectedProfile.scaleId)"></select>
+                            </div>
+                            <div class="form-group" ng-hide="selectedProfile.scaleSettingsRuleId != 1" ng-show="selectedProfile.scaleSettingsRuleId == 1">
+                                <div ng-scale ng-model="scale" ng-is-tamplate="false" ng-is-required="selectedProfile.scaleSettingsRuleId == 1"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="top-border"></div>
+                            <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                            <button ng-hide="isInUse" class="btn btn-cstm primary save-and-go pull-right" ng-click="selectedProfileSave(true);" ng-disabled="profileForm.$invalid">{{'SOFTPROFILE_SAVE_AND_GO_TO_PERFORMANCE_GROUPS' | translate }}</button>
+                            <button ng-hide="isInUse" class="btn btn-cstm primary pull-right" ng-click="selectedProfileSave(false);" ng-disabled="profileForm.$invalid">{{'COMMON_SAVE' | translate }}</button>
+                            <button ng-hide="isInUse || selectedProfile.id <= 0" class="btn btn-cstm primary" ng-click="removeProfile()">{{'COMMON_REMOVE' | translate }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12" ui-view></div>
+        </div>
+    </div>
+    <div class="col-md-2" >
+        <div class="form-group">
+            <div class="grid-header-menu">
+                <img src="images/tree.png" />
+                <span>{{'SOFTPROFILE_NAVIGATION_TREE' | translate }}</span>
+            </div>
+            <div kendo-tree-view="rightTree" id="treeview" style="overflow:hidden"
+                 k-data-source="profileTreeOptions"
+                 k-on-change="profileTreeItemChenged(dataItem.link)">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,241 @@
+﻿<div pane="newOrganization">
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a ng-click="goBack()" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title" ng-show="!isEdit">{{'ORGANIZATIONS_NEWORGANIZATION_NEW_ORGANIZATION' | translate }}</h1>
+            <h1 class="title" ng-show="isEdit">{{organizationInfo.name}}</h1>
+            <div class="top-border"></div>
+        </div>
+        <form class="create-team" name="newOrganizationForm" novalidate>
+            <div class="col-sm-12">
+                <div class="portlet light tasks-widget bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-share font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'ORGANIZATIONS_ORGANIZATION_DETAILS' | translate }}</span>
+                            <span class="caption-helper"></span>
+                        </div>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content row create-department">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_ORGANIZATION_NAME' | translate }}</label>
+                                    <span ng-show='newOrganizationForm.organizationName.$error.required' class="required">*</span>
+                                    <input type="text" class="form-control edtxt_input" ng-required='!organizationInfo.name' name="organizationName" ng-model="organizationInfo.name" autofocus ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_DETAILS_ORG_NR' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.orgCode" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_PARENT_ORGANIZATION' | translate }}</label>
+                                    <select class="form-control edSel_input"
+                                            value="Select Parent Organization"
+                                            name="parentId"
+                                            ng-options="organization.name for organization in allOrganizations"
+                                            ng-model="organizationInfo.parentOrganization"
+                                            ng-disabled="isDisabled(authService.actions.Update)">
+                                        <option value="">{{'ORGANIZATIONS_NEWORGANIZATION_SELECT_PARENT_ORGANIZATION' | translate }}</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                                    <select class="form-control edSel_input"
+                                            value="Select Industry"
+                                            name="industryId"
+                                            ng-options="industry.name for industry in industries"
+                                            ng-model="organizationInfo.organizationIndustry"
+                                            ng-disabled="isDisabled(authService.actions.Update)">
+                                        <option value="">{{'ORGANIZATIONS_NEWORGANIZATION_SELECT_INDUSTRY' | translate }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_POSTAL_ADDRESS' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.address" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_DETAILS_ZIP_CODE' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.postZipPostalCode" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_CITY' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.city" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_STATE' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.state" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_COUNTRY' | translate }}</label>
+                                    <select class="form-control edSel_input"
+                                            value="Select Country"
+                                            name="countryId"
+                                            ng-options="country.countryName for country in countries"
+                                            ng-model="organizationInfo.organizationCountry"
+                                            ng-disabled="isDisabled(authService.actions.Update)">
+                                        <option value="">{{'ORGANIZATIONS_NEWORGANIZATION_SELECT_COUNTRY' | translate }}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_VISITING_ADDRESS' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.visitingAddress" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_VISITING_ZIP' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.visitingZip" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_VISITING_CITY' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.visitingCity" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_VISITING_STATE' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.visitingState" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_VISITING_COUNTRY' | translate }}</label>
+                                    <select class="form-control edSel_input"
+                                            value="Select Visiting Country"
+                                            name="visitingCountryId"
+                                            ng-options="country.countryName for country in countries"
+                                            ng-model="organizationInfo.organizationVisitingCountry"
+                                            ng-disabled="isDisabled(authService.actions.Update)">
+                                        <option value="">{{'ORGANIZATIONS_NEWORGANIZATION_SELECT_VISITING_COUNTRY' | translate }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_PHONE' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.phone" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_FAX' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.fax" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">{{'ORGANIZATIONS_DETAILS_WEBSITE' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.website" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_EMAIL' | translate }}</label>
+                                    <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.email" ng-disabled="isDisabled(authService.actions.Update)" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+
+                <div class="portlet light tasks-widget bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-share font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'ORGANIZATIONS_NEWORGANIZATION_CONTACT' | translate }}</span>
+                            <span class="caption-helper"></span>
+                        </div>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content row create-department">
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_CONTACT_NAME' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.contactName" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <look-up class="edSel_input" name="{{'ORGANIZATIONS_CONTACT_TITLE' | translate }}" type="OrgContactTitle" selected="organizationInfo.contactTitle" lookupid="organizationInfo.contactTitleId" ng-disabled="isDisabled(authService.actions.Delete)"></look-up>
+                            <look-up class="edSel_input" name="{{'ORGANIZATIONS_CONTACT_ROLE' | translate }}" type="OrgContactRole" selected="organizationInfo.contactRole" lookupid="organizationInfo.contactRoleId" ng-disabled="isDisabled(authService.actions.Delete)"></look-up>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_CONTACT_EMAIL' | translate }}</label>
+                                <span class="error" ng-show="!newOrganizationForm.email.$valid">
+                                    {{'COMMON_PLEASE_INPUT_VALID_EMAIL_ADDRESS' | translate }}
+                                </span>
+                                <input type="email" name="email" class="form-control edtxt_input" ng-model="organizationInfo.contactEmail" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_CONTACT_PHONE' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.contactPhone" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-6">
+
+                <div class="portlet light tasks-widget bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-share font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'ORGANIZATIONS_NEWORGANIZATION_SOCIAL_MEDIA' | translate }}</span>
+                            <span class="caption-helper"></span>
+                        </div>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content row create-department">
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_LOGO_LINK' | translate }}</label>
+                                <span class="error" ng-show="!newOrganizationForm.logoLink.$valid">
+                                    {{'ORGANIZATIONS_NEWORGANIZATION_NOT_VALID_URL' | translate }}
+                                </span>
+                                <input type="url" class="form-control  edtxt_input" name="logoLink" ng-model="organizationInfo.logoLink" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_TWITTER' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.twitter" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_FACEBOOK' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.facebook" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_LINKED_IN' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.linkedIn" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_PINTEREST' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.pinterest" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_NEWORGANIZATION_SKYPE' | translate }}</label>
+                                <input type="text" class="form-control edtxt_input" ng-model="organizationInfo.skype" ng-disabled="isDisabled(authService.actions.Update)" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary" ng-show="isEdit" ng-click="removal.open().center()" ng-disabled="isDisabled(authService.actions.Delete)">{{'COMMON_REMOVE' | translate }}</button>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="goBack()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-disabled="!isRequired() || isDisabled(authService.actions.Update)" ng-click="saveOrganization()">{{'COMMON_SAVE' | translate }}</button>
+            </div>
+        </form>
+        <div kendo-window="removal" k-title="'Confirm Delete'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+            {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+            <button class="k-button" ng-click="removeOrganization()">{{'COMMON_YES' | translate }}</button>
+            <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+        </div>
+        <span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+    </div>
+</div>
+<div ui-view></div>

@@ -1,0 +1,88 @@
+﻿<div ng-init="init()" pane name="survey">
+    <header-navigation page-name="{{'MYPROFILES_SURVEY_RESULT' | translate }}" reload="true"></header-navigation>
+    <div class="survey-result">
+        <div class="top-info">
+            <div class="icon-brain"></div>
+            <div class="description">{{'MYPROFILES_FINAL_SCORES' | translate }}</div>
+            <div ng-if="isEvolutionStage()">
+                <button class="btn btn-cstm ips-row-button ips-survey-button switch-button"
+                        ng-click="switchCurrentViewResult()" ng-disabled="!isCurrentViewResultByStage">
+                    {{'MYPROFILES_SHOW_PROFILE_RESULT' | translate }}
+                </button>
+                <button class="btn btn-cstm ips-row-button ips-survey-button switch-button"
+                        ng-click="switchCurrentViewResult()" ng-disabled="isCurrentViewResultByStage">
+                    {{'MYPROFILES_SHOW_STAGE_RESULT' | translate }}
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="isEvolutionStage()" class="pass-score">
+            <div class="passed" ng-if="mainStage.isPassed">{{'MYPROFILES_CONGRATULATION_YOU_HAVE_PASSED_WELL_DONE' | translate }}</div>
+            <div class="failed" ng-if="!mainStage.isPassed">
+                {{'MYPROFILES_SORRY_YOU_DIDNT_PASS_THE_PERFORMANCE_LEVEL' | translate }} {{'MYPROFILES_PLEASE_CONTINUE_WITH_NEW_TEST_TO_IMPROVE_YOUR_OVERALL_SCORE' | translate }} {{'MYPROFILES_THANK_YOU_AND_GOOD_LUCK' | translate }}
+            </div>
+            <button ng-hide="hasMedalRules()" class="button-complete btn btn-cstm ips-survey-button" ng-click="complete()">{{'MYPROFILES_NEXT_TEST' | translate }}</button>
+        </div>
+
+        <div ng-if="!isEvolutionStage()" class="pass-score">
+            <div class="passed" ng-if="viewStage.isPassed">{{'MYPROFILES_CONGRATULATION_YOU_HAVE_PASSED_WELL_DONE' | translate }}</div>
+            <div class="failed" ng-if="!viewStage.isPassed">{{'MYPROFILES_SORRY_YOU_DIDNT_PASS_THE_PERFORMANCE_LEVEL' | translate }} {{'MYPROFILES_PLEASE_CONTINUE_WITH_NEW_TEST_TO_IMPROVE_YOUR_OVERALL_SCORE' | translate }} {{'MYPROFILES_THANK_YOU_AND_GOOD_LUCK' | translate }}</div>
+            <button ng-hide="hasMedalRules()" class="button-complete btn btn-cstm ips-survey-button" ng-click="complete()">{{'MYPROFILES_NEXT_TEST' | translate }}</button>
+        </div>
+
+        <div class="medal-board" ng-if="hasMedalRules()">
+            <div class="main-info">
+
+                <div ng-if="isEvolutionStage()" class="medal {{mainStage.medal}}"></div>
+                <div ng-if="isEvolutionStage()" class="medal-description" ng-show="!isCurrentViewResultByStage">{{'MYPROFILES_YOU_SCORED' | translate }} {{mainStageCorrectAnswersScore}} {{'MYPROFILES_OUT_OF' | translate }} {{mainStageTotalMaxPoints}} ({{mainStage.correctAnswersPercent}}%)!</div>
+                <!--<div ng-if="((!isEvolutionStage()) && hasMedal())" class="medal-description" ng-show="!isCurrentViewResultByStage"> It is {{mainStage.medal}}!</div>-->
+                <div ng-if="isEvolutionStage()" class="medal-description" ng-show="isCurrentViewResultByStage">
+                    {{'MYPROFILES_YOU_SCORED' | translate }} {{correctAnswersScore}} {{'MYPROFILES_OUT_OF' | translate }} {{totalMaxPoints}}  ({{viewStage.correctAnswersPercent}}%) {{'MYPROFILES_AT_THIS_STAGE' | translate }} ({{viewStage.evolutionStage}}), {{'MYPROFILES_BUT_IN_TOTAL_YOU_HAVE_EARNED' | translate }} {{mainStageCorrectAnswersScore}} {{'MYPROFILES_OUT_OF' | translate }} {{mainStageTotalMaxPoints}} {{'MYPROFILES_POINTS_WHICH_IS' | translate }} {{mainStage.correctAnswersPercent}}%
+                    <span ng-if="hasMedal()">({{mainStage.medal}})</span>
+                </div>
+                <div ng-if="!isEvolutionStage()" class="medal {{viewStage.medal}}"></div>
+                <div ng-if="!isEvolutionStage()" class="medal-description">{{'MYPROFILES_YOU_SCORED' | translate }} {{correctAnswersScore}} {{'MYPROFILES_OUT_OF' | translate }} {{totalMaxPoints}} ({{viewStage.correctAnswersPercent}}%)!</div>
+                <div ng-if="((!isEvolutionStage()) && hasMedal())" class="medal-description"> {{'MYPROFILES_IT_IS' | translate }} {{viewStage.medal}}!</div>
+
+                <button class="button-complete btn btn-cstm ips-row-button ips-survey-button" ng-show="(mainStage.correctAnswersPercent < 100)" ng-click="complete()">{{'MYPROFILES_NEXT_TEST' | translate }}</button>
+            </div>
+
+            <div ng-if="hasMedal()" class="medal-rules">
+                <div class="medal-rule">
+                    <div class="medal bronze"></div>
+                    <div class="description-label">{{medalRules.bronzeMedalMinScore}}% - {{medalRules.silverMedalMinScore}}%</div>
+                </div>
+
+                <div class="medal-rule">
+                    <div class="medal silver"></div>
+                    <div class="description-label">{{medalRules.silverMedalMinScore}}% - {{medalRules.goldMedalMinScore}}%</div>
+                </div>
+
+                <div class="medal-rule">
+                    <div class="medal gold"></div>
+                    <div class="description-label">{{medalRules.goldMedalMinScore}}% - 100%</div>
+                </div>
+            </div>
+            <div ng-if="!hasMedal()" class="medal-rules">
+
+                <div class="medal-rule">
+                    <div class="medal correct"></div>
+                    <div class="description-label"> {{'MYPROFILES_PASSING_SCORE' | translate }} {{mainStage.passingScore}}% </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rank-panel">
+            <div class="rank correct"></div>
+            <div class="rank-label">{{'MYPROFILES_CORRECT' | translate }}</div>
+
+            <div class="rank wrong"></div>
+            <div class="rank-label">{{'MYPROFILES_WRONG' | translate }}</div>
+
+            <div class="rank not-available"></div>
+            <div class="rank-label">{{'MYPROFILES_NOT_AVAILABLE' | translate }} ({{'MYPROFILES_EVALUATOR_HASNT_JUDGE_THE_FREE_TEXT_ANSWER' | translate }})</div>
+        </div>
+
+        <div ng-init="initGrid()" id="scoreCardDetailsGrid"></div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿    <!-- BEGIN CONTENT BODY -->
+<!-- BEGIN DASHBOARD STATS 1-->
+<!-- END DASHBOARD STATS 1-->
+<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'LEFTMENU_ROLE_LEVELS' | translate}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="row">
+        <form name="formRoleLevel" action="#" class="form-horizontal">
+            <div class="form-body">
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+
+                    <div class="col-md-4">
+                        <select name="roleLevel_organization" class="form-control" ng-model="roleLevel.organizationId" ng-options="obj.id as obj.name for obj in organizations" ng-change="organizationChanged()" ng-required="true"></select>
+                        <span class="help-block font-red" ng-show="formRoleLevel.roleLevel_organization.$invalid">{{'ROLELEVEL_SELECT_ORGANIZATION_TO_SET_ROLE_LEVEL_FOR_THIS_ORGANIZATION' | translate }}</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">{{'COMMON_NAME' | translate }}</label>
+                    <div class="col-md-4">
+                        <input type="text" name="roleLevel_name" ng-model="roleLevel.name" class="form-control" placeholder="Enter text" ng-required="true" ng-keyup="checkRoleLevelName()">
+                        <span class="help-block font-red" ng-show="formRoleLevel.roleLevel_name.$invalid && formRoleLevel.roleLevel_name.$dirty">
+                            {{'ROLELEVEL_THIS_NAME_ALREADY_EXISTS' | translate }}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">{{'ROLELEVEL_PARENT_ROLE_LEVEL' | translate }}</label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="roleLevel.parentRoleLevelId" ng-options="obj.id as obj.name for obj in parentRoleLevels"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions ">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a href="javascript:void(0);" class="btn btn-cstm" ng-hide="roleLevel.id > 0" ng-click="SaveOrganizationRoleLevel()">{{'COMMON_SUBMIT' | translate }}</a>
+                        <a href="javascript:void(0);" class="btn btn-cstm" ng-show="roleLevel.id > 0" ng-click="SaveOrganizationRoleLevel()">{{'ROLELEVEL_UPDATE' | translate }}</a>
+                        <a href="javascript:void(0);" class="btn btn-cstm" ng-click="ClearOrganizationRoleLevel()">{{'ROLELEVEL_CLEAR' | translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="row">
+        <div id="organizationRoleLevels"></div>
+    </div>
+</section>
+
+<!-- END CONTENT BODY -->

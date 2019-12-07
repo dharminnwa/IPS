@@ -1,0 +1,75 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'HOME_PROFILE_TRAININGS' | translate}}</span> 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="row mt-3 mb-3">
+        <div class="col-md-6">
+            <label class="form-cstm-lable">
+                {{'HOME_PROFILE' | translate}}
+            </label>
+            <select class="form-control" ng-model="selectedProfileId" ng-options="profile.id as profile.name for profile in profiles"></select>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="portlet-light pb-1">
+    <div class="row" ng-show="profileTrainings.length > 0">
+        <div class="col-md-4" ng-repeat="trainingItem in profileTrainings | filter:filterProfileTrainings">
+            <div class="profile-card">
+                <a href="javascript:;" class="btn btn-xs green" ng-show="trainingItem.isDone">
+                    Completed
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:;" class="btn btn-xs in-completed" ng-hide="trainingItem.isDone">
+                    Pending
+                </a>
+                <div class="box mt-5">
+                    <h2> {{trainingItem.title}} </h2>
+                    <p class="skill-names"> <label>{{'COMMON_SKILL' | translate}} </label> : <b ng-repeat="skillItem in trainingItem.skills">{{skillItem.name}}</b> </p>
+                    <div class="training-date mt-5">
+                        <h5> <label>{{'COMMON_START_DATE' | translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{trainingItem.start | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{trainingItem.start | date:'h:mm a'}}</b></span></h5>
+                        <h5> <label>{{'COMMON_END_DATE' | translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{trainingItem.end | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{trainingItem.end | date:'h:mm a'}}</b></span></h5>
+                        <h5>
+                            <label>{{'COMMON_SPENT' | translate }} : </label> <b>{{getTrainingSpentTime(trainingItem)}}</b> <label> {{'TRAININGDAIRY_PLANNED' | translate }}  : </label><b>{{getTrainingPlannedTime(trainingItem)}}</b>
+                        </h5>
+                    </div>
+                    <div class="heading">
+                        <h2 class="theme-text">{{'COMMON_PROFILE' | translate}}</h2>
+                        <span> {{trainingItem.profileName}} </span>
+                    </div>
+
+                    <div class="heading">
+                        <h2 class="theme-text">{{'MYPROFILES_MILESTONE' | translate}}</h2>
+                        <span> {{trainingItem.stageName}} </span>
+                    </div>
+
+                    <div class="card-icons mt-5">
+                        <i class="fa fa-play" title="{{'COMMON_START' | translate }}" aria-hidden="true" ng-click="startPersonalTraining(trainingItem.orginalId)" ng-hide="trainingItem.isDone"></i>
+                        <i class="fa fa-eye" title="{{'COMMON_VIEW' | translate }}" aria-hidden="true" ng-click="openTrainingDetail(trainingItem.orginalId)"></i>
+                        <i class="fa fa-sticky-note-o" title="{{'COMMON_VIEW' | translate }}" aria-hidden="true" ng-click="viewTrainingNotes(trainingItem.title,trainingItem.orginalId)"></i>
+                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-sticky-note-o" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-trash-o" aria-hidden="true"></i>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-hide="profileTrainings.length > 0">
+        <div class="alert  alert-warning">
+            <strong>You don't have any trainngs today!</strong>
+        </div>
+    </div>
+</section>
+<div id="home-project-training-popup-div"></div>
+<div id="project-training-popup-div"></div>

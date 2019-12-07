@@ -1,0 +1,89 @@
+﻿<form name="scaleForm" novalidate>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="col-md-12" ng-hide="!ngIsTamplate">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="form-cstm-lable">{{'COMMON_SCALE_NAME' | translate }}</label>
+                                <span ng-show='scaleForm.scaleName.$error.required' class="required">*</span>
+                                <input class="form-control tab-control" data-ng-model="scale.name" type="text" name="scaleName" ng-required="!scale.name && ngIsRequired" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="form-cstm-lable">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scale.profileType1" data-ng-options="obj as obj.name for obj in profileTypes" placeholder="Select measure unit" ng-change="profileTypeUpdate()" ng-required="ngIsRequired"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" ng-hide="ngIsTamplate">
+                    <div class="">
+                        <label class="form-cstm-lable">{{'COMMON_SCALE_NAME' | translate }}</label>
+                        <input class="form-control tab-control" data-ng-model="scale.name" type="text" ng-required="required" />
+                    </div>
+                </div>
+                <div class="col-md-12 row mt-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="form-cstm-lable">{{'COMMON_CATEGORY' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scale.scaleCategory" data-ng-options="obj as obj.name for obj in categories" placeholder="Select measure unit" ng-change="scaleCategoryUpdate()" ng-required="ngIsRequired"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="form-cstm-lable">{{'MYPROJECTS_MEASURE_UNIT' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scale.measureUnit" data-ng-options="obj as obj.name for obj in measureUnits" placeholder="Select measure unit" ng-change="measureUnitUpdate()" ng-required="ngIsRequired"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="">
+                <label class="form-cstm-lable" for="description">{{'COMMON_SCALE_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" data-ng-model="scale.description" id="description"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <div class="col-md-3">
+                <div class="">
+                    <label class="form-cstm-lable">{{'COMMON_SCALE_START' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scale.scaleStart" type="number" min="0" ng-required="ngIsRequired" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <label class="form-cstm-lable">{{'COMMON_SCALE_END' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scale.scaleEnd" type="number" min="1" ng-required="ngIsRequired" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <label class="form-cstm-lable">{{'COMMON_INTERVALS' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scale.scaleInterval" type="number" min="1" ng-required="ngIsRequired" />
+                </div>
+            </div>
+            <div class="col-md-3 mt-5">
+                <div class="">
+                    <button id="btn-save" type="submit" class="btn btn-cstm primary ips-row-button ips-tab-button pull-right tab-control" data-original-title="" title="" ng-click="generateScales()" ng-disabled="scaleForm.$invalid">{{'COMMON_APPLY_SCALE_INTERVALS' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <div id="gridRnages"></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

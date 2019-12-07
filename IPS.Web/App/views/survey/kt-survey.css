@@ -1,0 +1,241 @@
+﻿.ng-invalid-max {
+    border-color: #ff0000;
+    border-width: 1px;
+}
+
+.ng-invalid-min {
+    border-color: #ff0000;
+    border-width: 1px;
+}
+
+.progressbar {
+    margin-top: 10px;
+    text-align: center;
+    padding: 0 250px;
+}
+
+.profile-name {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 700;
+    color: #515151;
+    text-align: center;
+}
+
+.performance-group-name {
+    font-size: 45px;
+    line-height: 47px;
+    font-weight: 500;
+    color: #515151;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+.skill-name {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 32px;
+    color: #b5b5b5;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 0 50px 20px;
+    border-bottom: 1px solid #c9c9c9;
+}
+
+.survey-steps {
+    text-align: center;
+}
+
+
+    .survey-steps .question {
+        font-size: 20px;
+        line-height: 31px;
+        color: #515151;
+        margin: 10px 0;
+    }
+
+    .survey-steps .answer-numeric {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .survey-steps .answer-text {
+        max-width: 600px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .survey-steps .answer-single-choice {
+        text-align: left;
+        max-width: 600px;
+        display: inline-block;
+        overflow-wrap: break-word;
+        color: #FF6E19;
+    }
+
+    .survey-steps .answer-multiple-choice {
+        text-align: left;
+        max-width: 600px;
+        display: inline-block;
+        overflow-wrap: break-word;
+        color: #FF6E19;
+    }
+
+    .survey-steps .answer-order {
+        margin-top: 20px !important;
+        max-width: 600px;
+        width: 300px;
+        display: inline-block;
+        overflow-wrap: break-word;
+        color: #FF6E19;
+        margin: 0;
+        text-align: left;
+    }
+
+.buttons-align-center {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #c9c9c9;
+}
+
+    .buttons-align-center .ips-survey-button {
+        padding: 10px 25px;
+        height: 45px;
+    }
+
+.question-navigation {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+    .question-navigation .button-question-navigation:last-child {
+        margin-right: 0;
+    }
+
+.question-navigation-info {
+    color: #515151;
+}
+
+.button-question-navigation {
+    height: 20px;
+    width: 20px;
+    display: inline;
+    margin-right: 5px;
+    padding: 0;
+    background-color: white;
+    border-width: 2px;
+}
+
+.button-red {
+    border-color: red;
+}
+
+.button-green {
+    border-color: green;
+}
+
+.answer-mark {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    background-color: white;
+    border-radius: 20px !important;
+    background-color: red;
+}
+
+.answer-mark-answered {
+    background-color: green;
+}
+
+.timer {
+    width: 100%;
+}
+
+.timer-clock {
+    color: #FF6E19;
+}
+
+.survey-pane .progressbar .button-pause {
+    float: right;
+    width: 80px;
+    margin-left: 10px;
+    margin-top: -5px;
+}
+
+.pause-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1031;
+    overflow-y: hidden;
+}
+
+.pause-background {
+    height: 100%;
+    background: #000;
+    opacity: 0.85;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.button-continue {
+    /*height: 170px;
+    width: 200px;*/
+    margin: -130px -50px;
+    position: relative;
+    top: 50%;
+    left: 40%;
+    font-size: 25px !important;
+    z-index: 1032;
+    line-height: 25px;
+}
+
+.padding-5 {
+    padding: 5px !important;
+}
+/* ng-sortable */
+.as-sortable-item, .as-sortable-placeholder {
+    min-height: 20px;
+    margin: -1px 0px 0px 0px;
+}
+
+.as-sortable-item {
+    border: solid 1px darkgrey;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.as-sortable-item-handle {
+}
+
+.as-sortable-placeholder {
+    border: 1px dashed darkgrey;
+    background-color: #dbdbdb;
+    margin: 0;
+}
+
+.as-sortable-drag {
+    opacity: .8;
+}
+
+.as-sortable-hidden {
+}
+
+ul {
+    padding: 0;
+}
+
+.ui-message {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 20px;
+    line-height: 32px;
+}

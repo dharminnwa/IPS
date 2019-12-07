@@ -1,0 +1,59 @@
+<div pane name="cmsmanage"  ng-init="getPortfolios()">
+    <div class="row" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="return-menu">
+                <a ng-click="getscopes()" class="newhead title fa fa-long-arrow-left"></a>
+                <a class="addOrg" href="#/home/portfolio/add/{{categoryId}}">+ {{'PORTFOLIO_ADD_NEW_PORTFOLIO_PROJECT' | translate }}</a>
+                <h1 class="title newhead">Portfolio</h1>
+
+
+
+
+                <div class="top-border"></div>
+            </div>
+            <input type="text" placeholder="Search your Page Here...." ng-model="pageFilter" class="form-control search-input_left">
+            <!--<div class="organizations-menu">
+               <img src="images/organization/organization-icon.png" />
+               <span>Organizations</span>
+
+            </div>-->
+            <div class="chart-loading"></div>
+
+            <!--<div kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable" ></div>
+      <button ng-click="addNewOrganization()" class="btn btn-cstm primary pull-right">Add Organization</button>-->
+            <table class="k-selected table" kendo-grid>
+
+                <thead role="rowgroup">
+                    <tr role="row" class="tabHead">
+                        <th role="columnheader" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="k-header ng-scope" data-role="columnsorter">#</th>
+                        <th role="columnheader" data-field="logo" rowspan="1" data-title="Logo" data-index="1" class="k-header ng-scope" data-role="columnsorter">{{'COMMON_TITLE' | translate }}</th>
+                        <th role="columnheader" data-field="name" rowspan="1" data-title="Name" data-index="2" class="k-header ng-scope" data-role="columnsorter">{{'COMMON_NAME' | translate }}</th>
+                        <th role="columnheader" data-field="industryName" rowspan="1" data-title="Industry" data-index="3" class="k-header ng-scope" data-role="columnsorter">{{'COMMON_DESCRIPTION' | translate }}</th>
+                        <th role="columnheader" data-field="contactName" rowspan="1" data-title="Contact Name" data-index="5" class="k-header ng-scope" data-role="columnsorter">{{'COMMON_ACTION' | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tbody class="newtbody">
+                    <tr class='oraganization-row' data-uid='{{dataItem.pageID}}' dir-paginate="dataItem in portfolios | filter:pageFilter | itemsPerPage:10">
+                        <td><span class='row-number'>{{$index+1}}</span></td>
+                        <td class='org-logo'>{{dataItem.projectTitle}}</td>
+                        <!--<td class='org-name'>{{dataItem.name}}</td>-->
+                        <td>{{dataItem.projectName}}</td>
+                        <td>{{dataItem.aboutCompany |limit}} </td>
+                        <td><a class="tab_edit" href="#/home/portfolio/edit/{{categoryId}}/{{dataItem.portfolioProjectID}}"><i style="cursor: pointer;" class="fa fa-pencil"></i></a><a class="tab_delete"><i class="fa fa-trash" style="cursor: pointer;" ng-click="removePage(dataItem.pageID)"></i></a></td>
+                        <!-- //<td>
+                     //<div class='icon-groups'><a class='icon-groups icon-groups-item view-icon' ng-click='getOrganizationDetails(dataItem.id)' ></a></div>
+                     //<div class='icon-groups'><a class='icon-groups icon-groups-item edit-icon' ng-click='editOrganization(dataItem.id)' ></a></div>
+                    // </td>-->
+                    </tr>
+
+                </tbody>
+
+            </table><dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+        </div>
+
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+<div ui-view></div>

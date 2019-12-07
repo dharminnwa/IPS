@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IPSModelStoreContainer" CdmEntityContainer="IPSData">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="IPSModel.Answer">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer" />
+          <ScalarProperty Name="KPIType" ColumnName="KPIType" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerTypes">
+      <EntityTypeMapping TypeName="IPSModel.AnswerType">
+        <MappingFragment StoreEntitySet="AnswerType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultures">
+      <EntityTypeMapping TypeName="IPSModel.Culture">
+        <MappingFragment StoreEntitySet="Cultures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CultureName" ColumnName="CultureName" />
+          <ScalarProperty Name="CultureIdentifier" ColumnName="CultureIdentifier" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IPSModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DurationMetrics">
+      <EntityTypeMapping TypeName="IPSModel.DurationMetric">
+        <MappingFragment StoreEntitySet="DurationMetrics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationRoles">
+      <EntityTypeMapping TypeName="IPSModel.EvaluationRole">
+        <MappingFragment StoreEntitySet="EvaluationRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Industries">
+      <EntityTypeMapping TypeName="IPSModel.Industry">
+        <MappingFragment StoreEntitySet="Industries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KTMedalRules">
+      <EntityTypeMapping TypeName="IPSModel.KTMedalRule">
+        <MappingFragment StoreEntitySet="KTMedalRules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BronzeStart" ColumnName="BronzeStart" />
+          <ScalarProperty Name="BronzeEnd" ColumnName="BronzeEnd" />
+          <ScalarProperty Name="SilverEnd" ColumnName="SilverEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Link_TeamUsers">
+      <EntityTypeMapping TypeName="IPSModel.Link_TeamUsers">
+        <MappingFragment StoreEntitySet="Link_TeamUsers">
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleInTeam" ColumnName="RoleInTeam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Link_TrainingParticipants">
+      <EntityTypeMapping TypeName="IPSModel.Link_TrainingParticipants">
+        <MappingFragment StoreEntitySet="Link_TrainingParticipants">
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureUnits">
+      <EntityTypeMapping TypeName="IPSModel.MeasureUnit">
+        <MappingFragment StoreEntitySet="MeasureUnits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileCategories">
+      <EntityTypeMapping TypeName="IPSModel.ProfileCategory">
+        <MappingFragment StoreEntitySet="ProfileCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileScaleSettingsRules">
+      <EntityTypeMapping TypeName="IPSModel.ProfileScaleSettingsRule">
+        <MappingFragment StoreEntitySet="ProfileScaleSettingsRules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileTypes">
+      <EntityTypeMapping TypeName="IPSModel.ProfileType">
+        <MappingFragment StoreEntitySet="ProfileTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsStandard" ColumnName="IsStandard" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScorecardGoals">
+      <EntityTypeMapping TypeName="IPSModel.ScorecardGoal">
+        <MappingFragment StoreEntitySet="ScorecardGoals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScorecardPerspectives">
+      <EntityTypeMapping TypeName="IPSModel.ScorecardPerspective">
+        <MappingFragment StoreEntitySet="ScorecardPerspectives">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StageGroups">
+      <EntityTypeMapping TypeName="IPSModel.StageGroup">
+        <MappingFragment StoreEntitySet="StageGroups">
+          <ScalarProperty Name="MinutesSpan" ColumnName="MinutesSpan" />
+          <ScalarProperty Name="HoursSpan" ColumnName="HoursSpan" />
+          <ScalarProperty Name="DaysSpan" ColumnName="DaysSpan" />
+          <ScalarProperty Name="WeeksSpan" ColumnName="WeeksSpan" />
+          <ScalarProperty Name="MonthsSpan" ColumnName="MonthsSpan" />
+          <ScalarProperty Name="ParentParticipantId" ColumnName="ParentParticipantId" />
+          <ScalarProperty Name="ParentStageGroupId" ColumnName="ParentStageGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StructureLevels">
+      <EntityTypeMapping TypeName="IPSModel.StructureLevel">
+        <MappingFragment StoreEntitySet="StructureLevels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskCategoryLists">
+      <EntityTypeMapping TypeName="IPSModel.TaskCategoryList">
+        <MappingFragment StoreEntitySet="TaskCategoryLists">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskPriorityListItems">
+      <EntityTypeMapping TypeName="IPSModel.TaskPriorityListItem">
+        <MappingFragment StoreEntitySet="TaskPriorityListItems">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PriorityNo" ColumnName="PriorityNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PriorityListId" ColumnName="PriorityListId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskPriorityLists">
+      <EntityTypeMapping TypeName="IPSModel.TaskPriorityList">
+        <MappingFragment StoreEntitySet="TaskPriorityLists">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskStatusListItems">
+      <EntityTypeMapping TypeName="IPSModel.TaskStatusListItem">
+        <MappingFragment StoreEntitySet="TaskStatusListItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TaskStatusListId" ColumnName="TaskStatusListId" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskStatusLists">
+      <EntityTypeMapping TypeName="IPSModel.TaskStatusList">
+        <MappingFragment StoreEntitySet="TaskStatusLists">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="IPSModel.UserType">
+        <MappingFragment StoreEntitySet="UserTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserType1" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IPSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+          <ScalarProperty Name="PrivateEmail" ColumnName="PrivateEmail" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="PrivatePhoneNo" ColumnName="PrivatePhoneNo" />
+          <ScalarProperty Name="WorkPhoneNo" ColumnName="WorkPhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Skype" ColumnName="Skype" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_DepartmentUsers" TypeName="IPSModel.Link_DepartmentUsers" StoreEntitySet="Link_DepartmentUsers">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="DepartmentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="JobPositions">
+      <EntityTypeMapping TypeName="IPSModel.JobPosition">
+        <MappingFragment StoreEntitySet="JobPositions">
+          <ScalarProperty Name="JobPosition1" ColumnName="JobPosition" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_UsersJobPositions" TypeName="IPSModel.Link_UsersJobPositions" StoreEntitySet="Link_UsersJobPositions">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="JobPosition">
+        <ScalarProperty Name="Id" ColumnName="JobPositionId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="IPSModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="FlagImage" ColumnName="FlagImage" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScaleCategories">
+      <EntityTypeMapping TypeName="IPSModel.ScaleCategory">
+        <MappingFragment StoreEntitySet="ScaleCategories">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="IPSModel.Team">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="TeamLeadId" ColumnName="TeamLeadId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scales">
+      <EntityTypeMapping TypeName="IPSModel.Scale">
+        <MappingFragment StoreEntitySet="Scales">
+          <ScalarProperty Name="ProfileType" ColumnName="ProfileType" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="IncludeNotRelevant" ColumnName="IncludeNotRelevant" />
+          <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+          <ScalarProperty Name="ScaleCategoryId" ColumnName="ScaleCategoryId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IPSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingLevels">
+      <EntityTypeMapping TypeName="IPSModel.TrainingLevel">
+        <MappingFragment StoreEntitySet="TrainingLevels">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingTypes">
+      <EntityTypeMapping TypeName="IPSModel.TrainingType">
+        <MappingFragment StoreEntitySet="TrainingTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingDescriptions">
+      <EntityTypeMapping TypeName="IPSModel.TrainingDescription">
+        <MappingFragment StoreEntitySet="TrainingDescriptions">
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DescriptionType" ColumnName="DescriptionType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LookupItems">
+      <EntityTypeMapping TypeName="IPSModel.LookupItem">
+        <MappingFragment StoreEntitySet="LookupItems">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LookupItemType" ColumnName="LookupItemType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="IPSModel.Skill">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="ProfileTypeId" ColumnName="ProfileTypeId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="StructureLevelId" ColumnName="StructureLevelId" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_IndustrySkills" TypeName="IPSModel.Link_IndustrySkills" StoreEntitySet="Link_IndustrySkills">
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="SkillId" />
+      </EndProperty>
+      <EndProperty Name="Industry">
+        <ScalarProperty Name="Id" ColumnName="IndustryId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Link_SkillTargetAudience" TypeName="IPSModel.Link_SkillTargetAudience" StoreEntitySet="Link_SkillTargetAudience">
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="SkillId" />
+      </EndProperty>
+      <EndProperty Name="JobPosition">
+        <ScalarProperty Name="Id" ColumnName="JobPositionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="IPSModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="ParentQuestionId" ColumnName="ParentQuestionId" />
+          <ScalarProperty Name="TimeForQuestion" ColumnName="TimeForQuestion" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="StructureLevelId" ColumnName="StructureLevelId" />
+          <ScalarProperty Name="QuestionSettings" ColumnName="QuestionSettings" />
+          <ScalarProperty Name="ScaleId" ColumnName="ScaleId" />
+          <ScalarProperty Name="ProfileTypeId" ColumnName="ProfileTypeId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AnswerTypeId" ColumnName="AnswerTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_SkillQuestions" TypeName="IPSModel.Link_SkillQuestions" StoreEntitySet="Link_SkillQuestions">
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="SkillId" />
+      </EndProperty>
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="QuestionId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="PerformanceGroups">
+      <EntityTypeMapping TypeName="IPSModel.PerformanceGroup">
+        <MappingFragment StoreEntitySet="PerformanceGroups">
+          <ScalarProperty Name="TrainingComments" ColumnName="TrainingComments" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="ScaleId" ColumnName="ScaleId" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ScorecardPerspectiveId" ColumnName="ScorecardPerspectiveId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_PerformanceGroupGoals" TypeName="IPSModel.Link_PerformanceGroupGoals" StoreEntitySet="Link_PerformanceGroupGoals">
+      <EndProperty Name="ScorecardGoal">
+        <ScalarProperty Name="Id" ColumnName="GoalId" />
+      </EndProperty>
+      <EndProperty Name="PerformanceGroup">
+        <ScalarProperty Name="Id" ColumnName="PerformanceGroupId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Link_PerformanceGroupProfileTypes" TypeName="IPSModel.Link_PerformanceGroupProfileTypes" StoreEntitySet="Link_PerformanceGroupProfileTypes">
+      <EndProperty Name="ProfileType">
+        <ScalarProperty Name="Id" ColumnName="ProfileTypeID" />
+      </EndProperty>
+      <EndProperty Name="PerformanceGroup">
+        <ScalarProperty Name="Id" ColumnName="PerformanceGroupId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Link_PerformanceGroupTargetAudience" TypeName="IPSModel.Link_PerformanceGroupTargetAudience" StoreEntitySet="Link_PerformanceGroupTargetAudience">
+      <EndProperty Name="PerformanceGroup">
+        <ScalarProperty Name="Id" ColumnName="PerformanceGroupId" />
+      </EndProperty>
+      <EndProperty Name="JobPosition">
+        <ScalarProperty Name="Id" ColumnName="JobPositionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="TrainingMaterials">
+      <EntityTypeMapping TypeName="IPSModel.TrainingMaterial">
+        <MappingFragment StoreEntitySet="TrainingMaterials">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+          <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="IPSModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="PassScore" ColumnName="PassScore" />
+          <ScalarProperty Name="AllowRevisitAnsweredQuestions" ColumnName="AllowRevisitAnsweredQuestions" />
+          <ScalarProperty Name="RandomizeQuestions" ColumnName="RandomizeQuestions" />
+          <ScalarProperty Name="SetKPIInSurvey" ColumnName="SetKPIInSurvey" />
+          <ScalarProperty Name="QuestionDisplayRuleId" ColumnName="QuestionDisplayRuleId" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="KPIStrong" ColumnName="KPIStrong" />
+          <ScalarProperty Name="KPIWeak" ColumnName="KPIWeak" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="ScaleSettingsRuleId" ColumnName="ScaleSettingsRuleId" />
+          <ScalarProperty Name="ScaleId" ColumnName="ScaleId" />
+          <ScalarProperty Name="MedalRuleId" ColumnName="MedalRuleId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="ProfileTypeId" ColumnName="ProfileTypeId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_ProfileStageGroups" TypeName="IPSModel.Link_ProfileStageGroups" StoreEntitySet="Link_ProfileStageGroups">
+      <EndProperty Name="StageGroup">
+        <ScalarProperty Name="Id" ColumnName="StageGroupId" />
+      </EndProperty>
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="Id" ColumnName="ProfileId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Link_ProfileTargetAudience" TypeName="IPSModel.Link_ProfileTargetAudience" StoreEntitySet="Link_ProfileTargetAudience">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="Id" ColumnName="ProfileId" />
+      </EndProperty>
+      <EndProperty Name="JobPosition">
+        <ScalarProperty Name="Id" ColumnName="JobPositionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Reminders">
+      <EntityTypeMapping TypeName="IPSModel.Reminder">
+        <MappingFragment StoreEntitySet="Reminders">
+          <ScalarProperty Name="ReminderType" ColumnName="ReminderType" />
+          <ScalarProperty Name="IsReviewed" ColumnName="IsReviewed" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ReminderText" ColumnName="ReminderText" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskLists">
+      <EntityTypeMapping TypeName="IPSModel.TaskList">
+        <MappingFragment StoreEntitySet="TaskLists">
+          <ScalarProperty Name="TaskCategoryListsId" ColumnName="TaskCategoryListsId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TaskPriorityListId" ColumnName="TaskPriorityListId" />
+          <ScalarProperty Name="TaskStatusListId" ColumnName="TaskStatusListId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="IPSModel.Organization">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="ContactRoleId" ColumnName="ContactRoleId" />
+          <ScalarProperty Name="ContactTitleId" ColumnName="ContactTitleId" />
+          <ScalarProperty Name="VisitingState" ColumnName="VisitingState" />
+          <ScalarProperty Name="IPSGroup" ColumnName="IPSGroup" />
+          <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+          <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="Skype" ColumnName="Skype" />
+          <ScalarProperty Name="VisitingCountryId" ColumnName="VisitingCountryId" />
+          <ScalarProperty Name="VisitingCity" ColumnName="VisitingCity" />
+          <ScalarProperty Name="VisitingZip" ColumnName="VisitingZip" />
+          <ScalarProperty Name="VisitingAddress" ColumnName="VisitingAddress" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="PostCountry" ColumnName="PostCountry" />
+          <ScalarProperty Name="PostCity" ColumnName="PostCity" />
+          <ScalarProperty Name="PostZipPostalCode" ColumnName="PostZipPostalCode" />
+          <ScalarProperty Name="PostAddressLine3" ColumnName="PostAddressLine3" />
+          <ScalarProperty Name="PostAddressLine2" ColumnName="PostAddressLine2" />
+          <ScalarProperty Name="PostAddressLine1" ColumnName="PostAddressLine1" />
+          <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+          <ScalarProperty Name="LogoLink" ColumnName="LogoLink" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipPostalCode" ColumnName="ZipPostalCode" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_OrganizationPartners" TypeName="IPSModel.Link_OrganizationPartners" StoreEntitySet="Link_OrganizationPartners">
+      <EndProperty Name="Organization1">
+        <ScalarProperty Name="Id" ColumnName="OrganizationId" />
+      </EndProperty>
+      <EndProperty Name="Organization">
+        <ScalarProperty Name="Id" ColumnName="PartnerOrganizationId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Trainings">
+      <EntityTypeMapping TypeName="IPSModel.Training">
+        <MappingFragment StoreEntitySet="Trainings">
+          <ScalarProperty Name="SmsBefore" ColumnName="SmsBefore" />
+          <ScalarProperty Name="EmailBefore" ColumnName="EmailBefore" />
+          <ScalarProperty Name="NotificationTemplateId" ColumnName="NotificationTemplateId" />
+          <ScalarProperty Name="IsNotificationByEmail" ColumnName="IsNotificationByEmail" />
+          <ScalarProperty Name="IsNotificationBySMS" ColumnName="IsNotificationBySMS" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="HowManyActions" ColumnName="HowManyActions" />
+          <ScalarProperty Name="HowManySets" ColumnName="HowManySets" />
+          <ScalarProperty Name="ExerciseMetricId" ColumnName="ExerciseMetricId" />
+          <ScalarProperty Name="HowMany" ColumnName="HowMany" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="DurationMetricId" ColumnName="DurationMetricId" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+          <ScalarProperty Name="Why" ColumnName="Why" />
+          <ScalarProperty Name="How" ColumnName="How" />
+          <ScalarProperty Name="What" ColumnName="What" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_SkillTrainings" TypeName="IPSModel.Link_SkillTrainings" StoreEntitySet="Link_SkillTrainings">
+      <EndProperty Name="Training">
+        <ScalarProperty Name="Id" ColumnName="TrainingId" />
+      </EndProperty>
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="SkillId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Link_PerformanceGroupSkills">
+      <EntityTypeMapping TypeName="IPSModel.Link_PerformanceGroupSkills">
+        <MappingFragment StoreEntitySet="Link_PerformanceGroupSkills">
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CSF" ColumnName="CSF" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Benchmark" ColumnName="Benchmark" />
+          <ScalarProperty Name="SubSkillId" ColumnName="SubSkillId" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="PerformanceGroupId" ColumnName="PerformanceGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_PerformanceGroupQuestions" TypeName="IPSModel.Link_PerformanceGroupQuestions" StoreEntitySet="Link_PerformanceGroupQuestions">
+      <EndProperty Name="Question">
+        <ScalarProperty Name="Id" ColumnName="QuestionId" />
+      </EndProperty>
+      <EndProperty Name="Link_PerformanceGroupSkills">
+        <ScalarProperty Name="Id" ColumnName="PerformanceGroupSkillId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Link_PerformancGroupTrainings" TypeName="IPSModel.Link_PerformancGroupTrainings" StoreEntitySet="Link_PerformancGroupTrainings">
+      <EndProperty Name="Training">
+        <ScalarProperty Name="Id" ColumnName="TrainingId" />
+      </EndProperty>
+      <EndProperty Name="Link_PerformanceGroupSkills">
+        <ScalarProperty Name="Id" ColumnName="PerformanceGroupSkillId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="EvaluationParticipants">
+      <EntityTypeMapping TypeName="IPSModel.EvaluationParticipant">
+        <MappingFragment StoreEntitySet="EvaluationParticipants">
+          <ScalarProperty Name="IsScoreManager" ColumnName="IsScoreManager" />
+          <ScalarProperty Name="Invited" ColumnName="Invited" />
+          <ScalarProperty Name="IsSelfEvaluation" ColumnName="IsSelfEvaluation" />
+          <ScalarProperty Name="EvaluateeId" ColumnName="EvaluateeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EvaluationRoleId" ColumnName="EvaluationRoleId" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StageGroupId" ColumnName="StageGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stages">
+      <EntityTypeMapping TypeName="IPSModel.Stage">
+        <MappingFragment StoreEntitySet="Stages">
+          <ScalarProperty Name="RedAlarmTrainerTemplateId" ColumnName="RedAlarmTrainerTemplateId" />
+          <ScalarProperty Name="RedAlarmManagerTemplateId" ColumnName="RedAlarmManagerTemplateId" />
+          <ScalarProperty Name="RedAlarmEvaluatorTemplateId" ColumnName="RedAlarmEvaluatorTemplateId" />
+          <ScalarProperty Name="YellowAlarmTrainerTemplateId" ColumnName="YellowAlarmTrainerTemplateId" />
+          <ScalarProperty Name="YellowAlarmManagerTemplateId" ColumnName="YellowAlarmManagerTemplateId" />
+          <ScalarProperty Name="YellowAlarmEvaluatorTemplateId" ColumnName="YellowAlarmEvaluatorTemplateId" />
+          <ScalarProperty Name="GreenAlarmTrainerTemplateId" ColumnName="GreenAlarmTrainerTemplateId" />
+          <ScalarProperty Name="GreenAlarmManagerTemplateId" ColumnName="GreenAlarmManagerTemplateId" />
+          <ScalarProperty Name="GreenAlarmEvaluatorTemplateId" ColumnName="GreenAlarmEvaluatorTemplateId" />
+          <ScalarProperty Name="InvitedAt" ColumnName="InvitedAt" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+          <ScalarProperty Name="ManagerResultsNotificationTemplateId" ColumnName="ManagerResultsNotificationTemplateId" />
+          <ScalarProperty Name="ManagerCompletedNotificationTemplateId" ColumnName="ManagerCompletedNotificationTemplateId" />
+          <ScalarProperty Name="ManagerStartNotificationTemplateId" ColumnName="ManagerStartNotificationTemplateId" />
+          <ScalarProperty Name="TrainerResultsNotificationTemplateId" ColumnName="TrainerResultsNotificationTemplateId" />
+          <ScalarProperty Name="TrainerCompletedNotificationTemplateId" ColumnName="TrainerCompletedNotificationTemplateId" />
+          <ScalarProperty Name="TrainerStartNotificationTemplateId" ColumnName="TrainerStartNotificationTemplateId" />
+          <ScalarProperty Name="EvaluatorResultsNotificationTemplateId" ColumnName="EvaluatorResultsNotificationTemplateId" />
+          <ScalarProperty Name="EvaluatorCompletedNotificationTemplateId" ColumnName="EvaluatorCompletedNotificationTemplateId" />
+          <ScalarProperty Name="EvaluatorStartNotificationTemplateId" ColumnName="EvaluatorStartNotificationTemplateId" />
+          <ScalarProperty Name="ExternalResultsNotificationTemplateId" ColumnName="ExternalResultsNotificationTemplateId" />
+          <ScalarProperty Name="ExternalCompletedNotificationTemplateId" ColumnName="ExternalCompletedNotificationTemplateId" />
+          <ScalarProperty Name="ExternalStartNotificationTemplateId" ColumnName="ExternalStartNotificationTemplateId" />
+          <ScalarProperty Name="RedAlarmTime" ColumnName="RedAlarmTime" />
+          <ScalarProperty Name="RedAlarmParticipantTemplateId" ColumnName="RedAlarmParticipantTemplateId" />
+          <ScalarProperty Name="YellowAlarmTime" ColumnName="YellowAlarmTime" />
+          <ScalarProperty Name="YellowAlarmParticipantTemplateId" ColumnName="YellowAlarmParticipantTemplateId" />
+          <ScalarProperty Name="GreenAlarmTime" ColumnName="GreenAlarmTime" />
+          <ScalarProperty Name="GreenAlarmParticipantTemplateId" ColumnName="GreenAlarmParticipantTemplateId" />
+          <ScalarProperty Name="SMSNotification" ColumnName="SMSNotification" />
+          <ScalarProperty Name="EmailNotification" ColumnName="EmailNotification" />
+          <ScalarProperty Name="EvaluationDurationMinutes" ColumnName="EvaluationDurationMinutes" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="StageGroupId" ColumnName="StageGroupId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationAgreements">
+      <EntityTypeMapping TypeName="IPSModel.EvaluationAgreement">
+        <MappingFragment StoreEntitySet="EvaluationAgreements">
+          <ScalarProperty Name="FinalGoal" ColumnName="FinalGoal" />
+          <ScalarProperty Name="LongGoal" ColumnName="LongGoal" />
+          <ScalarProperty Name="MidGoal" ColumnName="MidGoal" />
+          <ScalarProperty Name="FinalScore" ColumnName="FinalScore" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ShortGoal" ColumnName="ShortGoal" />
+          <ScalarProperty Name="KPIType" ColumnName="KPIType" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_EvaluationAgreementTrainings" TypeName="IPSModel.Link_EvaluationAgreementTrainings" StoreEntitySet="Link_EvaluationAgreementTrainings">
+      <EndProperty Name="Training">
+        <ScalarProperty Name="Id" ColumnName="TrainingId" />
+      </EndProperty>
+      <EndProperty Name="EvaluationAgreement">
+        <ScalarProperty Name="Id" ColumnName="EvaluationAgreementId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Bookmarks">
+      <EntityTypeMapping TypeName="IPSModel.Bookmark">
+        <MappingFragment StoreEntitySet="Bookmarks">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="IPSModel.Task">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="SmsBefore" ColumnName="SmsBefore" />
+          <ScalarProperty Name="EmailBefore" ColumnName="EmailBefore" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+          <ScalarProperty Name="NotificationTemplateId" ColumnName="NotificationTemplateId" />
+          <ScalarProperty Name="IsEmailNotification" ColumnName="IsEmailNotification" />
+          <ScalarProperty Name="IsSMSNotification" ColumnName="IsSMSNotification" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="RecurrenceRule" ColumnName="RecurrenceRule" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="AssignedToId" ColumnName="AssignedToId" />
+          <ScalarProperty Name="TimeSpentMinutes" ColumnName="TimeSpentMinutes" />
+          <ScalarProperty Name="TimeEstimateMinutes" ColumnName="TimeEstimateMinutes" />
+          <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ParentTaskID" ColumnName="ParentTaskID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="TaskListId" ColumnName="TaskListId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskCategoryListItems">
+      <EntityTypeMapping TypeName="IPSModel.TaskCategoryListItem">
+        <MappingFragment StoreEntitySet="TaskCategoryListItems">
+          <ScalarProperty Name="TextColor" ColumnName="TextColor" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="CategoryListId" ColumnName="CategoryListId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTemplates">
+      <EntityTypeMapping TypeName="IPSModel.NotificationTemplate">
+        <MappingFragment StoreEntitySet="NotificationTemplates">
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="StageTypeId" ColumnName="StageTypeId" />
+          <ScalarProperty Name="UIMessage" ColumnName="UIMessage" />
+          <ScalarProperty Name="EvaluationRoleId" ColumnName="EvaluationRoleId" />
+          <ScalarProperty Name="SMSMessage" ColumnName="SMSMessage" />
+          <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KPITypes">
+      <EntityTypeMapping TypeName="IPSModel.KPIType">
+        <MappingFragment StoreEntitySet="KPITypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Link_ProjectUsers">
+      <EntityTypeMapping TypeName="IPSModel.Link_ProjectUsers">
+        <MappingFragment StoreEntitySet="Link_ProjectUsers">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectRoles">
+      <EntityTypeMapping TypeName="IPSModel.ProjectRole">
+        <MappingFragment StoreEntitySet="ProjectRoles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="IPSModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ExpectedEndDate" ColumnName="ExpectedEndDate" />
+          <ScalarProperty Name="ExpectedStartDate" ColumnName="ExpectedStartDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="VisionStatement" ColumnName="VisionStatement" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReminderTypes">
+      <EntityTypeMapping TypeName="IPSModel.ReminderType">
+        <MappingFragment StoreEntitySet="ReminderTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trends">
+      <EntityTypeMapping TypeName="IPSModel.Trend">
+        <MappingFragment StoreEntitySet="Trends">
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExerciseMetrics">
+      <EntityTypeMapping TypeName="IPSModel.ExerciseMetric">
+        <MappingFragment StoreEntitySet="ExerciseMetrics">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Link_Training_NotificationType_NotificationInterval">
+      <EntityTypeMapping TypeName="IPSModel.Link_Training_NotificationType_NotificationInterval">
+        <MappingFragment StoreEntitySet="Link_Training_NotificationType_NotificationInterval">
+          <ScalarProperty Name="NotificationIntervalId" ColumnName="NotificationIntervalId" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationIntervals">
+      <EntityTypeMapping TypeName="IPSModel.NotificationInterval">
+        <MappingFragment StoreEntitySet="NotificationIntervals">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NotificationIntervalId" ColumnName="NotificationIntervalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="IPSModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CmsPages">
+      <EntityTypeMapping TypeName="IPSModel.CmsPage">
+        <MappingFragment StoreEntitySet="CmsPages">
+          <ScalarProperty Name="PageAccessCode" ColumnName="PageAccessCode" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Heading" ColumnName="Heading" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeyWord" ColumnName="MetaKeyWord" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PageID" ColumnName="PageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IpsPlanRoles">
+      <EntityTypeMapping TypeName="IPSModel.IpsPlanRole">
+        <MappingFragment StoreEntitySet="IpsPlanRoles">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NoOfPersonAllowed" ColumnName="NoOfPersonAllowed" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="PlanRoleID" ColumnName="PlanRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IpsPlans">
+      <EntityTypeMapping TypeName="IPSModel.IpsPlan">
+        <MappingFragment StoreEntitySet="IpsPlans">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AnualPrice" ColumnName="AnualPrice" />
+          <ScalarProperty Name="MonthlyPrice" ColumnName="MonthlyPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PlanType" ColumnName="PlanType" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPSPlanFields">
+      <EntityTypeMapping TypeName="IPSModel.IPSPlanField">
+        <MappingFragment StoreEntitySet="IPSPlanFields">
+          <ScalarProperty Name="PlanLabelID" ColumnName="PlanLabelID" />
+          <ScalarProperty Name="PlanTypeID" ColumnName="PlanTypeID" />
+          <ScalarProperty Name="IpsPlanLabelID" ColumnName="IpsPlanLabelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPSPlanFieldsLookups">
+      <EntityTypeMapping TypeName="IPSModel.IPSPlanFieldsLookup">
+        <MappingFragment StoreEntitySet="IPSPlanFieldsLookup">
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="LabelText" ColumnName="LabelText" />
+          <ScalarProperty Name="IpsPlanLabelID" ColumnName="IpsPlanLabelID" />
+          <ScalarProperty Name="PlanFieldMappingID" ColumnName="PlanFieldMappingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPSPlanFeatures">
+      <EntityTypeMapping TypeName="IPSModel.IPSPlanFeature">
+        <MappingFragment StoreEntitySet="IPSPlanFeatures">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="PlanFieldID" ColumnName="PlanFieldID" />
+          <ScalarProperty Name="PlanTypeID" ColumnName="PlanTypeID" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="IpsPlanFeatureID" ColumnName="IpsPlanFeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScaleRanges">
+      <EntityTypeMapping TypeName="IPSModel.ScaleRange">
+        <MappingFragment StoreEntitySet="ScaleRanges">
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="ScaleId" ColumnName="ScaleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HelpCategories">
+      <EntityTypeMapping TypeName="IPSModel.HelpCategory">
+        <MappingFragment StoreEntitySet="HelpCategory">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+          <ScalarProperty Name="IsParentCategory" ColumnName="IsParentCategory" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="HelpCategoryID" ColumnName="HelpCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HelpContents">
+      <EntityTypeMapping TypeName="IPSModel.HelpContent">
+        <MappingFragment StoreEntitySet="HelpContent">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HelpCategoryID" ColumnName="HelpCategoryID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="HelpContentID" ColumnName="HelpContentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="IPSModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonials">
+      <EntityTypeMapping TypeName="IPSModel.Testimonial">
+        <MappingFragment StoreEntitySet="Testimonials">
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="TestimonialID" ColumnName="TestimonialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanFeaturesKeys">
+      <EntityTypeMapping TypeName="IPSModel.PlanFeaturesKey">
+        <MappingFragment StoreEntitySet="PlanFeaturesKeys">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PlanFeatureID" ColumnName="PlanFeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioCategories">
+      <EntityTypeMapping TypeName="IPSModel.PortfolioCategory">
+        <MappingFragment StoreEntitySet="PortfolioCategory">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PortfolioCategoryID" ColumnName="PortfolioCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioImages">
+      <EntityTypeMapping TypeName="IPSModel.PortfolioImage">
+        <MappingFragment StoreEntitySet="PortfolioImages">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PortfolioProjectID" ColumnName="PortfolioProjectID" />
+          <ScalarProperty Name="DisplayOnTop" ColumnName="DisplayOnTop" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="ProtfolioProjectImageID" ColumnName="ProtfolioProjectImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateCategories">
+      <EntityTypeMapping TypeName="IPSModel.TemplateCategory">
+        <MappingFragment StoreEntitySet="TemplateCategory">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+          <ScalarProperty Name="IsParentCategory" ColumnName="IsParentCategory" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TemplateTypeID" ColumnName="TemplateTypeID" />
+          <ScalarProperty Name="TemplateCategoryID" ColumnName="TemplateCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateContents">
+      <EntityTypeMapping TypeName="IPSModel.TemplateContent">
+        <MappingFragment StoreEntitySet="TemplateContent">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TemplateCategoryID" ColumnName="TemplateCategoryID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TemplateContentID" ColumnName="TemplateContentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateContentImages">
+      <EntityTypeMapping TypeName="IPSModel.TemplateContentImage">
+        <MappingFragment StoreEntitySet="TemplateContentImage">
+          <ScalarProperty Name="IsPrimaryImage" ColumnName="IsPrimaryImage" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="TemplateContentID" ColumnName="TemplateContentID" />
+          <ScalarProperty Name="TemplateImageID" ColumnName="TemplateImageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioProjects">
+      <EntityTypeMapping TypeName="IPSModel.PortfolioProject">
+        <MappingFragment StoreEntitySet="PortfolioProjects">
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+          <ScalarProperty Name="ProjectUrl" ColumnName="ProjectUrl" />
+          <ScalarProperty Name="ProjectResult" ColumnName="ProjectResult" />
+          <ScalarProperty Name="AboutCompany" ColumnName="AboutCompany" />
+          <ScalarProperty Name="ProjectDate" ColumnName="ProjectDate" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="PortfolioCategoryID" ColumnName="PortfolioCategoryID" />
+          <ScalarProperty Name="PortfolioProjectID" ColumnName="PortfolioProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PossibleAnswers">
+      <EntityTypeMapping TypeName="IPSModel.PossibleAnswer">
+        <MappingFragment StoreEntitySet="PossibleAnswers">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StagesEvolutions">
+      <EntityTypeMapping TypeName="IPSModel.StagesEvolution">
+        <MappingFragment StoreEntitySet="StagesEvolution">
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentStageEvolutionId" ColumnName="ParentStageEvolutionId" />
+          <ScalarProperty Name="OriginalStageId" ColumnName="OriginalStageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StagesEvolutionQuestions">
+      <EntityTypeMapping TypeName="IPSModel.StagesEvolutionQuestion">
+        <MappingFragment StoreEntitySet="StagesEvolutionQuestions">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="StageEvolutionId" ColumnName="StageEvolutionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyResults">
+      <EntityTypeMapping TypeName="IPSModel.SurveyResult">
+        <MappingFragment StoreEntitySet="SurveyResults">
+          <ScalarProperty Name="StageEvolutionId" ColumnName="StageEvolutionId" />
+          <ScalarProperty Name="TimeSpent" ColumnName="TimeSpent" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationStatuses">
+      <EntityTypeMapping TypeName="IPSModel.EvaluationStatus">
+        <MappingFragment StoreEntitySet="EvaluationStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StageEvolutionId" ColumnName="StageEvolutionId" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+          <ScalarProperty Name="RemindAt" ColumnName="RemindAt" />
+          <ScalarProperty Name="InvitedAt" ColumnName="InvitedAt" />
+          <ScalarProperty Name="DurationMinutes" ColumnName="DurationMinutes" />
+          <ScalarProperty Name="EndedAt" ColumnName="EndedAt" />
+          <ScalarProperty Name="StartedAt" ColumnName="StartedAt" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="StageId" ColumnName="StageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="IPSModel.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionMaterials">
+      <EntityTypeMapping TypeName="IPSModel.QuestionMaterial">
+        <MappingFragment StoreEntitySet="QuestionMaterials">
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyAnswers">
+      <EntityTypeMapping TypeName="IPSModel.SurveyAnswer">
+        <MappingFragment StoreEntitySet="SurveyAnswers">
+          <ScalarProperty Name="InDevContract" ColumnName="InDevContract" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="IsCorrect" ColumnName="IsCorrect" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="SurveyResultId" ColumnName="SurveyResultId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Link_SurveyAnswersTrainings" TypeName="IPSModel.Link_SurveyAnswersTrainings" StoreEntitySet="Link_SurveyAnswersTrainings">
+      <EndProperty Name="Training">
+        <ScalarProperty Name="Id" ColumnName="TrainingId" />
+      </EndProperty>
+      <EndProperty Name="SurveyAnswer">
+        <ScalarProperty Name="Id" ColumnName="SurveyAnswerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="TaskScaleRanges">
+      <EntityTypeMapping TypeName="IPSModel.TaskScaleRanx">
+        <MappingFragment StoreEntitySet="TaskScaleRanges">
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="TaskScalesId" ColumnName="TaskScalesId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskScales">
+      <EntityTypeMapping TypeName="IPSModel.TaskScale">
+        <MappingFragment StoreEntitySet="TaskScales">
+          <ScalarProperty Name="ScaleInterval" ColumnName="ScaleInterval" />
+          <ScalarProperty Name="ScaleEnd" ColumnName="ScaleEnd" />
+          <ScalarProperty Name="ScaleStart" ColumnName="ScaleStart" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingFeedbacks">
+      <EntityTypeMapping TypeName="IPSModel.TrainingFeedback">
+        <MappingFragment StoreEntitySet="TrainingFeedback">
+          <ScalarProperty Name="FeedbackDateTime" ColumnName="FeedbackDateTime" />
+          <ScalarProperty Name="TimeSpentMinutes" ColumnName="TimeSpentMinutes" />
+          <ScalarProperty Name="WhatNextDescription" ColumnName="WhatNextDescription" />
+          <ScalarProperty Name="WorkedNotWell" ColumnName="WorkedNotWell" />
+          <ScalarProperty Name="WorkedWell" ColumnName="WorkedWell" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingMaterialRatings">
+      <EntityTypeMapping TypeName="IPSModel.TrainingMaterialRating">
+        <MappingFragment StoreEntitySet="TrainingMaterialRatings">
+          <ScalarProperty Name="RatingSubmitDate" ColumnName="RatingSubmitDate" />
+          <ScalarProperty Name="RatingBy" ColumnName="RatingBy" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="TrainingMaterialId" ColumnName="TrainingMaterialId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

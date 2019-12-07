@@ -1,0 +1,77 @@
+<div pane class="ips-profiles-content">
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span>{{'COMMON_SEARCH' | translate }}</span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="filter.isShowActive" ng-change="doFilter()">{{'SOFTPROFILE_SHOW_ACTIVE_PROFILES' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="filter.isTemplate" ng-change="doFilter()">{{'COMMON_SHOW_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.industryId" data-ng-options="obj.id as obj.name for obj in industries" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_PERFORMANCE_GROUPS' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.performanceGroupName" ng-options="obj.id as obj.name for obj in performanceGroups | unique:'name'" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_LEVEL' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.levelId" data-ng-options="obj.id as obj.name for obj in levels" ng-change="doFilter()"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12 return-menu">
+            <a href="#/home" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'COMMON_PROFILES' | translate }}</h1>
+            <div class="top-border"></div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <span ng-show="{{defaultProjectId > 0}}" class="btn btn-default popovers" data-container="body" data-trigger="hover" data-placement="bottom" data-content="<ul><li>Step 1 : Search Profile by enter word in search box in right panel <img src='images/icon-view.png'> <img></li><li>Step 2 : If you want to filter profile use Filter options in right panel <img src='images/organization/organization-icon.png'></li><li>Step 3 : Click on View <a title='View Profile' class='fa fa-eye'></a> (read only mode)</li><li>Step 4 : Come back to profile list page</li><li>Step 5 : Click on Clone <a title='View Profile' class='fa fa-copy'></a> to clone that profile in your project '{{projectInfo.name}}'</li></ul>" data-html="true" data-original-title="Search Functionality"> <span class="fa fa-info"></span> {{'COMMON_INFO' | translate }}</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{pageName}}</span>
+                <a class="add-button pull-right" ng-click="add();"></a>
+            </div>
+
+            <kendo-tooltip options="tooltipOptions">
+                <div id="profilesGrid" kendo-grid="profilesGrid" k-options="gridOptions" k-rebind="gridOptions.selectable"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

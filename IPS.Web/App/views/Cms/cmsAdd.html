@@ -1,0 +1,95 @@
+<section class="panel">
+    <header class="panel-heading newPanelHead create-department " ng-init="editPage()"> 
+        {{((pageId) ? 'COMMON_EDIT' :'COMMON_ADD') | translate}} {{'CMS_PAGE' | translate }}</header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form class="newForm" ng-submit="(pageId)?updatePage():addPage()">
+            <div class="form-group col-sm-6 col-sm-6">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_CHOOSE' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control" ng-model="updatePageData.languageID" ng-init="getLanguages()">
+                        <option value="">--{{'CMS_SELECT_LANGUAGE' | translate }}--</option>
+                        <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6 col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_TITLE' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="title" ng-model="updatePageData.title" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_META_TITLE' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="meta_title" ng-model="updatePageData.metaTitle" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_META_KEYWORD' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="meta_keyword" ng-model="updatePageData.metaKeyWord" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_META_DESCRIPTION' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" name="meta_description" ng-model="updatePageData.metaDescription" id="description" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_HEADING' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" ng-model="updatePageData.heading" name="heading" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'CMS_CONTENT' | translate }}({{'CMS_REQUIRED' | translate }})</label>
+                <div class="col-lg-12">
+                    <textarea ckeditor="editorOptions" class="Meta Description form-control ng-pristine ng-untouched ng-valid" ng-model="updatePageData.pageContent"></textarea>
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-sm-6 ">
+                <div class="checkSection">
+                    <input type="checkbox" name="guideline" ng-model="cms.pageAccessCode" id="pageAccessCode" value="1">
+                    <label "external_link" class="control-label">{{'CMS_PAGE_ACCESS_CODE' | translate }}</label>
+                </div>
+
+
+                <div class="checkSection">
+                    <input type="checkbox" name="terms_and_condition" ng-model="cms.tc" id="terms_and_condition" value="1">
+                    <label class="control-label">{{'CMS_TERMS' | translate }} &amp; {{'CMS_CONDITIONS' | translate }}</label>
+                </div>
+
+
+                <div class="checkSection">
+                    <input type="checkbox" name="privacy_policy" ng-model="cms.privacyPolicy" id="privacy_policy" value="1">
+                    <label class="control-label">{{'CMS_PRIVACY_POLICY' | translate }}</label>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_STATUS' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control m-bot15" ng-model="updatePageData.status" name="status" id="status">
+                        <option>{{'CMS_SELECT_STATUS' | translate }}</option>
+                        <option value="1">{{'CMS_ACTIVE' | translate }}</option>
+                        <option value="2">{{'CMS_INACTIVE' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="col-lg-offset-7 col-lg-6 btmBtn">
+                    <button class="btn btnAdd" type="submit" name="submit">{{(pageId)?'CMS_UPDATE' :'COMMON_ADD' | translate}}</button>
+                    <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/cms'">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</section>

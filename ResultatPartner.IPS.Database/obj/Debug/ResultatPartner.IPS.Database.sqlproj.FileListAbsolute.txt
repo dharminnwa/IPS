@@ -1,0 +1,9 @@
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\bin\Debug\ResultatPartner.IPS.Database.dacpac
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\bin\Debug\ResultatPartner.IPS.Database.dll
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\bin\Debug\ResultatPartner.IPS.Database.pdb
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\Model.xml
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\refactor.xml
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\postdeploy.sql
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\predeploy.sql
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\ResultatPartner.IPS.Database.dll
+D:\DotNetProjects\IPS\ResultatPartner.IPS.Database\obj\Debug\ResultatPartner.IPS.Database.pdb

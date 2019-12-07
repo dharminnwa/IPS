@@ -1,0 +1,72 @@
+<section class="panel" ng-init="getByPlanId()">
+    <header class="panel-heading newPanelHead create-department " ng-init="getPlanById()">
+        {{((planId)?'COMMON_EDIT':'COMMON_ADD') | translate }} {{'PLANS_PLAN' | translate }}
+    </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form class="newForm" ng-submit="(planId)?updatePlan():addPlan()">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_CHOOSE' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control" ng-model="cms.language" ng-change="changeLanguage(cms.language)">
+                        <option value="en">{{'PLANS_ENGLISH' | translate }}</option>
+                        <option value="hi">{{'PLANS_HINDI' | translate }}</option>
+                        <option value="ru">{{'PLANS_RUSSIAN' | translate }}</option>
+                        <option value="fr">{{'PLANS_FRENCH' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'PLANS_PLAN_NAME' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="title" ng-model="planData.plan[0].name" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'PLANS_MONTHLY_PRICE' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="meta_title" ng-model="planData.plan[0].monthlyPrice" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'PLANS_ANNUAL_PRICE' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="meta_keyword" ng-model="planData.plan[0].anualPrice" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+            <hr>
+            <div class="designForm_Div">
+                <h2 class="df_head">{{'PLANS_DESIGN' | translate }}</h2>
+                <div class="designForm">
+                    <ul class="surveyUL">
+
+                        <li class="surveyLI" ng-repeat="fields in planData.features">
+                            <span class="surv_text">{{fields.label}}</span>
+                            <div class="multi_div">
+                                <div class="surv_inner" ng-show="fields.value!='-1'"><input class="surv_inputCheck" ng-checked="fields.value=='0'" type="checkbox" /><input type="text" class="surv_inputText" ng-model="fields.value" /></div>
+                                <div class="surv_inner"><input class="surv_inputCheck" ng-model="fields.value" ng-ckecked="(fields.value=='-1')" ng-true-value="'-1'" ng-false-value="0" type="checkbox" /><span class="surve_value">{{'PLANS_UNLIMITED' | translate }}</span></div>
+                            </div>
+
+                        </li>
+
+                        <!-- <li class="surveyLI">
+                         <span class="surv_text">White label survey</span><input type="checkbox" class="" />
+                        </li> -->
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class=" btmBtn pull-right" style="padding-right:17px;">
+                    <button class="btn btnAdd" type="submit" name="submit">{{((planId)?'COMMON_UPDATE':'COMMON_ADD') | translate}}</button>
+                    <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/cms'">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>

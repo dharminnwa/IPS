@@ -1,0 +1,12 @@
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\DotNetProjects\IPS\IPS.Data\obj\Debug\IPS.Data.csproj.CoreCompileInputs.cache
+D:\DotNetProjects\IPS\IPS.Data\obj\Debug\IPS.Data.csproj.CopyComplete
+D:\DotNetProjects\IPS\IPS.Data\obj\Debug\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\obj\Debug\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.Data\obj\Debug\IPS.Data.csprojAssemblyReference.cache

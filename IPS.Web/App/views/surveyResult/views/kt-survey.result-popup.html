@@ -1,0 +1,95 @@
+﻿
+<div ng-init="init()" name="survey">
+    <div class="survey-result">
+        <div class="top-info">
+            <div class="icon-brain"></div>
+            <div class="description">Final Scores</div>
+            <div ng-if="isEvolutionStage()">
+                <button class="btn btn-cstm ips-row-button ips-survey-button switch-button"
+                        ng-click="switchCurrentViewResult()" ng-disabled="!isCurrentViewResultByStage">
+                    Show profile result
+                </button>
+                <button class="btn btn-cstm ips-row-button ips-survey-button switch-button"
+                        ng-click="switchCurrentViewResult()" ng-disabled="isCurrentViewResultByStage">
+                    Show stage result
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="medal-board" ng-if="hasMedalRules()">
+            <div ng-repeat="scoredetail in scoreSummary">
+                <div class="pass-score">
+                    <div class="passed" ng-if="scoredetail.isPassed">Passed</div>
+                    <div class="failed" ng-if="!scoredetail.isPassed">Failed</div>
+                    <!--<button ng-hide="hasMedalRules()" class="button-complete btn btn-cstm ips-survey-button" ng-click="complete()">Next test</button>-->
+                </div>
+                <div class="main-info">
+                    <div class="medal {{scoredetail.medal}}"></div>
+                    <div class="medal-description">{{scoredetail.name}} scored {{scoredetail.correctAnswersCount}} of {{scoredetail.questionsCount}} ({{scoredetail.correctAnswersPercent}}%)!</div>
+                    <div class="medal-description" ng-if="hasMedal()"> It is {{scoredetail.medal}}!</div>
+                    <!--<button class="button-complete btn btn-cstm ips-row-button ips-survey-button" ng-click="complete()">Next test</button>-->
+                </div>
+            </div>
+           
+            <div class="medal-rules">
+                <div class="medal-rule">
+                    <div class="medal bronze"></div>
+                    <div class="description-label">{{medalRules.bronzeMedalMinScore}}% - {{medalRules.silverMedalMinScore}}%</div>
+                </div>
+
+                <div class="medal-rule">
+                    <div class="medal silver"></div>
+                    <div class="description-label">{{medalRules.silverMedalMinScore}}% - {{medalRules.goldMedalMinScore}}%</div>
+                </div>
+
+                <div class="medal-rule">
+                    <div class="medal gold"></div>
+                    <div class="description-label">{{medalRules.goldMedalMinScore}}% - 100%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rank-panel">
+            <div class="rank correct"></div>
+            <div class="rank-label">Correct</div>
+
+            <div class="rank wrong"></div>
+            <div class="rank-label">Wrong</div>
+
+            <div class="rank not-available"></div>
+            <div class="rank-label">Not available (evaluator hasn't judge the free-text answer)</div>
+        </div>
+        <div  id="scoreCardDetailsGrid"></div>
+        <!--<table class="table result-table">
+            <tr class="table-header">
+                <th>#</th>
+                <th>Skill</th>
+                <th>Performance Group</th>
+                <th>Question</th>
+                <th>{{viewStage.mainParticipantName}} Points</th>
+                <th>{{viewStage.compareParticipantName}} Points</th>
+                <th>{{viewStage.mainParticipantName}}</th>
+
+                <th ng-show="answer.comapreAvailable">{{viewStage.compareParticipantName}}</th>
+            </tr>
+            <tr ng-repeat="answer in viewStage.answers">
+                <td width="5%" class="answer-number">{{$index+1}}</td>
+                <td width="15%">{{answer.skillNames}}</td>
+                <td width="15%">{{answer.performanceGroupName}}</td>
+                <td width="25%">{{answer.questionText}}</td>
+                <td width="10%">{{answer.points}}</td>
+                <td width="10%">{{answer.comparePoints}}</td>
+                <td width="10%">
+                    <div class="answer-mark"
+                         ng-class="{'not-available': !answer.isAvailable, 'correct': answer.isCorrect, 'wrong': !answer.isCorrect }"></div>
+                </td>
+                <td width="10%" ng-show="answer.comapreAvailable">
+                    <div class="answer-mark"
+                         ng-class="{'not-available': !answer.comapreAvailable, 'correct': answer.comapreIsCorrect, 'wrong': !answer.comapreIsCorrect }"></div>
+                </td>
+            </tr>
+        </table>-->
+    </div>
+</div>

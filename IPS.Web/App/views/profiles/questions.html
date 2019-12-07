@@ -1,0 +1,349 @@
+﻿<div class="row">
+    <section class="portlet-light portlet-light-box">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <div class="card new-soft-profile-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/profile/{{profileId}}" aria-controls="ProfileSetup" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    {{'MYPROJECTS_PROFILE_SETUP' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" aria-controls="PerformanceGroups" role="tab">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>{{'COMMON_PERFORMANCE_GROUP' | translate}} - {{'COMMON_SKILL' | translate}} - {{'SOFTPROFILE_QUESTIONS' | translate}} - {{'SOFTPROFILE_TRAININGS' | translate}}</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/milestones" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    {{'SOFTPROFILE_SEND_OUTS' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="PerformanceGroups">
+                            <div class="row">
+                                <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable mt-6">
+                                    <div id="wid-id-0">
+                                        <!-- widget div-->
+                                        <div role="contentinfo">
+                                            <!-- widget content -->
+                                            <div class="widget-body">
+                                                <div class="row">
+
+                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                        <div class="form-bootstrapWizard">
+                                                            <ul class="bootstrapWizard form-wizard">
+                                                                <li>
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" class="active" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'COMMON_PERFORMANCE_GROUPS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{profileId}}/skills" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_SKILLS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="active">
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{profileId}}/questions" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_QUESTIONS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/trainings" aria-expanded="true" ng-click="gotoTrainings()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_TRAININGS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active">
+                                                                <div class="row">
+                                                                    <!-- Modal -->
+                                                                    <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header pop-up-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                                        {{'MYPROJECTS_PLEASE_ADD_NEW_QUESTION' | translate}}
+                                                                                    </h5>
+                                                                                    <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">×</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="container-fluid">
+                                                                                        <div class="row">
+                                                                                            <ng-form class="form-horizontal" name="formQuestion" action="#" id="formQuestion" novalidate="novalidate">
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_PERFORMANCE_GROUP' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formQuestion.performanceGroupId.$dirty && formQuestion.performanceGroupId.$error.required"> * </span>
+                                                                                                        <select class="form-control" data-ng-model="question.performanceGroupId" name="performanceGroupId" data-ng-options="obj.id as obj.name for obj in performanceGroups" ng-required="performanceGroups.length > 0 ? true:false" ng-change="changePeformanceGroup()"></select>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_SKILL' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formQuestion.questionskillId.$dirty && formQuestion.questionskillId.$error.required"> * </span>
+                                                                                                        <select class="form-control" data-ng-model="question.skillId" ng-required="true" name="questionskillId" data-ng-options="i.id as i.name for i in pgSkills" ng-change="chageQuestionSkill()" ng-disabled="question.id != 0">
+                                                                                                            <option value="">--{{'MYPROJECTS_SELECT_SKILL' | translate }}--</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_QUESTION_TEXT' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formQuestion.questionText.$dirty && formQuestion.questionText.$error.required"> * </span>
+                                                                                                        <textarea class="form-control" placeholder="Enter Question Text" name="questionText" ng-model="question.questionText" ng-required="true"></textarea>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'COMMON_DESCRIPTION' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formQuestion.description.$dirty && formQuestion.description.$error.required"> * </span>
+                                                                                                        <textarea class="form-control" placeholder="Enter Description" name="description" ng-model="question.description" ng-required="true"></textarea>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12" ng-hide="question.profileTypeId == profileTypeEnum.Soft || question.profileTypeId == profileTypeEnum.Hard">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">
+                                                                                                            {{'MYPROJECTS_ANSWER_TYPE' | translate }}
+                                                                                                        </label>
+                                                                                                        <span class="required" ng-show="formQuestion.questionAnswerTypeId.$dirty && formQuestion.questionAnswerTypeId.$error.required"> * </span>
+                                                                                                        <select class="form-control" data-ng-model="question.answerTypeId" ng-required="true" name="questionAnswerTypeId" data-ng-options="i.id as i.typeName for i in answerTypes" ng-disabled="question.profileTypeId == profileTypeEnum.Soft || profile.profileTypeId == profileTypeEnum.Hard" ng-change="resetAnswer()">
+                                                                                                            <option value="">--{{'MYPROJECTS_SELECT_ANSWER_TYPE' | translate }}--</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12" ng-show="question.profileTypeId == profileTypeEnum.Knowledge">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">{{'MYPROJECTS_POINTS' | translate }}</label>
+                                                                                                        <input type="number" class="form-control" name="points" ng-model="question.points" min="1" ng-required="question.profileTypeId == profileTypeEnum.Knowledge?true:false" />
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-12" ng-show="question.profileTypeId == profileTypeEnum.Knowledge">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="form-cstm-lable">{{'MYPROJECTS_TIME_FOR_QUESTION' | translate }}</label><br />
+                                                                                                        <span>{{'COMMON_MINUTES' | translate }}: </span> <input ng-required="question.profileTypeId == profileTypeEnum.Knowledge?true:false" min="0" type="number" ng-model="question.minutesForQuestion" />
+                                                                                                        <span>{{'MYPROJECTS_SECONDS' | translate }}: </span> <input ng-required="question.profileTypeId == profileTypeEnum.Knowledge?true:false" min="0" type="number" ng-model="question.secondsForQuestion" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12" ng-show="question.profileTypeId == profileTypeEnum.Knowledge">
+                                                                                                    <question-correct-answer></question-correct-answer>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                    <button class="btn btn-cstm primary pull-right" ng-disabled="(formQuestion.$invalid)" ng-click="addNewQuestion()" data-dismiss="modal" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                                                </div>
+                                                                                            </ng-form>
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="questionOptionModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+                                                                        <div class="modal-dialog modal-lg">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                    <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PLEASE_ADD_NEW_QUESTION_OPTION' | translate }}</h4>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="container-fluid">
+                                                                                        <ng-form class="form-horizontal" name="formQuestionOption" action="#" id="formQuestionOption" novalidate="novalidate">
+                                                                                            <div class="row">
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="col-md-3 control-label">{{'MYPROJECTS_OPTION_NAME' | translate }}</label>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <input type="text" class="form-control" name="optionName" ng-model="optionModel.name" ng-required="true" />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="col-md-3 control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <textarea class="form-control" name="description" ng-model="optionModel.description" ng-required="true"></textarea>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-md-12" ng-show="question.answerTypeId == questionTypesEnum.order">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="control-label col-md-3">{{'MYPROJECTS_CORRECT_ORDER' | translate }}</label>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <input type="number" class="form-control tab-control" name="correctOrder" ng-required="question.answerTypeId == questionTypesEnum.order ? true:false"
+                                                                                                                   ng-model="optionModel.correctOrder" />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-12" ng-show="question.answerTypeId == questionTypesEnum.singleChoice || question.answerTypeId == questionTypesEnum.multipleChoice">
+                                                                                                    <div class="form-group form-md-checkboxes">
+                                                                                                        <label class="control-label col-md-3">
+                                                                                                            {{'MYPROJECTS_IS_CORRECT' | translate }}
+                                                                                                        </label>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="md-checkbox-list">
+                                                                                                                <div class="md-checkbox">
+                                                                                                                    <input type="checkbox" id="isCorrect" ng-model="optionModel.isCorrect" class="md-check">
+                                                                                                                    <label for="isCorrect">
+                                                                                                                        <span></span>
+                                                                                                                        <span class="check"></span>
+                                                                                                                        <span class="box"></span>
+                                                                                                                    </label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label class="col-md-3 control-label">{{'MYPROJECTS_ORDER' | translate }}</label>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <input type="number" class="form-control" name="optionOrder" ng-model="optionModel.order" ng-required="true" />
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="col-md-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label>{{'COMMON_MATERIAL_TYPE' | translate }}</label>
+                                                                                                        <select class="form-control tab-control" name="material-type"
+                                                                                                                ng-model="optionModel.material.type" ng-change="changeType(optionModel.material.type)">
+                                                                                                            <option value="">{{'MYPROJECTS_NONE' | translate }}</option>
+                                                                                                            <option value="{{materialTypeEnum.image}}">{{'COMMON_IMAGE' | translate }}</option>
+                                                                                                            <option value="{{materialTypeEnum.document}}">{{'COMMON_DOCUMENT' | translate }}</option>
+                                                                                                            <option value="{{materialTypeEnum.audio}}">{{'COMMON_AUDIO' | translate }}</option>
+                                                                                                            <option value="{{materialTypeEnum.link}}">{{'COMMON_LINK' | translate }}</option>
+                                                                                                            <option value="{{materialTypeEnum.video}}">{{'COMMON_VIDEO' | translate }}</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-12"
+                                                                                                     ng-show="optionModel.material.type && optionModel.material.type == materialTypeEnum.link">
+                                                                                                    <label>{{'COMMON_URL' | translate }}</label>
+                                                                                                    <input type="url" class="form-control tab-control" ng-model="optionModel.material.url"
+                                                                                                           ng-required="optionModel.material.type && optionModel.material.type == materialTypeEnum.link"
+                                                                                                           name="url" />
+                                                                                                </div>
+                                                                                                <div class="col-md-12"
+                                                                                                     ng-hide="!optionModel.material.type || optionModel.material.type == materialTypeEnum.link">
+                                                                                                    <div class="form-group">
+                                                                                                        <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+                                                                                                        <input type="file" name="fileOptionModel" ngf-select="onFileSelect($files)" ng-model="fileModel" ng-required="winAnswerOrderOptionVisible && optionModel.material.type && optionModel.material.type != materialTypeEnum.link">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-12">
+                                                                                                    <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                    <button class="btn btn-cstm primary pull-right" ng-disabled="(formQuestionOption.$invalid)" ng-click="saveKTQuestionOption()" data-dismiss="modal" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </ng-form>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row tab-header header-blue mt-5">
+                                                                    <div class="col-lg-12">
+                                                                        <h3>{{'SOFTPROFILE_QUESTIONS' | translate}}</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-5">
+                                                                    <div class="col-lg-12">
+                                                                        <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="openNewQuestionModal()">
+                                                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                            {{'SOFTPROFILE_NEW_QUESTION' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 mt-5">
+                                                                        <kendo-tooltip options="questionsGridTooltipOptions">
+                                                                            <div id="questionsGrid" kendo-grid k-options="questionsGridOptions"></div>
+                                                                        </kendo-tooltip>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row m-0">
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="#/home/{{profileUrlModifier}}/{{profileId}}/skills"  class="btn btn-cstm pull-right">
+                                                                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                                            {{'COMMON_BACK' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="javascript:;" ng-click="gotoTrainings()" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/trainings" class="btn dropdown-toggle btn-cstm" ng-disabled="(!((profileId > 0) && (questions.length > 0)))">
+                                                                            {{'COMMON_NEXT' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

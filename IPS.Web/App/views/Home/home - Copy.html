@@ -1,0 +1,1644 @@
+<div pane name="home">
+    <div class="" ng-init="init()">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a class="dashboard-stat dashboard-stat-v2 blue" href="javascript:;">
+                    <div class="visual">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="projectdata.activeProjects.length">
+                                <img ng-hide="projectdata.activeProjects" src="images/loading.gif" />
+                                {{projectdata.activeProjects.length + projectdata.completedProjects.length}}
+                            </span>
+                        </div>
+                        <div class="desc text-uppercase">{{'HOME_RUNNING_PROJECTS' | translate }}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a class="dashboard-stat dashboard-stat-v2 red" href="javascript:;">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="profiledata.activeProfiles.length">
+                                <img ng-hide="profiledata.activeProfiles" src="images/loading.gif" />
+                                {{profiledata.activeProfiles.length}}
+                            </span>
+                        </div>
+                        <div class="desc text-uppercase">{{'HOME_ACTIVE_PROFILES' | translate }}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a class="dashboard-stat dashboard-stat-v2 green" href="javascript:;">
+                    <div class="visual">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="0">
+                                <img ng-hide="profileTrainings && personalTrainings" src="images/loading.gif" />
+                                {{profileTrainings.length + personalTrainings.length}}
+                            </span>
+                        </div>
+                        <div class="desc">{{'HOME_TODAYS_TRAINING' | translate }}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <a class="dashboard-stat dashboard-stat-v2 purple" href="javascript:;">
+                    <div class="visual">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="taskTodos.length">
+                                <img ng-hide="taskTodos" src="images/loading.gif" />
+                                {{taskTodos.length}}
+                            </span>
+                        </div>
+                        <div class="desc">{{'HOME_TODAYS_TASKS' | translate }}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet light tasks-widget bordered">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class="icon-globe font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'HOME_TODAYS_TRAININGS' | translate }}</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_1_1" class="active" data-toggle="tab" aria-expanded="true">
+                                    {{'HOME_PROFILE_TRAININGS' | translate }}
+                                    <span class="badge badge-success ng-binding"> {{profileTrainings.length}} </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#tab_1_2" data-toggle="tab" aria-expanded="false">
+                                    {{'HOME_OWN_TRAININGS' | translate }}
+                                    <span class="badge badge-success ng-binding"> {{personalTrainings.length}} </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <!--BEGIN TABS-->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1_1">
+
+                                <div class="task-content">
+                                    <div class="scroller" data-width="10px" style="height: 300px;" data-always-visible="1" data-rail-visible1="1">
+                                        <!-- START TASK LIST -->
+                                        <ul class="task-list">
+                                            <li ng-repeat="trainingItem in profileTrainings">
+                                                <!--<div class="task-checkbox">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" class="checkboxes" value="1">
+                                                        <span></span>
+                                                    </label>
+                                                </div>-->
+                                                <div class="task-title">
+                                                    <span class="task-title-sp">{{trainingItem.title}}</span>
+                                                    <span class="clearfix"></span>
+                                                    <span class="label label-sm label-success">{{trainingItem.start | date:'short'}}</span> -
+                                                    <span class="label label-sm label-success">{{trainingItem.end | date:'short'}}</span>
+                                                    <span class="clearfix"></span>
+                                                    <div class="">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        {{'COMMON_SPENT' | translate }}: {{getTrainingSpentTime(trainingItem)}} ,
+                                                        {{'TRAININGDAIRY_PLANNED' | translate }} :  {{getTrainingPlannedTime(trainingItem)}}
+                                                    </div>
+                                                </div>
+                                                <div class="task-config">
+                                                    <div class="task-config-btn btn-group">
+                                                        <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                            <i class="fa fa-cog"></i>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li>
+                                                                <a href="javascript:;" ng-click="startTraining(trainingItem.orginalId)" ng-hide="trainingItem.isDone">
+                                                                    <i class="fa fa-play"></i> {{'COMMON_START' | translate }}
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" ng-click="openTrainingDetail(trainingItem.orginalId)">
+                                                                    <i class="fa fa-eye"></i> {{'HOME_VIEW' | translate }}
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- END START TASK LIST -->
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div class="tab-pane" id="tab_1_2">
+                                <div class="scroller" data-width="10px" style="height: 300px;" data-always-visible="1" data-rail-visible1="1">
+                                    <!-- START TASK LIST -->
+                                    <ul class="task-list">
+                                        <li ng-repeat="trainingItem in personalTrainings">
+                                            <!--<div class="task-checkbox">
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                    <input type="checkbox" class="checkboxes" value="1">
+                                                    <span></span>
+                                                </label>
+                                            </div>-->
+                                            <div class="task-title">
+                                                <span class="task-title-sp">{{trainingItem.title}}</span>
+                                                <span class="clearfix"></span>
+                                                <span class="label label-sm label-success">{{trainingItem.start | date:'short'}}</span> -
+                                                <span class="label label-sm label-success">{{trainingItem.end | date:'short'}}</span>
+                                                <span class="clearfix"></span>
+                                                <div class="">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    {{'COMMON_SPENT' | translate }}: {{getTrainingSpentTime(trainingItem)}} ,
+                                                    {{'TRAININGDAIRY_PLANNED' | translate }} :  {{getTrainingPlannedTime(trainingItem)}}
+                                                </div>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                        <i class="fa fa-cog"></i>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li>
+                                                            <a href="javascript:;" ng-click="startPersonalTraining(trainingItem.orginalId)" ng-hide="trainingItem.isDone">
+                                                                <i class="fa fa-play"></i> {{'COMMON_START' | translate }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:;" ng-click="openTrainingDetail(trainingItem.orginalId)">
+                                                                <i class="fa fa-eye"></i> {{'HOME_VIEW' | translate }}
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- END START TASK LIST -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <div class="btn-arrow-link pull-right">
+                                <a href="#/home/training/trainingdiary"> {{'HOME_SEE_ALL_RECORDS' | translate }}</a>
+                                <i class="icon-arrow-right"></i>
+                            </div>
+                        </div>
+                        <!--END TABS-->
+                    </div>
+                </div>
+                <!-- END PORTLET-->
+            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="portlet light tasks-widget bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-share font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'HOME_TODAYS_TASKS' | translate }}</span>
+                            <span class="caption-helper"></span>
+                        </div>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content">
+                            <div class="scroller" data-width="10px" style="height: 300px;" data-always-visible="1" data-rail-visible1="1">
+                                <!-- START TASK LIST -->
+                                <ul class="task-list">
+                                    <li ng-repeat="todoItem in taskTodos">
+                                        <div class="task-checkbox">
+                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline mt-checkbox-disabled">
+                                                <input type="checkbox" class="checkboxes" value="1" ng-checked="todoItem.isCompleted" ng-disabled="true">
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        <div class="task-title">
+                                            <span class="task-title-sp">{{todoItem.title}} </span>
+                                            <span class="label label-sm label-success">{{todoItem.taskCategoryListItem.name}}</span>
+
+                                            <span class="label label-sm label-success">{{todoItem.startDate | date:'short'}}</span> -
+                                            <span class="label label-sm label-success">{{todoItem.dueDate | date:'short'}}</span>
+                                        </div>
+                                        <div class="task-config">
+                                            <div class="task-config-btn btn-group">
+                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    <i class="fa fa-cog"></i>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li ng-show="isProspectingTask(todoItem)">
+                                                        <a href="javascript:;" ng-click="gotoProspecting(todoItem)">
+                                                            <i class="fa fa-play"></i>  Go To Prospecting
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" ng-hide="todoItem.isCompleted" ng-click="completeTask(todoItem.id)">
+                                                            <i class="fa fa-check"></i> {{'HOME_COMPLETE' | translate }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;" ng-click="openTaskDetail(todoItem.id)">
+                                                            <i class="fa fa-pencil"></i> {{'HOME_VIEW' | translate }}
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- END START TASK LIST -->
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <div class="btn-arrow-link pull-right">
+                                <a href="#/home/todos/todos"> {{'HOME_SEE_ALL_RECORDS' | translate }}</a>
+                                <i class="icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12">
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <i class="icon-bar-chart font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase"> {{'Result' | translate }}</span>
+                            <span class="caption-helper">
+                                <span ng-hide="isTimeCalculated">
+                                    {{'TRAININGDAIRY_CALCULATING' | translate }} <img src="images/loading.gif" />
+                                </span>
+                                <span ng-show="isTimeCalculated">{{'TRAININGDAIRY_AS_PER' | translate }} : {{calculatedAt | date:'short'}}</span>
+                            </span>
+                        </div>
+                        <div class="actions">
+
+                            <div id="home_projects" class="btn-group">
+                                <a class="btn btn-sm btn-outline btn-circle" ng-class="selectedProject ? 'btn-ips' : 'blue-oleo'" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                                    <span ng-show="selectedProject">{{selectedProject.name}}</span>
+                                    <span ng-hide="selectedProject">{{'DASHBOARD_SELECT_PROJECTS' | translate }}</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                    <li ng-click="selectProject(project.id)" ng-repeat="project in  userProjects">
+                                        <a href="javascript:;"> {{project.name}} </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div id="home_projectProfiles" class="btn-group">
+
+                                <a class="btn btn-circle btn-sm" ng-class="selectedProjectProfile ? 'btn-ips' : 'blue-oleo'" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    <span ng-show="selectedProjectProfile">{{selectedProjectProfile.name}}</span>
+                                    <span ng-hide="selectedProjectProfile">{{'HOME_PROFILE' | translate }}</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+
+                                <ul class="dropdown-menu pull-right">
+                                    <li ng-click="selectProjectProfile(profile.id)" ng-repeat="profile in  projectProfiles">
+                                        <a href="javascript:;"> {{profile.name}} </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div id="home_profileStages" class="btn-group" ng-show="selectedProjectProfile">
+
+                                <a class="btn  btn-circle btn-sm" href="javascript:;" ng-class="selectedProfileStage ? 'btn-ips' : 'blue-oleo'" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    <span ng-show="selectedProfileStage">{{selectedProfileStage.name}}</span>
+                                    <span ng-hide="selectedProfileStage">{{'COMMON_SELECT_STAGE' | translate }}</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+
+                                <ul class="dropdown-menu pull-right">
+                                    <!--<li ng-click="selectProfileStage(0)">
+                                        <a href="javascript:;"> {{'COMMON_ALL' | translate }} </a>
+                                    </li>-->
+                                    <li ng-click="selectProfileStage(profilesStage.id)" ng-repeat="profilesStage in  profilesStages">
+                                        <a href="javascript:;"> {{profilesStage.name}} <span ng-show="profilesStage.statusText">({{profilesStage.statusText}})</span> </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div id="home_compareProfileStages" class="btn-group" ng-show="selectedProfileStage !=  null && selectedProfileStage.id  > 0">
+                                <a class="btn  btn-circle btn-sm" ng-class="selectedCompareProfileStage ? 'btn-ips' : 'blue-oleo'" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    <span ng-show="selectedCompareProfileStage">{{selectedCompareProfileStage.name}}</span>
+                                    <span ng-hide="selectedCompareProfileStage">{{'COMMON_SELECT_STAGE' | translate }}</span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+
+                                <ul class="dropdown-menu pull-right">
+                                    <li ng-click="selectCompareProfileStage(0)">
+                                        <a href="javascript:;"> {{'COMMON_SELECT_STAGE' | translate }} </a>
+                                    </li>
+                                    <li ng-show="profilesStage.id > selectedProfileStage.id" ng-click="selectCompareProfileStage(profilesStage.id)" ng-repeat="profilesStage in  profilesStages">
+                                        <a href="javascript:;"> {{profilesStage.name}} <span ng-show="profilesStage.statusText">({{profilesStage.statusText}})</span> </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group btn-group-devided hide" data-toggle="buttons">
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                                    <input type="radio" name="options" class="toggle" id="option1">{{'COMMON_TODAY' | translate }}
+                                </label>
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">{{'HOME_WEEK' | translate }}
+                                </label>
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">{{'HOME_MONTH' | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="nav nav-tabs" ng-show="projectParticipants.length > 0">
+                            <li ng-click="selectprojectParticipant(projectParticipant.userId)" ng-class="projectParticipant.userId == selectedProjectParticipantId ?'active':''  " ng-repeat="projectParticipant in  projectParticipants">
+                                <a href="#tab_resultData" class="active ng-binding" data-toggle="tab" aria-expanded="true">
+                                    {{projectParticipant.user.firstName}} {{projectParticipant.user.lastName}}
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_resultData">
+                                <div class="row clearfix" ng-show="selectedProjectProfile">
+                                    <div class="col-lg-12">
+                                        <div class="portlet-title">
+                                            <div class="caption caption-md">
+                                                <span class="caption-subject font-dark bold uppercase ng-binding">Time Management</span>
+                                                <span class="caption-helper" ng-show="selectedProjectParticipantId > 0">
+                                                    {{selectedProjectParticipant.user.firstName}} {{selectedProjectParticipant.user.lastName}}
+                                                </span>
+                                                <span class="caption-helper" ng-hide="selectedProjectParticipantId > 0">
+                                                    {{currentUser.firstName}} {{currentUser.lastName}}
+                                                </span>
+                                            </div>
+                                            <div class="actions pull-right">
+                                                <div id="home_FromMonth" class="btn-group" ng-show="trainingMonths.length > 0 &&  (!selectedCompareProfileStage)">
+
+                                                    <a class="btn btn-circle btn-sm" ng-class="selectedFromMonth ? 'btn-ips' : 'blue-oleo'" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                        <span ng-show="selectedFromMonth != null">{{selectedFromMonth}}</span>
+                                                        <span ng-hide="selectedFromMonth != null">{{'COMMON_DATE' | translate }}</span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li ng-click="selectFromMonth(month)" ng-repeat="month in  trainingMonths">
+                                                            <a href="javascript:;"> {{month}} </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+
+                                                <div id="home_ViewMode" class="btn-group">
+                                                    <a class="btn btn-ips btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                        <span ng-show="selectedTimeManagementViewType">{{selectedTimeManagementViewType.name}}</span>
+                                                        <span ng-hide="selectedTimeManagementViewType">{{'DASHBOARD_TYPE_OF_RESULT' | translate }}</span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li ng-click="changeTimeManagementViewType(viewTypeOption.id)" ng-repeat="viewTypeOption in timeManagementViewTypeOptions">
+                                                            <a href="javascript:;">{{viewTypeOption.name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="col-lg-12">
+                                                <table class="table table-striped table-bordered table-advance table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                {{'TRAININGDAIRY_SUMMARY' | translate }}
+                                                            </th>
+                                                            <th>
+                                                                {{'TRAININGDAIRY_TIME_PERIOD' | translate }}
+                                                            </th>
+                                                            <th ng-show="summaryFor == 'Profile'">
+                                                                {{'TRAININGDAIRY_ACTUAL_SPENT_TIME' | translate }} ({{'COMMON_PROFILE' | translate }})
+                                                            </th>
+                                                            <th ng-show="summaryFor == 'Own'">
+                                                                {{'TRAININGDAIRY_ACTUAL_SPENT_TIME' | translate }} ({{'TRAININGDAIRY_OWN' | translate }})
+                                                            </th>
+                                                            <th ng-show="summaryFor == 'Profile'">
+                                                                {{'TRAININGDAIRY_PLANNED_TIME' | translate }} ({{'COMMON_PROFILE' | translate }})
+                                                            </th>
+                                                            <th ng-show="summaryFor == 'Own'">
+                                                                {{'TRAININGDAIRY_PLANNED_TIME' | translate }} ({{'TRAININGDAIRY_OWN' | translate }})
+                                                            </th>
+                                                            <th>{{'TRAININGDAIRY_RESULT' | translate }}</th>
+                                                            <th>{{'COMMON_PERFORMANCE' | translate }}</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="javascript:;"> {{'TRAININGDAIRY_TODAY' | translate }} </a>
+                                                            </td>
+                                                            <td> {{dayStartDate | date:'short'}} - {{dayEndDate | date:'short'}} </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="trainingProfileHoursToday > 60"> {{trainingProfileHoursToday > 0? (trainingProfileHoursToday > 60 ? trainingProfileHoursToday/60 :trainingProfileHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="trainingProfileHoursToday > 60"> {{trainingProfileHoursToday > 0? (trainingProfileHoursToday > 60 ? trainingProfileHoursToday/60 :trainingProfileHoursToday) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHoursToday,trainingProfileHoursToday)"></i>
+                                                                <span ng-show="totalProfileTrainingTodayResult > 60"> {{totalProfileTrainingTodayResult > 0? (totalProfileTrainingTodayResult > 60 ? totalProfileTrainingTodayResult/60 :totalProfileTrainingTodayResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingTodayResult > 60"> {{totalProfileTrainingTodayResult > 0? (totalProfileTrainingTodayResult > 60 ? totalProfileTrainingTodayResult/60 :totalProfileTrainingTodayResult) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursToday,trainingProfileHoursToday)"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="javascript:;"> {{'TRAININGDAIRY_WEEK' | translate }} </a>
+                                                            </td>
+                                                            <td class=""> {{weekStartDate | date:'short'}} - {{weekEndDate | date:'short'}} </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalProfileTrainingSpentHoursWeek > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingSpentHoursWeek  > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="trainingProfileHoursWeek > 60">{{trainingProfileHoursWeek > 0? (trainingProfileHoursWeek > 60 ? trainingProfileHoursWeek/60 :trainingProfileHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="trainingProfileHoursWeek > 60">{{trainingProfileHoursWeek > 0? (trainingProfileHoursWeek > 60 ? trainingProfileHoursWeek/60 :trainingProfileHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHoursWeek,trainingProfileHoursWeek)"></i>
+                                                                <span ng-show="totalProfileTrainingWeekResult > 60">{{totalProfileTrainingWeekResult > 0? (totalProfileTrainingWeekResult > 60 ? totalProfileTrainingWeekResult/60 :totalProfileTrainingWeekResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingWeekResult > 60">{{totalProfileTrainingWeekResult > 0? (totalProfileTrainingWeekResult > 60 ? totalProfileTrainingWeekResult/60 :totalProfileTrainingWeekResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursWeek,trainingProfileHoursWeek)"></i>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr ng-show="selectedFromMonth != null">
+                                                            <td>
+                                                                <a href="javascript:;"> {{'COMMON_DATE_RANGE' | translate }} </a>
+                                                            </td>
+                                                            <td>
+                                                                {{startOfMonth | date:'short' }}  - {{endOfMonth | date:'short' }}
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalFilteredProfileTrainingSpentHours > 60">{{totalFilteredProfileTrainingSpentHours > 0? (totalFilteredProfileTrainingSpentHours > 60 ? totalFilteredProfileTrainingSpentHours/60 :totalFilteredProfileTrainingSpentHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalFilteredProfileTrainingSpentHours > 60">{{totalFilteredProfileTrainingSpentHours > 0? (totalFilteredProfileTrainingSpentHours > 60 ? totalFilteredProfileTrainingSpentHours/60 :totalFilteredProfileTrainingSpentHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalFilteredProfileTrainingHours > 60">{{totalFilteredProfileTrainingHours > 0? (totalFilteredProfileTrainingHours > 60 ? totalFilteredProfileTrainingHours/60 :totalFilteredProfileTrainingHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalFilteredProfileTrainingHours > 60">{{totalFilteredProfileTrainingHours > 0? (totalFilteredProfileTrainingHours > 60 ? totalFilteredProfileTrainingHours/60 :totalFilteredProfileTrainingHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalFilteredProfileTrainingSpentHours,totalFilteredProfileTrainingHours)"></i>
+                                                                <span ng-show="totalFilteredProfileTrainingResult > 60">{{totalFilteredProfileTrainingResult > 0? (totalFilteredProfileTrainingResult > 60 ? totalFilteredProfileTrainingResult/60 :totalFilteredProfileTrainingResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalFilteredProfileTrainingResult > 60">{{totalFilteredProfileTrainingResult > 0? (totalFilteredProfileTrainingResult > 60 ? totalFilteredProfileTrainingResult/60 :totalFilteredProfileTrainingResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalFilteredProfileTrainingSpentHours,totalFilteredProfileTrainingHours)"></i>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <a href="javascript:;"> {{'TRAININGDAIRY_TOTAL' | translate }} </a>
+                                                            </td>
+                                                            <td>
+                                                                {{trainingStartDate | date:'short'}} - {{trainingEndDate | date:'short'}}
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <span ng-show="totalProfileTrainingHours > 60">{{totalProfileTrainingHours > 0? (totalProfileTrainingHours > 60 ? totalProfileTrainingHours/60 :totalProfileTrainingHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingHours > 60">{{totalProfileTrainingHours > 0? (totalProfileTrainingHours > 60 ? totalProfileTrainingHours/60 :totalProfileTrainingHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="summaryFor == 'Profile'">
+                                                                <i class="font-sm  fa " ng-class="isTrainingTargetPending(totalProfileTrainingSpentHours,totalProfileTrainingHours)"></i>
+                                                                <span ng-show="totalProfileTrainingResult > 60">{{totalProfileTrainingResult > 0? (totalProfileTrainingResult > 60 ? totalProfileTrainingResult/60 :totalProfileTrainingResult) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="totalProfileTrainingResult > 60">{{totalProfileTrainingResult > 0? (totalProfileTrainingResult > 60 ? totalProfileTrainingResult/60 :totalProfileTrainingResult) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <i ng-show="summaryFor == 'Profile'" class="font-hg fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHours,totalProfileTrainingHours)"></i>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-lg-12">
+                                                <table class="table table-hover table-light" ng-show="weakKPIs.length > 0 || strongKPIs.length > 0 ">
+                                                    <thead>
+                                                        <tr class="uppercase">
+                                                            <th> <strong>{{'TRAININGDAIRY_KPIS' | translate}}</strong></th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</strong></th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</strong></th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} {{'Performance' | translate}}</strong></th>
+
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} Aggregated {{'COMMON_TIME_SPENT' | translate}}</strong></th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} Aggregated {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</strong></th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} Aggregated {{'Performance' | translate}}</strong></th>
+
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}}  {{'COMMON_TIME_SPENT' | translate}}</strong></th>
+                                                            <th ng-show="selectedCompareProfileStage"> <strong> {{getInitials(selectedCompareProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</strong></th>
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} {{'Performance' | translate}}</strong></th>
+
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} Aggregated {{'COMMON_TIME_SPENT' | translate}}</strong></th>
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} Aggregated {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</strong></th>
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} Aggregated {{'Performance' | translate}}</strong></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="kpi in weakKPIs">
+                                                            <td> {{kpi.skillName}}</td>
+                                                            <td>
+                                                                <span ng-show="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span ng-show="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{kpi.stageTimePerformance}} %
+                                                            </td>
+
+                                                            <td>
+                                                                <span ng-show="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span ng-show="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{kpi.stageAgreegatedTimePerformance}} %
+                                                            </td>
+
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'spentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',1)/60 :getCompareStageScore(kpi.skillId,'spentTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'spentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',1)/60 :getCompareStageScore(kpi.skillId,'spentTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                {{getCompareStageScore(kpi.skillId,'stageTimePerformance',1)}} %
+                                                            </td>
+
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                {{getCompareStageScore(kpi.skillId,'stageAgreegatedTimePerformance',1)}} %
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr ng-repeat="kpi in strongKPIs">
+                                                            <td> {{kpi.skillName}}</td>
+                                                            <td>
+                                                                <span ng-show="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span ng-show="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{kpi.stageTimePerformance}} %
+                                                            </td>
+
+                                                            <td>
+                                                                <span ng-show="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span ng-show="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{kpi.stageAgreegatedTimePerformance}} %
+                                                            </td>
+
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'spentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',2)/60 :getCompareStageScore(kpi.skillId,'spentTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'spentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',2)/60 :getCompareStageScore(kpi.skillId,'spentTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                {{getCompareStageScore(kpi.skillId,'stageTimePerformance',2)}} %
+                                                            </td>
+
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                <span ng-hide="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                            </td>
+                                                            <td ng-show="selectedCompareProfileStage">
+                                                                {{getCompareStageScore(kpi.skillId,'stageAgreegatedTimePerformance',2)}} %
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!--Time Management-->
+                                            <div class="col-lg-12" ng-show="weakKPIs.length > 0">
+                                                <div class="col-lg-12 portlet-title">
+                                                    <div class="caption caption-md">
+                                                        <i class="icon-bar-chart font-dark hide"></i>
+                                                        <span class="caption-subject font-dark bold uppercase ng-binding">Weak KPI</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" ng-repeat="kpi in weakKPIs">
+                                                    <div class="mt-widget-1">
+                                                        <div class="mt-head">
+                                                            <div class="mt-head-label">
+                                                                <!--<button type="button" class="btn btn-success">Progress</button>-->
+                                                            </div>
+                                                            <!--<div class="mt-head-user" ng-show="isProgressView">
+                                                                <div class="weakkpitimeprogress" id="home_weakkpi_{{kpi.skillId}}_timeprogress_gauge"></div>
+                                                            </div>-->
+                                                            <div class="mt-head-user">
+                                                                <div class="weakkpitimeperformance" id="home_weakkpi_{{kpi.skillId}}_timeperformance_gauge"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-body">
+
+                                                            <h3 class="mt-body-title" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.Performance">
+                                                                <span>
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stageTimePerformance}}%
+                                                                    </span>
+
+                                                                    <small ng-show="selectedFromMonth != null">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.filter}" ng-show="selectedFromMonth != null">    {{kpi.filteredStageTimePerformance}}%</span>
+
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStageTimePerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stageTimePerformance,kpi.compareStageTimePerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+                                                            <h3 class="mt-body-title" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.AggregatedPerformance">
+                                                                <span>
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stageAgreegatedTimePerformance}}%
+                                                                    </span>
+
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStageAgreegatedTimePerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stageAgreegatedTimePerformance,kpi.compareStageAgreegatedTimePerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+
+                                                            <p class="mt-body-description"> {{kpi.skillName}}  </p>
+                                                            <div class="col-lg-12">
+                                                                <div class="weakkpitimeprogressbar" id="home_weakkpi_{{kpi.skillId}}_timeprogress_bar"></div>
+                                                            </div>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.Performance">
+                                                                <li class="font-green no-margin">
+                                                                    <span ng-show="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    <span ng-show="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.AggregatedPerformance">
+                                                                <li class="font-green no-margin">
+                                                                    <span ng-show="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    <span ng-show="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <ul class="mt-body-stats">
+                                                                <li class="font-blue" ng-show="selectedFromMonth != null">
+                                                                    <span ng-show="kpi.filteredSpentTime > 60"> {{kpi.filteredSpentTime > 0 ? (kpi.filteredSpentTime > 60 ? kpi.filteredSpentTime/60 :kpi.filteredSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.filteredSpentTime > 60"> {{kpi.filteredSpentTime > 0 ? (kpi.filteredSpentTime > 60 ? kpi.filteredSpentTime/60 :kpi.filteredSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{'COMMON_TIME_SPENT' | translate}} in {{selectedFromMonth}}</div>
+                                                                </li>
+                                                                <li class="font-blue" ng-show="selectedFromMonth != null">
+                                                                    <span ng-show="kpi.filteredTotalPlanTime > 60"> {{kpi.filteredTotalPlanTime > 0 ? (kpi.filteredTotalPlanTime > 60 ? kpi.filteredTotalPlanTime/60 :kpi.filteredTotalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.filteredTotalPlanTime > 60"> {{kpi.filteredTotalPlanTime > 0 ? (kpi.filteredTotalPlanTime > 60 ? kpi.filteredTotalPlanTime/60 :kpi.filteredTotalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{'COMMON_TIME_PLANNED' | translate}} for {{selectedFromMonth}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedCompareProfileStage && selectedTimeManagementViewType.id == timeManagementViewTypeEnum.Performance">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'spentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',1)/60 :getCompareStageScore(kpi.skillId,'spentTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'spentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',1)/60 :getCompareStageScore(kpi.skillId,'spentTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedCompareProfileStage && selectedTimeManagementViewType.id == timeManagementViewTypeEnum.AggregatedPerformance">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',1)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <div class="mt-body-actions">
+                                                                <div class="btn-group btn-group btn-group-justified">
+                                                                    <a href="javascript:;" class="btn" ng-click="showTrainingFeedbacks(1)">
+                                                                        <i class="fa fa-eye"></i> Info
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12" ng-show="strongKPIs.length > 0">
+                                                <div class="col-lg-12 portlet-title">
+                                                    <div class="caption caption-md">
+                                                        <i class="icon-bar-chart font-dark hide"></i>
+                                                        <span class="caption-subject font-dark bold uppercase ng-binding">Strong KPI</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" ng-repeat="kpi in strongKPIs">
+                                                    <div class="mt-widget-1">
+                                                        <div class="mt-head">
+                                                            <div class="mt-head-label">
+                                                                <!--<button type="button" class="btn btn-success">Progress</button>-->
+                                                            </div>
+                                                            <div class="mt-head-user">
+                                                                <div class="strongkpitimeperformance" id="home_strongkpi_{{kpi.skillId}}_timeperformance_gauge"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-body">
+
+                                                            <h3 class="mt-body-title">
+                                                                <span>
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stageTimePerformance}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedFromMonth != null">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.filter}" ng-show="selectedFromMonth != null">    {{kpi.filteredStageTimePerformance}}%</span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStageTimePerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stageTimePerformance,kpi.compareStageTimePerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+
+                                                            <p class="mt-body-description"> {{kpi.skillName}} </p>
+                                                            <div class="col-lg-12">
+                                                                <div class="strongkpitimeprogressbar" id="home_strongkpi_{{kpi.skillId}}_timeprogress_bar"></div>
+                                                            </div>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.Performance">
+                                                                <li class="font-green">
+                                                                    <span ng-show="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.spentTime > 60"> {{kpi.spentTime > 0 ? (kpi.spentTime > 60 ? kpi.spentTime/60 :kpi.spentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    <span ng-show="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.totalPlanTime > 60"> {{kpi.totalPlanTime > 0 ? (kpi.totalPlanTime > 60 ? kpi.totalPlanTime/60 :kpi.totalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>
+                                                                        {{getInitials(selectedProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedTimeManagementViewType.id == timeManagementViewTypeEnum.AggregatedPerformance">
+                                                                <li class="font-green no-margin">
+                                                                    <span ng-show="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.agreegatedSpentTime > 60"> {{kpi.agreegatedSpentTime > 0 ? (kpi.agreegatedSpentTime > 60 ? kpi.agreegatedSpentTime/60 :kpi.agreegatedSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    <span ng-show="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.totalAgreegatedPlanTime > 60"> {{kpi.totalAgreegatedPlanTime > 0 ? (kpi.totalAgreegatedPlanTime > 60 ? kpi.totalAgreegatedPlanTime/60 :kpi.totalAgreegatedPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <ul class="mt-body-stats">
+                                                                <li class="font-blue" ng-show="selectedFromMonth != null">
+                                                                    <span ng-show="kpi.filteredSpentTime > 60"> {{kpi.filteredSpentTime > 0 ? (kpi.filteredSpentTime > 60 ? kpi.filteredSpentTime/60 :kpi.filteredSpentTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.filteredSpentTime > 60"> {{kpi.filteredSpentTime > 0 ? (kpi.filteredSpentTime > 60 ? kpi.filteredSpentTime/60 :kpi.filteredSpentTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{'COMMON_TIME_SPENT' | translate}} in {{selectedFromMonth}}</div>
+                                                                </li>
+                                                                <li class="font-blue" ng-show="selectedFromMonth != null">
+                                                                    <span ng-show="kpi.filteredTotalPlanTime > 60"> {{kpi.filteredTotalPlanTime > 0 ? (kpi.filteredTotalPlanTime > 60 ? kpi.filteredTotalPlanTime/60 :kpi.filteredTotalPlanTime) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="kpi.filteredTotalPlanTime > 60"> {{kpi.filteredTotalPlanTime > 0 ? (kpi.filteredTotalPlanTime > 60 ? kpi.filteredTotalPlanTime/60 :kpi.filteredTotalPlanTime) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{'COMMON_TIME_PLANNED' | translate}} for {{selectedFromMonth}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedCompareProfileStage && selectedTimeManagementViewType.id == timeManagementViewTypeEnum.Performance">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'spentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',2)/60 :getCompareStageScore(kpi.skillId,'spentTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'spentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'spentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'spentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'spentTime',2)/60 :getCompareStageScore(kpi.skillId,'spentTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalPlanTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedCompareProfileStage && selectedTimeManagementViewType.id == timeManagementViewTypeEnum.AggregatedPerformance">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2) > 60 ? getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)/60 :getCompareStageScore(kpi.skillId,'agreegatedSpentTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_TIME_SPENT' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    <span ng-show="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                                                    <span ng-hide="getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60"> {{getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 0 ? (getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2) > 60 ? getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)/60 :getCompareStageScore(kpi.skillId,'totalAgreegatedPlanTime',2)) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'TRAININGDAIRY_PLANNED_TIME' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <div class="mt-body-actions">
+                                                                <div class="btn-group btn-group btn-group-justified">
+                                                                    <a href="javascript:;" class="btn" ng-click="showTrainingFeedbacks(2)">
+                                                                        <i class="fa fa-eye"></i> Info
+                                                                    </a>
+                                                                    <!--<a href="javascript:;" class="btn ">
+                                                                        <i class="icon-social-twitter"></i> Share
+                                                                    </a>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Time Management-->
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="portlet-title">
+                                            <div class="caption caption-md">
+                                                <i class="icon-bar-chart font-dark hide"></i>
+                                                <span class="caption-subject font-dark bold uppercase ng-binding">KPI Performance and Progress Management</span>
+                                                <span class="caption-helper" ng-show="selectedProjectParticipantId > 0">
+                                                    {{selectedProjectParticipant.user.firstName}} {{selectedProjectParticipant.user.lastName}}
+                                                </span>
+                                                <span class="caption-helper" ng-hide="selectedProjectParticipantId > 0">
+                                                    {{currentUser.firstName}} {{currentUser.lastName}}
+                                                </span>
+                                            </div>
+                                            <div class=" actions pull-right">
+                                                <div id="home_progressViewType" class="btn-group">
+                                                    <a class="btn btn-circle btn-sm" ng-class="selectedProgressViewType ? 'btn-ips' : 'blue-oleo'" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                        <span ng-show="selectedProgressViewType">{{selectedProgressViewType.name}}</span>
+                                                        <span ng-hide="selectedProgressViewType">{{'DASHBOARD_TYPE_OF_RESULT' | translate }}</span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li ng-click="selectProgressViewType(progressViewTypeEnum.StageScoreProgress)" ng-hide="isAllStageSelected"> <a href="javascript:;"> {{'COMMON_STAGE' | translate}} {{'COMMON_SCORE' | translate}}</a> </li>
+                                                        <li ng-click="selectProgressViewType(progressViewTypeEnum.OverallScoreProgress)" ng-hide="isStartStageSelected || isAllStageSelected"> <a href="javascript:;"> Overall {{'COMMON_SCORE' | translate}} </a> </li>
+                                                        <li ng-click="selectProgressViewType(progressViewTypeEnum.StageDifference)" ng-show="selectedCompareProfileStage"><a href="javascript:;"> {{'COMMON_STAGE' | translate}} Difference</a> </li>
+                                                    </ul>
+                                                </div>
+
+                                                <div id="home_ViewMode" class="btn-group">
+                                                    <a class="btn btn-ips btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                        <span ng-show="isProgressView">{{'COMMON_PROGRESS' | translate}}</span>
+                                                        <span ng-show="!isProgressView"> {{'COMMON_PERFORMANCE' | translate}} </span>
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li ng-click="changeViewType(true)"> <a href="javascript:;">{{'COMMON_PROGRESS' | translate}}</a> </li>
+                                                        <li ng-click="changeViewType(false)"> <a href="javascript:;"> {{'COMMON_PERFORMANCE' | translate}}</a> </li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="col-lg-12">
+                                                <table class="table table-hover table-light" ng-show="weakKPIs.length > 0 || strongKPIs.length > 0 ">
+                                                    <thead>
+                                                        <tr class="uppercase">
+                                                            <th> <strong>{{'TRAININGDAIRY_KPIS' | translate}}</strong></th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{'COMMON_START_STAGE' | translate}} {{'COMMON_SCORE' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{ 'Prev' | translate}} {{'COMMON_SCORE' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{getInitials(selectedProfileStage.name)}} {{'COMMON_GOAL' | translate}}</strong> </th>
+                                                            <th> <strong>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{'Diff' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{getInitials(selectedProfileStage.name)}} {{'COMMON_PERFORMANCE' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>{{getInitials(selectedProfileStage.name)}} {{'COMMON_PROGRESS' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>Total {{'COMMON_PROGRESS' | translate}}</strong> </th>
+                                                            <th ng-hide="isStartStageSelected"> <strong>Total {{'COMMON_PERFORMANCE' | translate}}</strong> </th>
+
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_GOAL' | translate}}</strong> </th>
+                                                            <th ng-show="selectedCompareProfileStage"> <strong>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</strong> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="kpi in weakKPIs">
+                                                            <td> {{kpi.skillName}}</td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.startScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.previousStageScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.currentStageGoal}} </td>
+                                                            <td> {{kpi.currentStageScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.currentStageScore - kpi.currentStageGoal | number : 2}}  </td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.stagePerformance}}% <i class="fa fa-lg" ng-class="setPerformanceIcon(kpi.stagePerformance)"></i></td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.stageProgress}}% <i class="fa fa-lg" ng-class="setProgressIcon(kpi.stageProgress)"></i></td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.overallProgress}}% <i class="fa fa-lg" ng-class="setProgressIcon(kpi.overallProgress)"></i> </td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.overallPerformance}}% <i class="fa fa-lg" ng-class="setPerformanceIcon(kpi.overallPerformance)"></i></td>
+                                                            <td ng-show="selectedCompareProfileStage">{{ getCompareStageScore(kpi.skillId,'currentStageGoal',1)}}</td>
+                                                            <td ng-show="selectedCompareProfileStage">{{ getCompareStageScore(kpi.skillId,'currentStageScore',1)}}</td>
+                                                        </tr>
+                                                        <tr ng-repeat="kpi in strongKPIs">
+                                                            <td> {{kpi.skillName}}</td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.startScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.previousStageScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{kpi.currentStageGoal}} </td>
+                                                            <td> {{kpi.currentStageScore}} </td>
+                                                            <td ng-hide="isStartStageSelected"> {{(kpi.currentStageScore - kpi.currentStageGoal) | number : 2}}  </td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.stagePerformance}}% <i class="fa fa-lg" ng-class="setPerformanceIcon(kpi.stagePerformance)"></i> </td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.stageProgress}}% <i class="fa fa-lg " ng-class="setProgressIcon(kpi.stageProgress)"></i></td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.overallProgress}}% <i class="fa fa-lg " ng-class="setProgressIcon(kpi.overallProgress)"></i></td>
+                                                            <td ng-hide="isStartStageSelected">{{kpi.overallPerformance}}% <i class="fa fa-lg" ng-class="setPerformanceIcon(kpi.overallPerformance)"></i></td>
+                                                            <td ng-show="selectedCompareProfileStage">{{ getCompareStageScore(kpi.skillId,'currentStageGoal',2)}}</td>
+                                                            <td ng-show="selectedCompareProfileStage">{{ getCompareStageScore(kpi.skillId,'currentStageScore',2)}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--KPI Performance and Progress Management-->
+                                            <div class="col-lg-12" ng-show="weakKPIs.length > 0">
+                                                <div class="col-lg-12 portlet-title">
+                                                    <div class="caption caption-md">
+                                                        <i class="icon-bar-chart font-dark hide"></i>
+                                                        <span class="caption-subject font-dark bold uppercase ng-binding">Weak KPI</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" ng-repeat="kpi in weakKPIs">
+                                                    <div class="mt-widget-1">
+                                                        <div class="mt-head">
+                                                            <div class="mt-head-label">
+                                                                <!--<button type="button" class="btn btn-success">Progress</button>-->
+                                                            </div>
+                                                            <div class="mt-head-user" ng-show="isProgressView">
+                                                                <div class="weakkpistageprogress" id="home_weakkpi_{{kpi.skillId}}_stageprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress"></div>
+                                                                <div class="weakkpioverallprogress" id="home_weakkpi_{{kpi.skillId}}_overallprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress"></div>
+                                                                <div class="weakkpistagediffrenceprogress" id="home_weakkpi_{{kpi.skillId}}_stagediffrenceprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference"></div>
+                                                            </div>
+                                                            <div class="mt-head-user" ng-show="!isProgressView">
+                                                                <div class="weakkpistageperformance" id="home_weakkpi_{{kpi.skillId}}_stageperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress"></div>
+                                                                <div class="weakkpioverallperformance" id="home_weakkpi_{{kpi.skillId}}_overallperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress"></div>
+                                                                <div class="weakkpistagediffrenceperformance" id="home_weakkpi_{{kpi.skillId}}_stagediffrenceperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-body">
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stageProgress}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStageProgress}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stageProgress,kpi.compareStageProgress)"></span>
+                                                                    </span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stagePerformance}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStagePerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stagePerformance,kpi.compareStagePerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.overallProgress}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareOverallProgress}}%
+
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.overallProgress,kpi.compareOverallProgress)"></span>
+                                                                    </span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.overallPerformance}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareOverallPerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.overallPerformance,kpi.compareOverallPerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">   {{kpi.compareOverallProgress}}%</span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage"> {{kpi.compareOverallPerformance}}%</span>
+                                                                </span>
+                                                            </h3>
+                                                            <p class="mt-body-description"> {{kpi.skillName}}  </p>
+
+                                                            <p class="mt-body-description" ng-hide="isStartStageSelected">
+                                                                {{selectedProjectParticipant ? selectedProjectParticipant.user.firstName +' '+ selectedProjectParticipant.user.lastName  : 'You' }} obtained {{kpi.currentStageScore}} (score) out of {{kpi.currentStageGoal}} (goal) for {{getInitials(selectedProfileStage.name)}},
+                                                                so performance is {{kpi.stagePerformance}}% towards your goal.
+                                                                {{selectedProjectParticipant ? selectedProjectParticipant.user.firstName +' '+ selectedProjectParticipant.user.lastName  : 'You' }} have  {{kpi.overallProgress > 0 ? 'improved' : '' }} {{kpi.overallProgress}}% from the Start Stage as your start score was {{kpi.startScore}}.
+                                                            </p>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageGoal}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_GOAL' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',1)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageGoal',1)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_GOAL' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <li class="font-green">
+                                                                    {{kpi.startScore}}
+                                                                    <div>Start {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{kpi.startScore}}
+                                                                    <div>Start {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',1)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',1)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <div class="mt-body-actions">
+                                                                <div class="btn-group btn-group btn-group-justified">
+                                                                    <a href="javascript:;" class="btn" ng-click="showTrainingFeedbacks(1)">
+                                                                        <i class="fa fa-eye"></i> Info
+                                                                    </a>
+                                                                    <!--<a href="javascript:;" class="btn ">
+                                                                        <i class="icon-social-twitter"></i> Share
+                                                                    </a>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12" ng-show="strongKPIs.length > 0">
+                                                <div class="col-lg-12 portlet-title">
+                                                    <div class="caption caption-md">
+                                                        <i class="icon-bar-chart font-dark hide"></i>
+                                                        <span class="caption-subject font-dark bold uppercase ng-binding">Strong KPI</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" ng-repeat="kpi in strongKPIs">
+                                                    <div class="mt-widget-1">
+                                                        <div class="mt-head">
+                                                            <div class="mt-head-label">
+                                                                <!--<button type="button" class="btn btn-success">Progress</button>-->
+                                                            </div>
+                                                            <div class="mt-head-user" ng-show="isProgressView">
+                                                                <div class="strongkpistageprogress" id="home_strongkpi_{{kpi.skillId}}_stageprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress"></div>
+                                                                <div class="strongkpioverallprogress" id="home_strongkpi_{{kpi.skillId}}_overallprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress"></div>
+                                                                <div class="strongkpistagediffrenceprogress" id="home_strongkpi_{{kpi.skillId}}_stagediffrenceprogress_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference"></div>
+                                                            </div>
+                                                            <div class="mt-head-user" ng-show="!isProgressView">
+                                                                <div class="strongkpistageperformance" id="home_strongkpi_{{kpi.skillId}}_stageperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress"></div>
+                                                                <div class="strongkpioverallperformance" id="home_strongkpi_{{kpi.skillId}}_overallperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress"></div>
+                                                                <div class="strongkpistagediffrenceperformance" id="home_strongkpi_{{kpi.skillId}}_stagediffrenceperformance_gauge" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-body">
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stageProgress}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStageProgress}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stageProgress,kpi.compareStageProgress)"></span>
+                                                                    </span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.stagePerformance}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareStagePerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.stagePerformance,kpi.compareStagePerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.overallProgress}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareOverallProgress}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.overallProgress,kpi.compareOverallProgress)"></span>
+                                                                    </span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.main}">
+                                                                        {{kpi.overallPerformance}}%
+                                                                    </span>
+                                                                    <small ng-show="selectedCompareProfileStage">vs</small>
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">
+                                                                        {{kpi.compareOverallPerformance}}%
+                                                                        <span class="fa" ng-class="setCompareProgressIcon(kpi.overallPerformance,kpi.compareOverallPerformance)"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </h3>
+                                                            <h3 class="mt-body-title" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference">
+                                                                <span ng-show="isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage">   {{kpi.compareOverallProgress}}%</span>
+                                                                </span>
+                                                                <span ng-show="!isProgressView">
+                                                                    <span ng-style="{'color':gaugeColors.compare}" ng-show="selectedCompareProfileStage"> {{kpi.compareOverallPerformance}}%</span>
+                                                                </span>
+                                                            </h3>
+                                                            <p class="mt-body-description"> {{kpi.skillName}} </p>
+                                                            <p class="mt-body-description" ng-hide="isStartStageSelected">
+                                                                {{selectedProjectParticipant ? selectedProjectParticipant.user.firstName +' '+ selectedProjectParticipant.user.lastName  : 'You' }} obtained {{kpi.currentStageScore}} (score) out of {{kpi.currentStageGoal}} (goal) for {{getInitials(selectedProfileStage.name)}},
+                                                                so performance is {{kpi.stagePerformance}}% towards your goal.
+                                                                {{selectedProjectParticipant ? selectedProjectParticipant.user.firstName +' '+ selectedProjectParticipant.user.lastName  : 'You' }} have  {{kpi.overallProgress > 0 ? 'improved' : '' }} {{kpi.overallProgress}}% from the Start Stage as your start score was {{kpi.startScore}}.
+                                                            </p>
+
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageGoal}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_GOAL' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageScoreProgress">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',2)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageGoal',2)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_GOAL' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <li class="font-green">
+                                                                    {{kpi.startScore}}
+                                                                    <div>Start {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-green">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.OverallScoreProgress">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{kpi.startScore}}
+                                                                    <div>Start {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',2)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="mt-body-stats" ng-show="selectedProgressViewType.id == progressViewTypeEnum.StageDifference">
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{kpi.currentStageScore}}
+                                                                    <div>{{getInitials(selectedProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                                <li class="font-yellow" ng-show="selectedCompareProfileStage">
+                                                                    {{ getCompareStageScore(kpi.skillId,'currentStageScore',2)}}
+                                                                    <div>{{getInitials(selectedCompareProfileStage.name)}} {{'COMMON_SCORE' | translate}}</div>
+                                                                </li>
+                                                            </ul>
+
+                                                            <div class="mt-body-actions">
+                                                                <div class="btn-group btn-group btn-group-justified">
+                                                                    <a href="javascript:;" class="btn" ng-click="showTrainingFeedbacks(2)">
+                                                                        <i class="fa fa-eye"></i> Info
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12">
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <i class="icon-bar-chart font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'HOME_PROFILE_PERFORMANCE_DASHBOARD' | translate }}</span>
+                            <span class="caption-helper">
+                                <div class="btn-group">
+                                    <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                        <span ng-show="selectedProfile">{{selectedProfile.name}}</span>
+                                        <span ng-hide="selectedProfile">{{'HOME_PROFILE' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu pull-right">
+                                        <li class="divider"> </li>
+                                        {{'HOME_ACTIVE_PROFILES' | translate }}
+                                        <span class="badge badge-danger"> {{profiledata.activeProfiles.length}} </span>
+                                        <li ng-click="profileChanged(activeProfile.profile.id)" ng-repeat="activeProfile in  profiledata.activeProfiles">
+                                            <a href="javascript:;"> {{activeProfile.profile.name}} </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        {{'HOME_COMPLETED_PROFILES' | translate }}
+                                        <span class="badge badge-danger"> {{profiledata.completedProfiles.length}} </span>
+                                        <li ng-click="profileChanged(completedProfile.profile.id)" ng-repeat="completedProfile in  profiledata.completedProfiles">
+                                            <a href="javascript:;"> {{completedProfile.profile.name}} </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div id="home_stages" class="btn-group">
+                                    <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                                        <span ng-show="selectedStage">{{selectedStage.name}}</span>
+                                        <span ng-hide="selectedStage">{{'HOME_MILESTONE_STAGE' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                        <li ng-click="selectStage(stage.id)" ng-repeat="stage in  stages">
+                                            <a href="javascript:;"> {{stage.name}} </a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                        <span ng-show="selectedStep">{{selectedStep.label}}</span>
+                                        <span ng-hide="selectedStep">{{'HOME_STEP' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu pull-right">
+                                        <li ng-click="profileStepChanged(step.id)" ng-repeat="step in  profileSteps">
+                                            <a href="javascript:;"> {{step.label}} </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </span>
+                            <span class="caption-helper">
+                                VS
+
+                                <div id="home_stages" class="btn-group">
+                                    <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                                        <span ng-show="selectedCompareStage">{{selectedCompareStage.name}}</span>
+                                        <span ng-hide="selectedCompareStage">{{'HOME_MILESTONE_STAGE' | translate }}</span>
+
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                        <li ng-click="compareStageChanged(0)">
+                                            <a href="javascript:;"> {{'COMMON_SELECT_STAGE' | translate}} </a>
+                                        </li>
+                                        <li ng-click="compareStageChanged(stage.id)" ng-repeat="stage in  stages">
+                                            <a href="javascript:;"> {{stage.name}} </a>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                        <span ng-show="selectedCompareStep">{{selectedCompareStep.label}}</span>
+                                        <span ng-hide="selectedCompareStep">{{'HOME_STEP' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu pull-right">
+                                        <li ng-click="compareProfileStepChanged(step.id)" ng-repeat="step in  profileSteps">
+                                            <a href="javascript:;"> {{step.label}} </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </span>
+                            <span class="caption-helper">
+                                <div class="btn-group">
+                                    <input type="checkbox" ng-model="isShowBenchmark" ng-change="getBenchmark()"><label class="control-label db_title">{{'COMMON_SHOW_BENCHMARK' | translate }}</label>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="actions hide">
+                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                                    <input type="radio" name="options" class="toggle" id="option1">{{'COMMON_TODAY' | translate }}
+                                </label>
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">{{'HOME_WEEK' | translate }}
+                                </label>
+                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                    <input type="radio" name="options" class="toggle" id="option2">{{'HOME_MONTH' | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="row" ng-show="salesActivityData != null">
+                                <div class="col-lg-3 col-xs-12 col-sm-12" ng-repeat="prospectingSkill in salesActivityData.prospectingSkillGoalResults">
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="text-center">
+                                                <span class="caption-subject font-dark bold uppercase text-center">{{prospectingSkill.skillName}}</span> <br />
+                                                <span class="caption-helper">{{'HOME_RESULT_VS_GOAL' | translate }}</span>
+                                            </div>
+                                            <div class="actions">
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="gauge-container">
+                                                <div class="gaugeDiv" id="home_saelsactivity_{{prospectingSkill.skillName}}_gauge"></div>
+                                                <div class="gaugeValue">
+                                                    <b id="callGoal" title="{{prospectingSkill.skillName}} {{'COMMON_GOAL' | translate}}" class="hide">
+                                                        {{prospectingSkill.goal}}
+                                                    </b> <small class="hide">{{'HOME_VS' | translate }}</small>
+                                                    <b id="callResult" title="Call Result">
+                                                        {{prospectingSkill.result}}%
+                                                        <br />
+                                                        <span class="font-xs">
+                                                            {{prospectingSkill.count}} {{'HOME_VS' | translate }} {{prospectingSkill.goal}}
+                                                        </span>
+                                                    </b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-12 col-sm-12" ng-if="salesActivityData.prospectingSkillGoalResults.length > 0">
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="text-center">
+                                                <span class="caption-subject font-dark bold uppercase">{{'HOME_PERFORMANCE' | translate }}</span>
+                                                <br />
+                                                <span class="caption-helper">
+                                                    <div class="btn-group">
+                                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                            {{mainFilterGaugeText ?mainFilterGaugeText : "--Select--" }}
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li ng-click="selectMainFilterGauge(prospectingSkill.skillId)" ng-repeat="prospectingSkill in salesActivityData.prospectingSkillGoalResults | filter : showMainFilterSkills">
+                                                                <a href="javascript:;"> {{prospectingSkill.skillName}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <b>vs</b>
+                                                    <div class="btn-group">
+                                                        <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                            {{compareFilterGaugeText ? compareFilterGaugeText : "--Select--" }}
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li ng-click="selectCompareFilterGauge(prospectingSkill.skillId)" ng-repeat="prospectingSkill in salesActivityData.prospectingSkillGoalResults | filter : showCompareFilterSkills">
+                                                                <a href="javascript:;"> {{prospectingSkill.skillName}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="actions">
+
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="gauge-container">
+                                                <div class="gaugeDiv" id="home_saelsactivity_performance_gauge" ng-show="mainFilterGaugeData && compareFilterGaugeData"></div>
+                                                <div class="gaugeValue">
+                                                    <b id="performanceResult" title="Performance Result">
+                                                        {{performanceGagueInfo.avg}}%
+                                                        <br />
+                                                        <span class="font-xs">
+                                                            {{performanceGagueInfo.value1}} {{'HOME_VS' | translate }} {{performanceGagueInfo.value2}}
+                                                        </span>
+                                                    </b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" id="dashboardData">
+                                <div ng-dashboard-home show-report="filteredResult.isShowReport" show-compare-report="filteredResult.isShowCompareReport" profile-type="1"
+                                     profile-id="selectedProfile.id"
+                                     period-id="null" organization-id="266" user-id="null"
+                                     ng-report-data="filteredResult.reportData" ng-compare-report-data="filteredResult.compareReportData" main-stage-name="Test"
+                                     stage-name="Test" kt-stages-results="filteredResult.ktStagesResults"
+                                     kt-compare-stages-result="filteredResult.ktCompareStagesResults"
+                                     show-gauge="filteredResult.showGauge"
+                                     show-graph="filteredResult.showGraph"
+                                     show-kpi-bar="filteredResult.showKpiBar"
+                                     show-compare-kpi="filteredResult.showCompareKpi"
+                                     show-compare-gauge="filteredResult.showCompareGauge"
+                                     is-show-weak-kpi="filteredResult.isShowWeakKpi"
+                                     is-show-strong-kpi="filteredResult.isShowStrongKpi"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home-project-training-popup-div"></div>
+        <div id="home-task-detail-popup-div"></div>
+        <div class="row">
+            <div id="taskFeedbackModal" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">{{'HOME_FEEDBACK' | translate }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <ng-form name="formTaskFeedback" action="#" id="formTaskFeedback" novalidate="novalidate">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">{{'HOME_RATE_YOUR_TASK_RESULTS_BASED_ON_5_STARS' | translate }}</label>
+
+                                                    <div class="form-group">
+                                                        <ul id="taskRatingStars" class="select-group">
+                                                            <li ng-repeat="rate in ratings" ng-mouseover="starMouseHover($event)" ng-mouseleave="starMouseOut($event)" ng-click="starClick($event)" class="star">
+                                                                <label data-value="{{rate.value}}" class="fa fa-star fa-fw" for="rate{{rate.value}}">
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'HOME_DESCRIBE_YOUR_RATING' | translate }} : {{'HOME_WHAT_WORKED_WELL' | translate }}</label>
+                                                        <textarea type="text" class="form-control" ng-model="taskFeedback.workedWell" name="workedWell" ng-required="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'HOME_DESCRIBE_YOUR_RATING' | translate }} : {{'HOME_WHAT_WORKED_NOT_WELL' | translate }}</label>
+                                                        <textarea type="text" class="form-control" ng-model="taskFeedback.workedNotWell" name="workedNotWell" ng-required="true" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'HOME_WHAT_WILL_YOU_DO_NEXT_TIME' | translate }}</label>
+                                                        <textarea type="text" class="form-control" ng-model="taskFeedback.whatNextDescription" name="WhatNextDescription" ng-required="true" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'COMMON_SPENT' | translate }}</label>
+                                                    <div ng-duration ng-model="taskFeedback" ng-property="timeSpentMinutes"></div>
+                                                    <input type="number" name="timeSpentMinutes" ng-model="taskFeedback.timeSpentMinutes" ng-min="1" ng-required="true" style="display:none" />
+                                                    <span class="text-red" ng-show="formTaskFeedback.timeSpentMinutes.$invalid">{{'HOME_PLEASE_SET_TIME_SPENT_FOR_THIS_TASK' | translate }}</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <button class="btn ips-button primary cancel pull-right" ng-click="cancelTraningFeedback()" data-dismiss="modal" aria-label="Close">{{'COMMON_NO' | translate }}</button>
+                                            <button class="btn ips-button primary pull-right" ng-click="saveTraningFeedback()" ng-disabled="formTaskFeedback.$invalid" aria-label="Ok">{{'COMMON_YES' | translate }}</button>
+                                        </div>
+                                    </ng-form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section ui-view></section>

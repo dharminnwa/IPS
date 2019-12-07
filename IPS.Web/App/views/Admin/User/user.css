@@ -1,0 +1,37 @@
+﻿.input-group{
+    margin-bottom: 25px;
+}
+
+#btn-signup {
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.ips-form-control{
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+}
+
+.ips-control-label{
+    padding-top: 20px;
+}
+
+#btn-save {
+    width:20%;
+    margin-top: 20px;
+}
+
+#btn-cancel {
+    width:20%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+#btn-delete {
+    width:20%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+

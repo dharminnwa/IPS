@@ -1,0 +1,51 @@
+
+<div pane name="dashboard" ng-init="init()">
+    <div class="clearfix">
+
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <a class="newhead title fa fa-long-arrow-left" ng-click="dashboard.goBack()"></a>
+                        <span class="caption-subject box-title">{{'COMMON_DASHBOARD' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <performance-managment-filter result="filteredResult" filter="filter"></performance-managment-filter>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div ng-dashboard-new show-report="filteredResult.isShowReport" show-compare-report="filteredResult.isShowCompareReport" profile-type="filter.profileType"
+                             profile-id="filter.profileId"
+                             period-id="null" organization-id="filter.organizationId" user-id="null"
+                             ng-report-data="filteredResult.reportData" ng-compare-report-data="filteredResult.compareReportData" main-stage-name="filter.mainStageName"
+                             stage-name="filter.stageName" kt-stages-results="filteredResult.ktStagesResults"
+                             kt-compare-stages-result="filteredResult.ktCompareStagesResults"
+                             show-gauge="filteredResult.showGauge"
+                             show-graph="filteredResult.showGraph"
+                             show-kpi-bar="filteredResult.showKpiBar"
+                             show-compare-kpi="filteredResult.showCompareKpi"
+                             show-compare-gauge="filteredResult.showCompareGauge"
+                             is-show-weak-kpi="filteredResult.isShowWeakKpi"
+                             is-show-strong-kpi="filteredResult.isShowStrongKpi"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+<div ui-view></div>

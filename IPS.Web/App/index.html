@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="ips" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="ips" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="ips" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="ips" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IPS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" type="img/png" href="images/full-logo-favicon.png" />
+    <!--<link href="../Content/bootstrap-theme.min.css" rel="stylesheet" />-->
+    <link href="../Scripts/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/custom-icon/css/fontello.css" rel="stylesheet" />
+    <link href="css/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="scripts/ng-slim-scroll.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/ips.components.min.css" rel="stylesheet" />
+    <link href="css/layout.min.css" rel="stylesheet" />
+    <!--<link href="css/darkblue.min.css" rel="stylesheet" />-->
+    <!--<link href="css/ips-custom.css" rel="stylesheet" />-->
+    <!-- Kendo -->
+    <!--<link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.common-bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.common-material.min.css" rel="stylesheet" />
+    <link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.material.min.css" rel="stylesheet" />
+    <link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.material.mobile.min.css" rel="stylesheet" />
+    <link href="../Scripts/kendo/extended-api-master/styles/kendo.ext.css" rel="stylesheet" />
+    <!--<link href="../Scripts/kendo/2015.1.318_proffessional/styles/kendo.bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../Scripts/kendo/Reporting-Q1-2015/Html5/ReportViewer/styles/telerikReportViewer-9.0.15.324.css"
+          rel="stylesheet" />
+    <!-- Css -->
+    <link href="Templates/LeftNavigation/nav.css" rel="stylesheet" />
+    <!--<link href="app.css" rel="stylesheet" />-->
+    <link href="../Scripts/progressbar/progressbar.css" rel="stylesheet" />
+    <link href="css/angular-cron-jobs.min.css" rel="stylesheet" />
+    <link href="scripts/ngProgress/ngProgress.css" rel="stylesheet" />
+    <link href="../Content/ng-sortable.min.css" rel="stylesheet" />
+    <link href="views/devContract/devContract-2.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/timer/timer.css" rel="stylesheet" />
+    <!-- Modernizr -->
+    <link rel="stylesheet" href="css/index.css">
+    <base href="/app/" />
+    <!--<link href="/css/calendar.css" rel='stylesheet' type='text/css' />
+    <link href="/css/select2.css" rel='stylesheet' type='text/css' />-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:800italic,400,800&subset=cyrillic-ext,latin'
+          rel='stylesheet' type='text/css'>
+    <!-- 3rd party libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../Scripts/kendo/2015.1.318_proffessional/js/jquery.min.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-translate/angular-translate.min.js"></script>
+    <script src="../Scripts/angular-translate/angular-translate-loader-static-files.min.js"></script>
+    <script src="../Scripts/angular-locale/tmhDynamicLocale.min.js"></script>
+    <script src="../Scripts/ng-file-upload.js"></script>
+    <script src="../Scripts/ng-file-upload-shim.js"></script>
+    <script src="../Scripts/videogular/videogular.min.js"></script>
+    <script src="../Scripts/videogular/vg-controls.min.js"></script>
+    <script src="scripts/layout.js"></script>
+    <script src="../Scripts/kendo/2015.1.318_proffessional/js/kendo.all.min.js"></script>
+    <script src="../Scripts/kendo/2015.1.318_proffessional/js/cultures/kendo.culture.en-US.min.js"></script>
+    <script src="../Scripts/kendo/2015.1.318_proffessional/js/cultures/kendo.culture.nb-NO.min.js"></script>
+    <script src="../Scripts/kendo/extended-api-master/js/kendo.web.ext.js"></script>
+    <script src="../Scripts/kendo/Reporting-Q1-2015/Html5/ReportViewer/js/telerikReportViewer-9.0.15.324.min.js"></script>
+    <script src="../Scripts/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="../Scripts/angular-ui-router.min.js"></script>
+    <script src="../Scripts/angular-cookies.min.js"></script>
+    <script src="../Scripts/angular-resource.min.js"></script>
+    <script src="../Scripts/angular-sanitize.min.js"></script>
+    <script src="../Scripts/angular-animate.min.js"></script>
+    <script src="../Scripts/angular-local-storage.js"></script>
+    <script src="../Scripts/angular-css-injector.min.js"></script>
+    <script src="../Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="../Scripts/dirPagination.js"></script>
+    <script src="../Scripts/ng-ckeditor/ckeditor.js"></script>
+    <script src="../Scripts/ng-ckeditor/ng-ckeditor.min.js"></script>
+    <script src="../Scripts/ng-flow-standalone.min.js"></script>
+    <script src="../Scripts/bootstrap-slider.min.js"></script>
+    <script src="../Scripts/ng-sortable.min.js"></script>
+    <script src="scripts/ngProgress/ngProgress.js"></script>
+    <script src="../Content/select2/js/select2.min.js"></script>
+    <script src="../Scripts/angular-timer-all.min.js"></script>
+    <script src="../Scripts/checklist-model.js"></script>
+    <script src="scripts/canvasjs.min.js"></script>
+    <script src="../Scripts/moment/moment-with-locales.min.js"></script>
+    <script src="scripts/moment-duration-format.js"></script>
+    <script src="scripts/jquery.slimscroll.min.js"></script>
+    <!--<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>-->
+    <script src="../Scripts/progressbar/progressbar.js"></script>
+    <script src="../Scripts/charts/jquery.flot.js"></script>
+    <script src="scripts/angular-cron-jobs.min.js"></script>
+    <script src="scripts/ui-utils.min.js"></script>
+    <script src="scripts/rgbcolor.js"></script>
+    <script src="../Scripts/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="../Scripts/lodash.min.js"></script>
+    <script src="../Scripts/multiselect-dropdown/angularjs-dropdown-multiselect.js"></script>
+    <!-- Load config file -->
+    <script src="scripts/config.js"></script>
+    <!-- Load app main script -->
+    <script src="app.js"></script>
+    <!-- Load modules-->
+    <script src="views/modules.js"></script>
+    <script src="views/finalKPI/module/finalKPIModule.js"></script>
+    <script src="views/teamFinalKPI/module/teamFinalKPIModule.js"></script>
+    <script src="views/surveyAnalysis/module/surveyAnalysisModule.js"></script>
+    <script src="views/KPI/module/KPIModule.js"></script>
+    <script src="views/bookmarkManager/module/bookmarkModule.js"></script>
+    <script src="views/measureUnits/module/measureUnitsModule.js"></script>
+
+    <!-- Load configuration files -->
+    <script src="views/measureUnits/measureUnitsConfig.js"></script>
+    <script src="views/constants.js"></script>
+
+    <!-- Load core -->
+    <script src="core/underscore.extensions.js"></script>
+
+    <!-- Load services -->
+    <script src="services/authInterceptorService.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="views/KPI/services/KPIService.js"></script>
+    <script src="services/apiService.js"></script>
+    <script src="services/tokensManagerService.js"></script>
+    <script src="services/dialogService.js"></script>
+    <script src="views/home/services/reminderManager.js"></script>
+    <script src="views/home/services/todoManager.js"></script>
+    <script src="views/home/services/userDashboardManager.js"></script>
+    <script src="views/todos/services/todosManager.js"></script>
+    <script src="views/trainingDiary/services/trainingDiaryManager.js"></script>
+    <script src="views/projects/services/projectsManager.js"></script>
+    <script src="views/emails/services/emailManager.js"></script>
+    <script src="views/attachments/services/ipsAttachmentsManager.js"></script>
+    <script src="views/taskProspecting/services/taskProspectingManager.js"></script>
+    <script src="views/serviceProspecting/services/serviceProspectingManager.js"></script>
+    <script src="views/notificationTemplates/services/notificationManager.js"></script>
+    <script src="views/Template/directive/angular-file-upload.js"></script>
+    <script src="views/organization/services/organizationManager.js"></script>
+    <script src="views/organization/services/organizationProjectsService.js"></script>
+    <script src="views/organization/services/userManager.js"></script>
+    <script src="views/organization/services/organizationCustomerService.js"></script>
+    <script src="views/organization/services/organizationSalesService.js"></script>
+    <!--<script src="views/industries/services/industriesManager.js"></script>-->
+    <script src="views/security/services/rolesManager.js"></script>
+    <script src="views/profiles/questions/questionBank/services/questionBankManager.js"></script>
+    <script src="services/lookupService.js"></script>
+    <script src="views/organization/services/jobPositionManager.js"></script>
+    <script src="views/performanceGroups/services/performanceGroupsService.js"></script>
+    <script src="views/performanceGroups/services/questionTabService.js"></script>
+    <script src="views/profiles/services/profileLevelService.js"></script>
+    <script src="views/profiles/services/profileCategoryService.js"></script>
+    <script src="views/profiles/services/profileTagService.js"></script>
+    <script src="views/skills/services/skillsService.js"></script>
+    <script src="views/profiles/stageGroups/services/stageGroupManager.js"></script>
+    <script src="views/softprofilewizard/services/softprofilewizardservice.js"></script>
+    <script src="views/survey/services/survey.service.js"></script>
+    <script src="views/activeProfiles/services/activeProfilesService.js"></script>
+    <script src="views/activeProjects/services/activeProjectsService.js"></script>
+
+    <script src="views/performance/scorecardNew/services/scorecardService.js"></script>
+    <script src="views/performance/scorecard/services/scorecardService.js"></script>
+    <script src="views/finalKPI/services/finalKPIService.js"></script>
+    <script src="views/teamFinalKPI/services/teamFinalKPIService.js"></script>
+    <script src="views/performance/bscScorecard/services/bscScorecardService.js"></script>
+    <script src="views/activeProfiles/services/historyService.js"></script>
+    <script src="views/surveyAnalysis/services/surveyAnalysisService.js"></script>
+    <script src="views/tasksSettings/services/tasksSettingsService.js"></script>
+    <script src="views/devContract/services/devContractService.js"></script>
+    <script src="views/home/services/todoService.js"></script>
+    <script src="views/homeland/homeland.js"></script>
+    <script src="directives/bookmark/services/bookmarkService.js"></script>
+    <script src="directives/projectPhase/services/projectPhaseService.js"></script>
+
+    <script src="views/measureUnits/services/measureUnitsService.js"></script>
+    <script src="views/profiles/stageGroups/services/datatimeCalculator.js"></script>
+    <script src="views/profiles/profiles.service.js"></script>
+    <script src="views/profileTraining/services/profileTrainingService.js"></script>
+    <script src="views/medalRules/medal-rules.service.js"></script>
+    <script src="views/evaluation/services/evaluation.service.js"></script>
+    <script src="views/performance/dashboardNew/services/dashboard.service.js"></script>
+    <script src="directives/performanceManagmentFilter/performanceManagmentFilter.service.js"></script>
+    <script src="views/trainings/services/trainingsService.js"></script>
+    <script src="views/trainingDiary/services/trainingsDiaryService.js"></script>
+    <script src="views/trainingDiary/services/startTrainingService.js"></script>
+    <script src="views/trainingDiary/services/evaluateTrainingService.js"></script>
+    <!-- Load directives -->
+
+    <script src="directives/standAlone.js"></script>
+    <script src="templates/breadcrumbs/uiBreadcrumbs.js"></script>
+    <script src="directives/growingPanes.js"></script>
+    <script src="directives/ngScale.js"></script>
+    <script src="directives/compareTo.js"></script>
+    <script src="directives/requireValidDate.js"></script>
+    <script src="directives/ngTreeViewDropDown.js"></script>
+    <script src="directives/ngCronDisabled.js"></script>
+    <script src="views/home/directives/remindersList.js"></script>
+    <script src="views/home/directives/activitiesList.js"></script>
+    <script src="views/home/directives/todosList.js"></script>
+    <script src="views/organization/directives/jobPosition.js"></script>
+    <script src="directives/lookUp/lookUp.js"></script>
+    <script src="views/profiles/directives/profileLevel/profileLevel.js"></script>
+    <script src="views/profiles/directives/profileCategory/profileCategory.js"></script>
+    <script src="directives/ngEditTraining/ngEditTraining.js"></script>
+    <script src="views/survey/directives/answer.directive.js"></script>
+    <script src="views/survey/directives/question-material-view.directive.js"></script>
+    <script src="views/profiles/questions/questionBank/directives/question-material.directive.js"></script>
+    <script src="views/profiles/questions/questionBank/directives/correct-answer.directive.js"></script>
+    <script src="views/profiles/questions/questionBank/directives/winChoiceOption.directive.js"></script>
+    <script src="views/profiles/questions/questionBank/directives/winOrderOption.directive.js"></script>
+    <script src="directives/headerNavigation/headerNavigation.js"></script>
+    <script src="directives/ngDashboardNew/ngDashboard.js"></script>
+    <script src="directives/ngDashboard/ngDashboard.js"></script>
+    <script src="views/profiles/stageGroups/directives/ngStage/ngStage.js"></script>
+    <script src="views/profiles/stageGroups/directives/ngParticipants/ngParticipants.js"></script>
+    <script src="views/devContract/directives/ngReportViewer/ngReportViewer.js"></script>
+    <script src="views/devContract/directives/ngRCTReportViewer/ngRCTReportViewer.js"></script>
+    <script src="views/devContract/directives/kt-dev-contract-viewer.directive.js"></script>
+    <script src="views/devContract/directives/training-diary-viewer.directive.js"></script>
+    <script src="views/todos/directives/ngDuration/ngDuration.js"></script>
+    <script src="views/todos/directives/ngRecurency/ngRecurency.js"></script>
+    <script src="directives/bookmark/ngBookmark.js"></script>
+    <script src="directives/projectPhase/projectPhase.js"></script>
+    <script src="directives/taskList/taksList.js"></script>
+    <script src="views/performance/directives/dropdownMultiselect.js"></script>
+    <script src="directives/attachment/attachmentPopupService.js"></script>
+    <script src="directives/attachment/attachmentPopup.js"></script>
+    <script src="directives/trainingPopup/trainingPopup.js"></script>
+    <script src="directives/performanceManagmentFilter/performanceManagmentFilter.directive.js"></script>
+    <script src="views/trainingDiary/directives/ownTrainingPopup.js"></script>
+    <script src="views/trainingDiary/directives/projectTrainingPopup.js"></script>
+    <script src="views/trainingDiary/directives/materialPopup.js"></script>
+    <script src="views/trainingDiary/directives/taskDetailPopup.js"></script>
+    <script src="views/trainingDiary/directives/trainingMaterialPopup.js"></script>
+    <script src="views/profileTraining/directives/trainingTemplateMaterialPopup.js"></script>
+    <script src="views/trainingDiary/directives/evaluateTrainingMaterialPopup.js"></script>
+    <script src="views/trainingDiary/directives/trainingNotePopup.js"></script>
+    <!-- Load filters -->
+
+    <script src="filters/startFrom.js"></script>
+    <script src="filters/unique.js"></script>
+    <script src="filters/notInArray.js"></script>
+    <script src="filters/uniquePerformanceGroup.js"></script>
+    <script src="filters/reverse.js"></script>
+
+    <!-- Load controllers -->
+
+    <script src="templates/leftNavigation/nav.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/myDashboard/myDashboard.js"></script>
+    <script src="views/help/help.js"></script>
+    <script src="views/blog/blog.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/cms/cms.js"></script>
+    <script src="views/cms/services/cmsmanager.js"></script>
+    <script src="views/evaluation/controllers/kt-evaluation.controller.js"></script>
+    <script src="views/surveyAnalysis/controllers/kt-survey-analysis.controller.js"></script>
+    <script src="views/surveyResult/controllers/kt-survey.result.controller.js"></script>
+    <script src="views/ktFinalKPI/kt-final-kpi.controller.js"></script>
+
+    <!--              Template Script             -->
+    <script src="views/template/template.js"></script>
+    <script src="views/Template/category/category.js"></script>
+    <script src="views/template/services/templatemanager.js"></script>
+
+    <!--              Portfolio Script             -->
+    <script src="views/portfolio/portfolio.js"></script>
+    <script src="views/portfolio/services/portfoliomanager.js"></script>
+    <script src="views/portfolio/Category/portfoliocategory.js"></script>
+    <script src="views/portfolio/Category/services/portfolioCategoryServiceManager.js"></script>
+
+
+
+    <script src="views/helpcontent/helpContent.js"></script>
+    <script src="views/helpcontent/category.js"></script>
+    <script src="views/plan/plan.js"></script>
+    <script src="views/forgotPassword/forgotPassword.js"></script>
+    <script src="views/personalnfo/personalnfo.js"></script>
+    <script src="views/organization/organization.js"></script>
+    <script src="views/organization/organizationDetails.js"></script>
+    <script src="views/organization/department/department.js"></script>
+    <script src="views/organization/editOrganization.js"></script>
+    <script src="views/organization/user/users.js"></script>
+    <script src="views/organization/team/team.js"></script>
+    <script src="views/Organization/customers/customers.js"></script>
+    <script src="views/todos/controllers/todo.js"></script>
+    <script src="views/todos/controllers/editTodo.js"></script>
+    <script src="views/about/about.js"></script>
+    <script src="views/admin/Users/users.js"></script>
+    <script src="views/organization/user/userNew.js"></script>
+    <script src="views/admin/User/user.js"></script>
+    <script src="views/admin/ChangePassword/changePassword.js"></script>
+    <script src="views/changePassword/changePassword.js"></script>
+    <script src="views/performance/dashboardNew/dashboard.js"></script>
+    <script src="views/performance/dashboard/dashboard.js"></script>
+    <script src="views/performance/scorecardNew/scorecard.js"></script>
+    <script src="views/performance/scorecard/scorecard.js"></script>
+    <script src="views/projects/controllers/projects.js"></script>
+    <script src="views/emails/controllers/emails.js"></script>
+    <script src="views/attachments/controllers/ipsAttachments.js"></script>
+
+    <script src="views/taskProspecting/controllers/taskProspecting.js"></script>
+    <script src="views/taskProspecting/controllers/salesProspecting.js"></script>
+    <script src="views/taskProspecting/controllers/measureSalesProspecting.js"></script>
+    <script src="views/taskProspecting/controllers/upcomingSalesProspecting.js"></script>
+    <script src="views/taskProspecting/controllers/completedSalesProspecting.js"></script>
+    <script src="views/taskProspecting/directives/addSalesCustomersPopup.js"></script>
+    <script src="views/taskProspecting/directives/addProspectingUsersPopup.js"></script>
+    <script src="views/taskProspecting/directives/prospectingResultPopup.js"></script>
+    <script src="views/taskProspecting/directives/talkActivityPopup.js"></script>
+    <script src="views/taskProspecting/directives/updateTalkActivityPopup.js"></script>
+
+    <script src="views/serviceProspecting/controllers/serviceProspecting.js"></script>
+    <script src="views/serviceProspecting/controllers/newServicePropsecting.js"></script>
+    <script src="views/serviceProspecting/controllers/measureServiceProspecting.js"></script>
+    <script src="views/serviceProspecting/controllers/upcomingServicesProspecting.js"></script>
+    <script src="views/serviceProspecting/controllers/completedServiceProspecting.js"></script>
+
+    <script src="views/serviceProspecting/controllers/todayServiceProspecting.js"></script>
+    <script src="views/serviceProspecting/directives/addCustomersPopup.js"></script>
+
+    <!-- Plugin -->
+    <script src="scripts/jquery.cubeportfolio.min.js"></script>
+    <script src="scripts/jquery.easypiechart.min.js"></script>
+    <script src="scripts/jquery.bootstrap.wizard.min.js"></script>
+
+    <script src="scripts/html2canvas.min.js"></script>
+    <script src="scripts/jspdf.min.js"></script>
+
+    <script src="views/trainings/controllers/trainings.js"></script>
+    <script src="views/customer/controller/customer.js"></script>
+    <script src="views/trainingDiary/controllers/training-diary.js"></script>
+    <script src="views/trainingDiary/controllers/PersonalTrainingDiaryCtrl.js"></script>
+    <script src="views/trainingDiary/controllers/ProfileTrainingDiaryCtrl.js"></script>
+    <script src="views/trainingDiary/controllers/start-training.js"></script>
+    <script src="views/trainingDiary/controllers/evaluate-training.js"></script>
+    <script src="views/medalRules/medal-rules.controller.js"></script>
+    <script src="views/medalRules/medal-rules.edit.controller.js"></script>
+    <script src="views/reports/reports.js"></script>
+    <script src="views/profiles/base-profiles.controller.js"></script>
+
+    <script src="views/profiles/base-profiles.edit.controller.js"></script>
+    <script src="views/profiles/base-profiles.preview.controller.js"></script>
+    <script src="views/softprofilewizard/controller/softprofilewizard.js"></script>
+    <script src="views/profiles/soft-profiles.controller.js"></script>
+    <script src="views/profiles/newsoftprofile.js"></script>
+    <script src="views/profiles/newKnowledgeProfile.js"></script>
+    <script src="views/profiles/soft-profiles.edit.controller.js"></script>
+    <script src="views/profiles/soft-profiles.preview.controller.js"></script>
+    <script src="views/profiles/kt-profiles.controller.js"></script>
+    <script src="views/profiles/kt-profiles.edit.controller.js"></script>
+    <script src="views/profiles/kt-profiles.preview.controller.js"></script>
+    <script src="views/profiles/project-profiles.controller.js"></script>
+    <script src="views/profileTraining/controller/profileTraining.js"></script>
+    <script src="views/profileSendOut/controller/profileSendOut.js"></script>
+    <script src="views/profiles/stageGroups/controllers/stageGroups.js"></script>
+    <script src="views/profiles/stageGroups/controllers/stageGroupsBasicEdit.js"></script>
+    <script src="views/profiles/stageGroups/controllers/stageGroupsEdit.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/questionBank.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/correct-answer.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/base-question.create.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/kt-question.create.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/soft-question.create.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/base-question.edit.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/kt-question.edit.controller.js"></script>
+    <script src="views/profiles/questions/questionBank/controllers/soft-question.edit.controller.js"></script>
+    <script src="views/security/security.js"></script>
+    <script src="views/roleLevel/services/rolelevelService.js"></script>
+    <script src="views/roleLevel/controller/roleLevelController.js"></script>
+    <script src="views/roleLevel/controller/setPermissionController.js"></script>
+    <script src="views/roleLevel/controller/roleLevelPermissionTemplateController.js"></script>
+    <script src="views/roleLevel/services/roleLevelPermissionTemplateService.js"></script>
+    <script src="views/roleLevel/services/roleLevelPermissionService.js"></script>
+    <script src="views/scales/scales.js"></script>
+    <script src="views/notificationTemplates/controllers/notificationTemplates.js"></script>
+    <script src="views/notificationTemplates/controllers/notificationTemplatesEdit.js"></script>
+    <script src="views/notificationTemplates/controllers/notificationTemplatesNew.js"></script>
+
+    <script src="views/industries/industries.js"></script>
+    <script src="views/profileCategories/profileCategories.js"></script>
+    <script src="views/performanceGroups/controllers/performanceGroups.js"></script>
+    <script src="views/performanceGroups/controllers/base-performance-groups.edit.controller.js"></script>
+    <script src="views/performanceGroups/controllers/soft-performance-groups.edit.controller.js"></script>
+    <script src="views/performanceGroups/controllers/kt-performance-groups.edit.controller.js"></script>
+    <script src="views/performanceGroups/controllers/base-questions-tab.controller.js"></script>
+    <script src="views/performanceGroups/controllers/soft-questions-tab.controller.js"></script>
+    <script src="views/performanceGroups/controllers/kt-questions-tab.controller.js"></script>
+    <script src="views/skills/controllers/skills.js"></script>
+    <script src="views/skills/controllers/skills.edit.js"></script>
+    <script src="views/survey/controllers/survey.js"></script>
+    <script src="views/survey/controllers/kt-survey.controller.js"></script>
+    <script src="views/finalKPI/controllers/finalKPI.js"></script>
+    <script src="views/teamFinalKPI/controllers/teamFinalKPI.js"></script>
+    <script src="views/activeProfiles/controllers/activeProfilesRoute.js"></script>
+    <!--<script src="views/activeProfiles/controllers/activeProfiles.js"></script>-->
+    <!--<script src="views/activeProfiles/controllers/expiredProfiles.js"></script>-->
+    <script src="views/completedProfiles/controller/completedProfiles.js"></script>
+    <script src="views/historyProfiles/controller/historyProfiles.js"></script>
+    <script src="views/expiredProfiles/controller/expiredProfilesRoute.js"></script>
+
+
+    <script src="views/activeProjects/controllers/activeProjectRoute.js"></script>
+
+    <script src="views/bscPerspectives/bscPerspectives.js"></script>
+    <script src="views/bscGoals/bscGoals.js"></script>
+    <script src="views/surveyAnalysis/controllers/surveyAnalysis.js"></script>
+    <script src="views/performance/bscScorecard/bscScorecard.js"></script>
+    <script src="views/KPI/controllers/KPI.js"></script>
+
+    <script src="views/tasksSettings/controllers/tasksSettings.js"></script>
+    <script src="views/devContract/controllers/devContract.js"></script>
+    <script src="views/devContract/controllers/kt-dev-contract.controller.js"></script>
+    <script src="views/devContract/controllers/training-diary.controller.js"></script>
+    <script src="views/bookmarkManager/controllers/bookmarkManager.js"></script>
+    <script src="views/bookmarkManager/controllers/bookmarkEdit.js"></script>
+    <script src="views/measureUnits/controllers/measureUnits.js"></script>
+    <script src="views/profiles/stageGroups/controllers/notificationModalCtrl.js"></script>
+    <script src="views/progressBar/progressBar.js"></script>
+
+</head>
+<body id="app" class="app ng-scope nav-collapsed-min page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid" ng-class="authentication.isAuth?'page-content-white':''" data-smart-device-detect
+      data-smart-fast-click
+      data-smart-layout
+      data-smart-page-title="IPS"
+      ng-controller="navCtrl">
+    <div id="progress"></div>
+
+    <div class="page-wrapper">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="javascript:;" ng-click="gotoHome()">
+                        <img src="images/ips-top-logo.png" alt="IPS" class="logo-default">
+                    </a>
+                    <div data-ng-hide="!authentication.isAuth" class="menu-toggler sidebar-toggler">
+                        <span></span>
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a data-ng-hide="!authentication.isAuth" href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+                <div class="pull-left">
+                    <div ng-hide="!authentication.isAuth" class="topserach_Div">
+
+                    </div>
+                </div>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!--Begin Language Change DropDown-->
+                        <!--End Language Change DropDown-->
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown" data-ng-hide="!authentication.isAuth">
+                            <a data-ng-click="logOut()" href="javascript:;" class="dropdown-toggle">
+                                <i class="fa fa-sign-out"></i>
+                            </a>
+                        </li>
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+                    </ul>
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-culture">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username"> {{ selectedLanguageText.langName }} </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li ng-repeat="lang in langugeList"><a href="javascript:;" ng-click="setCulture(lang.langCode,true)"> {{lang.langName}} </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown dropdown-extended dropdown-inbox" data-ng-hide="!authentication.isAuth" id="header_inbox_bar">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-envelope-open"></i>
+                                <span class="badge badge-default"> {{unReadMessages.count}} </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3>
+                                        You have <span class="bold">{{unReadMessages.count}} Unread</span> Messages
+                                    </h3>
+                                    <a href="#/emails">View all</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                        <li ng-repeat="unreadMessage in  unReadMessages.messages" ng-click="viewEmail(unreadMessage.id)">
+                                            <a href="javascript:;">
+                                                <span class="subject">
+                                                    <span class="from"> {{unreadMessage.fromEmail}}</span>
+                                                    <span class="time"> {{unreadMessage.sentTime}} </span>
+                                                </span>
+                                                <span class="message">
+                                                    {{unreadMessage.subject}}
+                                                </span>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-extended dropdown-inbox" data-ng-hide="!(authentication.isAuth)">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                                <i class="icon-magnifier" title="Search Users"></i>
+                            </a>
+                            <ul class="dropdown-menu mega-dropdown-menu">
+                                <li class="external">
+                                    <div class="fomr-group">
+                                        <div class="input-group">
+                                            <input class="ng-valid ng-dirty ng-valid-parse ng-touched form-control" ng-model="searchUserText" ng-change="serachUser(searchUserText)" type="search" placeholder="Search..">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="scroller" data-width="10px" style="height: 250px;" data-always-visible="1" data-rail-visible1="1">
+                                        <ul class="dropdown-menu-list">
+                                            <li ng-repeat="searchedUser in  searchedUsers">
+                                                <a href="javascript:;">
+                                                    <span class="photo">
+                                                        <img ng-src="{{searchedUser.imageUrl ? searchedUser.imageUrl : 'images/DefaultAvatar.jpg'}}" class="img-circle" alt="">
+                                                    </span>
+                                                    <span class="subject">
+                                                        <span class="from"> {{searchedUser.firstName}} {{searchedUser.lastName}} </span>
+                                                        <span class="time"> <i class="fa fa-envelope fa-lg" title="Send Email" ng-click="sendEmail(searchedUser.email)"></i>  <i class="fa fa-file-o fa-lg" title="Add Attachment" ng-click="addAttachment(searchedUser.id)"></i></span>
+                                                    </span>
+                                                    <span class="message"> {{searchedUser.email}} </span>
+                                                    <span class="message"> {{searchedUser.organizationName}} </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-user" data-ng-hide="!authentication.isAuth">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img class="img-circle" ng-src="{{authentication.user.imageUrl}}" ng-show="authentication.user.imageUrl != null && authentication.user.imageUrl != ''" />
+                                <span class="username username-hide-on-mobile name"> {{authentication.user.firstName + ' ' + authentication.user.lastName}} </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-default">
+
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#home/organizations/userdetail/{{authentication.user.organizationId}}/{{authentication.user.userId}}">
+                                        <i class="icon-user"></i>{{'TOPMENU_MY_PERSONAL_INFO' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/emails">
+                                        <i class="icon-envelope-open"></i>{{'TOPMENU_ALL_EMAILS' | translate }}
+                                    </a>
+                                </li>
+
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/home/soft/activeProfiles">
+                                        <i class="fa fa-book"></i>{{'TOPMENU_MY_PROFILES' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/home/activeProjects">
+                                        <i class="fa fa-book"></i>{{'TOPMENU_MY_PROJECTS' | translate }}
+                                    </a>
+                                </li>
+
+
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/attachments">
+                                        <i class="fa fa-file-o"></i>{{'TOPMENU_ALL_ATTACHMENTS' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/home/todos/todos">
+                                        <i class="icon-rocket"></i>{{'TOPMENU_MY_TASKS' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="true">
+                                    <a href="#/home/profiles/profiles/soft/trainings">
+                                        <i class="fa fa-bicycle"></i>{{'TOPMENU_TRAINING_LIBRARY' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/home/training/trainingdiary">
+                                        <i class="fa fa-book"></i>{{'TOPMENU_TRAINING_DIARY' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/home/todos/calender">
+                                        <i class="icon-calendar"></i>{{'TOPMENU_MY_CALENDER' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth" class="hide">
+                                    <a href="#/profile">
+                                        <i class="fa fa-users"></i>{{'TOPMENU_MY_TEAM' | translate }}
+                                    </a>
+                                </li>
+                                <li data-ng-hide="!authentication.isAuth" class="hide">
+                                    <a href="#/profile">
+                                        <i class="fa "></i>{{'TOPMENU_MY_DEPARTMENT' | translate }}
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="" data-ng-click="logOut()">
+                                        <i class="icon-key"></i>{{'TOPMENU_SIGNOUT' | translate }}
+                                    </a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li data-ng-hide="!authentication.isAuth">
+                                    <a href="#/changePassword">
+                                        <i class="icon-lock"></i>{{'TOPMENU_CHANGE_PASSWORD' | translate }}
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper" data-ng-hide="!authentication.isAuth">
+                <!-- BEGIN SIDEBAR -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+
+                    <div ng-include="'templates/LeftNavigation/nav.html'"></div>
+
+                    <!-- END SIDEBAR MENU -->
+
+                </div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="" ng-class="authentication.isAuth?'page-content-wrapper':''">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="" ng-class="authentication.isAuth?'page-content':'page-content'">
+                    <!-- BEGIN PAGE HEADER-->
+                    <!-- BEGIN THEME PANEL -->
+                    <!-- END THEME PANEL -->
+                    <!-- BEGIN PAGE BAR -->
+                    <div class="page-bar" data-ng-hide="!authentication.isAuth">
+                        <ui-breadcrumbs stand-alone displayname-property="data.displayName" abstract-proxy-property="data.proxy">
+                        </ui-breadcrumbs>
+                        <div class="page-toolbar">
+                            <div id="dashboard-report-range" class=" hide pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+                                <i class="icon-calendar"></i>&nbsp;
+                                <span class="thin uppercase hidden-xs"></span>&nbsp;
+                                <!--<i class="fa fa-angle-down"></i>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE BAR -->
+
+                    <div growing-panes>
+                        <section ui-view></section>
+                    </div>
+
+
+
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div id="commonPopupDiv">
+                <attachment-popup user-id="selectedUserId" open-attachment-popup-mode="openAttachmentPopupMode">
+                </attachment-popup>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer" data-ng-hide="!authentication.isAuth">
+            <div class="page-footer-inner hide">
+                <ng-bookmark></ng-bookmark>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+
+        <div id="auxiliaryView">
+
+        </div>
+        <!-- END FOOTER -->
+    </div>
+</body>
+</html>
+

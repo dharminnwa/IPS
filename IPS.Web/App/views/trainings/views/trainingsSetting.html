@@ -1,0 +1,85 @@
+﻿<div pane>
+    <div class="clearfix">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'LEFTMENU_TRAINING_SETTINGS' | translate }}</span>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_ORGANIZATION' | translate }} <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-control" name="tasksSettingsOrganizationId" required data-ng-model="trainingSettings.organizationId" data-ng-options="obj.id as obj.name for obj in trainingSettings.organizations" ng-change="trainingSettings.organizationChanged();"></select>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable"> {{'COMMON_DEPARTMENT' | translate }}</label>
+                        <select class="form-control" ng-disabled="trainingSettings.departments.length == 1" data-ng-model="trainingSettings.departmentId" data-ng-options="obj.id as obj.name for obj in trainingSettings.departments" ng-change="trainingSettings.reloadSelected();"></select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label for="exampleInputEmail1" class="form-cstm-lable">{{'COMMON_TEAM' | translate }} <span class="text-danger">*</span></label>
+                        <select class="form-control" ng-disabled="trainingSettings.teams.length == 1" data-ng-model="trainingSettings.teamId" data-ng-options="obj.id as obj.name for obj in trainingSettings.teams" ng-change="trainingSettings.reloadSelected();"></select>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <label for="exampleInputEmail1" class="form-cstm-lable">{{'COMMON_USER' | translate }}</label>
+                        <select class="form-control" ng-disabled="trainingSettings.users.length == 1" data-ng-model="trainingSettings.userId" data-ng-options="obj.id as obj.firstName+' '+obj.lastName for obj in trainingSettings.users | filter:trainingSettings.filterUsers" ng-change="trainingSettings.reloadSelected();"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">
+                            {{'TRAININGDAIRY_SETTINGS' | translate }} ({{'TRAININGDAIRY_WHAT_TRAING_SETTINGS_TO_BE_SHOWN_HERE' | translate }})
+                        </label>
+                        <select class="form-control" data-ng-model="trainingSettings.settingsTypeId" data-ng-options="obj.id as obj.name for obj in trainingSettings.settingsTypes" ng-change="trainingSettings.reloadSelected();"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mt-5">
+                        <button class="btn btn-cstm primary pull-right" ng-disabled="!trainingSettings.IsGenerateAllowed" ng-click="trainingSettings.createNewList()">{{'COMMON_CREATE' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light">
+            <div class="portlet box">
+                <div class="row">
+                    <form name="tasksSettingsForm" novalidate>
+
+                        <div class="col-md-12" ng-show="trainingSettings.settingsTypeId == 0">
+                            <div class="profiles-menu">
+                                <img src="images/organization/organization-icon.png" />
+                                <span>{{'COMMON_SETTINGS_ITEMS' | translate }}</span>
+                                <a class="add-button pull-right" ng-show="trainingSettings.listId" ng-click="trainingSettings.add();"></a>
+                            </div>
+                            <kendo-tooltip options="tooltipOptions">
+                                <div id="tasksCategoriesGrid" kendo-grid k-options="trainingSettings.tasksCategoriesGridOptions"></div>
+                            </kendo-tooltip>
+                        </div>
+                        <div class="col-md-12" ng-show="trainingSettings.settingsTypeId != 0">
+                            <div class="profiles-menu">
+                                <img src="images/organization/organization-icon.png" />
+                                <span>{{'COMMON_SETTINGS_ITEMS' | translate }}</span>
+                                <a class="add-button pull-right" ng-show="trainingSettings.listId" ng-click="trainingSettings.add();"></a>
+                            </div>
+                            <kendo-tooltip options="tooltipOptions">
+                                <div id="taskSettingsGrid" kendo-grid k-options="trainingSettings.tasksGridOptions"></div>
+                            </kendo-tooltip>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div ui-view></div>

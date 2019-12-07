@@ -1,0 +1,42 @@
+﻿<div class="create-team" ng-form="newTabQuestion" novalidate>
+    <div class="row question-tab" ng-controller="softQuestionTabCtrl as question">
+        <div class="col-sm-offset-8 display-rule">
+        </div>
+        <div class="col-sm-12">
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid k-options="gridOptions"></div>
+            </kendo-tooltip>
+        </div>
+        <div class="col-md-12">
+            <div class="details-info">{{'SOFTPROFILE_NEW_QUESTION' | translate }}</div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                <span ng-show='newTabQuestion.primarySkill.$error.required' class="required">*</span>
+                <select class="form-control" ng-disabled="isDisabled()"
+                        name="primarySkill"
+                        ng-required='!newQuestion.skillId'
+                        ng-options="skill.skillId as skill.name for skill in skillsD"
+                        ng-model="newQuestion.skillId"
+                        ng-change="initializeSubSkills()"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{'SOFTPROFILE_SUB_SKILL' | translate }}</label>
+                <select class="form-control" ng-disabled="isDisabled()"
+                        ng-options="subSkill.id as subSkill.name for subSkill in subSkills"
+                        ng-model="newQuestion.subSkillId">
+                    <option value="">{{'SOFTPROFILE_SELECT_SUB_SKILL' | translate }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">{{'SOFTPROFILE_QUESTION' | translate }}</label>
+                <textarea class="form-control" name="questionText" rows="5" ng-model="newQuestion.questionText" ng-disabled="isDisabled()"></textarea>
+            </div>
+            <button class="btn btn-cstm add-from-template pull-right" ng-click="addQuestionFromTemplate()" ng-disabled="isDisabled()">{{'SOFTPROFILE_ADD_QUESTION_FROM_TEMPLATE' | translate }}</button>
+            <button class="btn btn-cstm primary pull-right" ng-disabled="newTabQuestion.$error.required" ng-click="addNewQuestion()" ng-disabled="isDisabled()">{{'SOFTPROFILE_SAVE_NEW_QUESTION' | translate }}</button>
+        </div>
+    </div>
+</div>

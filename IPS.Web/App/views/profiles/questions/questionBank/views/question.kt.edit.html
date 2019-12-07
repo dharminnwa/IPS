@@ -1,0 +1,126 @@
+﻿<div pane>
+    <form name="questionForm" novalidate ng-init="init()" ng-cloak>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <br />
+                    <div class="alert alert-warning" ng-hide="!isProfileInUse">
+                        <strong>{{'COMMON_WARNING' | translate }}!</strong> {{'SOFTPROFILE_CURRENT_PROFILE_IS_IN_USE' | translate }} {{'SOFTPROFILE_CHANGES_CAN_NOT_BE_SAVED' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_QUESTION_TEXT' | translate }}</label>
+                    <span ng-show='questionForm.questionText.$error.required' class="required">*</span>
+                    <textarea class="form-control" name="questionText" ng-model="newQuestion.questionText"
+                              ng-disabled="isDisabled()" required rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                    <input type="text" class="form-control" ng-model="newQuestion.description"
+                           ng-disabled="isDisabled()">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_TIME_FOR_QUESTION' | translate }}</label><br />
+                    <span>{{'COMMON_MINUTES' | translate }}: </span> <input required type="number" min="0" ng-model="newQuestion.minutesForQuestion" />
+                    <span>{{'SOFTPROFILE_SECONDS' | translate }}: </span> <input required type="number" min="0" ng-model="newQuestion.secondsForQuestion" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Organization"
+                            name="organizationId"
+                            ng-options="organization.id as organization.name for organization in organizations"
+                            ng-model="newQuestion.organizationId"
+                            ng-disabled="(organizations.length == 1) || isDisabled()">
+                        <option value="">{{'COMMON_SELECT_ORGANIZATION' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Profile Type"
+                            name="profileTypeId"
+                            ng-change="checkProfileType()"
+                            ng-options="profile.id as profile.name for profile in profileTypes"
+                            ng-model="newQuestion.profileTypeId" ng-disabled="isDisabled()">
+                        <option value="">{{'SOFTPROFILE_SELECT_PROFILE_TYPE' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_QUESTION_TYPE' | translate }}</label>
+                    <span ng-show='questionForm.answerTypeId.$error.required' class="required">*</span>
+                    <select class="form-control"
+                            value="Select Answer Type"
+                            name="answerTypeId"
+                            ng-change="resetAnswer()"
+                            ng-disabled="disableAnswerType || isDisabled()"
+                            ng-options="answer.id as answer.name for answer in questionTypes"
+                            ng-model="newQuestion.answerTypeId"
+                            required>
+                        <option value="">{{'SOFTPROFILE_SELECT_ANSWER_TYPE' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_TARGET_GROUP_LEVEL' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Target Group Level"
+                            name="stuctureLevelId"
+                            ng-options="structure.id as structure.name for structure in structureLevels"
+                            ng-model="newQuestion.structureLevelId" ng-disabled="isDisabled()">
+                        <option value="">{{'SOFTPROFILE_SELECT_TARGET_GROUP_LEVEL' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Industry"
+                            name="industryId"
+                            ng-options="industry.id as industry.name for industry in industries"
+                            ng-model="newQuestion.industryId" ng-disabled="isDisabled()"
+                            ng-change="industryChanged()">
+                        <option value="">{{'SOFTPROFILE_EDITQUESTION_SELECT_INDUSTRY' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Industry"
+                            name="subIndustryId"
+                            ng-options="industry.id as industry.name for industry in subIndustries"
+                            ng-model="newQuestion.subIndustryId"
+                            ng-disabled="isDisabled() || (subIndustries.length==0)">
+                        <option value="">{{'SOFTPROFILE_SELECT_SUB_INDUSTRY' | translate }}</option>
+                    </select>
+                </div>
+
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="newQuestion.isActive" ng-disabled="isDisabled()"> {{'COMMON_IS_ACTIVE' | translate }}
+                    </label>
+                </div>
+                <div class="checkbox" ng-show="isEdit()">
+                    <label>
+                        <input type="checkbox" ng-model="newQuestion.isTemplate" ng-disabled="isDisabled()"> {{'COMMON_IS_TEMPLATE' | translate }}
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'SOFTPROFILE_SKILLS' | translate }}</label>
+                    <select kendo-multi-select k-options="skillsOptions" k-ng-model="newQuestion.skills"
+                            ng-disabled="isDisabled()"></select>
+                </div>
+                <question-material material="newQuestion.questionMaterial"></question-material>
+                <correct-answer></correct-answer>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="goBack()">{{'COMMON_CANCEL' | translate }}</button>
+                <button ng-hide="isProfileInUse" class="btn btn-cstm primary pull-right"
+                        ng-disabled="questionForm.$error.required || !questionForm.$valid || isDisabled()" ng-click="saveQuestion()">
+                    {{'COMMON_SAVE' | translate }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div ui-view></div>

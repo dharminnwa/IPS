@@ -1,0 +1,55 @@
+﻿<div class="profiles-menu">
+    <img src="images/organization/organization-icon.png" />
+    <span>{{'SOFTPROFILE_SKILLS' | translate }}</span>
+    <!--<a class="add-button pull-right" ng-click="addSkill();"></a>-->
+</div>
+
+<kendo-tooltip options="tooltipOptions">
+    <div kendo-grid k-options="skillsGridOptions" k-rebind="gridOptions.selectable"></div>
+</kendo-tooltip>
+
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-cstm primary ips-tab-button pull-right" ng-click="addSkillFromTemplate();" ng-disabled="isDisabled()">{{'SOFTPROFILE_ADD_SKILL_FROM_TEMPLATES' | translate }}</button>
+    </div>
+    <div class="col-md-12">
+        <div class="details-info">{{'SOFTPROFILE_NEW_SKILL' | translate }}</div>
+    </div>
+    <div class="col-md-12">
+        <div ng-form="performanceGroupSkill" novalidate>
+            <div class="form-group">
+                <label class="control-label">{{'SOFTPROFILE_SELECT_MAIN_SKILL' | translate }}</label>
+                <select class="form-control tab-control" ng-disabled="isDisabled()" data-ng-model="pgSkill.mainSkillId" ng-disabled="mainSkillRadio != 0" name="mainSkillId" data-ng-options="i.id as i.name for i in mainSkills" ng-change="mainSkillChanged(pgSkill.mainSkillId)"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{'SOFTPROFILE_MAIN_SKILL_NAME' | translate }}</label>
+                <span ng-show='performanceGroupSkill.newSkillName.$error.required' class="required">*</span>
+                <input type="text" ng-disabled="isDisabled()" class="form-control tab-control" ng-model="pgSkill.mainSkill.name" ng-required="!pgSkill.mainSkill.name" name="newSkillName" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="description">{{'SOFTPROFILE_MAIN_SKILL_DESCRIPTION' | translate }}</label>
+                <textarea ng-disabled="isDisabled()" class="form-control tab-control" rows="5" data-ng-model="pgSkill.mainSkill.description"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{'SOFTPROFILE_SUB_SKILL_NAME' | translate }}</label>
+                <!--<span ng-show='performanceGroupSkill.newSubSkillname.$error.required' class="required">*</span>-->
+                <input ng-disabled="isDisabled()" type="text" class="form-control tab-control" ng-model="pgSkill.subSkill.name" name="newSubSkillname" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="description">{{'SOFTPROFILE_SUB_SKILL_DESCRIPTION' | translate }}</label>
+                <textarea ng-disabled="isDisabled()" class="form-control tab-control" rows="5" data-ng-model="pgSkill.subSkill.description"></textarea>
+            </div>
+            <div class="form-group" ng-hide="performanceGroup.profile.scaleSettingsRuleId != 4 &&  performanceGroup.profile.scaleSettingsRuleId != 5">
+                <label class="control-label">{{'SOFTPROFILE_SCALE' | translate }}</label>
+                <span ng-show='editSkill.skillScaleyId.$invalid' class="required">*</span>
+                <select ng-disabled="isDisabled()" class="form-control tab-control" data-ng-model="pgSkill.scaleId" name="skillScaleyId" data-ng-options="i.id as i.name for i in scales" ng-change="mainSkillscaleUpdate(pgSkill.mainSkill.scaleId)"></select>
+            </div>
+            <div class="form-group" ng-hide="performanceGroup.profile.scaleSettingsRuleId != 4 &&  performanceGroup.profile.scaleSettingsRuleId != 5">
+                <div ng-scale ng-model="pgSkill.mainSkill.scale" ng-is-tamplate="false" id="addSkillScale" ng-disabled="(mainSkillRadio != 1) || isdisabled()"></div>
+            </div>
+            <div>
+                <button class="btn btn-cstm primary cancel ips-tab-button pull-right" ng-click="addSkill();" ng-disabled="performanceGroupSkill.$invalid || isdisabled()">{{'SOFTPROFILE_SAVE_NEW_SKILL' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

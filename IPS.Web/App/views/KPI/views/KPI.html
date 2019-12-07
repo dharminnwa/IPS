@@ -1,0 +1,69 @@
+﻿<div pane name="finalKPI">
+    <div class="row">
+        <header-navigation page-name="KPI for {{kpi.profile.name}}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="row" ng-form="kpiForm">
+                <div class="col-sm-12">
+                    <div class="organizations-menu">
+                        <img src="images/brain-icon.png" />
+                        <span>{{'MYPROFILES_KPI_SCORES' | translate }}</span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="content-border content-border-left content-border-right">
+                        <img class="info-icon" src="images/info-icon.png" />
+                        <span class="submit-info">{{'MYPROFILES_YOU_CAN_SET_KPIS_FOR' | translate }} {{kpi.participantUser.firstName}} {{kpi.participantUser.lastName}} {{'MYPROFILES_HERE' | translate }}</span>
+                        <button class="btn btn-cstm primary ips-row-button submit-button"
+                                ng-disabled="kpi.isRequired() || kpiForm.$error.required"
+                                ng-click="kpi.submitKPI()">
+                            {{'COMMON_SUBMIT' | translate }}
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="content-border content-border-left content-border-right">
+                        <table class="table">
+                            <tr class="table-header">
+                                <th ng-repeat="(i,th) in kpi.tableHead" ng-class="kpi.addHideClass(i,th)">
+                                    <span ng-class="kpi.addSortingClass(i,th)" ng-click="kpi.changeSorting(i,th)">
+                                        {{th.name}}
+                                        <span class="glyphicon glyphicon-chevron-up" ng-show="th.currentSort && kpi.sortCondition.descending"></span>
+                                        <span class="glyphicon glyphicon-chevron-down" ng-show="th.currentSort && !kpi.sortCondition.descending"></span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="question in kpi.answers">
+                                <td class="answer-number">{{question.questionNo}}</td>
+                                <td width="15%">{{question.skillName}}</td>
+                                <td width="15%">{{question.performanceGroupName}}</td>
+                                <td width="25%">{{question.question.questionText}}</td>
+                                <td width="12%">
+                                    <div class="score-outer-circle">
+                                        <div class="score-inner-circle" style="background: {{kpi.getAnswerColor(question.answer1)}}" >
+                                            <div class=" score-result">{{question.answer1}}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="10">
+                                    <div class="kpi-outer-circle">
+                                        <div class="kpi-inner-circle kpi-inner-circle-0">
+                                            <div class="kpi-control kpi-{{(question.kPIType) && question.kPIType || '0' }}" ng-click="kpi.increaseKPI(question)"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="30%">
+                                    <div class="form-group">
+                                        <span ng-show='question.KPIcomment{{$index+1}}.$error.required' class="required">*</span>
+                                        <textarea ng-required="!question.comment && (question.kPIType == 1 || question.kPIType == 2)" name="KPIcomment{{$index+1}}" class="form-control" rows="4" ng-model="question.comment"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span kendo-notification="kpi.notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

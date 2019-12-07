@@ -1,0 +1,84 @@
+21-May-17 20:42:13	This log contains information about the import schema operation into project 'ResultatPartner.IPS.Database.Identity' on computer 'DESKTOP-QC4NA2M' by user 'Feng'.
+21-May-17 20:42:13	Import of database schema has started.
+21-May-17 20:42:22	Gathering database credentials
+21-May-17 20:42:22	Gathering database options
+21-May-17 20:42:22	Gathering users
+21-May-17 20:42:22	Gathering roles
+21-May-17 20:42:22	Gathering application roles
+21-May-17 20:42:22	Gathering role memberships
+21-May-17 20:42:22	Gathering filegroups
+21-May-17 20:42:22	Gathering full-text catalogs
+21-May-17 20:42:22	Gathering assemblies
+21-May-17 20:42:22	Gathering certificates
+21-May-17 20:42:22	Gathering asymmetric keys
+21-May-17 20:42:22	Gathering symmetric keys
+21-May-17 20:42:22	Gathering encrypted symmetric keys
+21-May-17 20:42:22	Gathering schemas
+21-May-17 20:42:22	Gathering XML schema collections
+21-May-17 20:42:22	Gathering user-defined data types
+21-May-17 20:42:22	Gathering user-defined types
+21-May-17 20:42:22	Gathering table types
+21-May-17 20:42:22	Gathering unique keys for table types
+21-May-17 20:42:22	Gathering primary keys for table types
+21-May-17 20:42:22	Gathering indexes for table types
+21-May-17 20:42:22	Gathering check constraints for table types
+21-May-17 20:42:22	Gathering default constraints for table types
+21-May-17 20:42:22	Gathering partition functions
+21-May-17 20:42:22	Gathering partition schemes
+21-May-17 20:42:23	Gathering functions
+21-May-17 20:42:23	Gathering encrypted functions
+21-May-17 20:42:23	Gathering aggregates
+21-May-17 20:42:23	Gathering procedures
+21-May-17 20:42:23	Gathering encrypted procedures
+21-May-17 20:42:23	Gathering tables
+21-May-17 20:42:23	Gathering primary keys
+21-May-17 20:42:23	Gathering unique constraints
+21-May-17 20:42:23	Gathering foreign keys
+21-May-17 20:42:23	Gathering default constraints
+21-May-17 20:42:23	Gathering check constraints
+21-May-17 20:42:23	Gathering views
+21-May-17 20:42:23	Gathering encrypted views
+21-May-17 20:42:23	Gathering indexes
+21-May-17 20:42:23	Gathering statistics
+21-May-17 20:42:23	Gathering full-text index stoplists
+21-May-17 20:42:23	Gathering search property lists
+21-May-17 20:42:23	Gathering search properties
+21-May-17 20:42:23	Gathering full-text indexes
+21-May-17 20:42:23	Gathering column store indexes
+21-May-17 20:42:23	Gathering spatial indexes
+21-May-17 20:42:23	Gathering XML indexes
+21-May-17 20:42:23	Gathering Selective XML indexes
+21-May-17 20:42:23	Gathering encrypted triggers
+21-May-17 20:42:23	Gathering triggers
+21-May-17 20:42:23	Gathering encrypted and clr ddl triggers
+21-May-17 20:42:23	Gathering ddl triggers
+21-May-17 20:42:23	Gathering synonyms
+21-May-17 20:42:23	Gathering defaults
+21-May-17 20:42:23	Gathering data constraint uddt bindings
+21-May-17 20:42:23	Gathering rules
+21-May-17 20:42:23	Gathering data constraint uddt bindings
+21-May-17 20:42:23	Gathering message types
+21-May-17 20:42:23	Gathering queues
+21-May-17 20:42:23	Gathering contracts
+21-May-17 20:42:23	Gathering services
+21-May-17 20:42:23	Gathering event notifications
+21-May-17 20:42:23	Gathering remote service bindings
+21-May-17 20:42:23	Gathering broker priorities
+21-May-17 20:42:23	Gathering signatures
+21-May-17 20:42:23	Gathering data compression options
+21-May-17 20:42:23	Gathering sequence types
+21-May-17 20:42:23	Gathering security policies
+21-May-17 20:42:23	Gather column encryption keys
+21-May-17 20:42:23	Gathering column master keys
+21-May-17 20:42:23	Gathering external data sources
+21-May-17 20:42:23	Gathering external file formats
+21-May-17 20:42:23	Gathering external tables
+21-May-17 20:42:23	Gathering extended properties
+21-May-17 20:42:24	Gathering credentials
+21-May-17 20:42:24	Gathering logins
+21-May-17 20:42:24	Gathering server audits
+21-May-17 20:42:25	Scanning project for duplicate elements
+21-May-17 20:42:26	Finished duplicate element processing
+21-May-17 20:42:28	Finished importing database.
+21-May-17 20:42:28	A summary of the import was saved to the following location: E:\ResultatPartner\2013\V5 2016\V5.1\Git\IPS_2017\develop\ips_2017\ResultatPartner.IPS.Database.Identity\Import Schema Logs\ResultatPartner.IPS._20170521064212.log
+21-May-17 20:42:28	Click Finish to continue...

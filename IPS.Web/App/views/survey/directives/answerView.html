@@ -1,0 +1,253 @@
+﻿<div ng-init="init()">
+    <div class="col-sm-12" ng-if="isNumericAnswer()">
+        <div class="answer-numeric">
+            <input type="number" class="form-control" ng-model="$parent.userAnswer">
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-if="isTextAnswer()">
+        <div class="answer-text">
+            <textarea class="form-control" ng-model="$parent.userAnswer" rows="5"></textarea>
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-if="isSingleChoiceAnswer()">
+        <div class="answer-single-choice">
+            <div class="media-list">
+                <div class="radio" ng-repeat="answer in possibleAnswers">
+                    <div class="media">
+                        <div class="media-left">
+                            <input type="radio" ng-model="$parent.$parent.userAnswer"
+                                   value="{{answer.id}}"
+                                   name="radio{{singleChoiceRadioGroupId}}">
+                        </div>
+                        <div class="media-body" ng-if="!answer.material.type"><label>{{answer.name}}</label></div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.video">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'video/mp4'}]"
+                                            vg-tracks="config.tracks">
+                                    </vg-media>
+                                    <vg-controls vg-autohide="config.plugins.controls.autoHide"
+                                                 vg-autohide-time="config.plugins.controls.autoHideTime">
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                            <vg-volume-bar></vg-volume-bar>
+                                        </vg-volume>
+                                        <vg-fullscreen-button></vg-fullscreen-button>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.audio">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'"
+                                        class="videogular-container audio">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'audio/mpeg'}]"
+                                            vg-type="audio"></vg-media>
+
+                                    <vg-controls>
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                        </vg-volume>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.document">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <a href="{{downloadFileUrl+'/'+answer.material.file.id}}" target="_blank">{{answer.material.file.name}}</a>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.link">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <a href="{{answer.material.url}}" target="_blank">{{answer.material.url}}</a>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.image">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <img style="width:100%;"
+                                     ng-src="{{downloadFileUrl}}/{{answer.material.file.id}}"
+                                     title="{{answer.material.file.name}}"
+                                     alt="{{answer.material.file.name}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-if="isMultipleChoiceAnswer()">
+        <div class="answer-multiple-choice">
+            <div class="media-list">
+                <div class="checkbox" ng-repeat="answer in possibleAnswers">
+                    <div class="media">
+                        <div class="media-left">
+                            <input type="checkbox" checklist-model="$parent.$parent.userAnswer"
+                                   checklist-value="answer.id">
+                        </div>
+                        <div class="media-body" ng-if="!answer.material.type"><label>{{answer.name}}</label></div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.video">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'video/mp4'}]"
+                                            vg-tracks="config.tracks">
+                                    </vg-media>
+                                    <vg-controls vg-autohide="config.plugins.controls.autoHide"
+                                                 vg-autohide-time="config.plugins.controls.autoHideTime">
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                            <vg-volume-bar></vg-volume-bar>
+                                        </vg-volume>
+                                        <vg-fullscreen-button></vg-fullscreen-button>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.audio">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'"
+                                        class="videogular-container audio">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'audio/mpeg'}]"
+                                            vg-type="audio"></vg-media>
+
+                                    <vg-controls>
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                        </vg-volume>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.document">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <a href="{{downloadFileUrl+'/'+answer.material.file.id}}" target="_blank">{{answer.material.file.name}}</a>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.link">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <a href="{{answer.material.url}}" target="_blank">{{answer.material.url}}</a>
+                            </div>
+                        </div>
+                        <div class="media-body"
+                             ng-if="answer.material && answer.material.type == materialTypeEnum.image">
+                            <div>{{answer.name}}</div>
+                            <div>
+                                <img style="width:100%;"
+                                     ng-src="{{downloadFileUrl}}/{{answer.material.file.id}}"
+                                     title="{{answer.material.file.name}}"
+                                     alt="{{answer.material.file.name}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-if="isOrderAnswer()">
+        <div class="answer-order">
+            <ul as-sortable ng-model="userAnswer">
+                <li data-ng-repeat="answer in $parent.$parent.userAnswer" as-sortable-item>
+                    <div as-sortable-item-handle>
+                        <div>{{answer.name}}</div>
+                        <div>
+                            <img ng-if="answer.material && answer.material.type == materialTypeEnum.image"
+                                 style="width:100%;"
+                                 ng-src="{{downloadFileUrl}}/{{answer.material.file.id}}"
+                                 title="{{answer.material.file.name}}"
+                                 alt="{{answer.material.file.name}}"/>
+                            <div ng-if="answer.material && answer.material.type == materialTypeEnum.video">
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'video/mp4'}]"
+                                            vg-tracks="config.tracks">
+                                    </vg-media>
+                                    <vg-controls vg-autohide="config.plugins.controls.autoHide"
+                                                 vg-autohide-time="config.plugins.controls.autoHideTime">
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                            <vg-volume-bar></vg-volume-bar>
+                                        </vg-volume>
+                                        <vg-fullscreen-button></vg-fullscreen-button>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                            <div ng-if="answer.material && answer.material.type == materialTypeEnum.audio">
+                                <videogular
+                                        vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'"
+                                        class="videogular-container audio">
+                                    <vg-media
+                                            vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+answer.material.file.id), type: 'audio/mpeg'}]"
+                                            vg-type="audio"></vg-media>
+
+                                    <vg-controls>
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                        </vg-volume>
+                                    </vg-controls>
+                                </videogular>
+                            </div>
+                            <a ng-if="answer.material && answer.material.type == materialTypeEnum.document"
+                               href="{{downloadFileUrl+'/'+answer.material.file.id}}" target="_blank">{{answer.material.file.name}}</a>
+                            <a ng-if="answer.material && answer.material.type == materialTypeEnum.link"
+                               href="{{answer.material.url}}" target="_blank">{{answer.material.url}}</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

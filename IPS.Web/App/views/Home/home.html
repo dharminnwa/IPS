@@ -1,0 +1,41 @@
+<div pane name="home" ng-init="init()">
+
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a ng-click="selectMenu(null)" href="javascript:;">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li ng-repeat="menuItem in parentItems">
+                <a ng-click="selectMenu(menuItem)" href="javascript:;">{{menuItem.text | translate}}</a>
+                <i class="fa fa-circle"></i>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-3" ng-show="isHavePermitions(menuItem.resource)" ng-repeat="menuItem in menuItems | filter:filterMenu">
+            <a href="javascript:;" ng-click="selectMenu(menuItem)">
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-body">
+                        <div class="mt-element-step">
+                            <div class="row step-default">
+                                <div class="col-md-12 bg-grey mt-step-col active">
+                                    <div class="mt-step-number first font-grey">
+                                        <i ng-class="menuItem.icon" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">
+                                        {{menuItem.text | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section ui-view></section>

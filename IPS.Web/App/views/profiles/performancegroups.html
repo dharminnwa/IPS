@@ -1,0 +1,293 @@
+﻿<div class="row">
+    <section class="portlet-light portlet-light-box">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <div class="card new-soft-profile-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/profile/{{performanceGroup.profileId}}" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    {{'MYPROJECTS_PROFILE_SETUP' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="javascript:;" data-target="#PerformanceGroups" aria-controls="PerformanceGroups" role="tab">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>{{'COMMON_PERFORMANCE_GROUP' | translate}} - {{'COMMON_SKILL' | translate}} - {{'SOFTPROFILE_QUESTIONS' | translate}} - {{'SOFTPROFILE_TRAININGS' | translate}}</span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/{{performanceGroup.profileId}}/milestones" class="middleText" role="tab" ng-disabled="(!((profileId > 0) && (performanceGroups.length > 0)))">
+                                <span>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    {{'SOFTPROFILE_SEND_OUTS' | translate }}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="PerformanceGroups">
+                            <div class="row">
+                                <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable mt-6">
+                                    <div id="wid-id-0">
+                                        <!-- widget div-->
+                                        <div role="contentinfo">
+                                            <!-- widget content -->
+                                            <div class="widget-body">
+                                                <div class="row">
+
+                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                        <div class="form-bootstrapWizard">
+                                                            <ul class="bootstrapWizard form-wizard">
+                                                                <li class="active" data-target="#performanceGroups" data-toggle="tab">
+                                                                    <a href="#/home/{{profileUrlModifier}}/{{performanceGroup.profileId}}/performancegroups" class="active" aria-expanded="true">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'COMMON_PERFORMANCE_GROUPS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{performanceGroup.profileId}}/skills" aria-expanded="true" ng-click="gotoSkills()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_SKILLS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="javascript:;" datahref="#/home/{{profileUrlModifier}}/{{profileId}}/questions" aria-expanded="true" ng-disabled="(!((profileId > 0) && (performanceGroups.length > 0)))" ng-click="gotoQuestions()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_QUESTIONS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/trainings" aria-expanded="true" ng-disabled="(!((profileId > 0) && (performanceGroups.length > 0)))" ng-click="gotoTrainings()">
+                                                                        <span class="step">
+                                                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'SOFTPROFILE_TRAININGS' | translate }}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="performanceGroups">
+
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="row">
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="addperformancegroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header pop-up-header">
+                                                                                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                                                                                {{'MYPROJECTS_PLEASE_ADD_NEW_PERFORMANCE_GROUP' | translate }}
+                                                                                            </h5>
+                                                                                            <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                                <span aria-hidden="true">×</span>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <ng-form name="formPerformanceGroup">
+                                                                                                <div class="form-group">
+                                                                                                    <label for="exampleInputEmail1">
+                                                                                                        {{'MYPROJECTS_PERFORMANCE_GROUP_NAME' | translate }}
+                                                                                                    </label>
+                                                                                                    <span class="required" ng-show="formPerformanceGroup.name.$dirty && formPerformanceGroup.name.$error.required"> * </span>
+                                                                                                    <input type="text" class="form-control" placeholder="Enter Group Name" name="name" ng-model="performanceGroup.name" ng-required="true">
+
+                                                                                                </div>
+
+                                                                                                <div class="form-group">
+                                                                                                    <label class="col-md-3 control-label">
+                                                                                                        {{'COMMON_DESCRIPTION' | translate }}
+                                                                                                    </label>
+                                                                                                    <span class="required" ng-show="formPerformanceGroup.description.$dirty && formPerformanceGroup.description.$error.required"> * </span>
+                                                                                                    <textarea class="form-control" placeholder="Enter description" name="description" ng-model="performanceGroup.description" ng-required="true"></textarea>
+                                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <div class="form-check">
+                                                                                                        <label class="mt-checkbox mt-checkbox-outline dark">
+                                                                                                            <input type="checkbox" name="remember" ng-model="performanceGroup.isActive">
+                                                                                                            {{'COMMON_IS_ACTIVE' | translate }}
+                                                                                                            <span></span>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <div class="form-check">
+                                                                                                        <label class="mt-checkbox mt-checkbox-outline dark">
+                                                                                                            <input type="checkbox" name="remember" ng-model="performanceGroup.isTemplate">
+                                                                                                            {{'COMMON_IS_TEMPLATE' | translate }}
+                                                                                                            <span></span>
+                                                                                                        </label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </ng-form>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button class="btn btn-cstm" type="button" ng-click="addNewPerformanceGroup()">
+                                                                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                                                {{'COMMON_ADD' | translate}}
+                                                                                            </button>
+                                                                                            <button type="button" class="btn btn-secondary btn-cstm" data-dismiss="modal">
+                                                                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                                                                {{'COMMON_CANCEL' | translate}}
+                                                                                            </button>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div id="performanceGroupTemplateModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header pop-up-header">
+                                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                                            {{'MYPROJECTS_PLEASE_SELECT_ANY_PERFORMANCE_GROUP' | translate }}
+                                                                                        </h5>
+                                                                                        <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                            <span aria-hidden="true">×</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div id="example">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12 mt-5" ng-hide="pgTemplates.length > 0">{{'MYPROJECTS_NO_ANY_PERFORMANCE_GROUP_TEMPLATE_RELATED_TO_YOUR_PROJECT' | translate }} </div>
+                                                                                            <div class="col-md-12 mt-5">
+                                                                                                <div id="pgTemplateGrid" kendo-grid k-options="pgTemplateGridOptions" k-rebind="pgTemplateGridOptions.selectable"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="viewPerformanceGroupModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-lg">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                        <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PERFORMANCE_GROUP_DETAIL' | translate }}</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <div class="container-fluid">
+                                                                                            <div class="row">
+                                                                                                <ng-form class="form-horizontal" name="formPerformanceGroupView" action="#" id="formPerformanceGroupView" novalidate="novalidate">
+                                                                                                    <div class="col-sm-12">
+                                                                                                        <div class="form-group">
+                                                                                                            <label class="col-md-3 control-label">
+                                                                                                                {{'MYPROJECTS_PERFORMANCE_GROUP_NAME' | translate }}
+                                                                                                            </label>
+
+                                                                                                            <div class="col-md-4">
+                                                                                                                <input type="text" class="form-control" placeholder="Enter Group Name" name="name" ng-model="performanceGroupView.name" ng-readonly="true">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+
+                                                                                                    <div class="col-sm-12">
+                                                                                                        <div class="form-group">
+                                                                                                            <label class="col-md-3 control-label">
+                                                                                                                {{'COMMON_DESCRIPTION' | translate }}
+                                                                                                            </label>
+
+                                                                                                            <div class="col-md-4">
+                                                                                                                <textarea class="form-control" placeholder="Enter description" name="description" ng-model="performanceGroupView.description" ng-readonly="true"></textarea>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+
+
+                                                                                                    <div class="col-sm-12">
+                                                                                                        <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelPerformanceGroup()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                                    </div>
+                                                                                                </ng-form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row tab-header header-blue mt-5">
+                                                                    <div class="col-lg-4">
+                                                                        <h3>
+                                                                            {{'COMMON_PERFORMANCE_GROUPS' | translate }}
+                                                                        </h3>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 mt-5">
+                                                                        <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="openPerformancegroup(0)">
+                                                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                            {{'MYPROJECTS_NEW_PERFORMANCE_GROUP' | translate }}
+                                                                        </a>
+                                                                        <div class="tab-search pull-right">
+                                                                            <a href="javascript:;" ng-click="openSearchPerformanceGroupModal()" data-toggle="modal" data-target=".pgt">
+                                                                                <i class="fa fa-search" aria-hidden="true"></i> {{'COMMON_SEARCH' | translate }}
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row grid-overflow">
+                                                                    <div class="col-md-12 mt-5">
+                                                                        <div>
+                                                                            <kendo-tooltip options="tooltipOptions">
+                                                                                <div kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable"></div>
+                                                                            </kendo-tooltip>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row m-0">
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="#/home/{{profileUrlModifier}}/profile/{{performanceGroup.profileId}}" class="btn btn-cstm pull-right">
+                                                                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                                            {{'COMMON_BACK' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="javascript:;" data-href="#/home/{{profileUrlModifier}}/{{performanceGroup.profileId}}/skills" class="btn dropdown-toggle btn-cstm" ng-disabled="(!((profileId > 0) && (performanceGroups.length > 0)))" ng-click="gotoSkills()">
+                                                                            {{'COMMON_NEXT' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

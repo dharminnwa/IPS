@@ -1,0 +1,152 @@
+﻿<div pan>
+    <section class="portlet-light header-blue" ng-init="init()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-title">
+                        <a href="javascript:;" ng-click="backtoEmails()">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            {{'EMAIL_BACK_TO_ALL_EMAILS' | translate }}
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portlet-light">
+        <ng-form id="formNewEmail" name="formNewEmail">
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'EMAIL_TO' | translate }}</label>
+                        <!--<input id="toAddress" type="text" class="form-control"
+                               kendo-multi-select
+                               k-options="toAddressOptions"
+                               k-ng-model="selectedToAddress"
+                               name="toAddress"
+                               placeholder="" />-->
+                        <input id="toAddress" type="text" class="form-control"
+                               name="toAddress"
+                               ng-model="selectedToAddress"
+                               placeholder=""
+                               ng-disabled="{{toEmail != null}}" />
+                    </div>
+                    <div class="clearfix">
+                        <span style="color:Red" ng-hide="selectedToAddress.length > 0"> Required! </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'EMAIL_CC' | translate }}</label>
+                        <!--<input id="ccAddress" type="text" class="form-control"
+                        kendo-multi-select
+                        k-options="ccAddressOptions"
+                        k-ng-model="selectedCCAddress"
+                        name="ccAddress"
+                        placeholder="" />-->
+                        <input id="ccAddress" type="text" class="form-control"
+                               name="ccAddress"
+                               ng-model="selectedCCAddress"
+                               placeholder="" />
+                    </div>
+                    <div class="clearfix">
+                        <span style="color:Red" ng-show="formNewEmail.ccAddress.$dirty && formNewEmail.ccAddress.$error.pattern">Please Enter Valid Email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-cstm-lable">BCC</label>
+
+                        <div class="btn-group">
+                            <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                {{selectedBCCCSVFile ? selectedBCCCSVFile : "-- " + ('COMMON_SELECT' | translate) + " --" }}
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li ng-click="changeBCCCSVFile(fileName.value)" ng-repeat="fileName in bccCSVFiles">
+                                    <a href="javascript:;"> {{fileName.value}}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <input id="bccAddress" type="text" class="form-control"
+                               name="bccAddress"
+                               ng-model="selectedBCCAddress"
+                               placeholder="" />
+                        <!--<input id="bccAddress" type="text" class="form-control"
+                        kendo-multi-select
+                        k-options="bccAddressOptions"
+                        k-ng-model="selectedBCCAddress"
+                        ng-model="newEmail.bccAddress"
+                        name="bccAddress"
+                        placeholder="" />-->
+
+                    </div>
+                    <div class="clearfix">
+                        <span style="color:Red" ng-show="formNewEmail.bccAddress.$dirty&&formNewEmail.bccAddress.$error.pattern">Please Enter Valid Email</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'EMAIL_SUBJECT' | translate }}</label>
+                        <input type="text" class="form-control" ng-model="newEmail.subject" name="subject" placeholder="" ng-required="true" />
+                        <span style="color:Red" ng-show="formNewEmail.subject.$error.required"> Required! </span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">{{'EMAIL_MESSAGE' | translate }}</label>
+                        <textarea kendo-editor k-ng-model="newEmail.message" />
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                    <span class="btn btn-cstm fileinput-button">
+                        <i class="fa fa-plus"></i>
+                        <span> Add files... </span>
+                        <input id="attachmentFiles" type="file" name="files[]" multiple="" ngf-select="onFileSelect($files)">
+                    </span>
+                    <!-- The table listing the files available for upload/download -->
+                    <table role="presentation" class="table table-striped margin-top-10">
+                        <tbody class="files">
+                            <tr class="template-download fade in" ng-repeat="uploadItem in emailAttachments">
+                                <td class="name" width="30%">
+                                    <span>{{uploadItem.name}}</span>
+                                </td>
+                                <!--<td class="size" width="40%">
+                                    <span>{{uploadItem.size}}</span>
+                                </td>
+                                <td class="size" width="40%">
+                                    <span>{{uploadItem.}}</span>
+                                </td>-->
+                                <td class="delete" width="10%" align="right">
+                                    <button class="btn default btn-sm" data-type="" data-url="" ng-click="removeAttachment(uploadItem.name)">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="row m-0 pt-1">
+                <button class="btn dropdown-toggle btn-cstm" type="button" ng-click="sendEmail()" ng-disabled="(formNewEmail.$invalid)">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                    {{'EMAIL_SEND' | translate }}
+                </button>
+
+                <button class="btn dropdown-toggle btn-cstm" type="button" ng-click="cancelEmail()">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                    {{'COMMON_CANCEL' | translate }}
+                </button>
+            </div>
+        </ng-form>
+
+    </section>
+
+
+
+
+</div>
+

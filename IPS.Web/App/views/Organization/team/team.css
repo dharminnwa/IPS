@@ -1,0 +1,129 @@
+﻿.create-team .ips-button{
+    margin-top: 10px;
+}
+
+.return-menu .title{
+    display: inline-block;
+}
+
+.return-menu .back-button {
+    background-image: url('../../../images/back-button.png');
+    width: 35px;
+    height: 26px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.required{
+    color: #EB0100;
+}
+
+.team-lead-info .user-avatar{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+}
+
+.users .user-avatar{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.users .team-users{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.users .pagination-button{
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #DEDEDE;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    color: #787878;
+}
+
+.users .pagination-button:hover{
+    background: #8EBC00;
+    color: #ffffff;
+}
+
+.users .pagination-button:active{
+    background: #FF6E19;
+    color: #ffffff;
+}
+
+.users .pagination-button:disabled{
+    background: #E2DCDC;
+    color: #B2ACAC;
+}
+
+.users .team-users li{
+    position:relative;
+    width: 48%;
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+.users .linked-team-users li{
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.users .linked-team-users li:hover{
+    background: #F3F3F3;
+}
+
+.users .team-users .ips-button{
+    float:right;
+}
+
+.users .team-users .position{
+    position:absolute;
+    top: 20px;
+    left: 45px;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.users .apply-button {
+    margin-top: 20px;
+}
+
+.users .pagination, .apply-button{
+    display:inline-block;
+}
+
+.team-users .department-manager {
+    background: #fd780f;
+    position:absolute;
+    top: 25px;
+    left: 45px;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #ffffff;
+}
+
+.team-users .user-name {
+    position:absolute;
+    top: 0px;
+    left: 45px;
+}
+
+.ips-button.primary.cancel {
+    margin-left: 10px;
+}
+
+.users .users-count{
+    font-size: 12px;
+    line-height: 14px;
+}
+

@@ -1,0 +1,10 @@
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\DotNetProjects\IPS\IPS.Data\obj\Release\IPS.Data.csprojResolveAssemblyReference.cache
+D:\DotNetProjects\IPS\IPS.Data\obj\Release\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\obj\Release\IPS.Data.pdb

@@ -1,0 +1,14 @@
+﻿.media-object {
+    height: 50px;
+}
+
+.dropdown-menu-list > li > a {
+    padding: 8px 16px;
+    color: #6f6f6f;
+    text-decoration: none;
+    display: block;
+    clear: both;
+    font-weight: 300;
+    line-height: 18px;
+    white-space: nowrap;
+}

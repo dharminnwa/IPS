@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
+    <_PublishTargetUrl>D:\DotNetProjects\IPSSchedulePublish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>01/29/2015 09:57:28</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.pdb">
+      <publishTime>01/29/2015 09:57:28</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.dll">
+      <publishTime>01/10/2015 21:28:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.pdb">
+      <publishTime>01/10/2015 21:28:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>01/10/2015 21:28:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.pdb">
+      <publishTime>01/10/2015 21:28:30</publishTime>
+    </File>
+    <File Include="bin/DDay.Collections.dll">
+      <publishTime>07/31/2012 20:57:32</publishTime>
+    </File>
+    <File Include="bin/DDay.iCal.dll">
+      <publishTime>08/01/2012 03:09:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>02/16/2018 11:06:10</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>02/16/2018 11:06:11</publishTime>
+    </File>
+    <File Include="bin/IPS.AuthData.dll">
+      <publishTime>10/26/2018 16:25:22</publishTime>
+    </File>
+    <File Include="bin/IPS.AuthData.dll.config">
+      <publishTime>06/06/2018 17:24:38</publishTime>
+    </File>
+    <File Include="bin/IPS.AuthData.pdb">
+      <publishTime>10/26/2018 16:25:22</publishTime>
+    </File>
+    <File Include="bin/IPS.Business.dll">
+      <publishTime>10/26/2018 17:58:49</publishTime>
+    </File>
+    <File Include="bin/IPS.Business.dll.config">
+      <publishTime>10/24/2018 16:44:59</publishTime>
+    </File>
+    <File Include="bin/IPS.Business.pdb">
+      <publishTime>10/26/2018 17:58:49</publishTime>
+    </File>
+    <File Include="bin/IPS.BusinessModels.dll">
+      <publishTime>10/26/2018 16:25:23</publishTime>
+    </File>
+    <File Include="bin/IPS.BusinessModels.dll.config">
+      <publishTime>05/10/2018 14:41:30</publishTime>
+    </File>
+    <File Include="bin/IPS.BusinessModels.pdb">
+      <publishTime>10/26/2018 16:25:23</publishTime>
+    </File>
+    <File Include="bin/IPS.Data.dll">
+      <publishTime>10/26/2018 16:25:22</publishTime>
+    </File>
+    <File Include="bin/IPS.Data.dll.config">
+      <publishTime>10/24/2018 16:45:09</publishTime>
+    </File>
+    <File Include="bin/IPS.Data.pdb">
+      <publishTime>10/26/2018 16:25:22</publishTime>
+    </File>
+    <File Include="bin/IPS.Fx.Security.dll">
+      <publishTime>10/01/2018 16:38:57</publishTime>
+    </File>
+    <File Include="bin/IPS.Fx.Security.dll.config">
+      <publishTime>10/16/2018 17:40:53</publishTime>
+    </File>
+    <File Include="bin/IPS.Fx.Security.pdb">
+      <publishTime>10/01/2018 16:38:57</publishTime>
+    </File>
+    <File Include="bin/IPSScheduler.dll">
+      <publishTime>10/26/2018 17:58:51</publishTime>
+    </File>
+    <File Include="bin/IPSScheduler.pdb">
+      <publishTime>10/26/2018 17:58:51</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>11/23/2013 10:04:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>02/16/2018 11:06:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>02/16/2018 11:06:10</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/11/2015 19:54:54</publishTime>
+    </File>
+    <File Include="bin/Quartz.dll">
+      <publishTime>03/30/2015 16:27:50</publishTime>
+    </File>
+    <File Include="bin/Quartz.pdb">
+      <publishTime>03/30/2015 16:27:50</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>11/13/2014 14:40:34</publishTime>
+    </File>
+    <File Include="bin/Twilio.Api.dll">
+      <publishTime>05/20/2015 20:23:46</publishTime>
+    </File>
+    <File Include="bin/Twilio.Api.pdb">
+      <publishTime>05/20/2015 20:23:46</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/09/2017 14:22:39</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>02/16/2018 11:06:09</publishTime>
+    </File>
+    <File Include="ping.aspx">
+      <publishTime>12/09/2017 14:22:39</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/26/2018 16:25:26</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

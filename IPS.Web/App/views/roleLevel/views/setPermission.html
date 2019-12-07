@@ -1,0 +1,114 @@
+﻿
+<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'LEFTMENU_SET_ROLE_LEVEL_PERMISSION' | translate }}</span> &nbsp;
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-lg-6">
+            <label>{{'COMMON_ORGANIZATION' | translate }}</label>
+            <select class="form-control" ng-model="roleLevel.organizationId" ng-options="obj.id as obj.name for obj in organizations" ng-change="organizationChanged()"></select>
+        </div>
+        <div class="col-lg-6">
+            <label>{{'LEFTMENU_ROLE_LEVELS' | translate }}</label>
+            <select class="form-control" ng-model="roleLevel.roleLevelId" ng-options="obj.id as obj.name for obj in roleLevels" ng-change="roleLevelChanged()"></select>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="portlet box">
+        <div class="row">
+            <form class="form-horizontal form-row-seperated" action="#">
+                <div class="tabbable-bordered">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="javascript:;" data-toggle="tab" data-target="#tab_roles">{{'ROLELEVEL_ROLES' | translate }}</a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;" data-toggle="tab" data-target="#tab_default">{{'ROLELEVEL_RESOURCE_PERMISSIONS' | translate }}</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="tab" data-target="#tab_advance">{{'ROLELEVEL_ADVANCE_PERMISSIONS' | translate }}</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="tab" data-target="#tab_ResourceTree">{{'ROLELEVEL_RESOURCE_PERMISSIONS' | translate }} Tree</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_roles">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-4 col-xs-12" ng-repeat="role in roles">
+                                    <div class="mt-element-ribbon bg-grey-steel">
+                                        <div class="ribbon ribbon-color-default uppercase">{{role.roleLevel}}</div>
+                                        <p class="ribbon-content">{{role.name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_default">
+                            <label>{{'ROLELEVEL_SELECT_FROM_TEMPLATE' | translate }}</label>
+                            <select class="form-control" ng-model="permissionTemplateId" ng-options="obj.id as obj.name for obj in permissionTemplates" ng-change="permissionTemplatesChange()"></select>
+                            <div class="table-container">
+                                <table class="table  table-hover" id="datatable_reviews">
+                                    <thead>
+                                        <tr role="row" class="heading">
+                                            <th>{{'ROLELEVEL_RESOURCE' | translate }}</th>
+                                            <th ng-repeat="operation in operations">
+                                                <label class="mt-checkbox mt-checkbox-outline margin-left-10">
+                                                    <input type="checkbox" class="chkAll" ng-click="checkkAll(operation.id,$event)">
+                                                    <span></span>
+                                                </label>
+                                                {{operation.name}}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="resource in resources" role="row" class="filter">
+                                            <td>
+                                                {{resource.name}}
+                                            </td>
+                                            <td ng-repeat="operation in operations" data-resourceId="{{resource.id}}" data-operationId="{{operation.id}}" class="chkPermissionTD">
+                                                <label class="mt-checkbox mt-checkbox-outline margin-left-10">
+                                                    <input type="checkbox" class="chkPermission" data-resourceId="{{resource.id}}" data-operationId="{{operation.id}}" ng-click="setRoleLevelPermission(resource.id,operation.id,$event)">
+                                                    <span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <span class="btn btn-cstm" ng-click="saveRoleLevelPermission()">{{'COMMON_SAVE' | translate }}</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_advance">
+                            <div class="table-container">
+                                <div class="form-group">
+                                    <label>{{'ROLELEVEL_PERMISSIONS' | translate }}</label>
+                                    <select class="form-control" ng-model="permissionLevelId" ng-options="obj.id as obj.name for obj in permissionsLevels"></select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <span class="btn btn-cstm" ng-click="saveAdvancePermission()">{{'COMMON_SAVE' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab_ResourceTree" class="tab-pane">
+                            <div class="row">
+                                <div id="permission-treeview"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+

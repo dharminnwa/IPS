@@ -1,0 +1,864 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+a {
+    cursor: pointer;
+}
+
+    a:focus, a:hover {
+        text-decoration: none;
+    }
+
+.db_topSec {
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0px;
+    margin: 20px 0px 10px 0px;
+}
+
+.db_topLink {
+    display: block;
+}
+
+.db_topBox {
+    position: relative;
+    padding: 12px 10px 23px 10px;
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.db_blue {
+    background-color: #3598dc;
+}
+
+.db_red {
+    background-color: #e7505a;
+}
+
+.db_green {
+    background-color: #32c5d2;
+}
+
+.db_purple {
+    background-color: #8E44AD;
+}
+
+
+.db_topFa {
+    font-size: 75px !important;
+    color: rgba(255, 255, 255, 0.29);
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+}
+
+.db_toptext {
+    float: right;
+    text-align: right;
+}
+
+.text1 {
+    display: block;
+    font-size: 40px;
+}
+
+.textTitle {
+    font-size: 17px;
+}
+
+
+
+/*Start task and Activity System*/
+
+.Red {
+    background-color: #ed6b75 !important;
+}
+
+.Green {
+    background-color: #36c6d3 !important;
+}
+
+.Yellow {
+    background-color: #F1C40F !important;
+}
+
+
+.db_ta_div {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.db_ta_Box {
+    border: 1px solid #E8F0F2;
+    padding: 15px;
+    display: inline-block;
+    width: 100%;
+    min-height: 601px;
+}
+
+.db_ta_head {
+    border-bottom: 1px solid #E8F0F2;
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+.db_ta_headText {
+    margin: 0;
+    font-size: 18px;
+    display: inline-block;
+    text-transform: capitalize;
+    color: #0E406B;
+    margin-bottom: 15px;
+}
+
+
+.taskDay {
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0E406B;
+}
+
+    .taskDay::after {
+    }
+
+.db_ta_table {
+}
+
+.db_ta_thead {
+    background-color: #f5f6f5;
+    text-align: center;
+    margin: auto;
+    font-size: 13px;
+    color: #555;
+}
+
+.db_ta_tbody tr td {
+    vertical-align: middle;
+}
+
+.tabTime, .tabPrio {
+    vertical-align: middle;
+}
+
+.ta_thead_title::after {
+}
+
+.ta_thead_title {
+    border-right: 1px solid #D2D2D2;
+    width: 60%;
+    text-align: center;
+}
+
+.ta_thead_time {
+    border-right: 1px solid #999;
+    width: 20%;
+    text-align: center;
+}
+
+    .ta_thead_time .fa {
+        font-size: 20px;
+    }
+
+.ta_thead_prio {
+    width: 20%;
+    text-align: center;
+}
+
+.db_ta_tbody tr td {
+    position: relative;
+}
+
+.db_ta_tbody {
+}
+
+.db_ta_tbl_fa {
+    font-size: 21px !important;
+    position: absolute;
+    left: 3px;
+    top: 11px;
+    color: #E0A416;
+}
+
+.db_ta_tbl_Title {
+    margin-left: 20px;
+    font-size: 17px;
+    color: #333;
+}
+
+.db_ta_tbl_para {
+    margin-left: 21px;
+    font-size: 13px;
+    color: #666;
+}
+
+.db_ta_tbl_time {
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.priorotySpan {
+    text-align: center;
+    padding: 3px 5px;
+    background-color: #11C038;
+    border-radius: 2px;
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    font-family: helvetica;
+}
+
+    .priorotySpan .fa {
+        font-size: 13px;
+        margin-right: 3px;
+    }
+
+.taskH {
+    height: 450px;
+    overflow: auto;
+}
+
+.allRecord {
+    float: right;
+    margin-top: 9px;
+    background-color: #126AA2;
+    color: #fff !important;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin-right: 1px;
+}
+
+.db_hr {
+    margin: 20px 0px 5px 0px;
+}
+
+.db_ta_tbody tr {
+}
+
+
+.db_ta_drop {
+    float: right;
+}
+
+.db_ta_Btn {
+    border: 1px solid #3598dc;
+    border-radius: 22px;
+    background-color: #3598dc;
+    color: #fff;
+    padding: 2px 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+    .db_ta_Btn:hover {
+        background-color: #fff;
+        color: #3598dc !important;
+    }
+
+
+    .db_ta_Btn:focus {
+        color: #ffffff;
+    }
+
+
+
+    .db_ta_Btn .caret {
+        margin-left: 5px;
+    }
+
+.db_ta_ul {
+    display: inline-block;
+    width: 100%;
+}
+
+.db_ta_li {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+    border-bottom: 1px solid #E9E9E9;
+    padding: 12px 5px 12px 5px;
+}
+
+.db_ta_check {
+    position: absolute;
+}
+
+.db_ta_para {
+    margin-left: 21px;
+    font-size: 13px;
+    color: #666;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.db_ta_tag {
+    background-color: #999;
+    padding: 4px 9px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.addtsk_btn {
+    border: 0;
+    background-color: #11C038;
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 12px;
+    float: left;
+    border-radius: 3px;
+    margin-top: 7px;
+    font-weight: 600;
+    border: 1px solid #11C038;
+}
+
+    .addtsk_btn:hover {
+        background-color: #FFF;
+        color: #11C038;
+    }
+
+.db_ta_li:hover {
+    background-color: #EFEFEF;
+}
+
+.lightGray {
+    background-color: #bac3d0 !important;
+}
+
+.db_ta_Btn .dropdown-menu {
+    top: 26px;
+    left: -60px;
+    padding: 9px 5px;
+    height: auto !important;
+}
+
+    .db_ta_Btn .dropdown-menu li {
+        position: relative;
+    }
+
+        .db_ta_Btn .dropdown-menu li .db_ta_check {
+        }
+
+
+/*End task and Activity System*/
+
+/*Start Profile Search Section*/
+
+
+.searchDiv {
+    width: 100%;
+    position: relative;
+    height: 40px;
+    margin-bottom: -7px;
+}
+
+.inputSearch {
+    width: 100%;
+    height: 100%;
+    padding: 0px 105px 0px 2px;
+    color: #606060;
+    border: 1px solid #EAEAEA;
+}
+
+.btnSearch {
+    position: absolute;
+    right: 0px;
+    border: 0;
+    background-color: #EFBD12;
+    height: 100%;
+    width: 100px;
+    color: #fff;
+    font-family: helvetica;
+    font-weight: 600;
+}
+
+.profileSec {
+    border: 1px solid #E8F0F2;
+    margin-top: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+    .profileSec .db_ta_headText {
+        float: left;
+        width: 100%;
+        padding-left: 15px;
+    }
+
+.p_abt {
+    color: #888;
+}
+
+.p_userName {
+    color: #ff6e19;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.sale-summaryDiv {
+    padding: 5px;
+}
+
+.salesum_Title {
+    color: rgb(237, 105, 62);
+    font-size: 23px;
+}
+
+.sale-summary {
+}
+
+.saleTitle_Div {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 2px;
+}
+
+    .saleTitle_Div .fa {
+        float: right;
+        margin-top: 10px;
+        font-size: 22px;
+        color: rgb(20, 84, 215);
+    }
+
+.summaryUL {
+}
+
+.profile-nav li img {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+
+.summaryLI {
+    padding: 7px 0px;
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.sale-info {
+    color: #666;
+    font-size: 12px;
+}
+
+.sale-num {
+    float: right;
+    font-weight: 600;
+    color: #666;
+}
+
+.list-inline {
+    color: rgb(89, 89, 89);
+}
+
+    .list-inline li {
+        margin-right: 17px;
+        color: #777;
+        font-size: 13px;
+    }
+
+.nav-tabs {
+    height: 46px;
+}
+
+    .nav-tabs > li {
+        border-bottom: 4px solid transparent;
+        margin-bottom: -2px;
+    }
+
+        .nav-tabs > li > a {
+            margin-right: 2px;
+            line-height: 1.42857143;
+            border-radius: 4px 4px 0 0;
+            color: #555;
+            border-radius: 0px;
+            transition: all 0.2s ease 0s
+        }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            color: #ff6e19;
+            cursor: default;
+            border: 0px;
+            background-color: #fff;
+            border-radius: 0;
+            outline: none;
+            border-bottom: 4px solid #ff6e19;
+        }
+
+        .nav-tabs > li > a:hover {
+            color: #ff6e19;
+            border: 0px;
+            border-bottom: 4px solid #ff6e19;
+            background-color: transparent;
+        }
+
+.lc_table {
+}
+
+.lc_thead {
+    background-color: rgb(241, 248, 251);
+    color: rgb(102, 102, 102);
+    font-size: 13px;
+}
+
+    .lc_thead tr th {
+        padding-top: 11px !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+.lc_table tbody tr td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ebf2f5;
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.lc_table tbody tr:hover {
+    background-color: #f1f8fb;
+}
+
+.grey-salsa {
+    border: 1px solid #BECED4;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+    background-color: #E3ECEF;
+    color: #696969;
+}
+
+.feeds {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.feedsli {
+    position: relative;
+    background-color: #F6F6F6;
+    padding: 7px 15px 0px 3px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.feedsicons {
+    position: absolute;
+    background-color: #999;
+    font-size: 14px;
+    padding: 5px;
+    left: 5px;
+    top: 6px;
+    color: #fff;
+}
+
+    .feedsicons fa {
+    }
+
+.feedPara {
+    padding-left: 33px;
+    font-size: 13px;
+    color: #666;
+    display: inline-block;
+}
+
+.actionTag {
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+
+.feedsJust {
+    float: right;
+    color: #999;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/*Start Profile Search Section*/
+
+/*Start Profile Search Section*/
+.calmainDiv {
+    border: 0px solid #999;
+    border: 0px solid #999;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+
+.hasDatepicker {
+}
+
+.slimScrollBar {
+    background: rgb(107, 107, 107) none repeat scroll 0% 0% !important;
+}
+
+#myChart {
+    width: 89% !important;
+    text-align: center;
+    margin: auto;
+    height: auto !important;
+}
+
+.canvasjs-chart-canvas {
+    width: 100%;
+}
+
+
+/*End Profile Search Section*/
+#taskRatingStars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0 50px 20px;
+}
+
+    #taskRatingStars li {
+        float: left;
+        width: 25px;
+        height: 1px;
+        position: relative;
+    }
+
+        #taskRatingStars li label {
+            border: none !important;
+            font-size: 22px !important;
+            color: #8a8a8a;
+            padding: 10px !important;
+        }
+
+        #taskRatingStars li.hover label, #taskRatingStars li.selected label {
+            color: #ff780a;
+        }
+
+
+#actvityRatingStars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0 50px 20px;
+}
+
+    #actvityRatingStars li {
+        float: left;
+        width: 50px;
+        height: 1px;
+        position: relative;
+    }
+
+        #actvityRatingStars li label {
+            border: none !important;
+            font-size: 45px !important;
+            color: #8a8a8a;
+            padding: 10px !important;
+        }
+
+        #actvityRatingStars li.hover label, #actvityRatingStars li.selected label {
+            color: #ff780a;
+        }
+
+@media (max-width:768px) {
+    .dashboard-stat .details {
+        padding-right: 0px !important;
+        text-align: center !important;
+        right: 0px !important;
+    }
+
+        .dashboard-stat .details .desc, .dashboard-stat .details .number {
+            font-size: 15px !important;
+            text-align: center !important;
+        }
+}
+
+@media (max-width:399px) {
+    .task-list .task-title .label {
+        font-size: 12px;
+    }
+
+    .dashboard-stat .details .desc, .dashboard-stat .details .number {
+        font-size: 14px !important;
+    }
+}
+
+.gauge-container {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    background: transparent url("/../../images/dashboard/gauge-container-partial.png") no-repeat 50% 50%;
+    background-size: 250px;
+}
+
+.gaugeDiv {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.gaugeValue {
+    margin-top: -25px;
+    width: 100%;
+    text-align: center;
+}
+
+.prospectingCustomerGrid .k-grid-header th.k-header > .k-link {
+    font-size: 9px !important;
+}
+
+.prospectingCustomerGrid .k-grid tr td {
+    font-size: 9px !important;
+}
+
+.btn-group > .dropdown-menu {
+    max-height: 200px;
+    overflow: scroll;
+}
+
+.clock-sm {
+    max-width: 230px !important;
+}
+
+.mt-widget-1 .mt-body .mt-stats {
+    margin-top: 1px !important;
+}
+
+.mt-widget-1 .mt-body .mt-username {
+    font-size: 12px !important;
+}
+
+.goals-caption-helper .popover {
+    max-width: 330px !important;
+}
+
+.mt-actions .mt-action .mt-action-img > img {
+    height: 40px;
+}
+
+#searchedUserDiv .mt-actions .mt-action .mt-action-body .mt-action-row .mt-action-datetime {
+    width: 250px !important;
+}
+
+#searchedUserDiv .mt-actions .mt-action .mt-action-body .mt-action-row .mt-action-buttons {
+    width: 200px !important;
+}
+
+#home_gauge-container {
+    background: transparent url(../../images/dashboard/gauge-container-partial.png) no-repeat 50% 50%;
+    width: 386px;
+    height: 386px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+
+#home_gauge_total_score, #home_compare_gauge_total_score {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#home_gauge_total_score_compare, #home_compare_gauge_total_score_compare {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+#home_gauge-container-small {
+    background: transparent url("../../images/dashboard/gauge-container-partial.png") no-repeat 50% 50%;
+    width: 268px;
+    height: 268px;
+    background-size: 268px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+
+#home_gauge_total_strong, #home_gauge_total_weak, #home_compare_gauge_total_strong, #home_compare_gauge_total_weak {
+    width: 260px;
+    height: 190px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+#home_gauge_total_strong_compare, #home_gauge_total_weak_compare, #home_compare_gauge_total_strong_compare, #home_compare_gauge_total_weak_compare {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+
+.easy-pie-chart .number {
+    font-size: 14px !important;
+    position: relative;
+    text-align: center;
+    height: 75px;
+    line-height: 75px
+}
+
+    .easy-pie-chart .number canvas {
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+
+.easy-pie-chart {
+    text-align: center
+}
+
+    .easy-pie-chart .number {
+        font-weight: 300;
+        width: 85px;
+        margin: 0 auto
+    }
+
+    .easy-pie-chart .title {
+        display: block;
+        text-align: center;
+        color: #333;
+        font-weight: 300;
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 10px
+    }
+
+        .easy-pie-chart .title:hover {
+            color: #666;
+            text-decoration: none
+        }
+
+        .easy-pie-chart .title > i {
+            margin-top: 5px
+        }
+
+.mt-widget-1 .mt-body .mt-body-stats {
+    padding: 0;
+}
+
+    .mt-widget-1 .mt-body .mt-body-stats > li {
+        margin: 0px 15px;
+        list-style: none;
+        display: inline-block;
+    }
+
+.weakkpitimeprogressbar, .strongkpitimeprogressbar {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border-radius: 10px;
+    background-position: 50% 50%;
+    background-color: #f3f3f4;
+}
+
+label.selected {
+    color: #ff780a;
+}

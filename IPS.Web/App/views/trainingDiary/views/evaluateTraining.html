@@ -1,0 +1,332 @@
+﻿<div class="row">
+    <div class="col-lg-12" ng-init="init()">
+
+    </div>
+    <div class="col-lg-12">
+        <form action="#" class="form-horizontal">
+
+
+            <!-- TASK HEAD -->
+            <div class="form">
+
+                <!-- TASK TITLE -->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label font-ips bold">{{'COMMON_TRAINING_TITLE' | translate }}</label>
+                        <div class=" todo-taskbody-tasktitle"><span>{{training.name}}</span></div>
+                    </div>
+                </div>
+                <!-- TASK DESC -->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label font-ips bold">{{'COMMON_DESCRIPTION' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle"><span>{{training.description}}</span></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label font-ips bold">{{'COMMON_TRAINING_TYPE' | translate }}</label>
+                        <div class=" todo-taskbody-tasktitle"><span>{{training.trainingType.name}}</span></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_WHY' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span>{{training.why}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_WHAT' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span>{{training.what}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_HOW' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span>{{training.how}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_ADDITIONAL_INFO' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span>{{training.additionalInfo}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TASK DESC -->
+                <!-- TASK DUE DATE -->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="control-label font-ips bold">{{'COMMON_TRAINING_PERIOD' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span>
+                                <i class="fa fa-calendar"></i>
+                                {{training.startDate | date:'MM/dd/yyyy HH:mm'}}
+                                {{'COMMON_TO' | translate }}
+                                {{training.endDate | date:'MM/dd/yyyy HH:mm'}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_SKILL' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle" ng-repeat="skill in training.skills">
+                            <span>  {{skill.name}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label font-ips bold">{{'COMMON_LEVEL' | translate }}</label>
+                        <div class="todo-taskbody-tasktitle">
+                            <span> {{training.trainingLevel.name}}</span>
+                        </div>
+                    </div>
+
+                    <!--<textarea class="form-control todo-taskbody-taskdesc" rows="8" placeholder="Task Description..." ng-model="{{training.description}}"></textarea>-->
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label class="control-label font-ips bold">{{'COMMON_TRAINING_TYPE' | translate }}</label>
+                    <div class="todo-taskbody-tasktitle">
+                        <span> {{training.trainingType.name}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label font-ips bold">{{'COMMON_DURATION' | translate }}</label>
+                    <div class="todo-taskbody-tasktitle">
+                        <span>{{training.duration}}  {{training.durationMetric.name}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-12">
+                    <label class="control-label font-ips bold">{{'COMMON_EXERCISE_METRIC' | translate }}</label>
+                    <div class="todo-taskbody-tasktitle">
+                        <span> {{'COMMON_HOW_MUCH_OR_MANY' | translate }} :  </span>
+                    </div>
+                    <div class="todo-taskbody-tasktitle">
+                        <span>
+                            {{'COMMON_HOW_MANY_SET' | translate }} :  {{training.howManySets}}
+                        </span>
+                    </div>
+                    <div class="todo-taskbody-tasktitle">
+                        <span> {{'COMMON_HOW_MANY_ACTIONS' | translate }} :  {{training.howManyActions}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs ">
+                    <li class="active" ng-click="startTrainingTabChange('Activity')">
+                        <a href="javascript:;" data-target="#tab_TrainingActivity" data-toggle="tab"> {{'TRAININGDAIRY_PARTICIPANT_ACTIVITY' | translate }} </a>
+                    </li>
+                    <li class="" ng-click="startTrainingTabChange('Training Material')">
+                        <a href="javascript:;" data-target="#tab_TrainingMaterial" data-toggle="tab"> {{'TRAININGDAIRY_TRAINING_MATERIAL' | translate }} </a>
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" id="tab_TrainingMaterial">
+                        <div class="portfolio-content portfolio-1" ng-show="training.trainingMaterials.length > 0">
+                            <div id="training-material-filters" class="cbp-l-filters-button">
+                                <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_ALL' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                                <div data-filter=".tm-video" class="cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_VIDEO' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                                <div data-filter=".tm-image" class="cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_IMAGE' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                                <div data-filter=".tm-audio" class="cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_AUDIO' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                                <div data-filter=".tm-document" class="cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_DOCUMENT' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                                <div data-filter=".tm-link" class="cbp-filter-item btn dark btn-outline uppercase">
+                                    {{'COMMON_LINK' | translate }}
+                                    <div class="cbp-filter-counter"></div>
+                                </div>
+                            </div>
+                            <div id="training-material" class="cbp">
+                                <div class="cbp-item" ng-repeat="material in training.trainingMaterials" ng-class="trainingMaterialClass(material.materialType,material.name,material.link)">
+                                    <div class="cbp-caption">
+                                        <div class="cbp-caption-defaultWrap">
+                                            <img ng-src="{{material.materialType =='Video'?'images/tm-video.png':material.materialType =='Document' ?'images/tm-document.png': material.materialType =='Audio'?'images/tm-audio.png' : material.materialType =='Image'? 'images/tm-image.png':'images/tm-url.png'}}">
+                                        </div>
+                                        <div class="cbp-caption-activeWrap">
+                                            <div class="cbp-l-caption-alignCenter">
+                                                <div class="cbp-l-caption-body">
+                                                    <a id="{{material.id}}" data-link="{{material.link}}" data-name={{material.name}} href="{{material.link}}" class="cbp-singlePage cbp-l-caption-buttonLeft btn red uppercase btn red uppercase">{{'COMMON_MORE_INFO' | translate }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">{{material.title}}</div>
+                                    <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center">{{material.skill}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="training.trainingMaterials.length > 0">
+                            <h4 class="error">{{'TRAININGDAIRY_NO_TRAINING_MATERIAL_FOR_THIS_TRAINING' | translate }}</h4>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="tab_TrainingActivity">
+                        <div class="col-md-12">
+                            <!-- BEGIN PORTLET -->
+                            <div class="portlet light " ng-show="training.trainingFeedbacks.length > 0">
+                                <div class="portlet-body">
+                                    <div class="row  margin-bottom-20 text-center">
+                                        <span class="btn btn-info" ng-click="Evaluate()"> {{'TRAININGDAIRY_EVALUATE' | translate }} </span>
+                                    </div>
+                                    <div class="row number-stats margin-bottom-30">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="stat-left">
+                                                <div class="stat-chart">
+                                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                                    <div id="sparkline_bar"></div>
+                                                </div>
+                                                <div class="stat-number">
+                                                    <div class="title"> {{'TRAININGDAIRY_TOTAL_MINUTE' | translate }}</div>
+                                                    <div class="number"> {{TotalMinutes}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="stat-right">
+                                                <div class="stat-chart">
+                                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                                    <div id="sparkline_bar2"></div>
+                                                </div>
+                                                <div class="stat-number">
+                                                    <div class="title"> {{'TRAININGDAIRY_AVERAGE_RATING' | translate }}</div>
+                                                    <div class="number"> {{AverageRating}} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-scrollable table-scrollable-borderless">
+                                        <table class="table table-hover table-light">
+                                            <thead>
+                                                <tr class="uppercase">
+                                                    <th> {{'COMMON_START' | translate }}   </th>
+                                                    <th> {{'COMMON_END' | translate }}  </th>
+                                                    <th> {{'TRAININGDAIRY_PARTICIPANT_FEEDBACK_TIME' | translate }}  </th>
+                                                    <th> {{'COMMON_WORKED_WELL' | translate }} </th>
+                                                    <th> {{'COMMON_WORKED_NOT_WELL' | translate }} </th>
+                                                    <th> {{'COMMON_WHAT_NEXT' | translate }}  </th>
+                                                    <th> {{'TRAININGDAIRY_SPENT_MINUTES' | translate }} </th>
+                                                    <th> {{'COMMON_RATING' | translate }} </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="feedback in training.trainingFeedbacks">
+                                                    <td> {{feedback.recurrencesStartTime | date:'yyyy-MM-dd HH:mm'}} </td>
+                                                    <td> {{feedback.recurrencesEndTime | date:'yyyy-MM-dd HH:mm'}} </td>
+                                                    <td> {{feedback.feedbackDateTime | date:'yyyy-MM-dd HH:mm'}} </td>
+                                                    <td> {{feedback.workedWell}} </td>
+                                                    <td> {{feedback.workedNotWell}} </td>
+                                                    <td> {{feedback.whatNextDescription}} </td>
+                                                    <td> {{feedback.timeSpentMinutes}} </td>
+                                                    <td> {{feedback.rating}} </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portlet light" ng-hide="training.trainingFeedbacks.length > 0">
+                                <div class="portlet-title">
+                                    <div class="caption caption-md">
+                                        <span class="caption-subject font-blue-madison bold uppercase">{{'TRAININGDAIRY_NO_ANY_ACTIVITY_FOUND' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PORTLET -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="trainingFeedbackModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'COMMON_EVALUATE_TRAINING' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <form name="trainingFeedBackForm" novalidate>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">{{'COMMON_RATE_YOUR_TRAINING_RESULTS_BASED_ON_5_STARS' | translate }}</label>
+
+                                            <div class="form-group">
+
+                                                <ul id="stars" class="select-group">
+                                                    <li ng-repeat="rate in ratings" ng-mouseover="starMouseHover($event)" ng-mouseleave="starMouseOut($event)" ng-click="starClick($event)" class="star">
+                                                        <label data-value="{{rate.value}}" class="fa fa-star fa-fw" for="rate{{rate.value}}">
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_DESCRIBE_YOUR_RATING' | translate }}: {{'COMMON_WHAT_WORKED_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="trainingFeedBack.workedWell" name="workedWell" ng-required="!trainingFeedBack.workedWell" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_DESCRIBE_YOUR_RATING' | translate }}: {{'COMMON_WHAT_WORKED_NOT_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="trainingFeedBack.workedNotWell" name="workedNotWell" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_WHAT_WILL_YOU_DO_NEXT_TIME' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="trainingFeedBack.whatNextDescription" name="WhatNextDescription" required />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelTraningFeedback()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                    <button class="btn btn-cstm primary pull-right" ng-click="saveTraningFeedback()" ng-disabled="trainingFeedBackForm.$invalid" aria-label="Ok">{{'COMMON_SUBMIT' | translate }}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

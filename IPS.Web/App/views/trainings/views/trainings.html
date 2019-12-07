@@ -1,0 +1,106 @@
+<div pane ng-init="pgInit()">
+    <div class="theme-panel hidden-xs hidden-sm">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> {{'COMMON_SEARCH' | translate }} </span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-change="fiterOrganizationChanged()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_PROFILE_LEVEL' | translate }}</label>
+                    <select class="form-control " ng-model="filter.profileLevelId" ng-options="profileLevel.id as profileLevel.name for profileLevel in profileLevels" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_TARGET_GROUP' | translate }}</label>
+                    <select class="form-control " ng-model="filter.jobPositionId" ng-options="targetGroup.id as targetGroup.name for targetGroup in targetGroups" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="filter.isShowActive" ng-change="doFilter()"> {{'COMMON_SHOW_ACTIVE_TRAININGS' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="filter.isTemplate" ng-change="doFilter()"> {{'COMMON_SHOW_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_LEVEL' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.trainingLevelId" data-ng-options="obj.id as obj.name for obj in trainingLevels" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_PERFORMANCE_GROUP' | translate }}</label>
+                    <!--<select class="form-control" data-ng-model="filter.performanceGroupName" ng-options="obj as obj for obj in performanceGroups | unique:'name'" ng-change="doFilter()"></select>-->
+                    <select class="form-control" data-ng-model="filter.performanceGroupId" ng-options="obj.id as (obj.name + ' - (' + obj.profile.name +')') for obj in performanceGroups" ng-change="performanceGroupChanged()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label" for="description">{{'COMMON_SKILL' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.skillId" ng-options="obj.id as obj.name  for obj in skillsFlatList" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_TYPE' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.trainingTypeId" data-ng-options="obj.id as obj.name for obj in trainingTypes" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control " ng-model="filter.industryId" ng-options="industry.id as industry.name for industry in mainIndustries" ng-change="mainIndustryChange()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                    <select id="projectTrainingSubIndustry" class="form-control select2-multiple" multiple style="width: 100%"
+                            data-ng-options="subIndustry.id as subIndustry.name for subIndustry in subIndustries" data-ng-model="filter.subIndustryId"></select>
+                    <!--<select class="form-control " ng-model="filter.subIndustryId" ng-options="subIndustry.id as subIndustry.name for subIndustry in subIndustries" ng-change="doFilter()"></select>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="portlet-light header-blue">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <a href="#/home" class="fa fa-arrow-left"></a>
+                    <span class="caption-subject box-title">{{'MYPROJECTS_TRAINING_TEMPLATES' | translate }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portlet-light">
+        <div class="portlet box">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inputs pull-right">
+                        <a href="#" class="pull-right box-title-light" ng-click="create()" ng-show="!isDisabled(authService.authentication.user.organizationId, authService.actions.Create)">
+                            <i class="fa fa-plus" aria-hidden="true"></i>  {{'COMMON_CREATE' | translate}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <kendo-tooltip options="tooltipOptions">
+                        <div kendo-grid="trainingsGrid" k-options="gridOptions" k-rebind="trainings"></div>
+                    </kendo-tooltip>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<div ui-view></div>

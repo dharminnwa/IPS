@@ -1,0 +1,63 @@
+ Volume in drive C has no label.
+ Volume Serial Number is D277-7CFA
+
+ Directory of c:\inetpub\wwwroot\IPS.Design
+
+12/29/2016  03:20 PM    <DIR>          .
+12/29/2016  03:20 PM    <DIR>          ..
+12/29/2016  03:06 PM           102,264 active-profiles.html
+12/29/2016  03:06 PM            76,149 administration-notificationTemplates.html
+12/29/2016  03:06 PM            81,290 app-home.html
+12/29/2016  12:48 PM    <DIR>          assets
+09/24/2016  01:55 AM    <DIR>          backup
+12/29/2016  12:48 PM    <DIR>          bootstrap
+12/29/2016  03:06 PM           293,462 canvasjs.min.js
+12/29/2016  03:08 PM    <DIR>          css
+12/29/2016  03:08 PM           131,484 CUSTOMERPERSPECTIVE.html
+12/29/2016  03:08 PM            67,750 dashboard-form.html
+12/29/2016  03:08 PM           127,886 dashboardCust.html
+12/29/2016  03:08 PM           106,308 dashboardNew.html
+12/29/2016  03:08 PM           118,844 dashboardOrg.html
+12/29/2016  03:05 PM            56,209 edit-Question-670.html
+12/29/2016  03:05 PM            56,969 edit-Skill-66.html
+12/29/2016  03:05 PM            60,705 edit-Training-51.html
+12/29/2016  03:08 PM           138,536 FinancialPerspectives.html
+12/29/2016  03:08 PM    <DIR>          font-awesome-4.6.2
+09/24/2016  01:55 AM    <DIR>          fonts
+12/29/2016  03:05 PM           149,072 history-edit-16.html
+12/29/2016  03:05 PM            60,814 home-personalnfo.html
+12/29/2016  03:05 PM            75,588 home-todos.html
+12/29/2016  03:08 PM           118,331 HUMAN-RESOURCE-PERSPECTIVE.html
+12/29/2016  03:08 PM    <DIR>          img
+12/29/2016  03:05 PM           293,292 jquery.canvasjs.min.js
+12/29/2016  03:08 PM    <DIR>          js
+12/29/2016  03:08 PM           198,591 kpi-top5.html
+12/29/2016  03:05 PM           198,222 kpi-top5_1.html
+12/29/2016  03:05 PM             3,456 links-old.txt
+12/29/2016  03:05 PM             3,222 links.txt
+12/29/2016  03:20 PM                 0 list.txt
+12/29/2016  03:05 PM            66,374 organizations-details.html
+12/29/2016  03:08 PM            61,479 organizations-industries.html
+12/29/2016  03:05 PM            60,252 organizations-organizations.html
+12/29/2016  03:05 PM            62,793 performance-dashboard.html
+12/29/2016  03:05 PM            66,962 performance-dashboard_1.html
+12/29/2016  03:05 PM            73,726 performance-Groups.html
+12/29/2016  03:05 PM            90,097 performance-groups4-edit39.html
+12/29/2016  03:08 PM           135,338 PROCESSPERSPECTIVE.html
+12/29/2016  03:05 PM            64,417 profiles-soft-scales.html
+12/29/2016  03:08 PM            70,826 profiles-soft-skills.html
+12/29/2016  03:05 PM             3,657 recycle-logo2.png
+12/29/2016  03:08 PM           139,330 RENEWAL-AND-DEVELOPMENT-PERSPECTIVE.html
+12/29/2016  03:05 PM            66,957 scales-edit-26-0.html
+12/29/2016  03:06 PM    <DIR>          scriptsss
+12/29/2016  03:08 PM           134,476 security.html
+12/29/2016  03:05 PM            82,425 soft-edit-34-preview.html
+12/29/2016  03:05 PM            68,071 soft-edit-34.html
+12/29/2016  03:05 PM            71,532 soft-question-bank.html
+12/29/2016  03:05 PM            68,423 soft-trainings.html
+12/29/2016  03:05 PM            57,626 softmeasure-Units.html
+12/29/2016  03:05 PM            64,479 todos-edit34.html
+12/29/2016  03:05 PM            69,833 todos-tasksSettings.html
+12/29/2016  03:05 PM            68,053 trainings-trainingSetting.html
+              45 File(s)      4,165,570 bytes
+              11 Dir(s)  52,991,356,928 bytes free

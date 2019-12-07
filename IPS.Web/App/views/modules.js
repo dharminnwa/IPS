@@ -1,0 +1,12 @@
+'use strict';
+angular.module('ips.constants', []);
+angular.module('ips.questions', ['ui.router', 'ips.constants']);
+angular.module('ips.performanceGroups', ['ui.router', 'ips.questions', 'ips.constants']);
+angular.module('ips.performance', ['ui.router']);
+angular.module('ips.stageGroups', ['ui.router', 'ips.constants']);
+angular.module('ips.stages', ['ui.router']);
+angular.module('ips.medalRules', ['ui.router', 'kendo.directives']);
+angular.module('ips.profiles', ['ui.router', 'ips.constants']);
+angular.module('ips.survey', ['ui.router', 'checklist-model', 'ngSanitize', 'com.2fdevs.videogular', 'com.2fdevs.videogular.plugins.controls']);
+angular.module('ips.activeProfiles', ['ui.router', 'ips.constants']);
+angular.module('ips.activeProjects', ['ui.router', 'ips.constants']);

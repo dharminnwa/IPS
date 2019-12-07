@@ -1,0 +1,63 @@
+2019-06-19 11:40:43,094 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-06-19 11:40:43,189 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 11:45:02,087 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2205_1906191500; StartStageGroup on 19-06-2019 15:00:00
+2019-06-19 11:47:00,174 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2076_1907050700; StartStageGroup on 28-07-2019 10:30:00
+2019-06-19 11:47:00,174 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2035_1907110000; StartStageGroup on 17-08-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1973_1907120100; StartStageGroup on 18-08-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2059_1907130000; StartStageGroup on 19-08-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1403_1907200448; StartStageGroup on 07-01-2020 19:12:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2063_1908050000; StartStageGroup on 05-08-2019 00:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2036_1908220000; StartStageGroup on 28-09-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2060_1908240000; StartStageGroup on 30-09-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2081_1909050000; StartStageGroup on 05-09-2019 00:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2087_1909050000; StartStageGroup on 05-09-2019 00:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2064_1909160000; StartStageGroup on 23-10-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2037_1910030000; StartStageGroup on 09-11-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2061_1910050000; StartStageGroup on 11-11-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2093_1910050000; StartStageGroup on 05-10-2019 00:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2088_1910170000; StartStageGroup on 23-11-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2082_1910170000; StartStageGroup on 23-11-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2065_1910280000; StartStageGroup on 04-12-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2038_1911140000; StartStageGroup on 21-12-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2062_1911160000; StartStageGroup on 23-12-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2094_1911160000; StartStageGroup on 23-12-2019 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2089_1911280000; StartStageGroup on 04-01-2020 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2083_1911280000; StartStageGroup on 04-01-2020 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2066_1912090000; StartStageGroup on 15-01-2020 07:00:00
+2019-06-19 11:47:00,660 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2095_1912280000; StartStageGroup on 03-02-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2090_2001090000; StartStageGroup on 15-02-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2084_2001090000; StartStageGroup on 15-02-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1404_2001121912; StartStageGroup on 02-07-2020 09:36:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2067_2001200000; StartStageGroup on 26-02-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2096_2002080000; StartStageGroup on 16-03-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2091_2002200000; StartStageGroup on 28-03-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2085_2002200000; StartStageGroup on 28-03-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2068_2003020000; StartStageGroup on 08-04-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2097_2003210000; StartStageGroup on 27-04-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2092_2004020000; StartStageGroup on 09-05-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2086_2004020000; StartStageGroup on 09-05-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2098_2005020000; StartStageGroup on 08-06-2020 07:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1405_2007070936; StartStageGroup on 26-12-2020 00:00:00
+2019-06-19 11:47:00,661 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 11:47:00,678 [1] INFO  JobScheduler - Scheduler Started
+2019-06-19 11:47:00,697 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 11:48:33,066 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 11:48:45,302 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 11:49:01,041 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 11:49:25,562 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 11:49:28,149 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 11:50:00,003 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 12:16:59,395 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-06-19 12:16:59,626 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 12:18:08,627 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 2205_1906191500; StartStageGroup on 19-06-2019 15:00:00
+2019-06-19 12:18:11,909 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 12:18:11,940 [1] INFO  JobScheduler - Scheduler Started
+2019-06-19 12:19:00,054 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 12:19:48,054 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 12:20:00,007 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 12:21:03,091 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 12:21:11,675 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-06-19 13:37:44,334 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-06-19 13:37:44,534 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-06-19 13:38:10,983 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-06-19 13:38:16,746 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...

@@ -1,0 +1,77 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <span>{{'COMMON_STAGES' | translate }}</span>
+        <div class="btn-group" role="group" aria-label="...">
+            <button ng-repeat="item in stageEdit.stageInfo.stages | reverse" type="button" class="btn btn-cstm pull-right ips-tab-button" ng-class="{'selected': item.id == stageEdit.stage.id}" ng-click="stageEdit.selectStage(item)">{{item.name}} <i ng-show="item.isChanged">*</i></button>
+        </div>
+    </div>
+    <form id="editStageInfo" name="editStageInfo" novalidate>
+        <div class="col-md-12">
+            <div ng-stage
+                 ng-model="stageEdit.stage"
+                 ng-notification-templates="stageEdit.notificationTemplates"
+                 ng-users="stageEdit.users"
+                 stage-info="stageEdit.stageInfo"
+                 current-stage="stageEdit.stage"
+                 status-of-stages="stageEdit.statusOfStages"
+                 profile-type-id="stageEdit.profileTypeId"
+                 is-start-stage="stageEdit.isStartStage"
+                 stage-group-evaluation="stageEdit.stageGroupEvaluation"></div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-cstm pull-right marginleft10" ng-click="stageEdit.saveStage()" ng-disabled="editStageInfo.$invalid">Save Stage</button>
+            <button class="btn btn-cstm pull-right marginleft10" ng-click="stageEdit.saveAllStages()" ng-disabled="editStageInfo.$invalid">Save All Stages</button>
+            
+            <!--<button class="btn btn-cstm ips-tab-button" ng-hide="stageEdit.stage.id <= 0" ng-click="stageEdit.removeStage()">Remove</button>-->
+            <!--<button type="button" class="btn btn-cstm ips-tab-button pull-right" data-toggle="modal" data-target=".bs-example-modal-lg" ng-show="stageEdit.isFinalGoal()">Restart</button>-->
+            <button type="button" class="btn btn-cstm pull-right pull-right" data-toggle="modal" data-target=".bs-example-modal-lg" ng-show="false">{{'SOFTPROFILE_RESTART' | translate }}</button>
+        </div>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROFILES_PLEASE_DEFINE_NEW_STAGE_GROUP_FOR_FURTHER_EVALUATION' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_NAME' | translate }}:</label>
+                                                <input type="text" class="form-control" ng-model="stageEdit.stageRestart.name" name="stageRestartName" required />
+                                                <div class="validation-error-label" ng-show="editStage.stageRestartName.$dirty && editStage.stageRestartName.$error.required">{{'MYPROFILES_NAME_IS_REQUIRED' | translate }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_START_DATE' | translate }}</label>
+                                                <br />
+                                                <input kendo-date-picker ng-model="stageEdit.stageRestart.startDate"
+                                                       require-valid-date="{ minDate: stageEdit.stageInfo.endDate, laterThanToday: true }"
+                                                       name="stageRestartStartDate"
+                                                       required />
+                                                <div class="validation-error-label" ng-show="editStage.stageRestartStartDate.$dirty && editStage.stageRestartStartDate.$error.invalidDate">{{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                    <textarea class="form-control" name="stageDescription" ng-model="stageEdit.stageRestart.description" rows="5"></textarea>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                    <button class="btn btn-cstm pull-right" ng-click="stageEdit.restartStage()" data-dismiss="modal" aria-label="Ok" ng-disabled="editStage.$invalid">{{'COMMON_OK' | translate }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+﻿
+<div name="survey" ng-init="init()" class="row">
+    <div class="col-sm-12">
+        <div class="profile-name">{{profileName}}</div>
+    </div>
+
+
+    <div class="col-sm-12 analysis-steps">
+        <div class="col-sm-12">
+            <div class="performance-group-name">{{currentStepAnswer.performanceGroupName}}</div>
+            <div class="skill-name">{{currentStepAnswer.skillNames}}</div>
+            <div class="question">{{currentStepAnswer.questionText}}</div>
+
+            <label class="user-answer-label">Your Answer:</label>
+            <div class="disable">
+                <answer type="currentStepAnswer.answerTypeId" 
+                        possible-answers="currentStepAnswer.possibleAnswers"
+                        user-answer="currentStepAnswer.userAnswer" 
+                        single-choice-radio-group-id="currentStepAnswer.userAnswerId">
+                </answer>
+            </div>
+
+            <label class="correct-answer-label">Correct answer:</label>
+            <div class="disable">
+                <answer type="currentStepAnswer.answerTypeId" 
+                        possible-answers="currentStepAnswer.possibleAnswers"
+                        user-answer="currentStepAnswer.correctAnswer"
+                        single-choice-radio-group-id="currentStepAnswer.questionId">
+                </answer>
+            </div>
+        </div>
+
+        <label class="comment-label">Comment:</label>
+        <div class="comment">
+            <textarea class="form-control disable" ng-model="currentStepAnswer.comment"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-12 question-navigation">
+        <div class="question-navigation-info">Question {{currentAnswerIndex + 1}} of {{answers.length}}</div>
+        <button ng-repeat="answer in answers track by $index" class="button-question-navigation button-red"
+                ng-class="{'button-green': isCorrectAnswer($index)}"
+                ng-click="changeAnswer($index)"></button>
+    </div>
+
+    <div class="col-sm-12 buttons-align-center">
+        <button class="btn btn-cstm ips-row-button ips-survey-button"
+                ng-disabled="isNotShowPreviousAnswer()"
+                ng-click="previousAnswer()">
+            Previous
+        </button>
+        <button class="btn btn-cstm ips-row-button ips-survey-button"
+                ng-disabled="isNotShowNextAnswer()"
+                ng-click="nextAnswer()">
+            Next
+        </button>
+    </div>
+</div>
+

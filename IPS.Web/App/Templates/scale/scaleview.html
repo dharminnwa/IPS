@@ -1,0 +1,87 @@
+﻿<form name="scaleForm" novalidate>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="col-md-12" ng-hide="!ngIsTamplate">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="ips-label">{{'COMMON_SCALE_NAME' | translate }}</label>
+                                <input class="form-control tab-control" data-ng-model="scaleView.name" type="text" name="scaleName" ng-disabled="true" ng-readonly="true" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="ips-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scaleView.profileType1" data-ng-options="obj as obj.name for obj in scaleViewProfileTypes" placeholder="Select measure unit" ng-disabled="true" ng-readonly="true"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" ng-hide="ngIsTamplate">
+                    <div class="">
+                        <label class="ips-label">{{'COMMON_SCALE_NAME' | translate }}</label>
+                        <input class="form-control tab-control" data-ng-model="scaleView.name" type="text" ng-disabled="true" ng-readonly="true" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="ips-label">{{'COMMON_CATEGORY' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scaleView.scaleCategory" data-ng-options="obj as obj.name for obj in scaleViewCategories" placeholder="Select measure unit" ng-disabled="true" ng-readonly="true"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <label class="ips-label">{{'MYPROJECTS_MEASURE_UNIT' | translate }}</label>
+                                <select ng-selected="$first" class="form-control tab-control" data-ng-model="scaleView.measureUnit" data-ng-options="obj as obj.name for obj in scaleViewMeasureUnits" placeholder="Select measure unit" ng-disabled="true" ng-readonly="true"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="">
+                <label class="ips-label" for="description">{{'COMMON_SCALE_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" data-ng-model="scaleView.description" id="description" ng-readonly="true"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-md-4">
+                <div class="">
+                    <label class="ips-label">{{'COMMON_SCALE_START' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scaleView.scaleStart" type="number" min="0" ng-readonly="true" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <label class="ips-label">{{'COMMON_SCALE_END' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scaleView.scaleEnd" type="number" min="1" ng-readonly="true" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <label class="ips-label">{{'COMMON_INTERVALS' | translate }}</label>
+                    <input class="form-control tab-control" data-ng-model="scaleView.scaleInterval" type="number" min="1" ng-readonly="true" />
+                </div>
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="fpgridRnages">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+

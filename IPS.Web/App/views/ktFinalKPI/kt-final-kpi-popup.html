@@ -1,0 +1,173 @@
+﻿<div ng-init="init()" name="final-kpi">
+    <div class="final-kpi">
+        <div class="row">
+            <!--<header-navigation page-name="Final KPI"></header-navigation>-->
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="top-info">
+                            <div class="icon-brain"></div>
+                            <div class="description">Final KPI</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="content-border content-border-left remove-scroll">
+                            <div class="pull-left">
+                                <img class="info-icon" src="images/info-icon.png" />
+                            </div>
+                            <div class="pull-left">
+                                <span class="submit-info display-block margin-top-10">Here you can see the final profile</span>
+                                <a href="javascript:void(0)" ng-show="hasDevContract" style="color:#ff6e19;" ng-click="goToDevContract()">
+                                    View
+                                    the development
+                                    contract
+                                </a>
+                            </div>
+                            <button class="btn btn-cstm primary ips-row-button submit-button margin-top-10" ng-click="submit()">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="rank-panel">
+                            <div class="rank correct"></div>
+                            <div class="rank-label">Correct</div>
+
+                            <div class="rank wrong"></div>
+                            <div class="rank-label">Wrong</div>
+
+                            <div class="rank not-available"></div>
+                            <div class="rank-label">Not available (evaluator hasn't judge the free-text answer)</div>
+
+                            <div class="include-all-questions" ng-if="hasPreviousResults()">
+                                <input type="checkbox" ng-model="isShowPreviousResults"
+                                       ng-change="showPreviousResults()" />
+                                <div class="rank-label">Show Questions from Previous Stages</div>
+                            </div>
+                        </div>
+
+                        <table class="table result-table">
+                            <tr class="table-header">
+                                <th>#</th>
+                                <th width="10%">Skill</th>
+                                <th width="10%">Performance Group</th>
+                                <th width="15%">Question</th>
+                                <th>Points</th>
+                                <th width="10%">Answer</th>
+                                <th>Rank</th>
+                                <th style="width: 10%; text-align: center;">Select for Next Stage</th>
+                                <th style="width: 10%; text-align: center;">Include to Development Contract</th>
+                                <th width="15%">Actions & Trainings</th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat-start="item in finalKPIData">
+                                <td class="answer-number">{{$index+1}}</td>
+                                <td>{{item.skillNames}}</td>
+                                <td>{{item.performanceGroupName}}</td>
+                                <td>
+                                    <div>{{item.questionText}}</div>
+                                    <div class="row">
+                                        <question-material-view material="item.questionMaterial"></question-material-view>
+                                    </div>
+                                </td>
+                                <td>{{item.points}}</td>
+                                <td>
+                                    <div class="row" style="pointer-events: none;" ng-if="isAnswerCellAvailable(item)">
+                                        <answer type="item.answerTypeId"
+                                                possible-answers="item.possibleAnswers"
+                                                user-answer="item.answer"
+                                                single-choice-radio-group-id="item.questionId">
+                                        </answer>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="answer-mark"
+                                         ng-class="{'not-available': !item.isAvailable, 'correct': item.isCorrect, 'wrong': !item.isCorrect }"></div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <input type="checkbox"
+                                           ng-model="item.selectForNextStage">
+                                </td>
+                                <td style="text-align: center;">
+                                    <input type="checkbox"
+                                           ng-model="item.inDevContract"
+                                           ng-disabled="!item.isCurrentStage">
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" ng-model="item.comment"></textarea>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-cstm ips-row-button"
+                                            ng-click="setTrainings(item.trainings, item)"
+                                            ng-disabled="!item.isCurrentStage">
+                                        Add Preset Training
+                                    </button>
+                                    <button class="btn btn-cstm ips-row-button"
+                                            ng-click="openNewTrainingDialog($index)"
+                                            ng-disabled="!item.isCurrentStage">
+                                        Add New Training
+                                    </button>
+                                    <button class="btn btn-cstm ips-row-button"
+                                            ng-click="openSearchWindow($index)"
+                                            ng-disabled="!item.isCurrentStage">
+                                        Search For Trainings
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <training-popup scorecard-answer="scorecardAnswer"
+                                            organization-id="profile.organizationId"
+                                            save-mode="saveMode"
+                                            open-training-popup-mode="openTrainingPopupMode"
+                                            editing-training-index="editingTrainingIndex"
+                                            editing-training="editingTraining"
+                                             notification-Templates="notificationTemplates">
+                            </training-popup>
+
+
+                            <tr ng-show="item.agreement.trainings.length > 0">
+                                <th class="no-border"></th>
+                                <th class="trainings-title">Trainings</th>
+                            </tr>
+                            <tr ng-show="item.agreement.trainings.length > 0">
+                                <th class="no-border"></th>
+                                <th class="first-training-header" colspan="2">Name</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Duration</th>
+                                <th class="last-training-header"></th>
+
+                            </tr>
+                            <tr ng-repeat-end="" ng-show="item.agreement.trainings.length > 0"
+                                ng-repeat="training in item.agreement.trainings">
+                                <td class="no-border"></td>
+                                <td class="training-body" colspan="2">
+                                    {{training.name}}
+                                </td>
+                                <td class="training-body">
+                                    {{getDate(training.startDate)}}
+                                </td>
+                                <td class="training-body">
+                                    {{getDate(training.endDate)}}
+                                </td>
+                                <td class="training-body no-wrap-normal">
+                                    {{getTrainingDuration(training)}}
+                                </td>
+                                <td class="training-body">
+                                    <div class="icon-groups">
+                                        <a class="icon-groups icon-groups-item edit-icon"
+                                           ng-click="editTraining(training, item, $index)"></a>
+                                        <a class="icon-groups icon-groups-item remove-icon"
+                                           ng-click="removeTraining(training.id, item.agreement.trainings)"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

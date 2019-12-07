@@ -1,0 +1,331 @@
+2019-07-04 11:11:00,972 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:11:01,134 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:11:03,543 [1] ERROR JobScheduler - Loading of completed stages from database failed!
+System.Data.Entity.Core.EntityCommandCompilationException: An error occurred while preparing the command definition. See the inner exception for details. ---> System.Data.Entity.Core.MappingException: The current model no longer matches the model used to pre-generate the mapping views, as indicated by the ViewsForBaseEntitySets3d43ee45aa775ae2a0000b9adc144849093bb20fc5ad09031d1333b6c584fa6f.MappingHashValue property. Pre-generated mapping views must be either regenerated using the current model or removed if mapping views generated at runtime should be used instead. See http://go.microsoft.com/fwlink/?LinkId=318050 for more information on Entity Framework mapping views.
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedCollectViewsFromCache(EntityContainerMapping containerMapping, Dictionary`2 extentMappingViews)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGetGeneratedViews(EntityContainer container)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.GetGeneratedView(EntitySetBase extent, MetadataWorkspace workspace, StorageMappingItemCollection storageMappingItemCollection)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetGeneratedView(EntitySetBase extent)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ExpandView(ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ProcessScanTable(Node scanTableNode, ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ScanTableOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ScanTableOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(FilterOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.FilterOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(SortOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.SortOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitDefault(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitPhysicalOpDefault(PhysicalOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.Visit(PhysicalProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.PhysicalProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(PlanCompiler planCompilerState, StructuredTypeInfo& typeInfo, Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(DbCommandTree ctree, List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.CreateCommandDefinition(ObjectContext context, DbQueryCommandTree tree)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.Prepare(ObjectContext context, DbQueryCommandTree tree, Type elementType, MergeOption mergeOption, Boolean streaming, Span span, IEnumerable`1 compiledQueryParameters, AliasGenerator aliasGenerator)
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPSScheduler.JobScheduler.LoadCompletedStages() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1537
+2019-07-04 11:11:15,092 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:11:15,129 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:12:00,050 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:12:03,050 [DefaultQuartzScheduler_Worker-1] ERROR JobScheduler - Loading of completed stages from database failed!
+System.Data.Entity.Core.EntityCommandCompilationException: An error occurred while preparing the command definition. See the inner exception for details. ---> System.Data.Entity.Core.MappingException: The current model no longer matches the model used to pre-generate the mapping views, as indicated by the ViewsForBaseEntitySets3d43ee45aa775ae2a0000b9adc144849093bb20fc5ad09031d1333b6c584fa6f.MappingHashValue property. Pre-generated mapping views must be either regenerated using the current model or removed if mapping views generated at runtime should be used instead. See http://go.microsoft.com/fwlink/?LinkId=318050 for more information on Entity Framework mapping views.
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedCollectViewsFromCache(EntityContainerMapping containerMapping, Dictionary`2 extentMappingViews)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGetGeneratedViews(EntityContainer container)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.GetGeneratedView(EntitySetBase extent, MetadataWorkspace workspace, StorageMappingItemCollection storageMappingItemCollection)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetGeneratedView(EntitySetBase extent)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ExpandView(ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ProcessScanTable(Node scanTableNode, ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ScanTableOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ScanTableOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(FilterOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.FilterOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(SortOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.SortOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitDefault(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitPhysicalOpDefault(PhysicalOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.Visit(PhysicalProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.PhysicalProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(PlanCompiler planCompilerState, StructuredTypeInfo& typeInfo, Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(DbCommandTree ctree, List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.CreateCommandDefinition(ObjectContext context, DbQueryCommandTree tree)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.Prepare(ObjectContext context, DbQueryCommandTree tree, Type elementType, MergeOption mergeOption, Boolean streaming, Span span, IEnumerable`1 compiledQueryParameters, AliasGenerator aliasGenerator)
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPSScheduler.JobScheduler.LoadCompletedStages() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1537
+2019-07-04 11:12:10,411 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:13:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:13:18,593 [DefaultQuartzScheduler_Worker-2] ERROR JobScheduler - Loading of completed stages from database failed!
+System.Data.Entity.Core.EntityCommandCompilationException: An error occurred while preparing the command definition. See the inner exception for details. ---> System.Data.Entity.Core.MappingException: The current model no longer matches the model used to pre-generate the mapping views, as indicated by the ViewsForBaseEntitySets3d43ee45aa775ae2a0000b9adc144849093bb20fc5ad09031d1333b6c584fa6f.MappingHashValue property. Pre-generated mapping views must be either regenerated using the current model or removed if mapping views generated at runtime should be used instead. See http://go.microsoft.com/fwlink/?LinkId=318050 for more information on Entity Framework mapping views.
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedCollectViewsFromCache(EntityContainerMapping containerMapping, Dictionary`2 extentMappingViews)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.SerializedGetGeneratedViews(EntityContainer container)
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.<>c__DisplayClass2.<Evaluate>b__0()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   at System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   at System.Data.Entity.Core.Mapping.StorageMappingItemCollection.ViewDictionary.GetGeneratedView(EntitySetBase extent, MetadataWorkspace workspace, StorageMappingItemCollection storageMappingItemCollection)
+   at System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.GetGeneratedView(EntitySetBase extent)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ExpandView(ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.ProcessScanTable(Node scanTableNode, ScanTableOp scanTableOp, IsOfOp& typeFilter)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ScanTableOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ScanTableOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(FilterOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.FilterOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(ProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.ProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitRelOpDefault(RelOp op, Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Visit(SortOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.SortOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.SubqueryTrackingVisitor.VisitChildren(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitDefault(Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfNode.VisitPhysicalOpDefault(PhysicalOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.Visit(PhysicalProjectOp op, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.PhysicalProjectOp.Accept[TResultType](BasicOpVisitorOfT`1 v, Node n)
+   at System.Data.Entity.Core.Query.InternalTrees.BasicOpVisitorOfT`1.VisitNode(Node n)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PreProcessor.Process(PlanCompiler planCompilerState, StructuredTypeInfo& typeInfo, Dictionary`2& tvfResultKeys)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.Query.PlanCompiler.PlanCompiler.Compile(DbCommandTree ctree, List`1& providerCommands, ColumnMap& resultColumnMap, Int32& columnCount, Set`1& entitySets)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition..ctor(DbProviderFactory storeProviderFactory, DbCommandTree commandTree, DbInterceptionContext interceptionContext, IDbDependencyResolver resolver, BridgeDataReaderFactory bridgeDataReaderFactory, ColumnMapFactory columnMapFactory)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityProviderServices.CreateDbCommandDefinition(DbProviderManifest providerManifest, DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Common.DbProviderServices.CreateCommandDefinition(DbCommandTree commandTree, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.CreateCommandDefinition(ObjectContext context, DbQueryCommandTree tree)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlanFactory.Prepare(ObjectContext context, DbQueryCommandTree tree, Type elementType, MergeOption mergeOption, Boolean streaming, Span span, IEnumerable`1 compiledQueryParameters, AliasGenerator aliasGenerator)
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPSScheduler.JobScheduler.LoadCompletedStages() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1537
+2019-07-04 11:14:12,232 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:14:12,402 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:15:06,177 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:15:06,177 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:15:06,199 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:15:06,215 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:15:21,633 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:16:00,005 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:16:39,180 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:16:39,180 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:16:39,180 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:17:01,808 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:17:01,808 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:18:01,065 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:18:01,065 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:18:01,066 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:18:01,066 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:18:29,730 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:18:38,560 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:19:00,000 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:20:21,627 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:20:21,629 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:20:23,994 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:20:23,994 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:20:25,379 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1424, name Anand Agarwal failed
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPS.Business.TrainingDiaryService.GetUserProfileStageTrainings(Int32 userId, Int32 profileId) in D:\DotNetProjects\IPS\IPS.Business\TrainingDiaryService.cs:line 2649
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2619
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1767
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1716
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1680
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1655
+2019-07-04 11:20:46,460 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:20:55,145 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:20:55,145 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:20:55,153 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:21:02,353 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:21:44,248 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:22:00,263 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:22:10,009 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:22:10,686 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:22:10,686 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:22:10,687 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:22:20,250 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:23:00,872 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:23:17,640 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1424, name Anand Agarwal failed
+System.InvalidOperationException: Member 'CurrentValues' cannot be called for the entity of type 'EvaluationParticipant' because the entity does not exist in the context. To add an entity to the context call the Add or Attach method of DbSet<EvaluationParticipant>.
+   at System.Data.Entity.Internal.InternalEntityEntry.ValidateNotDetachedAndInitializeRelatedEnd(String method)
+   at System.Data.Entity.Internal.InternalEntityEntry.ValidateStateToGetValues(String method, EntityState invalidState)
+   at System.Data.Entity.Internal.InternalEntityEntry.get_CurrentValues()
+   at System.Data.Entity.Infrastructure.DbEntityEntry`1.get_CurrentValues()
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1703
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1655
+2019-07-04 11:23:21,870 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:23:21,877 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:23:21,877 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:23:35,993 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:24:00,000 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:24:29,978 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:24:29,978 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:24:29,978 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:24:31,166 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:25:00,000 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:26:53,857 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:26:54,125 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:27:23,749 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:27:23,749 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:27:23,772 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:27:23,789 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:27:25,771 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:28:00,003 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:28:12,411 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:28:12,411 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:28:12,411 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:28:13,611 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:32:58,211 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:32:58,397 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:33:14,447 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:33:14,447 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:33:14,474 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:33:14,490 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:33:16,304 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:34:02,386 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:34:06,936 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:34:06,936 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:34:06,937 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:34:13,087 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:34:17,268 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1424, name Anand Agarwal successful
+2019-07-04 11:35:00,000 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:40:52,188 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:40:52,390 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:40:55,621 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:40:55,666 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:41:00,022 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:41:08,438 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:42:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:42:28,273 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:42:28,479 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:50:06,627 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-04 11:50:06,806 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:50:21,459 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:50:21,459 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:50:21,484 [1] INFO  JobScheduler - Scheduler Started
+2019-07-04 11:50:21,502 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:50:23,297 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:51:00,005 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:51:11,085 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:51:11,085 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:51:11,085 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:51:12,279 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:52:00,002 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:52:05,925 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 2029_1905092300; StageResultGroup on 10-05-2019 23:00:00
+2019-07-04 11:52:05,925 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:52:05,925 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 2029_1905092300; StageResultGroup
+2019-07-04 11:53:02,474 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:54:45,296 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:55:03,376 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:55:33,722 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:56:00,732 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-04 11:56:00,740 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-04 11:56:03,300 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed

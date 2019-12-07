@@ -1,0 +1,1490 @@
+﻿<div class="row" ng-init="init()">
+    <div class="col-lg-12">
+        <!-- BEGIN PAGE TITLE-->
+        <h1 class="page-title">
+            {{'MYPROJECTS_PROJECTSTATUS_PROJECT_STATUS_SUMMARY' | translate }} : <big>{{project.name}}</big>
+        </h1>
+        <!-- END PAGE TITLE-->
+        <!-- END PAGE HEADER-->
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                    <div class="visual">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{project.activeProfiles.length}}">{{project.activeProfiles.length}}</span>
+                        </div>
+                        <div class="desc"> {{'MYPROJECTS_ACTIVE_PROFILES' | translate }} </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat dashboard-stat-v2 red" href="#">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{project.pendingProfiles.length}}">{{project.pendingProfiles.length}}</span>
+                        </div>
+                        <div class="desc"> {{'MYPROJECTS_PROJECTSTATUS_PENDING_PROFILES' | translate }} </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                <div class="dashboard-stat dashboard-stat-v2 green" ng-click="showMembers()">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{project.members.length}}">{{project.members.length}}</span>
+                        </div>
+                        <div class="desc"> {{'MYPROJECTS_PROJECTSTATUS_MEMBERS' | translate }} </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="dashboard-stat dashboard-stat-v2 purple" ng-click="showMembers()">
+                    <div class="visual">
+                        <i class="fa fa-bar-chart-o"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="{{remainDays}}">{{remainDays}}</span>
+                        </div>
+                        <div class="desc"> {{'MYPROJECTS_PROJECTSTATUS_REMAINING_DAYS' | translate }} </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-sm-12">
+                <div class="portlet light ">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class="icon-bubbles font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'COMMON_PROFILES' | translate }}</span>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    {{'MYPROJECTS_PROJECTSTATUS_FILTER_BY' | translate }}
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <div id="profileFilterOption" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                    <label ng-click="profileFilterClick($event)" class="mt-checkbox mt-checkbox-outline" data-id="member.userId" ng-repeat="member in project.members">
+                                        <input type="checkbox" ng-value="member.userId"> {{member.user.firstName}} {{member.user.lastName}}
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="badge" ng-repeat="memberItem in   filteredmembers = ( project.members | filter:profileFilterMemberFn) ">{{memberItem.user.firstName}} {{memberItem.user.lastName}}</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+
+                            <li class="active" ng-click="TabChange('PendingProfiles')">
+                                <a href="javascript:;" data-target="#portlet_pending_profiles" data-toggle="tab" aria-expanded="true">
+                                    <span class="badge badge-danger">{{project.pendingProfiles.length}}</span> {{'MYPROJECTS_PROJECTSTATUS_PENDING_PROFILE_SETUP' | translate }}
+                                </a>
+                            </li>
+                            <li class="" ng-click="TabChange('ActiveProfiles')">
+                                <a href="javascript:;" data-target="#portlet_active_profiles" data-toggle="tab" aria-expanded="false">
+                                    <span class="badge badge-success">{{project.activeProfiles.length}}</span> {{'MYPROJECTS_ACTIVE_PROFILES' | translate }}
+                                </a>
+                            </li>
+                            <li class="" ng-click="TabChange('ExpiredProfiles')">
+                                <a href="javascript:;" data-target="#portlet_expired_profiles" data-toggle="tab" aria-expanded="false">
+                                    <span class="badge badge-primary">{{project.expiredProfiles.length}}</span> {{'MYPROJECTS_EXPIRED_PROFILES' | translate }}
+                                </a>
+                            </li>
+                            <li class="" ng-click="TabChange('CompletedProfiles')">
+                                <a href="javascript:;" data-target="#portlet_completed_profiles" data-toggle="tab" aria-expanded="false">
+                                    <span class="badge badge-warning">{{project.completedProfiles.length}}</span> {{'MYPROJECTS_COMPLETED_PROFILES' | translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="tab-content">
+
+                            <div class="tab-pane active" id="portlet_pending_profiles">
+                                <!-- BEGIN: Comments -->
+                                <div class="pending_profiles_scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-comments">
+
+                                        <div class="mt-comment" ng-repeat="pendingProfile in project.pendingProfiles">
+
+                                            <div class="mt-comment-body">
+                                                <div class="mt-comment-info">
+                                                    <span class="mt-comment-author">{{pendingProfile.name}} </span>
+                                                    <span class="mt-comment-date">
+                                                        <i class="fa  fa-eye" ng-click="viewProfile(pendingProfile.id)"></i>
+                                                        <i class="fa  fa-edit" ng-click="editProfile(pendingProfile.id)"></i>
+                                                    </span>
+                                                </div>
+
+                                                <div class="mt-comment-details">
+                                                    <div class="mt-widget-3">
+                                                        <div class="mt-body-actions-icons">
+                                                            <div class="btn-group btn-group btn-group-justified">
+                                                                <a href="javascript:;" class="btn ">
+                                                                    <span class="mt-icon">
+                                                                        <i class="fa " ng-class="checkHasPerformanceGroup(pendingProfile)"></i>
+                                                                    </span>{{'COMMON_PERFORMANCE_GROUPS' | translate }}
+                                                                </a>
+                                                                <a href="javascript:;" class="btn ">
+                                                                    <span class="mt-icon">
+                                                                        <i class="fa " ng-class="checkHasTrainings(pendingProfile)"></i>
+                                                                    </span>{{'MYPROJECTS_PROJECTSTATUS_TRAININGS' | translate }}
+                                                                </a>
+                                                                <a href="javascript:;" class="btn ">
+                                                                    <span class="mt-icon">
+                                                                        <i class="fa " ng-class="checkHasSendOut(pendingProfile)"></i>
+                                                                    </span>{{'MYPROJECTS_SEND_OUTS' | translate }}
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END: Comments -->
+                            </div>
+
+                            <div class="tab-pane" id="portlet_active_profiles">
+                                <!-- BEGIN: Comments -->
+                                <div class="active_profiles_scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-comments">
+                                        <div class="mt-comment" ng-repeat="activeProfile in  filteredActiveProfiles = (project.activeProfiles | filter:ProfileFilterFn  )">
+                                            <div class="mt-comment-img">
+                                                <img title="{{activeProfile.user.firstName}} {{activeProfile.user.lastName}}" ng-src="{{activeProfile.user.imageUrl}}" ng-show="activeProfile.user.imageUrl != null && activeProfile.user.imageUrl != ''" />
+                                                <img title="{{activeProfile.user.firstName}} {{activeProfile.user.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="activeProfile.user.imageUrl != null && activeProfile.user.imageUrl != ''" />
+
+                                            </div>
+                                            <div class="mt-comment-body">
+                                                <div class="mt-comment-info">
+                                                    <span class="mt-comment-author">{{activeProfile.profile.name}} </span>
+                                                    <span class="mt-comment-date">{{'COMMON_DUE_DATE' | translate }} : {{activeProfile.stage.endDateTime | date:'short'}}</span>
+                                                </div>
+                                                <div class="mt-comment-text">
+
+                                                    <span ng-hide="!isParticipant(activeProfile.participant.evaluationRoleId)"> {{'COMMON_STAGE' | translate }} :{{activeProfile.stage.name}}</span>
+                                                    <div ng-show="isParticipant(activeProfile.participant.evaluationRoleId)">
+                                                        <span class="badge fa " ng-class="activeProfile.isSurveyPassed ? 'fa-check badge-success' : 'fa-close' ">
+                                                            {{'MYPROJECTS_PROJECTSTATUS_PARTICIPANT_SURVEY' | translate }}  <a ng-hide="activeProfile.isSurveyPassed" title="Send Reminder" href="javascript:;" class="fa fa-bell font-red" ng-click="sendParticipantReminder(activeProfile.stage.id,activeProfile.participant.userId)"></a>
+                                                        </span>
+                                                        <span class="badge fa " ng-class="activeProfile.iskpiSet ? 'fa-check badge-success' : 'fa-close' ">{{'MYPROJECTS_KPI_SET' | translate }} </span>
+                                                    </div>
+                                                    <div ng-show="!isParticipant(activeProfile.participant.evaluationRoleId)">
+                                                        <span ng-show="activeProfile.participant.isScoreManager">{{'COMMON_ROLE' | translate }}: {{'MYPROJECTS_PROJECTSTATUS_FINAL_SCORE_MANAGER' | translate }} </span>
+                                                        <span ng-hide="activeProfile.participant.isScoreManager">{{'COMMON_ROLE' | translate }}: {{'COMMON_EVALUATOR' | translate }} </span>
+                                                        <ul class="chats">
+                                                            <li class="in">
+                                                                <img class="avatar" alt="" title="{{activeProfile.evaluatee.firstName}} {{activeProfile.evaluatee.lastName}}" ng-src="{{activeProfile.evaluatee.imagePath}}" ng-show="activeProfile.evaluatee.imagePath != null && activeProfile.evaluatee.imagePath != '' && (!isParticipant(activeProfile.participant.evaluationRoleId))" />
+                                                                <img class="avatar" alt="" title="{{activeProfile.evaluatee.firstName}} {{activeProfile.evaluatee.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="activeProfile.evaluatee.imagePath != null && activeProfile.evaluatee.imagePath != '' && (!isParticipant(activeProfile.participant.evaluationRoleId))" />
+                                                                <div class="message">
+                                                                    <span class="arrow"> </span>
+                                                                    <a href="javascript:;" class="name"> {{activeProfile.evaluatee.firstName}} {{activeProfile.evaluatee.lastName}} </a>
+                                                                    <span class="body">
+                                                                        Stage :{{activeProfile.stage.name}}
+
+                                                                        <span class="badge" ng-class="activeProfile.isSurveyPassed ? 'badge-success' : '' ">
+                                                                            <i class="fa " ng-class="activeProfile.isSurveyPassed ? 'fa-check' : 'fa-close' ">    </i>
+                                                                            {{'MYPROJECTS_PROJECTSTATUS_EVALUATION_OF_PARTICIPANT' | translate }}
+
+                                                                            <a ng-hide="activeProfile.isSurveyPassed" title="Send Reminder" href="javascript:;" class="fa fa-bell font-red" ng-click="sendEvaluationReminder(activeProfile.stage.id,activeProfile.participant.userId)"></a>
+                                                                        </span>
+                                                                        <span class="badge " ng-class="activeProfile.iskpiSet ? 'badge-success' : '' ">
+                                                                            <i class="fa " ng-class="activeProfile.iskpiSet ? 'fa-check' : 'fa-close' "> </i>
+                                                                            {{'MYPROJECTS_PROJECTSTATUS_KPI_SET_OF_PARTICIPANT' | translate }}
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END: Comments -->
+                            </div>
+
+                            <div class="tab-pane" id="portlet_expired_profiles">
+                                <!-- BEGIN: Comments -->
+                                <div class="expired_profiles_scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-comments">
+                                        <div class="mt-comment" ng-repeat="expiredProfile in filteredExpiredProfiles = (project.expiredProfiles | filter:ProfileFilterFn  )">
+                                            <div class="mt-comment-img">
+                                                <img title="{{expiredProfile.user.firstName}} {{expiredProfile.user.lastName}}" ng-src="{{expiredProfile.user.imageUrl}}" ng-show="expiredProfile.user.imageUrl != null && expiredProfile.user.imageUrl != ''" />
+                                                <img title="{{expiredProfile.user.firstName}} {{expiredProfile.user.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="expiredProfile.user.imageUrl != null && expiredProfile.user.imageUrl != ''" />
+                                            </div>
+                                            <div class="mt-comment-body">
+                                                <div class="mt-comment-info">
+                                                    <span class="mt-comment-author">{{expiredProfile.profile.name}} </span>
+                                                    <span class="mt-comment-date">{{'COMMON_DUE_DATE' | translate }} : {{expiredProfile.stage.endDateTime | date:'short'}}</span>
+                                                </div>
+                                                <div class="mt-comment-text">{{expiredProfile.stage.name}}</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END: Comments -->
+                            </div>
+
+                            <div class="tab-pane" id="portlet_completed_profiles">
+                                <!-- BEGIN: Comments -->
+                                <div class="completed_profiles_scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-comments">
+                                        <div class="mt-comment" ng-repeat="completedProfile in   filteredCompletedProfiles = (project.completedProfiles | filter:ProfileFilterFn  )">
+                                            <div class="mt-comment-img">
+
+                                                <img title="{{completedProfile.user.firstName}} {{completedProfile.user.lastName}}" ng-src="{{completedProfile.user.imageUrl}}" ng-show="completedProfile.user.imageUrl != null && completedProfile.user.imageUrl != ''" />
+                                                <img title="{{completedProfile.user.firstName}} {{completedProfile.user.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="completedProfile.user.imageUrl != null && completedProfile.user.imageUrl != ''" />
+                                            </div>
+                                            <div class="mt-comment-body">
+                                                <div class="mt-comment-info">
+                                                    <span class="mt-comment-author">{{completedProfile.profile.name}} </span>
+                                                    <span class="mt-comment-date">{{'COMMON_DUE_DATE' | translate }} : {{completedProfile.stage.endDateTime | date:'short'}}</span>
+                                                </div>
+                                                <div class="mt-comment-text">
+                                                    <span ng-hide="!isParticipant(completedProfile.participant.evaluationRoleId)"> {{'COMMON_STAGE' | translate }} :{{completedProfile.stage.name}}</span>
+                                                    <div ng-show="!isParticipant(completedProfile.participant.evaluationRoleId)">
+                                                        <ul class="chats">
+                                                            <li class="in">
+                                                                <img class="avatar" alt="" title="{{completedProfile.evaluatee.firstName}} {{completedProfile.evaluatee.lastName}}" ng-src="{{completedProfile.evaluatee.imagePath}}" ng-show="completedProfile.evaluatee.imagePath != null && completedProfile.evaluatee.imagePath != '' && (!isParticipant(completedProfile.participant.evaluationRoleId))" />
+                                                                <img class="avatar" alt="" title="{{completedProfile.evaluatee.firstName}} {{completedProfile.evaluatee.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="completedProfile.evaluatee.imagePath != null && completedProfile.evaluatee.imagePath != '' && (!isParticipant(completedProfile.participant.evaluationRoleId))" />
+                                                                <div class="message">
+                                                                    <span class="arrow"> </span>
+                                                                    <a href="javascript:;" class="name"> {{completedProfile.evaluatee.firstName}} {{completedProfile.evaluatee.lastName}} </a>
+                                                                    <span class="body">
+                                                                        {{'COMMON_STAGE' | translate }} :{{completedProfile.stage.name}}
+                                                                        <span ng-show="completedProfile.participant.isScoreManager"> {{'COMMON_ROLE' | translate }}: {{'MYPROJECTS_PROJECTSTATUS_FINAL_SCORE_MANAGER' | translate }} </span>
+                                                                        <span ng-hide="completedProfile.participant.isScoreManager"> {{'COMMON_ROLE' | translate }}: {{'COMMON_EVALUATOR' | translate }} </span>
+                                                                    </span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END: Comments -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-xs-12 col-sm-12">
+                <div class="portlet light ">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class=" icon-social-twitter font-dark hide"></i>
+                            <span class="caption-subject font-dark bold uppercase">{{'MYPROJECTS_PROJECTSTATUS_TRAININGS' | translate }}</span>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    {{'MYPROJECTS_PROJECTSTATUS_FILTER_BY' | translate }}
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <div id="trainingFilterOption" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                    <label ng-click="trainingFilterClick($event)" class="mt-checkbox mt-checkbox-outline" data-id="member.userId" ng-repeat="member in project.members">
+                                        <input type="checkbox" ng-value="member.userId"> {{member.user.firstName}} {{member.user.lastName}}
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="badge" ng-repeat="memberItem in   filteredmembers = ( project.members | filter:trainingFilterMemberFn) ">{{memberItem.user.firstName}} {{memberItem.user.lastName}}</span>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="javascript:;" data-target="#tab_trainings_pending" data-toggle="tab" aria-expanded="true"> {{'COMMON_PENDING' | translate }} </a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-target="#tab_trainings_completed" data-toggle="tab" aria-expanded="false" ng-click="TabChange('TrainingsCompleted')"> {{'COMMON_COMPLETED' | translate }} </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            {{'MYPROJECTS_PROJECTSTATUS_SUMMARY' | translate }}
+                                        </th>
+                                        <th>
+                                            {{'MYPROJECTS_PROJECTSTATUS_TIME_PERIOD' | translate }}
+                                        </th>
+                                        <th class="hidden-xs">
+                                            {{'MYPROJECTS_PROJECTSTATUS_ACTUAL_SPENT_TIME' | translate }} ({{'COMMON_PROFILE' | translate }})
+                                        </th>
+                                        <th>
+                                            {{'MYPROJECTS_PROJECTSTATUS_PLANNED_TIME' | translate }}
+                                        </th>
+                                        <th>
+                                            {{'COMMON_PERFORMANCE' | translate }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:;"> {{'COMMON_TODAY' | translate }} </a>
+                                        </td>
+                                        <td> {{dayStartDate | date:'short'}} - {{dayEndDate | date:'short'}} </td>
+                                        <td>
+                                            <span ng-show="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="totalProfileTrainingSpentHoursToday > 60"> {{totalProfileTrainingSpentHoursToday > 0 ? (totalProfileTrainingSpentHoursToday > 60 ? totalProfileTrainingSpentHoursToday/60 :totalProfileTrainingSpentHoursToday) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+
+                                        <td>
+                                            <span ng-show="trainingHoursToday > 60"> {{trainingHoursToday > 0? (trainingHoursToday > 60 ? trainingHoursToday/60 :trainingHoursToday) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="trainingHoursToday > 60"> {{trainingHoursToday > 0? (trainingHoursToday > 60 ? trainingHoursToday/60 :trainingHoursToday) : 0}} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+
+                                        <td>
+                                            <i class="fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursToday + totalOwnTrainingSpentHoursToday,trainingHoursToday)"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:;"> {{'COMMON_WEEK' | translate }} </a>
+                                        </td>
+                                        <td class=""> {{weekStartDate | date:'short'}} - {{weekEndDate | date:'short'}} </td>
+                                        <td>
+                                            <span ng-show="totalProfileTrainingSpentHoursWeek > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="totalProfileTrainingSpentHoursWeek  > 60">{{totalProfileTrainingSpentHoursWeek > 0? (totalProfileTrainingSpentHoursWeek > 60 ? totalProfileTrainingSpentHoursWeek/60 :totalProfileTrainingSpentHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+
+                                        <td>
+                                            <span ng-show="trainingHoursWeek > 60">{{trainingHoursWeek > 0? (trainingHoursWeek > 60 ? trainingHoursWeek/60 :trainingHoursWeek) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="trainingHoursWeek > 60">{{trainingHoursWeek > 0? (trainingHoursWeek > 60 ? trainingHoursWeek/60 :trainingHoursWeek) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+                                        <td>
+                                            <i class="fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHoursWeek + totalOwnTrainingSpentHoursWeek,trainingHoursWeek)"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:;">{{'MYPROJECTS_PROJECTSTATUS_TOTAL' | translate }} </a>
+                                        </td>
+                                        <td>
+                                            {{trainingStartDate | date:'short'}} - {{trainingEndDate | date:'short'}}
+                                        </td>
+                                        <td>
+                                            <span ng-show="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="totalProfileTrainingSpentHours > 60">{{totalProfileTrainingSpentHours > 0? (totalProfileTrainingSpentHours > 60 ? totalProfileTrainingSpentHours/60 :totalProfileTrainingSpentHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+
+                                        <td>
+
+                                            <span ng-show="totalTrainingHours > 60">{{totalTrainingHours > 0? (totalTrainingHours > 60 ? totalTrainingHours/60 :totalTrainingHours) : 0 | number : 2}} {{'COMMON_HOURS' | translate }}</span>
+                                            <span ng-hide="totalTrainingHours > 60">{{totalTrainingHours > 0? (totalTrainingHours > 60 ? totalTrainingHours/60 :totalTrainingHours) : 0 }} {{'COMMON_MINUTES' | translate }}</span>
+                                        </td>
+                                        <td>
+                                            <i class="fa " ng-class="trainingHourPerformance(totalProfileTrainingSpentHours,totalTrainingHours)"></i>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-content">
+
+                            <div class="tab-pane active" id="tab_trainings_pending">
+                                <!-- BEGIN: Actions -->
+                                <div class="scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-actions">
+                                        <div class="mt-action" ng-repeat="training in filteredprojectTrainings  = (projectTrainings | filter:trainingFilterFn)">
+                                            <div class="mt-action-img">
+                                                <img title="{{training.user.firstName}} {{training.user.lastName}}" ng-src="{{training.user.imageUrl}}" ng-show="training.user.imageUrl != null && training.user.imageUrl != ''" />
+                                                <img title="{{training.user.firstName}} {{training.user.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="training.user.imageUrl != null && training.user.imageUrl != ''" />
+                                            </div>
+                                            <div class="mt-action-body">
+                                                <div class="mt-action-row">
+                                                    <div class="mt-action-info ">
+
+                                                        <div class="mt-action-details ">
+                                                            <span class="mt-action-author">{{training.name}}</span>
+                                                            <p class="mt-action-desc">{{training.profile.name}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-action-datetime ">
+                                                        <span class="mt-action-date">{{training.startDate | date:'short'}}</span>
+                                                        <!--<span class="mt-action-dot bg-green"></span>
+                                                        <span class="mt=action-time">9:30-13:00</span>-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- END: Actions -->
+
+                            </div>
+
+                            <div class="tab-pane" id="tab_trainings_completed">
+                                <!-- BEGIN:Completed-->
+                                <div class="trainings_completed_scroller" data-height="300px" data-always-visible="1" data-rail-visible1="1" data-width="9px" data-handle-color="#383838">
+                                    <div class="mt-actions" ng-repeat="training in filteredprojectTrainings  = (projectTrainings | filter:trainingFilterFn  )">
+                                        <div class="mt-action" ng-repeat="completedTraining in training.trainingFeedbacks">
+                                            <div class="mt-action-img">
+                                                <img title="{{training.user.firstName}} {{training.user.lastName}}" ng-src="{{training.user.imageUrl}}" ng-show="training.user.imageUrl != null && training.user.imageUrl != ''" />
+                                                <img title="{{training.user.firstName}} {{training.user.lastName}}" src="images/DefaultAvatar.jpg" ng-hide="training.user.imageUrl != null && training.user.imageUrl != ''" />
+
+                                                <!--<img title="{{training.user.firstName.substring(0,1)}} {{training.user.lastName.substring(0,1)}}" ng-src="{{training.user.imageUrl}}">-->
+                                            </div>
+                                            <div class="mt-action-body">
+                                                <div class="mt-action-row">
+                                                    <div class="mt-action-info ">
+                                                        <div class="mt-action-details ">
+                                                            <span class="mt-action-author">{{training.name}}</span>
+                                                            <p class="mt-action-desc">{{'COMMON_PROFILE' | translate }}: {{training.profile.name}}</p>
+                                                            <p class="mt-action-desc">{{'MYPROJECTS_PROJECTSTATUS_RECURRENCE_TIME' | translate }}:  {{completedTraining.recurrencesStartTime | date:'short'}} - {{completedTraining.recurrencesEndTime | date:'short'}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-action-datetime ">
+                                                        <span class="mt-action-date">{{completedTraining.feedbackDateTime | date:'short'}}</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- END: Completed -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row hide">
+        <div class="col-lg-6 col-xs-12 col-sm-12">
+            <div class="portlet light portlet-fit ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-directions font-green hide"></i>
+                        <span class="caption-subject bold font-dark uppercase ">{{'COMMON_PROFILE' | translate }} Activities</span>
+                        <span class="caption-helper">Horizontal Timeline</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group">
+                            <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                Actions
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;"> Action 1</a>
+                                </li>
+                                <li class="divider"> </li>
+                                <li>
+                                    <a href="javascript:;">Action 2</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">Action 3</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">Action 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="cd-horizontal-timeline mt-timeline-horizontal loaded" data-spacing="60">
+                        <div class="timeline">
+                            <div class="events-wrapper">
+                                <div class="events" style="width: 1800px; transform: translateX(0px);">
+                                    <ol>
+                                        <li>
+                                            <a href="#0" data-date="16/01/2014" class="border-after-red bg-after-red selected" style="left: 120px;">16 Jan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="28/02/2014" class="border-after-red bg-after-red" style="left: 300px;">28 Feb</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="20/04/2014" class="border-after-red bg-after-red" style="left: 480px;">20 Mar</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="20/05/2014" class="border-after-red bg-after-red" style="left: 600px;">20 May</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="09/07/2014" class="border-after-red bg-after-red" style="left: 780px;">09 Jul</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="30/08/2014" class="border-after-red bg-after-red" style="left: 960px;">30 Aug</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="15/09/2014" class="border-after-red bg-after-red" style="left: 1020px;">15 Sep</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/11/2014" class="border-after-red bg-after-red" style="left: 1200px;">01 Nov</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="10/12/2014" class="border-after-red bg-after-red" style="left: 1380px;">10 Dec</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="19/01/2015" class="border-after-red bg-after-red" style="left: 1500px;">29 Jan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" id="test_pest" data-date="03/03/2015" class="border-after-red bg-after-red" style="left: 1680px;">3 Mar - 1</a>
+                                        </li>
+                                    </ol>
+                                    <span class="filling-line bg-red" aria-hidden="true" style="transform: scaleX(0.0769271);"></span>
+                                </div>
+                                <!-- .events -->
+                            </div>
+                            <!-- .events-wrapper -->
+                            <ul class="cd-timeline-navigation mt-ht-nav-icon">
+                                <li>
+                                    <a href="#0" class="prev btn btn-outline red md-skip inactive">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0" class="next btn btn-outline red md-skip">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- .cd-timeline-navigation -->
+                        </div>
+                        <!-- .timeline -->
+                        <div class="events-content">
+                            <ol>
+                                <li class="selected" data-date="16/01/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">New User</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_3.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">16 January 2014 : 7:45 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam
+                                            at iaculis finibus eu ex. Integer efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non est rhoncus volutpat.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle red btn-outline">Read More</a>
+                                        <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                        <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li data-date="28/02/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Sending Shipment</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_3.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Hugh Grant</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">28 February 2014 : 10:15 AM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle btn-outline green-jungle">Download Shipment List</a>
+                                        <div class="btn-group dropup pull-right">
+                                            <button class="btn btn-circle blue-steel dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li>
+                                                    <a href="javascript:;">Action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Another action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Something else here </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;">Separated link </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-date="20/04/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Blue Chambray</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue">Rory Matthew</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">20 April 2014 : 10:45 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="20/05/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">20 May 2014 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="09/07/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Event Success</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Matt Goldman</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">9 July 2014 : 8:15 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde.</p>
+                                        <a href="javascript:;" class="btn btn-circle btn-outline purple-medium">View Summary</a>
+                                        <div class="btn-group dropup pull-right">
+                                            <button class="btn btn-circle green dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li>
+                                                    <a href="javascript:;">Action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Another action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Something else here </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;">Separated link </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-date="30/08/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Conference Call</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Rory Matthew</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">30 August 2014 : 5:45 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <img class="timeline-body-img pull-left" src="../assets/pages/media/blog/5.jpg" alt="">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="15/09/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Conference Decision</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_5.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Jessica Wolf</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">15 September 2014 : 8:30 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <img class="timeline-body-img pull-right" src="../assets/pages/media/blog/6.jpg" alt="">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-sharp">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="01/11/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">1 November 2014 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="10/12/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">10 December 2015 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="19/01/2015">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">19 January 2015 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="03/03/2015">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">3 March 2015 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <!-- .events-content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-12">
+            <div class="portlet light portlet-fit ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-directions font-green hide"></i>
+                        <span class="caption-subject bold font-dark uppercase"> Events</span>
+                        <span class="caption-helper">Horizontal Timeline</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                            <label class="btn btn-cstm btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">Actions
+                            </label>
+                            <label class="btn btn-cstm btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Tools
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="cd-horizontal-timeline mt-timeline-horizontal loaded" data-spacing="60">
+                        <div class="timeline mt-timeline-square">
+                            <div class="events-wrapper">
+                                <div class="events" style="width: 1800px;">
+                                    <ol>
+                                        <li>
+                                            <a href="#0" data-date="16/01/2014" class="border-after-blue bg-after-blue selected" style="left: 120px;">Expo 2016</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="28/02/2014" class="border-after-blue bg-after-blue" style="left: 300px;">New Promo</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="20/04/2014" class="border-after-blue bg-after-blue" style="left: 480px;">Meeting</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="20/05/2014" class="border-after-blue bg-after-blue" style="left: 600px;">Launch</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="09/07/2014" class="border-after-blue bg-after-blue" style="left: 780px;">Party</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="30/08/2014" class="border-after-blue bg-after-blue" style="left: 960px;">Reports</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="15/09/2014" class="border-after-blue bg-after-blue" style="left: 1020px;">HR</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="01/11/2014" class="border-after-blue bg-after-blue" style="left: 1200px;">IPO</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="10/12/2014" class="border-after-blue bg-after-blue" style="left: 1380px;">Board</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="19/01/2015" class="border-after-blue bg-after-blue" style="left: 1500px;">Revenue</a>
+                                        </li>
+                                        <li>
+                                            <a href="#0" data-date="03/03/2015" class="border-after-blue bg-after-blue" style="left: 1680px;">Dinner</a>
+                                        </li>
+                                    </ol>
+                                    <span class="filling-line bg-blue" aria-hidden="true" style="transform: scaleX(0.0841609);"></span>
+                                </div>
+                                <!-- .events -->
+                            </div>
+                            <!-- .events-wrapper -->
+                            <ul class="cd-timeline-navigation mt-ht-nav-icon">
+                                <li>
+                                    <a href="#0" class="prev inactive btn blue md-skip">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#0" class="next btn blue md-skip">
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- .cd-timeline-navigation -->
+                        </div>
+                        <!-- .timeline -->
+                        <div class="events-content">
+                            <ol>
+                                <li class="selected" data-date="16/01/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Expo 2016 Launch</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Lisa Bold</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">23 February 2014</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod mi felis, aliquam at iaculis eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis mi felis, aliquam
+                                            at iaculis eu, onsectetur adipiscing elit finibus eu ex. Integer efficitur leo eget dolor tincidunt, et dignissim risus lacinia. Nam in egestas onsectetur adipiscing elit nunc. Suspendisse
+                                            potenti
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle dark btn-outline">Read More</a>
+                                        <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li data-date="28/02/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Sending Shipment</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_3.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Hugh Grant</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">28 February 2014 : 10:15 AM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle btn-outline green-jungle">Download Shipment List</a>
+                                        <div class="btn-group dropup pull-right">
+                                            <button class="btn btn-circle blue-steel dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li>
+                                                    <a href="javascript:;">Action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Another action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Something else here </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;">Separated link </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-date="20/04/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Blue Chambray</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue">Rory Matthew</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">20 April 2014 : 10:45 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="20/05/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">20 May 2014 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="09/07/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Event Success</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Matt Goldman</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">9 July 2014 : 8:15 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde.</p>
+                                        <a href="javascript:;" class="btn btn-circle btn-outline purple-medium">View Summary</a>
+                                        <div class="btn-group dropup pull-right">
+                                            <button class="btn btn-circle green dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li>
+                                                    <a href="javascript:;">Action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Another action </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">Something else here </a>
+                                                </li>
+                                                <li class="divider"> </li>
+                                                <li>
+                                                    <a href="javascript:;">Separated link </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-date="30/08/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Conference Call</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_1.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Rory Matthew</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">30 August 2014 : 5:45 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <img class="timeline-body-img pull-left" src="../assets/pages/media/blog/5.jpg" alt="">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="15/09/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Conference Decision</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_5.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Jessica Wolf</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">15 September 2014 : 8:30 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <img class="timeline-body-img pull-right" src="../assets/pages/media/blog/6.jpg" alt="">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
+                                            qui ut.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-sharp">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="01/11/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">1 November 2014 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="10/12/2014">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">10 December 2014 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="19/01/2015">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">19 January 2015 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                                <li data-date="03/03/2015">
+                                    <div class="mt-title">
+                                        <h2 class="mt-content-title">Timeline Received</h2>
+                                    </div>
+                                    <div class="mt-author">
+                                        <div class="mt-avatar">
+                                            <img src="../assets/pages/media/users/avatar80_2.jpg">
+                                        </div>
+                                        <div class="mt-author-name">
+                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                        </div>
+                                        <div class="mt-author-datetime font-grey-mint">3 March 2015 : 12:20 PM</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="mt-content border-grey-steel">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, finibus eu ex. Integer efficitur leo eget
+                                            dolor tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur
+                                            odio non est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent
+                                            dignissim luctus risus sed sodales.
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <!-- .events-content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-xs-12 col-sm-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">{{'MYPROJECTS_PROJECTSTATUS_MEMBER_ACTIVITY' | translate }}</span>
+                        <span class="caption-helper">
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <a class="btn btn-cstm btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                        {{selectedProfileText? selectedProfileText : 'Profile'}}
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li ng-click="scorecardProfileFilterClick(completedProfile.profile.id)" ng-repeat="completedProfile in   project.completedProfiles | unique:'profile.id' ">
+                                            <a href="javascript:;" data-value="{{completedProfile.profile.id}}"> {{completedProfile.profile.name}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    {{participantText ? participantText : 'Participant'}}
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li ng-click="scorecardParticipantClick(member.id)" ng-repeat="member in members">
+                                        <a href="javascript:;" class="filterPartcipantOption" data-value="{{member.id}}"> {{member.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided hide" data-toggle="buttons">
+                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">{{'COMMON_TODAY' | translate }}
+                            </label>
+                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">{{'COMMON_WEEK' | translate }}
+                            </label>
+                            <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">{{'COMMON_MONTH' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <!--<kendo-tooltip options="tooltipOptions">-->
+                            <div id="psScorecardGrid"></div>
+                        <!--</kendo-tooltip>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet light  margin-bottom-10">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">{{'MYPROJECTS_PROJECTSTATUS_AGGREGATED_SALES_ACTIVITIES' | translate }}</span>
+                    </div>
+
+                    <div class="actions">
+
+                        <div class="btn-group">
+                            <div class="btn-group">
+                                <a class="btn btn-cstm btn-sm ng-binding" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    {{'MYPROJECTS_PROJECTSTATUS_AGGREGATED_SALES_ACTIVITIES_PROFILE' | translate }}
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li ng-repeat="activeProfile in filterableProfiles" ng-click="getSalesActivityData(activeProfile.profile.id)">
+                                        <a href="javascript:;" data-value="{{activeProfile.profile.id}}"> {{activeProfile.profile.name}} </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <kendo-tooltip options="tooltipOptions">
+                        <div id="aggregatedSalesActivitiesGrid"></div>
+                    </kendo-tooltip>
+                </div>
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">{{'MYPROJECTS_PROJECTSTATUS_MEMBER_SALES_ACTIVITIES' | translate }}</span>
+
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                {{'MYPROJECTS_PROJECTSTATUS_MEMBERS' | translate }}<i class="fa fa-angle-down"></i>
+                            </a>
+                            <div id="profileFilterOption" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                <!-- end ngRepeat: member in project.members -->
+                                <label ng-click="profileFilterClick($event)" class="mt-checkbox mt-checkbox-outline" data-id="{{member.userId}}" ng-repeat="member in project.members">
+                                    <input type="checkbox" ng-value="member.userId">{{member.user.firstName }} {{member.user.lastName}}<span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <ul class="nav nav-tabs memeber-activities">
+                        <li ng-class="$index ==0 ?'active':'' " ng-repeat="member in project.members track by $index" data-userId="{{member.user.id}}" ng-click="getUserSalesActivityData(member.user.id)">
+
+                            <a href="javascript:;" data-target="#tab_MemeberActivity" data-toggle="tab" aria-expanded="false">
+                                <div class="row">
+                                    <img class="user-pic rounded pull-left" src="{{member.user.imagePath ? member.user.imagePath : 'images/DefaultAvatar.jpg'}}" hspace="10px">
+                                    <div class="primary-link pull-left" style="margin:8px 10px 0px 0px;">{{member.user.firstName }} {{member.user.lastName}}</div>
+                                </div>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_MemeberActivity">
+                            <div class="table-scrollable table-scrollable-borderless">
+                                <kendo-tooltip options="tooltipOptions">
+                                    <div id="memeberActivityGrid"></div>
+                                </kendo-tooltip>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet light  margin-bottom-10">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">{{'MYPROJECTS_PROJECTSTATUS_TASK_AGGREGATED_SALES_ACTIVITIES' | translate }}</span>
+                    </div>
+
+
+                    <div class="actions">
+
+                        <div class="btn-group">
+                            <div class="btn-group">
+                                <a class="btn btn-cstm btn-sm ng-binding" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                    {{'COMMON_TASKS' | translate }}
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li ng-repeat="projectTask in projectTasks" ng-click="getTaskSalesActivityData(projectTask.id)">
+                                        <a href="javascript:;" data-value="{{projectTask.id}}"> {{projectTask.title}} </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <kendo-tooltip options="tooltipOptions">
+                        <div id="taskAggregatedSalesActivitiesGrid"></div>
+                    </kendo-tooltip>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

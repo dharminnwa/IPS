@@ -1,0 +1,98 @@
+﻿<div id="updateTalkActivityPopupWindow">
+    <div class="container-fluid">
+        <ng-form id="formTalkedActvity" name="formTalkedActvity">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_DESCRIBE_CONVERSATION' | translate }}</label>
+                                <textarea type="text" class="form-control" ng-model="prospectingActivityCustomerResult.description" name="talkConversation" placeholder="Talk Conversation" ng-required="true" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_APPROX_DURATION' | translate }} <small>({{'TASKPROSPECTING_MINUTES' | translate }})</small></label>
+                                <input type="number" class="form-control" ng-model="prospectingActivityCustomerResult.duration" name="talkDuration" placeholder="Talk Duration" ng-required="true" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="task-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isMeeting">
+                                        <input type="checkbox" id="chkIsFollowUp_{{prospectingActivityCustomerResult.id}}" class="checkboxes" value="1" ng-checked="prospectingActivityCustomerResult.isFollowUp" ng-model="prospectingActivityCustomerResult.isFollowUp" ng-disabled="prospectingActivityCustomerResult.id > 0">
+                                        <span></span>{{'TASKPROSPECTING_FOLLOW_UP' | translate }}
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp">
+                                        <input type="checkbox" id="chkIsMeeting_{{prospectingActivityCustomerResult.id}}" class="checkboxes" value="1" ng-checked="prospectingActivityCustomerResult.isMeeting" ng-model="prospectingActivityCustomerResult.isMeeting" ng-disabled="prospectingActivityCustomerResult.id > 0">
+                                        <span></span>{{'TASKPROSPECTING_MEETING_AGREED' | translate }}
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp">
+                                        <input type="checkbox" id="chkIsSales_{{prospectingActivityCustomerResult.id}}" class="checkboxes" value="1" ng-checked="prospectingActivityCustomerResult.isSales" ng-model="prospectingActivityCustomerResult.isSales" ng-disabled="prospectingActivityCustomerResult.id > 0">
+                                        <span></span>{{'TASKPROSPECTING_SALES_AGREED' | translate }}
+                                    </label>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="prospectingActivityCustomerResult.isMeeting || prospectingActivityCustomerResult.isFollowUp">
+                                        <input type="checkbox" id="chkIsNoMeeting_{{prospectingActivityCustomerResult.id}}" class="checkboxes" value="1" ng-checked="prospectingActivityCustomerResult.isNoMeeting" ng-model="prospectingActivityCustomerResult.isNoMeeting" ng-disabled="prospectingActivityCustomerResult.id > 0">
+                                        <span></span>{{'TASKPROSPECTING_NOT_INTERESTED' | translate }}
+                                    </label>
+                                </div>
+                                <span class="text-red" ng-show="(!(prospectingActivityCustomerResult.isMeeting || prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp))">{{'TASKPROSPECTING_PLEASE_SELECT_ANY_ONE_OPTION_FOLLOW_UP_MEETING_AGREED_NO_MEETING' | translate }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12" ng-show="prospectingActivityCustomerResult.isMeeting || prospectingActivityCustomerResult.isFollowUp">
+                            <label class="col-md-12 text-info">{{'TASKPROSPECTING_PLEASE_NOTE_THIS_WILL_BE_LINKED_WITH_YOUR_TASKS_NOTIFIES_YOU_WITH_TODAYS_TASKS_AND_CALENDAR_INSIDE_IMPROVE_SYSTEMS' | translate }}</label>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'TASKPROSPECTING_SCHEDULE_DATE' | translate }}</label>
+                                    <input kendo-date-time-picker
+                                           id="talkScheduleDate"
+                                           name="talkScheduleDate"
+                                           ng-model="prospectingSchedule.scheduleDate" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" ng-show="prospectingActivityCustomerResult.isMeeting">{{'TASKPROSPECTING_DESCRIBE_AGENDA' | translate }}</label>
+                                    <label class="control-label" ng-show="prospectingActivityCustomerResult.isFollowUp">{{'TASKPROSPECTING_DESCRIBE_FOLLOW_UP_DETAIL' | translate }}</label>
+                                    <textarea type="text" class="form-control" ng-model="prospectingSchedule.agenda" name="agenda" placeholder="Agenda" ng-required="prospectingActivityCustomerResult.isMeeting || prospectingActivityCustomerResult.isFollowUp" />
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="col-md-12" ng-show="prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_REASON' | translate }}</label>
+                                <textarea class="form-control" ng-model="prospectingActivityCustomerResult.reason" name="reason" placeholder="Reason" ng-required="prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" ng-show="prospectingActivityCustomerResult.isSales">
+                            <div class="col-md-12">
+                                <kendo-tooltip options="tooltipOptions">
+                                    <div id="updateProspectingSalesGrid" kendo-grid k-options="gridUpdateCustomerSalesOptions"></div>
+                                </kendo-tooltip>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_RATE_OF_CUSTOMER_INTEREST' | translate }} <small>(%)</small></label>
+                                <input type="number" class="form-control" ng-model="prospectingActivityCustomerResult.customerInterestRate" name="customerInterest" placeholder="Customer Interest" ng-required="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <button class="btn btn-cstm cancel pull-right" ng-click="cancelProspectingCustomerTalked()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                    <button class="btn btn-cstm pull-right" ng-click="updateCustomerActivityResult()" ng-disabled="(formTalkedActvity.$invalid) || (!(prospectingActivityCustomerResult.isMeeting || prospectingActivityCustomerResult.isNoMeeting || prospectingActivityCustomerResult.isFollowUp))" data-dismiss="modal" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>

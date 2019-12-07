@@ -1,0 +1,122 @@
+<div pane>
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span>{{'COMMON_FILTER' | translate }}</span>
+            </div>
+            <div class="theme-option">
+                <span class="form-cstm-lable">{{'EMAIL_UNREAD' | translate}}</span>
+                <label class="switch">
+                    <input type="checkbox" ng-checked="filterOptions.unreadOnly" ng-model="filterOptions.unreadOnly" ng-change="showUnReadonly()">
+                    <span class="slider round"></span>
+                </label>
+                <div class="row">
+                    <a class="btn btn-sm btn-cstm pull-right" ng-click="markEmailsAsRead()">{{'MARK_AS_READ' | translate}} </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" ng-init="loadEmailsGrid()">
+        <div role="tabpanel">
+            <div class="col-sm-3">
+                <ul class="nav nav-pills brand-pills nav-stacked portlet-light" role="tablist">
+
+                    <li>
+                        <a href="javascript:;" data-title="Compose" ng-click="goToNewEmail()" class="btn-compose">
+                            <i class="fa fa-plus" aria-hidden="true"></i> {{'EMAIL_COMPOSE' | translate}}
+                        </a>
+                    </li>
+
+                    <li class="brand-nav mt-5 " ng-class="isInbox ? 'active' :'' " ng-click="getInboxMails()">
+                        <a href="javascript:;" data-type="inbox" data-title="Inbox">
+                            <i class="fa fa-inbox" aria-hidden="true"></i>
+                            {{'EMAIL_INBOX' | translate}} <span class="mail-box mails-number">{{unReadCount}}</span>
+                        </a>
+                    </li>
+                    <li class="brand-nav" ng-class="isSentBox ? 'active' :'' " ng-click="getSentMails()">
+                        <a href="javascript:;" data-type="sent" data-title="Sent">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            {{'EMAIL_SENT' | translate }}
+                        </a>
+                    </li>
+                    <li class="brand-nav" ng-class="isGmailInbox ? 'active' :'' " ng-click="getGmailInbox()">
+                        <a href="javascript:;" data-type="GmailInbox" data-title="Gmail Inbox">
+                            <i class="fa fa-inbox" aria-hidden="true"></i>
+                            Gmail {{'EMAIL_INBOX' | translate}}
+                        </a>
+                    </li>
+                    <li class="brand-nav" ng-class="isGmailSentBox ? 'active' :'' " ng-click="getGmailSentbox()">
+                        <a href="javascript:;" data-type="GmailSentBox" data-title="Gmail Sent">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            Gmail {{'EMAIL_SENT' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9">
+                <div class="pt-2">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <section class="p-2 header-blue">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="caption caption-md">
+                                        <span class="caption-subject box-title" ng-show="isInbox">{{'EMAIL_INBOX' | translate}}</span>
+                                        <span class="caption-subject box-title" ng-show="isGmailInbox">Gmail {{'EMAIL_INBOX' | translate}}</span>
+                                        <span class="caption-subject box-title" ng-show="isSentBox"> {{'EMAIL_SENT' | translate }}</span>
+                                        <span class="caption-subject box-title" ng-show="isGmailSentBox"> Gmail {{'EMAIL_SENT' | translate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section ng-show="(isGmailInbox || isGmailSentBox) && (!isGmailLoggedIn)">
+                            <div class="row m-0">
+                                <h3 class="gmail-heading">Gmail {{'EMAIL_LOGIN' | translate}}</h3>
+                            </div>
+
+                            <div class="row m-0 pt-1">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="" ng-model="gmailDetail.email" aria-describedby="emailHelp" placeholder="Enter Your Email" name="gmailId">
+                                        <span ng-show="!isGmail()" class="font-red"> {{ 'EMAIL_INVALID_GMAIL' | translate }}</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="" ng-model="gmailDetail.password" placeholder="{{'EMAIL_PASSWORD' | translate}}" ng-keypress="enterKey($event)" name="gmailpassword">
+                                    </div>
+
+                                    <button class="btn dropdown-toggle btn-cstm" type="button" ng-disabled="!isGmail()" ng-click="checkGmailLogin()">
+                                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                        {{'EMAIL_LOGIN' | translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mt-3">
+                            <div class="clearfix font-red" ng-show="isGmailLoggedFailed">
+                                If you have entered correct credential and still not able to connect that is due to this possible security setting from google.
+                                <div class="font-red">
+                                    1) You need to allow in the less secure app access panel, click Turn on access. Then only system will able to connect with you Gmail.
+                                    Refer this link : <a target="_blank" href="https://support.google.com/accounts/answer/6010255?hl=en">https://support.google.com/accounts/answer/6010255?hl=en</a>
+                                </div>
+                                <div class="font-red">
+                                    2) Sign-in attempt was blocked: It might be due to your local time-zone and web system origin time zone may be different so you will receive mail from google and reply accordingly.
+                                </div>
+                            </div>
+                            <div class="clearfix" ng-show="(isGmailInbox || isGmailSentBox) && isGmailLoggedIn"> {{'EMAIL_LOGIN_AS' | translate}} {{gmailDetail.email}}</div>
+                            <div class="clearfix">
+                                <kendo-tooltip options="tooltipOptions">
+                                    <div id="emailsGrid"></div>
+                                </kendo-tooltip>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

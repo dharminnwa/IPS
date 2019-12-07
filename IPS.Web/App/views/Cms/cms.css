@@ -1,0 +1,161 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.tabHead th
+{
+
+font-family: helvetica !important;
+color: #000 !important;
+padding: 12px 3px !important;
+}
+
+.newtbody tr td
+{
+padding: 6px 2px !important;
+}
+
+.tab_edit, .tab_delete
+{
+background-color: rgb(10, 135, 203);
+color: rgb(255, 255, 255) !important;
+border-radius: 3px;
+font-size: 13px;
+margin-right: 5px;
+width: 35px;
+height: 35px;
+display: inline-block;
+text-align: center;
+line-height: 37px;
+}
+
+.tab_edit:hover, .tab_delete:hover
+{
+text-decoration:none;
+box-shadow:0px 2px 3px #222;
+cursor:pointer;
+}
+
+.tab_edit i, .tab_delete i
+{
+font-size: 20px;
+}
+
+.tab_delete
+{
+background-color: rgb(230, 49, 49);
+}
+
+.newForm
+{
+
+}
+
+.newForm label
+{
+font-size: 12px;
+font-weight: 500;
+color: rgb(153, 153, 153);
+}
+
+.newForm input
+{
+border: 1px solid #D8D8D8 !important;
+box-shadow: unset !important;
+font-size: 13px !important;
+color: #717171 !important;
+}
+
+.newForm textarea
+{
+border: 1px solid #D8D8D8 !important;
+box-shadow: unset !important;
+font-size: 13px !important;
+color: #717171 !important;
+resize:none;
+
+}
+
+
+
+    .newForm select {
+        border: 1px solid #D8D8D8 !important;
+        box-shadow: unset !important;
+        font-size: 13px !important;
+        color: #717171 !important;
+        /*background-image: url('views/organization/img/downArrow.png');*/
+        background-repeat: no-repeat;
+        background-position: 98% 47%;
+        background-size: 13px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+.checkSection
+{
+padding-left:15px
+}
+
+.cke_1.cke_chrome {
+    border: 1px solid #EDEDED  !important;
+    padding: 0  !important;
+}
+
+.cke_1 .cke_top, #cke_1_bottom {
+    background: #DBDBDB  !important;
+    border: 0px !important  !important;
+    padding-left: 5px  !important;
+    padding-top: 5px  !important;
+background-image: none !important;
+}
+
+.cke_1 .cke_toolgroup, .cke_1 .cke_combo_button {
+    background: #9E9E9E !important;
+    border: 1px solid #7A7A7A  !important;
+    box-shadow: 0px 1px 2px #8F8F8F  !important;
+    margin-bottom: 8px  !important;
+}
+
+
+.btnAdd
+{
+border: 1px solid rgb(255, 110, 25);
+padding: 6px 50px;
+background: none;
+background-color: #FF6E19;
+color: #fff !important;
+}
+
+.btnAdd:hover
+{
+box-shadow:0px 2px 3px #666;
+
+}
+
+
+
+.btnclose
+{
+background-color: #245D8F;
+border: 1px solid #245D8F;
+margin-left: 15px;
+height: 34px;
+color: #fff !important;
+}
+
+.btnclose:hover
+{
+box-shadow:0px 2px 3px #666;
+
+}
+
+.btmBtn
+{
+margin-bottom:20px; 
+}
+
+.newPanelHead
+{
+font-size: 20px;
+color: rgb(255, 110, 25);
+}

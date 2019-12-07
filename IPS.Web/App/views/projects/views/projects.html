@@ -1,0 +1,29 @@
+<div class="row" ng-init="init()">
+    <div class="col-md-12 margin-top-20">
+        <span class="btn btn-info" ng-click="newProject()">{{'MYPROJECTS_NEW_PROJECT' | translate }}</span>
+    </div>
+    <div class="col-md-12 margin-top-20">
+
+        <div kendo-grid="projectsGrid" k-options="gridOptions" k-rebind="projects"></div>
+    </div>
+
+
+    <div id="viewPopupInfo" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close"></span></div>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'COMMON_INFO' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row content-text">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

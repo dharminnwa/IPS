@@ -1,0 +1,79 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title"> {{'COMMON_DEPARTMENTS' | translate}} </span>
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                        {{selectedOrganization != null?selectedOrganization.name:'-- Select Organization--'}}
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="scroller" style="height: 250px;">
+                                <ul class="dropdown-menu-list">
+                                    <li ng-click="changeOrganization(organization.id)" ng-repeat="organization in organizations">
+                                        <a href="javascript:;"> {{organization.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="portlet box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inputs pull-right">
+                    <div class="portlet-input input-inline pull-right">
+                        <a href="/home/organizations/newDepartment/{{selectedOrganization.id}}" class="btn btn-cstm pull-right" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Create);">
+                            <i class="fa fa-plus" aria-hidden="true"></i> {{'ORGANIZATIONS_CREATE_NEW_DEPARTMENT' | translate }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-repeat="department in departments | filter: filterDepartments">
+            <div class="col-md-12">
+                <div class="portlet box yellow">
+                    <div class="portlet-title department-team-title">
+                        <div class="caption">
+                            {{department.name}}
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" title="Edit" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Update);" ng-click="editDepartment(department.id)">
+                                <i class="fa fa-pencil-square-o black"
+                                   aria-hidden="true"></i>
+                            </a>
+                            <a href="javascript:;" title="Remove" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Delete);" ng-click="removeDepartment(department.id)"><i class="fa fa-trash black" aria-hidden="true"></i></a>
+                            <a href="javascript:;" class="collapse" data-original-title="" title="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body department-team-section">
+                        <div class="row">
+                            <a href="#/home/organizations/userdetail/{{user.organizationId}}/{{user.id}}" ng-repeat="user in department.users | filter: filterUsers">
+                                <div class="col-md-4">
+                                    <div class="media user-media">
+                                        <div class="media-left">
+                                            <img class="media-object" src="{{user.userImage ? user.userImage : 'images/DefaultAvatar.jpg'}}" alt="...">
+                                        </div>
+                                        <div class="media-body user-media-detail">
+                                            <h4 class="media-heading">{{user.firstName}} {{user.lastName}}</h4>
+                                            <span>{{user.workEmail}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

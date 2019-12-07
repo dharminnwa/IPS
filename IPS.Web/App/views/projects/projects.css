@@ -1,0 +1,19 @@
+﻿.mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container {
+    padding: 0px !important;
+}
+
+.tab-pane .img-circle {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.statement-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+label.k-check {
+    padding-right: 10px;
+    margin-right: 5px;
+}

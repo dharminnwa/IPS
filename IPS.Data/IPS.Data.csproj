@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{98DA4C1B-0343-4211-8C98-0484427C281D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IPS.Data</RootNamespace>
+    <AssemblyName>IPS.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo|AnyCPU'">
+    <OutputPath>bin\Demo\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Answer.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bookmark.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CmsPage.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactU.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Culture.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSalesData.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyEvaluation.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DurationMetric.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\LocalizationLanguages.cs" />
+    <Compile Include="Enums\NotificationTemplateStageTypeEnum.cs" />
+    <Compile Include="Enums\NotificationTemplateTypeEnum.cs" />
+    <Compile Include="Enums\EvaluationRoleEnum.cs" />
+    <Compile Include="Enums\NotificationTypeEnum.cs" />
+    <Compile Include="Enums\ProfileTypeEnum.cs" />
+    <Compile Include="Enums\QuestionTypeEnum.cs" />
+    <Compile Include="Enums\SaleCategoryEnum.cs" />
+    <Compile Include="EvaluationAgreement.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationParticipant.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationRole.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationStatus.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExerciseMetric.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpiredProspectingActivityReason.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpCategory.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpContent.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Industry.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpsAttachment.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpsAttachmentFileDetail.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpsAttachmentUser.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IPSData.Views.cs" />
+    <Compile Include="IpsEmail.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IPSEMailAttachment.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpsPlan.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IPSPlanFeature.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IPSPlanField.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IPSPlanFieldsLookup.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpsPlanRole.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosition.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KPIType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KTMedalRule.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_PerformanceGroupSkills.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_ProfileTags.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_ProjectUsers.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_TeamUsers.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_TrainingParticipants.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Link_Training_NotificationType_NotificationInterval.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookupItem.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeasureUnit.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MilestoneAgreementGoal.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMetaData\IndustryMetaData.cs" />
+    <Compile Include="ModelMetaData\TaskMetaData.cs" />
+    <Compile Include="ModelMetaData\ProfileTypeMetaData.cs" />
+    <Compile Include="ModelMetaData\ProfileMetaData.cs" />
+    <Compile Include="ModelMetaData\OrganizationMetaData.cs" />
+    <Compile Include="IPSData.Context.cs">
+      <DependentUpon>IPSData.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="IPSData.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="IPSData.Designer.cs">
+      <DependentUpon>IPSData.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="NotificationInterval.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationTemplate.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationTemplateType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OfferClosingDetail.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organization.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceGroup.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanFeaturesKey.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioCategory.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioImage.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioProject.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PossibleAnswer.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileCategory.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileScaleSettingsRule.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectDefaultNotificationSetting.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectGlobalSetting.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectGoal.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectRole.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectSteeringGroup.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProspectingActivity.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingActivityFeedback.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingActivityLog.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingCustomer.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingCustomerOfferDetail.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingCustomerResult.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingCustomerSalesAgreedData.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingGoalActivityInfo.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingGoalInfo.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingGoalScale.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingGoalScaleRanx.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingSchedule.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProspectingSkillGoal.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Question.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionMaterial.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reminder.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReminderType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Scale.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScaleCategory.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScaleRange.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScorecardGoal.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScorecardPerspective.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SensorData.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stage.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StageGroup.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StagesEvolution.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StagesEvolutionQuestion.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StructureLevel.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyAnswer.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyResult.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskActivity.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskCategoryList.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskCategoryListItem.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskList.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskPriorityList.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskPriorityListItem.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskScale.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskScaleRanx.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskStatusList.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskStatusListItem.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateCategory.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateContent.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateContentImage.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Testimonial.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Training.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingDescription.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingFeedback.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingLevel.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingMaterial.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingMaterialRating.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingNote.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Trend.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRecurrentNotificationSetting.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserType.cs">
+      <DependentUpon>IPSData.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IPSData.Context.tt">
+      <DependentUpon>IPSData.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IPSData.Context.cs</LastGenOutput>
+    </None>
+    <None Include="IPSData.edmx.diagram">
+      <DependentUpon>IPSData.edmx</DependentUpon>
+    </None>
+    <None Include="IPSData.tt">
+      <DependentUpon>IPSData.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IPSData.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="IPSData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IPSData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UpdateScripts\Old\UpdateScript - Applied on prod.sql" />
+    <Content Include="UpdateScripts\UpdateScriptScnSoft.sql" />
+    <Content Include="UpdateScripts\UpdateScript.sql" />
+    <Content Include="UpdateScripts\Old\UpdateScript_V.5.2.1.sql" />
+    <Content Include="UpdateScripts\Old\UpdateScript_V.5.2.2.sql" />
+    <Content Include="UpdateScripts\Old\UpdateScript_V.5.2.3.sql" />
+    <Content Include="UpdateScripts\Old\UpdateScript_V5.2.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

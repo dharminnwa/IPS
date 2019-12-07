@@ -1,0 +1,225 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">
+                    <a href="javascript:;">{{'COMMON_HISTORY' | translate }}</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light portlet-light-box">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profiles-history-grid" kendo-grid k-options="historyOptions"></div>
+        </div>
+    </div>
+</section>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROFILES_PLEASE_DEFINE_NEW_STAGE_GROUP_FOR_FURTHER_EVALUATION' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form name="nextPhaseForm" novalidate>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_NAME' | translate }}:</label>
+                                            <input type="text" class="form-control" ng-model="stageRestart.name" name="stageRestartName" required />
+                                            <div class="validation-error-label" ng-show="nextPhaseForm.stageRestartName.$dirty && nextPhaseForm.stageRestartName.$error.required">{{'MYPROFILES_NAME_IS_REQUIRED' | translate }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_START_DATE' | translate }}</label>
+                                            <br />
+                                            <input kendo-date-time-picker ng-model="stageRestart.startDate"
+                                                   require-valid-date="{laterThanToday: true }"
+                                                   name="stageRestartStartDate"
+                                                   required />
+                                            <div class="validation-error-label" ng-show="nextPhaseForm.stageRestartStartDate.$dirty && nextPhaseForm.stageRestartStartDate.$error.invalidDate">{{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_END_DATE' | translate }}</label>
+                                            <br />
+                                            <input kendo-date-time-picker ng-model="stageRestart.endDate"
+                                                   require-valid-date="{ minDate: stageRestart.startDate, laterThanToday: true }"
+                                                   name="stageRestartEndDate"
+                                                   required />
+                                            <div class="validation-error-label" ng-show="nextPhaseForm.stageRestartEndDate.$dirty && nextPhaseForm.stageRestartEndDate.$error.invalidDate">{{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                <textarea class="form-control" name="stageDescription" ng-model="stageRestart.description" rows="5"></textarea>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <div class="form-group" ng-hide="(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)">
+                                    <div class="col-md-12">
+                                        <label class="col-md-12">
+                                            {{'MYPROFILES_START_STAGE_DATE_RANGE' | translate }}
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="startStageStartDate">
+                                                {{'COMMON_START_DATE' | translate }}
+                                                <span class="required" ng-show="nextPhaseForm.startStageStartDate.$dirty && nextPhaseForm.startStageStartDate.$error.required"> * </span>
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input kendo-date-time-picker
+                                                       id="startStageStartDate"
+                                                       name="startStageStartDate"
+                                                       k-on-open="StageGroupStartStageStartDateOpen(kendoEvent)"
+                                                       k-on-change="StageGroupStartStageStartDateChange(kendoEvent)"
+                                                       ng-model="stageRestart.startStageStartDate"
+                                                       ng-required="!(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)" />
+                                                <div class="validation-error-label" ng-show="nextPhaseForm.startStageStartDate.$dirty && nextPhaseForm.startStageStartDate.$error.required">{{'MYPROFILES_START_STAGE_START_DATE_IS_REQUIRED' | translate }}</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="startStageEndDate">
+                                                {{'COMMON_END_DATE' | translate }}
+                                                <span class="required" ng-show="nextPhaseForm.startStageEndDate.$dirty && nextPhaseForm.startStageEndDate.$error.required"> * </span>
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input kendo-date-time-picker
+                                                       id="startStageEndDate"
+                                                       name="startStageEndDate"
+                                                       k-on-open="StageGroupStartStageEndDateOpen(kendoEvent)"
+                                                       k-on-change="StageGroupStartStageEndDateChange(kendoEvent)"
+                                                       ng-model="stageRestart.startStageEndDate"
+                                                       ng-required="!(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)" />
+                                                <div class="validation-error-label" ng-show="nextPhaseForm.startStageEndDate.$dirty && nextPhaseForm.startStageEndDate.$error.required">{{'MYPROFILES_START_STAGE_END_DATE_IS_REQUIRED' | translate }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group" ng-hide="(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)">
+                                    <div class="col-md-12">
+                                        <label class="col-md-12">
+                                            {{'MYPROFILES_PERFORMANCE_EVALUATION_DATE_RANGE' | translate }}
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="milestoneStartDate">
+                                                {{'COMMON_START_DATE' | translate }}
+                                                <span class="required" ng-show="nextPhaseForm.milestoneStartDate.$dirty && nextPhaseForm.milestoneStartDate.$error.required"> * </span>
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input kendo-date-time-picker
+                                                       id="milestoneStartDate"
+                                                       name="milestoneStartDate"
+                                                       k-on-open="StageGroupMilestoneStartDateOpen(kendoEvent)"
+                                                       k-on-change="StageGroupMilestoneStartDateChange(kendoEvent)"
+                                                       ng-model="stageRestart.milestoneStartDate"
+                                                       ng-required="!(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)" />
+                                                <div class="validation-error-label" ng-show="nextPhaseForm.milestoneStartDate.$dirty && nextPhaseForm.milestoneStartDate.$error.required">{{'MYPROFILES_PERFORMANCE_EVALUATION_START_DATE_IS_REQUIRED' | translate }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="milestoneEndDate">
+                                                {{'COMMON_END_DATE' | translate }}
+                                                <span class="required" ng-show="nextPhaseForm.milestoneEndDate.$dirty && nextPhaseForm.milestoneEndDate.$error.required"> * </span>
+
+                                            </label>
+                                            <div class="col-md-8">
+                                                <input kendo-date-time-picker
+                                                       id="milestoneEndDate"
+                                                       name="milestoneEndDate"
+                                                       k-on-open="StageGroupMilestoneEndDateOpen(kendoEvent)"
+                                                       k-on-change="StageGroupMilestoneEndDateChange(kendoEvent)"
+                                                       ng-model="stageRestart.milestoneEndDate"
+                                                       ng-required="!(stageRestart.id  > 0 && stageRestart.startStageStartDate == null)" />
+                                                <div class="validation-error-label" ng-show="nextPhaseForm.milestoneEndDate.$dirty && nextPhaseForm.milestoneEndDate.$error.required">{{'MYPROFILES_PERFORMANCE_EVALUATION_END_DATE_IS_REQUIRED' | translate }}</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label class="control-label col-md-3">{{'MYPROFILES_NUMBER_OF_PERFORMANCE_EVALUATIONS' | translate }}</label>
+                                    <div class="col-lg-8">
+                                        <input type="number" class="form-control" min="2" max="10" ng-model="stageRestart.totalMilestones" placeholder="Number of Performance Evaluations" ng-readonly="true">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.totalMilestones >= 2 && stageRestart.totalMilestones <= 10)">
+                                            {{'MYPROFILES_INVALID_NUMBER_OF_PERFORMANCE_EVALUATIONS_MUST_BE_IN_BETWEEN_2_TO_10' | translate }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-12">{{'MYPROFILES_PERFORMANCE_EVALUATION_TIME_SPAN' | translate }}:</label>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'COMMON_MONTH' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="stageRestart.monthsSpan" placeholder="Months">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.monthsSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_MONTH_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_WEEKS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="stageRestart.weeksSpan" placeholder="Weeks">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.weeksSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_WEEKS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_DAYS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="stageRestart.daysSpan" placeholder="Days">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.daysSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_DAYS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'MYPROFILES_HOURS' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="stageRestart.hoursSpan" placeholder="Hours">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.hoursSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_HOURS_SPAN' | translate }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="control-label">{{'COMMON_MINUTES' | translate }}:</label>
+                                        <input type="number" class="form-control" min="0" ng-model="stageRestart.minutesSpan" placeholder="Minutes">
+                                        <div class="validation-error-label"
+                                             ng-hide="(stageRestart.minutesSpan >= 0)">
+                                            {{'MYPROFILES_INVALID_MINUTES_SPAN' | translate }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelRestartProfile()" data-dismiss="modal" aria-label="Close">{{'COMMON_NO' | translate }}</button>
+                                <button class="btn btn-cstm primary pull-right" ng-click="restartProfile()" data-dismiss="modal" aria-label="Ok" ng-disabled="nextPhaseForm.$invalid">{{'COMMON_YES' | translate }}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

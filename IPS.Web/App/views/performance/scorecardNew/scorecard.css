@@ -1,0 +1,489 @@
+﻿.k-grid tr td .trend-Up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #22B14C;
+    margin: 0 auto;
+}
+
+.k-grid tr td .trend-Down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ED1C24;
+    margin: 0 auto;
+}
+
+.k-grid tr td .scale-circle {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    -moz-border-radius: 50px !important;
+    -webkit-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+
+.k-grid tr td .number {
+    text-align: center;
+}
+
+.k-grid tr td .center-text {
+    text-align: center;
+}
+
+.k-grid tr td .trend-Equal {
+    position: relative;
+}
+
+    .k-grid tr td .trend-Equal:before {
+        content: "=";
+        position: absolute;
+        font-weight: 700;
+        color: #00AFF0;
+        font-size: 30px;
+        left: 37%;
+        top: -10px;
+    }
+
+.scorecard-legend {
+    width: 15px;
+    height: 15px;
+}
+
+.scorecard-row-container {
+    margin-bottom: 200px;
+}
+
+#scorecardGrid {
+    margin-top: 20px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.k-grid th {
+    vertical-align: middle !important;
+}
+
+.scorecard-btn {
+    width: 100%;
+    height: 25px;
+}
+
+
+/*Start CSS for dashboard*/
+
+.db_drop {
+    margin-top: 7px;
+}
+
+.db_title {
+}
+
+.db_ms_select button.btn-default {
+    padding: 0px;
+    float: left;
+    border: 0px;
+    border: 1px solid #E4E4E4;
+    border-radius: 0;
+    box-shadow: 0px 1px 2px #CFCFCF;
+    font-size: 12px;
+    font-family: helvetica;
+    background: transparent;
+    height: 34px;
+    color: #262626 !important;
+    overflow: hidden;
+}
+
+.db_ms_select {
+    position: relative;
+}
+
+    .db_ms_select .caret {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        color: #FF6E19;
+    }
+
+.db_title, .check_title {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-family: helvetica;
+    color: #245D8F;
+}
+
+.check_title {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.db_select, .details-select {
+    padding: 0px;
+    float: left;
+    border: 0px;
+    border: 1px solid #E4E4E4;
+    border-radius: 0;
+    box-shadow: 0px 1px 2px #CFCFCF;
+    font-size: 12px;
+    font-family: helvetica;
+    background-color: #fff !important;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.details-select {
+    width: 57px;
+    height: 25px;
+}
+
+.db_select:focus, .db_ms_select:focus {
+    outline: none;
+    box-shadow: none;
+    box-shadow: 0px 1px 2px #999;
+    border: 1px solid #CFCFCF;
+}
+
+.pad_zero {
+    padding: 0px !important;
+}
+
+.db_drop .form-group {
+    margin-bottom: 7px;
+}
+
+.sapratorLine {
+    width: 96%;
+    border-color: rgb(197, 213, 228);
+    margin: 24px auto 16px;
+}
+
+.dashboard-btn, .details-btn, .scorecard-btn {
+    background-color: rgb(255, 110, 25);
+    border: 1px solid rgb(255, 110, 25);
+    color: rgb(255, 255, 255);
+    font-family: helvetica;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 12px 0px 0px 0px;
+}
+
+.details-btn {
+    margin: 0px 0px 0px 5px;
+    padding: 5px 8px;
+}
+
+.db_head {
+    font-size: 18px;
+    color: #245D8F;
+    font-family: helvetica;
+    font-weight: 100;
+    margin-bottom: 5px;
+}
+
+.sel_outer {
+    position: relative;
+}
+
+.catDown {
+    position: absolute;
+    right: 5px;
+    top: 11px;
+    font-size: 12px;
+    color: #FF6E19;
+}
+
+.db_ms_select ul.dropdown-menu li a {
+    font-size: 13px;
+    padding: 4px 5px;
+    font-family: helvetica;
+}
+
+.db_ms_select .dropdown-menu > li > a:hover {
+    background: rgb(36, 93, 143) !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+.db_ms_select .dropdown-menu {
+    overflow: auto !important;
+}
+
+.MainGraph h3.ng-scope {
+    font-size: 18px;
+    color: rgb(36, 93, 143);
+    font-family: helvetica;
+    font-weight: 100;
+    margin-bottom: 7px;
+}
+
+
+.GraphListTxt h4 {
+    font-size: 12px;
+    color: rgb(108, 108, 108);
+    font-family: helvetica;
+    font-weight: 100;
+    margin-bottom: 5px;
+    min-height: 30px !important;
+}
+
+.GraphList .ng-scope h3 {
+    text-align: left;
+    font-size: 18px;
+    color: rgb(36, 93, 143);
+    font-family: helvetica;
+    font-weight: 100;
+    margin-bottom: 7px;
+    min-height: 50px;
+}
+
+.progressbar-control {
+    height: 17px !important;
+}
+
+    .progressbar-control .item-bar {
+        border: 1px solid rgb(182, 182, 182) !important;
+        position: absolute !important;
+        left: 0px;
+        top: 0px;
+        margin: 0px !important;
+    }
+
+.GraphList {
+    margin-bottom: 15px;
+    width: 100%;
+    display: inline-block;
+}
+
+.width10Perc {
+    font-size: 11px;
+    font-family: helvetica;
+    color: rgb(36, 93, 156);
+    font-weight: 600;
+}
+
+.width100prc {
+    color: #245D8F;
+    border-bottom: 1px solid RGBA(36, 93, 143, 0.2);
+    padding-bottom: 5px;
+}
+
+.width200pxCentered {
+    text-align: center;
+    width: 260px;
+    color: #245D8F;
+    border-bottom: 1px solid RGBA(36, 93, 143, 0.2);
+    padding-bottom: 5px;
+    font-family: helvetica;
+    width: 100% !important;
+}
+
+.img.scorecard-link {
+    margin: auto !important;
+}
+
+#gauge-container-small #gauge_total_strong_value {
+    font-family: helvetica;
+    color: rgb(255, 110, 25);
+    text-align: center;
+    margin: 10px 0px
+}
+
+
+.width80Perc {
+    width: 80%;
+}
+
+.GraphLiProc.width80Perc.FloatLeft {
+    float: left;
+}
+
+.width90Perc {
+    width: 90%;
+}
+
+.width20Perc {
+    width: 20%;
+}
+
+.GraphLiProc.width20Perc.FloatLeft {
+    float: left;
+}
+
+.GraphListTxt .GraphLiProc.width20Perc .mArLeft015 {
+    margin-top: 10px;
+    width: auto;
+}
+
+.width10Perc {
+    width: 10%;
+}
+
+.width50Perc {
+    width: 50%;
+}
+
+.width60Perc {
+    width: 60%;
+}
+
+.width40Perc {
+    width: 40%;
+}
+
+.GraphScoreBox h3 {
+    color: #245D8F;
+    padding-bottom: 5px;
+    font-family: helvetica;
+    font-size: 18px;
+    margin-bottom: -9px;
+}
+
+.GraphScoreBox h4 {
+    padding-bottom: 5px;
+    font-family: helvetica;
+    font-size: 13px;
+    color: #8D8D8D;
+}
+
+.mArLeft015 {
+    font-size: 11px;
+    font-family: helvetica;
+    color: rgb(36, 93, 156);
+    font-weight: 600;
+    margin-top: 1px;
+    display: inline-block;
+    margin-bottom: 6px;
+    padding-left: 5px !important;
+}
+
+.k-gauge {
+    margin-bottom: 10px;
+}
+
+.StyrkerBoxLeft {
+    text-align: center;
+    font-family: helvetica;
+    color: rgb(255, 110, 25);
+}
+
+.pad-zero {
+    padding: 0px;
+}
+
+.k-state-active {
+    display: inline-block !important;
+}
+
+.k-grid tr td .trend-Equal {
+    position: relative;
+}
+
+    .k-grid tr td .trend-Equal:before {
+        content: "=";
+        position: absolute;
+        font-weight: 700;
+        color: #00AFF0;
+        font-size: 30px;
+        left: 37%;
+        top: -10px;
+    }
+
+.k-grid tr td .trend-Up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #22B14C;
+    margin: 0 auto;
+}
+
+.k-grid tr td .trend-Down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ED1C24;
+    margin: 0 auto;
+}
+
+.k-grid tr td .scale-circle {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    -moz-border-radius: 50px !important;
+    -webkit-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+
+.scorecard-legend {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+
+.kpi-outer-circle {
+    background: #DBDBDB;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .kpi-outer-circle .kpi-inner-circle {
+        position: absolute;
+        border-radius: 50% !important;
+        background: #F7F7F7;
+        height: 36px;
+        border: 2px solid #C0C0C0;
+        width: 36px;
+        top: 50%;
+        left: 50%;
+        margin: -18px 0px 0px -18px;
+    }
+
+        .kpi-outer-circle .kpi-inner-circle .kpi-control {
+            position: absolute;
+            border-radius: 50% !important;
+            height: 22px;
+            width: 22px;
+            top: 50%;
+            left: 50%;
+            margin: -11px 0px 0px -11px;
+            cursor: pointer;
+        }
+
+.kpi-control.kpi-0 {
+    background: #BDBDBD;
+}
+
+.kpi-control.kpi-1 {
+    background: #FE4B4B;
+}
+
+.kpi-control.kpi-2 {
+    background: #5ECF37;
+}
+
+.text-red {
+    color: red !important;
+}
+
+/*End CSS for dashboard*/

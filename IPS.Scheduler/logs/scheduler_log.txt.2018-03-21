@@ -1,0 +1,219 @@
+2018-03-21 17:20:13,139 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 17:20:13,307 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:20:39,171 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 1348_1803211723; PersonalTrainingEmail on 3/21/2018 5:23:00 PM
+2018-03-21 17:20:59,997 [1] DEBUG JobScheduler - Scheduled new Profile Training Email Job! Job key: 1349_1803211723; ProfileTrainingEmail on 3/21/2018 5:23:00 PM
+2018-03-21 17:20:59,997 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:21:00,026 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 17:21:00,052 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:21:09,176 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:22:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:23:17,927 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:23:24,352 [DefaultQuartzScheduler_Worker-5] DEBUG StartStageJob - Training Email Job! Job key: 1349_1803211723; ProfileTrainingEmail
+2018-03-21 17:23:24,355 [DefaultQuartzScheduler_Worker-3] DEBUG StartStageJob - Training Email Job! Job key: 1348_1803211723; PersonalTrainingEmail
+2018-03-21 17:24:00,413 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:24:16,626 [DefaultQuartzScheduler_Worker-3] ERROR StartStageJob - Training Email Job execution failed! Job key: 1348_1803211723; PersonalTrainingEmail
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3243; handshake=18370;  ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at IPS.Business.NotificationService.SelectTask(Int32 taskId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 685
+   at IPS.Business.NotificationService.SendTaskEmailNotification(Int32 taskId) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 426
+   at IPSScheduler.Jobs.TrainingEmailJob.Execute(IJobExecutionContext context) in D:\DotNetProjects\IPS\IPS.Scheduler\Jobs\TrainingEmailJob.cs:line 35
+2018-03-21 17:38:08,741 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 17:38:08,831 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:38:34,680 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:38:34,713 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 17:39:00,028 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:39:27,857 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:40:23,073 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 17:40:23,392 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:41:00,082 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 1348_1803211744; PersonalTrainingEmail on 3/21/2018 5:44:00 PM
+2018-03-21 17:41:48,279 [1] DEBUG JobScheduler - Scheduled new Profile Training Email Job! Job key: 1349_1803211744; ProfileTrainingEmail on 3/21/2018 5:44:00 PM
+2018-03-21 17:41:52,233 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:41:52,252 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 17:42:00,034 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:42:43,528 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:43:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:43:13,958 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:44:00,005 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:44:07,561 [DefaultQuartzScheduler_Worker-5] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1349_1803211744; ProfileTrainingEmail
+2018-03-21 17:44:07,563 [DefaultQuartzScheduler_Worker-3] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1348_1803211744; PersonalTrainingEmail
+2018-03-21 17:45:00,847 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:56:13,094 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 17:56:13,239 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:56:27,272 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 1348_1803211800; PersonalTrainingEmail on 3/21/2018 6:00:00 PM
+2018-03-21 17:56:37,030 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:56:37,047 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 17:57:00,030 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:57:21,986 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:58:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:58:06,690 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 17:59:00,000 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 17:59:03,009 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:00:00,000 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:00:03,728 [DefaultQuartzScheduler_Worker-5] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1348_1803211800; PersonalTrainingEmail
+2018-03-21 18:01:03,495 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:01:42,143 [DefaultQuartzScheduler_Worker-5] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 1348_1803211800; PersonalTrainingEmail
+2018-03-21 18:01:42,170 [DefaultQuartzScheduler_Worker-6] ERROR JobScheduler - Loading of future stages from database failed!
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPS.Business.TrainingDiaryService.GetAllProfileTrainingsForEmail() in D:\DotNetProjects\IPS\IPS.Business\TrainingDiaryService.cs:line 709
+   at IPSScheduler.JobScheduler.LoadFutureProfileTrainingForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1323
+2018-03-21 18:01:42,224 [DefaultQuartzScheduler_Worker-6] INFO  JobScheduler - List of scheduled Profile Training Email in the database is empty.
+2018-03-21 18:01:42,224 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:01:44,730 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:01:46,749 [17] DEBUG IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 successful
+2018-03-21 18:02:00,030 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:02:03,125 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:09:30,163 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 18:09:30,322 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:09:35,554 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 1348_1803211811; PersonalTrainingEmail on 3/21/2018 6:11:00 PM
+2018-03-21 18:09:41,656 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:09:41,683 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 18:10:00,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:10:02,952 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:11:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:11:02,256 [DefaultQuartzScheduler_Worker-3] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1348_1803211811; PersonalTrainingEmail
+2018-03-21 18:11:30,131 [DefaultQuartzScheduler_Worker-3] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 1348_1803211811; PersonalTrainingEmail
+2018-03-21 18:11:33,947 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:11:36,793 [17] ERROR IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 failed
+System.Net.Mail.SmtpFailedRecipientsException: Unable to send to all recipients. ---> System.Net.Mail.SmtpFailedRecipientException: Mailbox unavailable. The server response was: relay not permitted
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at IPS.Business.MailNotification.Send(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 52
+   at IPS.Business.NotificationService.SendEmailNotification(NotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 982
+   at IPS.Business.NotificationService.TrainingSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 630
+2018-03-21 18:12:00,000 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:12:03,139 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:13:00,000 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:13:03,365 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:14:00,000 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:14:03,156 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:15:00,000 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:15:03,496 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:16:00,000 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:16:02,997 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:17:52,284 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 18:17:52,413 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:17:55,984 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 1348_1803211819; PersonalTrainingEmail on 3/21/2018 6:19:00 PM
+2018-03-21 18:18:02,188 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:18:02,215 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 18:19:00,031 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:19:02,074 [DefaultQuartzScheduler_Worker-2] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1348_1803211819; PersonalTrainingEmail
+2018-03-21 18:19:12,252 [DefaultQuartzScheduler_Worker-2] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 1348_1803211819; PersonalTrainingEmail
+2018-03-21 18:22:54,803 [17] ERROR IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 failed
+System.Net.Mail.SmtpFailedRecipientsException: Unable to send to all recipients. ---> System.Net.Mail.SmtpFailedRecipientException: Mailbox unavailable. The server response was: relay not permitted
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at IPS.Business.MailNotification.Send(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 52
+   at IPS.Business.NotificationService.SendEmailNotification(NotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 982
+   at IPS.Business.NotificationService.TrainingSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 630
+2018-03-21 18:22:54,806 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:22:55,889 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:22:58,318 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:23:00,021 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:23:03,124 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:24:00,000 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:24:03,362 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:25:00,000 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:25:03,197 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:26:00,000 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:26:03,085 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:27:00,000 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:27:02,980 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:28:00,000 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:28:03,068 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:29:00,000 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:29:03,200 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:30:00,000 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:30:03,094 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:31:54,220 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 18:31:54,364 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:32:03,066 [1] DEBUG JobScheduler - Scheduled new Profile Training Email Job! Job key: 1349_1803211833; ProfileTrainingEmail on 3/21/2018 6:33:00 PM
+2018-03-21 18:32:03,066 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 18:32:03,084 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 18:33:00,032 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 18:33:03,591 [DefaultQuartzScheduler_Worker-2] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1349_1803211833; ProfileTrainingEmail
+2018-03-21 18:33:22,415 [DefaultQuartzScheduler_Worker-2] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 1349_1803211833; ProfileTrainingEmail
+2018-03-21 19:01:32,898 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-03-21 19:01:33,226 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 19:01:43,994 [1] DEBUG JobScheduler - Scheduled new Profile Training Email Job! Job key: 1349_1803211902; ProfileTrainingEmail on 3/21/2018 7:02:00 PM
+2018-03-21 19:01:43,994 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 19:01:44,025 [1] INFO  JobScheduler - Scheduler Started
+2018-03-21 19:02:00,044 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 19:02:00,044 [DefaultQuartzScheduler_Worker-1] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 1349_1803211902; ProfileTrainingEmail
+2018-03-21 19:02:00,513 [DefaultQuartzScheduler_Worker-1] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 1349_1803211902; ProfileTrainingEmail
+2018-03-21 19:02:39,410 [5] ERROR IPS.Business.NotificationService - Send email to participant with Id 0, name Anand Agarwal1 failed
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.5.1 Authentication Required. Learn more at
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at IPS.Business.MailNotification.Send(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 52
+   at IPS.Business.NotificationService.SendEmailNotification(NotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 982
+   at IPS.Business.NotificationService.TrainingSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 630
+2018-03-21 19:02:40,315 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-03-21 19:03:00,047 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-03-21 19:03:03,544 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed

@@ -1,0 +1,75 @@
+<div kendo-window="winChoiceOption" k-width="800" k-visible="false" k-title="'{{'SOFTPROFILE_ADD_ANSWER_OPTION' | translate }}'"
+     k-on-open="winChoiceOptionVisible = true" k-on-close="winChoiceOptionVisible = false">
+    <div class="row window-row" ng-form="winChoiceOptionForm">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'SOFTPROFILE_OPTION_NAME' | translate }}</label>
+                <input type="text" class="form-control tab-control" name="name"
+                       ng-required="winChoiceOptionVisible"
+                       ng-model="optionModel.name">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_DESCRIPTION' | translate }}</label>
+                <input type="text" class="form-control tab-control" name="description"
+                       ng-model="optionModel.description">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="isCorrect" ng-model="optionModel.isCorrect"> {{'SOFTPROFILE_IS_CORRECT' | translate }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'SOFTPROFILE_ORDER' | translate }}</label>
+                <input type="number" class="form-control tab-control" name="order" ng-model="optionModel.order"/>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_MATERIAL_TYPE' | translate }}</label>
+                <select class="form-control tab-control" name="material-type"
+                        ng-model="optionModel.material.type" ng-change="changeType(optionModel.material.type)">
+                    <option value="">{{'SOFTPROFILE_NONE' | translate }}</option>
+                    <option value="{{materialTypeEnum.image}}">{{'COMMON_IMAGE' | translate }}</option>
+                    <option value="{{materialTypeEnum.document}}">{{'COMMON_DOCUMENT' | translate }}</option>
+                    <option value="{{materialTypeEnum.audio}}">{{'COMMON_AUDIO' | translate }}</option>
+                    <option value="{{materialTypeEnum.link}}">{{'COMMON_LINK' | translate }}</option>
+                    <option value="{{materialTypeEnum.video}}">{{'COMMON_VIDEO' | translate }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12"
+             ng-show="optionModel.material.type && optionModel.material.type == materialTypeEnum.link">
+            <label>{{'COMMON_URL' | translate }}</label>
+            <input type="url" class="form-control tab-control" ng-model="optionModel.material.url"
+                   ng-required="winChoiceOptionVisible && optionModel.material.type && optionModel.material.type == materialTypeEnum.link"
+                   name="url"/>
+        </div>
+        <div class="col-md-12"
+             ng-hide="!optionModel.material.type || optionModel.material.type == materialTypeEnum.link">
+            <div class="form-group">
+                <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+                <input type="file" name="fileOptionModel" ngf-select="onFileSelect($files)" ng-model="fileModel" ng-required="winChoiceOptionVisible && optionModel.material.type && optionModel.material.type != materialTypeEnum.link">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <button class="btn btn-cstm primary cancel pull-right"
+                        ng-click="closeOptionWin()">
+                    {{'COMMON_CANCEL' | translate }}
+                </button>
+                <button class="btn btn-cstm primary pull-right" ng-disabled="winChoiceOptionForm.$error.required"
+                        ng-click="saveOption()">
+                    {{'COMMON_SAVE' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

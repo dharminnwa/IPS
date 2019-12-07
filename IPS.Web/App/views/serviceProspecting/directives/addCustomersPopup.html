@@ -1,0 +1,73 @@
+﻿<div id="addCustomersWindow">
+    <div class="container-fluid">
+        <ng-form name="formAddProspectingCustomer" action="#" id="formAddProspectingCustomer" novalidate="novalidate">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Prospecting Goal</label>
+                                <select class="form-control" ng-options="prospectingGoalItem.id as prospectingGoalItem.name for prospectingGoalItem in prospectingGoalNames"
+                                        ng-model="prospectingCustomer.prospectingGoalId"
+                                        ng-change="changeProspectingCustomerGoal()"
+                                        ng-required="true"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_ACTIVITY_NAME' | translate }}</label>
+                                <select class="form-control" ng-options="prospectingCustomerGoalActivityItem.id as prospectingCustomerGoalActivityItem.name +' ('+prospectingCustomerGoalActivityItem.activityStart +')' for prospectingCustomerGoalActivityItem in prospectingCustomerGoalActivities"
+                                        ng-model="prospectingCustomer.prospectingGoalActivityId"
+                                        ng-change="changeProspectingCustomerActivity(prospectingCustomerGoalActivityItem.activityStart)"
+                                        ng-required="true"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'TASKPROSPECTING_DATE' | translate }}</label>
+                                <input kendo-date-time-picker
+                                       id="scheduleDate"
+                                       name="scheduleDate"
+                                       k-on-open="scheduleDateOpen(kendoEvent)"
+                                       k-on-change="scheduleDateChange(kendoEvent)"
+                                       ng-readonly="true"
+                                       ng-model="prospectingCustomer.scheduleDate" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" ng-show="prospectingCustomer.prospectingGoalId > 0">
+                            <div class="form-group">
+                                <label class="control-label">Customer Type</label>
+                                <select class="form-control" ng-options="customerTypeOption.id as customerTypeOption.name for customerTypeOption in customerTypeOptions"
+                                        ng-model="prospectingCustomer.prospectingCustomerTypeId"
+                                        ng-change="changeProspectingCustomerType()"
+                                        ng-required="true"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="csvFileNames.length > 0">
+                        <div class="form-group">
+                            <label class="control-label">CSV File</label>
+                            <select class="form-control" ng-options="csvFileName.value as csvFileName.text for csvFileName in csvFileNames"
+                                    ng-model="prospectingCustomer.csvFileName"
+                                    ng-change="changeProspectingCustomerCsvFile()"></select>
+                        </div>
+                    </div>
+                    <div class="row prospectingCustomerGrid">
+                        
+                        <div id="customerGrid" kendo-grid k-options="custmerGridOptions" k-rebind="custmerGridOptions">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelProspectingCustomer()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                    <button class="btn btn-cstm primary pull-right" ng-click="saveProspectingCustomer()" aria-label="Ok" ng-hide="isProspectingCustomerViewOnly" ng-disabled="formAddProspectingCustomer.$invalid">{{'TASKPROSPECTING_ADD' | translate }}</button>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>

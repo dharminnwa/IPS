@@ -1,0 +1,73 @@
+﻿<div class="mt-element-step">
+    <div class="row">
+        <div class="mt-element-step">
+            <div class="row step-line">
+                <div class="col-md-4 mt-step-col first" ng-class="isActivePhaseLevelClass(phasesLevelEnum.planning)">
+                    <div class="mt-step-number bg-white">1</div>
+                    <div class="mt-step-title uppercase font-grey-cascade">{{levels.planning.name}}</div>
+                </div>
+                <div class="col-md-4 mt-step-col" ng-class="isActivePhaseLevelClass(phasesLevelEnum.execution)">
+                    <div class="mt-step-number bg-white">2</div>
+                    <div class="mt-step-title uppercase font-grey-cascade">{{levels.execution.name}}</div>
+                </div>
+                <div class="col-md-4 mt-step-col last" ng-class="isActivePhaseLevelClass(phasesLevelEnum.measure)">
+                    <div class="mt-step-number bg-white">3</div>
+                    <div class="mt-step-title uppercase font-grey-cascade">{{levels.measure.name}} </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row step-thin" ng-show="isActivePhaseLevel(phasesLevelEnum.planning)">
+        <a href="javascript:;"  ng-repeat="chileLevelItem in levels.planning.childLevels track by $index" class="col-md-4 bg-grey mt-step-col" ng-class="isActive(chileLevelItem.id)" ng-click="gotoPlanningPhase(chileLevelItem.id)">
+            <div class="mt-step-number bg-white font-grey">{{$index + 1}}</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{chileLevelItem.name}}</div>
+        </a>
+    </div>
+
+    <div class="row step-thin" ng-show="isActivePhaseLevel(phasesLevelEnum.execution)">
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.project)" ng-click="gotoPhase(projectPhasesEnum.project)">
+            <div class="mt-step-number bg-white font-grey">1</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_PROJECT_SETUP' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Project Details,Steering Group,Goals-Strategy</div>-->
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.profile)" ng-click="gotoPhase(projectPhasesEnum.profile)">
+            <div class="mt-step-number bg-white font-grey">2</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_PROFILE_SETUP' | translate }}</div>
+            <div class="mt-step-content font-grey-cascade"><!--Profile Details,Performance Groups,Send Out(s)--></div>
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.training)" ng-click="gotoPhase(projectPhasesEnum.training)">
+            <div class="mt-step-number bg-white font-grey">3</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_TRAINING_MANAGEMENT' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Skills, Actions and Profile Training</div>-->
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.measure)" ng-click="gotoPhase(projectPhasesEnum.measure)">
+            <div class="mt-step-number bg-white font-grey">4</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_MEASURE' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Measure Profile Training Performance</div>-->
+        </a>
+    </div>
+
+    <div class="row step-thin" ng-show="isActivePhaseLevel(phasesLevelEnum.measure)">
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.project)" ng-click="gotoPhase(projectPhasesEnum.project)">
+            <div class="mt-step-number bg-white font-grey">1</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_PROJECT_SETUP' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Project Details,Steering Group,Goals-Strategy</div>-->
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.profile)" ng-click="gotoPhase(projectPhasesEnum.profile)">
+            <div class="mt-step-number bg-white font-grey">2</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_PROFILE_SETUP' | translate }}</div>
+            <div class="mt-step-content font-grey-cascade"><!--Profile Details,Performance Groups,Send Out(s)--></div>
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.training)" ng-click="gotoPhase(projectPhasesEnum.training)">
+            <div class="mt-step-number bg-white font-grey">3</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_TRAINING_MANAGEMENT' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Skills, Actions and Profile Training</div>-->
+        </a>
+        <a href="javascript:;" class="col-md-3 bg-grey mt-step-col" ng-class="isActive(projectPhasesEnum.measure)" ng-click="gotoPhase(projectPhasesEnum.measure)">
+            <div class="mt-step-number bg-white font-grey">4</div>
+            <div class="mt-step-title uppercase font-grey-cascade">{{'MYPROJECTS_MEASURE' | translate }}</div>
+            <!--<div class="mt-step-content font-grey-cascade">Measure Profile Training Performance</div>-->
+        </a>
+    </div>
+</div>

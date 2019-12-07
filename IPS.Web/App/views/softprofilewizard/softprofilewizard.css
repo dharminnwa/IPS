@@ -1,0 +1,207 @@
+﻿/***
+Custom icon buttons
+***/
+.icon-btn {
+    height: 60px;
+    min-width: 80px;
+    margin: 5px 5px 0 0;
+    border: 1px solid #ddd;
+    padding: 12px 0px 0px 0px;
+    background-color: #fafafa;
+    background-image: none;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+    color: #646464;
+    text-shadow: none;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.check-mail {
+    display: inline;
+    width: 88%;
+}
+/*.green {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    color: green;
+}
+
+.yellow {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    color: yellow;
+}
+
+.red {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: red
+}*/
+
+.icon-btn:hover {
+    text-decoration: none;
+    border-color: #999;
+    color: #444;
+    text-shadow: 0 1px 0px white;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+    .icon-btn:hover > .badge {
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+.icon-btn > div {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #3f444a;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.icon-btn > .badge {
+    position: absolute;
+    font-size: 11px;
+    font-weight: 300;
+    top: -5px;
+    right: -5px;
+    padding: 3px 6px 3px 6px;
+    color: white;
+    text-shadow: none;
+    border-width: 0;
+    border-style: solid;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.icon-btn > i {
+    font-size: 18px;
+}
+
+.ie8 .icon-btn:hover {
+    filter: none;
+}
+
+
+.mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content {
+    padding: 0 75px 0 0px !important;
+}
+
+    .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > p {
+        color: black !important;
+    }
+
+    .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+        color: black !important;
+    }
+
+
+.profile-sidebar-portlet {
+    padding: 30px 0 0 0 !important;
+}
+
+.profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-usertitle-name {
+    color: #5a7391;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+    .profile-userbuttons .btn {
+        margin-right: 5px;
+    }
+
+        .profile-userbuttons .btn:last-child {
+            margin-right: 0;
+        }
+
+    .profile-userbuttons button {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 15px;
+    }
+
+.ips-primary-color {
+    background-color: #FF7F00;
+    border: 1px solid #FF7F00;
+    border-top: 0;
+}
+
+.modal-header .close {
+    text-indent: 0px !important;
+}
+
+
+.mt-element-list .list-todo.mt-list-head .list-title {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    color: white;
+}
+
+.table.table-light > thead > tr > th {
+    width:20%;
+}
+
+.mt-element-step .step-thin .mt-step-title{
+    margin-top:5px !important;
+}

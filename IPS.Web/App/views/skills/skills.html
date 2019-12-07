@@ -1,0 +1,87 @@
+<div pane>
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> {{'COMMON_SEARCH' | translate }} </span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <label>{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" data-ng-model="filter.isShowActive" ng-change="doFilter()">{{'SOFTPROFILE_SHOW_ACTIVE_SKILLS' | translate }}
+                            <span></span>
+                        </label>
+                        <!--<label class="mt-checkbox">
+                            <input type="checkbox" data-ng-model="filter.isShowInactive" ng-change="doFilter()">Show Inactive Skills
+                            <span></span>
+                        </label>-->
+                        <label class="mt-checkbox">
+                            <input type="checkbox" data-ng-model="filter.isTemplate" ng-change="doFilter()">{{'COMMON_SHOW_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.industryId" data-ng-options="obj.id as obj.name for obj in industries" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label>{{'COMMON_LEVEL' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.levelId" data-ng-options="obj.id as obj.name for obj in levels" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label>{{'COMMON_PERFORMANCE_GROUP' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.performanceGroupId" data-ng-options="obj.id as obj.name for obj in performanceGroups" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label for="ddlSkills" class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                    <select id="ddlSkills" class="form-control select2"
+                            data-ng-model="filter.skillId"
+                            ng-change="doFilter()"
+                            style="width: 100%"
+                            data-ng-options="obj.id as obj.name for obj in skills | unique:'name'">
+                        <option value="">-- {{'COMMON_SELECT' | translate }} --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>{{'COMMON_TARGET_GROUP' | translate }}</label>
+                    <select id="ddlTargetGroup" class="form-control select2-multiple" style="width: 100%" multiple data-ng-options="obj.id as obj.jobPosition1 for obj in selectJobPositionsOptions" data-ng-model="filter.jobPositions"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-init="pgInit()">
+        <div class="col-sm-12 return-menu">
+            <a href="#/home" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'SOFTPROFILE_SKILLS' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'SOFTPROFILE_SKILLS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="add()" ng-show="!isDisabled(authService.authentication.user.organizationId, authService.actions.Create)"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid="ipsTreeList" k-options="treelistOptions"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

@@ -1,0 +1,150 @@
+﻿.profiles-menu{
+    background-color: #f2f1f7; 
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    
+    background: url(../../images/Upload/Profile/edit.png) no-repeat;
+}
+
+.icon-groups .clone-icon {
+    
+    background: url(../../images/Upload/Profile/clone.png) no-repeat;
+}
+
+.icon-groups .delete-icon {
+    
+    background: url(../../images/Upload/Profile/remove.png) no-repeat;
+}
+
+.k-grid .k-button, .k-grid tbody .k-button {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid .k-button:hover , .k-grid tbody .k-button:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid .k-button .k-icon, .k-grid tbody .k-button .k-icon {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid .k-button .k-icon:hover, .k-grid tbody .k-button .k-icon:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon.k-edit {
+    background: url(../../images/edit.png) no-repeat;
+}
+
+.k-grid tbody .k-button.k-button-icontext.k-grid-add {
+    float:right;
+}
+
+.k-grid .k-button .k-icon.k-add, .k-grid tbody .k-button .k-icon.k-add {
+    background: url(../../images/add.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-update {
+    background: url(../../images/update.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-cancel {
+    background: url(../../images/delete.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-delete {
+    
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.btn-delete {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.btn-delete:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.btn-delete:active {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.btn-delete {
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.btn-delete:hover {
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.btn-delete:active {
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-edit:hover, .k-grid tbody .k-button .k-icon.k-delete:hover, .k-grid tbody .k-button .k-icon.k-cancel:hover, .k-grid tbody .k-button .k-icon.k-update:hover {
+    -moz-box-shadow: 0 0 10px #ccc; 
+    -webkit-box-shadow: 0 0 10px #ccc; box-shadow: 0 0 10px #ccc; 
+}
+
+#removal {
+    display:none;
+}

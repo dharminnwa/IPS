@@ -1,0 +1,241 @@
+﻿.todos-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.todo-row {
+    cursor: pointer;
+}
+
+.icon-groups a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    background: url(../../images/Upload/Profile/edit.png) no-repeat;
+}
+
+.icon-groups .delete-icon {
+    background: url("../../images/Upload/Profile/remove.png") no-repeat scroll 0% 0% transparent;
+}
+
+.add-button {
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+    .add-button:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .add-button:before {
+        content: '\+';
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #ff7d00;
+        margin-right: 10px;
+    }
+
+.select-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .select-group li {
+        float: left;
+        width: 100px;
+        height: 30px;
+        position: relative;
+    }
+
+    .select-group label, .select-group input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .select-group input[type="radio"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+            .select-group input[type="radio"]:checked + label {
+                /*background: #ff780a;*/
+                color: #ffffff;
+            }
+
+    .select-group label {
+        padding: 5px;
+        margin: 0;
+        padding-left: 25px;
+        border: 1px solid #CCC;
+        cursor: pointer;
+        z-index: 90;
+        background: #ffffff;
+        border: 1px solid #ff780a;
+        color: #000000;
+        font-weight: 500;
+    }
+
+    .select-group label {
+        padding: 5px;
+        margin: 0;
+        /*padding-left: 25px;*/
+        border: 1px solid #CCC;
+        cursor: pointer;
+        z-index: 90;
+        background: #ffffff;
+        border: 1px solid #ff780a;
+        color: #000000;
+        font-weight: 500;
+        border-radius: 4px;
+    }
+
+        .select-group label:hover {
+            /*background: #DDD;*/
+        }
+
+/*.select-group li:first-child label {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .select-group li:last-child label {
+        padding-left: 30px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }*/
+
+.k-tabstrip-wrapper {
+    margin-top: 15px;
+}
+
+.k-grid-header {
+    padding-right: 0 !important;
+}
+
+.k-grid-content {
+    overflow-y: hidden;
+}
+
+.k-grid tr td {
+    border-right: none;
+    border-left: none;
+}
+
+tr .org-name {
+    color: #000000;
+}
+
+tr .org-logo {
+    padding-left: 0;
+}
+
+tr .org-country {
+    margin-left: 10px;
+}
+
+.details ul {
+    margin-top: 20px;
+    list-style: none;
+    padding-left: 0;
+}
+
+    .details ul li {
+        border-bottom: 1px solid #a5a5a5;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+        .details ul li:last-child {
+            border-bottom: none;
+        }
+
+.details .info-title {
+    font-size: 10px;
+    line-height: 12px;
+    color: #a5a5a5;
+}
+
+.details .details-info {
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    color: #f17721;
+    font-weight: 700;
+}
+
+    .details .details-info:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        border-bottom: 2px solid #dbdbdb;
+        margin-left: 5px;
+    }
+
+.filter-group {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .filter-group .profiles-menu {
+        margin-top: 0px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+.profiles-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.delegated-task {
+    height: 32px;
+    width: 32px;
+    border: 0 solid;
+}
+
+.score-outer-circle {
+    background: #4e5452;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+
+#stars li label {
+    border: none !important;
+    font-size: 30px !important;
+    color: #8a8a8a;
+}
+
+#stars li.hover label, #stars li.selected label {
+    color: #ff780a;
+}
+
+
+
+.fa-eye {
+    /*color: #FF7F00 !important;*/
+    font-size: 20px;
+}
+
+    .fa-eye:hover {
+        cursor: pointer;
+    }

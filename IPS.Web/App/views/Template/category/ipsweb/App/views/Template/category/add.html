@@ -1,0 +1,48 @@
+<section class="panel" >
+    <header class="panel-heading newPanelHead create-department " ng-init="editPage()">
+        {{(pageId)?'Edit':'Add'}} Page                                </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form  class="newForm" ng-submit="(pageId)?updatePage():addPage()" >
+            <div class="row">
+                <div class="form-group col-sm-6 col-sm-6 ">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Title(required)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="cname" name="title" ng-model="updatePageData.title" minlength="2" type="text" value="" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6 col-sm-6">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Choose</label>
+                    <div class="col-lg-9">
+                        <select class="form-control"  ng-model="cms.language" ng-init="getLanguages()" ng-change="changeLanguage(cms.language)">
+                            <option value="">--Select language--</option>
+                            <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-6">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12" >Status</label>
+                <div class="col-lg-9">
+                    <select class="form-control m-bot15" ng-model="updatePageData.status" name="status" id="status">
+                        <option>Select Status</option>
+                        <option value="1">Active</option>
+                        <option value="2">In Active</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="col-lg-offset-7 col-lg-6 btmBtn">
+                    <button class="btn btnAdd" type="submit" name="submit">{{(pageId)?'Update':'Add'}}</button>
+                    <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/cms'">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</section>

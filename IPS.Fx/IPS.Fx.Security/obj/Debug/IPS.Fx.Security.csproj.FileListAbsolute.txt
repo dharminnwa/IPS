@@ -1,0 +1,7 @@
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Debug\IPS.Fx.Security.dll.config
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Debug\IPS.Fx.Security.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Debug\IPS.Fx.Security.pdb
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Debug\IPS.Fx.Security.csproj.CoreCompileInputs.cache
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Debug\IPS.Fx.Security.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Debug\IPS.Fx.Security.pdb
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Debug\IPS.Fx.Security.csprojAssemblyReference.cache

@@ -1,0 +1,79 @@
+<section class="panel" >
+                                <header class="panel-heading newPanelHead create-department " ng-init="editPage()">
+                                    {{(pageId)?'Edit':'Add'}} Training                                </header>
+                                <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+                                  <form  class="newForm" ng-submit="(pageId)?updatePage():addPage()" >
+                                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Choose</label>
+                                                <div class="col-lg-9">
+                                                    <select class="form-control"  ng-model="cms.language" ng-change="changeLanguage(cms.language)">
+														<option value="en">English</option>
+														<option value="hi">Hindi</option>
+														<option value="ru">Russian</option>
+														<option value="fr">French</option>
+													</select>
+                                                </div>
+                                            </div>
+																					
+											<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Plan Name</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" id="cname" name="title" ng-model="updatePageData.title" minlength="2" type="text" value="" required="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Price</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" id="cname" name="meta_title" ng-model="updatePageData.metaTitle" minlength="2" type="text" value="" required="">
+                                                </div>
+                                            </div>
+                                           
+										 
+                                           
+											<div style="clear:both;"></div>
+											<hr>
+
+
+
+<div class="designForm_Div">
+ <h2 class="df_head">License</h2>
+  <div class="designForm">
+  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+   <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Super Admin</label>
+   <div class="col-lg-9">
+    <input placeholder="Enter no. of Super admin allowed" class="form-control" id="cname" name="meta_title" ng-model="updatePageData.metaTitle" minlength="2" type="text" value="" required="">
+   </div>
+  </div>
+
+  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+   <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Manager</label>
+   <div class="col-lg-9">
+    <input placeholder="Enter no. of manager allowed" class="form-control" id="cname" name="meta_title" ng-model="updatePageData.metaTitle" minlength="2" type="text" value="" required="">
+   </div>
+  </div>
+
+  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+   <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Team Member</label>
+   <div class="col-lg-9">
+    <input placeholder="Enter no. of Team Member allowed" class="form-control" id="cname" name="meta_title" ng-model="updatePageData.metaTitle" minlength="2" type="text" value="" required="">
+   </div>
+  </div>
+  
+ </div>
+</div>
+
+
+ <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class=" btmBtn pull-right" style="padding-right:17px;">
+     <button class="btn btnAdd" type="submit" name="submit">{{(pageId)?'Update':'Add'}}</button>
+     <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/cms'">Cancel</button>
+    </div>
+ </div>
+
+
+
+										 </div>
+										</form>
+                                    </div>
+                                </div>
+                            </section>

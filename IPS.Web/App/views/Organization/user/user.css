@@ -1,0 +1,81 @@
+﻿.personInfo {
+    margin-top: 55px;
+}
+
+.ips-image-preview {
+    height: auto;
+    text-align:center;
+}
+
+.profile-avatar {
+    border-radius: 75%;
+    width: 100%;
+}
+
+.icon-skype {
+    background-image: url('../../../images/skype.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.icon-twitter {
+    background-image: url('../../../images/twitter.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.icon-linkedin {
+    background-image: url('../../../images/linkedin.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.icon-facebook {
+    background-image: url('../../../images/facebook.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.ng-invalid {
+    border-color: red;
+    outline-color: red;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    background: url('../../images/edit.png') no-repeat;
+}
+
+.icon-groups .remove-icon {
+    background: url('../../../images/remove.png') no-repeat;
+}
+
+.notifications-row input[type=checkbox] {
+    margin-left: 20px;
+}
+
+
+.create-department .form-group .form-control
+{
+border: 1px solid #D8D8D8 !important;
+box-shadow: unset !important;
+font-size: 13px !important;
+color: #717171 !important;
+}
+
+.k-multiselect-wrap
+{
+box-shadow: none !important;
+height: 30px; !important
+background-color: rgb(255, 255, 255) !important;
+}

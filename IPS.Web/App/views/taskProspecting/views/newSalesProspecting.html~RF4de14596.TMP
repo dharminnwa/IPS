@@ -1,0 +1,612 @@
+﻿<!-- BEGIN PAGE CONTENT-->
+<div pane>
+    <section class="portlet-light header-blue">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-title"> {{'LEFTMENU_PROSPECTING' | translate}} </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portlet-light" ng-init="init()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="row">
+                            <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable mt-5">
+                                <div id="wid-id-0">
+                                    <!-- widget div-->
+                                    <div role="contentinfo">
+                                        <!-- widget content -->
+                                        <div class="widget-body">
+
+                                            <div class="row">
+                                                <form id="wizard-1" novalidate="novalidate">
+                                                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                        <div class="form-bootstrapWizard">
+                                                            <ul class="bootstrapWizard form-wizard">
+                                                                <li class="active" data-target="#tab1" ng-click="openAddGoal()">
+                                                                    <a href="javascript:;" class="active">
+                                                                        <span class="step">
+                                                                            <i class="ips-icon-goal"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'TASKPROSPECTING_PROSPECTING_GOAL' | translate}}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="" data-target="#tab2" ng-click="openAddActivity()">
+                                                                    <a href="javascript:;">
+                                                                        <span class="step">
+                                                                            <i class="ips-icon-activity"></i>
+                                                                        </span>
+                                                                        <span class="title">
+                                                                            {{'COMMON_SET_ACTIVITY' | translate}}
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="tab1">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="portlet box collapse-light-box">
+                                                                            <div class="portlet-title header-blue">
+                                                                                <div class="caption">
+                                                                                    {{'TASKPROSPECTING_PROSPECTING_GOAL' | translate}}
+                                                                                </div>
+                                                                                <div class="tools">
+                                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="portlet-body department-team-section" style="display: block;">
+                                                                                <div class="row">
+
+                                                                                    <div class="col-md-4 mt-5">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_TYPE' | translate }}</label>
+                                                                                            <select class="form-control" ng-options="prospectingGoalType.id as prospectingGoalType.name for prospectingGoalType in ProspectingGoalTypes"
+                                                                                                    ng-model="prospectingGoalInfo.prospectingGoalTypeId"
+                                                                                                    ng-change="changeProspectingGoalType()"></select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4 mt-5" ng-show="prospectingGoalInfo.prospectingGoalTypeId == 3">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_TASK_NAME' | translate }}</label>
+                                                                                            <select class="form-control" ng-options="taskTodo.taskId as taskTodo.title for taskTodo in prospectingTaskTodos | filter : showFilteredTodos"
+                                                                                                    ng-model="prospectingGoalInfo.taskId"
+                                                                                                    ng-disabled="isProspectingGoalViewOnly"
+                                                                                                    ng-change="changeProspectingGoalTask()"
+                                                                                                    ng-required="prospectingGoalInfo.prospectingGoalTypeId == 3"></select>
+
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-4 mt-5">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'COMMON_NAME' | translate }}</label>
+                                                                                            <input type="text" class="form-control" ng-model="prospectingGoalInfo.name" name="{{prospectingGoalInfo.name}}" ng-required="true" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 mt-5">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'COMMON_START_DATE' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="goalStartDate"
+                                                                                                   name="goalStartDate"
+                                                                                                   k-on-open="goalStartDateOpen(kendoEvent)"
+                                                                                                   k-on-change="goalStartDateChange(kendoEvent)"
+                                                                                                   ng-model="prospectingGoalInfo.goalStartDate" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 mt-5">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'COMMON_END_DATE' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="goalEndDate"
+                                                                                                   name="goalEndDate"
+                                                                                                   k-on-open="goalEndDateOpen(kendoEvent)"
+                                                                                                   k-on-change="goalEndDateChange(kendoEvent)"
+                                                                                                   ng-model="prospectingGoalInfo.goalEndDate" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row pt-2">
+                                                                                    <div class="col-md-12">
+                                                                                        <label>{{'TASKPROSPECTING_RECURRENCE' | translate }} : {{prospectingGoalInfo.taskRecurrenceRule}}</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 mt-5">
+                                                                                        <div class="card-header">
+                                                                                            {{'TASKPROSPECTING_TOTAL_DAYS' | translate }}
+                                                                                            <span class="pull-right card-header-number"> {{prospectingGoalInfo.totalDays}}</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 mt-5">
+                                                                                        <div class="card-header">
+                                                                                            {{'TASKPROSPECTING_TOTAL_WEEKS' | translate }}
+                                                                                            <span class="pull-right card-header-number">{{prospectingGoalInfo.totalWeeks}}</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4 mt-5">
+                                                                                        <div class="card-header">
+                                                                                            {{'TASKPROSPECTING_TOTAL_MONTHS' | translate }}
+                                                                                            <span class="pull-right card-header-number"> {{prospectingGoalInfo.totalMonths}}</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row mt-5" ng-repeat="prospectingGoalSkill in  prospectingGoalSkills" ng-if="prospectingGoalInfo.prospectingGoalTypeId > 0">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="form-group">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'COMMON_NAME' | translate }}</label>
+                                                                                                <input type="text" class="form-control" ng-model="prospectingGoalSkill.skill.name" name="name" ng-required="prospectingGoalInfo.prospectingGoalTypeId > 0" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-2">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_GOAL' | translate }}</label>
+                                                                                            <input type="number" ng-min="1" class="form-control" ng-model="prospectingGoalSkill.goal" name="goal" ng-change="calculateProspectingSkillGoalByTotalGoal(prospectingGoalSkill)" ng-required="prospectingGoalInfo.prospectingGoalTypeId > 0" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-2">
+                                                                                        <div class="form-group">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-cstm-lable">{{'TASKPROSPECTING_PER_DAY' | translate }}</label>
+                                                                                                <input type="number" ng-min="0.1" class="form-control" ng-model="prospectingGoalSkill.goalPerDay" name="goalPerDay" ng-change="calculateProspectingSkillGoalByPerDayGoal(prospectingGoalSkill)" ng-required="prospectingGoalInfo.prospectingGoalTypeId > 0" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-2">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_PER_WEEK' | translate }}</label>
+                                                                                            <input type="number" ng-min="0.1" class="form-control" ng-model="prospectingGoalSkill.goalPerWeek" name="goalPerWeek" ng-change="calculateProspectingSkillGoalByPerWeekGoal(prospectingGoalSkill)" ng-required="prospectingGoalInfo.prospectingGoalTypeId > 0" ng-disabled="isProspectingGoalViewOnly" />
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-2">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_PER_MONTH' | translate }}</label>
+                                                                                            <input type="number" ng-min="0.1" class="form-control" ng-model="prospectingGoalSkill.goalPerMonth" name="goalPerMonth" ng-change="calculateProspectingSkillGoalByPerMonthGoal(prospectingGoalSkill)" ng-required="prospectingGoalInfo.prospectingGoalTypeId > 0" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12 " ng-repeat="skillGoal in  prospectingGoalInfo.prospectingSkillGoals" ng-hide="prospectingGoalInfo.prospectingGoalTypeId > 0">
+                                                                                        <div class="form-group">
+                                                                                            <label class="form-cstm-lable"> {{'TASKPROSPECTING_#_OF' | translate }} {{skillGoal.skillName}}</label>
+                                                                                            <input type="number" ng-min="1" class="form-control" ng-model="skillGoal.goal" name="{{skillGoal.name}}" ng-required="true" ng-disabled="isProspectingGoalViewOnly" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <span class="help-block font-red" ng-repeat="goalError in goalErrors"> {{goalError}}</span>
+                                                                                </div>
+                                                                                <div class="row" ng-if="prospectingGoalInfo.prospectingGoalTypeId > 0">
+                                                                                    <div class="col-lg-12">
+                                                                                        <div ng-prospecting-goal-scale ng-model="prospectingGoalInfo.prospectingGoalScale" ng-is-tamplate="false" ng-is-required="true" id="pgProspectingGoalScale"></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="canceladdProspectingGoal()" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                    <button class="btn btn-cstm primary pull-right" ng-click="saveProspectingGoal()" ng-disabled="(formAddProspectingGoal.$invalid || isSkillGoalsInValid() || isScaleRangeAdded() )" ng-hide="isProspectingGoalViewOnly" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="tab2">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="portlet box collapse-light-box">
+                                                                            <div class="portlet-title header-blue">
+                                                                                <div class="caption">
+                                                                                    {{'TASKPROSPECTING_ACTIVITY_INFO' | translate}}
+                                                                                </div>
+                                                                                <div class="tools">
+                                                                                    <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="portlet-body department-team-section" style="display: block;">
+                                                                                <ng-form id="formAddActivity" name="formAddActivity">
+
+
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_NAME' | translate }}</label>
+                                                                                            <select class="form-control" ng-options="prospectingGoalItem.id as prospectingGoalItem.name for prospectingGoalItem in prospectingGoalNames"
+                                                                                                    ng-model="prospectingGoalActivityInfo.prospectingGoalId"
+                                                                                                    ng-change="changeProspectingGoal()"></select>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_START' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="activityStartTime"
+                                                                                                   name="activityStartTime"
+                                                                                                   ng-model="prospectingGoalActivityInfo.activityStartTime"
+                                                                                                   k-on-open="actvityStartDateOpen(kendoEvent)"
+                                                                                                   k-on-change="actvityStartDateChange(kendoEvent)" />
+                                                                                        </div>
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_END' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="actvityEndTime"
+                                                                                                   name="actvityEndTime"
+                                                                                                   ng-model="prospectingGoalActivityInfo.activityEndTime"
+                                                                                                   ng-disabled="true" />
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4 mt-5">
+                                                                                            <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_TYPE' | translate }} <i class="fa fa-info-circle popovers" data-toggle="m-popover" data-content="1) One Time Activity: It will give you an option to set one time activity as per recurrent setting </br> 2) Recurrent and Multiple Activities: It gives you an option to set Multiple activities  for each recurrent."></i></label>
+                                                                                            <select class="form-control" ng-options="activityCalculationTypeOption.value as activityCalculationTypeOption.text for activityCalculationTypeOption in ActivityCalculationTypeOptions"
+                                                                                                    ng-model="prospectingGoalActivityInfo.activityCalculationType"
+                                                                                                    ng-change="changeActivityCalculationType()"></select>
+                                                                                        </div>
+
+                                                                                        <div ng-show="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.OneTime">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_TIME_MINUTES' | translate }} <small>*</small></label>
+                                                                                                    <input ng-min="1" type="number" class="form-control" ng-model="prospectingGoalActivityInfo.activityTime" name="activityTime" placeholder="Activity Time" ng-required="true" ng-change="calculateRecurrenceActivity()" />
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-12" id="activityRecurrenceEditor">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_RECURRENCE_SETTING' | translate }}</label>
+                                                                                                    <div ng-recurency ng-model="prospectingGoalActivityInfo" ng-property="frequency"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row m-0">
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_TOTAL_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>{{SplitSkillGoals[0].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>{{SplitSkillGoals[1].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>{{SplitSkillGoals[2].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_DAILY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>{{SplitSkillGoals[0].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>{{SplitSkillGoals[1].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>{{SplitSkillGoals[2].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_WEEKLY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6> {{SplitSkillGoals[0].weekly}}</h6>
+                                                                                                                <span> {{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6> {{SplitSkillGoals[1].weekly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6> {{SplitSkillGoals[2].weekly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_MONTHLY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>  {{SplitSkillGoals[0].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>  {{SplitSkillGoals[1].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>  {{SplitSkillGoals[2].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row m-0">
+                                                                                                <div class="col-md-12 mt-6">
+                                                                                                    <button class="btn dropdown-toggle btn-cstm " type="button" data-toggle="modal" ng-click="openAddExtraActivity()">
+                                                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                                                        {{'COMMON_ADD_EXTRA_ACTIVITY' | translate}}
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-12 mt-5">
+                                                                                                    <div id="goalRecurrenceActivities"></div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div ng-show="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.RecurrentAndMultiple">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_ACTIVITY_TIME_MINUTES' | translate }}</label>
+                                                                                                    <input ng-min="1" type="number" class="form-control" ng-model="prospectingGoalActivityInfo.activityTime" name="activityTime" placeholder="Activity Time" ng-required="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.RecurrentAndMultiple" ng-change="calculateActivities()" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_BREAK_TIME_MINUTES' | translate }}</label>
+                                                                                                    <input ng-min="1" type="number" class="form-control" ng-model="prospectingGoalActivityInfo.breakTime" name="breakTime" placeholder="Break Time" ng-required="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.RecurrentAndMultiple" ng-change="calculateActivities()" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_#_OF' | translate }} {{'TASKPROSPECTING_ACTIVITIES_PER_RECURRENT' | translate }}</label>
+                                                                                                    <input type="number" ng-min="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.RecurrentAndMultiple ? 1 : 0" class="form-control" ng-model="prospectingGoalActivityInfo.totalActivities" name="name" placeholder="# of Activities" ng-required="prospectingGoalActivityInfo.activityCalculationType == activityCalculationTypeEnum.RecurrentAndMultiple" ng-change="calculateActivities()" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-cstm-lable">{{'TASKPROSPECTING_TASK_RECURRENT' | translate }} : {{prospectingGoalActivityInfo.frequency}}</label>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="row m-0">
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_TOTAL_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>{{SplitSkillGoals[0].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>{{SplitSkillGoals[1].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>{{SplitSkillGoals[2].total}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_DAILY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>{{SplitSkillGoals[0].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>{{SplitSkillGoals[1].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>{{SplitSkillGoals[2].daily}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_WEEKLY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6> {{SplitSkillGoals[0].weekly}}</h6>
+                                                                                                                <span> {{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6> {{SplitSkillGoals[1].weekly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6> {{SplitSkillGoals[2].weekly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mt-5">
+                                                                                                    <div class="activity-record-box">
+                                                                                                        <div class="card-header text-center">
+                                                                                                            {{'TASKPROSPECTING_MONTHLY_GOAL' | translate }}
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-one">
+                                                                                                                <h6>  {{SplitSkillGoals[0].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[0].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-two">
+                                                                                                                <h6>  {{SplitSkillGoals[1].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[1].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="activity-record-three">
+                                                                                                                <h6>  {{SplitSkillGoals[2].monthly}}</h6>
+                                                                                                                <span>{{SplitSkillGoals[2].skillName}}</span>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="col-sm-12">
+                                                                                                <div id="goalActivities"></div>
+                                                                                            </div>
+                                                                                        </div>
+
+
+
+
+                                                                                    </div>
+
+
+
+                                                                                    <div class="col-sm-12 text-center mt-6">
+                                                                                        <button class="btn btn-cstm cancel " ng-click="cancelActivity()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                                        <button class="btn btn-cstm " ng-click="saveProspectingGoalActivityInfo()" ng-disabled="formAddActivity.$invalid" data-dismiss="modal" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                                                                    </div>
+                                                                                </ng-form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <!-- Modal -->
+                                                                    <div class="modal fade" id="activityinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header  pop-up-header">
+                                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">{{'TASKPROSPECTING_ACTIVITY_INFO' | translate }}</h5>
+                                                                                    <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">×</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="col-lg-12">
+                                                                                        <div class="form-group">
+                                                                                            <label class="">{{'TASKPROSPECTING_ACTIVITY_NAME' | translate }}</label>
+                                                                                            <input type="text" class="form-control"
+                                                                                                   ng-model="extraActvity.name" />
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label class="control-label">{{'TASKPROSPECTING_ACTIVITY_START' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="extraActvityStart"
+                                                                                                   name="extraActvityStart"
+                                                                                                   ng-model="extraActvity.activityStart"
+                                                                                                   k-on-open="extraActvityStartDateOpen(kendoEvent)"
+                                                                                                   k-on-change="extraActvityStartDateChange(kendoEvent)" />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label class="control-label">{{'TASKPROSPECTING_ACTIVITY_END' | translate }}</label>
+                                                                                            <input kendo-date-time-picker
+                                                                                                   id="extraActvityEnd"
+                                                                                                   name="extraActvityEnd"
+                                                                                                   ng-model="extraActvity.activityEnd"
+                                                                                                   k-on-open="extraActvityEndDateOpen(kendoEvent)" />
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-primary  btn-cstm m-0" ng-click="saveExtraActivity()"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{'TASKPROSPECTING_ADD' | translate}}</button>
+                                                                                    <button type="button" class="btn btn-secondary  btn-cstm m-0" data-dismiss="modal"><i class="fa fa-close" aria-hidden="true"></i> {{'COMMON_CANCEL' | translate}}</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+
+<!-- END PAGE CONTENT-->

@@ -1,0 +1,89 @@
+<div pane>
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a ng-click="back()" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'COMMON_PERFORMANCE_GROUP' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <form name="performanceGroupForm" novalidate>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br />
+                        <div class="alert alert-warning" ng-hide="!isProfileInUse">
+                            <strong>{{'COMMON_WARNING' | translate }}!</strong> {{'SOFTPROFILE_CURRENT_PROFILE_IS_IN_USE' | translate }} {{'SOFTPROFILE_CHANGES_CAN_NOT_BE_SAVED' | translate }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                            <span ng-show='performanceGroupForm.performanceGroupName.$error.required' class="required">*</span>
+                            <input type="text" ng-disabled="isDisabled()" class="form-control" ng-model="performanceGroup.name" ng-required="!performanceGroup.name" name="performanceGroupName" autofocus />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+                            <textarea class="form-control" rows="5" data-ng-model="performanceGroup.description" ng-disabled="isDisabled()"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" data-ng-model="performanceGroup.isActive" ng-disabled="isDisabled()"> {{'COMMON_IS_ACTIVE' | translate }}
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" data-ng-model="performanceGroup.isTemplate" ng-disabled="isDisabled()"> {{'COMMON_IS_TEMPLATE' | translate }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                            <select class="form-control" ng-disabled="!isTemplateState || isDisabled()" data-ng-model="performanceGroup.organizationId" data-ng-options="obj.id as obj.name for obj in organizations"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                            <select class="form-control" ng-disabled="!isTemplateState || isDisabled()" data-ng-model="performanceGroup.rootIndustryId" data-ng-options="i.id as i.name for i in industries" ng-change="industryUpdate(performanceGroup.rootIndustryId)"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                            <select class="form-control" ng-disabled="!isTemplateState || isDisabled()" data-ng-model="performanceGroup.subIndustryId" data-ng-options="i.id as i.name for i in industry.subIndustries" ng-change="subIndustryUpdate(performanceGroup.subIndustryId)"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_LEVEL' | translate }}</label>
+                            <select class="form-control" ng-disabled="!isTemplateState || isDisabled()" data-ng-model="performanceGroup.levelId" data-ng-options="i.id as i.name for i in structureLevels"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                            <select kendo-multi-select class="form-control" ng-disabled="!isTemplateState || isDisabled()" k-options="selectProfileTypesOptions" k-ng-model="performanceGroup.profileTypes"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'SOFTPROFILE_TARGET_AUDIENCE' | translate }}</label>
+                            <select kendo-multi-select class="form-control" ng-disabled="!isTemplateState || isDisabled()" k-options="selectJobPositionsOptions" k-ng-model="performanceGroup.jobPositions"></select>
+                        </div>
+                        <div class="form-group" ng-hide="performanceGroup.profile.scaleSettingsRuleId != 2 &&  performanceGroup.profile.scaleSettingsRuleId != 5">
+                            <label class="control-label">{{'SOFTPROFILE_SCALE' | translate }}</label>
+                            <span ng-show='performanceGroupForm.pgScaleyId.$invalid' class="required">*</span>
+                            <select class="form-control" data-ng-model="performanceGroup.scaleId" ng-required="performanceGroup.profile.scaleSettingsRuleId == 2 ||  performanceGroup.profile.scaleSettingsRuleId == 5" name="pgScaleyId" data-ng-options="i.id as i.name for i in scales" ng-change="scaleUpdate(performanceGroup.scaleId)"></select>
+                        </div>
+                        <div class="form-group" ng-hide="performanceGroup.profile.scaleSettingsRuleId != 2 &&  performanceGroup.profile.scaleSettingsRuleId != 5">
+                            <div ng-scale ng-model="performanceGroup.scale" ng-is-tamplate="false" ng-is-required="performanceGroup.profile.scaleSettingsRuleId == 2 ||  performanceGroup.profile.scaleSettingsRuleId == 5" id="pgScale"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div kendo-tab-strip k-content-urls="tabsTemplates">
+                            <ul>
+                                <li class="k-state-active">{{'SOFTPROFILE_SKILLS' | translate }}</li>
+                                <li>{{'SOFTPROFILE_QUESTIONS' | translate }}</li>
+                                <li>{{'SOFTPROFILE_TRAININGS' | translate }}</li>
+                                <li>{{'SOFTPROFILE_BALANCED_SCORECARD' | translate }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="top-border"></div>
+                        <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                        <button ng-hide="isProfileInUse" class="btn btn-cstm primary pull-right" ng-click="performanceGroupSave();" ng-disabled="performanceGroupForm.performanceGroupName.$invalid || performanceGroupForm.performanceGroupOrganizationId.$invalid || isDisabled()">{{'COMMON_SAVE' | translate }}</button>
+                        <button class="btn btn-cstm primary" ng-hide="performanceGroup.id <= 0 || isProfileInUse" ng-click="removePerformanceGroup()" ng-disabled="isRemoveDisabled()">{{'COMMON_REMOVE' | translate }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

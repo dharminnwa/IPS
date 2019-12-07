@@ -1,0 +1,33 @@
+
+<div class="profiles-menu">
+    <img src="images/organization/organization-icon.png" />
+    <span>{{'SOFTPROFILE_TRAININGS' | translate }}</span>
+    <!--<a class="add-button pull-right" ng-click="addTraining();"></a>-->
+</div>
+
+<kendo-tooltip options="tooltipOptions">
+    <div kendo-grid k-options="trainingsGridOptions" id="TrainingGrid" k-rebind="gridOptions.selectable"></div>
+</kendo-tooltip>
+
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-cstm primary ips-tab-button pull-right" ng-click="addTrainingFromTemplate()" ng-disabled="isdisabled()">{{'SOFTPROFILE_ADD_TRAINING_FROM_TEMPLATE' | translate }}</button>
+    </div>
+    <div class="col-md-12">
+        <div class="details-info">{{'SOFTPROFILE_NEW_TRAINING' | translate }}</div>
+    </div>
+    <div class="col-md-12">
+        <div ng-edit-training ng-model="training"
+             ng-training-levels="trainingLevels"
+             ng-training-types="trainingTypes"
+             ng-organizations="organizations"
+             ng-skills="skills"
+             ng-skills-hash="skillsHash"
+             ng-standard-panel="false"
+             ng-simple-panel="true"
+             ng-duration-metrics="duration"
+             ng-exercise-metrics="exMetrics"
+             ng-notification-intervals="notificationIntervals">
+        </div>
+    </div>
+</div> 

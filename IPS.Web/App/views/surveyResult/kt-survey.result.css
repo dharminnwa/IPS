@@ -1,0 +1,223 @@
+﻿
+.survey-result {
+    border: 1px solid #f2f1f7;
+    display: table;
+    width: 98%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-info {
+    margin: 0;
+    background-color: #f2f1f7;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.pass-score {
+    text-align: center;
+    font-size: 24px;
+    line-height: 31px;
+    margin: 10px 0 10px 0;
+}
+
+    .pass-score .passed {
+        color: #22b14c;
+        display: inline-block;
+    }
+
+    .pass-score .failed {
+        color: #ed1c24;
+        display: inline-block;
+    }
+
+    .pass-score .button-complete {
+        vertical-align: text-bottom;
+    }
+
+.top-info .icon-brain {
+    background-color: #f2f1f7;
+    background: url(../../images/brain-icon.png) no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.top-info .description {
+    font-size: 16px;
+    line-height: 31px;
+    color: #848181;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+
+.top-info .switch-button {
+    margin: 0;
+    margin-left: auto;
+}
+
+.medal-board {
+    text-align: center;
+    margin: 15px 0 15px 0;
+}
+
+    .medal-board .main-info {
+        text-align: center;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+        .medal-board .main-info ul {
+            display: block !important;
+        }
+
+        .medal-board .main-info .medal {
+            width: 100px;
+            height: 100px;
+            background-size: 100px 100px !important;
+            display: inline-block;
+        }
+
+            .medal-board .main-info .medal.bronze {
+                background: url(../../images/medalBronze_256.png) no-repeat;
+            }
+
+            .medal-board .main-info .medal.silver {
+                background: url(../../images/medalSilver_256.png) no-repeat;
+            }
+
+            .medal-board .main-info .medal.gold {
+                background: url(../../images/medalGold_256.png) no-repeat;
+            }
+
+            .medal-board .main-info .medal.none {
+                background: url(../../images/sadSmile.png) no-repeat;
+            }
+
+        .medal-board .main-info .medal-description {
+            font-size: 29px;
+            line-height: 31px;
+            color: #515151;
+            display: inline-block;
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+
+        .medal-board .main-info .button-complete {
+            display: inline-block;
+            margin-left: 10px;
+            margin-top: 33px;
+        }
+
+    .medal-board .medal-rules {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .medal-board .medal-rule {
+        display: flex;
+        margin-right: 20px;
+    }
+
+        .medal-board .medal-rule:last-child {
+            margin-right: 0;
+        }
+
+    .medal-board .medal-rules .medal-rule .description-label {
+        color: #b6b6b6;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .medal-board .medal-rules .medal-rule .medal {
+        border-radius: 20px;
+        height: 15px;
+        width: 15px;
+        margin-right: 5px;
+        margin-top: 2px;
+    }
+
+        .medal-board .medal-rules .medal-rule .medal.bronze {
+            background-color: #cd791f;
+        }
+
+        .medal-board .medal-rules .medal-rule .medal.silver {
+            background-color: #dde3e6;
+        }
+
+        .medal-board .medal-rules .medal-rule .medal.gold {
+            background-color: #ffd50f;
+        }
+
+.rank-panel {
+    margin: 0;
+    background-color: #f1f1f1;
+    height: 30px;
+    display: flex;
+}
+
+    .rank-panel .rank-label {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #b6b6b6;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .rank-panel .rank {
+        border-radius: 20px;
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+        margin: 8px 5px 0 10px
+    }
+
+        .rank-panel .rank.correct {
+            background-color: #22b14c;
+        }
+
+        .rank-panel .rank.wrong {
+            background-color: #ed1c24;
+        }
+
+        .rank-panel .rank.not-available {
+            background-color: #969696;
+        }
+
+.result-table {
+    margin: 0;
+}
+
+.answer-mark {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    background-color: white;
+    border-radius: 15px;
+}
+
+    .answer-mark.wrong {
+        background-color: #ed1c24;
+    }
+
+    .answer-mark.correct {
+        background-color: #22b14c;
+    }
+
+    .answer-mark.not-available {
+        background-color: #969696;
+    }
+
+.textCenter {
+    text-align: center !important; 
+    margin: auto !important;
+}

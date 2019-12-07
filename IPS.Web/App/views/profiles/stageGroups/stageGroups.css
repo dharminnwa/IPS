@@ -1,0 +1,229 @@
+﻿.icon-groups a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    background: url('../../../images/edit.png') no-repeat;
+}
+
+.icon-groups .remove-icon {
+    background: url('../../../images/remove.png') no-repeat;
+}
+
+.icon-groups .refresh-icon {
+    background: url(../../../images/refresh.png) no-repeat;
+}
+
+.icon-groups .analyse-icon {
+    background: url(../../../images/analyse.png) no-repeat;
+}
+
+.details-info {
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    color: #f17721;
+    font-weight: 700;
+}
+
+    .details-info:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        border-bottom: 2px solid #dbdbdb;
+        margin-left: 5px;
+    }
+
+.selected {
+    margin-top: 0px;
+    background: #ff6e19 !important;
+    border-radius: 3px;
+    border: none;
+    height: 30px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+    font-family: 'Open Sans';
+}
+
+.btn-ips {
+    #245D8F
+}
+
+.btn-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.green {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    color: green;
+}
+
+.yellow {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    color: yellow;
+}
+
+.red {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: red
+}
+
+.btn-check-mail {
+    color: #fff;
+    background-color: #ff6e19;
+    ;
+    border-color: #ff6e19;
+}
+
+.check-mail {
+    display: inline;
+    width: 88%;
+}
+
+.ips-button.primary.add-stage, .marginleft10 {
+    margin-left: 10px;
+}
+
+.margintop10 {
+    margin-top: 10px;
+}
+
+.marginbottom10 {
+    margin-bottom: 10px;
+}
+
+.select-stages {
+    width: 50%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+
+.users .organization-users, .teams-info .teams {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.users .pagination-button, .teams-info .pagination-button {
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #DEDEDE;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    color: #787878;
+}
+
+    .users .pagination-button:hover, .teams-info .pagination-button:hover {
+        background: #8EBC00;
+        color: #ffffff;
+    }
+
+    .users .pagination-button:active, .teams-info .pagination-button:active {
+        background: #FF6E19;
+        color: #ffffff;
+    }
+
+    .users .pagination-button:disabled, .teams-info .pagination-button:disabled {
+        background: #E2DCDC;
+        color: #B2ACAC;
+    }
+
+.users .linked-team-users li {
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+    .users .linked-team-users li:hover {
+        background: #F3F3F3;
+    }
+
+.users .organization-users li, .teams-info .teams li {
+    position: relative;
+    width: 48%;
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+.users .organization-users .ips-button {
+    float: right;
+}
+
+.users .organization-users .position {
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.organization-users .user-name {
+    position: absolute;
+    top: 0px;
+    left: 45px;
+}
+
+.organization-users .department-manager {
+    background: #fd780f;
+    position: absolute;
+    top: 25px;
+    left: 45px;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #ffffff;
+}
+
+.users .apply-button {
+    margin-top: 20px;
+}
+
+.users .users-count, .teams-info .users-count {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.users .pagination, .apply-button {
+    display: inline-block;
+}
+
+.users .user-avatar, .teams-info .team-avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.status-and-progress-grid {
+    padding-top: 15px;
+}
+
+.k-tabstrip-items .k-state-active {
+    border-color: #ff7f00;
+    background: #ff7f00;
+}
+
+    .k-tabstrip-items .k-state-active .k-link {
+        color: #fff !important;
+    }
+
+.ips-button {
+    background: #245D8F;
+    color: #fff !important;
+}

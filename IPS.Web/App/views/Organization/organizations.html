@@ -1,0 +1,122 @@
+<div pane name="organization" ng-init="getAllOrganizations()">
+    <section class="portlet-light header-blue">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <i ng-click="getscopes()" class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <span class="caption-subject box-title"> {{'ORGANIZATIONS_ORGANIZATIONS' | translate }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portlet-light profile-result">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="portlet box">
+                    <div>
+                        <div class="btn-group">
+                            <div class="inputs">
+                                <div class="portlet-input input-inline input-small ">
+                                    <div class="input-icon right organiztion-search-box">
+                                        <i class="icon-magnifier"></i>
+                                        <input type="text" class="form-control form-control-solid input-circle" ng-model="organizationsFilter" placeholder="Search your organization here...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-cstm pull-right" href="#/home/organizations/organizations/new">+ {{'ORGANIZATIONS_ADD_NEW_ORGANIZATIONS' | translate }}</a>
+                    </div>
+                    <div class="portlet-body">
+                        <kendo-tooltip options="tooltipOptions">
+                            <div class="table-scrollable">
+                                <table class="table table-striped table-bordered table-hover" ng-init="getAllOrganizations()">
+                                    <thead role="rowgroup">
+                                        <tr class="time-mang-table">
+                                            <th role="columnheader" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="text-center" data-role="columnsorter">
+                                                #
+                                            </th>
+                                            <th role="columnheader" data-field="logo" rowspan="1" data-title="{{'ORGANIZATIONS_LOGO' | translate }}" data-index="1" class="text-center" data-role="columnsorter">
+                                                {{'ORGANIZATIONS_LOGO' | translate }}
+                                            </th>
+                                            <th role="columnheader" data-field="name" rowspan="1" data-title="{{'COMMON_NAME' | translate }}" data-index="2" class="text-center" data-role="columnsorter">
+                                                {{'COMMON_NAME' | translate }}
+                                            </th>
+                                            <th role="columnheader" data-field="industryName" rowspan="1" data-title="{{'COMMON_INDUSTRY' | translate }}" data-index="3" class="text-center" data-role="columnsorter">
+                                                {{'COMMON_INDUSTRY' | translate }}
+                                            </th>
+                                            <th role="columnheader" data-field="countryImage" rowspan="1" data-title="{{'ORGANIZATIONS_COUNTRY' | translate }}" data-index="4" class="text-center" data-role="columnsorter">
+                                                {{'ORGANIZATIONS_COUNTRY' | translate }}
+                                            </th>
+                                            <th role="columnheader" style="white-space:normal" data-field="contactName" rowspan="1" data-title="{{'ORGANIZATIONS_CONTACT_NAME' | translate }}" data-index="5" class="text-center" data-role="columnsorter">
+                                                {{'ORGANIZATIONS_CONTACT_NAME' | translate }}
+                                            </th>
+                                            <th role="columnheader" rowspan="1" class="text-center" data-role="columnsorter" data-title="{{'COMMON_DETAILS' | translate }}">
+                                                {{'COMMON_DETAILS' | translate }}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                    <tbody align="center">
+                                        <tr class='oraganization-row' ng-class="(dataItem.id==selectedOrganizationDetailsTab.id)?'k-state-selected':''" data-uid='{{dataItem.id}}' dir-paginate="dataItem in allOrganization.$$state.value | filter:organizationsFilter | itemsPerPage:10">
+                                            <td>{{$index+1}}</td>
+                                            <td> <div style='width:60px;height:40px;'><img src='{{dataItem.logoLink && dataItem.logoLink || organizationPlaceholder }} ' width="100%" height="100%" /></div></td>
+                                            <td>{{dataItem.name}}</td>
+                                            <td>{{dataItem.industryName}}</td>
+                                            <td><img class='org-country' src='{{dataItem.countryImage}}' /> </td>
+                                            <td>{{dataItem.contactName}}</td>
+                                            <td>
+                                                <a href="javascript:;" ng-click='editOrganization(dataItem.id)'><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true"></i></a>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle demo" data-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa fa-link" aria-hidden="true"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#/home/organizations/users/{{dataItem.id}}">
+                                                                <i class="fa fa-user" aria-hidden="true"></i> {{'Users' | translate }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#/home/organizations/departments/{{dataItem.id}}">
+                                                                <i class="fa fa-building-o" aria-hidden="true"></i> {{'Departments' | translate }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#/home/organizations/teams/{{dataItem.id}}">
+                                                                <i class="fa fa-building-o" aria-hidden="true"></i> {{'Teams' | translate }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#/home/organizations/customers/{{dataItem.id}}">
+                                                                <i class="fa fa-building-o" aria-hidden="true"></i> {{'CRM Customers' | translate }}
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </kendo-tooltip>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+<div ui-view></div>

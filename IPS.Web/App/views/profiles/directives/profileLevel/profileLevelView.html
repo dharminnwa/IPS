@@ -1,0 +1,42 @@
+﻿<div class="form-group">
+    <div class="lookup-select select-body">
+        <label class="control-label">{{lookUpName}}</label>
+        <select class="form-control"
+                value="Select {{lookUpName}}"
+                name="{{lookUpName}}"
+                ng-options="profileLevel.id as profileLevel.name for profileLevel in profileLevels"
+                ng-model="selectedLookup">
+            <option value="">{{'COMMON_SELECT' | translate }} {{lookUpName}}</option>
+        </select>
+    </div>
+    <div class="modal fade bs-{{lookUpType}}-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'COMMON_ADD' | translate }} {{lookUpName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                    <input type="text" class="form-control" ng-model="newProfileLevel.name" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                <button type="button" class="btn btn-cstm primary pull-right" data-dismiss="modal" aria-label="Close" ng-click="addProfileLevel()">{{'COMMON_ADD' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lookup-select button">
+        <a class="add-button" data-toggle="modal" data-target=".bs-{{lookUpType}}-lg" href="#"></a>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>

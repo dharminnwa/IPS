@@ -1,0 +1,19 @@
+<div pane>
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a href="#/home" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'PROFILE_CAT_PROFILE_CATEGORIES' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'PROFILE_CAT_PROFILE_CATEGORIES' | translate }}</span>
+                <a class="add-button pull-right" ng-click="add();"></a>
+            </div>
+            <div id="profileCategoriesGrid" kendo-grid k-options="gridOptions">
+            </div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

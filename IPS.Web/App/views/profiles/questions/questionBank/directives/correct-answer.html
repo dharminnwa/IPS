@@ -1,0 +1,54 @@
+<div class="form-group" ng-if="newQuestion.answerTypeId == questionTypesEnum.numeric">
+    <label class="control-label">{{'MYPROFILES_CORRECT_ANSWER' | translate }}</label>
+    <input type="number" class="form-control" name="numericCorrectAnswer"
+           ng-model="newQuestion.possibleAnswer.answer"/>
+</div>
+<div class="form-group" ng-if="newQuestion.answerTypeId == questionTypesEnum.text">
+    <label class="control-label">{{'MYPROFILES_CORRECT_ANSWER' | translate }}</label>
+    <textarea class="form-control" name="correctAnswer" rows="5"
+              ng-model="newQuestion.possibleAnswer.answer"></textarea>
+</div>
+<div class="form-group" ng-if="newQuestion.answerTypeId == questionTypesEnum.singleChoice || newQuestion.answerTypeId == questionTypesEnum.multipleChoice || newQuestion.answerTypeId == questionTypesEnum.order">
+    <div>
+        <button class="btn btn-cstm primary" ng-click="addAnswerOrderOption()">{{'SOFTPROFILE_ADD_NEW_OPTION' | translate }}</button>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width:20%;">{{'SOFTPROFILE_OPTION_NAME' | translate }}</th>
+                <th style="width:30%;">{{'COMMON_DESCRIPTION' | translate }}</th>
+                <th ng-if="newQuestion.answerTypeId == questionTypesEnum.order" style="width:10%;">{{'SOFTPROFILE_CORRECT_ORDER' | translate }}</th>
+                <th ng-if="newQuestion.answerTypeId == questionTypesEnum.singleChoice || newQuestion.answerTypeId == questionTypesEnum.multipleChoice" style="width:10%;">{{'SOFTPROFILE_IS_CORRECT' | translate }}</th>
+                <th style="width:10%;">{{'SOFTPROFILE_ORDER' | translate }}</th>
+                <th style="width:20%;">{{'SOFTPROFILE_MULTIMEDIA_MATERIAL' | translate }}</th>
+                <th style="width:10%;">{{'COMMON_ACTIONS' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="option in newQuestion.possibleAnswer.answer">
+                <td>{{option.name}}</td>
+                <td>{{option.description}}</td>
+                <td ng-if="newQuestion.answerTypeId == questionTypesEnum.order">{{option.correctOrder}}</td>
+                <td ng-if="newQuestion.answerTypeId == questionTypesEnum.singleChoice || newQuestion.answerTypeId == questionTypesEnum.multipleChoice"><input type="checkbox" ng-checked="option.isCorrect" disabled="disabled" /></td>
+                <td>{{option.order}}</td>
+                <td ng-if="option.material.type != materialTypeEnum.link">
+                    <a target="_blank" href="{{downloadFileUrl}}/{{option.material.file.id}}">{{option.material.file.name}}</a>
+                </td>
+                <td ng-if="option.material.type == materialTypeEnum.link">
+                    <a target="_blank" href="{{option.material.url}}">{{option.material.url}}</a></td>
+                <td>
+                    <div class='icon-groups'>
+                        <a class='icon-groups icon-groups-item edit-icon'
+                           ng-click='editAnswerOrderOption(option.id)'></a>
+                        <a class='icon-groups icon-groups-item delete-icon'
+                           ng-click='removeAnswerOrderOption(option.id)'></a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<win-order-option></win-order-option>
+<win-choice-option></win-choice-option>

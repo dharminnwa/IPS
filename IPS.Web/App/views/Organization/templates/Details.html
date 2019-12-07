@@ -1,0 +1,176 @@
+<div class="row details">
+    <div class="col-sm-5">
+        <div class="details-info">{{'ORGANIZATIONS_DETAILS_BASIC_INFORMATION' | translate }}</div>
+        <ul>
+    		<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_ADDRESS' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.address}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_ZIP_CODE' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.postZipPostalCode}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_POST_BOX' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.address}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_ZIP_PB' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.city}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_ORG_NR' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.orgCode}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'COMMON_COUNTRY' | translate }}</div>
+                <div class="info-data">{{organizationCountry.countryName}} &nbsp;</div>
+            </li>
+			 <li>
+                 <div class="info-title">{{'COMMON_STATE' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.state}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'COMMON_CITY' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.city}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_PHONE_OFFICE' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.phone}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_FAX_NO' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.fax}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_WEBSITE' | translate }}</div>
+                <div class="info-data">
+                    <a href="{{selectedOrganization.website}}"> {{selectedOrganizationDetailsTab.website}}  &nbsp; </a>
+                </div>
+            </li>
+			
+            
+           
+            
+            <!--
+			<li>
+                <div class="info-title">Organization Name</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.name}} &nbsp;</div>
+            </li>
+            
+            <li>
+                <div class="info-title">Industry</div>
+                <div class="info-data">{{organizationIndustry.name}} &nbsp;</div>
+            </li>
+            
+			<li>
+                <div class="info-title">Visiting Address</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.visitingAddress}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Visiting Zip</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.visitingZip}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Visiting City</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.visitingCity}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Visiting State</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.visitingState}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Visiting Country</div>
+                <div class="info-data">{{organizationVisitingCountry.countryName}} &nbsp;</div>
+            </li> -->
+            
+            
+			 
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <div class="details-info">{{'ORGANIZATIONS_DETAILS_PRIMARY_CONTACT' | translate }}</div>
+        <ul>
+            <li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_LEADER' | translate }}</div>
+				<span class="pc_img">
+                        <img src="{{selectedOrganizationDetailsTab.imagePath && selectedOrganizationDetailsTab.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                    </span>
+                    <span class="info-data pc_name">{{selectedOrganizationDetailsTab.contactName}}</span>
+               
+            </li>
+			<li>
+                <div class="info-title">{{'COMMON_EMAIL' | translate }}</div>
+                <div class="info-data">
+                    <a href="mailto:{{selectedOrganization.contactEmail}}">{{selectedOrganizationDetailsTab.contactEmail}} &nbsp;</a>
+                </div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_PHONE_NO' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.contactPhone}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_NUMBER_OF_USERS' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.contactTitle}} &nbsp;</div>
+            </li>
+			<li>
+                <div class="info-title">{{'ORGANIZATIONS_DETAILS_NUMBER_OF_DEPARTMENTS' | translate }}</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.contactTitle}} &nbsp;</div>
+            </li>
+            <!--
+			<li>
+                <div class="info-title">Contact Title</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.contactTitle}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Contact Role</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.contactRole}} &nbsp;</div>
+            </li>-->
+            
+            
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        <div class="details-info">{{'COMMON_EMPLOYEES' | translate }}</div>
+       <!--<ul>
+            <li>
+                <div class="info-title">Website</div>
+                <div class="info-data">
+                    <a href="{{selectedOrganization.website}}"> {{selectedOrganizationDetailsTab.website}}  &nbsp; </a>
+                </div>
+            </li>
+            <li>
+                <div class="info-title">Twitter</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.twitter}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Facebook</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.facebook}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Linked In</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.linkedIn}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Pinterest</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.pinterest}} &nbsp;</div>
+            </li>
+            <li>
+                <div class="info-title">Skype</div>
+                <div class="info-data">{{selectedOrganizationDetailsTab.skype}} &nbsp;</div>
+            </li>
+        </ul>-->
+		  <ul id="" class="organization-users linked-users">
+                <li ng-repeat="user in selectedOrganizationDetailsTab.users | filter:userSearch | orderBy:['firstName', 'lastName'] | startFrom:userCurrentPage*userPageSize | limitTo:userPageSize" ng-click="previewUser(user.id)">
+                    
+					<span class="dEmp_img">
+                        <img src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}" class="img-responsive user-avatar" />
+                    </span>
+                    <span class="user-name">{{user.firstName}} {{user.lastName}}</span>
+                    <div ng-show="user.jobPositions.length > 0" class="position userdes">
+                        <div ng-repeat="position in user.jobPositions">{{position.jobPosition1}}</div>
+                    </div>
+                </li>
+            </ul>
+    </div>
+</div>

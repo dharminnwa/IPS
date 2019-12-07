@@ -1,0 +1,43 @@
+2018-12-07 15:47:30,454 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-12-07 15:47:30,567 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 15:51:05,018 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-12-07 15:51:05,090 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 15:56:39,504 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1016_1812080000; StartStageGroup on 12/10/2018 12:00:00 AM
+2018-12-07 15:57:08,961 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1012_1812140000; StartStageGroup on 12/16/2018 12:00:00 AM
+2018-12-07 15:57:22,475 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1017_1812150000; StartStageGroup on 12/17/2018 12:00:00 AM
+2018-12-07 15:57:40,586 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 953_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 15:58:17,884 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 963_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 15:58:26,585 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 968_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 15:58:32,099 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 978_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 15:58:45,745 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1013_1812210000; StartStageGroup on 12/23/2018 12:00:00 AM
+2018-12-07 15:58:56,400 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1018_1812220000; StartStageGroup on 12/24/2018 12:00:00 AM
+2018-12-07 15:59:04,555 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1014_1812280000; StartStageGroup on 12/30/2018 12:00:00 AM
+2018-12-07 15:59:10,564 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1019_1812290000; StartStageGroup on 12/31/2018 12:00:00 AM
+2018-12-07 15:59:36,586 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1015_1901040000; StartStageGroup on 1/6/2019 12:00:00 AM
+2018-12-07 15:59:52,911 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1020_1901050000; StartStageGroup on 12/1/2018 12:00:00 AM
+2018-12-07 15:59:59,548 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-12-07 16:00:12,884 [1] INFO  JobScheduler - Scheduler Started
+2018-12-07 16:01:00,050 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 16:05:30,604 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-12-07 16:05:30,723 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 16:06:56,512 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1016_1812080000; StartStageGroup on 12/10/2018 12:00:00 AM
+2018-12-07 16:07:00,835 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1012_1812140000; StartStageGroup on 12/16/2018 12:00:00 AM
+2018-12-07 16:07:01,388 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1017_1812150000; StartStageGroup on 12/17/2018 12:00:00 AM
+2018-12-07 16:07:02,084 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 953_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 16:07:02,605 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 963_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 16:07:13,106 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 968_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 16:07:13,106 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 978_1812200000; StartStageGroup on 12/20/2018 12:00:00 AM
+2018-12-07 16:07:13,106 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1013_1812210000; StartStageGroup on 12/23/2018 12:00:00 AM
+2018-12-07 16:07:13,107 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1018_1812220000; StartStageGroup on 12/24/2018 12:00:00 AM
+2018-12-07 16:07:13,110 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1014_1812280000; StartStageGroup on 12/30/2018 12:00:00 AM
+2018-12-07 16:07:13,110 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1019_1812290000; StartStageGroup on 12/31/2018 12:00:00 AM
+2018-12-07 16:07:13,110 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1015_1901040000; StartStageGroup on 1/6/2019 12:00:00 AM
+2018-12-07 16:07:13,110 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 1020_1901050000; StartStageGroup on 12/1/2018 12:00:00 AM
+2018-12-07 16:07:13,111 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-12-07 16:07:13,179 [1] INFO  JobScheduler - Scheduler Started
+2018-12-07 16:08:05,683 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 16:08:05,713 [DefaultQuartzScheduler_Worker-1] DEBUG StartStageJob - Start Stage Job! Job key: 1020_1901050000; StartStageGroup
+2018-12-07 16:08:20,417 [DefaultQuartzScheduler_Worker-1] INFO  StartStageJob - Start Stage execution completed. Job key: 1020_1901050000; StartStageGroup
+2018-12-07 16:08:58,637 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-12-07 16:09:00,000 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-12-07 16:10:00,908 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...

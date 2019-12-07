@@ -1,0 +1,126 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">Today's Personal Tasks</span> &nbsp;
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light pb-1">
+    <div class="row" ng-show="taskTodos.length > 0">
+        <div class="col-md-4" ng-repeat="todoItem in taskTodos">
+            <div class="profile-card">
+                <a href="javascript:;" class="btn btn-xs green" ng-show="todoItem.isCompleted">
+                    {{'COMMON_COMPLETED' | translate}}
+                    <i class="fa fa-check-circle-o"></i>
+                </a>
+                <a href="javascript:;" class="btn btn-xs" ng-hide="todoItem.isCompleted">
+                    {{'COMMON_PENDING' | translate}}
+                </a>
+                <div class="box">
+                    <h2>
+                        {{todoItem.taskCategoryListItem.name}}
+                    </h2>
+
+                    <p class="task-title">{{todoItem.title}} </p>
+                    <div class="training-date mt-5">
+                        <h5> <label>{{'COMMON_START_DATE'| translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{todoItem.startDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{todoItem.startDate | date:'h:mm a'}}</b></span></h5>
+                        <h5> <label>{{'COMMON_DUE_DATE'| translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{todoItem.dueDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{todoItem.dueDate | date:'h:mm a'}}</b></span></h5>
+                        <h5>
+                            <label>{{'COMMON_PRIORITY'| translate}} : </label>   <b> {{todoItem.taskPriorityListItem.name}}</b>
+                            <label>{{'COMMON_STATUS'| translate}} : </label>   <b>{{todoItem.taskStatusListItem.name}}</b>
+                        </h5>
+                    </div>
+
+                    <label class="rememberme mt-checkbox mt-checkbox-outline dark" ng-disabled="todoItem.isCompleted" ng-click="completeTask(todoItem.id)">
+                        <input type="checkbox" name="remember" ng-model="todoItem.isCompleted" ng-disabled="todoItem.isCompleted">
+                        Is Completed
+                        <span></span>
+                    </label>
+
+
+                    <div class="card-icons mt-3">
+                        <i class="fa fa-eye" title="{{'COMMON_VIEW' | translate }}" ng-click="openTaskDetail(todoItem.id)"></i>
+                        <i ng-show="isProspectingTask(todoItem)" class="fa fa-angle-double-right" title="{{'Go To Prospecting' | translate }}" ng-click="gotoProspecting(todoItem)"></i>
+                        <i class="fa fa-pencil" ng-click="editToDo(todoItem.id)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-hide="taskTodos.length > 0">
+        <div class="alert  alert-warning">
+            <strong>You don't have any personal task today!</strong>
+        </div>
+    </div>
+</section>
+<div id="home-task-detail-popup-div"></div>
+<div class="row">
+    <div id="taskFeedbackModal" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'HOME_FEEDBACK' | translate }}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ng-form name="formTaskFeedback" action="#" id="formTaskFeedback" novalidate="novalidate">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">{{'HOME_RATE_YOUR_TASK_RESULTS_BASED_ON_5_STARS' | translate }}</label>
+
+                                            <div class="form-group">
+                                                <ul id="taskRatingStars" class="select-group">
+                                                    <li ng-repeat="rate in ratings" ng-mouseover="starMouseHover($event)" ng-mouseleave="starMouseOut($event)" ng-click="starClick($event)" class="star">
+                                                        <label data-value="{{rate.value}}" class="fa fa-star fa-fw" for="rate{{rate.value}}">
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'HOME_DESCRIBE_YOUR_RATING' | translate }} : {{'HOME_WHAT_WORKED_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="taskFeedback.workedWell" name="workedWell" ng-required="true" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'HOME_DESCRIBE_YOUR_RATING' | translate }} : {{'HOME_WHAT_WORKED_NOT_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="taskFeedback.workedNotWell" name="workedNotWell" ng-required="true" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'HOME_WHAT_WILL_YOU_DO_NEXT_TIME' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="taskFeedback.whatNextDescription" name="WhatNextDescription" ng-required="true" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_SPENT' | translate }}</label>
+                                            <div ng-duration ng-model="taskFeedback" ng-property="timeSpentMinutes"></div>
+                                            <input type="number" name="timeSpentMinutes" ng-model="taskFeedback.timeSpentMinutes" ng-min="1" ng-required="true" style="display:none" />
+                                            <span class="text-red" ng-show="formTaskFeedback.timeSpentMinutes.$invalid">{{'HOME_PLEASE_SET_TIME_SPENT_FOR_THIS_TASK' | translate }}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelTraningFeedback()" data-dismiss="modal" aria-label="Close">{{'COMMON_NO' | translate }}</button>
+                                    <button class="btn btn-cstm primary pull-right" ng-click="saveTraningFeedback()" ng-disabled="formTaskFeedback.$invalid" aria-label="Ok">{{'COMMON_YES' | translate }}</button>
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

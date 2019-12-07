@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B91D431-FD27-4C77-91F9-AC414F8BEDD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IPS.Business</RootNamespace>
+    <AssemblyName>IPS.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo|AnyCPU'">
+    <OutputPath>bin\Demo\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DDay.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DDay.iCal.1.0.2\DDay.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="DDay.iCal, Version=1.0.2.575, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DDay.iCal.1.0.2\DDay.iCal.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.1.5.1\lib\net45\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.1.5.1\lib\net45\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.4.0.3\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BookmarksService.cs" />
+    <Compile Include="ContactUsService.cs" />
+    <Compile Include="DocumentsService.cs" />
+    <Compile Include="ExerciseMetricsService.cs" />
+    <Compile Include="EvaluationAgreementsService.cs" />
+    <Compile Include="EvaluationParticipantsService.cs" />
+    <Compile Include="EvaluationService.cs" />
+    <Compile Include="Exceptions\TwilioException.cs" />
+    <Compile Include="Extensions\DocumentExtensions.cs" />
+    <Compile Include="GmailUserService.cs" />
+    <Compile Include="Interfaces\IContactUsService.cs" />
+    <Compile Include="Interfaces\IDocumentsService.cs" />
+    <Compile Include="Interfaces\IIpsAttachmentService.cs" />
+    <Compile Include="Interfaces\IIpsEmailService.cs" />
+    <Compile Include="Interfaces\IManageCmsContentService.cs" />
+    <Compile Include="Interfaces\IManageHelpContentService.cs" />
+    <Compile Include="Interfaces\IManagePlanService.cs" />
+    <Compile Include="Interfaces\IBookmarksService.cs" />
+    <Compile Include="Interfaces\IExerciseMetricsService.cs" />
+    <Compile Include="Interfaces\IEvaluationAgreementsService.cs" />
+    <Compile Include="Interfaces\IEvaluationParticipantsService.cs" />
+    <Compile Include="Interfaces\IEvaluationRolesService.cs" />
+    <Compile Include="Interfaces\IEvaluationStatusService.cs" />
+    <Compile Include="Interfaces\IManageTemplateContentService.cs" />
+    <Compile Include="Interfaces\INotification.cs" />
+    <Compile Include="Interfaces\INotificationIntervalService.cs" />
+    <Compile Include="Interfaces\IPortfolioService.cs" />
+    <Compile Include="Interfaces\IProfileTagService.cs" />
+    <Compile Include="Interfaces\IProjectRolesService.cs" />
+    <Compile Include="Interfaces\IProjectService.cs" />
+    <Compile Include="Interfaces\IDailyEvaluationService.cs" />
+    <Compile Include="Interfaces\IRoleLevelPermissionService.cs" />
+    <Compile Include="Interfaces\IRoleLevelPermissionTemplateService.cs" />
+    <Compile Include="Interfaces\IRoleLevelService.cs" />
+    <Compile Include="Interfaces\IResourceService.cs" />
+    <Compile Include="Interfaces\ISurveyService.cs" />
+    <Compile Include="Interfaces\ITaskScaleService.cs" />
+    <Compile Include="Interfaces\ITaskStatusService.cs" />
+    <Compile Include="Interfaces\ITaskService.cs" />
+    <Compile Include="Interfaces\IReminderService.cs" />
+    <Compile Include="Interfaces\IPerformanceService.cs" />
+    <Compile Include="Interfaces\INotificationService.cs" />
+    <Compile Include="Interfaces\ITaskPriorityListsService.cs" />
+    <Compile Include="Interfaces\ITaskPriorityListItemsService.cs" />
+    <Compile Include="Interfaces\ITaskCategoryListItemsService.cs" />
+    <Compile Include="Interfaces\ITaskCategoryListsService.cs" />
+    <Compile Include="Interfaces\ITaskStatusListItemsService.cs" />
+    <Compile Include="Interfaces\ITaskStatusListsService.cs" />
+    <Compile Include="Interfaces\ITestimonialService.cs" />
+    <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Interfaces\ITrainingDiaryService.cs" />
+    <Compile Include="IpsAttachmentService.cs" />
+    <Compile Include="IpsEmailService.cs" />
+    <Compile Include="LookupItemsService.cs" />
+    <Compile Include="Interfaces\ILookupItemsService.cs" />
+    <Compile Include="Interfaces\IStagesService.cs" />
+    <Compile Include="Interfaces\INotificationTemplatesService.cs" />
+    <Compile Include="Interfaces\IStageGroupsService.cs" />
+    <Compile Include="Interfaces\ITrainingLevelService.cs" />
+    <Compile Include="Interfaces\ITrainingDescriptionService.cs" />
+    <Compile Include="Interfaces\ITrainingTypeService.cs" />
+    <Compile Include="EvaluationRolesService.cs" />
+    <Compile Include="MailNotification.cs" />
+    <Compile Include="ManageCmsContentService.cs" />
+    <Compile Include="ManageHelpContentService.cs" />
+    <Compile Include="ManagePlanService.cs" />
+    <Compile Include="ManageTemplateContentService.cs" />
+    <Compile Include="NotificationIntervalService.cs" />
+    <Compile Include="NotificationService.cs" />
+    <Compile Include="Plans.cs" />
+    <Compile Include="PortfolioService.cs" />
+    <Compile Include="ProfileTagService.cs" />
+    <Compile Include="ProjectRolesService.cs" />
+    <Compile Include="ProjectService.cs" />
+    <Compile Include="DailyEvaluationService.cs" />
+    <Compile Include="RoleLevelPermissionService.cs" />
+    <Compile Include="RoleLevelPermissionTemplateService.cs" />
+    <Compile Include="RoleLevelService.cs" />
+    <Compile Include="ResourceService.cs" />
+    <Compile Include="SMSNotification.cs" />
+    <Compile Include="SurveyService.cs" />
+    <Compile Include="TaskScaleService.cs" />
+    <Compile Include="TaskStatusListsService.cs" />
+    <Compile Include="TaskStatusListItemsService.cs" />
+    <Compile Include="TaskCategoryListItemsService.cs" />
+    <Compile Include="TaskPriorityListItemsService.cs" />
+    <Compile Include="TaskCategoryListsService.cs" />
+    <Compile Include="TaskPriorityListsService.cs" />
+    <Compile Include="TaskStatusService.cs" />
+    <Compile Include="TaskService.cs" />
+    <Compile Include="ReminderService.cs" />
+    <Compile Include="PerformanceService.cs" />
+    <Compile Include="StagesService.cs" />
+    <Compile Include="ScorecardPerspectivesService.cs" />
+    <Compile Include="DataContextFactory.cs" />
+    <Compile Include="ScorecardGoalsService.cs" />
+    <Compile Include="Interfaces\IScorecardGoalsService.cs" />
+    <Compile Include="Interfaces\IDurationMetricsService.cs" />
+    <Compile Include="Interfaces\IScorecardPerspectivesService.cs" />
+    <Compile Include="Interfaces\IPerformanceGroupsService.cs" />
+    <Compile Include="Interfaces\ITrainingService.cs" />
+    <Compile Include="DurationMetricsService.cs" />
+    <Compile Include="PerformanceGroupsService.cs" />
+    <Compile Include="NotificationTemplatesService.cs" />
+    <Compile Include="StageGroupsService.cs" />
+    <Compile Include="TestimonialService.cs" />
+    <Compile Include="TrainingDescriptionService.cs" />
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="TrainingDiaryService.cs" />
+    <Compile Include="TrainingTypeService.cs" />
+    <Compile Include="TrainingLevelService.cs" />
+    <Compile Include="TrainingService.cs" />
+    <Compile Include="SkillsService.cs" />
+    <Compile Include="Interfaces\ISkillsService.cs" />
+    <Compile Include="Interfaces\IAnswersService.cs" />
+    <Compile Include="AnswersService.cs" />
+    <Compile Include="QuestionsService.cs" />
+    <Compile Include="AuthService.cs" />
+    <Compile Include="AnswerTypesService.cs" />
+    <Compile Include="Interfaces\IQuestionsService.cs" />
+    <Compile Include="Interfaces\IAnswerTypesService.cs" />
+    <Compile Include="KTMedalRuleService.cs" />
+    <Compile Include="Interfaces\IKTMedalRuleService.cs" />
+    <Compile Include="Interfaces\IIpsUserService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Interfaces\IRoleService.cs" />
+    <Compile Include="MeasureUnitService.cs" />
+    <Compile Include="Interfaces\IMeasureUnitService.cs" />
+    <Compile Include="ProfileScaleSettingsRuleService.cs" />
+    <Compile Include="Interfaces\IProfileScaleSettingsRuleService.cs" />
+    <Compile Include="Interfaces\IJobPositionService.cs" />
+    <Compile Include="Interfaces\IProfileCategoryService.cs" />
+    <Compile Include="Interfaces\IScaleCategoryService.cs" />
+    <Compile Include="Interfaces\IScaleService.cs" />
+    <Compile Include="Interfaces\IScaleRangeService.cs" />
+    <Compile Include="JobPositionService.cs" />
+    <Compile Include="ProfileCategoryService.cs" />
+    <Compile Include="ScaleRangeService.cs" />
+    <Compile Include="ScaleCategoryService.cs" />
+    <Compile Include="ScaleService.cs" />
+    <Compile Include="StructureLevelService.cs" />
+    <Compile Include="Interfaces\IStructureLevelService.cs" />
+    <Compile Include="Interfaces\IProfileService.cs" />
+    <Compile Include="Interfaces\IProfileTypeService.cs" />
+    <Compile Include="Interfaces\IRolePermitionsService.cs" />
+    <Compile Include="ProfileService.cs" />
+    <Compile Include="ProfileTypeService.cs" />
+    <Compile Include="RolePermitionsService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="IpsUserService.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="UserTypeService.cs" />
+    <Compile Include="CultureService.cs" />
+    <Compile Include="CountryService.cs" />
+    <Compile Include="Interfaces\IUserTypeService.cs" />
+    <Compile Include="Interfaces\ICultureService.cs" />
+    <Compile Include="Interfaces\ICountryService.cs" />
+    <Compile Include="TeamService.cs" />
+    <Compile Include="DepartmentService.cs" />
+    <Compile Include="Interfaces\IAuthService.cs" />
+    <Compile Include="Interfaces\ITeamService.cs" />
+    <Compile Include="Interfaces\IDepartmentService.cs" />
+    <Compile Include="Interfaces\IIndustryService.cs" />
+    <Compile Include="Interfaces\IOrganizationService.cs" />
+    <Compile Include="IndustryService.cs" />
+    <Compile Include="OrganizationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Nullify.cs" />
+    <Compile Include="Utils\RecurrenceRuleParser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPS.AuthData\IPS.AuthData.csproj">
+      <Project>{d190f9d6-0302-40fd-a256-f8feb22f46c5}</Project>
+      <Name>IPS.AuthData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPS.BusinessModels\IPS.BusinessModels.csproj">
+      <Project>{797f1010-f9f3-4d4f-a5cf-3bdfc62c0461}</Project>
+      <Name>IPS.BusinessModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPS.Data\IPS.Data.csproj">
+      <Project>{98da4c1b-0343-4211-8c98-0484427c281d}</Project>
+      <Name>IPS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPS.Fx\IPS.Fx.Security\IPS.Fx.Security.csproj">
+      <Project>{ac492e46-21e8-4e01-8c08-fbb5b3b6b2b8}</Project>
+      <Name>IPS.Fx.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPS.Fx\IPS.Fx.Utilities\IPS.Fx.Utilities.csproj">
+      <Project>{5342b0f5-68de-4618-b215-18e25ce60a04}</Project>
+      <Name>IPS.Fx.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

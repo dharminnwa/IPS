@@ -1,0 +1,188 @@
+<div class="row">
+    <div pane class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 return-menu">
+                    <a href="#/home/profiles/profiles/knowledgetest" class="newhead title fa fa-long-arrow-left"></a>
+                    <h1 class="title">Knowledge Profile</h1>
+                    <div class="top-border"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <br />
+                        <span class="form-">{{selectedProfile.name}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Organization</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.organizationName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Industry</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.rootIndustryName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Sub Industry</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.subIndustryName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Profile Level</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.levelName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Profile Category</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.categoryName}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" ng-show="selectedProfile.kpiWeak!=0">
+                            <div class="form-group">
+                                <label class="control-label">KPI Weak</label>
+                                <br />
+                                <span class="control-preview">{{selectedProfile.kpiWeak}}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6" ng-show="selectedProfile.kpiStrong!=0">
+                            <div class="form-group">
+                                <label class="control-label">KPI Strong</label>
+                                <br />
+                                <span class="control-preview">{{selectedProfile.kpiStrong}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Target Group</label>
+                        <select kendo-multi-select k-options="selectOptions" k-ng-model="selectedProfile.jobPositions" ng-disabled="true"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.description}}</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.isActive" ng-disabled="true"> Is Active
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.isTemplate" ng-disabled="true"> Is Template
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Question Display Rule</label>
+                        <br />
+                        <span class="control-preview">{{selectedProfile.questionDisplayRuleName}}</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.setKPIInSurvey" ng-disabled="true"> Set KPI In Survey
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.randomizeQuestions" ng-disabled="true"> Randomize
+                        {{'SOFTPROFILE_QUESTIONS' | translate }}
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" data-ng-model="selectedProfile.allowToRevisitAnsweredQuestions" ng-disabled="true">
+                        Allow to Revisit Answered Questions
+                    </div>
+                    <div class="form-group" ng-if="passCriterion == passCriteriaEnum.passScore">
+                        <label class="control-label">Pass Score</label>
+                        <br/>
+                        <span class="control-preview">{{selectedProfile.passScore}}</span>
+                    </div>
+                    <div class="medal-rule" ng-if="selectedProfile.medalRuleId">
+                        <div class="form-group">
+                            <label class="control-label">Medal Rule Name</label>
+                            <br/>
+                            <span class="control-preview">{{selectedProfile.medalRuleName}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <div class="icon bronze-icon" title="Bronze"></div>
+                                </div>
+                                <div class="col-md-offset-1 col-md-3">
+                                            <span ng-show='profileForm.bronzeFrom.$error.required'
+                                                  class="required">*</span>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" disabled
+                                               ng-model="selectedProfile.ktMedalRule.bronzeStart"
+                                               name="bronzeFrom"/>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="dash"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" disabled
+                                               ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                               name="bronzeTo"/>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <div class="icon silver-icon" title="Silver"></div>
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="control-label">over</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" disabled
+                                               ng-model="selectedProfile.ktMedalRule.bronzeEnd"
+                                               name="silverFrom"/>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                                <div class="pull-left">
+                                    <div class="dash"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control"
+                                               disabled
+                                               ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                               name="silverTo"/>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <div class="icon gold-icon" title="Gold"></div>
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="control-label">over</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" disabled
+                                               ng-model="selectedProfile.ktMedalRule.silverEnd"
+                                               name="goldFrom"/>
+                                        <span class="input-group-addon">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div kendo-grid k-options="gridFinalProfileOptions" k-rebind="gridOptions.selectable"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="top-border"></div>
+                    <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">Cancel</button>
+                </div>
+            </div>
+    </div>
+    <div ui-view></div>
+</div>

@@ -1,0 +1,9 @@
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\IPS.BusinessModels.dll.config
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\IPS.BusinessModels.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.BusinessModels\bin\Test\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.BusinessModels\obj\Test\IPS.BusinessModels.csprojResolveAssemblyReference.cache
+D:\DotNetProjects\IPS\IPS.BusinessModels\obj\Test\IPS.BusinessModels.dll

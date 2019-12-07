@@ -1,0 +1,698 @@
+<div class="row m-0">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-cstm-lable">{{'COMMON_NAME' | translate }}</label>
+                <span ng-show='ngStage.stageName.$error.required' class="required">*</span>
+                <input type="text" class="form-control tab-control" ng-model="stage.name" ng-required="!stageName.name" name="stageName" ng-readonly="isStageInUse()" />
+            </div>
+        </div>
+        <div class="col-lg-6" ng-if="profileTypeId != profilesTypesEnum.knowledgetest">
+            <div class="form-group">
+                <label class="form-cstm-lable">{{'SOFTPROFILE_MAX_TIME' | translate }} ({{'COMMON_MIN' | translate }})</label>
+                <input type="number" class="form-control tab-control" ng-model="stage.evaluationDurationMinutes" ng-readonly="isStageInUse()" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-warning" ng-show="(!isAllowToPause()) && (!isAllowToExtend())">
+                <strong>{{'COMMON_WARNING' | translate }}!</strong> {{"You can't pause or extend this Milestone" | translate }}
+            </div>
+            <div class="alert alert-warning" ng-show="stage.isPaused">
+                <strong>{{'COMMON_WARNING' | translate }}!</strong> {{"You can't extend this Milestone" | translate }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-check">
+                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                    <input type="checkbox" data-ng-model="stage.isPaused" ng-readonly="(!isAllowToPause())" ng-disabled="(!isAllowToPause())"> {{'COMMON_PAUSED' | translate }}
+                    <span></span>
+                </label>
+                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                    <input type="checkbox" data-ng-model="stage.isStopped" ng-readonly="(!isAllowToStop())" ng-disabled="(!isAllowToStop())"> {{'COMMON_STOP' | translate }}
+                    <span></span>
+                </label>
+                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                    <input type="checkbox" data-ng-model="stage.isExtend" ng-readonly="(!isAllowToExtend())" ng-disabled="(!isAllowToExtend())"> {{'COMMON_EXTEND' | translate }}
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-hide="isStartStage && profileTypeId != profilesTypesEnum.knowledgetest">
+        <div class="clear">
+            <div class="col-lg-12">
+                {{'COMMON_TRAINING_PERIOD' | translate }} ({{'SOFTPROFILE_RCT' | translate }})
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'COMMON_START_DATE' | translate }}</label>
+                    <br />
+                    <input id="stageStartDateTime" kendo-date-time-picker
+                           ng-change="recalculateStartDates(stage.startDateTime, '{{stage.startDateTime}}')"
+                           k-on-open="stageStartDateTimeOpen(kendoEvent)"
+                           ng-model="stage.startDateTime"
+                           ng-disabled="!stage.isExtend" />
+                    <div class="validation-error-label"
+                         ng-hide="isDateTimeValid(stage.startDateTime, true)">
+                        {{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'COMMON_DUE_DATE' | translate }}</label>
+                    <br />
+                    <input kendo-date-time-picker
+                           ng-change="recalculateDueDates(stage.endDateTime, '{{stage.endDateTime}}')"
+                           ng-model="stage.endDateTime"
+                           ng-disabled="!stage.isExtend" />
+                    <div class="validation-error-label"
+                         ng-hide="isDateTimeValid(stage.endDateTime, true)">
+                        {{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-hide="profileTypeId == profilesTypesEnum.knowledgetest">
+        <div class="clear">
+            <div class="col-sm-12">
+                {{'SOFTPROFILE_EVALUATION_PERIOD' | translate }}
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'SOFTPROFILE_EVALUATION_START_DATE' | translate }}</label>
+                    <br />
+                    <input kendo-date-time-picker
+                           ng-change="evaluationStartDateChange(stage.evaluationStartDate,'{{stage.evaluationStartDate}}')"
+                           ng-model="stage.evaluationStartDate"
+                           ng-disabled="!stage.isExtend" />
+                    <div class="validation-error-label"
+                         ng-hide="isDateTimeValid(stage.evaluationStartDate, true)">
+                        {{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'SOFTPROFILE_EVALUATION_DUE_DATE' | translate }}</label>
+                    <br />
+                    <input kendo-date-time-picker ng-model="stage.evaluationEndDate"
+                           ng-change="evaluationEndDateChange(stage.evaluationEndDate,'{{stage.evaluationEndDate}}')"
+                           ng-disabled="!stage.isExtend" />
+                    <div class="validation-error-label"
+                         ng-hide="isDateTimeValid(stage.evaluationEndDate, true)">
+                        {{'MYPROFILES_DATE_IS_NOT_VALID' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <ul>
+                <li ng-repeat="errorItem in errors" class="validation-error-label">
+                    {{errorItem}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="clear">
+            <div class="col-md-6 mt-5">
+                <label class="form-cstm-lable">{{'SOFTPROFILE_MANAGER' | translate }}</label>
+                <select class="form-control tab-control" data-ng-model="stage.managerId" data-ng-options="obj.id as obj.firstName + ' ' + obj.lastName for obj in users" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()">
+                    <option value="">{{'SOFTPROFILE_SELECT_MANAGER' | translate }}</option>
+                </select>
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'SOFTPROFILE_TRAINER' | translate }}</label>
+                    <select class="form-control tab-control" data-ng-model="stage.trainerId" data-ng-options="obj.id as obj.firstName + ' ' + obj.lastName for obj in users" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()">
+                        <option value="">{{'SOFTPROFILE_SELECT_TRAINER' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-lg-12 mt-5 tab-header header-blue">
+            <h3>{{'SOFTPROFILE_NOTIFICATIONS' | translate }}</h3>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3 box-title">
+            <label class="form-cstm-lable bold">{{'COMMON_START' | translate }}</label>
+
+        </div>
+        <div class="col-lg-3 box-title">
+            <label class="form-cstm-lable bold">{{'COMMON_COMPLETED' | translate }}</label>
+
+        </div>
+        <div class="col-lg-3 box-title">
+            <label class="form-cstm-lable bold">{{'SOFTPROFILE_RESULTS' | translate }}</label>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'COMMON_PARTICIPANTS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.externalStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ParticipantStartStageStartTemplates :ParticipantMilestoneStartTemplates) "
+                        ng-change="checkChoseFromList(stage.externalStartNotificationTemplateId, 'stage.externalStartNotificationTemplateId', '{{stage.externalStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.externalStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.externalCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ParticipantStartStageCompleteTemplates :ParticipantMilestoneCompleteTemplates)"
+                        ng-change="checkChoseFromList(stage.externalCompletedNotificationTemplateId, 'stage.externalCompletedNotificationTemplateId', '{{stage.externalCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.externalCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.externalResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ParticipantStartStageResultTemplates : ParticipantMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.externalResultsNotificationTemplateId, 'stage.externalResultsNotificationTemplateId', '{{stage.externalResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.externalResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'COMMON_EVALUATORS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.evaluatorStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  EvaluatorStartStageStartTemplates:EvaluatorMilestoneStartTemplates)"
+                        ng-change="checkChoseFromList(stage.evaluatorStartNotificationTemplateId, 'stage.evaluatorStartNotificationTemplateId', '{{stage.evaluatorStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.evaluatorStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.evaluatorCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? EvaluatorStartStageCompleteTemplates :EvaluatorMilestoneCompleteTemplates)"
+                        ng-change="checkChoseFromList(stage.evaluatorCompletedNotificationTemplateId, 'stage.evaluatorCompletedNotificationTemplateId', '{{stage.evaluatorCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.evaluatorCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.evaluatorResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? EvaluatorStartStageResultTemplates : EvaluatorMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.evaluatorResultsNotificationTemplateId, 'stage.evaluatorResultsNotificationTemplateId', '{{stage.evaluatorResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.evaluatorResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_TRAINERS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.trainerStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? TrainerStartStageStartTemplates : TrainerMilestoneStartTemplates)"
+                        ng-change="checkChoseFromList(stage.trainerStartNotificationTemplateId, 'stage.trainerStartNotificationTemplateId', '{{stage.trainerStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.trainerStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.trainerCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? TrainerStartStageCompleteTemplates : TrainerMilestoneCompleteTemplates)"
+                        ng-change="checkChoseFromList(stage.trainerCompletedNotificationTemplateId, 'stage.trainerCompletedNotificationTemplateId', '{{stage.trainerCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.trainerCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.trainerResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? TrainerStartStageResultTemplates : TrainerMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.trainerResultsNotificationTemplateId, 'stage.trainerResultsNotificationTemplateId', '{{stage.trainerResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.trainerResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_MANAGERS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.managerStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ManagerStartStageStartTemplates : ManagerMilestoneStartTemplates)"
+                        ng-change="checkChoseFromList(stage.managerStartNotificationTemplateId, 'stage.managerStartNotificationTemplateId', '{{stage.managerStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.managerStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.managerCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ManagerStartStageCompleteTemplates  : ManagerMilestoneCompleteTemplates)"
+                        ng-change="checkChoseFromList(stage.managerCompletedNotificationTemplateId, 'stage.managerCompletedNotificationTemplateId', '{{stage.managerCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.managerCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.managerResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  ManagerStartStageResultTemplates : ManagerMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.managerResultsNotificationTemplateId, 'stage.managerResultsNotificationTemplateId', '{{stage.managerResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.managerResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_FINAL_SCORE_MANAGERS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.finalScoreManagerStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :  (isStartStage ? FinalScoreManagerStartStageStartTemplates  : FinalScoreManagerMilestoneStartTemplates)"
+                        ng-change="checkChoseFromList(stage.finalScoreManagerStartNotificationTemplateId, 'stage.finalScoreManagerStartNotificationTemplateId', '{{stage.finalScoreManagerStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.finalScoreManagerStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.finalScoreManagerCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  FinalScoreManagerStartStageCompleteTemplates : FinalScoreManagerMilestoneCompleteTemplates )"
+                        ng-change="checkChoseFromList(stage.finalScoreManagerCompletedNotificationTemplateId, 'stage.finalScoreManagerCompletedNotificationTemplateId', '{{stage.finalScoreManagerCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.finalScoreManagerCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.finalScoreManagerResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? FinalScoreManagerStartStageResultTemplates : FinalScoreManagerMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.finalScoreManagerResultsNotificationTemplateId, 'stage.finalScoreManagerResultsNotificationTemplateId', '{{stage.finalScoreManagerResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.finalScoreManagerResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_PROJECT_MANAGERS' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.projectManagerStartNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ProjectManagerStartStageStartTemplates  :  ProjectManagerMilestoneStartTemplates)"
+                        ng-change="checkChoseFromList(stage.projectManagerStartNotificationTemplateId, 'stage.projectManagerStartNotificationTemplateId', '{{stage.projectManagerStartNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.projectManagerStartNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.projectManagerCompletedNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ProjectManagerStartStageCompleteTemplates  : ProjectManagerMilestoneCompleteTemplates)"
+                        ng-change="checkChoseFromList(stage.projectManagerCompletedNotificationTemplateId, 'stage.projectManagerCompletedNotificationTemplateId', '{{stage.projectManagerCompletedNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.projectManagerCompletedNotificationTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.projectManagerResultsNotificationTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? ProjectManagerStartStageResultTemplates : ProjectManagerMilestoneResultTemplates)"
+                        ng-change="checkChoseFromList(stage.projectManagerResultsNotificationTemplateId, 'stage.projectManagerResultsNotificationTemplateId', '{{stage.projectManagerResultsNotificationTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.projectManagerResultsNotificationTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-0">
+        <div class="col-lg-12 mt-5 tab-header header-blue">
+            <h3>{{'SOFTPROFILE_ALARMS' | translate }}</h3>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3 box-title">
+            <span class="dot-green"></span>
+            <label class="form-cstm-lable bold">{{'SOFTPROFILE_ALARM_GREEN' | translate }}</label>
+
+        </div>
+        <div class="col-lg-3 box-title">
+            <span class="dot-yellow"></span>
+            <label class="form-cstm-lable bold">{{'SOFTPROFILE_ALARM_YELLOW' | translate }}</label>
+
+        </div>
+        <div class="col-lg-3 box-title">
+            <span class="dot-red"></span>
+            <label class="form-cstm-lable bold">{{'SOFTPROFILE_ALARM_RED' | translate }}</label>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'COMMON_PARTICIPANT' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmParticipantTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageGreenAlarmParticipantTemplates : MilestoneGreenAlarmParticipantTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmParticipantTemplateId, 'stage.greenAlarmParticipantTemplateId', '{{stage.greenAlarmParticipantTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmParticipantTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmParticipantTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageYellowAlarmParticipantTemplates : MilestoneYellowAlarmParticipantTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmParticipantTemplateId, 'stage.yellowAlarmParticipantTemplateId', '{{stage.yellowAlarmParticipantTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmParticipantTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmParticipantTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :  (isStartStage ? StartStageRedAlarmParticipantTemplates : MilestoneRedAlarmParticipantTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmParticipantTemplateId, 'stage.redAlarmParticipantTemplateId', '{{stage.redAlarmParticipantTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmParticipantTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'COMMON_EVALUATOR' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmEvaluatorTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :  (isStartStage ? StartStageGreenAlarmEvaluatorTemplates : MilestoneGreenAlarmEvaluatorTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmEvaluatorTemplateId, 'stage.greenAlarmEvaluatorTemplateId', '{{stage.greenAlarmEvaluatorTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmEvaluatorTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmEvaluatorTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageYellowAlarmEvaluatorTemplates : MilestoneYellowAlarmEvaluatorTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmEvaluatorTemplateId, 'stage.yellowAlarmEvaluatorTemplateId', '{{stage.yellowAlarmEvaluatorTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmEvaluatorTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmEvaluatorTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :(isStartStage ? StartStageRedAlarmEvaluatorTemplates : MilestoneRedAlarmEvaluatorTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmEvaluatorTemplateId, 'stage.redAlarmEvaluatorTemplateId', '{{stage.redAlarmEvaluatorTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmEvaluatorTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_MANAGER' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :(isStartStage ? StartStageGreenAlarmManagerTemplates : MilestoneGreenAlarmManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmManagerTemplateId, 'stage.greenAlarmManagerTemplateId', '{{stage.greenAlarmManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageYellowAlarmManagerTemplates : MilestoneYellowAlarmManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmManagerTemplateId, 'stage.yellowAlarmManagerTemplateId', '{{stage.yellowAlarmManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageRedAlarmManagerTemplates : MilestoneRedAlarmManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmManagerTemplateId, 'stage.redAlarmManagerTemplateId', '{{stage.redAlarmManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmManagerTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_TRAINER' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmTrainerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageGreenAlarmTrainerTemplates  : MilestoneGreenAlarmTrainerTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmTrainerTemplateId, 'stage.greenAlarmTrainerTemplateId', '{{stage.greenAlarmTrainerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmTrainerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmTrainerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter :  (isStartStage ? StartStageYellowAlarmTrainerTemplates  : MilestoneYellowAlarmTrainerTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmTrainerTemplateId, 'stage.yellowAlarmTrainerTemplateId', '{{stage.yellowAlarmTrainerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmTrainerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmTrainerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageRedAlarmTrainerTemplates  : MilestoneRedAlarmTrainerTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmTrainerTemplateId, 'stage.redAlarmTrainerTemplateId', '{{stage.redAlarmTrainerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmTrainerTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_FINAL_SCORE_MANAGER' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmFinalScoreManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  StartStageGreenAlarmFinalScoreManagerTemplates : MilestoneGreenAlarmFinalScoreManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmFinalScoreManagerTemplateId, 'stage.greenAlarmFinalScoreManagerTemplateId', '{{stage.greenAlarmFinalScoreManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmFinalScoreManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmFinalScoreManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  StartStageYellowAlarmFinalScoreManagerTemplates : MilestoneYellowAlarmFinalScoreManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmFinalScoreManagerTemplateId, 'stage.yellowAlarmFinalScoreManagerTemplateId', '{{stage.yellowAlarmFinalScoreManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmFinalScoreManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmFinalScoreManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ?  StartStageRedAlarmFinalScoreManagerTemplates : MilestoneRedAlarmFinalScoreManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmFinalScoreManagerTemplateId, 'stage.redAlarmFinalScoreManagerTemplateId', '{{stage.redAlarmFinalScoreManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmFinalScoreManagerTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_PROJECT_MANAGER' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.greenAlarmProjectManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageGreenAlarmProjectManagerTemplates : MilestoneGreenAlarmProjectManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.greenAlarmProjectManagerTemplateId, 'stage.greenAlarmProjectManagerTemplateId', '{{stage.greenAlarmProjectManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.greenAlarmProjectManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.yellowAlarmProjectManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageYellowAlarmProjectManagerTemplates : MilestoneYellowAlarmProjectManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.yellowAlarmProjectManagerTemplateId, 'stage.yellowAlarmProjectManagerTemplateId', '{{stage.yellowAlarmProjectManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span class="input-group-addon" ng-click="goToNotificationTemplate(stage.yellowAlarmProjectManagerTemplateId)">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <select class="form-control tab-control check-mail"
+                        data-ng-model="stage.redAlarmProjectManagerTemplateId"
+                        data-ng-options="obj.id as obj.name for obj in notificationTemplates | filter : (isStartStage ? StartStageRedAlarmProjectManagerTemplates : MilestoneRedAlarmProjectManagerTemplates)"
+                        ng-change="checkChoseFromList(stage.redAlarmProjectManagerTemplateId, 'stage.redAlarmProjectManagerTemplateId', '{{stage.redAlarmProjectManagerTemplateId}}')" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"></select>
+                <span ng-click="goToNotificationTemplate(stage.redAlarmProjectManagerTemplateId)" class="input-group-addon">
+                    <i class="fa fa-envelope dark"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 alarmSetting">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_ALARM_TIME' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input kendo-date-time-picker ng-model="stage.greenAlarmTime" ng-disabled="isStageLocked()" />
+                <div class="validation-error-label"
+                     ng-hide="isDateTimeValid(stage.greenAlarmTime)">
+                    {{'SOFTPROFILE_DATE_OR_TIME_IS_INVALID' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input kendo-date-time-picker ng-model="stage.yellowAlarmTime" ng-disabled="isStageLocked()" />
+                <div class="validation-error-label"
+                     ng-hide="isDateTimeValid(stage.yellowAlarmTime)">
+                    {{'SOFTPROFILE_DATE_OR_TIME_IS_INVALID' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input kendo-date-time-picker ng-model="stage.redAlarmTime" ng-disabled="isStageLocked()" />
+                <div class="validation-error-label"
+                     ng-hide="isDateTimeValid(stage.redAlarmTime)">
+                    {{'SOFTPROFILE_DATE_OR_TIME_IS_INVALID' | translate }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 pt-1">
+            <label class="form-cstm-lable">{{'SOFTPROFILE_SEND' | translate }}</label>
+        </div>
+        <div class="col-md-3">
+            <div class="form-check">
+                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                    <input type="checkbox" data-ng-model="stage.emailNotification" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"> {{'COMMON_EMAIL' | translate }}
+                    <span></span>
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-check">
+                <label class="rememberme mt-checkbox mt-checkbox-outline dark">
+                    <input type="checkbox" data-ng-model="stage.smsNotification" ng-readonly="isStageLocked()" ng-disabled="isStageLocked()"> {{'COMMON_SMS' | translate }}
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

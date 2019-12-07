@@ -1,0 +1,55 @@
+<section class="panel">
+    <header class="panel-heading newPanelHead create-department " ng-init="(templateId)?getTemplate():''">
+        {{((templateId)?'COMMON_EDIT':'COMMON_ADD') | translate }} {{'TEMPLATE_TEMPLATE' | translate }}
+    </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form class="newForm" ng-submit="(templateId)?updateTemplate():addTemplate()">
+            <div class="form-group col-sm-6 col-sm-6">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Choose</label>
+                <div class="col-lg-9" ng-init="getLanguages()">
+                    <select class="form-control" ng-model="template.languageID">
+                        <option value="">--{{'TEMPLATE_SELECT_LANGUAGE' | translate }}--</option>
+                        <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_TITLE' | translate }}(*)</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" ng-model="template.title" name="heading" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_IMAGES' | translate }}(*)</label>
+                <div class="col-lg-9">
+                    <file-upload class="btn btn-success btn-rad btn-trans file-upload" name="File" resize="true" max-width="1280" max-height="1280" ng-model="templateContentImages" multiple="true" uri="http://ips.omsoftware.co/api/api/Upload/UploadTemplateImages" accept="image/png, image/jpg">
+                        <i class="fa fa-upload"></i>
+                        <span>{{'TEMPLATE_UPLOAD_FILES' | translate }}</span>
+                        <ul>
+                            <li ng-repeat="p in my.foo.model" ng-hide="p.percent == 100">
+                                <small>{{ p.name }}</small>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: {{ p.percent }}%;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </file-upload>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_DESCRIPTION' | translate }}(*)</label>
+                <div class="col-lg-9">
+                    <textarea class="form-control" name="meta_description" ng-model="template.description" id="description" rows="6"></textarea>
+
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <div class="col-lg-offset-7 col-lg-6 btmBtn">
+                    <button class="btn btnAdd" type="submit" name="submit">{{((templateId)?'COMMON_UPDATE':'COMMON_ADD') | translate }}</button>
+                    <button class="btn btnclose" type="button" name="cancel">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

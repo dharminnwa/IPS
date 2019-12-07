@@ -1,0 +1,19 @@
+<div pane name="organization.details">
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a ng-click="goBack()" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">Organization</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-sm-12">
+            <div id="kendo-tab-strip" kendo-tab-strip k-content-urls="['../app/views/organization/templates/details.html', '../app/views/organization/templates/hr.html']" ng-init="setSelectedTab()">
+                <ul>
+                    <li class="k-state-active">Detailes</li>
+                    <li>HR</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

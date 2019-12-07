@@ -1,0 +1,270 @@
+<div pane>
+    <div class="row">
+        <div class="col-md-12 exportoptions">
+            <a class="btn btn-lg green-haze hidden-print uppercase print-btn" onclick="javascript:window.print();">{{'MYPROFILES_PRINT' | translate }}</a>
+            <a class="btn btn-lg green-haze hidden-print uppercase print-btn" ng-click="makePDF()">{{'MYPROFILES_PDF' | translate }}</a>
+        </div>
+        <div class="col-md-12 ">
+            <div class="devcontractpage" style="width:595px;background:white">
+                <!-- BEGIN PAGE HEADER-->
+                <!-- BEGIN PAGE TITLE-->
+                <h3 class="page-title text-center">
+                    {{'MYPROFILES_DEVELOPMENT_CONTRACT' | translate }}
+                </h3>
+                <!-- END PAGE TITLE-->
+                <!-- END PAGE HEADER-->
+                <div class="invoice-content-2 bordered">
+                    <div class="row invoice-head">
+                        <div class="col-md-2 col-xs-3">
+                            <div class="invoice-logo">
+                                <img src="/app/images/logo.png" class="img-responsive" alt="" style=" width: 150px;">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-6">
+                            <h4 class="uppercase text-center">{{kpi.profile.name}}</h4>
+                            <div class="col-lg-12 text-center">
+                                <div class="uppercase">{{kpi.participantUser.firstName}} {{kpi.participantUser.lastName}} </div>
+                                <div>
+                                    <span ng-show="kpi.participantUser.address1 != null">{{kpi.participantUser.address1 }},</span>
+                                    <span ng-show="kpi.participantUser.address2 != null">{{kpi.participantUser.address2 }},</span>
+                                    <span ng-show="kpi.participantUser.city != null">{{kpi.participantUser.city }}</span>
+                                </div>
+                                <div>
+                                    <span ng-show="kpi.participantUser.state != null">{{kpi.participantUser.state }},</span>
+                                    <span ng-show="kpi.participantUser.country != null">{{kpi.participantUser.country }}</span>
+                                </div>
+                                <div ng-show="kpi.participantUser.mobileNo != null">  <span class="bold">T</span> {{kpi.participantUser.mobileNo}}</div>
+                                <div ng-show="kpi.participantUser.workEmail != null">
+                                    <span class="bold">E</span> {{kpi.participantUser.workEmail}}
+                                </div>
+                                <div ng-show="kpi.participantUser.webSite != null">
+                                    <span class="bold">W</span> {{kpi.participantUser.webSite}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-3">
+                            <div class="company-address">
+                                <div class="row">
+                                    <img ng-src="{{kpi.devContractInfo.logoLink}}" style="width: 200px;" ng-show="kpi.devContractInfo.logoLink != null">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th class="invoice-title uppercase sbold">
+                                        {{'MYPROFILES_STRONG_KPIS' | translate }}
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="strongkpi in kpi.scorecardData | filter:showStrongKPIFn">
+                                    <td>
+                                        <h4> {{strongkpi.skill.name}}</h4>
+                                        <h4> {{'MYPROFILES_START_SCORE' | translate }} : {{strongkpi.agreement.finalScore}}</h4>
+                                        <div style="float:left">
+                                            <div class="invoice-title uppercase sbold">{{'MYPROFILES_MILESTONE' | translate }}</div>
+                                            <div class="invoice-title uppercase" ng-repeat="milestone in kpi.milestones">
+                                                {{milestone.name}} <br />
+                                            </div>
+                                        </div>
+                                        <div style="float:left">
+                                            <div class="invoice-title uppercase sbold">{{'COMMON_DUE_DATE' | translate }}</div>
+                                            <div class="invoice-title uppercase" ng-repeat="milestone in kpi.milestones">
+                                                <span class="small"> {{milestone.endDateTime | date:'MM/dd/yyyy HH:mm'}}</span>
+                                            </div>
+                                        </div>
+                                        <div style="float:left">
+                                            <div class="invoice-title sbold">{{'COMMON_GOAL' | translate }}</div>
+                                            <div class="invoice-title" ng-repeat="milestoneAgreementGoal in strongkpi.agreement.milestoneAgreementGoals">{{milestoneAgreementGoal.goal}}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th class="invoice-title uppercase sbold">
+                                        {{'MYPROFILES_WEAK_KPIS' | translate }}
+                                    </th>
+                                </tr>
+                                <tr ng-repeat="weakkpi in kpi.scorecardData | filter:showWeakKPIFn">
+                                    <td>
+                                        <h4> {{weakkpi.skill.name}}</h4>
+                                        <h4> {{'MYPROFILES_START_SCORE' | translate }} : {{weakkpi.agreement.finalScore}}</h4>
+                                        <div style="float:left">
+                                            <div class="invoice-title uppercase sbold">{{'MYPROFILES_MILESTONE' | translate }}</div>
+                                            <div class="invoice-title uppercase" ng-repeat="milestone in kpi.milestones">
+                                                {{milestone.name}} <br />
+                                            </div>
+                                        </div>
+                                        <div style="float:left">
+                                            <div class="invoice-title uppercase sbold">{{'COMMON_DUE_DATE' | translate }}</div>
+                                            <div class="invoice-title uppercase" ng-repeat="milestone in kpi.milestones">
+                                                <span class="small"> {{milestone.endDateTime | date:'MM/dd/yyyy HH:mm'}}</span>
+                                            </div>
+                                        </div>
+                                        <div style="float:left">
+                                            <div class="invoice-title sbold">{{'COMMON_GOAL' | translate }}</div>
+                                            <div class="invoice-title" ng-repeat="milestoneAgreementGoal in weakkpi.agreement.milestoneAgreementGoals">{{milestoneAgreementGoal.goal}}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row invoice-body">
+                        <div class="col-xs-12 table-responsive">
+                            <h4>{{'MYPROFILES_EXERCISE_TOWARDS_THE_GOAL' | translate }}</h4>
+                        </div>
+
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="invoice-title uppercase sbold">
+                                            {{'MYPROFILES_STRONG_KPIS' | translate }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="strongkpi in kpi.scorecardData | filter:showStrongKPIFn" ng-show="strongkpi.agreement.comment != null">
+                                        <td>
+                                            <h4>{{strongkpi.skill.name}}</h4>
+                                            <p><b>{{'MYPROFILES_FREE_TEXT_TRAINING' | translate }}: </b>{{strongkpi.agreement.comment}}</p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <table class="table table-hover" ng-repeat="strongkpi in kpi.scorecardData | filter:showStrongKPIFn" ng-show="strongkpi.agreement.trainings.length > 0">
+                                <tr ng-repeat="training in strongkpi.agreement.trainings">
+                                    <td>
+                                        <h4>{{strongkpi.skill.name}}</h4>
+                                        <p>
+                                            <b>{{'COMMON_WHY' | translate }}: </b>
+                                            {{training.why}}
+                                        </p>
+                                        <p>
+                                            <b>{{'COMMON_WHAT' | translate }}: </b>
+                                            {{training.what}}
+                                        </p>
+                                        <p>
+                                            <b>{{'COMMON_HOW' | translate }}:</b>
+                                            {{training.how}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="invoice-title uppercase sbold">
+                                            {{'MYPROFILES_WEAK_KPIS' | translate }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="weakkpi in kpi.scorecardData | filter:showWeakKPIFn" ng-show="weakkpi.agreement.comment != null">
+                                        <td>
+                                            <h4>{{weakkpi.skill.name}}</h4>
+                                            <p><b>{{'MYPROFILES_FREE_TEXT_TRAINING' | translate }}: </b>{{weakkpi.agreement.comment}}</p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <table class="table table-hover" ng-repeat="weakkpi in kpi.scorecardData | filter:showWeakKPIFn" ng-show="weakkpi.agreement.trainings.length > 0">
+                                <tr ng-repeat="training in weakkpi.agreement.trainings">
+                                    <td>
+                                        <h4>{{weakkpi.skill.name}}</h4>
+                                        <p>
+                                            <b>{{'COMMON_WHY' | translate }}: </b>
+                                            {{training.why}}
+                                        </p>
+                                        <p>
+                                            <b>{{'COMMON_WHAT' | translate }}: </b>
+                                            {{training.what}}
+                                        </p>
+                                        <p>
+                                            <b>{{'COMMON_HOW' | translate }}:</b>
+                                            {{training.how}}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div style="display: block; page-break-after:always"></div>
+                    <div class="row invoice-subtotal">
+
+
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="invoice-title uppercase  sbold">{{'MYPROFILES_LEADER_PARTICIPANT' | translate }}</th>
+                                        <th class="invoice-title uppercase  sbold">{{'COMMON_EVALUATOR' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="">{{kpi.devContractInfo.participantName ? kpi.devContractInfo.participantName : 'N/A'}}</td>
+                                        <td class="">{{kpi.devContractInfo.evaluatorName? kpi.devContractInfo.evaluatorName : 'N/A'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="invoice-title uppercase  sbold">{{'MYPROFILES_PARTICIPANT_LEADER' | translate }}</th>
+                                        <th class="invoice-title uppercase  sbold">{{'MYPROFILES_COACH' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="">{{kpi.devContractInfo.leaderName ? kpi.devContractInfo.leaderName : 'N/A'  }}</td>
+                                        <td class="">{{kpi.devContractInfo.trainerName ?kpi.devContractInfo.trainerName : 'N/A' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="invoice-title uppercase  sbold">{{'MYPROFILES_GENERAL_MANAGER' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="">{{kpi.devContractInfo.SignatureBossName ? kpi.devContractInfo.SignatureBossName: 'N/A'}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="col-xs-12">
+                            {{'MYPROFILES_ENHANCE_PERFORMANCE_FOR_THE_BENEFIT_OF_EMPLOYEES_CUSTOMERS_AND_THE_COMPANY' | translate }}
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!--<div ng-report-viewer></div>-->
+        </div>
+    </div>
+</div>
+<!--<div ui-view></div>-->

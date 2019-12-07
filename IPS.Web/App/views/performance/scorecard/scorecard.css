@@ -1,0 +1,82 @@
+﻿.k-grid tr td .trend-Up{
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #22B14C;
+  margin: 0 auto;
+}
+
+.k-grid tr td .trend-Down{
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ED1C24;
+  margin: 0 auto;
+}
+
+.k-grid tr td .scale-circle {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    -moz-border-radius: 50px !important;
+    -webkit-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+
+.k-grid tr td .number{
+    text-align: center;
+}
+
+.k-grid tr td .center-text{
+    text-align: center;
+}
+
+.k-grid tr td .trend-Equal{
+    position: relative;
+}
+
+.k-grid tr td .trend-Equal:before{
+    content: "=";
+    position: absolute;
+    font-weight: 700;
+    color: #00AFF0;
+    font-size: 30px;
+    left: 37%;
+    top: -10px;
+}
+
+.scorecard-legend {
+    width:15px;
+    height:15px; 
+}
+
+.scorecard-row-container {
+    margin-bottom: 200px;
+}
+
+#scorecardGrid {
+    margin-top: 20px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.k-grid th {
+    vertical-align: middle !important;
+}
+
+.scorecard-btn {
+    width: 100%;
+    height: 25px;
+}

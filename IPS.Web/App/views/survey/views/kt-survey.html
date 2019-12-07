@@ -1,0 +1,183 @@
+﻿<header-navigation ng-hide="survey.isStandAlone" page-name="Survey"></header-navigation>
+<div pane name="survey" ng-init="init()" class="row">
+    <section class="portlet-light" ng-show="isShowUIMessage()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-name">
+                    {{profileName}}
+                </div>
+                <div class="col-sm-12 progressbar">
+                </div>
+            </div>
+            <div class="col-sm-12 survey-steps">
+                <div>
+                    <div class="ui-message word-break">{{uiMessage}}</div>
+                </div>
+            </div>
+            <div class="col-sm-12 buttons-align-center">
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-click="runSurvey()">
+                    {{'MYPROFILES_NEXT' | translate }}
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="portlet-light" ng-hide="survey.isSurveyCommentPage || isShowUIMessage()">
+        <div class="row" ng-form="surveyForm">
+            <div class="col-sm-12">
+                <div class="profile-name">
+                    {{profileName}}
+                </div>
+                <div class="text-center">
+                    <span class="timer-clock">{{remainingSurveyTime | date: 'HH:mm:ss' : 'UTC'}}</span>
+                </div>
+
+                <div class="col-sm-12 progressbar">
+                    <button class="btn btn-cstm ips-row-button ips-survey-button button-pause"
+                            ng-click="pauseSurvey()">
+                        <i class="fa fa-pause" aria-hidden="true"></i>
+                        {{'MYPROFILES_PAUSE' | translate }}
+                    </button>
+                    <timer class="timer" countdown="surveyTime" max-time-unit="'hour'" interval="1000"
+                           finish-callback="timerFinished()">
+                        <div class="progress progress-striped active {{displayProgressActive}}">
+                            <div class="progress-bar"
+                                 ng-class="{'progress-bar-warning': progressBar >= 80, 'progress-bar-danger': progressBar >= 90 }"
+                                 style="min-width: 2em;width: {{progressBar}}%;">
+                                {{progressBar | number}}%
+                            </div>
+                        </div>
+                    </timer>
+                </div>
+            </div>
+
+
+            <div class="survey-steps">
+                <div class="col-sm-12" ng-if="isDisplayPerformanceGroupPerStep()">
+                    <div class="performance-group-name">{{getCurrentPerformanceGroupName()}}</div>
+                    <div ng-repeat="question in currentStepData">
+                        <div class="skill-name">{{question.skillName}}</div>
+                        <div class="question">{{question.questionText}}</div>
+                        <question-material-view material="question.material"></question-material-view>
+                        <answer type="question.answerTypeId"
+                                possible-answers="question.possibleAnswer"
+                                user-answer="question.userAnswer"
+                                single-choice-radio-group-id="question.questionId">
+                        </answer>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12" ng-if="isDisplayQuestionPerStep()">
+                    <div class="skill-name">{{currentStepData.skillName}}</div>
+                    <div class="question">{{currentStepData.questionText}}</div>
+                    <question-material-view material="currentStepData.material"></question-material-view>
+                    <answer type="currentStepData.answerTypeId"
+                            possible-answers="currentStepData.possibleAnswer"
+                            user-answer="currentStepData.userAnswer"
+                            single-choice-radio-group-id="currentStepData.questionId">
+                    </answer>
+                </div>
+
+                <div class="col-sm-12" ng-if="isDisplayAllQuestionsOnTheSinglePage()">
+                    <div ng-repeat="question in currentStepData">
+                        <div class="skill-name">{{question.skillName}}</div>
+                        <div class="question">{{question.questionText}}</div>
+                        <question-material-view material="question.material"></question-material-view>
+                        <answer type="question.answerTypeId"
+                                possible-answers="question.possibleAnswer"
+                                user-answer="question.userAnswer"
+                                single-choice-radio-group-id="question.questionId">
+                        </answer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 question-navigation" ng-if="isShowNavigationPanel()">
+                <div class="question-navigation-info">{{'MYPROFILES_QUESTION' | translate }} {{currentQuestionNumber()}} {{'MYPROFILES_OF' | translate }} {{questions.length}}</div>
+                <button ng-repeat="question in questions" class="button-question-navigation button-red"
+                        ng-class="{'button-green': isQuestionByIndexAnswered($index)}"
+                        ng-click="changeQuestion($index)"></button>
+            </div>
+
+            <div class="col-sm-12 buttons-align-center">
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-if="isShowPreviousStep()"
+                        ng-click="perviousStep()">
+                    {{'MYPROFILES_PREVIOUS' | translate }}
+                </button>
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-show="isUIMessagePreviousButtonVisible()"
+                        ng-click="showUIMessage()">
+                    {{'MYPROFILES_PREVIOUS' | translate }}
+                </button>
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-click="nextStep()">
+                    {{'MYPROFILES_NEXT' | translate }}
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="portlet-light" ng-hide="!survey.isSurveyCommentPage">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-name">
+                    {{profileName}}
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="content-border content-border-left content-border-right">
+                    <table class="table">
+                        <tr class="table-header">
+                            <th>#</th>
+                            <th>{{'COMMON_SKILL' | translate }}</th>
+                            <th>{{'COMMON_PERFORMANCE_GROUP' | translate }}</th>
+                            <th>{{'MYPROFILES_QUESTION' | translate }}</th>
+                            <th>{{'MYPROFILES_IS_ANSWERED' | translate }}</th>
+                            <th>{{'MYPROFILES_COMMENT' | translate }}</th>
+                        </tr>
+                        <tr ng-repeat="question in questions">
+                            <td width="5%" class="answer-number">{{$index+1}}</td>
+                            <td width="15%">{{question.skillName}}</td>
+                            <td width="15%">{{getPerformanceGroupById(question.performanceGroupId)}}</td>
+                            <td width="25%">{{question.questionText}}</td>
+                            <td width="5%">
+                                <div class="answer-mark"
+                                     ng-class="{'answer-mark-answered': isQuestionByIndexAnswered($index)}"></div>
+                            </td>
+                            <td width="30%">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="4" ng-model="question.comment"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-sm-12 buttons-align-center">
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-if="isShowPreviousStep()"
+                        ng-click="perviousStep()">
+                    {{'MYPROFILES_PREVIOUS' | translate }}
+                </button>
+                <button class="btn btn-cstm ips-row-button ips-survey-button"
+                        ng-click="saveAnswers()">
+                    {{'MYPROFILES_SAVE_AND_GO_TO_SCORECARD' | translate }}
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="pause-screen" ng-show="isPause">
+        <div class="pause-background"></div>
+        <button class="btn btn-cstm  button-continue"
+                ng-click="continueSurvey()">
+            <i class="fa fa-play fa-2x mt-5" aria-hidden="true"></i>
+            <div class="padding-5">{{'MYPROFILES_CONTINUE_SURVEY' | translate }}</div>
+        </button>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

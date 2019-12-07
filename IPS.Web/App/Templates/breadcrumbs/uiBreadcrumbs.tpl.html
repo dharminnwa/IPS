@@ -1,0 +1,6 @@
+﻿<ol class="page-breadcrumb">
+    <li ng-repeat="crumb in breadcrumbs track by $index" ng-class="{ active: $last, 'breadcrumb-home' : crumb.displayName == 'Home' }">
+        <i ng-show="$index > 0" class="fa fa-circle"></i>
+        <a ui-sref="{{ crumb.route }}" ng-if="!$last" ui-sref-opts="{reload: true}">{{ crumb.displayName | translate }}&nbsp;</a><span ng-show="$last">{{ crumb.displayName | translate }}</span>
+    </li>
+</ol>

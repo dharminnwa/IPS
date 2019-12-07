@@ -1,0 +1,139 @@
+﻿<div id="addSalesCustomersWindow">
+    <div class="container-fluid">
+        <ng-form name="formAddProspectingCustomer" action="#" id="formAddProspectingCustomer" novalidate="novalidate">
+
+            <div class="clearfix">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="example">
+                            <div class="demo-section k-content">
+                                <label class="control-label">{{'TASKPROSPECTING_DATE' | translate }}</label>
+                                <input kendo-date-time-picker
+                                       id="scheduleDate"
+                                       name="scheduleDate"
+                                       k-on-open="scheduleDateOpen(kendoEvent)"
+                                       k-on-change="scheduleDateChange(kendoEvent)"
+                                       ng-model="prospectingCustomer.scheduleDate" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <label class="form-cstm-label">{{'TASKPROSPECTING_ACTIVITY_NAME' | translate }}</label>
+                        <select class="form-control" ng-options="prospectingGoalItem.id as prospectingGoalItem.name for prospectingGoalItem in prospectingGoalNames"
+                                ng-model="prospectingCustomer.prospectingGoalId"
+                                ng-change="changeProspectingCustomerGoal()"
+                                ng-required="true"></select>
+                    </div>
+                </div>
+                <div class="row" ng-show="prospectingCustomer.prospectingGoalId > 0">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-cstm mt-5 m-0" ng-click="addNewCustomer()">
+                            <i class="fa fa-plus" aria-hidden="true"></i>{{'TASKPROSPECTING_NEW_CUSTOMER' | translate }}
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt-5" ng-show="csvFileNames.length > 0">
+                    <div class="col-md-12">
+                        <label class="form-cstm-label">CSV File</label>
+                        <select class="form-control" ng-options="csvFileName.value as csvFileName.text for csvFileName in csvFileNames"
+                                ng-model="prospectingCustomer.csvFileName"
+                                ng-change="changeProspectingCustomerCsvFile()"></select>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="prospectingCustomerGrid">
+                            <div id="salesCustomerGrid" kendo-grid k-options="salesCustmerGridOptions" k-rebind="salesCustmerGridOptions"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="clearfix">
+                <div class="row pull-right">
+                    <button class="btn btn-cstm cancel " ng-click="cancelProspectingCustomer()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                    <button class="btn btn-cstm " ng-click="saveProspectingCustomer()" aria-label="Ok" ng-hide="isProspectingCustomerViewOnly" ng-disabled="formAddProspectingCustomer.$invalid">{{'TASKPROSPECTING_ADD' | translate }}</button>
+                </div>
+
+            </div>
+        </ng-form>
+
+        
+    </div>
+    <div id="addNewCustomer"  class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" data-backdrop="false" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_NEW_CUSTOMER' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formNewCustomer" name="formNewCustomer">
+                                <div class="clearfix">
+                                    <div class="form-group">
+                                        <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-model="customer.name" ng-required="true" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label class="control-label" {{'TASKPROSPECTING_MOBILE' | translate }}></label>
+                                            <input type="text" class="form-control" ng-model="customer.mobile" name="mobile" placeholder="Mobile" ng-required="true" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">{{'TASKPROSPECTING_EMAIL' | translate }}</label>
+                                        <input type="text" class="form-control" ng-model="customer.email" name="email" placeholder="Email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">{{'TASKPROSPECTING_POST_CODE' | translate }}</label>
+                                        <input type="text" class="form-control" ng-model="customer.postCode" name="postCode" placeholder="Post Code" />
+                                    </div>
+                                    <div class="clearfix" ng-repeat="customerSalesData in  customer.customerSalesDatas">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_REGISTRATION_DATE' | translate }}</label>
+                                            <input kendo-date-time-picker
+                                                   id="RegistrationDate"
+                                                   name="RegistrationDate"
+                                                   ng-model="customerSalesData.date" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_MODEL' | translate }}</label>
+                                            <input type="text" class="form-control" ng-model="customerSalesData.model" name="model" placeholder="Model" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_TYPE' | translate }}</label>
+                                            <input type="text" class="form-control" ng-model="customerSalesData.type" name="type" placeholder="Type" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_REGISTRATION_NO' | translate }}</label>
+                                            <input type="text" class="form-control" ng-model="customerSalesData.registrationNo" name="registrationNo" placeholder="Registration No" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_OFFER' | translate }}</label>
+                                            <input type="text" class="form-control" ng-model="customerSalesData.offer" name="offer" placeholder="Offer" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_SELLER' | translate }}</label>
+                                            <input type="text" class="form-control" ng-model="customerSalesData.seller" name="offer" placeholder="Seller" />
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </ng-form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary  btn-cstm m-0" ng-click="saveNewCustomer()" ng-disabled="formNewCustomer.$invalid"><i class="fa fa-floppy-o" aria-hidden="true"></i> {{'COMMON_SAVE' | translate }}</button>
+                        <button type="button" class="btn btn-secondary  btn-cstm m-0 " data-dismiss="modal" aria-label="Close"><i class="fa fa-close" aria-hidden="true"></i> {{'COMMON_CANCEL' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,46 @@
+<div pane name="cmsmanage"  ng-init="getAllcontents()">
+    <div class="row" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="return-menu">
+                <a ng-click="getscopes()" class="newhead title fa fa-long-arrow-left"></a>
+                <a class="addOrg" href="#/home/content/add">+ Add New Content</a>
+                <h1 class="title newhead">Help</h1>
+            </div>
+            <input type="text" placeholder="Search your Help Content Here...." ng-model="pageFilter" class="form-control search-input_left">
+          
+            <table class="k-selected table-condensed" kendo-grid >
+
+                <thead role="rowgroup" >
+                <tr class="tabHead">
+                    <th>#</th>
+                    <th>Title<a  ng-click="sortTitle=(sortTitle=='title')?'-title':'title'" style="margin-left:60%;cursor:pointer;"><i class="fa {{(sortTitle=='title')?'fa-angle-down':'fa-angle-up'}}"></i></a></th>
+                    <th>Category<a  ng-click="sortCategory=(sortCategory=='helpCategoryID')?'-helpCategoryID':'helpCategoryID'" style="margin-left:60%;cursor:pointer;"><i class="fa {{(sortCategory=='helpCategoryID')?'fa-angle-down':'fa-angle-up'}}"></i></a></th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+            
+				<tbody class="newtbody" dir-paginate="content in contents |itemsPerPage:10 | filter:pageFilter |orderBy:[sortTitle,sortCategory]">
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{content.title}}</td>
+                    <td>{{content.helpCategoryID}}</td>
+                    <td>Active</td>
+                    <td>
+						<button class="tab_view"><i class="fa fa-eye"></i></button>
+						<button class="tab_edit" ng-click="transferEdit(content.helpContentID)"><i class="fa fa-pencil"></i></button>
+						<button class="tab_delete"><i class="fa fa-trash"></i></button>
+					</td>
+                </tr>
+
+
+
+                </tbody>
+
+            </table><dir-pagination-controls boundary-links="true"  ></dir-pagination-controls>
+        </div>
+
+    </div>
+</div>
+
+

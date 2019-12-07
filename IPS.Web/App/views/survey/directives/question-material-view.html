@@ -1,0 +1,56 @@
+﻿<div class="col-sm-12" ng-if="material">
+    <div class="form-group">
+        <div ng-if="material.materialType == materialTypeEnum.video">
+            <videogular
+                    vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'">
+                <vg-media
+                        vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+material.documentId), type: 'video/mp4'}]"
+                        vg-tracks="config.tracks">
+                </vg-media>
+                <vg-controls vg-autohide="config.plugins.controls.autoHide"
+                             vg-autohide-time="config.plugins.controls.autoHideTime">
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
+            </videogular>
+        </div>
+        <div ng-if="material.materialType == materialTypeEnum.audio">
+            <videogular
+                    vg-theme="'http://www.videogular.com/styles/themes/default/latest/videogular.css'"
+                    class="videogular-container audio">
+                <vg-media
+                        vg-src="[{src: $sce.trustAsResourceUrl(downloadFileUrl+'/'+material.documentId), type: 'audio/mpeg'}]"
+                        vg-type="audio"></vg-media>
+
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                    </vg-volume>
+                </vg-controls>
+            </videogular>
+        </div>
+        <div ng-if="material.materialType == materialTypeEnum.document">
+            <a href="{{downloadFileUrl+'/'+material.documentId}}" target="_blank">{{material.documentName}}</a>
+        </div>
+        <div ng-if="material.materialType == materialTypeEnum.link">
+            <a href="{{material.link}}" target="_blank">{{material.link}}</a>
+        </div>
+        <div ng-if="material.materialType == materialTypeEnum.image">
+            <img style="width:100%;"
+                 ng-src="{{downloadFileUrl}}/{{material.documentId}}"
+                 title="{{material.documentName}}"
+                 alt="{{material.documentName}}"/>
+        </div>
+    </div>
+</div>

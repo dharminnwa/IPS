@@ -1,0 +1,6 @@
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\bin\Debug\IPS.Fx.Utilities.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\bin\Debug\IPS.Fx.Utilities.pdb
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\obj\Debug\IPS.Fx.Utilities.csproj.CoreCompileInputs.cache
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\obj\Debug\IPS.Fx.Utilities.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\obj\Debug\IPS.Fx.Utilities.pdb
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Utilities\obj\Debug\IPS.Fx.Utilities.csprojAssemblyReference.cache

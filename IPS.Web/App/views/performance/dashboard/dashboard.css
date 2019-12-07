@@ -1,0 +1,1190 @@
+﻿#gauge-container {
+    background: transparent url("../../../images/dashboard/gauge-container-partial.png") no-repeat 50% 50%;
+    width: 386px;
+    height: 386px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+
+#gauge_total_score, #compare_gauge_total_score {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#gauge_total_score_compare, #compare_gauge_total_score_compare {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+#gauge-container-small {
+    background: transparent url("../../../images/dashboard/gauge-container-partial.png") no-repeat 50% 50%;
+    width: 268px;
+    height: 268px;
+    background-size:268px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+
+#gauge_total_strong, #gauge_total_weak, #compare_gauge_total_strong, #compare_gauge_total_weak {
+    width: 260px;
+    height: 190px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+#gauge_total_strong_compare, #gauge_total_weak_compare, #compare_gauge_total_strong_compare, #compare_gauge_total_weak_compare {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.CustScorecard {
+	width:100%;
+	float:left;
+}
+.CustScorecard h2 {
+	padding:7px 0 7px 15px;
+	background:#eee;
+	border-bottom:1px solid #ccc;
+	font:normal 20px Arial, Helvetica, sans-serif;
+	color:#029bff;
+}
+.CustScorecardIn {
+	width:100%;
+	float:left;
+}
+.MainGraph {
+    width: 100%;
+}
+.MainGraph h3 {
+	background:#eee;
+	padding:7px 0 7px 4%;
+	width:100%;
+	float:left;
+	font:normal 18px Arial, Helvetica, sans-serif;
+	color:#029bff;
+}
+.GraphList {
+	width:100%;
+	float:left;
+	padding:5px 0;
+	list-style-type:none;
+	display:block;
+}
+.GraphList li {
+	width:250px;
+	min-width:200px;
+	float:left;
+	padding:0 0;
+	list-style-type:none;
+	display:block;
+	margin:10px 0 0 1%;
+	border:1px solid #ccc;
+}
+.GraphListImg {
+	width:100%;
+	float:left;
+	text-align:center;
+	padding:10px 0;
+}
+.GraphListImgCtrlContainer {
+    padding: 10px 0;
+}
+.GraphList li h3 {
+	background:#eee;
+	padding:7px 0 7px 4%;
+	width:100%;
+	float:left;
+	font:normal 18px Arial, Helvetica, sans-serif;
+	color:#029bff;
+}
+.GraphList h3 {
+	background:#eee;
+	padding:7px 0 7px 4%;
+	width:100%;
+	float:left;
+	font:normal 18px Arial, Helvetica, sans-serif;
+	color:#029bff;
+}
+.GraphListTxt {
+	width:100%;
+	padding:10px 2%;
+	float:left;
+}
+.GraphListTxt h4 {
+	font:normal 14px Arial, Helvetica, sans-serif;
+	color:#000;
+}
+.GraphLiProc {
+	width:100%;
+	float:left;
+	padding:10px 0;
+}
+.LiGraph {
+	width:65%;
+	float:left;
+	background:url(../../../images/dashboard/slide-bg-in.png) repeat-x;
+	height:38px;
+	border:1px solid #ccc;
+}
+.LiGraphIn {
+	height:38px;
+	float:left;
+	width:60%;
+}
+.LiGraph.GreenBg .LiGraphIn {
+	background:url(../../../images/dashboard/slide-bg-in-green.png) repeat-x;
+}
+.LiGraph.RedBg .LiGraphIn {
+	background:url(../../../images/dashboard/slide-bg-in-red.png) repeat-x;
+}
+.LiGraph.Yellow2Bg .LiGraphIn {
+	background:url(../../../images/dashboard/slide-bg-in-yellow.png) repeat-x;
+}
+.GraphLiProc span {
+	float:left;
+	width:15%;
+	text-align:center;
+	padding:10px 0 0 5px;
+}
+.GraphLiProc label {
+	float:left;
+	width:15%;
+	padding:5px 0 0 0;
+}
+.GraphLiProc label img {
+	width:100%;
+}
+.CustScoreFrm {
+	width:99%;
+	float:left;
+	padding:15px 0 15px 1%;
+}
+.CustScoreFrmLe {
+	width:25%;
+	float:left;
+}
+.CustScoreSeFild {
+	background: url("../../../images/dashboard/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+	padding: 4px;
+	width:100%;
+	margin:22px 0 0 0;
+}
+.CustScoreFild {
+	background: url("../../../images/dashboard/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+	padding: 0 2%;
+	width:96%;
+	margin:5px 0 0 0;
+}
+.CustScoreFrmRi {
+	width:22%;
+	float:left;
+	margin:0 0 0 2%;
+}
+.CustScoreFrmRi h3 {
+	font:normal 16px Arial, Helvetica, sans-serif;
+	color:#029bff;
+	padding:0 0 3px 0;
+}
+.FildListBox {
+	width:100%;
+	height:60px;
+	overflow:auto;
+	float:left;
+	list-style-type:none;
+	display:block;
+	border:1px solid #ccc;
+	background:#eee;
+}
+.FildListBox li {
+	width:100%;
+	float:left;
+	height:20px;
+	list-style-type:none;
+	display:block;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+	line-height:20px;
+}
+.FildListBox li:hover {
+	background:#fff;
+}
+.FildListBox li span {
+	padding:0 0 0 10px;
+}
+.Scorebox {
+	width:99%;
+	float:left;
+	padding:15px 0 15px 1%;
+}
+.ScoreboxLeft {
+	width:40%;
+	float:left;
+	padding:80px 0 0 0;
+}
+.ScoreboxLeft h3 {
+	font:normal 20px Arial, Helvetica, sans-serif;
+	color:#029bff;
+	text-align:center;
+	padding:0 0 6px 0;
+}
+.ScoreboxLeIn {
+	width:100%;
+	float:left;
+	text-align:center;
+}
+.ScoreboxRight {
+	width:60%;
+	float:right;
+}
+.ScoreboxList {
+	width:100%;
+	float:left;
+	padding:10px 0;
+}
+.ScoreboxList h3 {
+	font:normal 20px Arial, Helvetica, sans-serif;
+	color:#029bff;
+	padding:0 0 6px 0;
+}
+.StyrkerBox {
+	width:100%;
+	float:left;
+}
+.StyrkerBoxLeft {
+	float:left;
+	/*width:30%;*/
+}
+.StyrkerBoxLeft img {
+	width:100%;
+}
+.StyrkerBoxRi {
+	width:65%;
+	float:right;
+}
+.GraphScoreBox {
+	width:100%;
+	float:left;
+}
+.GraphScore {
+	width:65%;
+	float:left;
+	background:url(../images/slide-bg-in.png) repeat-x;
+	height:38px;
+	border:1px solid #ccc;
+	margin:8px 0;
+}
+.GraphScoreIn {
+	height:38px;
+	float:left;
+	width:60%;
+}
+.GraphScore.GreenBg .GraphScoreIn {
+	background:url(../images/slide-bg-in-green.png) repeat-x;
+}
+.GraphScore.RedBg .GraphScoreIn {
+	background:url(../images/slide-bg-in-red.png) repeat-x;
+}
+.GraphScore.Yellow2Bg .GraphScoreIn {
+	background:url(../images/slide-bg-in-yellow.png) repeat-x;
+}
+.GraphScoreNum {
+	float:left;
+	font:normal 14px Arial, Helvetica, sans-serif;
+	color:#535353;
+	padding:18px 0 0 6px;
+}
+.TableListBox {
+	width:98%;
+	float:left;
+	padding:15px 1%;
+}
+.TableListBox .BdrLeft {
+	border-left:1px solid #ccc;
+}
+.ActionInitiatBox {
+	width:100%;
+	float:left;
+}
+.KapitalBox {
+	width:100%;
+	float:left;
+}
+.KapitalBoxTop {
+	width:100%;
+	float:left;
+	padding:20px 0;
+}
+.KapitalBoxTop h2 {
+	font:bold 25px Arial, Helvetica, sans-serif;
+	color:#029bff;
+	padding:0 75px 7px 0;
+	text-align:center;
+}
+.KapBoxTop {
+	width:100%;
+	float:left;
+	text-align:center;
+}
+.KapitalBoxBotm {
+	width:100%;
+	float:left;
+	padding:15px 0;
+}
+.KapitalBoxList {
+	width:100%;
+	float:left;
+}
+.KapitalBoxLi {
+	width:22%;
+	float:left;
+	margin:0 0 0 2%;
+	border:1px solid #ccc;
+	background:#eee;
+}
+.KapitalBoxLi h3 {
+	font:normal 20px Arial, Helvetica, sans-serif;
+	color:#329bff;
+	padding:8px 0 6px 10px;
+}
+.KapitalBoxLimg {
+	width:100%;
+	float:left;
+	padding:10px 0;
+	text-align:center;
+}
+.GrapScorebox {
+	width:96%;
+	float:left;
+	margin:10px 2%;
+}
+.GrapScorebox .GraphLiProc label {
+	float: left;
+	min-width: 30px;
+	padding: 5px 0 0;
+	width: 9%;
+}
+.GrapScorebox .LiGraph {
+	width:68%;
+}
+.GraphRightList {
+	float: left;
+	margin: 0 0 0 2%;
+	width: 24%;
+}
+.GraphRightList .CustScoreFrmRi {
+	float: left;
+	margin: 0 0 20px 0;
+	width: 100%;
+}
+.GraphRightList .CustScoreFrmRi h3 {
+	font:normal 20px Arial, Helvetica, sans-serif;
+	color:#329bff;
+	padding:8px 0 6px 0;
+}
+.GraphRightList .FildListBox {
+	height: 324px;
+}
+.GraphRightList .FildListBox li {
+	font: 13px/36px Arial, Helvetica, sans-serif;
+	height: 36px;
+}
+.LeaderProfile {
+	padding:15px 1%;
+	width:98%;
+	float:left;
+}
+.LeaderProfTop {
+	width:100%;
+	float:left;
+}
+.ProfileScore {
+	border:1px solid #ccc;
+	width:48%;
+	float:left;
+}
+.ProfileScore h2 {
+	background: none repeat scroll 0 0 #eee;
+	border-bottom: 1px solid #ccc;
+	color: #029bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding: 7px 0 7px 15px;
+}
+.ProfileScoreIn {
+	width:94%;
+	padding:0 3%;
+}
+.ProfFildScore {
+	width:100%;
+	float:left;
+	padding:32px 0;
+	text-align:center;
+}
+.ProfFildScore select {
+	background: url("../images/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+	margin:0 0 0;
+	padding: 4px;
+	width:80%;
+}
+.ProfGraphScore {
+	width:100%;
+	float:left;
+	padding:31px 0;
+	text-align:center;
+}
+.LeaderListBox {
+	border: 1px solid #ccc;
+	float: left;
+	width:100%;
+	margin:25px 0 0;
+	padding:0 0 10px 0;
+}
+.LeaderListBox h2 {
+	background: none repeat scroll 0 0 #eee;
+	border-bottom: 1px solid #ccc;
+	color: #029bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding: 7px 0 7px 15px;
+}
+.GraphList li.GraphLeader .GraphListImg {
+	padding: 26px 0;
+}
+
+.MinIconList {
+	padding: 0 0 13px;
+	text-align: right;
+}
+.InnerContent.StagesAlarm .OrganDeMid {
+	padding:0;
+}
+.InnerContent.StagesAlarm .RiAdminListing {
+	padding:0 0 20px 0;
+}
+.StartProfFrm {
+	padding:10px 5%;
+	float:left;
+	width:90%;
+	list-style-type:none;
+	display:block;
+}
+.StartProfFrm li {
+	padding:8px 0;
+	float:left;
+	width:100%;
+	list-style-type:none;
+	display:block;
+}
+.StartProfFrm li label {
+	width:15%;
+	float:left;
+}
+.StartDateCle {
+	width:28%;
+	float:left;
+	position:relative;
+	margin:0 2% 0 0;
+}
+.StartDateCle1 {
+	width:83%;
+	float:left;
+	position:relative;
+	margin:0 2% 0 0;
+}
+.StartDateCleFild {
+	width:96%;
+	float:left;
+	padding:0 2%;
+	background: url("../images/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+}
+.StartDateCle .cle-icon {
+	position:absolute;
+	right:4px;
+	top:4px;
+}
+.StartDateCle .TopArrow {
+	position:absolute;
+	right:4px;
+	top:4px;
+}
+.StartDateCle .TopArrow .TittleArrow a {
+	float:right;
+	padding:2px 0;
+}
+.StartProfIcon {
+	width:auto;
+	float:left;
+}
+.StartProfFrm li .StartProfIcon label {
+	float:none;
+	width:auto;
+	color:#029bff;
+}
+.StartProfFrm li .StartProfIcon span img {
+	vertical-align:middle;
+	padding:0 6px 0 0;
+}
+.Profile2Btn {
+	background:url(../images/blk_btn_bg.png) repeat-x;
+	height:46px;
+	padding:0 20px;
+	border:1px solid #000;
+	font:bold 18px Arial, Helvetica, sans-serif;
+	color:#fff;
+	margin:0 20px 0 0;
+	cursor:pointer;
+	float:left;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-khtml-border-radius:10px;
+	border-radius:10px;
+}
+.Profile2Btn:hover {
+	background:url(../images/blk_btn_bg_h.png) repeat-x;
+}
+.Profile2Fild {
+	background: url("../images/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+	padding: 4px;
+	width: 47%;
+	margin:8px 0 0 0;
+}
+.StartProfFrm li label.MaxTime {
+	font-weight:bold;
+	color:#000;
+}
+.CompanyFrmBox {
+	width:100%;
+	float:left;
+	padding:0px 0 25px 0;
+}
+.CompanyFrmBox h2 {
+	background: none repeat scroll 0 0 #eee;
+	border-bottom: 1px solid #ccc;
+	color: #029bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding: 7px 0 7px 15px;
+	margin:0;
+}
+.CompanyFrmBoxIn {
+	width:100%;
+	float:left;
+}
+.CompanyFrmB {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+	margin:25px 0 0 0;
+}
+.CompanyFrmB li {
+	width:22.5%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+	margin:0 0 0 2%;
+	height:75px;
+	min-width:22%;
+}
+.CompanyFrmB li label {
+	width:100%;
+	float:left;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+	padding:0 0 4px 0;
+}
+.ComPanyTxtFild {
+	width:96%;
+	float:left;
+	padding:0 2%;
+	background: url("../images/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+}
+.ComPanyTxtSeFild {
+	width:100%;
+	float:left;
+	padding:0 0 0 2%;
+	background: url("../images/fild_bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border: 1px solid #ccc;
+	color: #000;
+	float: left;
+	font: 12px/29px Arial, Helvetica, sans-serif;
+	height: 29px;
+}
+.PipelineFrm {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:25px 0 0 0;
+	margin:0;
+}
+.PipelineFrm li {
+	width:18%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0 0 0 2%;
+	margin:0;
+}
+.ActPipelineBox {
+	width:98%;
+	float:left;
+	padding:20px 1%;
+	margin:0;
+}
+.ActPipelBoxLe {
+	width:49%;
+	float:left;
+	border:1px solid #ccc;
+}
+.ActPipelBoxList {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.ActPipelBoxList li {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:9px 0;
+	margin:0;
+}
+.ActPipelBoxList li span.ActPipLeftTxt {
+	float:left;
+	width:60%;
+	padding:0 0 0 10px;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+}
+.ActPipelBoxList li label.ActPipRightTxt {
+	float:right;
+	width:30%;
+	padding:0 0 0 0;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+}
+.ActPipelBoxList li label.ActPipRightTxt a {
+	color:#029bff;
+	text-decoration:none;
+}
+.ActPipelBoxList li.GrayBg {
+	background:#eee;
+}
+.NotiDrivBoxTab.PaddLiTab {
+	border-top: 1px solid #ccc;
+	margin: 0 0 15px 0;
+	width: 100%;
+}
+.NotiDrivBoxTab.PaddLiTab li a {
+	padding: 0 9px;
+}
+.CompanyFrmBox h2.ActPipelineTi {
+	width:100%;
+	padding: 7px 0 7px 0;
+	float:left;
+}
+.CompanyFrmBox h2.ActPipelineTi span {
+	float:left;
+	padding:0 0 0 15px;
+}
+.CompanyFrmBox h2.ActPipelineTi label {
+	float:right;
+	padding:5px 15px 0 0;
+	font:normal 14px Arial, Helvetica, sans-serif;
+	color:#029bff;
+}
+.CompanyFrmBox h2.ActPipelineTi label a {
+	color:#029bff;
+	text-decoration:none;
+	padding:0 10px;
+}
+.CompanyFrmBox h2.ActPipelineTi label a:hover {
+	color:#000;
+}
+.CompanyGoalsBox {
+	width:100%;
+	float:left;
+}
+.RiAdList td a {
+	color:#029bff;
+	text-decoration:none;
+}
+.RiAdList td a:hover {
+	color:#000;
+}
+.PerfDashboard {
+	margin:20px 1%;
+	width:98%;
+	float:left;
+	border:1px solid #ccc;
+	background:url(../images/left-bg.png) repeat-y #eee;
+}
+.PerfDashboardLe {
+	width:239px;
+	float:left;
+}
+.PerfDashTop {
+	width:100%;
+	float:left;
+	padding:15px 0;
+	text-align:center;
+}
+.PerfDashTop .ComPanyTxtSeFild {
+	width:80%;
+	float:none;
+}
+.PerfDashLeftNav {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.PerfDashLeftNav li {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0 0;
+	border-bottom:1px solid #eee;
+	border-top:1px solid #fff;
+	margin:0;
+}
+.PerfDashLeftNav li:hover {
+	background:#eee;
+}
+.PerfDashLeftNav li a {
+	width:100%;
+	float:left;
+	padding:9px 0;
+	text-decoration:none;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+}
+.PerfDashLeftNav li a span {
+	cursor:pointer;
+	background:url(../images/arrow-2.png) no-repeat left;
+	margin:0 0 0 10px;
+	padding:0 0 0 15px;
+	float:left;
+}
+.PerfDashLeftNav li.Select {
+	background:#eee;
+}
+.PerfDashboardRi {
+	margin:0 0 0 255px;
+}
+.PerfDashboardRi h2 {
+	border:0px;
+	background:none;
+	margin:8px 0 12px 0;
+	font-size:25px;
+	padding-left:0;
+}
+.PerfDashRiList {
+	width:100%;
+	float:left;
+}
+.PerfDashRiLi {
+	width:100%;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+	margin:0;
+}
+.PerfDashRiLi li {
+	background:url(../images/list-graph-bg.png) no-repeat;
+	width:300px;
+	height:250px;
+	margin:0 30px 15px 0;
+	float:left;
+	list-style-type:none;
+	display:block;
+	padding:0;
+}
+.GraphImgTxtBox {
+	width:100%;
+	float:left;
+}
+.GraphImgTop {
+	width:100%;
+	text-align:center;
+	float:left;
+	height:192px;
+}
+.GraphImgTop td {
+	padding:0;
+	margin:0;
+	height:192px;
+	text-align:center;
+	vertical-align:middle;
+}
+.GraphImgTop td img {
+	padding:0;
+	margin:0;
+}
+.GraphTxtTop {
+	width:100%;
+	float:left;
+	height:42px;
+}
+.GraphTxtTop h3 {
+	font:bold 16px Arial, Helvetica, sans-serif;
+	color:#029bff;
+	text-align:center;
+	line-height:42px;
+}
+.GraphTxtTop h3 a {
+	color:#029bff;
+	text-decoration:none;
+}
+.GraphTxtTop h3 a:hover {
+	color:#000;
+}
+/*------------------------------01/08/2014----------------------------*/
+.SearchBarRight {
+	float:right;
+	list-style-type:none;
+	display:block;
+}
+.LeadDashBord {
+	width:100%;
+	float:left;
+}
+.LeadDashBordLe {
+	width:65%;
+	float:left;
+}
+.LeadDashBordLeTop {
+	width:100%;
+	float:left;
+	padding:15px 0;
+}
+.LeadDashBordLogo {
+	border: 1px solid #ccc;
+	float: left;
+	height: 350px;
+	margin: 0 0 0 2%;
+	width: 47%;
+}
+.RiAdList .LeadDashBordLogo td {
+	border-bottom:0px solid #cccccc;
+	border-right:0px solid #cccccc;
+	color: #535353;
+	font: 13px Arial, Helvetica, sans-serif;
+	padding:0 0;
+	text-align: center;
+	height:350px;
+	vertical-align:middle;
+}
+.LeadGrafBox {
+	width:48%;
+	float:right;
+	border:1px solid #ccc;
+	height:350px;
+}
+.LeadGrafBox h3 {
+	color: #329bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding:10px 0;
+	text-align:center;
+}
+.LeadGrafBoxRow {
+	width:100%;
+	float:left;
+	text-align:center;
+}
+.LeadDashBordLeBotm {
+	width:100%;
+	float:left;
+	padding:10px 0;
+}
+.LeadDashBordLeBotm .KapitalBoxLi {
+	margin: 0 0 0 2%;
+	width: 47%;
+}
+.LeadDashBordRi {
+	float: right;
+	padding: 15px 0;
+	width: 33%;
+}
+.LeadDashBordRi .CustScoreFrmRi {
+	float: left;
+	margin: 0 0 0 0;
+	width: 95%;
+}
+.LeadDashBordRi .CustScoreFrmRi .FildListBox {
+	background: none repeat scroll 0 0 #eee;
+	border: 1px solid #ccc;
+	display: block;
+	float: left;
+	height: 800px;
+	list-style-type: none;
+	overflow: auto;
+	width: 100%;
+}
+.LeadDashBordRi .CustScoreFrmRi .FildListBox li {
+	color: #535353;
+	display: block;
+	float: left;
+	font: 13px/35px Arial, Helvetica, sans-serif;
+	height: 35px;
+	list-style-type: none;
+	width: 100%;
+}
+.LeadGrafBox.FloatLeft {
+	float:left;
+}
+.LeadDashBordRi .LeadDashBordLogo {
+	border: 1px solid #ccc;
+	float: left;
+	height: 350px;
+	margin: 0 0 0 2%;
+	width: 93%;
+}
+.LeadGrafBox.Width100Pre {
+	width:100%;
+	float:left;
+	position:relative;
+}
+.SmallGraphRi {
+	position:absolute;
+	right:15px;
+	bottom:15px;
+	float:right;
+}
+.SmallGraphRi h4 {
+	color: #329bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding:10px 0;
+	text-align:center;
+}
+.SmallGraphLe {
+	position:absolute;
+	left:15px;
+	bottom:15px;
+	float:right;
+}
+.SmallGraphLe h4 {
+	color: #329bff;
+	font: 20px Arial, Helvetica, sans-serif;
+	padding:10px 0;
+	text-align:center;
+}
+.PeriodeBox {
+	width:45%;
+	float:left;
+	margin:0 2%;
+	padding:15px 0;
+}
+.LeadDashBordRi .CustScoreFrmRi .PeriodeBox .FildListBox.FildListBoxWidHit {
+	height:114px;
+}
+.SalesProMidTop {
+	width:100%;
+	float:left;
+	padding:10px 0;
+	background:#eee;
+	border-bottom:1px solid #ccc;
+}
+.SalesProMidTpLeTxt {
+	float:left;
+	padding:0 10px;
+	color: #029bff;
+	float: left;
+	font-size: 22px;
+	font-weight: normal;
+	line-height:40px;
+}
+.SalesPMTpLeLogo {
+	float:right;
+	padding:0 10px;
+}
+.SalesPMTpLeLogo img {
+	height:40px;
+}
+.LeadDashBordBotm {
+	width:99%;
+	float:left;
+	margin:0 0 0 1%;
+}
+.LeadDashBordRi.SalsRiBox .CustScoreFrmRi .PeriodeBox .FildListBox.FildListBoxWidHit {
+	height: 242px;
+}
+
+.TabBar ul li .TabBar {
+    display: none !important;
+}
+.TabBar ul li:hover .TabBar  {
+    display: block !important;
+}
+
+
+.RiAdList tr.RemoveBorder table {
+    border: none;
+}
+.RiAdList tr.RemoveBorder table td {
+    border: none;
+}
+
+.FildListBox {
+	width:100%;
+	height:60px;
+	overflow:auto;
+	float:left;
+	list-style-type:none;
+	display:block;
+	border:1px solid #ccc;
+	background:#eee;
+}
+.FildListBox li {
+	width:100%;
+	float:left;
+	height:20px;
+	list-style-type:none;
+	display:block;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#535353;
+	line-height:20px;
+}
+.FildListBox li:hover {
+	background:#fff;
+}
+.FildListBox li span {
+	padding:0 0 0 10px;
+}
+
+.ReportFildListBox {
+	width:100%;
+	height:60px;
+	overflow:auto;
+	float:left;
+	list-style-type:none;
+	display:block;
+	border:1px solid #ccc;
+	background:#fff;
+    -webkit-padding-start: 0px;
+}
+.ReportFildListBox li {
+	width:100%;
+	float:left;
+	height:20px;
+	list-style-type:none;
+	display:block;
+	font:normal 13px Arial, Helvetica, sans-serif;
+	color:#000;
+	line-height:20px;
+}
+.ReportFildListBox li:hover {
+	background:#b7b7b7;
+}
+.ReportFildListBox li span {
+	padding:0 0 0 10px;
+}
+
+.BgBlue {
+    background:#029bff;
+}
+
+.width80Perc {
+  width: 80%;
+}
+
+.width90Perc {
+  width: 90%;
+}
+
+.width20Perc {
+  width: 20%;
+}
+
+.width10Perc {
+  width: 10%;
+}
+
+.width50Perc {
+    width: 50%;
+}
+
+.width60Perc {
+    width: 60%;
+}
+
+.width40Perc {
+    width: 40%;
+}
+
+#kpiImageScore{
+    display: inline-block;
+}
+
+.dashboard-btn {
+    width: 100%;
+    height: 25px;
+}
+.details-btn {
+    height: 30px;
+    width: 100%;
+    margin-left: 10px;
+}
+.details-select {
+    width: 150px;
+    margin-left: 10px;
+}
+.k-link {
+    font-size: 11px;    
+}
+.k-grid-header th.k-header > .k-link {
+     font-size: 12px;
+}
+.k-grid {
+    font-size: 12px;
+}
+.k-grid td { 
+    line-height: 2em;
+}
+.k-grid  .k-grid-header  .k-header  .k-link {
+    height: auto;
+}
+  
+.k-grid  .k-grid-header  .k-header {
+    white-space: normal;
+    vertical-align:middle;
+}

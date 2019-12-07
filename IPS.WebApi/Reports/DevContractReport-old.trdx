@@ -1,0 +1,1319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSourceHeaderFooter" Width="20cm" UnitOfMeasure="Cm" Name="DevContractReport" SnapGridSize="0.1cm" xmlns="http://schemas.telerik.com/reporting/2012/3.8">
+  <DataSources>
+    <SqlDataSource ConnectionString="IPS" SelectCommand=" SELECT TOP 1&#xD;&#xA;&#x9;u.FirstName + ' ' + u.LastName as ParticipantName, &#xD;&#xA;&#x9;o.LogoLink, &#xD;&#xA;&#x9;(SELECT TOP 1 Name FROM Profiles p INNER JOIN Link_ProfileStageGroups lsg on p.Id = lsg.ProfileId and lsg.StageGroupId = s.StageGroupId) as ProfileName,&#xD;&#xA;    (SELECT TOP 1 FirstName + ' ' + LastName FROM Users WHERE  Id in (SELECT UserId FROM EvaluationParticipants WHERE &#xD;&#x9;  EvaluateeId = ep.Id and IsScoreManager = 1 and StageGroupId= s.StageGroupId)) AS EvaluatorName,&#xD;&#xA;&#x9;(SELECT TOP 1 FirstName + ' ' + LastName FROM Users u3&#xD;&#xA;&#x9;&#x9;INNER JOIN Link_DepartmentUsers du on du.UserId = u3.Id&#xD;&#xA;&#x9;&#x9;INNER JOIN Departments d on d.Id = du.DepartmentId&#xD;&#xA;&#x9;&#x9;WHERE u3.Id = d.ManagerId and du.UserId = ep.UserId) AS LeaderName, &#xD;&#xA;&#x9;u1.FirstName + ' ' + u1.LastName AS TrainerName,&#xD;&#xA;&#x9;u2.FirstName + ' ' + u2.LastName AS SignatureBossName,&#xD;&#xA;&#x9;s.Name AS StageName&#xD;&#xA; &#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN EvaluationParticipants ep on ep.Id = ea.ParticipantId&#xD;&#xA;  INNER JOIN Users u on u.Id = ep.UserId&#xD;&#xA;  INNER JOIN Organizations o on o.Id = u.OrganizationId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId    &#xD;&#xA;  LEFT JOIN Users u1 on u1.Id = s.TrainerId&#xD;&#xA;  LEFT JOIN Users u2 on u2.Id = s.ManagerId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId" Name="sqlDataSourceHeaderFooter" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="SELECT &#xD;&#xA;&#x9;sk.Name, t.*&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2" Name="sqlDataSourceStrongTrainings" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2 and ea.Comment is not null ) r WHERE r.rn = 1 and  len(comment) > 0" Name="sqlDataSource1">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="SELECT &#xD;&#xA;&#x9;sk.Name, t.*&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1" Name="sqlDataSourceWeakTrainings" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1 and ea.Comment is not null ) r WHERE r.rn = 1 and len(comment) > 0" Name="sqlDataSource2" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="  select * from (&#xD;&#xA;  SELECT &#xD;&#xA;&#x9;sk.Name,&#xD;&#xA;&#x9;ea.[StageId]&#xD;&#xA;      ,ea.[ParticipantId]&#xD;&#xA;      ,ea.[QuestionId]&#xD;&#xA;      ,ea.[KPIType]&#xD;&#xA;      ,ea.[ShortGoal]&#xD;&#xA;      ,ea.[Comment]&#xD;&#xA;      ,ea.[Id] as eaid&#xD;&#xA;      ,ea.[FinalScore]&#xD;&#xA;      ,ea.[MidGoal]&#xD;&#xA;      ,ea.[LongGoal]&#xD;&#xA;      ,ea.[FinalGoal] &#xD;&#xA;&#x9;  ,es.EndedAt&#xD;&#xA;&#x9;  ,s.[Name] as stagename&#xD;&#xA;      ,s.[StageGroupId]&#xD;&#xA;      ,s.[StartDateTime]&#xD;&#xA;      ,s.[EndDateTime]&#xD;&#xA;      ,s.[ManagerId]&#xD;&#xA;      ,s.[TrainerId],&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 2) as ShortEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 3) as MidEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 4) as LongEndDate&#xD;&#xA;    ,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 5) as FinalEndDate&#xD;&#xA;   , row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  LEFT JOIN EvaluationStatuses es on es.StageId = ea.StageId and es.ParticipantId = ea.ParticipantId &#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;   WHERE ea.StageId = @StageId  and ea.ParticipantId = @ParticipantId and ea.KPIType = 1&#xD;&#xA;   ) r&#xD;&#xA;   WHERE r.rn = 1" Name="sqlDataSourceWeak" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="  select * from (&#xD;&#xA;  SELECT &#xD;&#xA;&#x9;sk.Name,&#xD;&#xA;&#x9;ea.[StageId]&#xD;&#xA;      ,ea.[ParticipantId]&#xD;&#xA;      ,ea.[QuestionId]&#xD;&#xA;      ,ea.[KPIType]&#xD;&#xA;      ,ea.[ShortGoal]&#xD;&#xA;      ,ea.[Comment]&#xD;&#xA;      ,ea.[Id] as eaid&#xD;&#xA;      ,ea.[FinalScore]&#xD;&#xA;      ,ea.[MidGoal]&#xD;&#xA;      ,ea.[LongGoal]&#xD;&#xA;      ,ea.[FinalGoal] &#xD;&#xA;&#x9;  ,es.EndedAt&#xD;&#xA;&#x9;  ,s.[Name] as stagename&#xD;&#xA;      ,s.[StageGroupId]&#xD;&#xA;      ,s.[StartDateTime]&#xD;&#xA;      ,s.[EndDateTime]&#xD;&#xA;      ,s.[ManagerId]&#xD;&#xA;      ,s.[TrainerId],&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 2) as ShortEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 3) as MidEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 4) as LongEndDate&#xD;&#xA;    ,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 5) as FinalEndDate&#xD;&#xA;    , row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  LEFT JOIN EvaluationStatuses es on es.StageId = ea.StageId and es.ParticipantId = ea.ParticipantId &#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;   WHERE ea.StageId = @StageId  and ea.ParticipantId = @ParticipantId and ea.KPIType = 2&#xD;&#xA;   ) r&#xD;&#xA;   WHERE r.rn = 1" Name="sqlDataSourceStrong" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1 and ea.Comment is not null   ) r WHERE r.rn = 1" Name="sqlDataSourceWeakExersises" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2 and ea.Comment is not null   ) r WHERE r.rn = 1" Name="sqlDataSourceStrongExcersizes" ParameterValues="{&quot;@StageId&quot;:&quot;77&quot;,&quot;@ParticipantId&quot;:&quot;230&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="8.60000038146973in" Name="detailSection1">
+      <Items>
+        <TextBox Width="2.31495976448059cm" Height="0.600000083446503cm" Left="7.46541620469922cm" Top="3.97200025636354cm" Value="for deltager:" Name="textBox3">
+          <Style>
+            <Font Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="4.58483934402466cm" Height="0.599999725818634cm" Left="9.7937494732688cm" Top="3.97200025636354cm" Value="= Fields.ParticipantName" Name="tbParticipantName">
+          <Style>
+            <Font Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="8.50483894348145cm" Height="0.900000035762787cm" Left="5.87374983661871cm" Top="2.06374994259576cm" Value="UTVIKLINGSKONTRAKT" Name="textBox2">
+          <Style>
+            <Font Size="20pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <Table DataSourceName="sqlDataSourceWeak" Width="18.713959915845cm" Height="1.30000011026858cm" Left="0.978958306103118cm" Top="10.1999996972084cm" Name="tableWeakKPIs">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.07303285231379cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox26" >
+                    <Style>
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.38479158397259cm" Height="0.699999975928886cm" Left="0in" Top="0in" Value="= Fields.FinalScore" Name="textBox27">
+                    <Style TextAlign="Center">
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.52520764526791cm" Height="0.69999994016609cm" Left="0in" Top="0in" Value="= IsNull(Fields.ShortGoal, 0.0)" Name="textBox28">
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.ShortEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox30"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.18166661262512cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= IsNull(Fields.MidGoal, 0.0)" Name="textBox32" >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.MidEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox36"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+              <TableCell RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.16354179382324cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="=IsNull(Fields.LongGoal, 0.0)" Name="textBox38">
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="7" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.LongEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox34"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+
+
+              <TableCell RowIndex="0" ColumnIndex="8" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.16445925902887cm" Height="0.699999828663373cm" Left="0in" Top="0in" Value="=IsNull(Fields.FinalGoal, 0.0)" Name="textBox18" >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="9" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999828663373cm" Left="0in" Top="0in" Value="= Fields.FinalEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox20"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+            </Cells>
+            <Columns>
+              <Column Width="3.07303285231379cm" />
+              <Column Width="2.38479142857718cm" />
+              <Column Width="1.82520778469777cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="2.00000027240537cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.700000017652134cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="DetailGroup">
+              <Groupings>
+                <Grouping Expression="" />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.07303285231379cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Svake KPIer" Name="textBox29">
+                  <Style>
+                    <Font Bold="True" Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="1.38479158397259cm" Height="0.600000095596677cm" Left="0in" Top="0in" Value="Start" Name="textBox23">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="1.52520764526791cm" Height="0.600000092616446cm" Left="0in" Top="0in" Value="Korte Mål" Name="textBox24">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group1">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox22" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group2">
+              <ReportItem>
+                <TextBox Width="2.18166661262512cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Mellom Mål" Name="textBox31" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group4">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox35" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group5">
+              <ReportItem>
+                <TextBox Width="2.16354179382324cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Langsiktige Mål" Name="textBox37" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group3">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox33" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+
+            <TableGroup Name="Group6">
+              <ReportItem>
+                <TextBox Width="2.16354179382324cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Endelige Mål" Name="textBox39" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group7">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox33" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+
+          </ColumnGroups>
+        </Table>
+        <TextBox Width="3.67999982833862cm" Height="0.599998891353607cm" Left="16cm" Top="19.3200010496775cm" Value="= Now().ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox47">
+          <Style VerticalAlign="Top">
+            <Font Bold="True" Size="7pt"/>
+            <Padding Top="0cm" />
+          </Style>
+        </TextBox>
+        <TextBox Width="17.3999996185303cm" Height="1.29999971389771cm" Left="0.978958306103118cm" Top="16.2560001937866cm" Value="Vi er enige om at ovennevnte områder er diskutert i en personlig utviklingssamtale og vi forplikter oss gjensidig i å arbeide målbevisst, disiplinert og strukturert for å øke prestasjoner til beste for medarbeider, kunder og selskapet." Name="textBox46">
+          <Style>
+            <Font Italic="True" Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="2.8068741371309cm" Height="0.600000500679016cm" Left="15.5839578998577cm" Top="15.2505835550861cm" Value="= IsNull(Fields.SignatureBossName, ' ')" Name="tbSignatureBoss" >
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.600000500679016cm" Left="12.0914579970034cm" Top="15.2505835550861cm" Value="= IsNull(Fields.TrainerName, ' ')" Name="tbTrainer" >
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.600000500679016cm" Left="8.78416642233068cm" Top="15.2505835550861cm" Value="= IsNull(Fields.LeaderName, ' ')" Name="tbDeltakersLeader" >
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="3.79999923706055cm" Height="0.600000500679016cm" Left="4.47145820895748cm" Top="15.2505835550861cm" Value="= Fields.EvaluatorName" Name="tbEvaluator" >
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="3.19087504491758cm" Height="0.600000500679016cm" Left="1.01600001211166cm" Top="15.2505835550861cm" Value="= Fields.ParticipantName" Name="tbParticipantBottom" >
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="3.13895681233129cm" Height="0.500000178813934cm" Left="15.2400011909802cm" Top="14.4568335771647cm" KeepTogether="True" Value="Overordnet Leder" CanGrow="False" Multiline="False" TextWrap="False" Name="textBox45">
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.500000178813934cm" Left="8.78416642233068cm" Top="14.4568335771647cm" Value="Deltakers leder" Name="textBox44">
+          <Style>
+            <Font Bold="false"  Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.500000178813934cm" Left="12.0914579970034cm" Top="14.4568335771647cm" Value="Trener" Multiline="False" Name="textBox42">
+          <Style>
+            <Font Bold="false"  Size="7pt"/>
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.500000178813934cm" Left="4.47145820895748cm" Top="14.4568335771647cm" Value="Evaluator" Name="textBox41">
+          <Style>
+            <Font Bold="false"  Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.79999971389771cm" Height="0.500000178813934cm" Left="0.978958306103118cm" Top="14.4568335771647cm" Value="Leder/Deltager" Name="textBox40">
+          <Style>
+            <Font Bold="false"   Size="7pt"/>
+          </Style>
+        </TextBox>
+
+        <Table DataSourceName="sqlDataSourceStrong" Width="18.7404185534929cm" Height="1.35062491739169cm" Left="0.978958306103118cm" Top="5.4504165150606cm" Name="tableStrongKPIs">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.07303285231379cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox26" >
+                    <Style>
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.38479158397259cm" Height="0.699999975928886cm" Left="0in" Top="0in" Value="= Fields.FinalScore" Name="textBox27">
+                    <Style TextAlign="Center">
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.52520764526791cm" Height="0.69999994016609cm" Left="0in" Top="0in" Value="= IsNull(Fields.ShortGoal, 0.0)" Name="textBox28">
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.ShortEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox30"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.18166661262512cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= IsNull(Fields.MidGoal, 0.0)" Name="textBox32" >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.MidEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox36"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+              <TableCell RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.16354179382324cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="=IsNull(Fields.LongGoal, 0.0)" Name="textBox38">
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="7" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999988079071cm" Left="0in" Top="0in" Value="= Fields.LongEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox34"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+
+
+              <TableCell RowIndex="0" ColumnIndex="8" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.16445925902887cm" Height="0.699999828663373cm" Left="0in" Top="0in" Value="=IsNull(Fields.FinalGoal, 0.0)" Name="textBox18" >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="9" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="1.5cm" Height="0.699999828663373cm" Left="0in" Top="0in" Value="= Fields.FinalEndDate.ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox20"  >
+                    <Style TextAlign="Center" >
+                      <Font Bold="false" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+
+            </Cells>
+            <Columns>
+              <Column Width="3.07303285231379cm" />
+              <Column Width="2.38479142857718cm" />
+              <Column Width="1.82520778469777cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="1.5cm" />
+              <Column Width="1.16354179382324cm" />
+              <Column Width="2.00000027240537cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.700000017652134cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="DetailGroup">
+              <Groupings>
+                <Grouping Expression="" />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.07303285231379cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Sterke KPIer" Name="textBox29">
+                  <Style>
+                    <Font  Bold="True" Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="1.38479158397259cm" Height="0.600000095596677cm" Left="0in" Top="0in" Value="Start" Name="textBox23">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="1.52520764526791cm" Height="0.600000092616446cm" Left="0in" Top="0in" Value="Korte Mål" Name="textBox24">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group1">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox22" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group2">
+              <ReportItem>
+                <TextBox Width="2.18166661262512cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Mellom Mål" Name="textBox31" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group4">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox35" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group5">
+              <ReportItem>
+                <TextBox Width="2.16354179382324cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Langsiktige Mål" Name="textBox37" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group3">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox33" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+
+            <TableGroup Name="Group6">
+              <ReportItem>
+                <TextBox Width="2.16354179382324cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Endelige Mål" Name="textBox39" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="Group7">
+              <ReportItem>
+                <TextBox Width="1.5cm" Height="0.600000083446503cm" Left="0in" Top="0in" Value="Tidsfrist" Name="textBox33" StyleName="">
+                  <Style TextAlign="Center">
+                    <Font Bold="True" Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+
+          </ColumnGroups>
+        </Table>
+        <PictureBox Value="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" Width="4cm" Height="4cm" Left="14.7108329241441cm" Top="0.84666664311621cm" Sizing="ScaleProportional" MimeType="image/png" Name="pictureBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </PictureBox>
+        <TextBox Width="9.23671531677246cm" Height="0.600000083446503cm" Left="5.21229152168417cm" Top="0.84666664311621cm" Value="= Fields.ProfileName" Name="tbSurveyName">
+          <Style TextAlign="Center">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="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" Width="4cm" Height="4cm" Left="0.873124975713591cm" Top="0.84666664311621cm" Sizing="ScaleProportional" MimeType="image/jpeg" Name="pbCustomerLogo">          <Style TextAlign="Center" VerticalAlign="Middle" />
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= Fields.LogoLink" Operator="Equal" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+          <Bindings>
+            <Binding Path="Value" Expression="= IIf(Fields.LogoLink=Null Or Fields.LogoLink='', 'http://yci193.stwserver.net:8051/app/images/organization-placeholder.png', Fields.LogoLink)" />
+          </Bindings>
+        </PictureBox>
+        <Table DataSourceName="sqlDataSourceStrongTrainings" Width="18.7404185534929cm" Height="1cm" Left="1.01600003242493cm" Top="7.61999978804589cm" ColumnHeadersPrintOnEveryPage="False" Name="table1" StyleName="Normal.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox57" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name1" Name="textBox58" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Why" Name="textBox59" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.What" Name="textBox60" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.How" Name="textBox61" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="3.56059176837633cm" />
+              <Column Width="3.56059176837633cm" />
+              <Column Width="3.56059176837633cm" />
+              <Column Width="3.56059176837633cm" />
+              <Column Width="3.56059176837633cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.5cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <Style Visible="True">
+            <BorderStyle Bottom="None" Left="None" Right="None" />
+          </Style>
+          <RowGroups>
+            <TableGroup Name="Detail">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="Sterke KPI`er" Name="textBox4" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="True"  Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="Treningsøvelser" Name="textBox53" StyleName="Normal.TableHeader">
+                  <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="Hvorfor" Name="textBox54" StyleName="Normal.TableHeader">
+                  <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="Hva" Name="textBox55" StyleName="Normal.TableHeader">
+                  <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059176837634cm" Height="0.5cm" Left="0in" Top="0in" Value="Hvordan" Name="textBox56" StyleName="Normal.TableHeader">
+                  <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+          <NoDataStyle Visible="False" />
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= IsNull(Parameters.StrongTrainingVisible.Value,0)" Operator="Equal" Value="0" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </Table>
+        <Table DataSourceName="sqlDataSourceWeakTrainings" Width="18.7404185534929cm" Height="1cm" Left="1.01600021397272cm" Top="11.9380007983605cm" Name="table2" StyleName="Normal.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox62" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name1" Name="textBox63" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Why" Name="textBox64" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.What" Name="textBox65" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.How" Name="textBox66" StyleName="Normal.TableBody">
+                    <Style>
+                      <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="3.56059194148469cm" />
+              <Column Width="3.56059194148469cm" />
+              <Column Width="3.56059194148469cm" />
+              <Column Width="3.56059194148469cm" />
+              <Column Width="3.56059194148469cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.5cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <Style>
+            <BorderStyle Bottom="None" Left="None" Right="None" />
+          </Style>
+          <RowGroups>
+            <TableGroup Name="Detail">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="Svake KPI`er" Name="textBox67" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="Treningsøvelser" Name="textBox68" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt"/>
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="Hvorfor" Name="textBox69" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="Hva" Name="textBox70" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="3.56059169769287cm" Height="0.5cm" Left="0in" Top="0in" Value="Hvordan" Name="textBox71" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="LightGreen">
+                    <BorderStyle Left="None" Right="None" />
+                    <Font Bold="false"  Size="7pt" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= IsNull(Parameters.WeakTrainingVisible.Value,0)" Operator="Equal" Value="0" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </Table>
+        <PictureBox Value="/9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzf/wAARCABeAF4DASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAAEFBgcIBAMC/8QAOhAAAQMCBAMFBgQEBwAAAAAAAQIDBAAFBgcRIRIxQRNRYXGBIiNCkbHBCBQVoTJSYnIkNIKSorLC/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ALxooooCk1Fc8+dGt0R2XOebYjsp4nHXFaJSPE1SGMs733HFxcJMBpvl+dkI1UrxSg7Af3a+QoL1cebbQVuOJQgc1KOgHrTVIxTh6MrhkXy2tq7ly0A/Ws5R8LY/xwoS32p0hpzdL054oRod/ZCjy/tGlPbGRGIlJ1euVraPclTiv/AoL4h3+zTf8ndoD57mpKFfQ046is4TcjMUsIK40m2ySOSUOqQo/wC5IH701Jm5g5dvJ7dU+IxxaBL2rsdfgOad9OhBoNSAg8qCQRpVXYDzitt8cbg31tFunq0CXOL3Lp7gT/CfA7eNOOaGYsbCMRUSEUP3l5Pu2juGQfjX9h18qCTS8U2aFfotjkzmkXCSnVton5AnkCegPPTy1ehWZsusEXLHt4cvF3efEAPcciUonjfXzKUn6np51pdlAbbCEkkJGm5JPzO5oPuua5To9thPTZryWY7CCtxxfJKRzNdCuRqh/wAQOLFuTGsMQ3NGmQl6Zp8SjuhJ8AN/Ud1BF8Z4rvGZWImrbamXvyhc4YcNOxUf519NdNTrySPUm2svsq7VhttqVc0NXC6gAlxadW2T3IB6/wBR37tKXJ7A6MNWRNwltD9WnNhThUN2WzuGx3HkT47dKsagTQUAaUtFAmleUqOzKYWxJabdZcGi23EhSVDuIOxr1J2Ohqvs0cxY+EIhiQSh+8PJ1bbO4ZSfjX9h18qCq86ML4dw7c2TY5PZyX/aetw9pLSeigfhB/lOveNBUYwXBgX7FkKHiC4OMx31hKnCSSs6aJRxHlroBr0qRZe4GuWP7w5d7069+n9qVSJKz7chfVKT9T086ds68v41i7K+WOOlmCspakR2x7LS+SVDwPI+PnsF92+FGgQ2YcJhDEdlAQ20gaBIFdXKoDk3i1eJ8LhExzinwCGXyTutOnsL9QND4gmp9Qeb7iGWHHXDohCSpR8Buay/giMrG+abcicO0bdkrmvA7jhSeIJ8v4U6d1aJxs+uNg6+PNnRTdvfUCO8INUp+HJkKxPc3yBq3B4R/qWnX/rQaFTypaQDQUtAUhO9BOlV9mjmNHwjEMOEUPXl5GrbZ3DIPJa/sOvlQGaOYsbCMMw4JQ9eXke7b5hlJ+Nf2HXyqpcvMDXLH93du96de/T+14pElR9uQvqlJ+p6UZeYGuOP7w7dry69+ndqVSJCz7chfVKT9TyHnWkrfCjW+GzDhMIZjsoCG20DQJA6UCwIUa3w2YcFlDEdlIQ22gaBIHSuXEdoZvlinWuQAW5TKm9+h6HzB0PpTnSHkaDNOR9ydtGYItzqilExDkdxJ5cadVJ9dUkeprSw5Vl4k2/PD3WwF+0AHQKd00+Sq1COVA1Ysimdha7xE834TzY07ygiqJ/DtMSzjCZGWvT8xBVwjvUlaT9OKtFrAKSCAR3GstKLmXWaxWsKDESYTt8Udf19hXzGlBqUcqDy2rzjvtvstvMrC23EhaFpOoUDuCPnUCzRzFjYQiGHBKH7y8j3bZ3DIPJa/sOvlQGaOY0fCEMw4KkP3h5OrbZ3DKT8a/sOvlVS5e4GuWP7s5dr089+n9qVSJK1e3IX1Sk/U9KMvMDXHH94du16dfFv7XikSVH25C+qUn6npWkoEGNb4bMSCy2xHZTwNttjQJHcKBYEKPb4jMOEwhiOykIbbQNEpA6CumiigKQ7gilqO4/xC1hrCk+4qUA6Gy3HB+J1WyR89z4A0GfrWU3vOtDrKipt29qdSe9KVlQ/ZNaiTyrO34fLI5PxVJvLoJagNEBZ6uubD/jxH1FaKG1AVU+e+C1Xe2Iv9vaK5kFBD6Ejdxnnr5pOp8ie4Va53G37VAM0MxYuEIZiRSh+7vJ920dw0D8a/sOvlQVbhTNybYMHPWgxzImM+xAfWdUtoOuoUOvD079dOQ35cvcDXHH94cu96de/Tu1KpElZ9uQvqlJ+p6ftUahYWv15tU2+Qra49EZX7xbaANTzPCkcwOug21+Vg5aZvIs8KPZsRM/4NlIbYlR2xq2kdFpHMeI37waC94EKNAhtQ4TCGI7KAhttsaJSB0rppvs15tt6jCTapzEto9WlhWnmOY8jXfqO8UC0Umo76j+J8aYfwyypV1uLSHQNo7Z43VeSRv6nQeNA+SX2ozK3n3ENNNpKlrWdAkDmSegrM+ZuL38eYjYt1nQ47BZc7OI0kHV9xR0K9PHkO4eZpcb5h3rHktFptUZ5mC6sJbhtaqcfPTjI5/2jYePOrQyoy0ThZCbrdwh28up2GykxkkbgHqo9Veg21JCTZeYWawjhpi3ApXIV7yU4n43Dz08BsB4CpNRRQMmL5N3hYdmyMPRUSrghslptR+ZA+IgbhO2unoaAy/wLc8e3l26Xtx9MAPEyZKye0fX1QnXr3np51pnQV8obQ2nRtISNSdhpuTqT8yaDwgQY1vhsxILLbEdlHA20gaBIqD4zylsWJHHJcbW2z17qdYQChZ/qRsCfEaGrCA0ooMz3LKTGtkkdtbEplhJ1S7Cf4F/I6EHy1rn/ADWasBRbJxNttuh1399DWn9KNKDL5i5pXsKacTiNxCuaHVONJPodBTvYMkMQz3Q5fJTFvaJ1WArtnT6Db5n0rROlLpQRjCGBbHhFki1xuKSpOjkp48Tq/XoPAaCpMOVLRQFFFFB//9k=" Width="3.80999989402294cm" Height="3.80999989402294cm" Left="1.01599981025061cm" Top="0.762000059549012cm" Sizing="Center" MimeType="image/jpeg" Name="pictureBox1">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+          <ConditionalFormatting>
+            <FormattingRule StopIfTrue="True">
+              <Filters>
+                <Filter Expression="= Fields.LogoLink" Operator="Equal" />
+              </Filters>
+            </FormattingRule>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= Fields.LogoLink" Operator="NotEqual" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </PictureBox>
+        <Table DataSourceName="sqlDataSource1" Width="17.8cm" Height="1cm" Left="1.02cm" Top="8.68cm" Name="tableStrongExercise">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="1" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.6414353042841cm" Height="0.499999940395355cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox1" StyleName="">
+                    <Style>
+                      <Font bold="false" Size="7pt"  />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.6414353042841cm" Height="0.500000059604645cm" Left="0in" Top="0in" Value="Sterke KPI`er" Name="textBox48" StyleName="">
+                    <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                      <BorderStyle Top="Solid" Bottom="Solid" />
+                      <Font  Bold="True" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="15cm" Height="0.500000059604645cm" Left="0in" Top="0in" Value="Treningsøvelser frem mot neste mål" Name="textBox49" StyleName="">
+                    <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                      <BorderStyle Top="Solid" Bottom="Solid" />
+                      <Font  Bold="True"  Size="7pt"/>
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="1" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="15cm" Height="0.499999940395355cm" Left="0in" Top="0in" Value="= Fields.Comment" Name="textBox72" StyleName="">
+                    <Style>
+                      <Font Size="7pt" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="3.6414353042841cm" />
+              <Column Width="15cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.500000059604645cm" />
+              <Row Height="0.499999940395355cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="Group2" />
+            <TableGroup Name="DetailGroup">
+              <Groupings>
+                <Grouping Expression="" />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="Group1" />
+            <TableGroup />
+          </ColumnGroups>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= IsNull(Parameters.StrongExVisible.Value,0)" Operator="Equal" Value="0" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </Table>
+        <Table DataSourceName="sqlDataSource2" Width="17.8400001525879cm" Height="1cm" Left="1.01599991118113cm" Top="13.03cm" Name="tableWeakExercise">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="1" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="15cm" Height="0.499999940395355cm" Left="0in" Top="0in" Value="= Fields.Comment" TextWrap="True" Name="textBox43">
+                    <Style>
+                      <BorderStyle Default="None" />
+                      <Font Size="7pt" />
+                      <Padding Top="0cm" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="1" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.64999985694885cm" Height="0.499999940395355cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox50" StyleName="">
+                    <Style>
+                      <Font Size="7pt" />
+                    </Style>
+                    <ConditionalFormatting>
+                      <FormattingRule>
+                        <Style BackgroundColor="214, 220, 248" />
+                        <Filters>
+                          <Filter Expression="= RowNumber() % 2" Operator="NotEqual" Value="0" />
+                        </Filters>
+                      </FormattingRule>
+                    </ConditionalFormatting>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.64999985694885cm" Height="0.500000059604645cm" Left="0in" Top="0in" Value="Svake KPI`er" Name="textBox51" StyleName="">
+                    <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                      <BorderStyle Top="Solid" Bottom="Solid" />
+                      <Font Bold="true" Size="7pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="15cm" Height="0.500000059604645cm" Left="0in" Top="0in" Value="Treningsøvelser frem mot neste mål" Name="textBox52" StyleName="">
+                    <Style VerticalAlign="Middle" BackgroundColor="LightGreen">
+                      <BorderStyle Top="Solid" Bottom="Solid" />
+                      <Font Bold="true" Size="7pt"/>
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="3.64999981187384cm" />
+              <Column Width="15cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.500000059604645cm" />
+              <Row Height="0.499999940395355cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="Group2" />
+            <TableGroup Name="DetailGroup">
+              <Groupings>
+                <Grouping Expression="" />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="Group1" />
+            <TableGroup />
+          </ColumnGroups>
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= IsNull(Parameters.WeakExVisible.Value,0)" Operator="Equal" Value="0" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+        </Table>
+        <TextBox Width="4.58483934402466cm" Height="0.599999725818634cm" Left="9.78057602062213cm" Top="3.37180031298557cm" Value="= IIf(Fields.StageName = 'Start Stage', 'Start Stage to Short Goal', &#xD;&#xA;IIf(Fields.StageName = 'Short Goal', 'Short Goal to Mid Goal', IIf(Fields.StageName = 'Mid Goal', 'Mid Goal to Long Term Goal', IIf(Fields.StageName = 'Long Term Goal', 'Long Term Goal to Final Goal', Fields.StageName&#xD;&#xA;))))" Name="textBox25">
+          <Style>
+            <Font Size="7pt" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.9672027183942cm" Height="0.600000083446503cm" Left="6.79999979813894cm" Top="3.37180031298557cm" Value="Målingsintervall:" Name="textBox73">
+          <Style>
+            <Font Size="7pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+  </Items>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black">
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font  Size="7pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Normal.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font  Size="1pt" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font  Size="7pt" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <PageSettings>
+    <PageSettings PaperKind="A4" Landscape="False">
+      <Margins>
+        <MarginsU Left="0.5cm" Right="0.5cm" Top="1cm" Bottom="1cm" />
+      </Margins>
+    </PageSettings>
+  </PageSettings>
+  <ReportParameters>
+    <ReportParameter Name="StageId" Type="Integer" AllowNull="True" AllowBlank="False">
+      <Value>
+        <String>77</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ParticipantId" Type="Integer" AllowBlank="False">
+      <Value>
+        <String>230</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="StrongTrainingVisible" Type="Integer" AllowNull="True" AutoRefresh="True">
+      <AvailableValues DataSourceName="sqlDataSourceStrongTrainings" ValueMember="=Count(Fields.Id)" />
+      <Value>
+        <String>=Count(Fields.Id)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="StrongExVisible" Type="Integer" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSource1" ValueMember="=Count(Fields.Name)" />
+      <Value>
+        <String>=Count(Fields.Name)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="WeakTrainingVisible" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSourceWeakTrainings" ValueMember="=Count(Fields.Id)" />
+      <Value>
+        <String>=Count(Fields.Id)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="WeakExVisible" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSource2" ValueMember="=Count(Fields.Name)" />
+      <Value>
+        <String>=Count(Fields.Name)</String>
+      </Value>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

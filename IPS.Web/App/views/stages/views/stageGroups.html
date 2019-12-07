@@ -1,0 +1,15 @@
+﻿<div pane name="stageGroups">
+    <div class="row">
+        <header-navigation page-name="Stage Groups"></header-navigation>
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>Stage Groups</span>
+                <a class="add-button pull-right" ng-click="stageGroups.newStage()"></a>
+            </div>
+            <div kendo-grid k-options="stageGroups.stageGroupOptions"></div>
+            <button ng-click="stageGroups.newStage()" class="btn btn-cstm primary pull-right">Add Stage Group</button>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

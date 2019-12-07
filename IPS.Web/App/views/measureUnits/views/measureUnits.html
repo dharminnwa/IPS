@@ -1,0 +1,16 @@
+﻿<div pane name="measureUnits">
+    <div class="row">
+        <header-navigation page-name="{{'LEFTMENU_MEASURE_UNITS' | translate }}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'LEFTMENU_MEASURE_UNITS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="mUnits.add()"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div id="measureUnitsGrid" kendo-grid k-options="mUnits.measureUnitsGridOptions"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

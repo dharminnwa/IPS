@@ -1,0 +1,42 @@
+﻿.profiles-menu{
+    background-color: #f2f1f7; 
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    
+    background: url(../../images/Upload/Profile/edit.png) no-repeat;
+}
+
+.icon-groups .clone-icon {
+    
+    background: url(../../images/Upload/Profile/clone.png) no-repeat;
+}
+
+.icon-groups .delete-icon {
+    
+    background: url(../../images/Upload/Profile/remove.png) no-repeat;
+}
+
+.filter-group {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top:15px;
+      padding-left:5px;
+      padding-right:5px;
+}
+
+.filter-group .profiles-menu {
+    margin-top:0px;
+    margin-left:-5px;
+    margin-right:-5px;
+}
+

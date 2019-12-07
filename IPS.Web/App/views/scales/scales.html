@@ -1,0 +1,58 @@
+<div pane>
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> {{'COMMON_SEARCH' | translate }} </span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.profileType" data-ng-options="obj.id as obj.name for obj in profileTypes" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_CATEGORY' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.scaleCategory" data-ng-options="obj.id as obj.name for obj in categories" ng-change="doFilter()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'SOFTPROFILE_MEASURE_UNIT' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.measureUnit" data-ng-options="obj.id as obj.name for obj in measureUnits" ng-change="doFilter()"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a href="#/home" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'SOFTPROFILE_SCALES' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'SOFTPROFILE_SCALES' | translate }}</span>
+                <a class="add-button pull-right" ng-click="createNewScale()"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div id="scalesGrid" kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+    <span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+    <div kendo-window="removal" k-title="'{{'COMMON_CONFIRM' | translate }}'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+        {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+        <button class="k-button" ng-click="removeScale(); removal.close()">{{'COMMON_YES' | translate }}</button>
+        <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+    </div>
+</div>
+<div ui-view></div>

@@ -1,0 +1,74 @@
+﻿.modal-backdrop {
+    opacity: 1 !important;
+}
+
+
+.select-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    /*border-bottom: 1px solid #c9c9c9;*/
+    padding: 0 50px 20px;
+}
+
+    .select-group li {
+        float: left;
+        width: 50px;
+        height: 1px;
+        position: relative;
+    }
+
+
+#ratingStars li.hover label, #stars li.selected label {
+    color: #ff780a;
+}
+
+#stars li label {
+    border: none !important;
+    font-size: 30px !important;
+    color: #8a8a8a;
+    padding: 5px !important;
+}
+
+#stars li.hover label, #stars li.selected label {
+    color: #ff780a;
+}
+
+#ratingStars li.hover label, #stars li.selected label {
+    color: #ff780a;
+}
+
+
+
+#ratingStars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 10px;
+    /* border-bottom: 1px solid #c9c9c9; */
+    padding: 0 0 5px;
+}
+
+    #ratingStars li {
+        float: left;
+        width: 25px;
+        height: 1px;
+        position: relative;
+    }
+
+        #ratingStars li label {
+            border: none !important;
+            font-size: 22px !important;
+            color: #8a8a8a;
+            padding: 10px !important;
+        }
+
+        #ratingStars li.hover label, #stars li.selected label {
+            color: #ff780a;
+        }
+
+.cbp-l-project-desc-title span {
+    min-height: 35px;
+}

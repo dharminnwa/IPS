@@ -1,0 +1,176 @@
+
+
+/*----- switch------------*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 30px;
+}
+
+    .switch input {
+        display: none;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider {
+    border: 0;
+    padding: 0;
+    display: block;
+    margin: 0px !important;
+    min-height: 11px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        bottom: 5px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+.switch input:checked + .slider {
+    background-color: #2196F3;
+}
+
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.switch input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px !important;
+}
+
+    .slider.round:before {
+        border-radius: 50% !important;
+    }
+
+.icon-size {
+    font-size: 18px;
+}
+
+.user-pic {
+    height: 40px;
+}
+
+
+
+/*End Profile Search Section*/
+#taskRatingStars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0 50px 20px;
+}
+
+    #taskRatingStars li {
+        float: left;
+        width: 25px;
+        height: 1px;
+        position: relative;
+    }
+
+        #taskRatingStars li label {
+            border: none !important;
+            font-size: 22px !important;
+            color: #8a8a8a;
+            padding: 10px !important;
+        }
+
+        #taskRatingStars li.hover label, #taskRatingStars li.selected label {
+            color: #ff780a;
+        }
+
+
+#actvityRatingStars {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0 50px 20px;
+}
+
+    #actvityRatingStars li {
+        float: left;
+        width: 50px;
+        height: 1px;
+        position: relative;
+    }
+
+        #actvityRatingStars li label {
+            border: none !important;
+            font-size: 45px !important;
+            color: #8a8a8a;
+            padding: 10px !important;
+        }
+
+        #actvityRatingStars li.hover label, #actvityRatingStars li.selected label {
+            color: #ff780a;
+        }
+
+th.k-header.text-center {
+    text-align: center !important;
+}
+
+.k-grid-footer {
+    padding-right: 0px !important;
+}
+
+.mt-widget-1 .mt-body .mt-stats {
+    margin: 5px 0 0 !important;
+}
+
+
+.dashboard-stat-v2.border {
+    border: 1px solid #e7ecf1 !important;
+}
+
+.dashboard-stat-v2 {
+    color: #000 !important;
+}
+
+.dashboard-stat .visual > i {
+    margin-left: 0px !important;
+    font-size: 50px !important;
+}
+
+.text-ips {
+    color: #ff6e19 !important;
+}
+
+.mt-widget-1 .mt-body .mt-stats .description {
+    word-wrap: break-word;
+    white-space: initial;
+}
+
+.nav-tabs > li.active > a {
+    background: #ff6e19 !important;
+    color: #fff !important;
+}
+.k-widget.k-window {
+    max-height: 90vh !important;
+}

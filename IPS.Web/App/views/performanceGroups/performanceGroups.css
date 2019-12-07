@@ -1,0 +1,157 @@
+﻿.profiles-menu{
+    background-color: #f2f1f7; 
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    
+    background: url(../../images/edit.png) no-repeat;
+}
+
+.icon-groups .clone-icon {
+    
+    background: url(../../images/clone.png) no-repeat;
+}
+
+.icon-groups .delete-icon {
+    
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.icon-groups .refresh-icon {
+    background: url(../../images/refresh.png) no-repeat;
+}
+
+.filter-group {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top:15px;
+      padding-left:5px;
+      padding-right:5px;
+}
+
+.filter-group .profiles-menu {
+    margin-top:0px;
+    margin-left:-5px;
+    margin-right:-5px;
+}
+
+.required{
+    color: #EB0100;
+}
+
+.tabstrip-tab{
+    padding: 1em;
+}
+
+.ips-button.primary.ips-tab-button {
+    margin-left: 10px;
+}
+
+.k-animation-container {
+    z-index:1014;
+
+}
+
+.details-info{
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    color: #f17721;
+    font-weight: 700;
+}
+
+.details-info:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  border-bottom: 2px solid #dbdbdb;
+  margin-left: 5px;
+}
+
+.ips-button.primary.cancel, .ips-button.primary.save-and-go {
+    margin-left: 10px;
+}
+
+
+.form-control:disabled, .k-widget input:disabled, .k-state-disabled, .k-state-disabled .k-multiselect-wrap {
+    background-color:#eee;
+}
+
+.k-grid tbody .k-button {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon.k-edit {
+    background: url(../../images/edit.png) no-repeat;
+}
+
+.k-grid tbody .k-button.k-button-icontext.k-grid-add {
+    float:right;
+}
+
+.k-grid .k-button .k-icon.k-add, .k-grid tbody .k-button .k-icon.k-add {
+    background: url(../../images/add.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-update {
+    background: url(../../images/update.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-cancel {
+    background: url(../../images/delete.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-delete {
+    
+    background: url(../../images/remove.png) no-repeat;
+}

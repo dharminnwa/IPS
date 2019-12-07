@@ -1,0 +1,9 @@
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\EntityFramework.SqlServer.dll
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.Data\bin\Test\EntityFramework.SqlServer.xml
+D:\DotNetProjects\IPS\IPS.Data\obj\Test\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.Data\obj\Test\IPS.Data.pdb

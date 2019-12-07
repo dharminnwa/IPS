@@ -1,0 +1,79 @@
+<section class="panel" >
+    <header class="panel-heading newPanelHead create-department " ng-init="(categoryId)?getCategory():''">
+        {{(pageId)?'Edit':'Add'}} Page                                </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form  class="newForm" name="category" ng-submit="(categoryId)?updateCategory():addCategory()" >
+            <div class="row">
+                <div class="form-group col-sm-6 col-sm-6 ">
+                    <label  class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">Category Title (*)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="cname" name="project" ng-model="category.title" minlength="2" type="text" value="" required="required">
+                        <span ng-show="category.title.$touched && category.title.$invalid">The Catgeory Title Feild  is required.</span>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-sm-6 ">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Category Keyword </label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="cname" name="project" ng-model="category.keyword" >
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-sm-6 ">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Category Meta </label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="cname" name="project" ng-model="category.meta" >
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-sm-6 ">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Category Icon (*) </label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="cname" name="project" ng-model="category.icon" >
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-6 col-sm-6">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Select language</label>
+                    <div class="col-lg-9" ng-init="getLanguages()">
+                        <select class="form-control"  ng-model="category.languageID">
+                            <option selected disabled value="">Select language</option>
+                            <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-sm-6" ng-init="getAllCategories()" ng-show="isSub">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Select Catgeory</label>
+                    <div class="col-lg-9" ng-init="getLanguages">
+                        <select class="form-control"  ng-model="catgeory.parentCatgeoryID">
+                            <option selected disabled value="">Select Catgeory</option>
+                            <option ng-repeat="cat in categories" value="{{cat.templateCatgeoryID}}">{{cat.title}}</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12" >Description</label>
+                <div class="col-lg-9">
+                    <textarea ng-model="category.description" class="form-control"></textarea>
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-6">
+                <div class="col-lg-offset-7 col-lg-6 btmBtn">
+                    <button class="btn btnAdd" type="submit" name="submit">{{(categoryId)?'Update':'Add'}}</button>
+                    <a class="btn btnclose" type="button" name="cancel" href="#/home/template/category/list">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</section>

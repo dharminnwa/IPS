@@ -1,0 +1,71 @@
+<div kendo-window="newAttachmentWindow" k-actions="['Maximize','Close']" k-modal="true" k-width="1200"
+     k-visible="false" k-title="'{{'ATTACHMENT_TITLE' | translate }}'" k-on-close="closeAttachment()" ng-cloak>
+    <div class="col-md-12 kpi-margin-top10">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_TITLE' | translate }}</label>
+
+                <input type="text" class="form-control tab-control" ng-model="attachmentInfo.title"
+                       name="title" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control tab-control kpi-textarea-noresize" rows="1"
+                          data-ng-model="attachmentInfo.description"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_USER' | translate }}</label>
+                <input id="toUsers" type="text" class="form-control"
+                       kendo-multi-select
+                       k-options="toUsersOptions"
+                       k-ng-model="selectedUsers"
+                       name="toUsers"
+                       placeholder="" />
+                <span style="color:Red" ng-hide="selectedUsers.length > 0"> Required! </span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div id="ipsAttachmentFilesGrid" class="training-material-grid" kendo-grid="ipsAttachmentFilesGrid" k-options="getOptions()" k-rebind="gridOptions.selectable"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-cstm primary pull-right ips-tab-button"
+                            ng-click="newAttachment()">
+                        {{'COMMON_ADD_TRAINING_MATERIAL' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 kpi-row kpi-margin-top30">
+            <button class="btn btn-cstm kpi-cell kpi-button"
+                    ng-click="closeAttachment()">
+                {{'COMMON_CLOSE' | translate }}
+            </button>
+            <button class="btn btn-cstm kpi-cell kpi-button"
+                    ng-disabled="!attachmentInfo.title"
+                    ng-click="saveAttachmentInfo()">
+                {{'COMMON_SAVE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div kendo-window="winAttachment" k-actions="['Maximize','Close']" k-modal="true" k-visible="false" k-title="'{{'TRAININGDAIRY_OWN_TRAINING_POPUP_NEW_TRAINING_MATERIAL' | translate }}'" k-on-open="winAttachmentvisible = false" k-on-close="winAttachmentvisible = false">
+    <div class="row window-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+                <input type="file" ngf-select="onFileSelect($files)">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-cstm cancel pull-right" ng-click="cancelTrainingMaterial()">{{'COMMON_CANCEL' | translate }}</button>
+            <button class="btn btn-cstm pull-right" ng-click="saveAttachmentFile()">{{'COMMON_OK' | translate }}</button>
+        </div>
+    </div>
+</div>

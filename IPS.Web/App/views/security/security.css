@@ -1,0 +1,42 @@
+﻿.ips-section {
+    width: 100%;
+}
+
+.ips-add-role-row {
+      height: 80px;
+      padding-top:10px;
+      padding-bottom:10px;
+}
+
+.form-control {
+    /*height:20px;*/
+}
+
+.ips-permition-name {
+    font-weight: normal;
+}
+
+.ips-rolePermitions {
+    display:none;
+}
+
+.ips-permition-row:hover {
+    background-color:beige;
+    font-weight: bold !important;
+}
+
+#tabData {
+    min-height:200px;
+    margin-left:15px;
+    margin-right:15px;
+}
+
+.ips-security-content {
+    margin-left:15px;
+}
+
+.ips-row {
+    margin-left:15px;
+    margin-right:15px;
+    height:50px;
+}

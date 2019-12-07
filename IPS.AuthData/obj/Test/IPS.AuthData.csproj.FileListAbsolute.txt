@@ -1,0 +1,17 @@
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.AuthData.dll.config
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.AuthData.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.AuthData.pdb
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\EntityFramework.SqlServer.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.Data.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\Microsoft.AspNet.Identity.Core.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.Data.pdb
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\IPS.Data.dll.config
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\EntityFramework.SqlServer.xml
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\Microsoft.AspNet.Identity.Core.xml
+D:\DotNetProjects\IPS\IPS.AuthData\bin\Test\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DotNetProjects\IPS\IPS.AuthData\obj\Test\IPS.AuthData.csprojResolveAssemblyReference.cache
+D:\DotNetProjects\IPS\IPS.AuthData\obj\Test\IPS.AuthData.dll
+D:\DotNetProjects\IPS\IPS.AuthData\obj\Test\IPS.AuthData.pdb

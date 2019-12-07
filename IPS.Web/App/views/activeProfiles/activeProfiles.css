@@ -1,0 +1,587 @@
+﻿.organizations-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+/*.active-profiles-grid {
+    overflow: scroll;
+}*/
+
+/*.active-profiles-grid .k-grid-header, .active-profiles-grid .k-grid-content{
+    min-width: 1790px;
+}*/
+
+.info-icon {
+    margin: 10px;
+}
+
+.ips-button.primary.submit-button {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.content-border {
+    overflow-x: scroll;
+    position: relative;
+}
+
+    .content-border.remove-scroll {
+        overflow: inherit;
+    }
+
+    .content-border.content-border-left {
+        border-left: 1px solid #dddddd;
+    }
+
+    .content-border.content-border-right {
+        border-right: 1px solid #dddddd;
+    }
+
+.submit-info {
+    color: #959595;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.view-development-contract {
+    position: absolute;
+    top: 35px;
+    left: 70px;
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+    .view-development-contract a {
+        color: #FF6614;
+    }
+
+.view-development-contract {
+}
+
+.table {
+    width: 100%;
+}
+
+    .table .table-header {
+        padding: 10px 0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .table th.number {
+        text-align: center;
+    }
+
+    .table th, td {
+        min-width: 80px;
+    }
+
+    .table td .comment-text-area {
+        min-width: 150px;
+    }
+
+table.table > tbody > tr.table-header > th {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    table.table > tbody > tr.table-header > th .sortable {
+        cursor: pointer;
+    }
+
+.table .score-value {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #4e5452;
+    color: #ffffff;
+    text-align: center;
+}
+
+.table .answer-number {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 3%;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.kpi-outer-circle {
+    background: #DBDBDB;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .kpi-outer-circle .kpi-inner-circle {
+        position: absolute;
+        border-radius: 50% !important;
+        background: #F7F7F7;
+        height: 36px;
+        border: 2px solid #C0C0C0;
+        width: 36px;
+        top: 50%;
+        left: 50%;
+        margin: -18px 0px 0px -18px;
+    }
+
+        .kpi-outer-circle .kpi-inner-circle .kpi-control {
+            position: absolute;
+            border-radius: 50% !important;
+            height: 22px;
+            width: 22px;
+            top: 50%;
+            left: 50%;
+            margin: -11px 0px 0px -11px;
+            cursor: pointer;
+        }
+
+.kpi-control.kpi-0 {
+    background: #BDBDBD;
+}
+
+.kpi-control.kpi-1 {
+    background: #FE4B4B;
+}
+
+.kpi-control.kpi-2 {
+    background: #5ECF37;
+}
+
+.score-outer-circle {
+    background: #4e5452;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .score-outer-circle .score-inner-circle {
+        position: absolute;
+        background: #a9aaab;
+        border-radius: 50% !important;
+        height: 30px;
+        width: 31px;
+        top: 50%;
+        left: 50%;
+        margin: -15px 0px 0px -15px;
+        color: #000000;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+        .score-outer-circle .score-inner-circle .score-result {
+            display: block;
+            height: 20px;
+            width: 18px;
+            margin: 0 auto;
+            padding-top: 5px;
+            text-align: center;
+            font-size: 70%;
+        }
+
+.ips-button.analysis {
+    margin-left: 10px;
+}
+
+.table tr td .trend-Equal {
+    position: relative;
+}
+
+    .table tr td .trend-Equal:before {
+        content: "=";
+        position: absolute;
+        font-weight: 700;
+        color: #00AFF0;
+        font-size: 30px;
+        left: 5%;
+        top: -20px;
+    }
+
+.table tr td .trend-Up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #22B14C;
+    margin-left: 5%;
+}
+
+.table tr td .trend-Down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ED1C24;
+    margin-left: 5%;
+}
+
+.organizations-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.info-icon {
+    margin: 10px;
+}
+
+.ips-button.primary.submit-button {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.submit-ask {
+    font-size: 18px;
+    line-height: 20px;
+    color: #969696;
+}
+
+.content-border.content-border-left {
+    border-left: 1px solid #dddddd;
+}
+
+.content-border.content-border-right {
+    border-right: 1px solid #dddddd;
+}
+
+.table {
+    width: 100%;
+}
+
+    .table .table-header {
+        padding: 10px 0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+table.table > tbody > tr.table-header > th {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    table.table > tbody > tr.table-header > th .sortable {
+        cursor: pointer;
+    }
+
+    table.table > tbody > tr.table-header > th.clickable {
+        cursor: pointer;
+    }
+
+        table.table > tbody > tr.table-header > th.clickable:before {
+            content: ">";
+            font-size: 23px;
+        }
+
+table.table > tbody > tr > th.trainings-title {
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+table.table > tbody > tr > th.first-training-header {
+    border-left: 1px solid #ddd;
+}
+
+table.table > tbody > tr > th.last-training-header {
+    border-right: 1px solid #ddd;
+}
+
+table.table > tbody > tr > td.training-body {
+    background: #F1F0F6;
+    word-wrap: break-word;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 250px;
+}
+
+table.table > tbody > tr > th.no-border, table.table > tbody > tr > td.no-border {
+    border: none;
+}
+
+table.table > tbody > tr > td.clickable {
+    cursor: pointer;
+}
+
+.table .score-value {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #4e5452;
+    color: #ffffff;
+    text-align: center;
+}
+
+.table .answer-number {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 3%;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.score-outer-circle {
+    background: #4e5452;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .score-outer-circle .score-inner-circle {
+        position: absolute;
+        background: #a9aaab;
+        border-radius: 50% !important;
+        height: 30px;
+        width: 31px;
+        top: 50%;
+        left: 50%;
+        margin: -15px 0px 0px -15px;
+        color: #000000;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+        .score-outer-circle .score-inner-circle .score-result {
+            display: block;
+            height: 20px;
+            width: 18px;
+            margin: 0 auto;
+            padding-top: 5px;
+            text-align: center;
+            font-size: 70%;
+        }
+
+.progressbar {
+    margin-top: 10px;
+    text-align: center;
+    padding: 0 250px;
+}
+
+.select-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-bottom: 1px solid #c9c9c9;
+    padding: 0 50px 20px;
+}
+
+    .select-group li {
+        float: left;
+        width: 50px;
+        height: 46px;
+        position: relative;
+    }
+
+    .select-group label, .select-group input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .select-group input[type="radio"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+            .select-group input[type="radio"]:checked + .score-outer-circle {
+                background: #4e5452 !important;
+                opacity: 1;
+                color: #000000;
+            }
+
+                .select-group input[type="radio"]:checked + .score-outer-circle .score-inner-circle {
+                    color: #000000;
+                }
+
+    .select-group .score-inner-circle {
+        background: #ffffff !important;
+    }
+
+    .select-group .score-outer-circle .score-inner-circle {
+        color: #ACACAC;
+    }
+
+    .select-group label {
+        cursor: pointer;
+        z-index: 90;
+        background: #ffffff;
+        opacity: 0.5;
+        color: #000000;
+        font-weight: 500;
+    }
+
+.profile-name {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 700;
+    color: #515151;
+    text-align: center;
+}
+
+.survey-steps {
+    text-align: center;
+}
+
+    .survey-steps .performanceGroupName {
+        font-size: 45px;
+        line-height: 47px;
+        font-weight: 500;
+        color: #515151;
+        margin-bottom: 10px;
+        margin-top: 35px;
+    }
+
+    .survey-steps .skill-name {
+        font-size: 30px;
+        line-height: 32px;
+        color: #515151;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: inline-block;
+        padding: 0 50px 20px;
+        border-bottom: 1px solid #c9c9c9;
+    }
+
+    .survey-steps .question {
+        font-size: 29px;
+        line-height: 31px;
+        color: #515151;
+        margin: 10px 0;
+    }
+
+.kpi-outer-circle {
+    background: #DBDBDB;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .kpi-outer-circle .kpi-inner-circle {
+        position: absolute;
+        border-radius: 50% !important;
+        background: #F7F7F7;
+        height: 36px;
+        border: 2px solid #C0C0C0;
+        width: 36px;
+        top: 50%;
+        left: 50%;
+        margin: -18px 0px 0px -18px;
+    }
+
+        .kpi-outer-circle .kpi-inner-circle .kpi-control {
+            position: absolute;
+            border-radius: 50% !important;
+            height: 22px;
+            width: 22px;
+            top: 50%;
+            left: 50%;
+            margin: -11px 0px 0px -11px;
+            cursor: pointer;
+        }
+
+.kpi-control.kpi-0 {
+    background: #BDBDBD;
+}
+
+.kpi-control.kpi-1 {
+    background: #FE4B4B;
+}
+
+.kpi-control.kpi-2 {
+    background: #5ECF37;
+}
+
+.buttons-align-center {
+    text-align: center;
+}
+
+    .buttons-align-center .ips-survey-button {
+        padding: 10px 25px;
+        height: 45px;
+    }
+
+.ui-message {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.table td {
+    position: relative;
+}
+
+    .table td span.required {
+        position: absolute;
+        right: 0;
+    }
+
+.form-control.natural-width {
+    width: initial;
+}
+
+.table tr td .progress-notmet {
+    width: 46px;
+    height: 46px;
+    background: url(../../images/progress-notmet.png) no-repeat;
+}
+
+.table tr td .progress-reached {
+    width: 46px;
+    height: 46px;
+    background: url(../../images/progress-reached.png) no-repeat;
+}
+
+.table tr td .progress-exceeded {
+    width: 54px;
+    height: 54px;
+    background: url(../../images/progress-exceeded.png) no-repeat;
+}
+
+td.current, th.current {
+    background: #f2f1f7 !important;
+    border: none !important;
+}
+
+.k-tabstrip > .k-content.k-state-active {
+    display: block !important;
+}

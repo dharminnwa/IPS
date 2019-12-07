@@ -1,0 +1,62 @@
+<header class="panel-heading newPanelHead create-department " ng-init="editcategory()">
+    {{((categoryId)?'COMMON_EDIT':'COMMON_ADD') | translate }} {{'TEMPLATE_HELP_CONTENT_CATEGORY' | translate }}
+</header>
+<div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn ">
+        <form class="newForm" ng-submit="(categoryId)?updatecategory():addcategory()">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_CHOOSE_LANGUAGE' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control" type="text" ng-init="getLanguages()" placeholder="Title" ng-model="categoryData.languageID">
+                        <option value="">{{'COMMON_SELECT' | translate }}</option>
+                        <option ng-repeat="language in languages" required value="{{language.id}}">{{language.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_TITLE' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" required placeholder="Title" ng-model="categoryData.title">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_META_TITLE' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" required placeholder="Meta Title" ng-model="categoryData.meta">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_META_KEYWORD' | translate }}</label>
+                <div class="col-lg-9">
+                    <input class="form-control" type="text" required placeholder="Meta Keyword" ng-model="categoryData.keyWord">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_PARENT_CATEGORY' | translate }}</label>
+                <div class="col-lg-9">
+                    <select ng-init="getAllcategories()" class="form-control" type="text" placeholder="Meta Keyword" ng-model="categoryData.parentCategoryID">
+                        <option value="">{{'TEMPLATE_SELECT_PARENT_CATEGORY' | translate }}</option>
+                        <option value="{{category.helpCategoryID}}" ng-repeat="category in categories" ng-show="category.isParentCategory">{{category.title}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_META_DESCRIPTION' | translate }}</label>
+                <div class="col-lg-9">
+                    <textarea class="Meta Description form-control" ng-model="categoryData.description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="col-sm-3"></label>
+                <div class="btmBtn col-sm-9">
+                    <div class="pull-right">
+                        <button class="btnAdd" type="submit" name="submit">{{((categoryId)?'COMMON_UPDATE':'COMMON_ADD') | translate }}</button>
+                        <button class="btnclose" type="button" name="cancel">{{'COMMON_CANCEL' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

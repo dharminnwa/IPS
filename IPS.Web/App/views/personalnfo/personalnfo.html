@@ -1,0 +1,205 @@
+<form role="form">
+    <div class="row">
+        <div class="col-md-5">
+            <h3><span>{{'ORGANIZATIONS_ACCOUNT_INFO' | translate }}</span></h3>
+            <div class="form-group">
+                <label class="ips-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                <span class="form-control" disabled>{{user.organizationName}}</span>
+            </div>
+            <div class="form-group">
+                <label class="ips-label">{{'ORGANIZATIONS_USERNAME' | translate }}</label>
+                <span class="form-control" disabled>{{user.userName}}</span>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputFirstName">{{'ORGANIZATIONS_FIRST_NAME' | translate }}</label>
+                <input type="text" class="form-control" id=" inputfirstname" data-ng-model="user.firstName" ng-change="messageClean();" required>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputLastName">{{'ORGANIZATIONS_LAST_NAME' | translate }}</label>
+                <input type="text" class="form-control" id="inputLastName" data-ng-model="user.lastName" ng-change="messageClean();" required>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputEmail">{{'ORGANIZATIONS_EMAIL_ADDRESS' | translate }}</label>
+                <input type="email" class="form-control" id="inputEmail" data-ng-model="user.email" ng-change="messageClean();" required>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputMobile">{{'COMMON_PHONE' | translate }}</label>
+                <input type="tel" class="form-control" id="inputMobile" data-ng-model="user.user.mobileNo" ng-change="messageClean();">
+            </div>
+            <div class="form-group">
+                <label class="ips-label">{{'ORGANIZATIONS_WANT_TO_CHANGE_PASSWORD' | translate }}</label>
+                <a ips-control-label" href="#/changePassword" id="changePasswordLink">{{'ORGANIZATIONS_CLICK_HERE' | translate }}</a>
+            </div>
+        </div>
+        <div class="col-md-2 personInfo">
+            <div class="form-group">
+                <label class="ips-label">{{'ORGANIZATIONS_DATE_OF_BIRTH' | translate }}</label>
+                <input kendo-date-picker data-ng-model="user.user.birthDate" k-options="dateOptions" />
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputGender">{{'ORGANIZATIONS_GENDER' | translate }}</label>
+                <input type="radio" name="sex" value="m" ng-model="user.user.gender">{{'ORGANIZATIONS_MALE' | translate }}
+                <input type="radio" name="sex" value="f" ng-model="user.user.gender">{{'ORGANIZATIONS_FEMALE' | translate }}
+            </div>
+            <div class="form-group">
+                <label>{{'ORGANIZATIONS_IMAGE_UPLOAD' | translate }}</label>
+                <div flow-init="{ singleFile: true, headers: getSecurityHeaders(), testChunks:false }"
+                     flow-file-added="validateFile($file)"
+                     flow-file-progress="fileUploadProgress($file.progress())"
+                     flow-files-submitted="$flow.upload()"
+                     flow-file-success="fileUploadSuccess($message)"
+                     flow-error="uploadError($message)">
+                    <div class="form-control ips-image-preview" ng-show="!$flow.files.length">
+                        <img class="profile-avatar" ng-src="{{user.imageUrl}}">
+                    </div>
+                    <div class="form-control ips-image-preview ng-hide" ng-show="$flow.files.length">
+                        <img class="profile-avatar" flow-img="$flow.files[0]">
+                    </div>
+                    <p>
+                        {{'ORGANIZATIONS_ONLY_PNG_GIF_JPG_JEPG_FILES_ALLOWED' | translate }}
+                    </p>
+                    <div>
+                        <span class="btn btn-cstm" ng-show="!$flow.files.length" flow-btn="">{{'ORGANIZATIONS_SELECT_IMAGE' | translate }}<input type="file" style="visibility: hidden; position: absolute;"></span>
+                        <span class="btn ng-hide btn-cstm" ng-show="$flow.files.length" flow-btn="">{{'ORGANIZATIONS_CHANGE' | translate }}<input type="file" style="visibility: hidden; position: absolute;"></span>
+                        <span class="btn ng-hide btn-cstm" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                            {{'COMMON_REMOVE' | translate }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h3><span>{{'ORGANIZATIONS_PERSONAL_ACCOUNT_INFO' | translate }}</span></h3>
+            <div class="form-group">
+                <label class="ips-label" for="inputCountry">{{'COMMON_COUNTRY' | translate }}</label>
+                <input type="text" class="form-control" id="inputCountry" data-ng-model="user.user.country">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputCity">{{'COMMON_CITY' | translate }}</label>
+                <input type="text" class="form-control" id="inputCity" data-ng-model="user.user.city">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputZip">{{'COMMON_ZIP' | translate }}</label>
+                <input type="tel" pattern="[0-9]*" maxlength="6" class="form-control" id="inputZip" data-ng-model="user.user.zip">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputCity">{{'COMMON_STATE' | translate }}</label>
+                <input type="text" class="form-control" id="inputState" data-ng-model="user.user.state">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputAddress1">{{'ORGANIZATIONS_ADDRESS1' | translate }}</label>
+                <input type="text" class="form-control" id="inputAddress1" data-ng-model="user.user.address1">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputAddress2">{{'ORGANIZATIONS_ADDRESS2' | translate }}</label>
+                <input type="text" class="form-control" id="inputAddress2" data-ng-model="user.user.address2">
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputCountry">{{'ORGANIZATIONS_NEWORGANIZATION_SKYPE' | translate }}</label>
+                <div class="left-inner-addon">
+                    <i class="icon-large icon-skype"></i>
+                    <input type="text" class="form-control" id="inputSkype" data-ng-model="user.user.skype">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputTwitter">{{'ORGANIZATIONS_NEWORGANIZATION_TWITTER' | translate }}</label>
+                <div class="left-inner-addon">
+                    <i class="icon-large icon-twitter"></i>
+                    <input type="text" class="form-control" id="inputTwitter" data-ng-model="user.user.twitter">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputFacebook">{{'ORGANIZATIONS_NEWORGANIZATION_FACEBOOK' | translate }}</label>
+                <div class="left-inner-addon">
+                    <i class="icon-large icon-facebook"></i>
+                    <input type="text" class="form-control" id="inputTwitter" data-ng-model="user.user.facebook">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="ips-label" for="inputLinkedin">{{'ORGANIZATIONS_NEWORGANIZATION_LINKED_IN' | translate }}</label>
+                <div class="left-inner-addon">
+                    <i class="icon-large icon-linkedin"></i>
+                    <input type="text" class="form-control" id="inputLinkedin" data-ng-model="user.user.linkedin">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div data-ng-hide="messageFirstName == ''" class="alert alert-danger">
+                {{messageFirstName}}
+            </div>
+            <div data-ng-hide="messageLastName == ''" class="alert alert-danger">
+                {{messageLastName}}
+            </div>
+            <div data-ng-hide="messageEmail == ''" class="alert alert-danger">
+                {{messageEmail}}
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'ORGANIZATIONS_USER_ROLES' | translate }}</span>
+                <a class="add-button pull-right" ng-show="canEditRoles" data-toggle="modal" data-target=".bs-roles-lg"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid k-options="rolesOptions"></div>
+            </kendo-tooltip>
+            <button data-toggle="modal" data-target=".bs-roles-lg" class="btn btn-cstm primary pull-right" ng-show="canEditRoles">{{'ORGANIZATIONS_ADD_ROLE' | translate }}</button>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 ips-div-button">
+                    <button id="btn-save" type="submit" class="btn btn-cstm" data-original-title="" title="" ng-click="saveUser()">{{'COMMON_SAVE' | translate }}</button>
+                </div>
+                <div class="col-md-4 ips-div-button">
+                    <button id="btn-cancel" type="submit" class="btn btn-cstm" data-original-title="" title="" ng-click="cancel()">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+</form>
+<div class="modal fade bs-roles-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-show="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_ADD_USER_ROLES' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                                <select class="form-control"
+                                        value="Select Organization"
+                                        name="organizationRoles"
+                                        ng-options="organization.name for organization in allOrganizations"
+                                        ng-model="newRole.organization">
+                                    <option value="">{{'COMMON_SELECT_ORGANIZATION' | translate }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">{{'ORGANIZATIONS_USER_ROLE' | translate }}</label>
+                                <select class="form-control"
+                                        value="Select User Role"
+                                        name="userRole"
+                                        ng-options="role.name for role in allRoles | organizationRoles: newRole.organization.id | isNotUserRole:newRole.organization.id:user.roles"
+                                        ng-model="newRole.role"
+                                        ng-disabled="!newRole.organization"
+                                        ng-required='!newRole.role'>
+                                    <option value="">{{'ORGANIZATIONS_SELECT_USER_ROLE' | translate }}</option>
+                                </select>
+                            </div>
+                            <button ng-click="addUserRole()" data-dismiss="modal" class="btn  btn-cstm primary pull-right" ng-disabled="!newRole.role">{{'ORGANIZATIONS_ADD_ROLE' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

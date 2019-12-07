@@ -1,0 +1,148 @@
+<div pane>
+    <div class="clearfix">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'TASKMANAGEMENT_TASK_SETTINGS' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">
+                            {{'COMMON_ORGANIZATION' | translate }}
+                            <span ng-show='tasksSettingsForm.tasksSettingsOrganizationId.$invalid' class="required">*</span>
+                        </label>
+                        <select class="form-control" name="tasksSettingsOrganizationId" required data-ng-model="tasksSettings.organizationId" data-ng-options="obj.id as obj.name for obj in tasksSettings.organizations" ng-change="tasksSettings.organizationChanged();"></select>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable"> {{'COMMON_DEPARTMENT' | translate }}</label>
+                        <select class="form-control" ng-disabled="tasksSettings.departments.length == 1" data-ng-model="tasksSettings.departmentId" data-ng-options="obj.id as obj.name for obj in tasksSettings.departments" ng-change="tasksSettings.reloadSelected();"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">{{'COMMON_TEAM' | translate }} <span class="text-danger">*</span></label>
+                        <select class="form-control" ng-disabled="tasksSettings.teams.length == 1" data-ng-model="tasksSettings.teamId" data-ng-options="obj.id as obj.name for obj in tasksSettings.teams" ng-change="tasksSettings.reloadSelected();"></select>
+
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">{{'COMMON_USER' | translate }}</label>
+                        <select class="form-control" ng-disabled="tasksSettings.users.length == 1" data-ng-model="tasksSettings.userId" data-ng-options="obj.id as obj.firstName+' '+obj.lastName for obj in tasksSettings.users | filter:tasksSettings.filterUsers" ng-change="tasksSettings.reloadSelected();"></select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <label class="form-cstm-lable">
+                            {{'TASKMANAGEMENT_SETTINGS' | translate }} ({{'TRAININGDAIRY_WHAT_TRAING_SETTINGS_TO_BE_SHOWN_HERE' | translate }})
+                        </label>
+                        <select class="form-control" data-ng-model="tasksSettings.settingsTypeId" data-ng-options="obj.id as obj.name for obj in tasksSettings.settingsTypes" ng-change="tasksSettings.reloadSelected();"></select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mt-5">
+                        <button class="btn btn-cstm primary pull-right" ng-disabled="!tasksSettings.IsGenerateAllowed" ng-click="tasksSettings.createNewList()">{{'COMMON_CREATE' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light">
+            <div class="portlet box">
+                <div class="row">
+                    <form name="tasksSettingsForm" novalidate>
+
+                        <div class="col-md-12" ng-show="tasksSettings.settingsTypeId == 0">
+                            <div class="profiles-menu">
+                                <img src="images/organization/organization-icon.png" />
+                                <span>{{'COMMON_SETTINGS_ITEMS' | translate }}</span>
+                                <a class="btn btn-cstm fa fa-plus pull-right" ng-show="tasksSettings.listId" ng-click="tasksSettings.add();">
+                                    {{'COMMON_ADD' |translate }}
+                                </a>
+                            </div>
+
+                            <kendo-tooltip options="tooltipOptions">
+                                <div id="tasksCategoriesGrid" kendo-grid k-options="tasksSettings.tasksCategoriesGridOptions"></div>
+                            </kendo-tooltip>
+                        </div>
+
+                        <div class="row" ng-show="tasksSettings.settingsTypeId == 3">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-12" ng-hide="ngIsTamplate">
+                                                    <div class="form-group">
+                                                        <label class="ips-label">{{'COMMON_SCALE_NAME' | translate }}</label>
+                                                        <input class="form-control tab-control" data-ng-model="tasksSettings.taskScale.name" type="text" ng-required="required" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="ips-label">{{'COMMON_SCALE_START' | translate }}</label>
+                                                                <input class="form-control tab-control" data-ng-model="tasksSettings.taskScale.scaleStart" type="number" min="0" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="ips-label">{{'COMMON_SCALE_END' | translate }}</label>
+                                                                <input class="form-control tab-control" data-ng-model="tasksSettings.taskScale.scaleEnd" type="number" min="1" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="ips-label">{{'COMMON_INTERVALS' | translate }}</label>
+                                                                <input class="form-control tab-control" data-ng-model="tasksSettings.taskScale.scaleInterval" type="number" min="1" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="ips-label" for="description">{{'COMMON_SCALE_DESCRIPTION' | translate }}</label>
+                                                <textarea class="form-control tab-control" rows="5" data-ng-model="tasksSettings.taskScale.description" id="description"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button id="btn-save" type="submit" class="btn btn-cstm primary ips-row-button ips-tab-button pull-left tab-control" data-original-title="" title="" ng-click="tasksSettings.generateScales()" ng-disabled="tasksSettingsForm.$invalid">{{'COMMON_APPLY_SCALE_INTERVALS' | translate }}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <kendo-tooltip options="tooltipOptions">
+                                                    <div id="gridRnages"></div>
+                                                </kendo-tooltip>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="top-border"></div>
+                                    <button class="btn btn-cstm cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                                    <button class="btn btn-cstm  pull-right" ng-click="tasksSettings.saveTaskScale();" ng-disabled="editScales.$invalid">{{'COMMON_SAVE' | translate }}</button>
+                                    <button class="btn btn-cstm " ng-show="tasksSettings.settingsTypeId == 3" ng-click="removal.open().center()">{{'COMMON_REMOVE' | translate }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div ui-view></div>

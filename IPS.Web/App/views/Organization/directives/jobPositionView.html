@@ -1,0 +1,34 @@
+﻿<div class="lookup-select select-body">
+    <label class="ips-label">{{'ORGANIZATIONS_JOB_POSITIONS' | translate }}</label>
+    <select id="kendo-{{id}}-select" ng-disabled="!isEdit" kendo-multi-select k-options="jobPostionOptions" k-ng-model="selectedJobPositions"></select>
+</div>
+<div ng-hide="!isEdit" class="lookup-select button">
+    <a class="add-button" data-toggle="modal" data-target=".bs-{{id}}-lg"></a>
+</div>
+<div class="modal fade bs-{{id}}-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_ADD_JOB_POSITION' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                <input type="text" class="form-control" ng-model="newJobPosition.jobPosition1" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                            <button type="button" class="btn btn-cstm primary pull-right" data-dismiss="modal" aria-label="Close" ng-click="addJobPosition()">{{'COMMON_ADD' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>

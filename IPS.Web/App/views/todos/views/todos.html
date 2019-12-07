@@ -1,0 +1,159 @@
+<div pane name="todo">
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span>{{'COMMON_FILTER' | translate }}</span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="showCompleted" ng-change="showCompleatedChanged()">{{'TASKMANAGEMENT_SHOW_COMPLETED' | translate }}
+                            <span></span>
+                        </label>
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" data-ng-model="delegatedTasks" ng-change="delegatedTasksChanged()">{{'TASKMANAGEMENT_DELEGATED_TASKS' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'COMMON_TASKS' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inputs pull-right">
+                            <div class="portlet-input input-inline pull-right">
+                                <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="addNewToDo()">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> {{'COMMON_ADD_NEW_TASK' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <kendo-tooltip options="tooltipOptions">
+                            <div id="myTasksGrid" kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable"></div>
+                        </kendo-tooltip>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="trainingFeedbackModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKMANAGEMENT_FEEDBACK' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">{{'COMMON_RATE_YOUR_TRAINING_RESULTS_BASED_ON_5_STARS' | translate }}</label>
+
+                                            <div class="form-group">
+                                                <ul id="stars" class="select-group">
+                                                    <li ng-repeat="rate in ratings" ng-mouseover="starMouseHover($event)" ng-mouseleave="starMouseOut($event)" ng-click="starClick($event)" class="star">
+                                                        <label data-value="{{rate.value}}" class="fa fa-star fa-fw" for="rate{{rate.value}}">
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_DESCRIBE_YOUR_RATING' | translate }} : {{'COMMON_WHAT_WORKED_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="training.workedWell" name="workedWell" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_DESCRIBE_YOUR_RATING' | translate }} : {{'COMMON_WHAT_WORKED_NOT_WELL' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="training.workedNotWell" name="workedNotWell" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">{{'COMMON_WHAT_WILL_YOU_DO_NEXT_TIME' | translate }}</label>
+                                                <textarea type="text" class="form-control" ng-model="training.whatNextDescription" name="WhatNextDescription" required />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_SPENT' | translate }}</label>
+                                            <div ng-duration ng-model="training" ng-property="timeSpentMinutes"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelTraningFeedback()" data-dismiss="modal" aria-label="Close">{{'COMMON_NO' | translate }}</button>
+                                    <button class="btn btn-cstm primary pull-right" ng-click="saveTraningFeedback()" data-dismiss="modal" aria-label="Ok" ng-disabled="finalKPIForm.$invalid">{{'COMMON_YES' | translate }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="trainingFeedbackListModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKMANAGEMENT_FEEDBACK' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <kendo-tooltip options="tooltipOptions">
+                                        <div id="TrainingFeedbackGrid"></div>
+                                    </kendo-tooltip>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

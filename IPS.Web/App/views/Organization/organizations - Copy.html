@@ -1,0 +1,95 @@
+<div pane name="organization">
+    <div class="row">
+        <div ng-hide="expand==true" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="return-menu">
+                <a ng-click="getscopes()" class="newhead title fa fa-long-arrow-left"></a>
+                <a class="addOrg" href="#/home/organizations/organizations/new">+ {{'ORGANIZATIONS_ADD_NEW_ORGANIZATIONS' | translate }}</a>
+                <h1 class="title newhead">{{'ORGANIZATIONS_ORGANIZATIONS' | translate }}</h1>
+
+                <div class="top-border"></div>
+            </div>
+            <div class="fixed-table-toolbar">
+                <div class="search">
+                    <input type="text" placeholder="Search your Organization Here...." ng-model="organizationsFilter" class="form-control">
+                </div>
+            </div>
+            <div class="chart-loading"></div>
+
+            <kendo-tooltip options="tooltipOptions">
+                <table class="k-selected" kendo-grid ng-init="getAllOrganizations()">
+
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader" width="7%" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">#</a>
+                            </th>
+                            <th role="columnheader" width="10%" data-field="logo" rowspan="1" data-title="{{'ORGANIZATIONS_LOGO' | translate }}" data-index="1" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">{{'ORGANIZATIONS_LOGO' | translate }}</a>
+                            </th>
+                            <th role="columnheader" width="19%" data-field="name" rowspan="1" data-title="{{'COMMON_NAME' | translate }}" data-index="2" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">{{'COMMON_NAME' | translate }}</a>
+                            </th>
+                            <th role="columnheader" width="15%" data-field="industryName" rowspan="1" data-title="{{'COMMON_INDUSTRY' | translate }}" data-index="3" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">{{'COMMON_INDUSTRY' | translate }}</a>
+                            </th>
+                            <th role="columnheader" width="15%" data-field="countryImage" rowspan="1" data-title="{{'ORGANIZATIONS_COUNTRY' | translate }}" data-index="4" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">{{'ORGANIZATIONS_COUNTRY' | translate }}</a>
+                            </th>
+                            <th role="columnheader" width="19%" style="white-space:normal" data-field="contactName" rowspan="1" data-title="{{'ORGANIZATIONS_CONTACT_NAME' | translate }}" data-index="5" class="k-header ng-scope" data-role="columnsorter">
+                                <a class="k-link" href="#">{{'ORGANIZATIONS_CONTACT_NAME' | translate }}</a>
+                            </th>
+                            <th role="columnheader" width="15%" rowspan="1" class="k-header ng-scope" data-role="columnsorter" data-title="{{'COMMON_DETAILS' | translate }}">
+                                <a class="k-link" href="#">{{'COMMON_DETAILS' | translate }}</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tbody>
+                        <tr class='oraganization-row' ng-class="(dataItem.id==selectedOrganizationDetailsTab.id)?'k-state-selected':''" ng-click="GetOrganizationDetailsTab(dataItem.id)" data-uid='{{dataItem.id}}' dir-paginate="dataItem in allOrganization.$$state.value | filter:organizationsFilter | itemsPerPage:10">
+                            <td width="7%"><span class='row-number'>{{$index+1}}</span></td>
+                            <td class='org-logo' width="10%"><div style='width:60px;height:40px;'><img src='{{dataItem.logoLink && dataItem.logoLink || organizationPlaceholder }} ' width='100%' , height='100%' /></div></td>
+                            <td class='org-name' width="19%">{{dataItem.name}}</td>
+                            <td width="15%">{{dataItem.industryName}}</td>
+                            <td width="15%"><img class='org-country' src='{{dataItem.countryImage}}' /> </td>
+                            <td width="19%">{{dataItem.contactName}}</td>
+                            <td width="15%">
+
+                                <div class='icon-groups'><a class='fa fa-pencil fa-lg' ng-click='editOrganization(dataItem.id)'></a></div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </kendo-tooltip>
+
+                <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+        </div>
+        <div ng-class="(expand==true)?'col-lg-12 animate-fade-left col-md-12 col-sm-12':'col-md-6 animate-fade-right col-sm-6 col-lg-6'" class=" col-xs-12">
+
+            <div id="kendo-tab-strip" kendo-tab-strip k-content-urls="['../app/views/organization/templates/details.html',
+                    '../app/views/organization/templates/hr.html',
+			        '../app/views/organization/templates/projects.html',
+                    '../app/views/organization/templates/dashboard.html',
+			        '../app/views/organization/templates/customers.html',
+                    '../app/views/organization/templates/sales.html',
+                        '../app/views/organization/templates/scorecard.html']" ng-click="setSelectedTab($event)">
+                <button class="collapeBtn" ng-click="expandClick()"><span ng-class="expand==true?'fa fa-chevron-right':'fa fa-chevron-left'"></span></button>
+                <ul>
+                    <li class="k-state-active">{{'COMMON_DETAILS' | translate }}</li>
+                    <li>{{'ORGANIZATIONS_HR' | translate }}</li>
+                    <li>{{'COMMON_PROJECTS' | translate }}</li>
+                    <li>{{'COMMON_DASHBOARD' | translate }}</li>
+                    <li>{{'COMMON_CUSTOMERS' | translate }}</li>
+                    <li>{{'COMMON_SALES' | translate }}</li>
+                    <li id="scorecard">{{'ORGANIZATIONS_SCORE_CARD' | translate }}</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+<div ui-view></div>

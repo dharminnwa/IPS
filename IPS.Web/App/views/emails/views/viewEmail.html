@@ -1,0 +1,128 @@
+﻿<div pane>
+    <se class="clearfix">
+        <section class="portlet-light header-blue" ng-init="init()">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">
+                            <a href="javascript:;" ng-click="backtoEmails()">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                {{'EMAIL_BACK_TO_ALL_EMAILS' | translate }}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portlet-light">
+            <div class="row m-0 pt-1">
+                <div class="col-md-12 heding-bg">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-sub-title">{{email.subject}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet box">
+                        <div class="portlet-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered tbl-view-email">
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> {{'EMAIL_TO' | translate }}  </td>
+                                            <td>{{email.toAddress}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td> {{'EMAIL_CC' | translate }} </td>
+                                            <td>{{email.ccAddress}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td> {{'EMAIL_SENT_TIME' | translate }} </td>
+                                            <td>{{email.sentTime | date:'short'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <section class="portlet-light">
+            <div class="row m-0 pt-1">
+                <div ng-bind-html="email.message | trusted"></div>
+            </div>
+            <div class="row m-0 pt-1">
+                <div class="inbox-attached" ng-if="email.ipseMailAttachments.length > 0">
+                    <div class="margin-bottom-25">
+                        Attachments
+                        <div ng-repeat="attachment in email.ipseMailAttachments">
+                            <strong>{{attachment.fileName}}</strong>
+                            <a href="javascript:;" ng-show="email.id > 0" ng-click="downloadAttachment(attachment.fileName)">Download </a>
+                            <a href="javascript:;" ng-hide="email.id > 0" ng-click="downloadGmailAttachment(attachment.fileName)">Download </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+</div>
+
+<div class="row hide">
+    <div class="col-md-10">
+        <div class="inbox-body">
+            <div class="btn btn-info"> <span class="fa fa-arrow-circle-o-left"></span> {{'EMAIL_BACK_TO_ALL_EMAILS' | translate }}</div>
+            <div class="inbox-header">
+
+                <h1 class="pull-left">{{email.subject}}</h1>
+            </div>
+            <div class="inbox-content" style="">
+                <div class="inbox-view-info">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <span class="sbold">{{'EMAIL_TO' | translate }} : </span>
+                            <span>{{email.toAddress}} </span>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="sbold">{{'EMAIL_CC' | translate }} : </span>
+                            <span>
+                                {{email.ccAddress}}
+                            </span>
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="sbold">{{'EMAIL_SENT_TIME' | translate }} : </span>
+                            <span>
+                                {{email.sentTime | date:'short'}}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="inbox-view">
+                    <p ng-bind-html="email.message"></p>
+                </div>
+                <hr>
+                <div class="inbox-attached" ng-if="email.ipseMailAttachments.length > 0">
+                    <div class="margin-bottom-25">
+                        Attachments
+                        <div ng-repeat="attachment in email.ipseMailAttachments">
+                            <strong>{{attachment.fileName}}</strong>
+                            <a href="javascript:;" ng-show="email.id > 0" ng-click="downloadAttachment(attachment.fileName)">Download </a>
+                            <a href="javascript:;" ng-hide="email.id > 0" ng-click="downloadGmailAttachment(attachment.fileName)">Download </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

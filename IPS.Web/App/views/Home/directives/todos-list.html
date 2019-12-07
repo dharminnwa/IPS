@@ -1,0 +1,128 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div kendo-tab-strip>
+            <ul>
+                <li class="k-state-active">Today</li>
+                <li>This Week</li>
+                <li>This Month</li>
+                <li>This Year</li>
+            </ul>
+            <div>
+                <ul class="todo">
+                    <li ng-repeat="todo in occurrencesToday" class="todo-li">
+                        <span class="handle">
+                            <div class="row">
+                                <div ng-if="false" class="col-md-1">
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="compleated(todo)"
+                                               name="checkbox-inline">
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/home/todos/todos/edit/{{todo.id}}"><label class="todo-label" ng-if="todo.title">{{todo.title}}</label></a>
+                                    <br />
+                                    <img src="images/Calendar.png" />
+                                    <label class="todo-label">
+                                        {{todo.start}}
+                                    </label>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <div class="todo-marker pull-right" ng-style="{{todo.buttonStyle}}"><label class="center-vertical">{{todo.taskCategoryListItem.name}}</label></div>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                    <div style="text-align:center" ng-hide="occurrencesToday.length > 0">No items found</div>
+                </ul>
+            </div>
+            <div>
+                <ul class="todo">
+                    <li ng-repeat="todo in occurrencesWeek" class="todo-li">
+                        <span class="handle">
+                            <div class="row">
+                                <div ng-if="false" class="col-md-1">
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="compleated(todo)"
+                                               name="checkbox-inline">
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/home/todos/todos/edit/{{todo.id}}"><label class="todo-label" ng-if="todo.title">{{todo.title}}</label></a>
+                                    <br />
+                                    <img src="images/Calendar.png" />
+                                    <label class="todo-label">
+                                        {{todo.start}}
+                                    </label>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <div class="todo-marker pull-right" ng-style="{{todo.buttonStyle}}"><label class="center-vertical">{{todo.taskCategoryListItem.name}}</label></div>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                    <div style="text-align:center" ng-hide="occurrencesWeek.length > 0">No items found</div>
+                </ul>
+            </div>
+            <div>
+                <ul class="todo">
+                    <li ng-repeat="todo in occurrencesMonth" class="todo-li">
+                        <span class="handle">
+                            <div class="row">
+                                <div ng-if="false" class="col-md-1">
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="compleated(todo)"
+                                               name="checkbox-inline">
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/home/todos/todos/edit/{{todo.id}}"><label class="todo-label" ng-if="todo.title">{{todo.title}}</label></a>
+                                    <br />
+                                    <img src="images/Calendar.png" />
+                                    <label class="todo-label">
+                                        {{todo.start}}
+                                    </label>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <div class="todo-marker pull-right" ng-style="{{todo.buttonStyle}}"><label class="center-vertical">{{todo.taskCategoryListItem.name}}</label></div>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                    <div style="text-align:center" ng-hide="occurrencesMonth.length > 0">No items found</div>
+                </ul>
+            </div>
+            <div>
+                <ul class="todo">
+                    <li ng-repeat="todo in occurrencesYear" class="todo-li">
+                        <span class="handle">
+                            <div class="row">
+                                <div ng-if="false" class="col-md-1">
+                                    <label class="checkbox">
+                                        <input type="checkbox" ng-click="compleated(todo)"
+                                               name="checkbox-inline">
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/home/todos/todos/edit/{{todo.id}}"><label class="todo-label" ng-if="todo.title">{{todo.title}}</label></a>
+                                    <br />
+                                    <img src="images/Calendar.png" />
+                                    <label class="todo-label">
+                                        {{todo.start}}
+                                    </label>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <div class="todo-marker pull-right" ng-style="{{todo.buttonStyle}}"><label class="center-vertical">{{todo.taskCategoryListItem.name}}</label></div>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                    <div style="text-align:center" ng-hide="occurrencesYear.length > 0">No items found</div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

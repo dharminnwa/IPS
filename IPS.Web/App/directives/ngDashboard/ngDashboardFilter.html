@@ -1,0 +1,215 @@
+<div class="row">
+    <div class="col-md-12" ng-if="profileType == profilesTypesEnum.soft">
+        <div class="CustScorecard">
+            <div class="CustScorecardIn">
+                <div style="text-align:center;width:100%;" ng-show="showReport">
+                    <center>
+                        <table style="font-size: smaller; color: #545454;" id="legend-container">
+                            <tbody>
+                                <tr id="legend-row"></tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+                <div class="form-group" ng-show="showReport">
+                    <!--<div class="col-md-3">
+                        <label class="control-label">Type of Result:</label>
+                        <select class="form-control" name="profileType" data-ng-model="kt.resultType" ng-change="resultTypeChanged()" data-ng-options="obj.id as obj.label for obj in resultTypes"></select>
+                    </div>-->
+                    <div class="col-md-3 db_drop">
+                        <label class="control-label db_title">Chart Mode:</label>
+                        <div class="sel_outer">
+                            <i class="fa fa-caret-down catDown" aria-hidden="true"></i>
+                            <select class="form-control db_select" name="chartMode" data-ng-model="kt.chartMode" ng-change="spChartModeChanged()" data-ng-options="obj.id as obj.label for obj in chartModes"></select>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-3">
+                        <label class="control-label">Presentation Mode:</label>
+                        <select class="form-control" name="presentationMode" data-ng-model="kt.presentationMode" ng-change="presentationModeChanged()" data-ng-options="obj.id as obj.label for obj in presentationModes"></select>
+                    </div>-->
+                    <div style="clear:both;"></div>
+                </div>
+                <div class="MainGraph col-md-12"></div>
+                <div class="GraphList"></div>
+                <div class="Scorebox" ng-show="showReport">
+                    <div ng-class="showKpiBar?'ScoreboxLeft':''" ng-show="showGauge">
+                        <center>
+                            <h3 class="width100prc">Total Score {{ngReportData.mainParticipantsRaw}}</h3>
+                            <div id="gauge-container">
+                                <div id="gauge_total_score" style="width: 300px; height: 300px;"></div>
+                                <div id="gauge_total_score_value" style="font-size: x-large;"> </div>
+                            </div>
+                            <div>
+                                <div id="kpiImageScore"></div>
+                                <img src="images/diagram-icon.png" title="Show Scorecard" class="clickable scorecard-link" ng-click="goToScorecard()" />
+                            </div>
+                        </center>
+                    </div>
+                    <div ng-class="showKpiBar?'ScoreboxRight':''">
+                        <div class="ScoreboxList" ng-show="ngReportData.isShowStrongKpi">
+                            <h3 class="width200pxCentered" style="width: 260px;text-align:center;" ng-show="showKpiBar ">Styrker</h3>
+                            <div class="StyrkerBox">
+                                <div class="StyrkerBoxLeft" ng-show="showKpiBar">
+                                    <div id="gauge-container-small">
+                                        <div id="gauge_total_strong" style="width: 260px; height: 190px; padding-top:20px; margin: 0 auto;"></div>
+                                        <div id="gauge_total_strong_value" style="font-size: x-large;"> </div>
+                                    </div>
+                                    <div id="kpiImageStrong" style="text-align:center;"></div>
+                                </div>
+                                <div ng-class="showKpiBar?'StyrkerBoxRi strongBox':'strongBox'" ng-show="showKpiBar">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ScoreboxList" ng-show="ngReportData.isShowWeakKpi">
+                            <h3 class="width200pxCentered" style="width: 280px;text-align:center;" ng-show="showKpiBar">Forbedringsomr&aring;der</h3>
+                            <div class="StyrkerBox">
+                                <div class="StyrkerBoxLeft" ng-show="showKpiBar">
+                                    <div id="gauge-container-small">
+                                        <div id="gauge_total_weak" style="width: 260px; height: 190px; padding-top:20px; margin: 0 auto;"></div>
+                                        <div id="gauge_total_weak_value" style="font-size: x-large;"> </div>
+                                    </div>
+                                    <div id="kpiImageWeak" style="text-align:center;"></div>
+                                </div>
+                                <div ng-class="showKpiBar?'StyrkerBoxRi weakBox':'weakBox'" ng-show="showKpiBar">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix"></div>
+                    <div ng-show="showCompareGauge" ng-class="showKpiBar?'ScoreboxLeft':''">
+                        <center>
+                            <h3 class="width100prc">Total Score {{ngReportData.participantsRaw}}</h3>
+                            <div id="gauge-container">
+                                <div id="compare_gauge_total_score" style="width: 300px; height: 300px;"></div>
+                                <div id="compare_gauge_total_score_value" style="font-size: x-large;"> </div>
+                            </div>
+                            <div>
+                                <div id="kpiImageScore"></div>
+                                <img src="images/diagram-icon.png" title="Show Scorecard" class="clickable scorecard-link" ng-click="goToScorecard()" />
+                            </div>
+                        </center>
+                    </div>
+
+                    <div ng-show="showCompareKpi" ng-class="showKpiBar?'ScoreboxRight':''">
+                        <div class="ScoreboxList" ng-show="ngReportData.isShowStrongKpi">
+                            <h3 class="width200pxCentered" style="width: 260px;text-align:center;" ng-show="showKpiBar ">Styrker</h3>
+                            <div class="StyrkerBox">
+                                <div class="StyrkerBoxLeft" ng-show="showCompareKpi">
+                                    <div id="gauge-container-small">
+                                        <div id="compare_gauge_total_strong" style="width: 260px; height: 190px; padding-top:20px; margin: 0 auto;"></div>
+                                        <div id="compare_gauge_total_strong_value" style="font-size: x-large;"> </div>
+                                    </div>
+                                    <div id="kpiImageStrong" style="text-align:center;"></div>
+                                </div>
+                                <div ng-class="showKpiBar?'StyrkerBoxRi comparestrongBox':'comparestrongBox'" ng-show="showKpiBar">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ScoreboxList" ng-show="ngReportData.isShowWeakKpi">
+                            <h3 class="width200pxCentered" style="width: 280px;text-align:center;" ng-show="showKpiBar">Forbedringsomr&aring;der</h3>
+                            <div class="StyrkerBox">
+                                <div class="StyrkerBoxLeft" ng-show="showKpiBar">
+                                    <div id="gauge-container-small">
+                                        <div id="compare_gauge_total_weak" style="width: 260px; height: 190px; padding-top:20px; margin: 0 auto;"></div>
+                                        <div id="compare_gauge_total_weak_value" style="font-size: x-large;"> </div>
+                                    </div>
+                                    <div id="kpiImageWeak" style="text-align:center;"></div>
+                                </div>
+                                <div ng-class="showKpiBar?'StyrkerBoxRi compareweakBox':'compareweakBox'" ng-show="showKpiBar">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12" ng-if="profileType == profilesTypesEnum.knowledgetest">
+        <div class="form-group" ng-show="showReport">
+            <div class="col-md-3 db_drop">
+                <label class="control-label db_title">Type of Result:</label>
+                <div class="sel_outer">
+                    <i class="fa fa-caret-down catDown" aria-hidden="true"></i>
+                    <select class="form-control db_select" name="profileType" data-ng-model="kt.resultType" ng-change="resultTypeChanged()" data-ng-options="obj.id as obj.label for obj in resultTypes"></select>
+                </div>
+            </div>
+            <!--<div class="col-md-3">
+                <label class="control-label">Chart Mode:</label>
+                <select class="form-control" name="chartMode" data-ng-model="kt.chartMode" ng-change="chartModeChanged()" data-ng-options="obj.id as obj.label for obj in chartModes"></select>
+
+            </div>
+
+            <div class="col-md-3">
+                <label class="control-label">Presentation Mode:</label>
+                <select class="form-control" name="presentationMode" data-ng-model="kt.presentationMode" ng-change="presentationModeChanged()" data-ng-options="obj.id as obj.label for obj in presentationModes"></select>
+            </div>-->
+            <div style="clear:both;"></div>
+        </div>
+        <div class="col-md-12" ng-show="showReport">
+            <div class="col-md-12" style="text-align:center">
+                <div class="margintop10" ng-show="scorecard.legends.length > 0 && scorecard.isShowReport" data-ng-repeat="legend in scorecard.legends track by $index">
+                    <div class="scorecard-legend pull-left margin-left-10" style="background-color: {{legend.color}}"></div>
+                    <span class="pull-left margin-left-5">{{legend.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-show="showReport">
+            <div class="col-md-4" ng-show="showReport">
+                <div class="">
+                    <div class="">
+                        <div class="">
+
+                            <div id="gauge-container">
+                                <div id="kt_gauge_total_score" style="width: 300px; height: 300px; margin-left: 40px;"></div>
+                                <div id="kt-gauge_total_score_value" style="font-size: x-large;">{{kt.totalScoreDescription}}</div>
+                            </div>
+                            <div>
+                                <div id="kpiImageScore"></div>
+                                <img src="images/diagram-icon.png" title="Show Scorecard" class="clickable scorecard-link" ng-click="goToScorecard()" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div id='KTChart'></div>
+
+            </div>
+
+            <div style="clear:both;"></div>
+            <div class="col-md-3 db_drop">
+                <label class="control-label db_title">Type of Result View:</label>
+                <div class="sel_outer">
+                    <i class="fa fa-caret-down catDown" aria-hidden="true"></i>
+                    <select class="form-control db_select" name="profileType" data-ng-model="kt.ktResultType" ng-change="ktResultTypeChanged()" data-ng-options="obj.id as obj.label for obj in ktResultTypes"></select>
+                </div>
+            </div>
+            <div class="col-md-3 db_drop" ng-hide="!(kt.ktResultType == ktResultTypes[1].id)">
+                <label class="control-label db_title">Group by:</label>
+                <div class="sel_outer">
+                    <i class="fa fa-caret-down catDown" aria-hidden="true"></i>
+                    <select ng-disabled="!(kt.ktResultType == ktResultTypes[1].id)" class="form-control db_select" data-ng-model="kt.groupById" ng-change="ktGroupByChanged()" data-ng-options="obj.id as obj.name for obj in groupBy"></select>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="col-sm-12" id="ktresulttypes">
+            </div>
+            <div class="col-lg-12">
+                <div class="GraphList"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

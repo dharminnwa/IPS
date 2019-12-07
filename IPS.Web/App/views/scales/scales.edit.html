@@ -1,0 +1,22 @@
+<div pane>
+    <form name="editScales" novalidate>
+        <div class="row">
+            <div class="col-sm-12 return-menu">
+                <a href="#/home/settings/scales" class="newhead title fa fa-long-arrow-left"></a>
+                <h1 class="title">{{'SOFTPROFILE_SCALE' | translate }}</h1>
+                <div class="top-border"></div>
+            </div>
+            <div class="col-md-12">
+                <div ng-scale ng-model="scale" ng-is-tamplate="true" ng-is-required="true"></div>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-click="saveScale();" ng-disabled="editScales.$invalid">{{'COMMON_SAVE' | translate }}</button>
+                <button class="btn btn-cstm primary" ng-show="isEdit" ng-click="removal.open().center()">{{'COMMON_REMOVE' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions" ></span>
+<div ui-view></div>

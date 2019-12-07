@@ -1,0 +1,47 @@
+﻿<div class="form-group">
+    <div class="lookup-select select-body">
+        <label class="control-label">{{lookUpName}}</label>
+        <select class="form-control tab-control"
+                value="Select {{lookUpName}}"
+                name="{{lookUpName}}"
+                ng-options="lookup.name for lookup in allLookUps"
+                ng-model="selectedLookup"
+                ng-disabled="{{isDisabled}}">
+            <option value="">{{'COMMON_SELECT' | translate }} {{lookUpName}}</option>
+        </select>
+    </div>
+    <div class="modal fade bs-{{lookUpType}}-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{'COMMON_ADD' | translate }} {{lookUpName}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                                    <input type="text" class="form-control tab-control" ng-model="newLookUp.name" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                    <input type="text" class="form-control tab-control" ng-model="newLookUp.description" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                <button type="button" class="btn btn-cstm primary pull-right" data-dismiss="modal" aria-label="Close" ng-click="addNewLookup()">{{'COMMON_ADD' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lookup-select button">
+        <a class="add-button {{isDisabled ? 'disabled' : ''}}" data-toggle="modal" data-target="{{isDisabled ? '' : '.bs-' + lookUpType + '-lg'}}"></a>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>

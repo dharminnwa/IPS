@@ -1,0 +1,19 @@
+﻿<div pane name="notification">
+    <div class="row">
+        <header-navigation page-name="{{'BOOKMARKMANAGER_BOOKMARK_MANAGER' | translate }}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'BOOKMARKMANAGER_BOOKMARK_MANAGER' | translate }}</span>
+            </div>
+            <div kendo-grid k-options="bmkManager.gridOptions"></div>
+        </div>
+        <div kendo-window="removal" k-title="'{{'COMMON_CONFIRM' | translate }}'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+            {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+            <button class="k-button" ng-click="bmkManager.remove(dataItem.id)">{{'COMMON_YES' | translate }}</button>
+            <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+        </div>
+    </div>
+</div>
+<span kendo-notification="bmkManager.notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

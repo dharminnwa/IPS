@@ -1,0 +1,45 @@
+<div pane name="cmsmanage" >
+    <div class="row" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="return-menu">
+                <a ng-click="getscopes()" class="newhead title fa fa-long-arrow-left"></a>
+                <a class="addOrg" href="#/home/cms/add">+ {{'PLANS_ADD_NEW_PAGE' | translate }}</a>
+                <h1 class="title newhead">{{'PLANS_PLAN' | translate }}</h1>
+          
+            </div>
+            <input type="text" placeholder="{{'COMMON_SEARCH_YOUR_PAGE_HERE' | translate }}" ng-model="pageFilter" class="form-control search-input_left">
+            <table class="k-selected table" kendo-grid >
+            <thead role="rowgroup" >
+                <tr role="row" class="tabHead">
+                    <th role="columnheader" data-field="rowNumber" rowspan="1" data-title="#" data-index="0" class="k-header ng-scope" data-role="columnsorter">#</th>
+                    <th role="columnheader" data-field="logo" rowspan="1" data-title="Logo" data-index="1" class="k-header ng-scope" data-role="columnsorter">{{'PLANS_PLAN_NAME' | translate }}</th>
+                    <th role="columnheader" data-field="name" rowspan="1" data-title="Name" data-index="2" class="k-header ng-scope" data-role="columnsorter">{{'PLANS_ANNUAL_PRICE' | translate }}</th>
+                    <th role="columnheader" data-field="industryName" rowspan="1" data-title="Industry" data-index="3" class="k-header ng-scope" data-role="columnsorter">{{'PLANS_CREATED_AT' | translate }}</th>
+                    <th role="columnheader" data-field="contactName" rowspan="1" data-title="Contact Name" data-index="5" class="k-header ng-scope" data-role="columnsorter">{{'COMMON_ACTION' | translate }}</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+				<tbody class="newtbody">
+                <tr class='oraganization-row' dir-paginate="plan in allPlans | itemsPerPage:10">
+                    <td>{{plan.planID}}</td>
+                    <td>{{plan.name}}</td>
+                    <td>{{plan.annualPrice}}</td>
+                    <td>{{plan.createdDate}}</td>
+                    <td>
+						<button class="tab_view"><i class="fa fa-eye"></i></button>
+						<button class="tab_edit" ng-click="transferEdit(plan.planID)"><i class="fa fa-pencil"></i></button>
+						<button class="tab_delete"><i class="fa fa-trash"></i></button>
+					</td>
+                </tr>
+
+
+                </tbody>
+
+            </table><dir-pagination-controls boundary-links="true"  ></dir-pagination-controls>
+        </div>
+
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+<div ui-view></div>

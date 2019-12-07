@@ -1,0 +1,103 @@
+﻿<div pane name="notification">
+    <form name="newNotification" novalidate>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select name="organizationId" class="form-control"
+                            data-ng-model="notification.organizationId"
+                            ng-selected="notification.organizationId > 0 ? notification.organizationId:null"
+                            data-ng-options="obj.id as obj.name for obj in organizations"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                    <span ng-show='newNotification.name.$error.required' class="required">*</span>
+                    <input type="text" class="form-control" name="name" ng-model="notification.name" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'NOTIFICATION_PROJECT_TYPE' | translate }}</label>
+                    <select class="form-control"
+                            data-ng-model="notification.projectTypeId"
+                            data-ng-options="obj.value as obj.text for obj in projectTypes"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                    <select class="form-control"
+                            data-ng-model="notification.profileTypeId"
+                            data-ng-options="obj.value as obj.text for obj in profileTypes"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">{{'NOTIFICATION_TEMPLATE_FOR' | translate }}</label>
+                    <select class="form-control"
+                            data-ng-model="notification.notificationTemplateTypeId"
+                            data-ng-options="obj.id as obj.name group by obj.category for obj in templateTypes"></select>
+                </div>
+                <div class="form-group" ng-show="showStageDDL()">
+                    <label class="control-label">{{'NOTIFICATION_STAGE_TYPE' | translate }}</label>
+                    <select class="form-control"
+                            data-ng-model="notification.stageTypeId"
+                            data-ng-options="obj.value as obj.text for obj in stageTypes | filter:filterStageTypes"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_ROLE' | translate }}</label>
+                    <select class="form-control"
+                            data-ng-model="notification.evaluationRoleId"
+                            data-ng-options="evaluationRole.id as evaluationRole.name for evaluationRole in evaluationRoles"></select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_CULTURE' | translate }}</label>
+                    <span ng-show='newNotification.culture.$error.required' class="required">*</span>
+                    <select class="form-control"
+                            value="Select Culture"
+                            name="culture"
+                            ng-options="culture.id as culture.cultureName for culture in cultures"
+                            ng-model="notification.cultureId"
+                            ng-change="changeCulture()"
+                            required>
+                        <option value="">{{'NOTIFICATION_SELECT_CULTURE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="md-checkbox-list">
+                        <div class="md-checkbox">
+                            <input type="checkbox" name="notificationisDefault" id="notificationisDefault" ng-model="notification.isDefualt" class="md-check">
+                            <label for="notificationisDefault">
+                                <span></span>
+                                <span class="check"></span>
+                                <span class="box"></span> {{'NOTIFICATION_IS_DEFAULT' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="kendo-tab-strip" kendo-tab-strip k-content-urls="['../app/views/notificationTemplates/views/gridTabs/email.html', '../app/views/notificationTemplates/views/gridTabs/sms.html', '../app/views/notificationTemplates/views/gridTabs/UIMessage.html']" ng-init="setSelectedTab()">
+                    <ul>
+                        <li class="k-state-active">{{'COMMON_EMAIL' | translate }}</li>
+                        <li>{{'COMMON_SMS' | translate }}</li>
+                        <li>{{'NOTIFICATION_UI_MESSAGE' | translate }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary" ng-show="isEdit()" ng-click="removal.open().center()">{{'COMMON_REMOVE' | translate }}</button>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="goBack()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-disabled="newNotification.$error.required" ng-click="save()">{{'COMMON_SAVE' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" style="margin-right:10px;" ng-disabled="newNotification.$error.required || !isApplyTheme" ng-click="applyTheme()">{{'NOTIFICATION_APPLY_THEME' | translate }}</button>
+            </div>
+            <div kendo-window="removal" k-title="'Confirm Delete'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+                {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+                <button class="k-button" ng-click="remove()">{{'COMMON_YES' | translate }}</button>
+                <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div ui-view></div>

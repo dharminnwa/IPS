@@ -1,0 +1,120 @@
+﻿.profiles-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.icon-groups a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .edit-icon {
+    background: url(../../images/edit.png) no-repeat;
+}
+
+.icon-groups .clone-icon {
+    background: url(../../images/clone.png) no-repeat;
+}
+
+.icon-groups .delete-icon {
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.icon-groups .refresh-icon {
+    background: url(../../images/refresh.png) no-repeat;
+}
+
+.filter-group {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .filter-group .profiles-menu {
+        margin-top: 0px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+.required {
+    color: #EB0100;
+}
+
+.disabled-link {
+    pointer-events: none !important;
+    cursor: default;
+    color: Gray;
+}
+
+.ips-button.primary.save-and-go {
+    margin-left: 10px;
+}
+
+.top-border {
+    border-bottom: 1px solid #e5e5e5;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 20px;
+}
+
+.form-group.date-group .form-control {
+    display: inline-block;
+    width: auto;
+}
+
+.form-group.date-group span.control-item {
+    margin-right: 20px;
+}
+
+.form-group .frequency, .form-group .frequency-container {
+    display: inline-block;
+}
+
+.date-group .control-item input[name=duration] {
+    margin-bottom: 15px;
+}
+
+.medal-rule .icon {
+    width: 32px;
+    height: 32px;
+}
+
+    .medal-rule .icon.bronze-icon {
+        background: url(../../images/metalbronzeblue.png) no-repeat;
+    }
+
+    .medal-rule .icon.silver-icon {
+        background: url(../../images/metalsilverblue.png) no-repeat;
+    }
+
+    .medal-rule .icon.gold-icon {
+        background: url(../../images/metalgoldblue.png) no-repeat;
+    }
+
+.medal-rule .row {
+    margin-bottom: 15px;
+}
+
+.medal-rule .dash {
+    height: 1px;
+    width: 10px;
+    background: black;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.medal-rule .row label {
+    margin: 0;
+    line-height: 30px;
+}
+
+.medal-rule .row .required {
+    position: absolute;
+    right: 3px;
+    top: 7px;
+}

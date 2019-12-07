@@ -1,0 +1,20 @@
+<div pane>
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a href="#/home" class="newhead title fa fa-long-arrow-left"></a>
+            <h1 class="title">{{'LEFTMENU_BSC_GOALS' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'BSCGOALS_BALANCED_SCORECARD_GOALS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="add();"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div id="bscGoalsGrid" kendo-grid k-options="gridOptions"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

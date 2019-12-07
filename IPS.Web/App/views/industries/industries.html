@@ -1,0 +1,65 @@
+<div pane>
+    <div class="clearfix">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'LEFTMENU_INDUSTRIES' | translate }}</span>
+                        <div class="btn-group">
+                            <button class="btn btn-cstm dropdown-toggle  " type="button" data-toggle="dropdown" aria-expanded="false">
+                                {{selectedOrganization != null?selectedOrganization.name:'-- Select Organization--'}}
+                                <i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <div class="scroller" style="height: 250px;">
+                                        <ul class="dropdown-menu-list">
+                                            <li ng-click="changeOrganization(organization.id)" ng-repeat="organization in organizations">
+                                                <a href="javascript:;"> {{organization.name}} </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portlet-light portlet-light-box">
+            <div class="portlet box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inputs pull-right">
+                            <div class="portlet-input input-inline pull-right">
+                                <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="add();">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New {{'LEFTMENU_INDUSTRIES' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <kendo-tooltip options="tooltipOptions">
+                            <div id="industriesGrid" kendo-grid k-options="gridOptions">
+                                <div k-detail-template>
+                                    <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
+                                </div>
+                            </div>
+                        </kendo-tooltip>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="notificationBox"></div>
+    <div id="removal">
+        {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+        <button class="btn btn-cstm primary" id="removalYes">{{'COMMON_YES' | translate }}</button>
+        <button class="btn btn-cstm primary" id="removalNo">{{'COMMON_CANCEL' | translate }}</button>
+    </div>
+</div>
+<div ui-view></div>

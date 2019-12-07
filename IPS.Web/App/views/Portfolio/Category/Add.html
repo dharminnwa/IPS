@@ -1,0 +1,64 @@
+<section class="panel" ng-init="(categoryId)?getCategory():''">
+    <header class="panel-heading newPanelHead create-department " >
+        {{(categoryId)?'Edit':'Add'}} Page                                </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form  class="newForm"  ng-submit="(categoryId)?updateCategory():addCategory()" >
+            <div class="row">
+                <div class="form-group col-sm-12 col-sm-12">
+                    <label  class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">Select language (*)</label>
+                    <div class="col-lg-9" ng-init="getLanguages()">
+
+                        <select class="form-control" required ng-model="category.languageID"  required>
+
+                            <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-sm-12 ">
+                    <label  class="control-label col-lg-3 col-md-12 col-sm-12 col-xs-12">Title (*)</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" required id="cname" name="project" ng-model="category.title" minlength="2" type="text" value="" >
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+<!--                <div class="form-group col-sm-6 col-sm-6">
+                    <label  class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">Parent</label>
+                    <div class="col-lg-9">
+                        <select class="form-control"  ng-model="category.parentID" ng-init="category.parentID=0" required>
+
+                            <option ng-repeat="language in parent" value="{{language.id}}">{{language.name}}</option>
+
+                        </select>
+                        <span ng-show="category.parentID.$touched && category.parentID.$invalid">The project field is required.</span>
+                    </div>
+                </div> -->
+
+
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12" >Description</label>
+                    <div class="col-lg-12">
+                        <textarea ng-model="category.description" class="form-control" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <div class="col-lg-offset-1 btmBtn">
+                        <button class="btn btnAdd" type="submit" name="submit">{{(categoryId)?'Update':'Add'}}</button>
+                        <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/portfolio/category'">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</section>

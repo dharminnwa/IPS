@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div ng-participants ng-users="stageEdit.users"
+             ng-participant-users="stageEdit.participants"
+             ng-evaluation-roles="stageEdit.evaluationRoles"
+             ng-job-positions="stageEdit.jobPositions"
+             ng-evaluator-users="stageEdit.evaluators"
+             ng-add-participant="stageEdit.addParticipant(participant)"
+             ng-refresh-participant="stageEdit.refreshParticipant(participantId)"
+             ng-remove-participant="stageEdit.removeParticipant(participantId)"
+             ng-renove-all-participants="stageEdit.removeAllParticipants(roleId)"
+             ng-stages="stageEdit.stageInfo.stages"
+             ng-status-of-stages="stageEdit.statusOfStages"
+             ng-selected-stage-id="stageEdit.stage.id"
+             ng-self-evaluation-update="stageEdit.selfEvaluationUpdate(participantId, isSelfEvaluation)"
+             ng-send-start-notification="stageEdit.sendStartNotification(stageId)"
+             ng-lock-update="stageEdit.lockUpdate(participantId, isLocked)"
+             ng-score-manager-update="stageEdit.scoreManagerUpdate(participantId, isScoreManager)" 
+             ng-profile-type-id="profileTypeId">
+        </div>
+    </div>
+</div>

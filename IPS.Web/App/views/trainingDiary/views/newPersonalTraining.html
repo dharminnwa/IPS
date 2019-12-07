@@ -1,0 +1,331 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title"> {{'COMMON_PERSONAL' | translate}} {{'COMMON_TRAINING' | translate}} </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="stepwizard">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step question-wizard-btn" data-step="1" data-target="#step-1">
+                        <a href="javascript:;" type="button" class="btn btn-circle active btn-default" ng-click="tabClick(1)">1</a>
+                        <p class="hidden-sm hidden-xs">{{'COMMON_CHOOSE' | translate}} {{'COMMON_SKILL' | translate}} </p>
+                    </div>
+                    <div class="stepwizard-step question-wizard-btn" data-step="2" data-target="#step-2">
+                        <a href="javascript:;" type="button" class="btn btn-default btn-circle" ng-click="tabClick(2)">2</a>
+                        <p class="hidden-sm hidden-xs">
+                            {{'COMMON_CURRENT_PERFORMANCE_LEVEL' | translate}}
+                        </p>
+
+                    </div>
+                    <div class="stepwizard-step question-wizard-btn" data-step="3" data-target="#step-3">
+                        <a href="javascript:;" type="button" class="btn btn-default btn-circle" ng-click="tabClick(3)">3</a>
+                        <p class="hidden-sm hidden-xs">
+                            {{'COMMON_GOAL' | translate}}
+                        </p>
+
+                    </div>
+                    <div class="stepwizard-step question-wizard-btn" data-step="4" data-target="#step-4">
+                        <a href="javascript:;" type="button" class="btn btn-default btn-circle" ng-click="tabClick(4)">4</a>
+                        <p class="hidden-sm hidden-xs">
+                            {{'COMMON_DURATION' | translate}}
+                        </p>
+
+                    </div>
+                    <div class="stepwizard-step question-wizard-btn" data-step="5" data-target="#step-5">
+                        <a href="javascript:;" type="button" class="btn btn-default btn-circle" ng-click="tabClick(5)">5</a>
+                        <p class="hidden-sm hidden-xs">
+                            {{'COMMON_TRAINING_FREQUENCY' | translate}}
+                        </p>
+
+                    </div>
+                    <div class="stepwizard-step question-wizard-btn" data-step="6" data-target="#step-6">
+                        <a href="javascript:;" type="button" class="btn btn-default btn-circle" ng-click="tabClick(6)">6</a>
+                        <p class="hidden-sm hidden-xs">
+                            {{'COMMON_DURATION' | translate}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row setup-content active" id="step-1">
+                <div class="clearfix">
+                    <div class="col-md-6 col-md-offset-3 mt-5">
+                        <div class="form-group">
+                            <label class="cstm-lable col-md-offset-3">{{'WHAT_DO_YOU_WANT_TO_IMPROVE' | translate}} </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3 mt-5">
+                        <div class="form-group">
+                            <select id="personalTrainingSkillId"
+                                    kendo-drop-down-list
+                                    k-data-text-field="'name'"
+                                    k-data-value-field="'id'"
+                                    k-filter="'contains'"
+                                    k-data-source="allSkills"
+                                    k-option-label="'Select Skill...'"
+                                    ng-model="newTraining.skillId"
+                                    ng-change="skillSelected()"
+                                    k-rebind="true"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix" ng-show="allTrainings.length > 0">
+                    <div class="col-md-4" ng-repeat="trainingItem in allTrainings">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <h1 class="card-heading">
+                                        <label class="check">
+                                            <input type="checkbox" name="training_{{trainingItem.id}}" ng-model="trainingItem.isTrainingSelected" ng-change="checkTraining(trainingItem.id)">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <span>{{trainingItem.name}}</span>
+                                    </h1>
+
+                                </div>
+                                <div class="card-body">
+                                    <p><small>{{trainingItem.skillName}}</small></p>
+                                    <p class="card-p training-description">
+                                        {{trainingItem.why}}
+                                    </p>
+                                </div>
+
+                                <nav class="nav-tabs">
+                                    <ul class="nav nav-pills pull-left">
+                                        <li class="card-action" ng-click="openTrainingDetail(trainingItem.id)">
+                                            <a class="fa fa-eye" href="javascript:;"></a>
+                                        </li>
+                                        <li class="card-action" ng-show="trainingItem.trainingMaterials.length > 0" ng-click="viewTrainingMaterials(trainingItem.id)">
+                                            <a class="fa fa-file" href="javascript:;"></a>
+                                        </li>
+                                        <!--<li class="card-action" ng-repeat="materialItem in trainingItem.trainingMaterials track by $index" ng-show="$index < 5">
+                                            <a href="javascript:;">
+                                                <i class="fa " ng-class="tmCSS(materialItem.materialType)" aria-hidden="true"></i>
+                                            </a>
+                                        </li>-->
+                                        <!--<li class="card-action" ng-hide="trainingItem.trainingMaterials.length > 0">
+                                            <a href="javascript:;">  No Materials</a>
+                                        </li>-->
+                                    </ul>
+
+                                </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix" ng-show="newTraining.skillId > 0 && (!allTrainings.length > 0) ">
+                    <div class="alert  alert-warning">
+                        <strong> {{'LEFTMENU_TRAININGS' | translate}} {{'COMMON_NOT_FOUND' | translate}}! </strong>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-5">
+                    <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-disabled="!(checkIsTrainingSelected())" ng-click="nextTab()">
+                        {{'COMMON_CONTINUE' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row setup-content" id="step-2">
+        <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-4 mt-5">
+                <div class="form-group">
+                    <label class="cstm-lable">{{'WHAT_IS_CURRENT_PERFORMANCE_LEVEL' | translate}} </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-6 pt">
+            <input id="performanceLevel" type="text" data-role="slider" ng-model="newTraining.performanceLevel">
+        </div>
+
+        <div class="col-md-4 col-md-offset-5">
+            <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-click="nextTab()">
+                {{'COMMON_CONTINUE' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row setup-content" id="step-3">
+        <div class="col-md-12">
+            <div class="col-md-4 col-md-offset-4 mt-5">
+                <div class="form-group">
+                    <label class="cstm-lable">{{'WHAT_IS_YOUR_FINAL_GOAL' | translate}}  </label>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-2 col-md-6 pt">
+            <input id="goalLevel" type="text" data-role="slider" ng-model="newTraining.goalLevel">
+        </div>
+
+        <div class="col-md-4 col-md-offset-5">
+            <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-click="nextTab()">
+                {{'COMMON_CONTINUE' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row setup-content" id="step-4">
+        <div class="col-md-6 mt-5">
+            <div class="form-group">
+                <label class="control-label" for="startDate">{{'COMMON_START_DATE' | translate }}</label>
+                <input kendo-date-time-picker
+                       id="startDate"
+                       name="startDate"
+                       k-on-open="startDateOpen(kendoEvent)"
+                       k-on-change="startDateChange(kendoEvent)"
+                       ng-model="newTraining.startDate" />
+            </div>
+        </div>
+
+        <div class="col-md-6 mt-5">
+            <div class="form-group">
+                <label class="control-label" for="endDate">{{'COMMON_END_DATE' | translate }}</label>
+                <input kendo-date-time-picker
+                       id="endDate"
+                       name="endDate"
+                       k-on-open="endDateOpen(kendoEvent)"
+                       ng-model="newTraining.endDate" />
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-5">
+            <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-click="nextTab()" ng-disabled="newTraining.endDate == null">
+                {{'COMMON_CONTINUE' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row setup-content" id="step-5">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="form-cstm-lable">{{'COMMON_HOW_OFTEN' | translate }}</label>
+                <div class="">
+                    <div ng-recurency ng-model="newTraining" ng-property="frequency"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-5">
+            <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-click="nextTab()">
+                {{'COMMON_CONTINUE' | translate}} <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row setup-content" id="step-6">
+
+        <div class="col-md-12 mt-5">
+            <div class="form-group">
+                <label class="form-cstm-lable" for="duration">{{'COMMON_NAME' | translate }}</label>
+                <input type="text" class="form-control tab-control" ng-model="newTraining.name"
+                       name="newTrainingName" />
+            </div>
+        </div>
+
+        <div class="col-md-6 mt-5">
+            <div class="form-group">
+                <label class="form-cstm-lable" for="duration">{{'COMMON_HOW_LONG' | translate }}</label>
+                <input class="form-control" name="duration" ng-model="newTraining.duration"
+                       type="number" min="0" />
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <div class="form-group">
+                <label class="form-cstm-lable" for="durationMetrics">{{'COMMON_DURATION_METRICS' | translate }}</label>
+                <select class="form-control tab-control" name="durationMetrics"
+                        ng-model="newTraining.durationMetricId"
+                        ng-options="metric.id as metric.name for metric in durationMetrics"></select>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-5">
+            <button class="btn btn-primary btn-cstm nextBtn btn-md mt-6" type="button" ng-click="saveTraining()">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>  {{'COMMON_SAVE' | translate}}
+            </button>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="portlet-light" ng-show="trainingMaterials.length > 0">
+    <div class="row">
+        <div class="col-lg-12">
+            {{'TRAININGDAIRY_TRAINING_MATERIALS' | translate}} - {{trainingInfo.name}}
+        </div>
+        <div class="col-md-12">
+            <div class="portfolio-content portfolio-1" ng-show="trainingMaterials.length > 0">
+                <div id="training-material-filters" class="cbp-l-filters-button">
+                    <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_ALL' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                    <div data-filter=".tm-video" class="cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_VIDEO' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                    <div data-filter=".tm-image" class="cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_IMAGE' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                    <div data-filter=".tm-audio" class="cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_AUDIO' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                    <div data-filter=".tm-document" class="cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_DOCUMENT' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                    <div data-filter=".tm-link" class="cbp-filter-item btn dark btn-outline uppercase">
+                        {{'COMMON_LINK' | translate }}
+                        <div class="cbp-filter-counter"></div>
+                    </div>
+                </div>
+                <div id="training-material" class="cbp">
+                    <div class="cbp-item" ng-repeat="material in trainingMaterials" ng-class="trainingMaterialClass(material.materialType,material.name,material.link)">
+                        <div class="cbp-caption">
+                            <div class="cbp-caption-defaultWrap">
+                                <img ng-src="{{material.materialType =='Video'?'images/tm-video.png':material.materialType =='Document' ?'images/tm-document.png': material.materialType =='Audio'?'images/tm-audio.png' : material.materialType =='Image'? 'images/tm-image.png':'images/tm-url.png'}}">
+                            </div>
+                            <div class="cbp-caption-activeWrap">
+                                <div class="cbp-l-caption-alignCenter">
+                                    <div class="cbp-l-caption-body">
+                                        <a id="{{material.id}}" data-link="{{material.link}}" data-name={{material.name}} href="{{material.link}}" class="cbp-singlePage cbp-l-caption-buttonLeft btn red uppercase btn red uppercase">{{'COMMON_MORE_INFO' | translate }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">{{material.title}}</div>
+                        <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center">{{material.skill}}</div>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="trainingMaterials.length > 0">
+                <h4 class="error">{{'TRAININGDAIRY_NO_TRAINING_MATERIAL_FOR_THIS_TRAINING' | translate }}</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<own-training-popup organization-id="currentUser.user.organizationId"
+                    user-id="currentUser.user.userId"
+                    open-training-popup-mode="openTrainingPopupMode"
+                    save-mode="saveMode"
+                    editing-training="editingTraining"
+                    skill="activeSkill"
+                    evaluation-Agreement="evaluationAgreement">
+</own-training-popup>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2779fd756e6249cf8d9d5556e0cd04f7" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="IPSModel.Answer" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.AnswerType" Width="1.5" PointX="0.75" PointY="75.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.Culture" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.Department" Width="1.5" PointX="3.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.DurationMetric" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.EvaluationRole" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.Industry" Width="1.5" PointX="18.125" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.KTMedalRule" Width="1.5" PointX="1.5" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.Link_TeamUsers" Width="1.5" PointX="10.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.Link_TrainingParticipants" Width="1.5" PointX="13.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.MeasureUnit" Width="1.5" PointX="1.5" PointY="67.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ProfileCategory" Width="1.5" PointX="1.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ProfileScaleSettingsRule" Width="1.5" PointX="1.5" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ProfileType" Width="1.5" PointX="1.5" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ScorecardGoal" Width="1.5" PointX="3.75" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.ScorecardPerspective" Width="1.5" PointX="1.5" PointY="90.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.StructureLevel" Width="1.5" PointX="1.5" PointY="72.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.TaskCategoryList" Width="1.5" PointX="3.75" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.TaskPriorityListItem" Width="1.5" PointX="6" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.TaskPriorityList" Width="1.5" PointX="1.875" PointY="55.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.TaskStatusListItem" Width="1.5" PointX="6" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.TaskStatusList" Width="1.5" PointX="15.875" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IPSModel.UserType" Width="1.5" PointX="3.75" PointY="26.875" IsExpanded="true" />
+        <AssociationConnector Association="IPSModel.FK_Industries_Industries" ManuallyRouted="false" />
+        <AssociationConnector Association="IPSModel.FK_TaskPriorityLists_TaskPriorityListItems" ManuallyRouted="false" />
+        <AssociationConnector Association="IPSModel.FK_TaskStatusListItems_TaskStatusLists" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IPSModel.User" Width="1.5" PointX="6" PointY="37.875" />
+        <AssociationConnector Association="IPSModel.FK_Users_Cultures" />
+        <AssociationConnector Association="IPSModel.FK_Departments_Users" />
+        <AssociationConnector Association="IPSModel.FK_Link_TeamUsers_Users" />
+        <AssociationConnector Association="IPSModel.FK_Users_UserTypes" />
+        <AssociationConnector Association="IPSModel.Link_DepartmentUsers" />
+        <EntityTypeShape EntityType="IPSModel.JobPosition" Width="1.5" PointX="7.75" PointY="41.875" />
+        <AssociationConnector Association="IPSModel.Link_UsersJobPositions" />
+        <EntityTypeShape EntityType="IPSModel.Country" Width="1.5" PointX="1.5" PointY="49" />
+        <EntityTypeShape EntityType="IPSModel.ScaleCategory" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="IPSModel.Team" Width="1.5" PointX="8.25" PointY="31.375" />
+        <AssociationConnector Association="IPSModel.FK_Teams_Departments" />
+        <AssociationConnector Association="IPSModel.FK_Link_TeamUsers_Teams" />
+        <AssociationConnector Association="IPSModel.FK_Teams_Users" />
+        <EntityTypeShape EntityType="IPSModel.Scale" Width="1.5" PointX="12.875" PointY="32.75" />
+        <AssociationConnector Association="IPSModel.FK_Scales_MeasureUnits" />
+        <AssociationConnector Association="IPSModel.FK_Scales_ProfileTypes" />
+        <AssociationConnector Association="IPSModel.FK_Scales_ScaleCategories" />
+        <EntityTypeShape EntityType="IPSModel.TrainingLevel" Width="1.5" PointX="8.25" PointY="50.375" />
+        <EntityTypeShape EntityType="IPSModel.TrainingType" Width="1.5" PointX="8.25" PointY="48" />
+        <EntityTypeShape EntityType="IPSModel.TrainingDescription" Width="1.5" PointX="10.5" PointY="44.875" />
+        <EntityTypeShape EntityType="IPSModel.LookupItem" Width="1.5" PointX="18.125" PointY="38.875" />
+        <EntityTypeShape EntityType="IPSModel.Skill" Width="1.5" PointX="27.125" PointY="49.375" />
+        <AssociationConnector Association="IPSModel.FK_Skills_ProfileTypes" />
+        <AssociationConnector Association="IPSModel.FK_Skills_Skills" />
+        <AssociationConnector Association="IPSModel.FK_Skills_StructureLevels" />
+        <AssociationConnector Association="IPSModel.Link_IndustrySkills" />
+        <AssociationConnector Association="IPSModel.Link_SkillTargetAudience" />
+        <EntityTypeShape EntityType="IPSModel.Question" Width="1.5" PointX="24.875" PointY="51.5" />
+        <AssociationConnector Association="IPSModel.FK_Answers_Questions" />
+        <AssociationConnector Association="IPSModel.FK_Questions_AnswerTypes" />
+        <AssociationConnector Association="IPSModel.FK_Questions_Industries" />
+        <AssociationConnector Association="IPSModel.FK_Questions_ProfileTypes" />
+        <AssociationConnector Association="IPSModel.FK_Questions_Scales" />
+        <AssociationConnector Association="IPSModel.FK_Questions_StructureLevels" />
+        <AssociationConnector Association="IPSModel.Link_SkillQuestions" />
+        <EntityTypeShape EntityType="IPSModel.PerformanceGroup" Width="1.5" PointX="27" PointY="58.375" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_Industries" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_PerformanceGroups" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_Scales" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_ScorecardPerspectives" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_StructureLevels" />
+        <AssociationConnector Association="IPSModel.Link_PerformanceGroupGoals" />
+        <AssociationConnector Association="IPSModel.Link_PerformanceGroupProfileTypes" />
+        <AssociationConnector Association="IPSModel.Link_PerformanceGroupTargetAudience" />
+        <EntityTypeShape EntityType="IPSModel.TrainingMaterial" Width="1.5" PointX="31.625" PointY="39.625" />
+        <EntityTypeShape EntityType="IPSModel.Profile" Width="1.5" PointX="22.625" PointY="48.75" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Industries" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_KTMedalRule" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_Profiles" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_ProfileCategories" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_ProfileScaleSettingsRules" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_ProfileTypes" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Scales" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_StructureLevels" />
+        <AssociationConnector Association="IPSModel.Link_ProfileTargetAudience" />
+        <EntityTypeShape EntityType="IPSModel.Reminder" Width="1.5" PointX="8.375" PointY="9.75" />
+        <EntityTypeShape EntityType="IPSModel.TaskList" Width="1.5" PointX="9" PointY="62.75" />
+        <AssociationConnector Association="IPSModel.FK_TaskLists_TaskPriorityLists" />
+        <AssociationConnector Association="IPSModel.FK_TaskLists_TaskStatusLists" />
+        <EntityTypeShape EntityType="IPSModel.Organization" Width="1.5" PointX="20.375" PointY="33.625" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_Countries" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_VisitingCountries" />
+        <AssociationConnector Association="IPSModel.FK_Departments_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_Industries1" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_LookupItemsContactRole" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_LookupItemsContactTitle" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_ScorecardGoals" />
+        <AssociationConnector Association="IPSModel.FK_Organizations_ScorecardPerspectives" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroups_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_ProfileCategories_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_ProfileTypes_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Questions_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Skills_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_TaskCategoryLists_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_TaskPriorityLists_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_TaskStatusLists_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Teams_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Users_Organizations" />
+        <AssociationConnector Association="IPSModel.Link_OrganizationPartners" />
+        <EntityTypeShape EntityType="IPSModel.Training" Width="1.5" PointX="29.375" PointY="37.875" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_DurationMetrics" />
+        <AssociationConnector Association="IPSModel.FK_TrainingParticipants_Trainings" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_TrainingLevels" />
+        <AssociationConnector Association="IPSModel.FK_TrainingMaterials_Trainings" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_TrainingTypes" />
+        <AssociationConnector Association="IPSModel.Link_SkillTrainings" />
+        <EntityTypeShape EntityType="IPSModel.Link_PerformanceGroupSkills" Width="1.5" PointX="29.375" PointY="54.875" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroupSkills_PerformanceGroups" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroupSkills_Skills" />
+        <AssociationConnector Association="IPSModel.FK_PerformanceGroupSkills_SkillsSubSkill" />
+        <AssociationConnector Association="IPSModel.Link_PerformanceGroupQuestions" />
+        <AssociationConnector Association="IPSModel.Link_PerformancGroupTrainings" />
+        <EntityTypeShape EntityType="IPSModel.EvaluationParticipant" Width="1.5" PointX="6" PointY="20.125" />
+        <AssociationConnector Association="IPSModel.FK_Answers_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationParticipants_EvaluateeId_Id" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationParticipants_EvaluationRoles" />
+        <AssociationConnector Association="IPSModel.FK_TaskLists_TaskCategoryLists" />
+        <AssociationConnector Association="IPSModel.FK_TaskCategoryLists_Departments" />
+        <AssociationConnector Association="IPSModel.FK_TaskPriorityLists_Departments" />
+        <AssociationConnector Association="IPSModel.FK_TaskStatusLists_Departments" />
+        <AssociationConnector Association="IPSModel.FK_TaskCategoryLists_Teams" />
+        <AssociationConnector Association="IPSModel.FK_TaskCategoryLists_Users" />
+        <AssociationConnector Association="IPSModel.FK_TaskLists_TaskCategoryLists1" />
+        <AssociationConnector Association="IPSModel.FK_TaskPriorityLists_Teams" />
+        <AssociationConnector Association="IPSModel.FK_TaskPriorityLists_Users" />
+        <AssociationConnector Association="IPSModel.FK_TaskStatusLists_Teams" />
+        <AssociationConnector Association="IPSModel.FK_TaskStatusLists_Users" />
+        <EntityTypeShape EntityType="IPSModel.EvaluationAgreement" Width="1.5" PointX="27.125" PointY="35.25" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationAgreements_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationAgreements_Questions" />
+        <AssociationConnector Association="IPSModel.Link_EvaluationAgreementTrainings" />
+        <EntityTypeShape EntityType="IPSModel.Bookmark" Width="1.5" PointX="8.25" PointY="38.375" />
+        <AssociationConnector Association="IPSModel.FK_Bookmarks_Users" />
+        <EntityTypeShape EntityType="IPSModel.TaskCategoryListItem" Width="1.5" PointX="6" PointY="53" />
+        <AssociationConnector Association="IPSModel.FK_TaskCategoryListItems_TaskCategoryLists" />
+        <EntityTypeShape EntityType="IPSModel.NotificationTemplate" Width="1.5" PointX="9" PointY="13" />
+        <AssociationConnector Association="IPSModel.FK_NotificationTemplates_Cultures" />
+        <AssociationConnector Association="IPSModel.FK_NotificationTemplates_EvaluationRoles" />
+        <AssociationConnector Association="IPSModel.FK_TrainingDescriptions_Skills" />
+        <EntityTypeShape EntityType="IPSModel.KPIType" Width="1.5" PointX="25.25" PointY="36.375" />
+        <EntityTypeShape EntityType="IPSModel.Link_ProjectUsers" Width="1.5" PointX="10.625" PointY="41.5" />
+        <EntityTypeShape EntityType="IPSModel.ReminderType" Width="1.5" PointX="6.5" PointY="13.375" />
+        <EntityTypeShape EntityType="IPSModel.Trend" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="IPSModel.FK_Answers_KPITypes" />
+        <AssociationConnector Association="IPSModel.FK_Departments_Departments" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationAgreements_KPITypes" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProjectUsers_Users" />
+        <AssociationConnector Association="IPSModel.FK_Reminders_ReminderTypes" />
+        <EntityTypeShape EntityType="IPSModel.ExerciseMetric" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_ExerciseMetrics" />
+        <EntityTypeShape EntityType="IPSModel.Link_Training_NotificationType_NotificationInterval" Width="1.5" PointX="31.625" PointY="43.375" />
+        <EntityTypeShape EntityType="IPSModel.NotificationInterval" Width="1.5" PointX="29.375" PointY="46.5" />
+        <EntityTypeShape EntityType="IPSModel.NotificationType" Width="1.5" PointX="29.375" PointY="48.875" />
+        <AssociationConnector Association="IPSModel.FK_Link_Training_NotificationType_NotificationInterval_NotificationIntervals" />
+        <AssociationConnector Association="IPSModel.FK_Link_Training_NotificationType_NotificationInterval_NotificationTypes" />
+        <AssociationConnector Association="IPSModel.FK_Link_Training_NotificationType_NotificationInterval_Trainings" />
+        <EntityTypeShape EntityType="IPSModel.CmsPage" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IPSModel.IpsPlanRole" Width="1.5" PointX="22.625" PointY="43.75" />
+        <EntityTypeShape EntityType="IPSModel.IpsPlan" Width="1.5" PointX="20.375" PointY="47.75" />
+        <AssociationConnector Association="IPSModel.FK_CmsPages_LookupItems" />
+        <AssociationConnector Association="IPSModel.FK_IpsPlanRoles_IpsPlans" />
+        <AssociationConnector Association="IPSModel.FK_IpsPlanRoles_LookupItems" />
+        <AssociationConnector Association="IPSModel.FK_IpsPlans_LookupItems" />
+        <EntityTypeShape EntityType="IPSModel.IPSPlanField" Width="1.5" PointX="21.125" PointY="26.625" />
+        <EntityTypeShape EntityType="IPSModel.IPSPlanFieldsLookup" Width="1.5" PointX="23.375" PointY="39.5" />
+        <AssociationConnector Association="IPSModel.FK_IPSPlanFieldsLookup_IPSPlanFields" />
+        <AssociationConnector Association="IPSModel.FK_IPSPlanFieldsLookup_LookupItems" />
+        <EntityTypeShape EntityType="IPSModel.IPSPlanFeature" Width="1.5" PointX="26.375" PointY="40.625" />
+        <AssociationConnector Association="IPSModel.FK_IPSPlanFeatures_IPSPlanFields" />
+        <AssociationConnector Association="IPSModel.FK_IPSPlanFeatures_IpsPlans" />
+        <EntityTypeShape EntityType="IPSModel.ScaleRange" Width="1.5" PointX="15.125" PointY="33.5" />
+        <AssociationConnector Association="IPSModel.FK_ScaleRanges_Scales" />
+        <EntityTypeShape EntityType="IPSModel.HelpCategory" Width="1.5" PointX="10.375" PointY="9" />
+        <EntityTypeShape EntityType="IPSModel.HelpContent" Width="1.5" PointX="12.625" PointY="9.25" />
+        <AssociationConnector Association="IPSModel.FK_HelpContent_HelpCategory" />
+        <EntityTypeShape EntityType="IPSModel.ContactU" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IPSModel.Testimonial" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IPSModel.PlanFeaturesKey" Width="1.5" PointX="20.375" PointY="30.375" />
+        <AssociationConnector Association="IPSModel.FK_PlanFeaturesKeys_LookupItems" />
+        <AssociationConnector Association="IPSModel.FK_PlanFeaturesKeys_LookupItems1" />
+        <EntityTypeShape EntityType="IPSModel.PortfolioCategory" Width="1.5" PointX="11.375" PointY="13.5" />
+        <EntityTypeShape EntityType="IPSModel.PortfolioImage" Width="1.5" PointX="15.875" PointY="13.5" />
+        <EntityTypeShape EntityType="IPSModel.TemplateCategory" Width="1.875" PointX="12.375" PointY="1" />
+        <EntityTypeShape EntityType="IPSModel.TemplateContent" Width="1.875" PointX="14.625" PointY="1.375" />
+        <EntityTypeShape EntityType="IPSModel.TemplateContentImage" Width="1.875" PointX="16.875" PointY="1.625" />
+        <AssociationConnector Association="IPSModel.FK_TemplateContent_TemplateCategory" />
+        <AssociationConnector Association="IPSModel.FK_TemplateContentImage_TemplateContent" />
+        <AssociationConnector Association="IPSModel.FK_TemplateCategory_TemplateCategory" />
+        <EntityTypeShape EntityType="IPSModel.PortfolioProject" Width="1.5" PointX="13.625" PointY="13.125" />
+        <AssociationConnector Association="IPSModel.FK_PortfolioProjects_PortfolioCategory" />
+        <AssociationConnector Association="IPSModel.FK_PortfolioImages_PortfolioProjects" />
+        <EntityTypeShape EntityType="IPSModel.PossibleAnswer" Width="1.5" PointX="27.125" PointY="55.625" />
+        <AssociationConnector Association="IPSModel.FK_PossibleAnswers_Questions" />
+        <EntityTypeShape EntityType="IPSModel.StagesEvolution" Width="1.5" PointX="15.5" PointY="27.125" />
+        <AssociationConnector Association="IPSModel.FK_StagesEvolution_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_StagesEvolution_StagesEvolution" />
+        <EntityTypeShape EntityType="IPSModel.StagesEvolutionQuestion" Width="1.5" PointX="27.125" PointY="44.5" />
+        <AssociationConnector Association="IPSModel.FK_StagesEvolutionQuestion_Questions" />
+        <AssociationConnector Association="IPSModel.FK_StagesEvolutionQuestion_StagesEvolution" />
+        <EntityTypeShape EntityType="IPSModel.SurveyResult" Width="1.5" PointX="17.75" PointY="23.375" />
+        <AssociationConnector Association="IPSModel.FK_SurveyResults_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_SurveyResults_StagesEvolution" />
+        <EntityTypeShape EntityType="IPSModel.EvaluationStatus" Width="1.5" PointX="20.75" PointY="22" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationStatuses_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationStatuses_StagesEvolution" />
+        <EntityTypeShape EntityType="IPSModel.Document" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="IPSModel.QuestionMaterial" Width="1.5" PointX="27.125" PointY="30.375" />
+        <AssociationConnector Association="IPSModel.FK_QuestionMaterials_Documents" />
+        <AssociationConnector Association="IPSModel.FK_QuestionMaterials_Questions" />
+        <EntityTypeShape EntityType="IPSModel.SurveyAnswer" Width="1.5" PointX="32.125" PointY="35.25" />
+        <AssociationConnector Association="IPSModel.FK_SurveyAnswers_Questions" />
+        <AssociationConnector Association="IPSModel.FK_SurveyAnswers_SurveyResults" />
+        <AssociationConnector Association="IPSModel.Link_SurveyAnswersTrainings" />
+        <AssociationConnector Association="IPSModel.FK_NotificationTemplates_Organizations" />
+        <EntityTypeShape EntityType="IPSModel.TaskScaleRanx" Width="1.5" PointX="24.875" PointY="32.75" />
+        <EntityTypeShape EntityType="IPSModel.TaskScale" Width="1.5" PointX="22.625" PointY="32.25" />
+        <AssociationConnector Association="IPSModel.FK_TaskScales_Departments" />
+        <AssociationConnector Association="IPSModel.FK_TaskScales_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_TaskScaleRanges_TaskScales" />
+        <AssociationConnector Association="IPSModel.FK_TaskScales_Teams" />
+        <AssociationConnector Association="IPSModel.FK_TaskScales_Users" />
+        <AssociationConnector Association="IPSModel.FK_Trainings_Users" />
+        <EntityTypeShape EntityType="IPSModel.TrainingMaterialRating" Width="1.5" PointX="33.875" PointY="41.75" />
+        <AssociationConnector Association="IPSModel.FK_TrainingMaterialRatings_TrainingMaterials" />
+        <AssociationConnector Association="IPSModel.FK_TrainingMaterialRatings_Users" />
+        <EntityTypeShape EntityType="IPSModel.TaskActivity" Width="1.5" PointX="33.875" PointY="51.875" />
+        <EntityTypeShape EntityType="IPSModel.ProjectRole" Width="1.5" PointX="8.375" PointY="53.75" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProjectUsers_ProjectRoles" />
+        <EntityTypeShape EntityType="IPSModel.ProjectGoal" Width="1.5" PointX="5.625" PointY="10.5" />
+        <EntityTypeShape EntityType="IPSModel.ProjectSteeringGroup" Width="1.5" PointX="5.625" PointY="29.625" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProjectUsers_ProjectSteeringGroups" />
+        <AssociationConnector Association="IPSModel.FK_ProjectSteeringGroups_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_ProjectSteeringGroups_ProjectRoles" />
+        <EntityTypeShape EntityType="IPSModel.Tag" Width="1.5" PointX="22.625" PointY="29.625" />
+        <AssociationConnector Association="IPSModel.FK_ProfileTags_Organizations" />
+        <EntityTypeShape EntityType="IPSModel.Link_ProfileTags" Width="1.5" PointX="29.875" PointY="35.125" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProfileTags_Profiles" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProfileTags_Tags" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Users" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Users1" />
+        <EntityTypeShape EntityType="IPSModel.ProjectGlobalSetting" Width="1.5" PointX="3.625" PointY="93.875" />
+        <EntityTypeShape EntityType="IPSModel.UserRecurrentNotificationSetting" Width="1.5" PointX="30.125" PointY="15.75" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_EvaluatorCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_EvaluatorResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_EvaluatorStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ExternalCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ExternalResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ExternalStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_GreenAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_GreenAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_GreenAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_GreenAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ManagerCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ManagerResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ManagerStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_NotificationTemplates1" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_RedAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_RedAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_RedAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_RedAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_TrainerCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_TrainerResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_TrainerStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_YellowAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_YellowAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_YellowAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_YellowAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_ManagerId_Users" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_TrainerId_Users" />
+        <EntityTypeShape EntityType="IPSModel.Project" Width="1.5" PointX="34.625" PointY="35.75" />
+        <AssociationConnector Association="IPSModel.FK_Link_ProjectUsers_Projects" />
+        <AssociationConnector Association="IPSModel.FK_Projects_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Profiles_Projects" />
+        <AssociationConnector Association="IPSModel.FK_ProjectGlobalSettings_ProjectGlobalSettings" />
+        <AssociationConnector Association="IPSModel.FK_ProjectGoals_Projects" />
+        <AssociationConnector Association="IPSModel.FK_Projects_Users" />
+        <AssociationConnector Association="IPSModel.FK_ProjectSteeringGroups_Projects" />
+        <EntityTypeShape EntityType="IPSModel.IpsEmail" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="IPSModel.NotificationTemplateType" Width="1.5" PointX="0.75" PointY="10.875" />
+        <AssociationConnector Association="IPSModel.FK_NotificationTemplates_NotificationTemplateTypes" />
+        <EntityTypeShape EntityType="IPSModel.TrainingNote" Width="1.5" PointX="31.625" PointY="58.5" />
+        <AssociationConnector Association="IPSModel.FK_TrainingNote_Trainings" />
+        <EntityTypeShape EntityType="IPSModel.MilestoneAgreementGoal" Width="1.5" PointX="35.375" PointY="26.5" />
+        <AssociationConnector Association="IPSModel.FK_MilestoneAgreementGoals_EvaluationAgreements" />
+        <AssociationConnector Association="IPSModel.FK_MilestoneAgreementGoals_EvaluationParticipants" />
+        <EntityTypeShape EntityType="IPSModel.ProjectDefaultNotificationSetting" Width="1.5" PointX="36.875" PointY="33.5" />
+        <AssociationConnector Association="IPSModel.FK_ProjectNotificationDefaultSettings_Projects" />
+        <EntityTypeShape EntityType="IPSModel.StageGroup" Width="1.5" PointX="24.875" PointY="44.375" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationParticipants_StageGroups" />
+        <AssociationConnector Association="IPSModel.FK_UserRecurrentNotificationSetting_StageGroups" />
+        <AssociationConnector Association="IPSModel.Link_ProfileStageGroups" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingActivity" Width="1.5" PointX="44.375" PointY="38" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingGoalActivityInfo" Width="1.5" PointX="42.125" PointY="37.5" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingActivities_ProspectingGoalActivityInfo" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingSkillGoal" Width="1.5" PointX="42.125" PointY="45.125" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingSkillGoals_Skills" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingCustomerResult" Width="1.5" PointX="46.625" PointY="39.125" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingSchedule" Width="1.5" PointX="48.875" PointY="33.5" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerResult_ProspectingActivities" />
+        <AssociationConnector Association="IPSModel.FK_Table_1_ProspectingActivities" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerResult_Skills" />
+        <AssociationConnector Association="IPSModel.FK_Table_1_ProspectingCustomerResult" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingActivityLog" Width="1.5" PointX="46.625" PointY="35.75" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingActivityLog_ProspectingActivities" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingGoalInfo" Width="1.5" PointX="39.875" PointY="37.375" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoal_EvaluationParticipants" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoal_Profiles" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoal_Projects" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoalActivityInfo_ProspectingGoal" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoal_Users" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingSkillGoals_ProspectingGoalInfo" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingGoalScaleRanx" Width="1.5" PointX="17.875" PointY="35" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingGoalScale" Width="1.5" PointX="15.625" PointY="37.25" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoalScales_MeasureUnits" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoalInfo_ProspectingGoalScales" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGaolScaleRanges_ProspectingGoalScales" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoalScales_ScaleCategories" />
+        <EntityTypeShape EntityType="IPSModel.Customer" Width="1.5" PointX="25.625" PointY="25.375" />
+        <EntityTypeShape EntityType="IPSModel.CustomerSalesData" Width="1.5" PointX="27.875" PointY="25.75" />
+        <AssociationConnector Association="IPSModel.FK_Customers_Organizations" />
+        <AssociationConnector Association="IPSModel.FK_Customers_Users" />
+        <AssociationConnector Association="IPSModel.FK_CustomerSalesData_Customers" />
+        <EntityTypeShape EntityType="IPSModel.TrainingFeedback" Width="1.5" PointX="33.875" PointY="45.125" />
+        <AssociationConnector Association="IPSModel.FK_TrainingFeedback_Trainings" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingActivityFeedback" Width="1.5" PointX="46.625" PointY="45" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingActivityFeedback_ProspectingActivities" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingCustomer" Width="1.5" PointX="42.125" PointY="32" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomers_Customers" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomers_CustomerSalesData" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerResult_ProspectingCustomers" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomers_ProspectingGoalInfo" />
+        <AssociationConnector Association="IPSModel.FK_Table_1_ProspectingCustomers" />
+        <EntityTypeShape EntityType="IPSModel.ExpiredProspectingActivityReason" Width="1.5" PointX="46.625" PointY="32" />
+        <AssociationConnector Association="IPSModel.FK_ExpiredProspectingActivityReason_ProspectingActivities" />
+        <EntityTypeShape EntityType="IPSModel.Task" Width="1.5" PointX="39.375" PointY="27" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_Profiles" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingGoalInfo_Tasks" />
+        <AssociationConnector Association="IPSModel.FK_TaskActivity_Tasks" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_TaskCategoryListItems" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_TaskLists" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_TaskPriorityListItems" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_Tasks" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_TaskStatusListItems" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_Trainings" />
+        <AssociationConnector Association="IPSModel.FK_TrainingFeedback_Tasks" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingCustomerOfferDetail" Width="1.5" PointX="3.625" PointY="13.75" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerOfferDetail_ProspectingCustomers" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerOfferDetail_Users" />
+        <EntityTypeShape EntityType="IPSModel.OfferClosingDetail" Width="1.5" PointX="5.875" PointY="34" />
+        <AssociationConnector Association="IPSModel.FK_OfferClosingDetail_ProspectingCustomerOfferDetail" />
+        <EntityTypeShape EntityType="IPSModel.ProspectingCustomerSalesAgreedData" Width="1.5" PointX="48.875" PointY="40.25" />
+        <AssociationConnector Association="IPSModel.FK_ProspectingCustomerSalesAgreedData_ProspectingCustomerResult" />
+        <EntityTypeShape EntityType="IPSModel.IPSEMailAttachment" Width="1.5" PointX="11.625" PointY="17.375" />
+        <AssociationConnector Association="IPSModel.FK_IPSEMailAttachments_IpsEmails" />
+        <EntityTypeShape EntityType="IPSModel.IpsAttachmentFileDetail" Width="1.5" PointX="13.25" PointY="37.875" />
+        <EntityTypeShape EntityType="IPSModel.IpsAttachment" Width="1.5" PointX="11" PointY="37.625" />
+        <EntityTypeShape EntityType="IPSModel.IpsAttachmentUser" Width="1.5" PointX="13.25" PointY="42.625" />
+        <AssociationConnector Association="IPSModel.FK_IpsAttachmentFileDetail_IpsAttachments" />
+        <AssociationConnector Association="IPSModel.FK_IpsAttachmentUser_IpsAttachments" />
+        <AssociationConnector Association="IPSModel.FK_IpsAttachmentUser_Users" />
+        <EntityTypeShape EntityType="IPSModel.Stage" Width="1.5" PointX="33.125" PointY="15.25" />
+        <AssociationConnector Association="IPSModel.FK_Answers_Stages" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationAgreements_Stages" />
+        <AssociationConnector Association="IPSModel.FK_EvaluationStatuses_Stages" />
+        <AssociationConnector Association="IPSModel.FK_MilestoneAgreementGoals_Stages" />
+        <AssociationConnector Association="IPSModel.FK_Stages_EvaluatorCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_EvaluatorResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_EvaluatorStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ExternalCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ExternalResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ExternalStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_GreenAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_GreenAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_GreenAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_GreenAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ManagerCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ManagerResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ManagerStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_RedAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_RedAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_RedAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_RedAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_TrainerCompletedNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_TrainerResultsNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_TrainerStartNotificationTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_YellowAlarmEvaluatorTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_YellowAlarmManagerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_YellowAlarmParticipantTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_YellowAlarmTrainerTemplateId_NotificationTemplates" />
+        <AssociationConnector Association="IPSModel.FK_Stages_StageGroups" />
+        <AssociationConnector Association="IPSModel.FK_Stages_ManagerId_Users" />
+        <AssociationConnector Association="IPSModel.FK_Stages_TrainerId_Users" />
+        <AssociationConnector Association="IPSModel.FK_StagesEvolution_Stages" />
+        <AssociationConnector Association="IPSModel.FK_SurveyResults_Stages" />
+        <AssociationConnector Association="IPSModel.FK_Tasks_Stages" />
+        <EntityTypeShape EntityType="IPSModel.DailyEvaluation" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="IPSModel.SensorData" Width="1.5" PointX="15.375" PointY="7.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

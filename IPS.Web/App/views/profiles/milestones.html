@@ -1,0 +1,636 @@
+﻿<div class="row">
+    <section class="portlet-light portlet-light-box">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- Nav tabs -->
+                <div class="card new-soft-profile-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/profile/{{profileId}}" aria-controls="ProfileSetup" class="middleText" role="tab">
+                                <span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    {{'MYPROJECTS_PROFILE_SETUP' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" aria-controls="PerformanceGroups" role="tab">
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                <span>{{'COMMON_PERFORMANCE_GROUP' | translate}}- {{'COMMON_SKILL' | translate}} - {{'SOFTPROFILE_QUESTIONS' | translate}} - {{'SOFTPROFILE_TRAININGS' | translate}}</span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="#/home/{{profileUrlModifier}}/{{profileId}}/milestones" class="middleText" role="tab" data-toggle="tab">
+                                <span>
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    {{'SOFTPROFILE_SEND_OUTS' | translate}}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="sendouts">
+                            <div class="row">
+                                <article class="col-lg-12 col-md-12 col-sm-12 sortable-grid ui-sortable">
+                                    <div id="wid-id-0">
+                                        <!-- widget div-->
+                                        <div role="contentinfo">
+                                            <!-- widget content -->
+                                            <div class="widget-body">
+
+                                                <div class="row">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="row m-0">
+                                <div class="modal fade" id="add-new-send-out-settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header pop-up-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Please, Add New Send Out</h5>
+                                                <button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">
+                                                        Name
+                                                    </label>
+                                                    <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">
+                                                        Description
+                                                    </label>
+                                                    <textarea class="form-control" id="" rows="3"></textarea>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p>
+                                                            <b>Total Duration</b> : <b class="bold">3</b> months |  <b class="bold">0</b> Weeks | <b class="bold">0</b> Days | <b class="bold">0</b> Hours | <b class="bold">0</b> Minutes
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_START_DATE'| translate}} </label>
+                                                        <input id="sendoutstratdate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content  mt-5">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_END_DATE' | translate}} </label>
+                                                        <input id="sendoutenddate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p>
+                                                            <b>Start Stage Date Range </b> :
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_START_DATE'| translate}} </label>
+                                                        <input id="startstage-startdate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content mt-5">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_END_DATE' | translate}} </label>
+                                                        <input id="startstage-enddate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p>
+                                                            <b>Performance Evaluation Date Range  </b> :
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_START_DATE'| translate}} </label>
+                                                        <input id="performance-evaluation-startdate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div id="example">
+                                                    <div class="demo-section k-content mt-5">
+                                                        <label for="exampleInputEmail1"> {{'COMMON_END_DATE' | translate}} </label>
+                                                        <input id="performance-evaluation-enddate" title="datetimepicker" style="width: 100%;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p>
+                                                            <b>Total Duration</b> : <b class="bold">3</b> months |  <b class="bold">2</b> Weeks | <b class="bold">1</b> Days | <b class="bold">0</b> Hours | <b class="bold">0</b> Minutes
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">
+                                                        Number of Performance Evaluations
+                                                    </label>
+                                                    <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label> Performance Evaluation Time Span</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3">
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Month
+                                                            </label>
+                                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Weeks
+                                                            </label>
+                                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Days
+                                                            </label>
+                                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Hours
+                                                            </label>
+                                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Minutes
+                                                            </label>
+                                                            <input type="number" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <span>As you are adding for soft profile Performance Evaluation Time Span is divided into 7 Performance Evaluations as per Selected Performance Evaluation Date Range </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn dropdown-toggle btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i> Add
+                                                </button>
+                                                <button type="button" class="btn btn-secondary btn-cstm" data-dismiss="modal">
+                                                    <i class="fa fa-times" aria-hidden="true"></i> Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="portlet box header-blue">
+                                        <div class="portlet-title">
+                                            <div class="caption font-white">
+                                                {{'SOFTPROFILE_SEND_OUT_SETTINGS' | translate}}
+                                                <span>
+                                                    <a href="javascript:;" class="btn btn-cstm pull-right" ng-click="openNewSendOutModal()"
+                                                       style=" margin: -8px 30px; font-size: 13px;">
+                                                        {{'MYPROJECTS_ADD_SEND_OUT_SETTINGS' | translate}}
+                                                    </a>
+                                                </span>
+                                            </div>
+
+                                            <div class="tools">
+
+                                                <a href="javascript:;" class="collapse" data-original-title="" title="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body" style="display: block;">
+
+                                            <form id="wizard-1" novalidate="novalidate" class=" mt-6">
+                                                <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                    <div class="form-bootstrapWizard">
+                                                        <ul class="bootstrapWizard form-wizard">
+
+                                                            <li class="active" data-tabDiv="milestones">
+                                                                <a href="#/home/{{profileUrlModifier}}/{{profileId}}/milestones" class="active">
+                                                                    <span class="step">
+                                                                        <i class="fa fa-flag-o fa-4x" aria-hidden="true"></i>
+                                                                    </span>
+                                                                    <span class="title">
+                                                                        {{'COMMON_MILESTONES' | translate}}
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" ng-click="gotoParticipants()" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/participants" data-toggle="tab" aria-expanded="true" ng-disabled="!profile.stageGroups.length > 0" >
+                                                                    <span class="step">
+                                                                        <i class="fa fa-user-plus fa-4x" aria-hidden="true"></i>
+                                                                    </span>
+                                                                    <span class="title">
+                                                                        {{'COMMON_PARTICIPANTS' | translate}}
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" ng-click="gotoStatus()" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/status" data-toggle="tab" aria-expanded="true" ng-disabled="!profile.stageGroups.length > 0" >
+                                                                    <span class="step">
+                                                                        <i class="fa fa-recycle fa-4x" aria-hidden="true"></i>
+                                                                    </span>
+                                                                    <span class="title">
+                                                                        {{'SOFTPROFILE_STATUS_AND_PROGRESS' | translate}}
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" ng-click="gotoHistory()" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/history" ng-disabled="!profile.stageGroups.length > 0" >
+                                                                    <span class="step">
+                                                                        <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+                                                                    </span>
+                                                                    <span class="title">
+                                                                        {{'SOFTPROFILE_HISTORY_OF_SURVEYS' | translate}}
+
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="tab-content">
+                                                        <div class="tab-pane active">
+                                                            <div class="row">
+                                                                <div class="col-lg-12 mt-5">
+                                                                    <div class="portlet cstm-collapse box " ng-repeat="stageGroupInfo in  profile.stageGroups">
+                                                                        <div class="portlet-title cstm-collapse-title">
+                                                                            <div class="caption ">
+                                                                                {{stageGroupInfo.name}}
+                                                                            </div>
+                                                                            <div class="tools">
+                                                                                <a href="javascript:;" ng-click="openEditSendOutModal(stageGroupInfo.id)"><i class="fa fa-pencil-square-o font-white " aria-hidden="true"></i></a>
+                                                                                <a href="javascript:;" ng-click="removeSendOut(stageGroupInfo.id)"><i class="fa fa-trash font-white" aria-hidden="true"></i></a>
+                                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="portlet-body tabs-below" style="display: block;">
+                                                                            <div class="tab-content">
+                                                                                <div class="col-lg-12 mt-5">
+                                                                                    <p> <b class="bold">{{'COMMON_START_DATE' | translate }}</b> : {{stageGroupInfo.startDate}} | <b class="bold"> {{'COMMON_END_DATE' | translate }} </b> :{{stageGroupInfo.endDate}} </p>
+                                                                                </div>
+                                                                                <ul class="nav nav-pills performance-evaluations-pill ">
+                                                                                    <li ng-class="$index == 0? 'active pe-active-mt':'' " ng-repeat="stageInfo in stageGroupInfo.stages track by $index">
+                                                                                        <a href="javascript:;" data-target="#tab_Stage" data-toggle="tab" aria-expanded="true" ng-click="changeStage(stageGroupInfo.id, stageInfo.id)"> {{stageInfo.name}} </a>
+                                                                                    </li>
+                                                                                </ul>
+
+                                                                                <div class="tab-pane active" id="tab_Stage">
+                                                                                    <div ng-stage
+                                                                                         ng-model="stage"
+                                                                                         ng-notification-templates="notificationTemplates"
+                                                                                         ng-users="projectManagers"
+                                                                                         stage-info="stageGroup"
+                                                                                         current-stage="stage"
+                                                                                         status-of-stages="statusOfStages"
+                                                                                         profile-type-id="profileTypeId"
+                                                                                         is-start-stage="isStartStage"></div>
+
+                                                                                    <div class="row mt-5">
+                                                                                        <div class="col-md-6">
+                                                                                            <span class="btn btn-cstm pull-right" ng-click="restoreDefault(stageGroupInfo.id)"> {{'MYPROJECTS_RESTORE_DEFAULT' | translate }}</span>
+
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <span class="btn btn-cstm pull-left" ng-click="updateStage()" ng-disabled="!checkMilestoneDatesAreValid()"> {{'MYPROJECTS_SAVE_STAGE' | translate }}</span>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                
+
+                                                                                
+                                                                                <div class="hide tab-pane fade" id="performance-evaluations-tab-three">
+                                                                                    <p>
+                                                                                        performance-evaluations-tab-three
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row m-0">
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="#/home/{{profileUrlModifier}}/{{profileId}}/performancegroups" class="btn btn-cstm pull-right">
+                                                                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                                                            {{'COMMON_BACK' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="col-md-6 mt-5">
+                                                                        <a href="javascript:;" ng-click="gotoParticipants()" data-href="#/home/{{profileUrlModifier}}/{{profileId}}/participants" class="btn btn-cstm pull-left" ng-disabled="(!(profile.stageGroups.length > 0))">
+                                                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                                            {{'COMMON_NEXT' | translate}}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Modal -->
+                                <div id="stageGroupModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="gridSystemModalLabel">{{'MYPROJECTS_PLEASE_ADD_NEW_SEND_OUT' | translate }}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <ng-form class="form-horizontal" name="formStageGroup" action="#" id="formStageGroup" novalidate="novalidate">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-cstm-lable">
+                                                                        {{'COMMON_NAME' | translate }}
+                                                                        <span class="required" ng-show="formStageGroup.name.$dirty && formStageGroup.name.$error.required"> * </span>
+                                                                    </label>
+
+
+                                                                    <input type="text" class="form-control" placeholder="Enter Group Name" name="name" ng-model="stageGroup.name" ng-required="true">
+                                                                    <div class="validation-error-label" ng-show="formStageGroup.name.$dirty && formStageGroup.name.$error.required">{{'MYPROJECTS_NAME_IS_REQUIRED' | translate }}</div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-cstm-lable">
+                                                                        {{'COMMON_DESCRIPTION' | translate }}
+                                                                        <span class="required" ng-show="formStageGroup.description.$dirty && formStageGroup.description.$error.required"> * </span>
+                                                                    </label>
+
+
+                                                                    <textarea class="form-control" placeholder="Enter description" name="description" ng-model="stageGroup.description" ng-required="true"></textarea>
+                                                                    <div class="validation-error-label" ng-show="formStageGroup.description.$dirty && formStageGroup.description.$error.required">{{'MYPROJECTS_DESCRIPTION_IS_REQUIRED' | translate }}</div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-cstm-lable" for="StageGroupStartDate">{{'COMMON_START_DATE' | translate }}</label>
+
+                                                                    <input kendo-date-time-picker
+                                                                           id="StageGroupStartDate"
+                                                                           name="StageGroupStartDate"
+                                                                           k-on-open="StageGroupStartDateOpen(kendoEvent)"
+                                                                           k-on-change="StageGroupStartDateChange(kendoEvent)"
+                                                                           ng-model="stageGroup.startDate" />
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-cstm-lable" for="StageGroupEndDate">{{'COMMON_END_DATE' | translate }}</label>
+
+                                                                    <input kendo-date-time-picker
+                                                                           id="StageGroupEndDate"
+                                                                           name="StageGroupEndDate"
+                                                                           k-on-open="StageGroupEndDateOpen(kendoEvent)"
+                                                                           k-on-change="StageGroupEndDateChange(kendoEvent)"
+                                                                           ng-model="stageGroup.endDate" />
+
+
+                                                                </div>
+                                                                <label class="form-group" ng-show="profileType == profileTypeEnum.Soft || profileType == profileTypeEnum.Hard">
+                                                                    {{'MYPROJECTS_TOTAL_DURATION' | translate }} : {{sendOutTotalDiffrence.months}} {{'MYPROJECTS_MONTHS' | translate }},{{sendOutTotalDiffrence.weeks}} {{'MYPROJECTS_WEEKS' | translate }},{{sendOutTotalDiffrence.days}} {{'MYPROJECTS_DAYS' | translate }},{{sendOutTotalDiffrence.hours}} {{'COMMON_HOURS' | translate }},{{sendOutTotalDiffrence.minutes}} {{'COMMON_MINUTES' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-12" ng-show="profileType == profileTypeEnum.Soft || profileType == profileTypeEnum.Hard">
+
+                                                                <div class="form-group" ng-hide="(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)">
+                                                                    <div class="tab-header header-blue">
+                                                                        <h3 class="">
+                                                                            {{'MYPROJECTS_START_STAGE_DATE_RANGE' | translate }}
+                                                                        </h3>
+                                                                    </div>
+
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-cstm-lable" for="startStageStartDate">
+                                                                                {{'COMMON_START_DATE' | translate }}
+                                                                                <span class="required" ng-show="formStageGroup.startStageStartDate.$dirty && formStageGroup.startStageStartDate.$error.required"> * </span>
+                                                                            </label>
+
+                                                                            <input kendo-date-time-picker
+                                                                                   id="startStageStartDate"
+                                                                                   name="startStageStartDate"
+                                                                                   k-on-open="StageGroupStartStageStartDateOpen(kendoEvent)"
+                                                                                   k-on-change="StageGroupStartStageStartDateChange(kendoEvent)"
+                                                                                   ng-model="stageGroup.startStageStartDate"
+                                                                                   ng-required="!(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)" />
+                                                                            <div class="validation-error-label" ng-show="formStageGroup.startStageStartDate.$dirty && formStageGroup.startStageStartDate.$error.required">{{'MYPROJECTS_START_STAGE_START_DATE_IS_REQUIRED' | translate }}</div>
+
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="form-cstm-lable" for="startStageEndDate">
+                                                                                {{'COMMON_END_DATE' | translate }}
+                                                                                <span class="required" ng-show="formStageGroup.startStageEndDate.$dirty && formStageGroup.startStageEndDate.$error.required"> * </span>
+                                                                            </label>
+
+                                                                            <input kendo-date-time-picker
+                                                                                   id="startStageEndDate"
+                                                                                   name="startStageEndDate"
+                                                                                   k-on-open="StageGroupStartStageEndDateOpen(kendoEvent)"
+                                                                                   k-on-change="StageGroupStartStageEndDateChange(kendoEvent)"
+                                                                                   ng-model="stageGroup.startStageEndDate"
+                                                                                   ng-required="!(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)" />
+                                                                            <div class="validation-error-label" ng-show="formStageGroup.startStageEndDate.$dirty && formStageGroup.startStageEndDate.$error.required">{{'MYPROJECTS_START_STAGE_END_DATE_IS_REQUIRED' | translate }}</div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="form-group" ng-hide="(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)">
+                                                                    <div class="tab-header header-blue">
+                                                                        <h3 class="">
+                                                                            {{'MYPROJECTS_PERFORMANCE_EVALUATION_DATE_RANGE' | translate }}
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-cstm-lable" for="milestoneStartDate">
+                                                                                {{'COMMON_START_DATE' | translate }}
+                                                                                <span class="required" ng-show="formStageGroup.milestoneStartDate.$dirty && formStageGroup.milestoneStartDate.$error.required"> * </span>
+                                                                            </label>
+
+                                                                            <input kendo-date-time-picker
+                                                                                   id="milestoneStartDate"
+                                                                                   name="milestoneStartDate"
+                                                                                   k-on-open="StageGroupMilestoneStartDateOpen(kendoEvent)"
+                                                                                   k-on-change="StageGroupMilestoneStartDateChange(kendoEvent)"
+                                                                                   ng-model="stageGroup.milestoneStartDate"
+                                                                                   ng-required="!(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)" />
+                                                                            <div class="validation-error-label" ng-show="formStageGroup.milestoneStartDate.$dirty && formStageGroup.milestoneStartDate.$error.required">{{'MYPROJECTS_PERFORMANCE_EVALUATION_START_DATE_IS_REQUIRED' | translate }}</div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-cstm-lable" for="milestoneEndDate">
+                                                                                {{'COMMON_END_DATE' | translate }}
+                                                                                <span class="required" ng-show="formStageGroup.milestoneEndDate.$dirty && formStageGroup.milestoneEndDate.$error.required"> * </span>
+
+                                                                            </label>
+
+                                                                            <input kendo-date-time-picker
+                                                                                   id="milestoneEndDate"
+                                                                                   name="milestoneEndDate"
+                                                                                   k-on-open="StageGroupMilestoneEndDateOpen(kendoEvent)"
+                                                                                   k-on-change="StageGroupMilestoneEndDateChange(kendoEvent)"
+                                                                                   ng-model="stageGroup.milestoneEndDate"
+                                                                                   ng-required="!(stageGroup.id  > 0 && stageGroup.startStageStartDate == null)" />
+                                                                            <div class="validation-error-label" ng-show="formStageGroup.milestoneEndDate.$dirty && formStageGroup.milestoneEndDate.$error.required">{{'MYPROJECTS_PERFORMANCE_EVALUATION_END_DATE_IS_REQUIRED' | translate }}</div>
+
+
+
+
+                                                                        </div>
+                                                                        <label class="form-group" ng-show="profileType == profileTypeEnum.Soft || profileType == profileTypeEnum.Hard">
+                                                                            {{'MYPROJECTS_TOTAL_PERFORMANCE_EVALUATION_DURATION' | translate }} : {{sendOutMilestoneDiffrence.months}} {{'MYPROJECTS_MONTHS' | translate }},{{sendOutMilestoneDiffrence.weeks}} {{'MYPROJECTS_WEEKS' | translate }},{{sendOutMilestoneDiffrence.days}} {{'MYPROJECTS_DAYS' | translate }},{{sendOutMilestoneDiffrence.hours}} {{'COMMON_HOURS' | translate }},{{sendOutMilestoneDiffrence.minutes}} {{'COMMON_MINUTES' | translate }}
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="form-cstm-lable">{{'MYPROJECTS_NUMBER_OF_PERFORMANCE_EVALUATIONS' | translate }}</label>
+
+                                                                    <input type="number" class="form-control" min="2" max="10" ng-model="stageGroup.totalMilestones" placeholder="Number of Performance Evaluations" ng-change="numberOfMilestoneChange()">
+                                                                    <div class="validation-error-label"
+                                                                         ng-hide="(stageGroup.totalMilestones >= 2 && stageGroup.totalMilestones <= 10)">
+                                                                        {{'MYPROJECTS_INVALID_NUMBER_OF_PERFORMANCE_EVALUATIONS' | translate }}
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12" >
+                                                                <div class="row">
+                                                                    <div class="clear">
+                                                                        <label class="form-cstm-lable" for="StageGroupEndDate"> {{'MYPROJECTS_PERFORMANCE_EVALUATION_TIME_SPAN' | translate }}: </label>
+
+                                                                        <div class="row">
+                                                                            <div class="col-lg-2">
+                                                                                <label class="control-label">{{'COMMON_MONTH' | translate }}:</label>
+                                                                                <input type="number" class="form-control ng-pristine ng-valid ng-valid-min ng-touched" min="0" ng-model="stageGroup.monthsSpan" placeholder="Months" ng-change="stageTimespanChanged()">
+                                                                                <div class="validation-error-label ng-hide" ng-hide="(stageGroup.monthsSpan >= 0)">
+                                                                                    {{'MYPROJECTS_INVALID_MONTH_SPAN' | translate }}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-2">
+                                                                                <label class="control-label">{{'MYPROJECTS_WEEKS' | translate }}:</label>
+                                                                                <input type="number" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min" min="0" ng-model="stageGroup.weeksSpan" placeholder="Weeks" ng-change="stageTimespanChanged()">
+                                                                                <div class="validation-error-label ng-hide" ng-hide="(stageGroup.weeksSpan  >= 0)">
+                                                                                    {{'MYPROJECTS_INVALID_WEEKS_SPAN' | translate }}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-2">
+                                                                                <label class="control-label">{{'MYPROJECTS_DAYS' | translate }}:</label>
+                                                                                <input type="number" class="form-control ng-pristine ng-valid ng-valid-min ng-touched" min="0" ng-model="stageGroup.daysSpan" placeholder="Days" ng-change="stageTimespanChanged()">
+                                                                                <div class="validation-error-label ng-hide" ng-hide="(stageGroup.daysSpan  >= 0)">
+                                                                                    {{'MYPROJECTS_INVALID_DAYS_SPAN' | translate }}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-2">
+                                                                                <label class="control-label">{{'COMMON_HOURS' | translate }}:</label>
+                                                                                <input type="number" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min" min="0" ng-model="stageGroup.hoursSpan" placeholder="Hours" ng-change="stageTimespanChanged()">
+                                                                                <div class="validation-error-label ng-hide" ng-hide="(stageGroup.hoursSpan  >= 0)">
+                                                                                    {{'MYPROJECTS_INVALID_HOURS_SPAN' | translate }}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-2">
+                                                                                <label class="control-label">{{'COMMON_MINUTES' | translate }}:</label>
+                                                                                <input type="number" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min" min="0" ng-model="stageGroup.minutesSpan" placeholder="Minutes" ng-change="stageTimespanChanged()">
+                                                                                <div class="validation-error-label ng-hide" ng-hide="(stageGroup.minutesSpan >= 0)">
+                                                                                    {{'MYPROJECTS_INVALID_MINUTES_SPAN' | translate }}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <label ng-show="profileType == profileTypeEnum.Soft || profileType == profileTypeEnum.Hard">
+                                                                            {{'MYPROJECTS_AS_YOU_ARE_ADDING_FOR_SOFT_PROFILE_PERFORMANCE' | translate }} {{stageGroup.totalMilestones}} {{'MYPROJECTS_SELECTED_PERFORMANCE_EVALUATION_DATE_RANGE' | translate }}
+                                                                        </label>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-12">
+                                                                <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelstageGroup()" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                                                <button class="btn btn-cstm primary pull-right" ng-disabled="(formStageGroup.$invalid)" ng-click="addNewStageGroup()" aria-label="Ok">{{'COMMON_ADD' | translate }}</button>
+                                                            </div>
+                                                        </ng-form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,34 @@
+<div pane>
+    <div class="theme-panel hidden-xs hidden-sm"  style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> {{'COMMON_SEARCH' | translate }} </span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <header-navigation page-name="{{'LEFTMENU_MEDAL_RULES' | translate }}"></header-navigation>
+        <div class="col-md-12">
+            <div class="profiles-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'LEFTMENU_MEDAL_RULES' | translate }}</span>
+                <a class="add-button pull-right" ng-click="create()" ng-show="!isDisabled(authService.authentication.user.organizationId, authService.actions.Create)"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid="medalRulesGrid" k-options="gridOptions" k-rebind="medalRules"></div>
+            </kendo-tooltip>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

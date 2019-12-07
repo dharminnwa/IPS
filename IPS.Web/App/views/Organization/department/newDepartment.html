@@ -1,0 +1,198 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">
+                    <a href="javascript:;" ng-hide="departmentInfo.id > 0">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        Create New department
+                    </a>
+                    <a href="javascript:;" ng-show="departmentInfo.id > 0">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        Department Detail
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title"> BASIC INFORMATION</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">{{'ORGANIZATIONS_DEPARTMENT_NAME' | translate }}</label>
+                <input type="text" class="form-control" id="name" ng-model="departmentInfo.name" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="description" class="form-cstm-lable">{{'COMMON_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control" id="description" ng-model="departmentInfo.description" />
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-cstm-lable">{{'ORGANIZATIONS_MANAGER' | translate }}</label>
+                <select class="form-control"
+                        value="Select Manager"
+                        name="departmentManager"
+                        ng-options="user.firstName + ' ' + user.lastName for user in organizationUsers"
+                        ng-model="departmentInfo.manager"
+                        ng-change="setDepartmentManagerInfo()"
+                        ng-disabled="isDisabled(authService.actions.Update)">
+                    <option value="">{{'ORGANIZATIONS_SELECT_MANAGER' | translate }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="" class="form-cstm-lable">{{'COMMON_EMAIL' | translate }}</label>
+                <input type="email" name='departmentEmail' class="form-control" ng-model="departmentInfo.email" ng-disabled="isDisabled(authService.actions.Update)" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_PHONE' | translate }}</label>
+                <input type="text" placeholder="(xxx) xxx-xxxx" class="form-control" ng-model="departmentInfo.phone" ng-disabled="isDisabled(authService.actions.Update)" />
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="portlet-light hide">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn dropdown-toggle btn-cstm" type="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Add Team
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<section class="portlet-light hide" ng-show="departmentInfo.teams">
+    <div class="row" ng-repeat="team in departmentInfo.teams">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title">{{team.name}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light" ng-show="departmentInfo.users">
+    <div class="row">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title"> Employees</span>
+                <button class="btn btn-cstm pull-right" data-toggle="modal" data-target=".departmentUsers" type="button" aria-expanded="false">
+                    <i class="fa fa-plus" aria-hidden="true"></i>  Add New Employee
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 mt-2" ng-show="departmentInfo.manager">
+            <div class="media user-media">
+                <div class="media-left">
+                    <img class="media-object" src="{{departmentInfo.manager.imagePath? departmentInfo.manager.imagePath :'images/user-placeholder.png'}}"
+                         alt="...">
+                </div>
+                <div class="media-body user-media-detail">
+                    <h4 class="media-heading">{{departmentInfo.manager.firstName}} {{departmentInfo.manager.lastName}}</h4>
+                    <span>Manager</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-2" ng-repeat="user in departmentInfo.users">
+            <div class="media user-media">
+                <div class="media-left">
+                    <img class="media-object" src="{{user.imagePath? user.imagePath :'images/user-placeholder.png'}}"
+                         alt="...">
+                </div>
+                <div class="media-body user-media-detail">
+                    <h4 class="media-heading">{{user.firstName}} {{user.lastName}}</h4>
+                    <span>{{user.workEmail}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-cstm" type="button" ng-click="saveDepartment()"aria-expanded="false">
+                Create New Department
+            </button>
+            <button class="btn dropdown-toggle btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                Cancel
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade bs-example-modal-lg departmentUsers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_EDIT_USERS' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 users">
+                            <input type="text" class="form-control" placeholder="{{'ORGANIZATIONS_SEARCH_FOR_USERS' | translate }}" name="userSearch" ng-model="userSearch" />
+                            <div class="mt-element-list">
+                                <div class="mt-list-container list-news ext-1">
+                                    <ul>
+                                        <li class="mt-list-item" ng-repeat="user in organizationUsers | orderBy:['firstName', 'lastName']">
+                                            <div class="list-thumb">
+                                                <a href="javascript:;">
+                                                    <img class="img-circle" alt="" src="{{user.imagePath ? user.imagePath : 'images/user-placeholder.png' }}">
+                                                </a>
+                                            </div>
+                                            <div class="list-item-content">
+                                                <h3 class="uppercase">
+                                                    <a href="javascript:;">{{user.firstName}} {{user.lastName}}</a>
+                                                </h3>
+                                                <p>
+                                                    <button ng-show="!isDepartmentUser(user.id)" class="btn btn-cstm" ng-click="addDepartmentUser(user)">{{'ORGANIZATIONS_ADD_USER' | translate }}</button>
+                                                    <button ng-show="isDepartmentUser(user.id)" class="btn btn-cstm" ng-disabled="user.isManager" ng-click="removeDepartmentUser(user.id)">{{'ORGANIZATIONS_REMOVE_USER' | translate }}</button>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
+                            <div class="pull-right apply-button">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click="addUsersToDepartment()">{{'ORGANIZATIONS_APPLY' | translate }}  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

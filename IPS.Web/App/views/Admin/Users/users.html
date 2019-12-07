@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="router-animation-loader centered" ng-hide="isLoaded">
+        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>{{'ORGANIZATIONS_LOADING' | translate }}
+    </div>
+</div>
+<div class="container" id="usersDiv" ng-hide="!isLoaded">
+    <div class="row">
+        <div class="col-xs-18 col-md-12">
+            <div class="row">
+                <div class="col-xs-6 col-md-4">
+                    <div class="input-group">
+                        <ul class="nav nav-pills navbar-nav list-filter">
+                            <button type="button" class="btn btn-cstm" ng-class="{'active' : show == 'All' }" ng-click="show='All'">{{'COMMON_ALL' | translate }}</button>
+                            <button type="button" class="btn btn-cstm" ng-class="{'active' : show == 'Active' }" ng-click="show='Active'">{{'ORGANIZATIONS_ACTIVE' | translate }}</button>
+                            <button type="button" class="btn btn-cstm" ng-class="{'active' : show == 'Inactive' }" ng-click="show='Inactive'">{{'ORGANIZATIONS_INACTIVE' | translate }}</button>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4"></div>
+                <div class="col-xs-6 col-md-4">
+                    <div class="right-inner-addon">
+                        <input type="search" class="form-control ips-input-lg rounded" placeholder="Search" ng-model="userSearch" />
+                        <i class="glyphicon glyphicon-search ips-glyphicon ips-input-lg rounded"></i>
+                    </div>
+                </div>
+            </div>
+            <div data-ng-hide="filteredUsers.length == 0" class="table-responsive panel">
+                <table class="table table-bordered table-hover" ng-model="users">
+                    <thead>
+                        <tr class="row-centered">
+                            <th class="col-md-8">{{'ORGANIZATIONS_USERNAME' | translate }}</th>
+                            <th class="col-md-4">{{'COMMON_STATUS' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-centered" ng-repeat="user in filteredUsers = (users | filter:showFn | filter: searchFn ) ">
+                            <td><a href="#/admin/user?id={{user.id}}">{{user.userName}}</a></td>
+                            <td class="text-center">
+                                <div data-ng-hide="!user.isActive" class="div-active"></div>
+                                <div data-ng-hide="user.isActive" class="div-inactive"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div data-ng-hide="filteredUsers.length != 0" class="alert alert-warning">
+                <div>{{'ORGANIZATIONS_NO_USERS_AVAILABLE' | translate }}</div>
+            </div>
+        </div>
+    </div>
+</div>

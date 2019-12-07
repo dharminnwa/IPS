@@ -1,0 +1,51 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'COMMON_COMPLETED' | translate}} {{'NOTIFICATION_CORPORATE' | translate}}  {{'COMMON_TASKS' | translate}}</span> &nbsp;
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light pb-1">
+    <div class="row" ng-show="completedTaskTodos.length > 0">
+        <div class="col-md-4" ng-repeat="todoItem in completedTaskTodos">
+            <div class="profile-card">
+                <a href="javascript:;" class="btn btn-xs green" ng-show="todoItem.isCompleted">
+                    {{'COMMON_COMPLETED' | translate}}
+                    <i class="fa fa-check-circle-o"></i>
+                </a>
+                <a href="javascript:;" class="btn btn-xs in-completed" ng-hide="todoItem.isCompleted">
+                    {{'COMMON_EXPIRED' | translate}}
+                </a>
+                <div class="box">
+                    <h2>
+                        {{todoItem.taskCategoryListItem.name}}
+                    </h2>
+                    <p class="task-title">{{todoItem.title}} </p>
+                    <div class="training-date mt-5">
+                        <h5> <label>{{'COMMON_START_DATE'| translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{todoItem.startDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{todoItem.startDate | date:'h:mm a'}}</b></span></h5>
+                        <h5> <label>{{'COMMON_DUE_DATE'| translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{todoItem.dueDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{todoItem.dueDate | date:'h:mm a'}}</b></span></h5>
+                        <h5>
+                            <label>{{'COMMON_PRIORITY'| translate}} : </label>   <b> {{todoItem.taskPriorityListItem.name}}</b>
+                            <!--<label>{{'COMMON_STATUS'| translate}} : </label> <b>{{todoItem.taskStatusListItem.name}}</b>-->
+                        </h5>
+                    </div>
+                    <div class="card-icons mt-3">
+                        <i class="fa fa-eye" title="{{'COMMON_VIEW' | translate }}" ng-click="openTaskDetail(todoItem.id)"></i>
+                        <i ng-show="isProspectingTask(todoItem)" class="fa fa-angle-double-right" title="{{'Go To Prospecting' | translate }}" ng-click="gotoProspecting(todoItem)"></i>
+                        <i class="fa fa-pencil" ng-click="editToDo(todoItem.id)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-hide="completedTaskTodos.length > 0">
+        <div class="alert  alert-warning">
+            <strong>{{'COMMON_COMPLETED' | translate}} {{'NOTIFICATION_CORPORATE' | translate}} {{'COMMON_TASKS' | translate}}  {{'COMMON_NOT_FOUND' | translate}}! </strong>
+        </div>
+    </div>
+</section>
+<div id="home-task-detail-popup-div"></div>

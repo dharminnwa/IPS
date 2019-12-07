@@ -1,0 +1,183 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">
+                    <a href="javascript:;" ng-hide="teamInfo.id > 0">
+                        <i ng-click="goBack()" class="fa fa-arrow-left" aria-hidden="true"></i>
+                        {{'COMMON_NEW' | translate }}  {{'COMMON_TEAM' | translate }}
+                    </a>
+                    <a href="javascript:;" ng-show="teamInfo.id > 0">
+                        <i ng-click="goBack()" class="fa fa-arrow-left" aria-hidden="true"></i>
+                        {{'COMMON_TEAM' | translate }} {{'COMMON_DETAILS' | translate}}
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="name" class="form-cstm-lable">{{'ORGANIZATIONS_TEAM_NAME' | translate }}</label>
+                <input type="text" class="form-control" id="name" ng-model="teamInfo.name" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="description" class="form-cstm-lable">{{'COMMON_DESCRIPTION' | translate }}</label>
+                <input type="text" class="form-control" id="description" ng-model="teamInfo.description" aria-describedby="" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="form-group">
+                <label for="department" class="form-cstm-lable">{{'ORGANIZATIONS_PARENT_DEPARTMENT' | translate }}</label>
+                <select class="form-control"
+                        value="Select Parent Department"
+                        name="parentId"
+                        ng-options="department.name for department in organizationDepartments"
+                        ng-model="teamInfo.parentDepartment"
+                         ng-change="changeTeamDepartment()"
+                        ng-disabled="isDisabled(authService.actions.Update)">
+                    <option value="">{{'ORGANIZATIONS_SELECT_PARENT_DEPARTMENT' | translate }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="teamlead" class="form-cstm-lable">{{'ORGANIZATIONS_TEAM_LEAD' | translate }}</label>
+                <select class="form-control"
+                        value="Select Team Lead"
+                        name="teamLead"
+                        ng-options="user.firstName + ' ' + user.lastName for user in organizationUsers | filter: filterUsersByDepartment"
+                        ng-model="teamInfo.teamLead"
+                        ng-change="setTeamLeaderInfo()"
+                        ng-disabled="isDisabled(authService.actions.Update)">
+                    <option value="">{{'ORGANIZATIONS_SELECT_TEAM_LEAD' | translate }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="email" class="form-cstm-lable">{{'COMMON_EMAIL' | translate }}</label>
+                <input type="email" class="form-control" id="email" ng-model="teamInfo.email" aria-describedby="emailHelp" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="phone" class="form-cstm-lable">{{'COMMON_PHONE' | translate }}</label>
+                <input type="text" class="form-control" id="phone" ng-model="teamInfo.phone" aria-describedby="emailHelp" placeholder="+1 123-456">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check">
+                <input type="checkbox" ng-checked="teamInfo.isActive" class="form-check-input" id="isActive">
+                <label class="form-check-label" for="isActive">{{'ORGANIZATIONS_IS_ACTIVE' | translate }}</label>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="portlet-light" ng-show="teamInfo.link_TeamUsers">
+    <div class="row">
+        <div class="col-md-12 heding-bg">
+            <div class="caption caption-md">
+                <span class="caption-subject box-sub-title"> Team Members</span>
+                <button class="btn btn-cstm pull-right" data-toggle="modal" data-target=".teamMembers" type="button" aria-expanded="false">
+                    <i class="fa fa-plus" aria-hidden="true"></i>  {{'COMMON_NEW' | translate}} {{'SECURITY_TEAM_MEMBER' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mt-2" ng-show="teamInfo.teamLead">
+            <div class="media user-media">
+                <div class="media-left">
+                    <img class="media-object" src="{{teamInfo.teamLead.imagePath? teamInfo.teamLead.imagePath :'images/user-placeholder.png'}}"
+                         alt="...">
+                </div>
+                <div class="media-body user-media-detail">
+                    <h4 class="media-heading">{{teamInfo.teamLead.firstName}} {{teamInfo.teamLead.lastName}}</h4>
+                    <span>Team Lead</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-2" ng-repeat="teamUser in teamInfo.link_TeamUsers">
+            <div class="media user-media">
+                <div class="media-left">
+                    <img class="media-object" src="{{teamUser.user.imagePath? teamUser.user.imagePath :'images/user-placeholder.png'}}"
+                         alt="...">
+                </div>
+                <div class="media-body user-media-detail">
+                    <h4 class="media-heading">{{teamUser.user.firstName}} {{teamUser.user.lastName}}</h4>
+                    <span>{{teamUser.user.workEmail}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portlet-light">
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <button class="btn  btn-cstm" type="button" ng-click="saveTeam()" aria-expanded="false">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                {{'COMMON_SAVE' | translate }}
+            </button>
+            <button class="btn dropdown-toggle btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Cancel
+            </button>
+        </div>
+    </div>
+</section>
+<div class="modal fade teamMembers" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_EDIT_USERS' | translate }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 users">
+                            <input type="text" class="form-control" placeholder="{{'ORGANIZATIONS_SEARCH_FOR_USERS' | translate }}" name="userSearch" ng-model="userSearch" ng-change="resetCurrentPage()" />
+                            <div class="mt-element-list">
+
+                                <div class="mt-list-container list-news ext-1">
+                                    <ul>
+                                        <li class="mt-list-item" ng-repeat="user in organizationUsers | filter:filterTeamMemberUsers | orderBy:['firstName', 'lastName']" ng-show="!isTeamLeader(user.id)">
+                                            <div class="list-thumb">
+                                                <a href="javascript:;">
+                                                    <img class="img-circle" alt="" src="{{user.imagePath && user.imagePath || 'images/user-placeholder.png' }}">
+                                                </a>
+                                            </div>
+                                            <div class="list-item-content">
+                                                <h3 class="uppercase">
+                                                    <a href="javascript:;">{{user.firstName}} {{user.lastName}}</a>
+                                                </h3>
+                                                <p >
+                                                    <button ng-show="!isTeamUser(user.id)" class="btn btn-cstm" ng-click="addTeamUser(user)">{{'ORGANIZATIONS_ADD_USER' | translate }} </button>
+                                                    <button ng-show="isTeamUser(user.id)" class="btn btn-cstm" ng-disabled="user.isTeamLead" ng-click="removeTeamUser(user.id)">{{'ORGANIZATIONS_REMOVE_USER' | translate }}</button>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            
+                            <div class="pull-right apply-button">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" ng-click="addUsersToTeam()">{{'ORGANIZATIONS_APPLY' | translate }}  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

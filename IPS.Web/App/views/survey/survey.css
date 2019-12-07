@@ -1,0 +1,269 @@
+﻿.organizations-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.info-icon {
+    margin: 10px;
+}
+
+.ips-button.primary.submit-button {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.submit-ask {
+    font-size: 18px;
+    line-height: 20px;
+    color: #969696;
+}
+
+.content-border.content-border-left {
+    border-left: 1px solid #dddddd;
+}
+
+.content-border.content-border-right {
+    border-right: 1px solid #dddddd;
+}
+
+.table {
+    width: 100%;
+}
+
+    .table .table-header {
+        padding: 10px 0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+table.table > tbody > tr.table-header > th {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    table.table > tbody > tr.table-header > th .sortable {
+        cursor: pointer;
+    }
+
+.table .score-value {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #4e5452;
+    color: #ffffff;
+    text-align: center;
+}
+
+.table .answer-number {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 3%;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.score-outer-circle {
+    background: #4e5452;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .score-outer-circle .score-inner-circle {
+        position: absolute;
+        background: #a9aaab;
+        border-radius: 50%;
+        height: 30px;
+        width: 31px;
+        top: 50%;
+        left: 50%;
+        margin: -15px 0px 0px -15px;
+        color: #000000;
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+        .score-outer-circle .score-inner-circle .score-result {
+            display: block;
+            height: 20px;
+            width: 18px;
+            margin: 0 auto;
+            padding-top: 5px;
+            text-align: center;
+            font-size: 70%;
+        }
+
+.progressbar {
+    margin-top: 10px;
+    text-align: center;
+    padding: 0 250px;
+}
+
+.select-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-bottom: 1px solid #c9c9c9;
+    padding: 0 50px 20px;
+}
+
+    .select-group li {
+        float: left;
+        width: 50px;
+        height: 46px;
+        position: relative;
+    }
+
+    .select-group label, .select-group input {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+        .select-group input[type="radio"] {
+            opacity: 0.011;
+            z-index: 100;
+        }
+
+            .select-group input[type="radio"]:checked + .score-outer-circle {
+                background: #4e5452 !important;
+                opacity: 1;
+                color: #000000;
+            }
+
+                .select-group input[type="radio"]:checked + .score-outer-circle .score-inner-circle {
+                    color: #000000;
+                }
+
+    .select-group .score-inner-circle {
+        background: #ffffff !important;
+    }
+
+    .select-group .score-outer-circle .score-inner-circle {
+        color: #ACACAC;
+    }
+
+    .select-group label {
+        cursor: pointer;
+        z-index: 90;
+        background: #ffffff;
+        opacity: 0.5;
+        color: #000000;
+        font-weight: 500;
+    }
+
+.profile-name {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 700;
+    color: #515151;
+    text-align: center;
+}
+
+.survey-steps {
+    text-align: center;
+}
+
+    .survey-steps .performanceGroupName {
+        font-size: 45px;
+        line-height: 47px;
+        font-weight: 500;
+        color: #515151;
+        margin-bottom: 10px;
+        margin-top: 35px;
+    }
+
+    .survey-steps .skill-name {
+        font-size: 30px;
+        line-height: 32px;
+        color: #515151;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: inline-block;
+        padding: 0 50px 20px;
+        border-bottom: 1px solid #c9c9c9;
+    }
+
+    .survey-steps .question {
+        font-size: 29px;
+        line-height: 31px;
+        color: #515151;
+        margin: 10px 0;
+    }
+
+.kpi-outer-circle {
+    background: #DBDBDB;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .kpi-outer-circle .kpi-inner-circle {
+        position: absolute;
+        border-radius: 50% !important;
+        background: #F7F7F7;
+        height: 36px;
+        border: 2px solid #C0C0C0;
+        width: 36px;
+        top: 50%;
+        left: 50%;
+        margin: -18px 0px 0px -18px;
+    }
+
+        .kpi-outer-circle .kpi-inner-circle .kpi-control {
+            position: absolute;
+            border-radius: 50% !important;
+            height: 22px;
+            width: 22px;
+            top: 50%;
+            left: 50%;
+            margin: -11px 0px 0px -11px;
+            cursor: pointer;
+        }
+
+.kpi-control.kpi-0 {
+    background: #BDBDBD;
+}
+
+.kpi-control.kpi-1 {
+    background: #FE4B4B;
+}
+
+.kpi-control.kpi-2 {
+    background: #5ECF37;
+}
+
+.buttons-align-center {
+    text-align: center;
+}
+
+    .buttons-align-center .ips-survey-button {
+        padding: 10px 25px;
+        height: 45px;
+    }
+
+.align-left {
+    text-align: left !important;
+}

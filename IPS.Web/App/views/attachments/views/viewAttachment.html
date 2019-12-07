@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="control-label">{{'COMMON_TITLE' | translate }}</label>
+
+            <input type="text" class="form-control tab-control" ng-model="attachmentInfo.title"
+                   name="title" />
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="control-label" for="description">{{'COMMON_DESCRIPTION' | translate }}</label>
+            <textarea class="form-control tab-control kpi-textarea-noresize" rows="1"
+                      data-ng-model="attachmentInfo.description"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12 hide">
+        <div class="form-group">
+            <label class="control-label">{{'COMMON_USER' | translate }}</label>
+            <input id="toUsers" type="text" class="form-control"
+                   kendo-multi-select
+                   k-options="toUsersOptions"
+                   k-ng-model="selectedUsers"
+                   name="toUsers"
+                   placeholder="" />
+            <span style="color:Red" ng-hide="selectedUsers.length > 0"> Required! </span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div id="attachmentFilesGrid" class="attachment-grid"></div>
+    </div>
+</div>

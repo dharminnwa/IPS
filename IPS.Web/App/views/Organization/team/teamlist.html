@@ -1,0 +1,109 @@
+﻿<section class="portlet-light header-blue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'COMMON_TEAMS' | translate}} </span> &nbsp;
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle  btn btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                        {{selectedOrganization != null?selectedOrganization.name:'-- Select Organization--'}}
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="scroller" style="height: 250px;">
+                                <ul class="dropdown-menu-list">
+                                    <li ng-click="changeOrganization(organization.id)" ng-repeat="organization in organizations">
+                                        <a href="javascript:;"> {{organization.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle  btn btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                        {{selectedDepartment != null?selectedDepartment.name:'-- Select Department--'}}
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <div class="scroller" style="height: 250px;">
+                                <ul class="dropdown-menu-list">
+                                    <li ng-click="changeDepartment(department.id)" ng-repeat="department in departments">
+                                        <a href="javascript:;">{{department.name}} </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light">
+    <div class="portlet box">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inputs pull-right">
+                    <a href="#/home/organizations/newTeam/{{selectedOrganization.id}}" class="btn btn-cstm pull-right" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Create);">
+                        <i class="fa fa-plus" aria-hidden="true"></i> {{'ORGANIZATIONS_ADD_TEAM' | translate }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-repeat="team in teams | filter:filterTeamsByDepartment">
+            <div class="col-md-12">
+                <div class="portlet box yellow">
+                    <div class="portlet-title department-team-title">
+                        <div class="caption">
+                            {{team.name}} <small>{{getDepartmentName(team.departmentId)}}</small>
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" title="Edit" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Update);"><i class="fa fa-pencil-square-o black" aria-hidden="true" ng-click="editTeam(team.id)"></i></a>
+                            <a href="javascript:;" title="Remove" ng-if="authService.hasPermition(selectedOrganization.id, 'Organizations', authService.actions.Delete);"><i class="fa fa-trash black" aria-hidden="true" ng-click="removeTeam(team.id,team.organizationId)"></i></a>
+                            <a href="javascript:;" class="collapse" data-original-title="" title="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body department-team-section">
+                        <div class="row">
+                            <a href="#/home/organizations/userdetail/{{team.teamLead.organizationId}}/{{team.teamLead.id}}" ng-show="team.teamLead">
+                                <div class="col-md-4 mt-2" >
+                                    <div class="media user-media">
+                                        <div class="media-left">
+                                            <img class="media-object" src="{{team.teamLead.imagePath? team.teamLead.imagePath :'images/user-placeholder.png'}}"
+                                                 alt="...">
+                                        </div>
+                                        <div class="media-body user-media-detail">
+                                            <h4 class="media-heading">{{team.teamLead.firstName}} {{team.teamLead.lastName}}</h4>
+                                            <span>Team Lead</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#/home/organizations/userdetail/{{teamuser.user.organizationId}}/{{teamuser.user.id}}" ng-repeat="teamuser in team.link_TeamUsers">
+                                <div class="col-md-4 mt-2">
+                                    <div class="media user-media">
+                                        <div class="media-left">
+                                            <img class="media-object" src="{{teamuser.user.imagePath ? teamuser.user.imagePath : 'images/user-placeholder.png'}}" alt="...">
+                                        </div>
+                                        <div class="media-body user-media-detail">
+                                            <h4 class="media-heading">{{teamuser.user.firstName}} {{teamuser.user.lastName}}</h4>
+                                            <span>{{teamuser.user.workEmail}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

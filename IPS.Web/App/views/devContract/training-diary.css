@@ -1,0 +1,9 @@
+﻿#reportViewer1 {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    font-family: 'segoe ui', 'ms sans serif';
+    overflow: hidden;
+}

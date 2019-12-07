@@ -1,0 +1,560 @@
+2019-07-05 13:38:41,860 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 13:38:41,988 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 13:40:19,174 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 13:40:19,390 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 13:56:51,899 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 13:56:52,006 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:00:13,295 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 14:00:13,446 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:01:39,797 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:01:39,813 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:01:39,829 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:01:39,829 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 14:01:49,944 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:01:50,445 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:01:50,670 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:01:50,946 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:01:51,463 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:01:52,032 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:02:00,000 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:02:52,900 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:02:59,773 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:03:03,850 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:05:24,042 [32] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen successful
+2019-07-05 14:05:24,042 [23] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen successful
+2019-07-05 14:05:24,042 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:05:24,042 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:30:38,623 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 14:30:38,841 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:31:18,241 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 14:31:18,455 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:31:28,635 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:31:28,651 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:31:28,652 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:31:28,652 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:31:28,652 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:31:28,652 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:31:28,652 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:31:28,676 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:31:28,676 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:31:28,676 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:31:28,676 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:31:28,677 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:31:28,677 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:31:28,678 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 14:31:37,113 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:31:38,530 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:31:38,532 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:31:43,664 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:31:50,217 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:32:06,074 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:33:00,253 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:33:28,623 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:33:35,618 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:33:35,623 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:33:35,623 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:33:35,624 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:33:35,626 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:33:35,626 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:33:35,627 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:33:47,405 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:33:47,405 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:33:47,577 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:33:48,089 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:33:59,511 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:34:00,021 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:34:10,757 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:34:10,757 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:34:10,757 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:34:10,757 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:34:10,758 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:34:10,758 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:34:10,758 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:34:10,760 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:34:10,760 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:34:10,761 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:34:10,761 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:34:14,752 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:34:14,753 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:34:17,473 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:34:17,488 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:34:23,506 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:34:37,972 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:35:00,330 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-5] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:35:02,210 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:35:02,232 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:35:02,232 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:35:02,232 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:35:02,733 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:35:02,796 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:35:02,949 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:35:03,149 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:35:07,477 [DefaultQuartzScheduler_Worker-8] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:01,757 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:36:01,774 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:36:01,774 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:36:01,774 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:36:01,774 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:36:07,555 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:36:07,775 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:36:11,591 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:36:11,592 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:36:11,766 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:36:14,018 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:36:20,819 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:36:21,704 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:36:21,719 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:36:21,719 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:36:22,238 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 14:36:22,322 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 14:36:22,391 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 14:36:23,108 [DefaultQuartzScheduler_Worker-8] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 14:36:23,740 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 14:36:24,062 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 14:37:52,134 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:25:36,711 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 15:25:36,938 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:26:22,542 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 15:26:22,542 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:26:22,574 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 15:26:22,589 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:26:24,628 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:27:27,153 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 15:27:27,334 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:27:40,300 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 15:27:40,300 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:27:40,315 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 15:27:40,331 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:27:48,808 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:28:01,136 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:28:04,635 [22] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name Ronny_User Nilsen failed
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.) ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.OpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass4.<<ExecuteAsync>b__3>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<EnsureConnectionAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<SingleOrDefaultAsync>d__38`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<FindInStoreAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<FindInternalAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__6c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.AsyncHelper.RunSync[TResult](Func`1 func)
+   at Microsoft.AspNet.Identity.UserManagerExtensions.FindById[TUser,TKey](UserManager`2 manager, TKey userId)
+   at IPS.Business.AuthService.GetUserById(String userId) in D:\DotNetProjects\IPS\IPS.Business\AuthService.cs:line 461
+   at IPS.Business.NotificationService.GetUserLoginName(String userKey) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1968
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1799
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 15:28:04,635 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen failed
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.) ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.OpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass4.<<ExecuteAsync>b__3>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<EnsureConnectionAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<SingleOrDefaultAsync>d__38`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<FindInStoreAsync>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.<FindInternalAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
+   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__6c.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNet.Identity.AsyncHelper.RunSync[TResult](Func`1 func)
+   at Microsoft.AspNet.Identity.UserManagerExtensions.FindById[TUser,TKey](UserManager`2 manager, TKey userId)
+   at IPS.Business.AuthService.GetUserById(String userId) in D:\DotNetProjects\IPS\IPS.Business\AuthService.cs:line 461
+   at IPS.Business.NotificationService.GetUserLoginName(String userKey) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1968
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1799
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:28:08,564 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:28:09,119 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:28:09,662 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:28:10,567 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:28:22,968 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:28:22,984 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:28:23,316 [DefaultQuartzScheduler_Worker-8] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 15:29:20,711 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:30:03,426 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:30:16,591 [21] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen successful
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-10] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:30:28,961 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:30:28,977 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:30:28,977 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:30:29,494 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:30:29,509 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:30:57,363 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:30:58,378 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:31:00,395 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:31:00,395 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:31:08,441 [22] DEBUG IPS.Business.NotificationService - Send email to participant with Id 1327, name Ronny_User Nilsen successful
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 15:31:21,080 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 15:31:21,095 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:31:21,095 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:31:21,095 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:31:21,595 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 15:31:21,611 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 15:31:21,611 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 15:31:21,629 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 15:31:21,650 [DefaultQuartzScheduler_Worker-8] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 15:32:00,009 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 15:33:00,231 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:37:06,271 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 18:37:06,428 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:39:23,859 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:39:23,870 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:39:23,871 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:39:23,871 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:39:23,871 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:39:23,871 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 18:39:23,871 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 18:39:23,887 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:39:23,887 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:39:23,887 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:39:23,888 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:39:23,888 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:39:23,888 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:39:23,893 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 18:39:24,873 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:39:25,383 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:39:25,869 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:39:26,586 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:39:27,128 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:39:27,406 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:40:11,795 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:40:11,830 [27] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name Ronny_User Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:40:11,838 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:40:49,434 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-8] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:40:49,435 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:40:49,439 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:40:49,441 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:40:49,966 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:40:50,099 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:40:50,123 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:40:50,496 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:40:59,977 [DefaultQuartzScheduler_Worker-8] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:41:02,311 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:41:02,312 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:41:26,305 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:41:26,315 [28] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name Ronny_User Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:41:47,035 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:41:47,036 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:41:47,036 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:41:47,036 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 18:41:47,036 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 18:41:47,036 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:41:47,041 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:41:47,042 [DefaultQuartzScheduler_Worker-9] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:41:47,572 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:41:47,574 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:41:47,590 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:41:47,597 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:42:05,937 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:42:06,260 [DefaultQuartzScheduler_Worker-9] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:42:07,659 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:43:00,239 [DefaultQuartzScheduler_Worker-8] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:43:01,280 [27] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name Ronny_User Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:43:01,291 [21] ERROR IPS.Business.NotificationService - Send email to participant with Id 1327, name  Ronny A Nilsen failed
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+   at System.Text.StringBuilder.AppendFormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
+   at System.String.Format(String format, Object arg0, Object arg1, Object arg2)
+   at IPS.Business.NotificationService.getStageResultKPISummaryData(StageResultNotificationRecipient stageResultNotificationRecipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 2755
+   at IPS.Business.NotificationService.GetStageResultMacrosValue(String macros, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1817
+   at IPS.Business.NotificationService.ReplaceResultMacroses(String templateText, StageResultNotificationRecipient recipient, String culture) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1766
+   at IPS.Business.NotificationService.SendResultEmailNotification(StageResultNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1729
+   at IPS.Business.NotificationService.SendOutResultNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1704
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 18:43:16,531 [DefaultQuartzScheduler_Worker-7] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:43:16,534 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:43:16,534 [DefaultQuartzScheduler_Worker-10] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:43:17,033 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:43:17,058 [DefaultQuartzScheduler_Worker-7] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:43:17,062 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:43:17,085 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:43:23,734 [DefaultQuartzScheduler_Worker-10] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:43:24,701 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:44:02,630 [DefaultQuartzScheduler_Worker-9] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:46:39,608 [1] DEBUG JobScheduler - Scheduler Starting...
+2019-07-05 18:46:39,749 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:47:17,968 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:47:17,984 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:47:17,985 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:47:17,985 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:47:17,985 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup on 05-07-2019 00:00:00
+2019-07-05 18:47:17,985 [1] DEBUG JobScheduler - Scheduled new Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup on 05-07-2019 20:30:00
+2019-07-05 18:47:17,985 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2019-07-05 18:47:18,008 [DefaultQuartzScheduler_Worker-1] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:47:18,008 [DefaultQuartzScheduler_Worker-2] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:47:18,009 [DefaultQuartzScheduler_Worker-4] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:47:18,009 [DefaultQuartzScheduler_Worker-5] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:47:18,010 [DefaultQuartzScheduler_Worker-6] DEBUG StageResultJob - Stage Result Job! Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:47:18,010 [DefaultQuartzScheduler_Worker-3] DEBUG StageResultJob - Stage Result Job! Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:47:18,016 [1] INFO  JobScheduler - Scheduler Started
+2019-07-05 18:47:18,795 [DefaultQuartzScheduler_Worker-4] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1300_1907040000; StageResultGroup
+2019-07-05 18:47:19,292 [DefaultQuartzScheduler_Worker-2] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1295_1907040000; StageResultGroup
+2019-07-05 18:47:19,798 [DefaultQuartzScheduler_Worker-3] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1293_1907040000; StageResultGroup
+2019-07-05 18:47:25,628 [DefaultQuartzScheduler_Worker-1] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1292_1907040000; StageResultGroup
+2019-07-05 18:47:26,887 [DefaultQuartzScheduler_Worker-6] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1483_1327_1907042030; StageResultGroup
+2019-07-05 18:47:26,888 [DefaultQuartzScheduler_Worker-5] INFO  StageResultJob - Stage Result Job! execution completed. Job key: 1069_1294_1907040000; StageResultGroup
+2019-07-05 18:48:00,444 [DefaultQuartzScheduler_Worker-7] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2019-07-05 18:48:33,096 [1] DEBUG JobScheduler - Scheduler Starting...

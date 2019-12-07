@@ -1,0 +1,6 @@
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Release\IPS.Fx.Security.dll.config
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Release\IPS.Fx.Security.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\bin\Release\IPS.Fx.Security.pdb
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Release\IPS.Fx.Security.csprojResolveAssemblyReference.cache
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Release\IPS.Fx.Security.dll
+D:\DotNetProjects\IPS\IPS.Fx\IPS.Fx.Security\obj\Release\IPS.Fx.Security.pdb

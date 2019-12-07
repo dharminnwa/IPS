@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[PerformanceGroups] (
+    [Id]                     INT             IDENTITY (1, 1) NOT NULL,
+    [Name]                   NVARCHAR (100)  NOT NULL,
+    [Description]            NVARCHAR (1000) NULL,
+    [OrganizationId]         INT             NULL,
+    [IsTemplate]             BIT             CONSTRAINT [DF_PerformanceGroups_IsTemplate] DEFAULT ((0)) NOT NULL,
+    [ParentId]               INT             NULL,
+    [LevelId]                INT             NULL,
+    [IndustryId]             INT             NULL,
+    [ScorecardPerspectiveId] INT             NULL,
+    [IsActive]               BIT             CONSTRAINT [DF_PerformanceGroups_IsActive] DEFAULT ((0)) NOT NULL,
+    [SeqNo]                  INT             NULL,
+    [ScaleId]                INT             NULL,
+    [ProfileId]              INT             NULL,
+    [TrainingComments]       NVARCHAR (MAX)  NULL,
+    CONSTRAINT [PK_PerformanceGroups] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_PerformanceGroups_Industries] FOREIGN KEY ([IndustryId]) REFERENCES [dbo].[Industries] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_Organizations] FOREIGN KEY ([OrganizationId]) REFERENCES [dbo].[Organizations] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_PerformanceGroups] FOREIGN KEY ([ParentId]) REFERENCES [dbo].[PerformanceGroups] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_Profiles] FOREIGN KEY ([ProfileId]) REFERENCES [dbo].[Profiles] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_Scales] FOREIGN KEY ([ScaleId]) REFERENCES [dbo].[Scales] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_ScorecardPerspectives] FOREIGN KEY ([ScorecardPerspectiveId]) REFERENCES [dbo].[ScorecardPerspectives] ([Id]),
+    CONSTRAINT [FK_PerformanceGroups_StructureLevels] FOREIGN KEY ([LevelId]) REFERENCES [dbo].[StructureLevels] ([Id])
+);
+

@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label>{{'COMMON_MATERIAL_TYPE' | translate }}</label>
+    <select class="form-control tab-control" name="material-type"
+            ng-model="material.materialType"
+            ng-change="changeQuestionMaterialType()"
+            ng-options="item.value as item.name for item in materialTypes">
+        <option value="">{{'SOFTPROFILE_NONE' | translate }}</option>
+    </select>
+</div>
+<div class="form-group"
+     ng-show="material &&  material.materialType && material.materialType == materialTypeEnum.link">
+    <label>{{'COMMON_URL' | translate }}</label>
+    <input type="url" class="form-control tab-control" ng-model="material.link"
+           ng-required="material && material.materialType == materialTypeEnum.link"
+           name="url"/>
+</div>
+<div class="form-group" ng-hide="!material || !material.materialType || material.materialType == materialTypeEnum.link">
+    <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+    <input type="file" name="fileOptionModel" ngf-select="onQuestionFileSelect($files)" ng-model="questionFileModel"
+           ng-required="material && material.materialType != materialTypeEnum.link">
+</div>

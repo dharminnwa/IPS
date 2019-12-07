@@ -1,0 +1,157 @@
+<div>
+    <form name="addRoleForm">
+        <section class="portlet-light">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'COMMON_ORGANIZATION' | translate }}</label>
+                        <select ng-selected="$first" class="form-control" data-ng-model="role.organization" data-ng-options="org.text for org in organizations" ng-change="organizationChanged()" placeholder="Select organization"></select>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <section class="portlet-light">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'SECURITY_ROLE_LEVEL' | translate }}</label>
+                    <select ng-selected="$first" class="form-control" data-ng-model="role.roleLevelId" data-ng-options="obj.id as obj.name for obj in roleLevels" placeholder="Select Role Level"></select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-cstm-lable">{{'SECURITY_ROLE_NAME' | translate }}</label>
+                    <input class="form-control" data-ng-model="role.name" type="text" required />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button ng-click="addRole()" ng-disabled="addRoleForm.$invalid" class="btn  btn-cstm mt-5" type="button" aria-expanded="false">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        {{'SECURITY_ADD_ROLE' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid="rolesGrid" k-options="gridRolesOptions"></div>
+            </kendo-tooltip>
+        </div>
+    </section>
+</div>
+
+<br />
+<section class="portlet-light ips-rolePermitions">
+    <div class="row">
+        <div kendo-tab-strip>
+            <ul>
+                <li class="k-state-active">{{'SECURITY_PERMISSION_SETTINGS' | translate }}</li>
+            </ul>
+            <div>
+                <div id="tabDataLoading"></div>
+                <div id="tabData">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>{{'SECURITY_PERMISSION' | translate }}</label>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>{{'SECURITY_CRUD' | translate }}</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>{{'COMMON_CREATE' | translate }}</label>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>{{'SECURITY_READ' | translate }}</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>{{'SECURITY_UPDATE' | translate }}</label>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>{{'SECURITY_DELETE' | translate }}</label>
+                        </div>
+                    </div>
+                    <div class="row ips-permition-row" ng-repeat="permition in RolePermitions | orderBy:'resourseName'" ng-if="permition.isApplicableToOwnResources">
+                        <div class="col-md-2">
+                            <label class="ips-permition-name">{{permition.resourseName}}</label>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <input type="checkbox" ng-model="permition.CRUD" ng-click="changedCRUD(permition)" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isCreate" />
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <input type="checkbox" ng-model="permition.isRead" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isUpdate" />
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <input type="checkbox" ng-model="permition.isDelete" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--<div>
+                <div id="tabDataLoading"></div>
+                <div id="tabData">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>Permission</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>CRUD</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>Create</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>Read</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>Update</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <label>Delete</label>
+                        </div>
+                    </div>
+                    <div class="row ips-permition-row" ng-repeat="permition in RolePermitions | orderBy:'resourseName'" ng-if="!permition.isApplicableToOwnResources">
+                        <div class="col-md-2">
+                            <label class="ips-permition-name">{{permition.resourseName}}</label>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.CRUD" ng-click="changedCRUD(permition)" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isCreate" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isRead" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isUpdate" />
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <input type="checkbox" ng-model="permition.isDelete" />
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+        <div class="ips-row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button class="btn btn-cstm pull-right margintop10" ng-click="saveRolePermitions()">{{'COMMON_SAVE' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,274 @@
+﻿
+<div pane name="customer">
+    <h1 class="page-title">
+        {{'ORGANIZATIONS_CUSTOMER_PROFILE' | translate }}
+        <small></small>
+    </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PROFILE SIDEBAR -->
+            <div class="profile-sidebar">
+                <!-- PORTLET MAIN -->
+                <div class="portlet light profile-sidebar-portlet ">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="../assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name"> {{customerInfo.name}} </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-cstm btn-sm">{{'COMMON_FOLLOW_UP' | translate }}</button>
+                        <button type="button" class="btn btn-cstm red btn-sm">{{'ORGANIZATIONS_MESSAGE' | translate }}</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-envelope"></i> {{customerInfo.email}}
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="javascript:;">
+                                    <i class="fa fa-phone"></i> {{customerInfo.mobile}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-map-marker"></i> {{customerInfo.postCode}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+                <!-- END PORTLET MAIN -->
+
+            </div>
+            <!-- END BEGIN PROFILE SIDEBAR -->
+            <!-- BEGIN PROFILE CONTENT -->
+            <div class="profile-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet light ">
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption caption-md">
+                                    <i class="icon-globe theme-font hide"></i>
+                                    <span class="caption-subject font-blue-madison bold uppercase"></span>
+                                </div>
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="javascript:;" data-target="#tab_SalesData" data-toggle="tab">{{'ORGANIZATIONS_SALES_DATA' | translate }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-target="#tab_history" data-toggle="tab">{{'COMMON_HISTORY' | translate }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <!-- PERSONAL INFO TAB -->
+                                    <div class="tab-pane active" id="tab_SalesData">
+                                        <div class="table-scrollable table-scrollable-borderless">
+                                            <table class="table table-hover table-light">
+                                                <thead>
+                                                    <tr class="uppercase">
+                                                        <th colspan="2"> {{'COMMON_DATE' | translate }} </th>
+                                                        <th> {{'COMMON_MODEL' | translate }} </th>
+                                                        <th> {{'COMMON_TYPE' | translate }} </th>
+                                                        <th> {{'ORGANIZATIONS_REG_NO' | translate }} </th>
+                                                        <th> {{'COMMON_SELLER' | translate }} </th>
+                                                        <th> {{'ORGANIZATIONS_OFFER' | translate }} </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="saleData in customerInfo.customerSalesDatas">
+                                                        <td class="fit">
+                                                            {{saleData.date | date : 'short'}}
+                                                        </td>
+                                                        <td>
+                                                            {{saleData.model}}
+                                                        </td>
+                                                        <td> {{saleData.type}} </td>
+                                                        <td> {{saleData.registrationNo}} </td>
+                                                        <td> {{saleData.seller}} </td>
+                                                        <td> {{saleData.offer}} </td>
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END PERSONAL INFO TAB -->
+                                    <!-- CHANGE AVATAR TAB -->
+                                    <div class="tab-pane" id="tab_history">
+                                        <div class="row">
+                                            <div class="pull-right">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-cstm btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                                                        {{selectedHistoryFilterText}}
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+
+                                                        <li ng-click="filterHistoryChange(resultTypeFilterOption.id)" ng-repeat="resultTypeFilterOption in resultTypeFilterOptions">
+                                                            <a href="javascript:;">{{resultTypeFilterOption.name}}   </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="timeline">
+                                                <!-- TIMELINE ITEM -->
+                                                <div class="timeline-item" ng-repeat="history in customerHistory | filter : filterHistory">
+                                                    <div class="timeline-badge">
+                                                        <img class="timeline-badge-userpic" title="{{history.activityByUser.firstName}} {{history.activityByUser.lastName}}" ng-src="{{history.activityByUser.imageUrl}}" ng-show="history.activityByUser.imageUrl != null && history.activityByUser.imageUrl != ''" />
+                                                        <div class="timeline-icon" ng-hide="history.activityByUser.imageUrl != null && history.activityByUser.imageUrl != ''">
+                                                            <i class="icon-user-following font-green-haze"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <div class="timeline-body-arrow"> </div>
+                                                        <div class="timeline-body-head">
+                                                            <div class="timeline-body-head-caption">
+                                                                <span class="timeline-body-alerttitle font-green-haze">{{history.activityName}}</span>
+                                                                <span class="timeline-body-time font-grey-cascade">{{history.activityDate | date :  'short'}}</span>
+                                                                <i class="fa fa-eye" ng-show="history.resultType == 3 && history.seqNo == 2" ng-click="viewActivityResult(history.prospectingActivityId,history.prospectingCustomerId)"></i>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="timeline-body-content">
+                                                            <div class="font-grey-cascade" ng-show="history.projectName != '' && history.projectName != null">
+                                                                {{'COMMON_PROJECT' | translate }} : <a href="javascript:;">{{history.projectName}}</a>
+                                                            </div>
+                                                            <div class="font-grey-cascade" ng-show="history.prospectingGoalName != '' && history.prospectingGoalName != null">
+                                                                {{'ORGANIZATIONS_PROSPECTING_GOAL' | translate }} : <a href="javascript:;">{{history.prospectingGoalName}}</a>
+                                                            </div>
+                                                            <div class="font-grey-cascade" ng-show="history.customerDescription != '' && history.customerDescription != null">
+                                                                {{'ORGANIZATIONS_CUSTOMER_DESCRIPTION' | translate }} :   {{history.customerDescription}}
+                                                            </div>
+                                                            <div class="font-grey-cascade" ng-show="history.resultDescription != '' && history.resultDescription != null">
+                                                                {{'ORGANIZATIONS_RESULT_DESCRIPTION' | translate }} :  {{history.resultDescription}}
+                                                            </div>
+                                                            <div class="font-grey-cascade" ng-show="history.scheduleDate != '' && history.scheduleDate != null">
+                                                                <a href="javascript:;"> {{history.schduledFor}} {{'ORGANIZATIONS_SCHEDULED_AT' | translate }}  {{history.scheduleDate | date :  'short'}}</a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END TIMELINE ITEM -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END CHANGE AVATAR TAB -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PROFILE CONTENT -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="customerActivityResultModel" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_ACTVITY_RESULT' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formActvityResult" name="formActvityResult">
+                                <div class="row" ng-repeat="customerActivityResult in customerActivityResults">
+                                    {{customerActivityResult.skill.name}}
+                                    <div ng-if="customerActivityResult.skill.seqNo == 1">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'ORGANIZATIONS_CALLED_AT' | translate }}:</label>
+                                            {{customerActivityResult.createdOn | date:'short'}}
+                                        </div>
+                                    </div>
+                                    <div ng-if="customerActivityResult.skill.seqNo == 2">
+                                        {{'ORGANIZATIONS_YOUR_HAVE_TALKED_WITH_CUSTOMER_FOR' | translate }} {{customerActivityResult.duration}} {{'ORGANIZATIONS_MINUTES' | translate }}
+                                        <div>
+                                            <div class="task-checkbox">
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-hide="customerActivityResult.isNoMeeting || customerActivityResult.isMeeting">
+                                                    <input type="checkbox" id="chkIsFollowUp_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isFollowUp" ng-model="customerActivityResult.isFollowUp">
+                                                    <span></span> {{'COMMON_FOLLOW_UP' | translate }}
+                                                </label>
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-hide="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp">
+                                                    <input type="checkbox" id="chkIsMeeting_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isMeeting" ng-model="customerActivityResult.isMeeting">
+                                                    <span></span> {{'ORGANIZATIONS_MEETING_AGREED' | translate }}
+                                                </label>
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-hide="customerActivityResult.isMeeting || customerActivityResult.isFollowUp">
+                                                    <input type="checkbox" id="chkIsNoMeeting_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isNoMeeting" ng-model="customerActivityResult.isNoMeeting">
+                                                    <span></span> {{'ORGANIZATIONS_NOT_INTERESTED' | translate }}
+                                                </label>
+                                            </div>
+
+
+                                            <div class="col-md-12" ng-show="customerActivityResult.isFollowUp || customerActivityResult.isMeeting">
+                                                <label class="col-md-12 text-info">{{'ORGANIZATIONS_PLEASE_NOTE' | translate }} {{'ORGANIZATIONS_THIS_WILL_BE_LINKED_WITH_YOUR_TASKS' | translate }} ({{'ORGANIZATIONS_NOTIFIES_YOU_WITH_TODAYS_TASKS' | translate }}) {{'ORGANIZATIONS_AND_CALENDER' | translate }} ({{'ORGANIZATIONS_WILL_BE_LISTED_AS_A_TASK_IN_YOUR_CALENDAR_INSIDE_IMPROVE_SYSTEMS' | translate }})</label>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'ORGANIZATIONS_SCHEDULE_DATE' | translate }}</label>
+                                                        <input kendo-date-time-picker
+                                                               id="talkResultScheduleDate"
+                                                               name="talkResultScheduleDate"
+                                                               ng-model="customerActivityResult.prospectingSchedules[0].scheduleDate" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label" ng-show="customerActivityResult.isMeeting">{{'ORGANIZATIONS_DESCRIBE_AGENDA' | translate }}</label>
+                                                        <label class="control-label" ng-show="customerActivityResult.isFollowUp">{{'ORGANIZATIONS_DESCRIBE_FOLLOW_UP_DETAIL' | translate }}</label>
+                                                        <textarea type="text" class="form-control" ng-model="customerActivityResult.prospectingSchedules[0].agenda" name="agenda" placeholder="{{'ORGANIZATIONS_AGENDA' | translate }}" ng-required="customerActivityResult.isMeeting || customerActivityResult.isFollowUp" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-12" ng-show="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'ORGANIZATIONS_REASON' | translate }}</label>
+                                                    <textarea class="form-control" ng-model="customerActivityResult.reason" name="reason" placeholder="{{'ORGANIZATIONS_REASON' | translate }}" ng-required="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'ORGANIZATIONS_RATE_OF_CUSTOMER_INTEREST' | translate }} <small>(%)</small></label>
+                                                    <input type="number" class="form-control" ng-model="customerActivityResult.customerInterestRate" name="customerInterest" placeholder="{{'ORGANIZATIONS_CUSTOMER_INTEREST' | translate }}" ng-required="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelActivityResult()" data-dismiss="modal" aria-label="Close">{{'COMMON_CLOSE' | translate }}</button>
+                                    <!--<button class="btn btn-cstm primary pull-right" ng-click="UpdateActivityResult()" ng-disabled="formActvityResult.$invalid" aria-label="Ok">Save</button>-->
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

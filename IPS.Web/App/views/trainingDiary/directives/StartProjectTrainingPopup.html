@@ -1,0 +1,53 @@
+<div kendo-window="startProjectTrainingWindow" k-actions="['Maximize','Close']" k-modal="true" k-width="1200"
+     k-visible="false" k-title="'{{'TRAININGDAIRY_START_TRAINING' | translate }}'" k-on-close="closeNewTraining()" ng-init="init()" ng-cloak>
+    <div class="col-md-12 kpi-margin-top10">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_NAME' | translate }} : {{training.name}}</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="material in trainingMaterials">
+                <div class="portlet light portlet-fit bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class=" icon-layers font-green"></i>
+                            <span class="caption-subject font-green bold uppercase">{{material.title}}</span>
+                            <div class="caption-desc font-grey-cascade"> {{material.description}} </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="mt-element-overlay">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mt-overlay-1">
+                                        <img src="../assets/pages/img/page_general_search/01.jpg">
+                                        <div class="mt-overlay">
+                                            <ul class="mt-info">
+                                                <li>
+                                                    <a class="btn default btn-outline" href="javascript:;">
+                                                        <i class="icon-magnifier"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="btn default btn-outline" href="javascript:;">
+                                                        <i class="icon-link"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,25 @@
+<div class="row" ng-init="init()">
+    <div class="col-md-12 margin-top-20">
+
+        <div class="portlet light bordered" >
+            <!--<div class="portlet-title">
+                <project-phases project-id="project.id" current-phase="projectPhasesEnum.profile"  current-phase-level="phasesLevelEnum.planning"></project-phases>
+            </div>-->
+            <div class="portlet-body form">
+                <!--<div class="row">
+                    <div class="col-md-12 margin-top-20">
+                        <span class="btn btn-info" ng-show='isAllowEdit()' ng-click="newProfile()"> {{'MYPROJECTS_NEW_PROFILE' | translate }}</span>
+                    </div>
+                </div>-->
+
+                <kendo-tooltip options="tooltipOptions">
+                    <div id="projectprofileGrid" kendo-grid="projectprofileGrid" k-options="gridOptions" k-rebind="projects"></div>
+                </kendo-tooltip>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

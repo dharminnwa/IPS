@@ -1,0 +1,148 @@
+﻿<div pane name="finalKPI">
+    <ng-form name="finalKPIForm">
+        <div class="row">
+            <header-navigation page-name="{{ ( kpi.isFirstStage ? 'MYPROFILES_VIEW_FINAL_KPIS_GOALS_AND_TRAININGS' : 'MYPROFILES_VIEW_TRAININGS_FOR_THIS_PERFORMANCE_EVALUATION' ) | translate }} for {{kpi.profile.name}}"></header-navigation>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="organizations-menu">
+                            <img src="images/brain-icon.png" />
+                            <span>{{'MYPROFILES_VIEW_TRAININGS_FOR_THIS_PERFORMANCE_EVALUATION' | translate }} {{kpi.currentStageName}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="content-border content-border-left remove-scroll">
+                            <img class="info-icon" src="images/info-icon.png" />
+                            <span class="submit-info">{{'MYPROFILES_HERE_YOU_CAN_VIEW_TRAININGS_FOR' | translate }} {{kpi.participantUser.firstName}} {{kpi.participantUser.lastName}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 margin-top10">
+                        <div class="content-border content-border-right remove-scroll">
+                            <div class="form-group col-sm-3">
+                                <label class="ips-label">{{'MYPROFILES_FINAL_KPI_MANAGER' | translate }}</label>
+                                <div>{{kpi.defaultEvaluatorName}}</div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label">{{'MYPROFILES_MULTIPLE_EVALUATORS' | translate }}</label>
+                                <div style="width: 300px; z-index:100;" ng-dropdown-multiselect options="kpi.evaluatorsOptions" selected-model="kpi.evaluatorsModel" translation-texts="kpi.evaluatorsCustomTexts" extra-settings="kpi.smartButtonSettings" events="kpi.evaluatorsEvents"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="content-border content-border-left content-border-right">
+                            <table class="table">
+                                <tr class="table-header">
+                                    <th ng-repeat="(i,th) in kpi.tableHead track by $index" ng-hide="kpi.isHide(kpi.scorecardData[0].participantAnswer, th) || th.isHiddable">
+                                        <span ng-class="kpi.addSortingClass(i,th)" ng-click="kpi.changeSorting(i,th)">
+                                            {{th.name}}
+                                            <span class="no-wrap-normal" ng-if="th.from && th.to">({{th.from}} -</span>
+                                            <span class="no-wrap-normal" ng-if="th.from && th.to">{{th.to}})</span>
+                                            <span class="glyphicon glyphicon-chevron-up" ng-show="th.currentSort && kpi.sortCondition.descending"></span>
+                                            <span class="glyphicon glyphicon-chevron-down" ng-show="th.currentSort && !kpi.sortCondition.descending"></span>
+                                        </span>
+                                    </th>
+                                </tr>
+                                <tr ng-repeat-start="data in kpi.scorecardData" ng-show="data.agreement.kpiType">
+                                    <td class="answer-number">{{data.questionNo}}</td>
+                                    <td>{{data.skill.name}}</td>
+                                    <td>{{data.performanceGroup.name}}</td>
+                                    <td>{{data.question.questionText}}</td>
+                                    <td ng-hide="!kpi.isFirstStage || !kpi.scorecardData[0].participantAnswer">
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(data.participantAnswer.kpiType) && data.participantAnswer.kpiType || '0' }}"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="kpi-align-center" ng-hide="!kpi.scorecardData[0].participantAnswer">{{data.participantAnswer.answer1}}</td>
+                                    <td ng-hide="!kpi.scorecardData[0].participantAnswer">{{data.participantAnswer.comment}}</td>
+
+                                    <td ng-hide="!kpi.isFirstStage" ng-repeat-start="eAnswer in data.evaluatorAnswers">
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(eAnswer.kpiType) && eAnswer.kpiType || '0' }}"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="kpi-align-center">{{eAnswer.answer1}}</td>
+                                    <td ng-repeat-end>
+                                        {{eAnswer.comment}}
+                                    </td>
+
+                                    <td class="kpi-align-center">{{data.avgAnswer.answer1}}</td>
+                                    <td>
+                                        <span ng-show='finalKPIForm.finalScore{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" name="finalScore{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.finalScore" disabled style="width: 100px" />
+                                    </td>
+                                    <td>
+                                        <div class="kpi-outer-circle">
+                                            <div class="kpi-inner-circle kpi-inner-circle-0">
+                                                <div class="kpi-control kpi-{{(data.agreement.kpiType) && data.agreement.kpiType || '0' }}"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td ng-repeat="milestoneAgreementGoal in data.agreement.milestoneAgreementGoals">
+                                        <span ng-show='finalKPIForm.goal{{milestoneAgreementGoal.id}}.$error.required' class="required">* {{$index}}</span>
+                                        <input type="number" min="0" max="{{kpi.maxScoreValue}}" step="0.1" name="goal{{milestoneAgreementGoal.id}}" class="form-control kpi-align-center" ng-model="data.agreement.milestoneAgreementGoals[$index].goal" ng-required="data.agreement.kpiType > 0" ng-disabled="kpi.isdisabled(data.agreement)" />
+                                    </td>
+
+                                    <!--<td>
+                                        <span ng-show='finalKPIForm.shortGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" name="shortGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.shortGoal" disabled style="width: 100px" />
+                                    </td>
+                                    <td>
+                                        <span ng-show='finalKPIForm.midGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" name="midGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.midGoal" disabled style="width: 100px" />
+                                    </td>
+                                    <td>
+                                        <span ng-show='finalKPIForm.longGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" name="longGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.longGoal" disabled style="width: 100px" />
+                                    </td>
+                                    <td>
+                                        <span ng-show='finalKPIForm.finalGoal{{$index+1}}.$error.required' class="required">*</span>
+                                        <input type="number" min="0" name="finalGoal{{$index+1}}" class="form-control kpi-align-center" ng-model="data.agreement.finalGoal" disabled style="width: 100px" />
+                                    </td>-->
+                                    <td>
+                                        <textarea class="form-control comment-text-area" rows="4" ng-model="data.agreement.comment" disabled></textarea>
+                                    </td>
+                                </tr>
+                                <tr ng-show="data.agreement.trainings.length > 0">
+                                    <th class="no-border"></th>
+                                    <th class="no-border"></th>
+                                    <th class="trainings-title">{{'MYPROFILES_TRAININGS' | translate }}</th>
+                                </tr>
+                                <tr ng-show="data.agreement.trainings.length > 0">
+                                    <th class="no-border"></th>
+                                    <th class="no-border"></th>
+                                    <th class="first-training-header">{{'COMMON_NAME' | translate }}</th>
+                                    <th>{{'COMMON_WHY' | translate }}</th>
+                                    <th>{{'COMMON_WHAT' | translate }}</th>
+                                    <th class="last-training-header">{{'COMMON_HOW' | translate }}</th>
+                                </tr>
+                                <tr ng-show="data.agreement.trainings.length > 0" ng-repeat-end="" ng-repeat="training in data.agreement.trainings">
+                                    <td class="no-border"></td>
+                                    <td class="no-border"></td>
+                                    <td class="training-body">
+                                        <a ng-click="kpi.getTrainingsLink(training.id)">{{training.name}}</a>
+                                    </td>
+                                    <td class="training-body readmoreText" title="{{training.why}}">
+                                        {{training.why}}
+                                    </td>
+                                    <td class="training-body readmoreText" title="{{training.what}}">
+                                        {{training.what}}
+                                    </td>
+                                    <td class="training-body readmoreText" title="{{training.how}}">
+                                        {{training.how}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-form>
+</div>
+<span kendo-notification="kpi.notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

@@ -1,0 +1,101 @@
+﻿<section class="portlet-light header-blue" ng-init="init()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="caption caption-md">
+                <span class="caption-subject box-title">{{'HOME_OWN_TRAININGS' | translate}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="portlet-light pb-1">
+    <div class="row" ng-show="personalTrainings.length > 0">
+        <div class="col-md-4 mt-3" ng-repeat="trainingItem in personalTrainings">
+            <div class="profile-card">
+                <a href="javascript:;" class="btn btn-xs in-completed">
+                    {{'COMMON_COMPLETED' | translate}}
+                </a>
+                <div class="box">
+                    <h2>
+                        {{trainingItem.name}}
+                    </h2>
+                   
+                    <p class="skill-names"> <label>{{'COMMON_SKILL' | translate}} </label> : <b ng-repeat="skillItem in trainingItem.skills">{{skillItem.name}}</b> </p>
+                    <div class="training-date mt-5">
+                        <h5> <label>{{'COMMON_START_DATE'| translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{trainingItem.startDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{trainingItem.startDate | date:'h:mm a'}}</b></span></h5>
+                        <h5> <label>{{'COMMON_DUE_DATE' | translate}} : </label> <i class="fa fa-calendar" aria-hidden="true"></i> {{trainingItem.endDate | date:'shortDate'}} <i class="fa fa-clock-o hide" aria-hidden="true"></i> <span><b>{{trainingItem.endDate | date:'h:mm a'}}</b></span></h5>
+
+                        <h5>
+                            <label>{{'COMMON_SPENT' | translate }} : </label> <b>{{getTrainingSpentTime(trainingItem)}}</b> <label> {{'TRAININGDAIRY_PLANNED' | translate }}  : </label><b>{{getTrainingPlannedTime(trainingItem)}}</b>
+                        </h5>
+                    </div>
+                    <div class="card-icons mt-3">
+                        <i class="fa fa-eye" title="{{'COMMON_VIEW' | translate }}" ng-click="openTrainingDetail(trainingItem.id)"></i>
+                        <i class="fa fa-sticky-note-o" title="{{'COMMON_VIEW' | translate }}" aria-hidden="true" ng-click="viewTrainingNotes(trainingItem.title,trainingItem.id)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="row" ng-hide="personalTrainings.length > 0">
+        <div class="alert  alert-warning">
+            <strong>Completed trainings not found! </strong>
+        </div>
+    </div>
+</section>
+
+
+<own-training-popup organization-id="currentUser.user.organizationId"
+                    user-id="currentUser.user.userId"
+                    open-training-popup-mode="openTrainingPopupMode"
+                    save-mode="saveMode"
+                    editing-training="editingTraining"
+                    skill="activeSkill"
+                    evaluation-Agreement="evaluationAgreement">
+</own-training-popup>
+
+
+<div kendo-window="winNewTrainingMaterial" k-actions="['Maximize','Close']" k-modal="true" k-visible="false" k-title="'New Training Material'" k-on-open="winNewTrainingMaterialVisible = false" k-on-close="winNewTrainingMaterialVisible = false">
+    <div class="row window-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_TITLE' | translate }}</label>
+                <input type="text" class="form-control tab-control" ng-model="trainingMaterial.title" name="newTrainingName" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_DESCRIPTION' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" ng-model="trainingMaterial.description"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_URL' | translate }}</label>
+                <input type="text" class="form-control tab-control" ng-model="trainingMaterial.link" name="newTrainingName" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <look-up name="Material Type" type="trainingMaterialType" selected="trainingMaterial.materialType"></look-up>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+                <input type="file" ngf-select="onTMSelect($files)">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelTrainingMaterial()">{{'COMMON_CANCEL' | translate }}</button>
+            <button class="btn btn-cstm primary pull-right" ng-click="SaveNewTrainingMaterial()">{{'COMMON_OK' | translate }}</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="home-project-training-popup-div"></div>
+<div id="project-training-popup-div"></div>

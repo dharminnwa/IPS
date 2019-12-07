@@ -1,0 +1,35 @@
+
+<div  >
+    <div class="row">
+        <div class="col-xs-4">
+            <label>User Roles</label>
+            <ul class="">
+                <li class="roles" ng-repeat="role in selectedUser.roles | filter:filterRolesOrganization">
+                    <a ng-click="removeRoleFromUser(role);" ng-disabled="isLinkDisabled(role);">
+                        <label>{{role.name}}</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-4">
+            <label>Available Roles</label>
+            <ul class="">
+                <li class="roles" ng-repeat="role in allRoles | filter:filterRolesFn ">
+                    <a ng-click="addRoleToUser(role);">
+                        <label>{{role.name}}</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ips-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <button class="btn btn-cstm pull-right" ng-click="saveUserRoles()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

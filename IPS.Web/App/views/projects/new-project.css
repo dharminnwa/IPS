@@ -1,0 +1,96 @@
+
+.group-card h3{
+    color: #5c5c5c;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.text-default-color{
+    color: #ff5e00 !important;
+}
+
+.group-card{
+    box-shadow: 5px 18px 16px 0px #c7c7c7;
+    cursor: pointer !important;
+}
+.group-card:hover{
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+.group-card p{
+    color: #ff5e00;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.group-card h6 span{
+    font-size: 15px;
+    font-weight: 400;
+    color: #565656;
+}
+.social-icons i{
+    padding: 9px;
+    background-color: #ff6e19;
+    color: #fff;
+    margin-top: 10px;
+    width: 35px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.social-icons i:hover{
+    border: 1px solid #ff6e19;
+    color: #ff6e19;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.danger{
+    color: red !important;
+}
+
+.portlet.box.red{
+    border: none !important;
+}
+
+.dlt-profile-icon{
+    background-color: transparent !important;
+    border: 1px solid #c1c1c1 !important;
+    color: #7b7b7b !important;
+}
+
+.detail-title{
+    color: #989898;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.portlet>.portlet-title>.caption{
+    padding:0px !important;
+}
+
+.portlet.light.portlet-fit>.portlet-title{
+    padding: 0px 20px 10px !important;
+}
+.mt-element-overlay .mt-overlay-1 img{
+    border: 5px solid #ffffff !important;
+}
+.mt-element-overlay .mt-overlay-1 img:hover{
+    transform: none !important;
+}
+.title-font{
+    color: #636363!important;
+}
+
+.portlet.light>.portlet-title{
+    min-height: 40px !important;
+}
+
+/* .tab-pane{
+    padding: 0px !important;
+} */
+.tab-content{
+    padding: 0px !important;
+}

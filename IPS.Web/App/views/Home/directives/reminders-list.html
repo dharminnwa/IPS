@@ -1,0 +1,45 @@
+﻿<div>
+    <ul class="reminder">
+        <li ng-repeat="reminder in reminders">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div ng-show="reminder.isExpired">{{reminder.text}}</div>
+                    <a ng-hide="reminder.isExpired" href="{{reminder.link}}">{{reminder.text}}</a>
+                    <div>Due date: {{reminder.dueDate | date:'yyyy-MM-dd HH:mm'}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-cstm pull-right" data-toggle="modal" data-target=".date-picker-modal" ng-click="setCurrentReminder(reminder)">Remind Me Later</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="modal fade date-picker-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Remind Me At</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input kendo-date-picker
+                                       ng-model="newDate"
+                                       k-min="minDate"
+                                       k-max="stageEndDate"
+                                       k-rebind="stageEndDate" />
+                                <div class="row modal-buttons">
+                                    <div class="col-sm-12">
+                                        <button type="button" class="btn btn-cstm primary" data-dismiss="modal" aria-label="Close"> Cancel </button>
+                                        <button type="button" class="btn btn-cstm primary pull-right" data-dismiss="modal" aria-label="Close" ng-click="setNewReminderDate()"> Ok </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

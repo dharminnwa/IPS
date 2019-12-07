@@ -1,0 +1,68 @@
+﻿<div ng-controller="organizationCustomersCtrl as organizationCustomers">
+    <div class="row">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i>{{'ORGANIZATIONS_CUSTOMERS_CSV_UPLOAD' | translate }}
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label db_title">{{'COMMON_SALES_MAN' | translate }}</label>
+                            <select class="form-control" ng-options="salesman.id as (salesman.firstName + ' ' + salesman.lastName)  for salesman in organizationCustomers.salesMans"
+                                    ng-model="organizationCustomers.salesManId"
+                                    ng-change="organizationCustomers.salesmanChangedManually()"></select>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label></label>
+                            <input id="customerCsvUploadFile" type="file" ngf-select="organizationCustomers.onFileSelect($files)" ng-disabled="(!organizationCustomers.selectedOrganizationId > 0)">
+                            <span class="text-red" ng-show="(!organizationCustomers.selectedOrganizationId > 0)">{{'ORGANIZATIONS_CUSTOMERS_PLEASE_SELECT_ORGANIZATION_TO_UPLOAD_CSV' | translate }}</span>
+                            <span class="text-red" ng-show="(!organizationCustomers.salesManId > 0)">{{'ORGANIZATIONS_CUSTOMERS_PLEASE_SELECT_SALESMAN_TO_UPLOAD_CSV_FOR_THAT_SALES_PERSON' | translate }}</span>
+                            <input type="hidden" ng-value="organizationCustomers.fileName" />
+                        </div>
+
+                        <div class="form-group">
+                            <a href="javascript:;" class="btn btn-primary" ng-show="organizationCustomers.fileName && organizationCustomers.salesManId" ng-click="organizationCustomers.saveCustomer()">{{'COMMON_SAVE' | translate }}</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" >
+                        <div class="form-group">
+                            <label class="control-label db_title">{{'ORGANIZATIONS_CUSTOMERS_UPLOADED_FILES' | translate }}</label>
+                            <select class="form-control" ng-options="salesManFile for salesManFile in organizationCustomers.salesManFiles"
+                                    ng-model="organizationCustomers.salesManFile"
+                                    ng-change="organizationCustomers.salesManFileChanged()" ng-disabled="!(organizationCustomers.salesManFiles.length > 1)"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="grid-header-menu">
+            <img src="images/organization/organization-icon.png" />
+            <span>
+                {{organizationCustomers.salesManFile ? organizationCustomers.salesManFile : "" }} {{'ORGANIZATIONS_CUSTOMERS_CUSTOMERS_LIST' | translate }}
+            </span>
+
+            <div class="btn-group">
+                <a class="btn  btn-cstm btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                    {{organizationCustomers.customerFilterText}}
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li ng-click="organizationCustomers.changeCustomerFilter(customerFilterOptionItem.id,customerFilterOptionItem.name)" ng-repeat="customerFilterOptionItem in organizationCustomers.customerFilterOptions">
+                        <a href="javascript:;"> {{customerFilterOptionItem.name}} </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+
+        <div id="organization-customers-grid" class="organization-customers-grid" kendo-grid k-options="organizationCustomers.organizationCustomersOptions"></div>
+    </div>
+</div>

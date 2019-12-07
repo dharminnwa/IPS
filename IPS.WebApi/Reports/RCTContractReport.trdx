@@ -1,0 +1,1706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report DataSourceName="sqlDataSourceHeaderFooter" Width="20cm" UnitOfMeasure="Cm" Name="DevContractReport" SnapGridSize="0.1cm" xmlns="http://schemas.telerik.com/reporting/2012/3.8">
+  <DataSources>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand=" SELECT TOP 1&#xD;&#xA;&#x9;u.FirstName + ' ' + u.LastName as ParticipantName, &#xD;&#xA;&#x9;o.LogoLink, &#xD;&#xA;&#x9;(SELECT TOP 1 Name FROM Profiles p INNER JOIN Link_ProfileStageGroups lsg on p.Id = lsg.ProfileId and lsg.StageGroupId = s.StageGroupId) as ProfileName,&#xD;&#xA;(SELECT TOP 1 prj.Name FROM  projects prj &#xD;&#xA;  inner join profiles p on p.projectid = prj.id INNER JOIN Link_ProfileStageGroups lsg on p.Id = lsg.ProfileId and lsg.StageGroupId = s.StageGroupId) as ProjectName,&#xD;&#xA;    (SELECT TOP 1 FirstName + ' ' + LastName FROM Users WHERE  Id in (SELECT UserId FROM EvaluationParticipants WHERE &#xD;&#x9;  EvaluateeId = ep.Id and IsScoreManager = 1 and StageGroupId= s.StageGroupId)) AS EvaluatorName,&#xD;&#xA;&#x9;(SELECT TOP 1 FirstName + ' ' + LastName FROM Users u3&#xD;&#xA;&#x9;&#x9;INNER JOIN Link_DepartmentUsers du on du.UserId = u3.Id&#xD;&#xA;&#x9;&#x9;INNER JOIN Departments d on d.Id = du.DepartmentId&#xD;&#xA;&#x9;&#x9;WHERE u3.Id = d.ManagerId and du.UserId = ep.UserId) AS LeaderName, &#xD;&#xA;&#x9;u1.FirstName + ' ' + u1.LastName AS TrainerName,&#xD;&#xA;&#x9;u2.FirstName + ' ' + u2.LastName AS SignatureBossName,&#xD;&#xA;&#x9;s.Name AS StageName,&#xD;&#xA;&#x9;s.StartDateTime AS TrainingStartDate,&#xD;&#xA;&#x9;s.EndDateTime AS TrainingEndDate,&#xD;&#xA;&#x9;s.EvaluationStartDate as EvaluationStartDate,&#xD;&#xA;&#x9;s.EvaluationEndDate as EvaluationEndDate&#xD;&#xA; &#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN EvaluationParticipants ep on ep.Id = ea.ParticipantId&#xD;&#xA;  INNER JOIN Users u on u.Id = ep.UserId&#xD;&#xA;  INNER JOIN Organizations o on o.Id = u.OrganizationId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId    &#xD;&#xA;  LEFT JOIN Users u1 on u1.Id = s.TrainerId&#xD;&#xA;  LEFT JOIN Users u2 on u2.Id = s.ManagerId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId" Name="sqlDataSourceHeaderFooter" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="SELECT &#xD;&#xA;&#x9;sk.Name, t.*&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2" Name="sqlDataSourceStrongTrainings" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid,  LEFT(ea.Comment, 100) as comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2 and ea.Comment is not null ) r WHERE r.rn = 1 and  len(comment) &gt; 0" Name="sqlDataSource1" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="SELECT &#xD;&#xA;&#x9;sk.Name, t.*&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1" Name="sqlDataSourceWeakTrainings" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid,  LEFT(ea.Comment, 100) as comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1 and ea.Comment is not null ) r WHERE r.rn = 1 and len(comment) &gt; 0" Name="sqlDataSource2" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="SELECT sk.Name, t.Id,t.StartDate,t.Frequency,t.DescriptiveFrequency,t.EndDate,t.HowMany,t.EvaluatorFeedbackRecurrence, t.Duration,dm.Name as DurationMetric&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  Inner Join DurationMetrics dm on dm.Id = t.DurationMetricId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2" Name="sqlDataSourceStrongRCT" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="SELECT sk.Name, t.Id,t.StartDate,t.Frequency,t.DescriptiveFrequency,t.EndDate,t.HowMany,t.EvaluatorFeedbackRecurrence, t.Duration,dm.Name as DurationMetric&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_EvaluationAgreementTrainings lat on lat.EvaluationAgreementId = ea.Id&#xD;&#xA;  INNER JOIN Trainings t on t.Id = lat.TrainingId&#xD;&#xA;  Inner Join DurationMetrics dm on dm.Id = t.DurationMetricId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1" Name="sqlDataSourceWeakRCT" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="Int32" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="Int32" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="&#xD;&#xA;With cte as(&#xD;&#xA;select distinct sk.id SkillId,sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate&#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @StageId  and   ea.participantid = @ParticipantId  and  &#xD;&#xA;mg.stageid = @StageId  and kpitype = 2&#xD;&#xA;),&#xD;&#xA;cte1 as (&#xD;&#xA;select distinct sk.id SkillId, sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.name Milestone, s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore StartScore&#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = ea.StageId &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid in(&#xD;&#xA;select top 1 Id from stages where stagegroupid in (&#xD;&#xA;select s.stagegroupid from stages s   &#xD;&#xA;where s.id = @StageId )) and   ea.participantid = @ParticipantId  and kpitype = 2&#xD;&#xA;)&#xD;&#xA;Select cte.*,cte1.StartScore,row_number() over (partition by cte.Skill order by  cte.Skill) R      &#xD;&#xA;  from cte join cte1 ON cte.skillid = cte1.skillid&#xD;&#xA;" Name="sqlDataSourceCurrentMIlestoneStrongGoal" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Name,StartDateTime,EndDateTime from Stages where id = @StageId" Name="sqlDataSourceCurrentMIlestoneInfo" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="&#xD;&#xA;With cte as(&#xD;&#xA;select distinct sk.id SkillId,sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate&#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @StageId  and   ea.participantid = @ParticipantId  and  &#xD;&#xA;mg.stageid = @StageId  and kpitype = 1&#xD;&#xA;),&#xD;&#xA;cte1 as (&#xD;&#xA;select distinct sk.id SkillId, sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.name Milestone, s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore StartScore&#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = ea.StageId &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid in(&#xD;&#xA;select top 1 Id from stages where stagegroupid in (&#xD;&#xA;select s.stagegroupid from stages s   &#xD;&#xA;where s.id = @StageId )) and   ea.participantid = @ParticipantId  and kpitype = 1&#xD;&#xA;)&#xD;&#xA;Select cte.*,cte1.StartScore,row_number() over (partition by cte.Skill order by  cte.Skill) R      &#xD;&#xA;  from cte join cte1 ON cte.skillid = cte1.skillid&#xD;&#xA;" Name="sqlDataSourceCurrentMIlestoneWeakGoal" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Milestone, Skill, MAX(Goal) as Goal,EvaluationStartDate,EvaluationEndDate, max(FinalScore) StartScore,   row_number() over (partition by Skill order by  Skill) R from &#xD;&#xA;(select distinct sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.id as sid, s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore    &#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @PreviousStageId and   ea.participantid = @ParticipantId and  mg.stageid = @PreviousStageId and kpitype = 2 ) newTable &#xD;&#xA;group by skill, Milestone,EvaluationStartDate,EvaluationEndDate&#xD;&#xA;" Name="sqlDataSourcePreviousStrongKPIGoals" ParameterValues="{&quot;@PreviousStageId&quot;:&quot;1696&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@PreviousStageId">
+          <Value>
+            <String>= Parameters.PreviousStageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Name,StartDateTime,EndDateTime from Stages where id = @PreviousStageId;" Name="sqlDataSourcePrevMilestoneInfo" ParameterValues="{&quot;@PreviousStageId&quot;:&quot;1696&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@PreviousStageId">
+          <Value>
+            <String>= Parameters.PreviousStageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Milestone, Skill, MAX(Goal) as Goal,EvaluationStartDate,EvaluationEndDate, max(FinalScore) StartScore,   row_number() over (partition by Skill order by  Skill) R from &#xD;&#xA;(select distinct sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.id as sid, s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore    &#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @PreviousStageId and   ea.participantid = @ParticipantId and  mg.stageid = @PreviousStageId and kpitype = 1 ) newTable &#xD;&#xA;group by skill, Milestone,EvaluationStartDate,EvaluationEndDate&#xD;&#xA;" Name="sqlDataSourcePreviousWeakKPIGoals" ParameterValues="{&quot;@PreviousStageId&quot;:&quot;1696&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@PreviousStageId">
+          <Value>
+            <String>= Parameters.PreviousStageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Milestone, Skill, MAX(Goal) as Goal,EvaluationStartDate,EvaluationEndDate, max(FinalScore) StartScore,   row_number() over (partition by Skill order by  Skill) R from &#xD;&#xA;(select distinct sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.id as sid, s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore    &#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @StageId and   ea.participantid = @ParticipantId and kpitype = 2 ) newTable &#xD;&#xA;group by skill, Milestone,EvaluationStartDate,EvaluationEndDate&#xD;&#xA;" Name="sqlDataSourceStrongKPIGoals" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="  select * from (&#xD;&#xA;  SELECT &#xD;&#xA;&#x9;sk.Name,&#xD;&#xA;&#x9;ea.[StageId]&#xD;&#xA;      ,ea.[ParticipantId]&#xD;&#xA;      ,ea.[QuestionId]&#xD;&#xA;      ,ea.[KPIType]&#xD;&#xA;      ,ea.[ShortGoal]&#xD;&#xA;      ,ea.[Comment]&#xD;&#xA;      ,ea.[Id] as eaid&#xD;&#xA;      ,ea.[FinalScore]&#xD;&#xA;      ,ea.[MidGoal]&#xD;&#xA;      ,ea.[LongGoal]&#xD;&#xA;      ,ea.[FinalGoal] &#xD;&#xA;&#x9;  ,es.EndedAt&#xD;&#xA;&#x9;  ,s.[Name] as stagename&#xD;&#xA;      ,s.[StageGroupId]&#xD;&#xA;      ,s.[StartDateTime]&#xD;&#xA;      ,s.[EndDateTime]&#xD;&#xA;      ,s.[ManagerId]&#xD;&#xA;      ,s.[TrainerId],&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 2) as ShortEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 3) as MidEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 4) as LongEndDate&#xD;&#xA;    ,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 5) as FinalEndDate&#xD;&#xA;    , row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  LEFT JOIN EvaluationStatuses es on es.StageId = ea.StageId and es.ParticipantId = ea.ParticipantId &#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;   WHERE ea.StageId = @StageId  and ea.ParticipantId = @ParticipantId and ea.KPIType = 2&#xD;&#xA;   ) r&#xD;&#xA;   WHERE r.rn = 1" Name="sqlDataSourceStrong" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select Milestone, Skill, MAX(Goal) as Goal,EvaluationStartDate,EvaluationEndDate, max(FinalScore) StartScore,   row_number() over (partition by Skill order by  Skill) R from &#xD;&#xA;(select distinct sk.Name Skill,ea.ParticipantId , &#xD;&#xA;s.id as sid, s.name Milestone, mg.Goal,s.EvaluationStartDate,s.EvaluationEndDate,ea.FinalScore    &#xD;&#xA;from  EvaluationAgreements ea   &#xD;&#xA;inner join MilestoneAgreementGoals mg  on mg.EvaluationAgreementId = ea.id   &#xD;&#xA;INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;inner join Stages s on s.id = mg.stageid &#xD;&#xA;INNER JOIN Skills sk on sk.Id = lpgs.SkillId &#xD;&#xA;WHERE ea.stageid = @StageId and   ea.participantid = @ParticipantId and kpitype = 1 ) newTable &#xD;&#xA;group by skill, Milestone,EvaluationStartDate,EvaluationEndDate&#xD;&#xA;" Name="sqlDataSourceWeakKPIGoals" ParameterValues="{&quot;@StageId&quot;:&quot;1862&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="  select * from (&#xD;&#xA;  SELECT &#xD;&#xA;&#x9;sk.Name,&#xD;&#xA;&#x9;ea.[StageId]&#xD;&#xA;      ,ea.[ParticipantId]&#xD;&#xA;      ,ea.[QuestionId]&#xD;&#xA;      ,ea.[KPIType]&#xD;&#xA;      ,ea.[ShortGoal]&#xD;&#xA;      ,ea.[Comment]&#xD;&#xA;      ,ea.[Id] as eaid&#xD;&#xA;      ,ea.[FinalScore]&#xD;&#xA;      ,ea.[MidGoal]&#xD;&#xA;      ,ea.[LongGoal]&#xD;&#xA;      ,ea.[FinalGoal] &#xD;&#xA;&#x9;  ,es.EndedAt&#xD;&#xA;&#x9;  ,s.[Name] as stagename&#xD;&#xA;      ,s.[StageGroupId]&#xD;&#xA;      ,s.[StartDateTime]&#xD;&#xA;      ,s.[EndDateTime]&#xD;&#xA;      ,s.[ManagerId]&#xD;&#xA;      ,s.[TrainerId],&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 2) as ShortEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 3) as MidEndDate,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 4) as LongEndDate&#xD;&#xA;    ,&#xD;&#xA;&#x9;(SELECT EndDateTime FROM (SELECT ROW_NUMBER() OVER (ORDER BY EndDateTime) as NUM, Name, EndDateTime FROM Stages st WHERE st.StageGroupId = s.StageGroupId) d where NUM = 5) as FinalEndDate&#xD;&#xA;   , row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  LEFT JOIN EvaluationStatuses es on es.StageId = ea.StageId and es.ParticipantId = ea.ParticipantId &#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Stages s on s.Id = ea.StageId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;   WHERE ea.StageId = @StageId  and ea.ParticipantId = @ParticipantId and ea.KPIType = 1&#xD;&#xA;   ) r&#xD;&#xA;   WHERE r.rn = 1" Name="sqlDataSourceWeak" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 1 and ea.Comment is not null   ) r WHERE r.rn = 1" Name="sqlDataSourceWeakExersises" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+    <SqlDataSource QueryDesignerState="null" ConnectionString="IPS" SelectCommand="select * from (SELECT sk.Name, ea.QuestionId, ea.Id as eaid, ea.Comment&#x9;,row_number() over (partition by ea.QuestionId order by ea.Id desc) rn&#xD;&#xA;  FROM EvaluationAgreements ea&#xD;&#xA;  INNER JOIN Link_PerformanceGroupQuestions lpgq on lpgq.QuestionId = ea.QuestionId&#xD;&#xA;  INNER JOIN Link_PerformanceGroupSkills lpgs on lpgs.Id = lpgq.PerformanceGroupSkillId&#xD;&#xA;  INNER JOIN Skills sk on sk.Id = lpgs.SkillId&#xD;&#xA;  WHERE ea.StageId = @StageId and ea.ParticipantId = @ParticipantId and ea.KPIType = 2 and ea.Comment is not null   ) r WHERE r.rn = 1" Name="sqlDataSourceStrongExcersizes" ParameterValues="{&quot;@StageId&quot;:&quot;1697&quot;,&quot;@ParticipantId&quot;:&quot;1363&quot;}">
+      <Parameters>
+        <SqlDataSourceParameter DbType="String" Name="@StageId">
+          <Value>
+            <String>= Parameters.StageId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+        <SqlDataSourceParameter DbType="String" Name="@ParticipantId">
+          <Value>
+            <String>= Parameters.ParticipantId.Value</String>
+          </Value>
+        </SqlDataSourceParameter>
+      </Parameters>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="8.465in" Name="detailSection1">
+      <Style>
+        <Font Name="Open Sans" />
+      </Style>
+      <Items>
+        <TextBox Width="5.801cm" Height="0.3cm" Left="9.2cm" Top="1.8cm" Value="= Fields.ParticipantName" Name="tbParticipantName">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.8cm" Height="0.699cm" Left="5.2cm" Top="0.4cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_REPEATING_TRAINING_PLAN',@Culture)" Name="textBox2">
+          <Style TextAlign="Center">
+            <Font Size="15pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="18.356cm" Height="0.7cm" Left="0.921cm" Top="17.5cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_ENHANCE_PERFORMANCE_FOR_THE_BENEFIT_OF_EMPLOYEES_CUSTOMERS_AND_THE_COMPANY',@Culture)" Angle="0" Name="textBox46">
+          <Style>
+            <Font Size="7pt" Italic="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Value="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" Width="4cm" Height="3cm" Left="15.253cm" Top="0.4cm" Sizing="ScaleProportional" MimeType="image/png" Name="pictureBox2">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+        </PictureBox>
+        <TextBox Width="5.801cm" Height="0.3cm" Left="9.2cm" Top="1.5cm" Value="= Fields.ProfileName" Name="tbSurveyName">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <PictureBox Width="4cm" Height="2.7cm" Left="0.921cm" Top="0.4cm" Sizing="ScaleProportional" MimeType="image/jpeg" Name="pbCustomerLogo">
+          <Style TextAlign="Center" VerticalAlign="Middle" />
+          <ConditionalFormatting>
+            <FormattingRule>
+              <Style Visible="False" />
+              <Filters>
+                <Filter Expression="= Fields.LogoLink" Operator="Equal" />
+              </Filters>
+            </FormattingRule>
+          </ConditionalFormatting>
+          <Bindings>
+            <Binding Path="Value" Expression="= IIf(Fields.LogoLink=Null Or Fields.LogoLink='', 'http://yci193.stwserver.net:8051/app/images/organization-placeholder.png', Fields.LogoLink)" />
+          </Bindings>
+        </PictureBox>
+        <TextBox Width="5.801cm" Height="0.4cm" Left="9.2cm" Top="2.1cm" Value="=Fields.StageName" Name="textBox73">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <Panel Width="18.353cm" Height="1.6cm" Left="0.921cm" Top="11.7cm" Name="panel9">
+          <Items>
+            <TextBox Width="18.353cm" Height="0.6cm" Left="0cm" Top="0cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WEAK_KPIS_EXERCISE_EXERCISES_TOWARDS_THE_NEXT_GOAL',@Culture)" Name="textBox33">
+              <Style BackgroundColor="Transparent">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Bottom="Solid" />
+              </Style>
+            </TextBox>
+            <Table DataSourceName="sqlDataSourceWeakTrainings" Width="18.353cm" Height="1cm" Left="0cm" Top="0.6cm" Name="table2" StyleName="Normal.TableNormal">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.673cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox23" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.328cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name1" Name="textBox63" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.638cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.Why,0,100)" Name="textBox64" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.718cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.What,0,100)" Name="textBox65" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.673cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.How,0,100)" Name="textBox66" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.325cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_SEE_MORE',@Culture)" Name="textBox99" StyleName="Normal.TableBody">
+                        <Style VerticalAlign="Middle">
+                          <Font Underline="True" />
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                        <Action>
+                          <NavigateToUrlAction Url="= 'https://localhost:8477/app/#/home/profiles/profiles/soft/trainings/edit/'+ Fields.Id" />
+                        </Action>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.673cm" />
+                  <Column Width="3.328cm" />
+                  <Column Width="2.638cm" />
+                  <Column Width="2.718cm" />
+                  <Column Width="3.673cm" />
+                  <Column Width="2.325cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <Style>
+                <BorderStyle Bottom="None" Left="None" Right="None" />
+              </Style>
+              <RowGroups>
+                <TableGroup Name="Detail">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.673cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WEAK_KPIS',@Culture)" Name="textBox67" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.328cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_TRAINING_EXERCISES',@Culture)" Name="textBox68" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.638cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WHY',@Culture)" Name="textBox69" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.718cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WHAT',@Culture)" Name="textBox70" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.673cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW',@Culture)" Name="textBox71" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group13">
+                  <ReportItem>
+                    <TextBox Width="2.325cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_ACTION',@Culture)" Name="textBox103" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <ConditionalFormatting>
+                <FormattingRule>
+                  <Style Visible="False" />
+                  <Filters>
+                    <Filter Expression="= IsNull(Parameters.WeakTrainingVisible.Value,0)" Operator="Equal" Value="0" />
+                  </Filters>
+                </FormattingRule>
+              </ConditionalFormatting>
+            </Table>
+          </Items>
+        </Panel>
+        <Panel Width="18.38cm" Height="1.6cm" Left="0.921cm" Top="6.4cm" Name="panel4">
+          <Items>
+            <TextBox Width="18.38cm" Height="0.6cm" Left="0cm" Top="0cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_STRONG_KPIS_EXERCISE_EXERCISES_TOWARDS_THE_NEXT_GOAL',@Culture)" Name="textBox1">
+              <Style BackgroundColor="Transparent">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Bottom="Solid" />
+              </Style>
+            </TextBox>
+            <Table DataSourceName="sqlDataSourceStrongTrainings" Width="18.368cm" Height="1cm" Left="0.012cm" Top="0.6cm" ColumnHeadersPrintOnEveryPage="False" NoDataMessage="  " Name="table1" StyleName="Normal.TableNormal">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.676cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox110" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.356cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name1" Name="textBox111" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.588cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.Why,0,100)" Name="textBox112" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.694cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.What,0,100)" Name="textBox113" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.648cm" Height="0.5cm" Left="0in" Top="0in" Value="= Substr( Fields.How,0,100)" Name="textBox114" StyleName="Normal.TableBody">
+                        <Style TextAlign="Left">
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.406cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_SEE_MORE',@Culture)" Name="textBox100" StyleName="Normal.TableBody">
+                        <Style VerticalAlign="Middle">
+                          <Font Underline="True" />
+                          <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+                        </Style>
+                        <Action>
+                          <NavigateToUrlAction Url="= 'https://localhost:8477/app/#/home/profiles/profiles/soft/trainings/edit/'+ Fields.Id" />
+                        </Action>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.676cm" />
+                  <Column Width="3.356cm" />
+                  <Column Width="2.588cm" />
+                  <Column Width="2.694cm" />
+                  <Column Width="3.648cm" />
+                  <Column Width="2.406cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <Style Visible="True">
+                <BorderStyle Bottom="None" Left="None" Right="None" />
+              </Style>
+              <RowGroups>
+                <TableGroup Name="Detail">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.676cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_STRONG_KPIS',@Culture)" Name="textBox115" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.356cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_TRAINING_EXERCISES',@Culture)" Name="textBox116" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.588cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WHY',@Culture)" Name="textBox117" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.694cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WHAT',@Culture)" Name="textBox118" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.648cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW',@Culture)" Name="textBox119" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group12">
+                  <ReportItem>
+                    <TextBox Width="2.406cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_ACTION',@Culture)" Name="textBox101" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <NoDataStyle Visible="False" />
+              <ConditionalFormatting>
+                <FormattingRule>
+                  <Style Visible="False" />
+                  <Filters>
+                    <Filter Expression="= IsNull(Parameters.StrongTrainingVisible.Value,0)" Operator="Equal" Value="0" />
+                  </Filters>
+                </FormattingRule>
+              </ConditionalFormatting>
+            </Table>
+          </Items>
+        </Panel>
+        <Panel Width="18.349cm" Height="1.6cm" Left="0.921cm" Top="8.2cm" Name="panel6">
+          <Items>
+            <TextBox Width="18.349cm" Height="0.6cm" Left="0cm" Top="0cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_STRONG_KPIS_REPETITIVE_TRAINING_DETAILS',@Culture)" Name="textBox1">
+              <Style BackgroundColor="Transparent">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Bottom="Solid" />
+              </Style>
+            </TextBox>
+            <Table DataSourceName="sqlDataSourceStrongRCT" Width="18.337cm" Height="1cm" Left="0.012cm" Top="0.6cm" ColumnHeadersPrintOnEveryPage="False" NoDataMessage="  " Name="table3" StyleName="Normal.TableNormal">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.646cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox9" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.432cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.DescriptiveFrequency" Name="textBox24" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.72cm" Height="0.5cm" Left="9.099cm" Top="0.5cm" Value="= Fields.StartDate" Name="textBox30" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.383cm" Height="0.5cm" Left="9.099cm" Top="0.5cm" Value="= Fields.EndDate" Name="textBox18" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.102cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.HowMany" Name="textBox31" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="1.53cm" Height="0.5cm" Left="8.599cm" Top="0.5cm" Value="= Fields.Duration +' '+ Fields.DurationMetric" Name="textBox32" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.525cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.EvaluatorFeedbackRecurrence" Name="textBox34" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.646cm" />
+                  <Column Width="2.72cm" />
+                  <Column Width="2.383cm" />
+                  <Column Width="1.53cm" />
+                  <Column Width="3.432cm" />
+                  <Column Width="2.102cm" />
+                  <Column Width="2.525cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <Style Visible="True">
+                <BorderStyle Bottom="None" Left="None" Right="None" />
+              </Style>
+              <RowGroups>
+                <TableGroup Name="Detail">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.646cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_STRONG_KPIS',@Culture)" Name="textBox25" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.72cm" Height="0.5cm" Left="2.614cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_START_DATE',@Culture)" Name="textBox27">
+                      <Style VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.383cm" Height="0.5cm" Left="5.61cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_DEADLINE',@Culture)" Name="textBox52">
+                      <Style VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="1.53cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW_LONG',@Culture)" Name="textBox29" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.432cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_REPETITION',@Culture)" Name="textBox20" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group">
+                  <ReportItem>
+                    <TextBox Width="2.102cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW_MANY',@Culture)" Name="textBox109" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group1">
+                  <ReportItem>
+                    <TextBox Width="2.525cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_LEADERS_EVALUATION',@Culture)" Name="textBox22" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <NoDataStyle Visible="False" />
+              <ConditionalFormatting>
+                <FormattingRule>
+                  <Style Visible="False" />
+                  <Filters>
+                    <Filter Expression="= IsNull(Parameters.StrongTrainingVisible.Value,0)" Operator="Equal" Value="0" />
+                  </Filters>
+                </FormattingRule>
+              </ConditionalFormatting>
+            </Table>
+          </Items>
+        </Panel>
+        <Panel Width="18.353cm" Height="1.6cm" Left="0.921cm" Top="13.3cm" Name="panel1">
+          <Items>
+            <TextBox Width="18.353cm" Height="0.6cm" Left="0cm" Top="0cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WEAK_KPIS_REPETITIVE_TRAINING_DETAILS',@Culture)" Name="textBox5">
+              <Style BackgroundColor="Transparent">
+                <Font Size="9pt" Bold="True" />
+                <BorderStyle Bottom="Solid" />
+              </Style>
+            </TextBox>
+            <Table DataSourceName="sqlDataSourceWeakRCT" Width="18.353cm" Height="1cm" Left="0cm" Top="0.6cm" ColumnHeadersPrintOnEveryPage="False" NoDataMessage="  " Name="table4" StyleName="Normal.TableNormal">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.686cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name" Name="textBox35" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.497cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.DescriptiveFrequency" Name="textBox36" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Default="Solid" Top="Solid" Bottom="Solid" Left="Solid" Right="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.703cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.StartDate" Name="textBox37" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Default="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.446cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.EndDate" Name="textBox38" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Default="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="5" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.083cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.HowMany" Name="textBox39" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="1.482cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Duration +' '+ Fields.DurationMetric" Name="textBox43" StyleName="Normal.TableBody">
+                        <Style>
+                          <BorderStyle Default="Solid" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="6" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.457cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.EvaluatorFeedbackRecurrence" Name="textBox48" StyleName="Normal.TableBody" />
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.686cm" />
+                  <Column Width="2.703cm" />
+                  <Column Width="2.446cm" />
+                  <Column Width="1.482cm" />
+                  <Column Width="3.497cm" />
+                  <Column Width="2.083cm" />
+                  <Column Width="2.457cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <Style Visible="True">
+                <BorderStyle Bottom="None" Left="None" Right="None" />
+              </Style>
+              <RowGroups>
+                <TableGroup Name="Detail">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.686cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WEAK_KPIS',@Culture)" Name="textBox49" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.703cm" Height="0.5cm" Left="2.614cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_START_DATE',@Culture)" Name="textBox129">
+                      <Style VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="2.446cm" Height="0.5cm" Left="5.61cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_DEADLINE',@Culture)" Name="textBox50">
+                      <Style VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="1.482cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW_LONG',@Culture)" Name="textBox53" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup>
+                  <ReportItem>
+                    <TextBox Width="3.497cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_REPETITION',@Culture)" Name="textBox54" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group">
+                  <ReportItem>
+                    <TextBox Width="2.083cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_HOW_MANY',@Culture)" Name="textBox55" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group1">
+                  <ReportItem>
+                    <TextBox Width="2.457cm" Height="0.5cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_LEADERS_EVALUATION',@Culture)" Name="textBox56" StyleName="Normal.TableHeader">
+                      <Style BackgroundColor="Transparent" VerticalAlign="Middle">
+                        <Font Size="7pt" Bold="True" />
+                        <BorderStyle Left="None" Right="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <NoDataStyle Visible="False" />
+            </Table>
+          </Items>
+        </Panel>
+        <Table DataSourceName="sqlDataSourceHeaderFooter" Width="18.38cm" Height="1.738cm" Left="0.921cm" Top="15.6cm" Name="table5">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="4.3cm" Height="0.639cm" Left="0.942cm" Top="15.2cm" Value="= Fields.ParticipantName" Name="textBox17">
+                    <Style>
+                      <Font Size="9pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="4.029cm" Height="0.639cm" Left="4.3cm" Top="15.2cm" Value="= Fields.EvaluatorName" Name="textBox10">
+                    <Style>
+                      <Font Size="9pt" />
+                      <BorderStyle Left="Solid" Right="Solid" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="4.3cm" Height="0.639cm" Left="8.613cm" Top="15.2cm" Value="= IsNull(Fields.LeaderName, ' ')" Name="textBox12">
+                    <Style>
+                      <Font Size="9pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.876cm" Height="0.639cm" Left="11.92cm" Top="15.2cm" Value="= IsNull(Fields.TrainerName, ' ')" Name="textBox14">
+                    <Style>
+                      <Font Size="9pt" />
+                      <BorderStyle Left="Solid" Right="Solid" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2.876cm" Height="0.639cm" Left="15.189cm" Top="15.253cm" Value="= IsNull(Fields.SignatureBossName, ' ')" Name="textBox16">
+                    <Style>
+                      <Font Size="9pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="4.3cm" />
+              <Column Width="4.029cm" />
+              <Column Width="4.3cm" />
+              <Column Width="2.876cm" />
+              <Column Width="2.876cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.639cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="detailTableGroup">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="tableGroup">
+              <ReportItem>
+                <TextBox Width="4.3cm" Height="0.48cm" Left="0.921cm" Top="14.153cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_PARTICIPANT',@Culture)" Name="textBox15">
+                  <Style>
+                    <Font Size="9pt" Bold="True" />
+                    <BorderStyle Bottom="Solid" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="group4">
+                  <ReportItem>
+                    <TextBox Width="4.3cm" Height="0.619cm" Left="0in" Top="0in" Name="textBox19" StyleName="">
+                      <Style>
+                        <Font Size="7pt" />
+                        <BorderStyle Default="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ChildGroups>
+            </TableGroup>
+            <TableGroup Name="tableGroup1">
+              <ReportItem>
+                <TextBox Width="4.029cm" Height="0.48cm" Left="4.3cm" Top="14.153cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATOR',@Culture)" Name="textBox7">
+                  <Style>
+                    <Font Size="9pt" Bold="True" />
+                    <BorderStyle Bottom="Solid" Left="Solid" Right="Solid" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="group5">
+                  <ReportItem>
+                    <TextBox Width="4.029cm" Height="0.619cm" Left="0in" Top="0in" Name="textBox51" StyleName="">
+                      <Style>
+                        <Font Size="7pt" />
+                        <BorderStyle Default="None" Left="Solid" Right="Solid" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ChildGroups>
+            </TableGroup>
+            <TableGroup Name="tableGroup2">
+              <ReportItem>
+                <TextBox Width="4.3cm" Height="0.48cm" Left="8.613cm" Top="14.153cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_PARTICIPANT_LEADER',@Culture)" Name="textBox11">
+                  <Style>
+                    <Font Size="9pt" Bold="True" />
+                    <BorderStyle Bottom="Solid" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="group6">
+                  <ReportItem>
+                    <TextBox Width="4.3cm" Height="0.619cm" Left="0in" Top="0in" Name="textBox57" StyleName="">
+                      <Style>
+                        <Font Size="7pt" />
+                        <BorderStyle Default="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ChildGroups>
+            </TableGroup>
+            <TableGroup Name="group2">
+              <ReportItem>
+                <TextBox Width="2.876cm" Height="0.48cm" Left="11.92cm" Top="14.153cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_COACH',@Culture)" Multiline="False" Name="textBox21">
+                  <Style>
+                    <Font Size="9pt" Bold="True" />
+                    <BorderStyle Bottom="Solid" Left="Solid" Right="Solid" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="group7">
+                  <ReportItem>
+                    <TextBox Width="2.876cm" Height="0.619cm" Left="0in" Top="0in" Name="textBox58" StyleName="">
+                      <Style>
+                        <Font Size="7pt" />
+                        <BorderStyle Default="None" Left="Solid" Right="Solid" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ChildGroups>
+            </TableGroup>
+            <TableGroup Name="group3">
+              <ReportItem>
+                <TextBox Width="2.876cm" Height="0.48cm" Left="15.189cm" Top="14.153cm" KeepTogether="True" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_GENERAL_MANAGER',@Culture)" CanGrow="False" Multiline="False" TextWrap="False" Name="textBox13">
+                  <Style>
+                    <Font Size="9pt" Bold="True" />
+                    <BorderStyle Bottom="Solid" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+              <ChildGroups>
+                <TableGroup Name="group8">
+                  <ReportItem>
+                    <TextBox Width="2.876cm" Height="0.619cm" Left="0in" Top="0in" Name="textBox59" StyleName="">
+                      <Style>
+                        <Font Size="7pt" />
+                        <BorderStyle Default="None" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ChildGroups>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+        <TextBox Width="3.955cm" Height="0.3cm" Left="5.2cm" Top="1.5cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_NAME_OF_PROFILE',@Culture) + ' :'" Name="textBox6">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.955cm" Height="0.3cm" Left="5.201cm" Top="1.8cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_FOR',@Culture) + ' :'" Name="textBox40">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.955cm" Height="0.4cm" Left="5.2cm" Top="2.1cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_MILESTONE1',@Culture) + ' :'" Name="textBox41">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.955cm" Height="0.3cm" Left="5.201cm" Top="1.2cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_PROJECT',@Culture) + ' :'" Name="textBox4">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="0.3cm" Left="9.2cm" Top="1.199cm" Value="= Fields.ProjectName" Name="textBox8">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="0.4cm" Left="9.2cm" Top="2.5cm" Value="= Fields.TrainingStartDate" Name="textBox44">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.955cm" Height="0.4cm" Left="5.2cm" Top="2.5cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_START',@Culture) + ' :'" Name="textBox42">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="3.955cm" Height="0.4cm" Left="5.2cm" Top="2.9cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_DEADLINE',@Culture) + ' :'" Name="textBox45">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="0.4cm" Left="9.2cm" Top="2.9cm" Value="= Fields.TrainingEndDate" Name="textBox60">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="2.969cm" Height="0.5cm" Left="0.921cm" Top="15.1cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_SIGNATURE',@Culture) + ' :'" Name="textBox96">
+          <Style>
+            <Font Size="9pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <Panel Width="18.356cm" Height="1.718cm" Left="0.921cm" Top="4.5cm" CanShrink="True" Name="panel3">
+          <Items>
+            <Table DataSourceName="sqlDataSourceCurrentMIlestoneStrongGoal" Width="15.429cm" Height="1.218cm" Left="0cm" Top="0.5cm" NoDataMessage="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_NO_PREVIOUS_MILESTONE',@Culture)" Name="table10">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.66cm" Height="0.609cm" Left="0.012cm" Top="0.952cm" Value="= Fields.Skill" Name="textBox102">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.66cm" Height="0.609cm" Left="2.614cm" Top="0.952cm" Value="= Fields.EvaluationStartDate" Name="textBox104">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.66cm" Height="0.609cm" Left="5.61cm" Top="0.952cm" Value="= Fields.EvaluationEndDate" Name="textBox105">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.449cm" Height="0.609cm" Left="10.018cm" Top="1.004cm" Value="= Fields.Goal" Name="textBox107">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2cm" Height="0.609cm" Left="0in" Top="0in" Value="= Fields.StartScore" Name="textBox61">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.66cm" />
+                  <Column Width="3.66cm" />
+                  <Column Width="3.66cm" />
+                  <Column Width="2cm" />
+                  <Column Width="2.449cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.609cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <RowGroups>
+                <TableGroup Name="detailTableGroup1">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup Name="group14">
+                  <ReportItem>
+                    <TextBox Width="3.66cm" Height="0.609cm" Left="0cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_SKILL1',@Culture)" Name="textBox120">
+                      <Style VerticalAlign="Top">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group15">
+                  <ReportItem>
+                    <TextBox Width="3.66cm" Height="0.609cm" Left="2.614cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATION_OPEN',@Culture)" Name="textBox121">
+                      <Style VerticalAlign="Top">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group16">
+                  <ReportItem>
+                    <TextBox Width="3.66cm" Height="0.609cm" Left="5.61cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATION_CLOSED',@Culture)" Name="textBox26">
+                      <Style VerticalAlign="Top">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group10">
+                  <ReportItem>
+                    <TextBox Width="2cm" Height="0.609cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_START_SCORE',@Culture)" Name="textBox74">
+                      <Style VerticalAlign="Top">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group18">
+                  <ReportItem>
+                    <TextBox Width="2.449cm" Height="0.609cm" Left="10.018cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_TARGET',@Culture)" Name="textBox123">
+                      <Style VerticalAlign="Top">
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <NoDataStyle Visible="True" />
+            </Table>
+            <Table DataSourceName="sqlDataSourceCurrentMIlestoneInfo" Width="18.356cm" Height="0.5cm" Left="0cm" Top="0cm" Name="table11">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="18.356cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name + ': ' + IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_STRONG_KPIS_GOALS',@Culture)" Name="textBox125" StyleName="">
+                        <Style>
+                          <Font Size="9pt" Bold="True" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="18.356cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <RowGroups>
+                <TableGroup Name="detailTableGroup2">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup Name="tableGroup6" />
+              </ColumnGroups>
+            </Table>
+          </Items>
+        </Panel>
+        <Panel Width="18.372cm" Height="1.718cm" Left="0.921cm" Top="9.9cm" CanShrink="True" Name="panel7">
+          <Items>
+            <Table DataSourceName="sqlDataSourceCurrentMIlestoneWeakGoal" Width="15.413cm" Height="1.218cm" Left="0.016cm" Top="0.5cm" NoDataMessage="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_NO_PREVIOUS_MILESTONE',@Culture)" Name="table12">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.656cm" Height="0.609cm" Left="0in" Top="0in" Value="= Fields.Skill" Name="textBox106">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.656cm" Height="0.609cm" Left="2.614cm" Top="0.952cm" Value="= Fields.EvaluationStartDate" Name="textBox108">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="3.656cm" Height="0.609cm" Left="0in" Top="0in" Value="= Fields.EvaluationEndDate" Name="textBox122">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="4" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2.446cm" Height="0.609cm" Left="10.018cm" Top="1.004cm" Value="= Fields.Goal" Name="textBox124">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                  <TableCell RowIndex="0" ColumnIndex="3" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="2cm" Height="0.609cm" Left="0in" Top="0in" Value="= Fields.StartScore" Name="textBox72">
+                        <Style>
+                          <Font Size="7pt" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="3.656cm" />
+                  <Column Width="3.656cm" />
+                  <Column Width="3.656cm" />
+                  <Column Width="2cm" />
+                  <Column Width="2.446cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.609cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <RowGroups>
+                <TableGroup Name="detailTableGroup1">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup Name="group14">
+                  <ReportItem>
+                    <TextBox Width="3.656cm" Height="0.609cm" Left="0cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_SKILL1',@Culture)" Name="textBox82">
+                      <Style>
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group15">
+                  <ReportItem>
+                    <TextBox Width="3.656cm" Height="0.609cm" Left="2.614cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATION_OPEN',@Culture)" Name="textBox126">
+                      <Style>
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group16">
+                  <ReportItem>
+                    <TextBox Width="3.656cm" Height="0.609cm" Left="5.61cm" Top="0.6cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATION_CLOSED',@Culture)" Name="textBox127">
+                      <Style>
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group11">
+                  <ReportItem>
+                    <TextBox Width="2cm" Height="0.609cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_START_SCORE',@Culture)" Name="textBox76">
+                      <Style>
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+                <TableGroup Name="group18">
+                  <ReportItem>
+                    <TextBox Width="2.446cm" Height="0.609cm" Left="0in" Top="0in" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_TARGET',@Culture)" Name="textBox128">
+                      <Style>
+                        <Font Size="7pt" Bold="True" />
+                      </Style>
+                      <ConditionalFormatting>
+                        <FormattingRule>
+                          <Style Visible="False" />
+                          <Filters>
+                            <Filter Expression="=Fields.R" Operator="NotEqual" Value="1" />
+                          </Filters>
+                        </FormattingRule>
+                      </ConditionalFormatting>
+                    </TextBox>
+                  </ReportItem>
+                </TableGroup>
+              </ColumnGroups>
+              <NoDataStyle Visible="True" />
+            </Table>
+            <Table DataSourceName="sqlDataSourceCurrentMIlestoneInfo" Width="18.324cm" Height="0.5cm" Left="0.048cm" Top="0cm" Name="table13">
+              <Body>
+                <Cells>
+                  <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                    <ReportItem>
+                      <TextBox Width="18.324cm" Height="0.5cm" Left="0in" Top="0in" Value="= Fields.Name + ': ' + IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_WEAK_KPIS_GOALS',@Culture)" Name="textBox130" StyleName="">
+                        <Style>
+                          <Font Size="9pt" Bold="True" />
+                        </Style>
+                      </TextBox>
+                    </ReportItem>
+                  </TableCell>
+                </Cells>
+                <Columns>
+                  <Column Width="18.324cm" />
+                </Columns>
+                <Rows>
+                  <Row Height="0.5cm" />
+                </Rows>
+              </Body>
+              <Corner />
+              <RowGroups>
+                <TableGroup Name="detailTableGroup2">
+                  <Groupings>
+                    <Grouping />
+                  </Groupings>
+                </TableGroup>
+              </RowGroups>
+              <ColumnGroups>
+                <TableGroup Name="tableGroup6" />
+              </ColumnGroups>
+            </Table>
+          </Items>
+        </Panel>
+        <TextBox Width="3.955cm" Height="0.4cm" Left="5.2cm" Top="3.4cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_EVALUATION_TIME',@Culture) + ' :'" Name="textBox62">
+          <Style TextAlign="Right">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+        <TextBox Width="5.8cm" Height="0.4cm" Left="9.2cm" Top="3.4cm" Value="= Fields.EvaluationStartDate +' - '+ Fields.EvaluationEndDate" Name="textBox28">
+          <Style TextAlign="Left">
+            <Font Size="7pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="0.4in" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="5cm" Height="0.6cm" Left="15cm" Top="0.272cm" Value="= Now().ToString(&quot;dd.MM.yyyy&quot;)" Name="textBox47">
+          <Style TextAlign="Right" VerticalAlign="Top">
+            <Font Size="7pt" Bold="True" />
+            <Padding Top="0cm" />
+          </Style>
+        </TextBox>
+        <TextBox Width="9.4cm" Height="0.6cm" Left="0cm" Top="0.272cm" Value="=IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_PAGE',@Culture) + ' ' + PageNumber + ' ' + IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_OUT_OF',@Culture) + ' ' + PageCount + ' ' + IPS.ReportAssembly.ReportAssembly.GetCultureValueForReport('CONTRACT_PAGES',@Culture)" Name="textBox98">
+          <Style>
+            <Font Name="Open Sans" Size="8pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="0.5cm" Right="0.5cm" Top="1cm" Bottom="1cm" />
+    </Margins>
+  </PageSettings>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black">
+        <Font Size="7pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Normal.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <Font Size="1pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <Font Size="7pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="StageId" Type="Integer" AllowNull="True" AllowBlank="False">
+      <Value>
+        <String>1697</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ParticipantId" Type="Integer" AllowBlank="False">
+      <Value>
+        <String>1363</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="Culture" Type="String" AllowBlank="False">
+      <Value>
+        <String>nb-no</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="PreviousStageId" Type="Integer" AllowBlank="False">
+      <Value>
+        <String>1696</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="StrongTrainingVisible" Type="Integer" AllowNull="True" AutoRefresh="True">
+      <AvailableValues DataSourceName="sqlDataSourceStrongTrainings" ValueMember="=Count(Fields.Id)" />
+      <Value>
+        <String>=Count(Fields.Id)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="StrongExVisible" Type="Integer" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSource1" ValueMember="=Count(Fields.Name)" />
+      <Value>
+        <String>=Count(Fields.Name)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="WeakTrainingVisible" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSourceWeakTrainings" ValueMember="=Count(Fields.Id)" />
+      <Value>
+        <String>=Count(Fields.Id)</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="WeakExVisible" AllowNull="True">
+      <AvailableValues DataSourceName="sqlDataSource2" ValueMember="=Count(Fields.Name)" />
+      <Value>
+        <String>=Count(Fields.Name)</String>
+      </Value>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

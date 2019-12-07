@@ -1,0 +1,34 @@
+﻿<div pane name="stageGroups">
+    <div class="row">
+        <header-navigation page-name="Edit {{stageEdit.stageInfo.name}}"></header-navigation>
+        <div class="col-sm-12">
+            <form name="editStage" novalidate>
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input type="text" class="form-control" ng-model="stageEdit.stageInfo.name">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Description</label>
+                    <textarea class="form-control" name="stageDescription" ng-model="stageEdit.stageInfo.description" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <h4>{{'COMMON_START_DATE'| translate}}:</h4>
+                    <input kendo-date-picker
+                           ng-model="stageEdit.stageInfo.startDate" />
+                </div>
+                <div class="form-group">
+                    <h4>{{'COMMON_END_DATE' | translate}}:</h4>
+                    <input kendo-date-picker
+                           ng-model="stageEdit.stageInfo.endDate" />
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12">
+            <div class="top-border"></div>
+            <button class="btn btn-cstm primary" ng-show="stageEdit.isEdit()" ng-click="stageEdit.removeStage()">Remove</button>
+            <button class="btn btn-cstm primary cancel pull-right" ng-click="stageEdit.goBack()">Cancel</button>
+            <button class="btn btn-cstm primary pull-right" ng-click="stageEdit.save()">Save</button>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

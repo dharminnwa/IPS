@@ -1,0 +1,93 @@
+<div class="container">
+    <form role="form">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <label class="col-xs-2 control-label ips-control-label" for="inputLogin">{{'ORGANIZATIONS_USERNAME' | translate }}</label>
+            <div class="col-xs-6">
+                <span class="form-control ips-form-control input-lg " disabled>{{user.username}}</span>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <label class="col-xs-2 control-label ips-control-label" for="inputFirstName">{{'ORGANIZATIONS_FIRST_NAME' | translate }}</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control ips-form-control input-lg " id="inputFirstName" data-ng-model="user.firstName">
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <label class="col-xs-2 control-label ips-control-label" for="inputLastName">{{'ORGANIZATIONS_LAST_NAME' | translate }}</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control ips-form-control input-lg " id="inputLastName" data-ng-model="user.lastName">
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <label class="col-xs-2 control-label ips-control-label" for="inputEmail1">{{'ORGANIZATIONS_EMAIL_ADDRESS' | translate }}</label>
+            <div class="col-xs-6">
+                <input type="email" class="form-control ips-form-control input-lg " id="inputEmail1" data-ng-model="user.email">
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6"></div>
+            <div class="col-xs-6">
+                <label>{{'ORGANIZATIONS_PASSWORD' | translate }}</label>
+                <a href="#/admin/changePassword?id={{user.id}}" id="changePasswordLink">{{'ORGANIZATIONS_CHANGE_PASSWORD' | translate }}</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <label>{{'ORGANIZATIONS_USER_ROLES' | translate }}</label>
+                <ul class="">
+                    <li class="roles" ng-repeat="role in user.roles">
+                        <a ng-click="removeRole(role);" ng-disabled="isLinkDisabled(role);">
+                            <label>{{role}}</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-4">
+                <label>{{'ORGANIZATIONS_NOT_A_USER_ROLES' | translate }}</label>
+                <ul class="">
+                    <li class="roles" ng-repeat="role in roles | filter:showFn">
+                        <a ng-click="addRole(role);">
+                            <label>{{role}}</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-6"></div>
+            <div class="col-xs-4 checkbox">
+                <label>
+                    <input type="checkbox" data-ng-model="user.isActive" ng-disabled="isCurrentUser();"> {{'ORGANIZATIONS_ACTIVE' | translate }}
+                </label>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+
+
+        <div data-ng-hide="message == ''" class="alert alert-danger">
+            {{message}}
+        </div>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-6">
+                <button id="btn-save" type="submit" class="btn btn-info btn-lg " data-original-title="" title="" ng-click="saveUser()">{{'COMMON_SAVE' | translate }}</button>
+                <button id="btn-cancel" type="submit" class="btn btn-danger btn-lg " data-original-title="" title="" ng-click="cancel()">{{'COMMON_CANCEL' | translate }}</button>
+                <button id="btn-delete" type="submit" class="btn btn-info btn-lg " data-original-title="" title="" ng-click="deleteUser()" data-ng-hide="isCurrentUser();">{{'ORGANIZATIONS_DELETE' | translate }}</button>
+            </div>
+            
+        </div>
+    </form>
+</div>

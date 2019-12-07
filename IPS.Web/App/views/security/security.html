@@ -1,0 +1,30 @@
+<div pane class="security">
+    <div class="clearfix">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">{{'LEFTMENU_SECURITY' | translate }}</span> &nbsp;
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="">
+            <div data-ng-include=" '../app/views/security/security.roles.html' "></div>
+        </section>
+
+        <div class="col-sm-12 return-menu hidden">
+            <div class="ips-security-content">
+                <div kendo-tab-strip k-content-urls="['../app/views/security/security.users.html', '../app/views/security/security.roles.html']">
+                    <ul>
+                        <li class="k-state-active">Users</li>
+                        <li>Roles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>

@@ -1,0 +1,48 @@
+<section class="panel">
+    <header class="panel-heading newPanelHead create-department " ng-init="editcontent()">
+        {{((contentId)?'COMMON_EDIT':'COMMON_ADD') | translate }} {{'TEMPLATE_CONTENT' | translate }}
+    </header>
+    <div class="panel-body col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveMrgn">
+        <form class="newForm" ng-submit="(contentId)?updatecontent():addcontent()">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_CHOOSE' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control" ng-init="getLanguages()" ng-model="contentData.languageID">
+                        <option ng-repeat="language in languages" value="{{language.id}}">{{language.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_TITLE' | translate }} ({{'TEMPLATE_REQUIRED' | translate }})</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="cname" name="title" ng-model="contentData.title" minlength="2" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'COMMON_CATEGORY' | translate }}</label>
+                <div class="col-lg-9">
+                    <select class="form-control m-bot15" ng-model="contentData.helpCategoryID" ng-init="getcategories()" name="status" id="status">
+                        <option value="">{{'TEMPLATE_SELECT_CATGEORY' | translate }}</option>
+                        <option ng-repeat="category in categories" value="{{category.helpCategoryID}}">{{category.title}}</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
+                <label class="control-label col-lg-3 col-md-6 col-sm-6 col-xs-12">{{'TEMPLATE_CONTENT' | translate }}</label>
+                <div class="col-lg-9">
+                    <textarea ckeditor="editorOptions" class="Meta Description form-control ng-pristine ng-untouched ng-valid" ng-model="contentData.description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="btmBtn pull-right" style="padding-right:15px;">
+                    <button class="btn btnAdd" type="submit" name="submit">{{((contentId)?'COMMON_UPDATE':'COMMON_ADD') | translate }}</button>
+                    <button class="btn btnclose" type="button" name="cancel" onclick="window.location='#/home/content/list'">{{'COMMON_CANCEL' | translate }}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

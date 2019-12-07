@@ -1,0 +1,191 @@
+.hightlight-text{
+    font-weight: 600;
+    color: #ff6e19;
+}
+.card {
+    top:50%;
+    left:50%;
+    min-height:350px;
+    background:#fff;
+    border-radius:10px;
+    transition:0.5s;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+.card:hover {
+    box-shadow: 0 30px 14px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.box p{
+    color: #a7a7a7;
+}
+.card .box {
+    position:absolute;
+    top:45%;
+    left:0;
+    transform:translateY(-50%);
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    width:100%;
+}
+.card .box .img {
+    width:120px;
+    height:120px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+}
+.card .box .img img {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #e4e4e4;
+}
+.card .box h2 {
+    font-size: 17px;
+    color: #262626;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.card-icons i {
+    padding: 9px;
+    background-color: #007cff;
+    color: #fff;
+    margin-top: 10px;
+    width: 35px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.card-icons i:hover {
+    border: 1px solid #ff6e19;
+    color: #ff6e19;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* proilfe trainnign css */
+
+
+.profile-card {
+    /*top:50%;
+    left:50%;*/
+    min-height:520px;
+    background:#fff;
+    border-radius:10px;
+    transition:0.5s;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+.profile-card:hover {
+    box-shadow: 0 30px 14px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.box span{
+    color: #a7a7a7;
+}
+.profile-card .box {
+    /*position:absolute;
+    top:45%;
+    left:0;
+    transform:translateY(-50%);*/
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    width:100%;
+}
+.profile-card .box .img {
+    width:120px;
+    height:120px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+}
+.profile-card .box .img img {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #e4e4e4;
+}
+.profile-card .box h2 {
+    font-size: 17px;
+    color: #262626;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.profile-card-icons i {
+    padding: 9px;
+    background-color: #ff6e19;
+    color: #fff;
+    margin-top: 10px;
+    width: 35px;
+    font-size: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.card-icons i:hover {
+    border: 1px solid #007cff;
+    color: #007cff;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.training-date h5 i{
+    color: #007cff;
+}
+.training-date h5 {
+    color: #656565;
+    font-weight: 400;
+}
+
+.btn.green:not(.btn-outline) {
+    color: #FFF;
+    background-color: #5CB85C;
+    border-color: #5CB85C;
+    float: right;
+    margin-top: 10px;
+}
+
+.btn.green:not(.btn-outline):hover{
+    color: #FFF;
+    background-color: #5CB85C;
+    border-color: #5CB85C;
+}
+
+.btn.upcoming:not(.btn-outline) {
+    color: #fff;
+    background-color: #F1C40F;
+    border-color: #F1C40F;
+    float: right;
+    margin-top: 10px;
+}
+.btn.upcoming:not(.btn-outline):hover {
+    color: #fff;
+    background-color: #F1C40F;
+    border-color: #F1C40F;   
+}
+
+.btn.in-completed:not(.btn-outline) {
+    color: #fff;
+    background-color: #bac3d0;
+    border-color: #bac3d0;
+    float: right;
+    margin-top: 10px;
+}
+.btn.in-completed:not(.btn-outline):hover {
+    color: #fff;
+    background-color: #bac3d0;
+    border-color: #bac3d0;  
+}
+
+
+.skill-names {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}

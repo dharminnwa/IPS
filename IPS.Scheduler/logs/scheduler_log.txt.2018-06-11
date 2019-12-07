@@ -1,0 +1,182 @@
+2018-06-11 15:11:17,220 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:11:23,366 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:11:29,730 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_G_1808151530; Alarms on 8/15/2018 3:30:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_Y_1808161230; Alarms on 8/16/2018 12:30:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 883_R_1808161531; Alarms on 8/16/2018 3:31:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 886_Y_1806200448; Alarms on 6/20/2018 4:48:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 886_R_1807021912; Alarms on 7/2/2018 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 887_G_1807150936; Alarms on 7/15/2018 9:36:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 887_Y_1808010448; Alarms on 8/1/2018 4:48:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 887_R_1808131912; Alarms on 8/13/2018 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 888_G_1808260936; Alarms on 8/26/2018 9:36:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 888_Y_1809120448; Alarms on 9/12/2018 4:48:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 888_R_1809241912; Alarms on 9/24/2018 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 889_R_1806201648; Alarms on 6/20/2018 4:48:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 890_G_1807211912; Alarms on 7/21/2018 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 890_Y_1809010936; Alarms on 9/1/2018 9:36:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 890_R_1810021424; Alarms on 10/2/2018 2:24:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 891_G_1811021424; Alarms on 11/2/2018 2:24:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 891_Y_1812131912; Alarms on 12/13/2018 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 891_R_1901131648; Alarms on 1/13/2019 4:48:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 892_G_1902130448; Alarms on 2/13/2019 4:48:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 892_Y_1903251424; Alarms on 3/25/2019 2:24:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 892_R_1904242136; Alarms on 4/24/2019 9:36:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 893_G_1905251424; Alarms on 5/25/2019 2:24:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 893_Y_1907051912; Alarms on 7/5/2019 7:12:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 893_R_1908051648; Alarms on 8/5/2019 4:48:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 951_G_1806112106; Alarms on 6/11/2018 9:06:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 951_Y_1806120818; Alarms on 6/12/2018 8:18:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 951_R_1806121642; Alarms on 6/12/2018 4:42:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 952_G_1806130106; Alarms on 6/13/2018 1:06:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 952_Y_1806131218; Alarms on 6/13/2018 12:18:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 952_R_1806132042; Alarms on 6/13/2018 8:42:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 953_G_1806140506; Alarms on 6/14/2018 5:06:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 953_Y_1806141618; Alarms on 6/14/2018 4:18:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 953_R_1806150042; Alarms on 6/15/2018 12:42:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 954_G_1806150906; Alarms on 6/15/2018 9:06:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 954_Y_1806152018; Alarms on 6/15/2018 8:18:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 954_R_1806160442; Alarms on 6/16/2018 4:42:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 961_G_1806111718; Alarms on 6/11/2018 5:18:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 961_Y_1806120124; Alarms on 6/12/2018 1:24:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 961_R_1806120728; Alarms on 6/12/2018 7:28:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 962_G_1806121333; Alarms on 6/12/2018 1:33:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 962_Y_1806122139; Alarms on 6/12/2018 9:39:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 962_R_1806130343; Alarms on 6/13/2018 3:43:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 963_G_1806130948; Alarms on 6/13/2018 9:48:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 963_Y_1806131754; Alarms on 6/13/2018 5:54:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 963_R_1806132358; Alarms on 6/13/2018 11:58:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 964_G_1806140603; Alarms on 6/14/2018 6:03:00 AM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 964_Y_1806141409; Alarms on 6/14/2018 2:09:00 PM
+2018-06-11 15:11:29,746 [1] DEBUG JobScheduler - Scheduled new Alarm Job! Job key: 964_R_1806142013; Alarms on 6/14/2018 8:13:00 PM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 951_1806111530; StartStageGroup on 6/11/2018 3:30:00 PM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 962_1806120930; StartStageGroup on 6/12/2018 9:30:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 952_1806121930; StartStageGroup on 6/12/2018 7:30:00 PM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 963_1806130545; StartStageGroup on 6/13/2018 5:45:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 953_1806132330; StartStageGroup on 6/13/2018 11:30:00 PM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 964_1806140200; StartStageGroup on 6/14/2018 2:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 954_1806150330; StartStageGroup on 6/15/2018 3:30:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 890_1807010000; StartStageGroup on 7/1/2018 12:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 887_1807070000; StartStageGroup on 7/7/2018 12:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 888_1808180000; StartStageGroup on 8/18/2018 12:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 891_1810130000; StartStageGroup on 10/13/2018 12:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 892_1901240000; StartStageGroup on 1/24/2019 12:00:00 AM
+2018-06-11 15:11:32,191 [1] DEBUG JobScheduler - Scheduled new Start Stage Job! Job key: 893_1905050000; StartStageGroup on 5/5/2019 12:00:00 AM
+2018-06-11 15:11:50,775 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:11:56,332 [1] INFO  JobScheduler - Scheduler Started
+2018-06-11 15:12:00,019 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:12:13,062 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:13:00,006 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:13:13,028 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:14:00,000 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:15:11,095 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:15:11,236 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:17:08,095 [1] ERROR JobScheduler - Loading of future stages from database failed!
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at IPS.Business.TrainingDiaryService.GetAllPersonalTrainingRecurrencesForEmail() in D:\DotNetProjects\IPS\IPS.Business\TrainingDiaryService.cs:line 1322
+   at IPSScheduler.JobScheduler.LoadFuturePersonalRecurrenceTrainingForEmail() in D:\DotNetProjects\IPS\IPS.Scheduler\JobScheduler.cs:line 1292
+2018-06-11 15:17:20,790 [1] INFO  JobScheduler - List of Personal Training Recurrence email in the database is empty.
+2018-06-11 15:23:52,959 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:23:53,100 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:24:57,201 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 466_1806111525; PersonalTrainingEmail on 6/11/2018 3:25:00 PM
+2018-06-11 15:24:57,210 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 467_1806111525; PersonalTrainingEmail on 6/11/2018 3:25:00 PM
+2018-06-11 15:25:00,636 [DefaultQuartzScheduler_Worker-2] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 467_1806111525; PersonalTrainingEmail
+2018-06-11 15:25:00,636 [DefaultQuartzScheduler_Worker-1] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 466_1806111525; PersonalTrainingEmail
+2018-06-11 15:25:14,761 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:25:14,792 [1] INFO  JobScheduler - Scheduler Started
+2018-06-11 15:25:16,534 [DefaultQuartzScheduler_Worker-1] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 466_1806111525; PersonalTrainingEmail
+2018-06-11 15:25:16,534 [DefaultQuartzScheduler_Worker-2] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 467_1806111525; PersonalTrainingEmail
+2018-06-11 15:26:06,210 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:26:20,764 [18] ERROR IPS.Business.NotificationService - Send email to participant with Id 1854, name Anand Agarwal failed
+System.ArgumentNullException: Value cannot be null.
+Parameter name: addresses
+   at System.Net.Mail.MailAddressCollection.Add(String addresses)
+   at IPS.Business.MailNotification.GetAddress(List`1 addresses) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 78
+   at IPS.Business.MailNotification.CreateMessage(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 60
+   at IPS.Business.MailNotification.Send(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 36
+   at IPS.Business.NotificationService.SendTrainingEmailNotification(TrainingNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1234
+   at IPS.Business.NotificationService.TrainingSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 798
+2018-06-11 15:26:20,764 [17] ERROR IPS.Business.NotificationService - Send email to participant with Id 1854, name Anand Agarwal failed
+System.ArgumentNullException: Value cannot be null.
+Parameter name: addresses
+   at System.Net.Mail.MailAddressCollection.Add(String addresses)
+   at IPS.Business.MailNotification.GetAddress(List`1 addresses) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 78
+   at IPS.Business.MailNotification.CreateMessage(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 60
+   at IPS.Business.MailNotification.Send(IpsAddress address, IpsMessage message) in D:\DotNetProjects\IPS\IPS.Business\MailNotification.cs:line 36
+   at IPS.Business.NotificationService.SendTrainingEmailNotification(TrainingNotificationRecipient recipient, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 1234
+   at IPS.Business.NotificationService.TrainingSendNotification(List`1 recipients, NotificationTemplate template) in D:\DotNetProjects\IPS\IPS.Business\NotificationService.cs:line 798
+2018-06-11 15:27:00,597 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:27:02,115 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:27:09,469 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:28:34,340 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:28:34,606 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:29:33,675 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:29:33,831 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:29:57,678 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:29:57,737 [1] INFO  JobScheduler - Scheduler Started
+2018-06-11 15:30:00,020 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:30:29,837 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 467_1806111535; PersonalTrainingEmail on 6/11/2018 3:35:00 PM
+2018-06-11 15:30:35,573 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:31:00,007 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:31:29,056 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:32:00,002 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:32:05,240 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:34:55,358 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:34:55,447 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:35:22,349 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 467_1806111540; PersonalTrainingEmail on 6/11/2018 3:40:00 PM
+2018-06-11 15:35:22,349 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:35:22,369 [1] INFO  JobScheduler - Scheduler Started
+2018-06-11 15:36:00,006 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:37:04,434 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:37:11,654 [DefaultQuartzScheduler_Worker-1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:37:31,580 [DefaultQuartzScheduler_Worker-2] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:38:00,009 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:39:44,835 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:40:02,983 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:40:03,280 [DefaultQuartzScheduler_Worker-5] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 467_1806111540; PersonalTrainingEmail
+2018-06-11 15:40:10,082 [DefaultQuartzScheduler_Worker-3] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:40:10,725 [DefaultQuartzScheduler_Worker-4] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:40:10,866 [DefaultQuartzScheduler_Worker-6] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:40:12,314 [DefaultQuartzScheduler_Worker-5] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 467_1806111540; PersonalTrainingEmail
+2018-06-11 15:46:28,080 [1] DEBUG JobScheduler - Scheduler Starting...
+2018-06-11 15:46:28,221 [1] DEBUG JobScheduler - Scheduler Jobs Reload Starting...
+2018-06-11 15:46:59,128 [1] DEBUG JobScheduler - Scheduled new Personal Training Email Job! Job key: 467_1806111547; PersonalTrainingEmail on 6/11/2018 3:47:00 PM
+2018-06-11 15:47:02,082 [1] DEBUG JobScheduler - Scheduler Jobs Reload Completed
+2018-06-11 15:47:03,806 [DefaultQuartzScheduler_Worker-1] DEBUG StartTrainingEmailJob - Training Email Job! Job key: 467_1806111547; PersonalTrainingEmail
+2018-06-11 15:47:03,821 [1] INFO  JobScheduler - Scheduler Started
+2018-06-11 15:47:05,781 [DefaultQuartzScheduler_Worker-1] INFO  StartTrainingEmailJob - Training Email Job execution completed. Job key: 467_1806111547; PersonalTrainingEmail

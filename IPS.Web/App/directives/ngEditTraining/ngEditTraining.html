@@ -1,0 +1,267 @@
+
+<form name="editTraining" novalidate>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                <span ng-show='editTraining.newTrainingName.$error.required' class="required">*</span>
+                <input type="text" class="form-control tab-control" ng-model="training.name" ng-required="!newTrainingName.name" name="newTrainingName" ng-disabled="isDisabled()" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                <select ng-disabled="isOrganizationDisabled || isDisabled()" class="form-control tab-control" name="trainingOrganizationId" data-ng-model="training.organizationId" data-ng-options="obj.id as obj.name for obj in organizations"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_TYPE' | translate }}</label>
+                <a class="add-button add-button-clean pull-right" ng-click="addTrainingType()" ng-hide="isDisabled()"></a>
+                <select class="form-control tab-control" data-ng-model="training.typeId" data-ng-options="obj.id as obj.name for obj in trainingTypes" ng-disabled="isDisabled()"></select>
+            </div>
+        </div>
+        <div class="col-md-4" ng-if="isStandardPanel">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                <select kendo-drop-down-list
+                        k-data-text-field="'name'"
+                        k-data-value-field="'id'"
+                        k-filter="'contains'"
+                        k-data-source="skillsFlatList"
+                        k-option-label="'Select Skill...'"
+                        ng-model="training.skillId"
+                        ng-change="skillSelected()"
+                        ng-disabled="isDisabled()"
+                        style="width: 100%"></select>
+            </div>
+        </div>
+        <div class="col-md-4" ng-if="isSimplePanel">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                <span ng-show='editTraining.trainingSkillId.$invalid' class="required">*</span>
+                <select class="form-control tab-control" required ng-required="isSimplePanel" name="trainingSkillId" data-ng-model="training.skillId"
+                        data-ng-options="obj.id as obj.name for obj in skills" ng-change="skillSelected()" ng-disabled="isDisabled()"></select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_LEVEL' | translate }}</label>
+                <select class="form-control tab-control" data-ng-model="training.levelId" data-ng-options="obj.id as obj.name for obj in trainingLevels" ng-disabled="isDisabled()"></select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_WHY' | translate }} - {{'COMMON_WHY_IS_THE_TRAINING_NEEDED' | translate }} {{'COMMON_WHY_DO_YOU_WANT_TO_DO_THIS_TRAINING' | translate }} {{'COMMON_REASONS_BEHIND_YOUR_ACTION' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" ng-model="training.why" ng-disabled="isDisabled()"></textarea>
+                <button class="btn-cstm pull-right" ng-click="addWhyReasons()" ng-disabled="isDisabled()">{{'SOFTPROFILE_ADD_WHY_REASONS' | translate }}</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_WHAT' | translate }} - {{'COMMON_WHAT_DO_YOU_WANT_TO_ACCOMPLISH' | translate }} {{'COMMON_WHAT_ARE_THE_BENEFITS_OF_THESE_TRAININGS' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" ng-model="training.what" ng-disabled="isDisabled()"></textarea>
+                <button class="btn-cstm pull-right" ng-click="addWhatReasons()" ng-disabled="isDisabled()">{{'SOFTPROFILE_ADD_WHAT_REASONS' | translate }}</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{{'COMMON_HOW' | translate }} - {{'COMMON_HOW_WILL_YOU_DO_THE_TRAINING_STEP_BY_STEP' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" ng-model="training.how" ng-disabled="isDisabled()"></textarea>
+                <button class="btn btn-cstm pull-right" ng-click="addHowReasons()" ng-disabled="isDisabled()">{{'SOFTPROFILE_ADD_HOW_REASONS' | translate }}</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label" for="description">{{'COMMON_ADDITIONAL_INFO' | translate }}</label>
+                <textarea class="form-control tab-control" rows="5" data-ng-model="training.additionalInfo" ng-disabled="isDisabled()"></textarea>
+            </div>
+        </div>
+
+        <div class="row margin-left0-bottom15">
+            <div class="form-group date-group">
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="starDate">{{'COMMON_START_DATE' | translate }}</label>
+                        <input kendo-date-time-picker
+                               name="starDate"
+                               ng-model="training.startDate"
+                               ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="endDate">{{'COMMON_END_DATE' | translate }}</label>
+                        <input kendo-date-time-picker
+                               name="endDate"
+                               ng-model="training.endDate"
+                               ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label">{{'COMMON_NOTIFICATION' | translate }}</label>
+                    <span class="control-item">
+                        <input type="checkbox" data-ng-model="training.isNotificationByEmail" ng-disabled="isDisabled()">{{'COMMON_EMAIL' | translate }}
+                        <select class="form-control" ng-model="training.emailNotificationIntervalId" ng-options="interval.notificationIntervalId as interval.name for interval in notificationIntervals" ng-disabled="isDisabled()"></select>
+                    </span>
+                    <span class="control-item">
+                        <input type="checkbox" data-ng-model="training.isNotificationBySMS" ng-disabled="isDisabled()">{{'COMMON_SMS' | translate }}
+                        <select class="form-control" ng-model="training.smsNotificationIntervalId" ng-options="interval.notificationIntervalId as interval.name for interval in notificationIntervals" ng-disabled="isDisabled()"></select>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-left0-bottom15">
+            <div class="form-group date-group">
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="duration">{{'COMMON_HOW_LONG' | translate }}</label>
+                        <input class="form-control" name="duration" ng-model="training.duration" type="number" min="0" ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="durationMetrics">{{'COMMON_DURATION_METRICS' | translate }}</label>
+                        <select class="form-control tab-control" name="durationMetrics" ng-model="training.durationMetricId" ng-options="metric.id as metric.name for metric in durationMetrics" ng-disabled="isDisabled()"></select>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-left0-bottom15">
+            <div class="form-group date-group">
+                <div class="col-md-12">
+                    <div ng-recurency ng-model="training" ng-property="frequency"></div>
+                    <!--<span class="control-item frequency-container">
+                    <label class="control-label">How Often</label>
+
+                    <span class="frequency">
+
+                        <cron-selection class="cron" output="training.frequency" init="training.frequency" ng-cron-disabled enabled="{{!isDisabled()}}"></cron-selection>
+                    </span>
+                </span>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-left0-bottom15">
+            <div class="form-group date-group">
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="howmuch">{{'COMMON_HOW_MUCH_OR_MANY' | translate }}</label>
+                        <input class="form-control" name="howmuch" ng-model="training.howMany" type="number" min="0" ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="exerciseMetrics">{{'COMMON_METRICS' | translate }}</label>
+                        <select class="form-control tab-control" name="exerciseMetrics" ng-model="training.exerciseMetricId" ng-options="exerciseMetric.id as exerciseMetric.name for exerciseMetric in exerciseMetrics" ng-disabled="isDisabled()"></select>
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="sets">{{'COMMON_HOW_MANY_SETS' | translate }}</label>
+                        <input class="form-control" name="sets" ng-model="training.howManySets" type="number" min="0" ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <span class="control-item">
+                        <label class="control-label" for="actions">{{'COMMON_HOW_MANY_ACTIONS' | translate }}</label>
+                        <input class="form-control tab-control" name="actions" ng-model="training.howManyActions" type="number" min="0" ng-disabled="isDisabled()" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row margin-left0-bottom15">
+            <div class="col-md-3">
+                <div class="form-group" ng-hide="!isStandardPanel">
+                    <input type="checkbox" data-ng-model="training.isActive" ng-disabled="isDisabled()"> {{'COMMON_IS_ACTIVE' | translate }}
+                </div>
+                <div class="form-group" ng-hide="!isStandardPanel">
+                    <input type="checkbox" data-ng-model="training.isTemplate" ng-disabled="isDisabled()"> {{'COMMON_IS_TEMPLATE' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid k-options="trainingmaterialsGridOptions" k-rebind="gridOptions.selectable"></div>
+            </kendo-tooltip>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-cstm primary pull-right ips-tab-button" ng-click="addTrainingMaterial()" ng-disabled="isDisabled()">{{'COMMON_ADD_TRAINING_MATERIAL' | translate }}</button>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-md-12" ng-hide="!isStandardPanel">
+            <div class="top-border"></div>
+            <button class="btn btn-cstm primary cancel pull-right ips-tab-button" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+            <button class="btn btn-cstm primary pull-right ips-tab-button" ng-click="saveTraining()" ng-disabled="editTraining.$invalid || isDisabled()">{{'COMMON_SAVE' | translate }}</button>
+            <button class="btn btn-cstm primary ips-tab-button" ng-if="isRemoveVisible()" ng-click="removeTraining()" ng-disabled="isDisabled(authService.actions.Delete)">{{'COMMON_REMOVE' | translate }}</button>
+        </div>
+        <div class="col-md-12" ng-hide="!isSimplePanel">
+            <button class="btn btn-cstm primary pull-right ips-tab-button" ng-click="saveTraining()" ng-disabled="editTraining.$invalid || isDisabled()">{{'SOFTPROFILE_SAVE_NEW_TRAINING' | translate }}</button>
+        </div>
+
+
+
+
+        <div kendo-window="winTrainingMaterial" k-width="1200" k-visible="false" k-title="('SOFTPROFILE_NEW_TRAINING_MATERIAL' | translate )" k-on-open="winTrainingMaterialvisible = false" k-on-close="winTrainingMaterialvisible = false">
+            <div class="row window-row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'COMMON_TITLE' | translate }}</label>
+                        <input type="text" class="form-control tab-control" ng-model="trainingMaterial.title" name="newTrainingName" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'COMMON_DESCRIPTION' | translate }}</label>
+                        <textarea class="form-control tab-control" rows="5" ng-model="trainingMaterial.description"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'COMMON_URL' | translate }}</label>
+                        <input type="text" class="form-control tab-control" ng-model="trainingMaterial.link" name="newTrainingName" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <look-up name="Material Type" type="trainingMaterialType" selected="trainingMaterial.materialType"></look-up>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'COMMON_FILE_UPLOAD' | translate }}</label>
+                        <input type="file" ngf-select="onFileSelect($files)">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-cstm primary cancel pull-right" id="cancelButton" ng-click="cancelTrainingMaterial()">{{'COMMON_CANCEL' | translate }}</button>
+                    <button class="btn btn-cstm primary pull-right" id="okButton" ng-click="okTrainingMaterial()">{{'COMMON_OK' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        <div kendo-window="winTrainingType" k-width="800" k-visible="false" k-title="('SOFTPROFILE_ADD_TRAINING_TYPE' | translate )" k-modal="true" k-on-open="winTrainingTypevisible = false" k-on-close="winTrainingTypevisible = false">
+            <div class="row window-row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>{{'COMMON_TITLE' | translate }}</label>
+                        <input type="text" class="form-control tab-control" ng-model="trainingType" name="newTrainingTypeName" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-cstm primary cancel pull-right" id="cancelButtonType" ng-click="cancelTrainingType()">{{'COMMON_CANCEL' | translate }}</button>
+                    <button class="btn btn-cstm primary pull-right" id="okButtonType" ng-click="okTrainingType()">{{'COMMON_ADD' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

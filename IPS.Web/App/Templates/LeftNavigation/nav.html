@@ -1,0 +1,825 @@
+<ul data-ng-controller="NavCtrl" class="page-sidebar-menu  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <li class="sidebar-toggler-wrapper hide">
+        <div class="sidebar-toggler">
+            <span></span>
+        </div>
+    </li>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+
+
+    <li class="nav-item start active">
+        <a href="javascript:;" class="nav-link" data-ng-click="gotoHome()">
+            <i class="fa fa-home"></i>
+            <span class="title">{{'LEFTMENU_HOME' | translate }}</span>
+        </a>
+    </li>
+
+
+    <!-- Dynamic Menus -->
+       <li class="nav-item " ng-repeat="menuItem in topMenuItems track by $index" data-id="{{menuItem.id}}">
+
+        <a ng-if="(!hasSubmenu(menuItem.id))" href="#{{menuItem.a_attr.href}}" class="nav-link" data-ng-show="(authentication.isAuth)">
+            <i class="{{menuItem.icon}}"></i>
+            <span class="title">{{menuItem.text | translate }}</span>
+        </a>
+
+        <a ng-if="hasSubmenu(menuItem.id)" href="javascript:;" class="nav-link nav-toggle">
+            <i class="{{menuItem.icon}}"></i>
+            <span class="title">{{menuItem.text | translate}}</span>
+            <span class="arrow" ng-if="hasSubmenu(menuItem.id)"></span>
+        </a>
+        <ul ng-if="hasSubmenu(menuItem.id)" class="sub-menu">
+            <li class="nav-item" ng-repeat="secondLevelMenuItem in secondLevelMenuItems = (filterSubmenu(menuItem.id)) track by $index" data-id="{{secondLevelMenuItem.id}}" data-parentid="{{menuItem.id}}">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="{{secondLevelMenuItem.icon}}"></i>
+                    <span class="title"> {{secondLevelMenuItem.text | translate}}</span>
+                    <span class="arrow" ng-if="hasSubmenu(secondLevelMenuItem.id)"></span>
+                </a>
+                <ul ng-if="hasSubmenu(secondLevelMenuItem.id)" class="sub-menu">
+                    <li class="nav-item" ng-repeat="thirdLevelMenuItem in thirdLevelMenuItems = (filterSubmenu(secondLevelMenuItem.id))  track by $index" data-id="{{thirdLevelMenuItem.id}}" data-parentid="{{thirdLevelMenuItem.parentId}}" data-mainparentid="{{secondLevelMenuItem.id}}">
+                        <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                            <i class="{{thirdLevelMenuItem.icon}}"></i>
+                            <span class="title">{{thirdLevelMenuItem.text | translate }}</span>
+                            <span class="arrow" ng-show="hasSubmenu(thirdLevelMenuItem.id)"></span>
+                        </a>
+                        <ul ng-if="hasSubmenu(thirdLevelMenuItem.id)" class="sub-menu">
+                            <li class="nav-item" ng-repeat="forthLevelMenuItem in forthLevleMenuItems = (filterSubmenu(thirdLevelMenuItem.id))" data-id="{{forthLevelMenuItem.id}}" data-parentid="{{forthLevelMenuItem.parentId}}" data-mainparentid="{{thirdLevelMenuItem.id}}">
+                                <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                                    <i class="{{forthLevelMenuItem.icon}}"></i>
+                                    <span class="title">{{forthLevelMenuItem.text | translate }}</span>
+                                    <span class="arrow" ng-show="hasSubmenu(forthLevelMenuItem.id)"></span>
+                                </a>
+                                <ul ng-if="hasSubmenu(forthLevelMenuItem.id)" class="sub-menu">
+                                    <li class="nav-item">fifthLevelMenuItem</li>
+                                    <li class="nav-item" ng-repeat="fifthLevelMenuItem in fifthLevleMenuItems = (filterSubmenu(forthLevelMenuItem.id))" data-id="{{fifthLevelMenuItem.id}}" data-parentid="{{fifthLevelMenuItem.parentId}}" data-mainparentid="{{forthLevelMenuItem.id}}">
+                                        <a href="javascript:;;" class="nav-link" data-ng-show="(authentication.isAuth)">
+                                            <i class="{{fifthLevelMenuItem.icon}}"></i>
+                                            <span class="title">{{fifthLevelMenuItem.id}}{{fifthLevelMenuItem.text | translate }}</span>
+                                            <span class="arrow" ng-show="hasSubmenu(fifthLevelMenuItem.id)"></span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item" ng-repeat="fifthLevelMenuItem in fifthLevleMenuItems = (filterNoSubmenu(forthLevelMenuItem.id))" data-id="{{forthLevelMenuItem.id}}" data-parentid="{{forthLevelMenuItem.parentId}}" data-mainparentid="{{thirdLevelMenuItem.id}}">
+                                        <a href="javascript:;;" class="nav-link" data-ng-show="(authentication.isAuth)">
+                                            <i class="{{fifthLevelMenuItem.icon}}"></i>
+                                            <span class="title">{{fifthLevelMenuItem.id}}{{fifthLevelMenuItem.text | translate }}</span>
+                                            <span class="arrow" ng-show="hasSubmenu(fifthLevelMenuItem.id)"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item" ng-repeat="forthLevelMenuItem in forthLevleMenuItems = (filterNoSubmenu(thirdLevelMenuItem.id)) track by $index" data-id="{{forthLevelMenuItem.id}}" data-parentid="{{forthLevelMenuItem.parentId}}" data-mainparentid="{{thirdLevelMenuItem.id}}">
+                                <a href="#{{forthLevelMenuItem.a_attr.href}}" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                                    <i class="{{forthLevelMenuItem.icon}}"></i>
+                                    <span class="title">{{forthLevelMenuItem.text | translate }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" ng-repeat="thirdLevelMenuListItem in thirdLevelMenuListItems = (filterNoSubmenu(secondLevelMenuItem.id)) track by $index" data-id="{{thirdLevelMenuListItem.id}}" data-parentid="{{thirdLevelMenuListItem.parentId}}" data-mainparentid="{{secondLevelMenuItem.id}}">
+                        <a href="#{{thirdLevelMenuListItem.a_attr.href}}" class="nav-link" data-ng-show="(authentication.isAuth)">
+                            <i class="{{thirdLevelMenuListItem.icon}}"></i>
+                            <span class="title">{{thirdLevelMenuListItem.text | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item" ng-repeat="secondLevelMenuItem in secondLevelMenuItems = (filterNoSubmenu(menuItem.id))" data-id="{{secondLevelMenuItem.id}}" data-parentid="{{menuItem.id}}">
+                <a href="#{{secondLevelMenuItem.a_attr.href}}" class="nav-link" data-ng-show="(authentication.isAuth)">
+                    <i class="{{secondLevelMenuItem.icon}}"></i>
+                    <span class="title">{{secondLevelMenuItem.text | translate }}</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+
+
+    <li class="nav-item hide">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-user"></i>
+            <span class="title">{{'User Management' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-sitemap"></i>
+                    <span class="title">{{'Organization Management' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))">
+                        <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                            <i class="fa fa-building"></i>
+                            <span class="title">{{'LEFTMENU_ORGANIZATIONS' | translate }}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Organizations'))" class="nav-item">
+                                <a class="nav-link " href="#/home/organizations/organizations"><i class="fa fa-building"></i><span>{{'LEFTMENU_ORGANIZATIONS' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Organizations'))" class="nav-item"><a class="nav-link " href="#/home/organizations/users/{{authentication.user.organizationId}}"><i class="fa fa-users"></i><span>{{'ORGANIZATIONS_USERS' | translate }}</span></a></li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Organizations'))" class="nav-item"><a class="nav-link " href="#/home/organizations/departments/{{authentication.user.organizationId}}"><i class="fa fa-building"></i><span>{{'COMMON_DEPARTMENTS' | translate }}</span></a></li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Organizations'))" class="nav-item"><a class="nav-link " href="#/home/organizations/teams/{{authentication.user.organizationId}}"><i class="fa fa-users"></i><span>{{'COMMON_TEAMS' | translate }}</span></a></li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Organizations'))" class="nav-item"><a class="nav-link " href="#/home/organizations/customers/{{authentication.user.organizationId}}"><i class="fa fa-male"></i><span>CRM {{'COMMON_CUSTOMERS' | translate }}</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Industries'))" class="nav-item">
+                        <a href="#/home/organizations/industries/{{authentication.user.organizationId}}" class="nav-link">
+                            <i class="fa fa-industry"></i>
+                            <span class="title">{{'LEFTMENU_INDUSTRIES' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))" class="nav-item">
+                        <a class="nav-link " href="#/home/administration/security">
+                            <i class="fa fa-lock"></i>
+                            <span class="title">{{'LEFTMENU_SECURITY' | translate }}</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))">
+                        <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                            <i class="fa fa-user"></i>
+                            <span class="title">{{'LEFTMENU_ROLES_LEVEL_MANAGEMENT' | translate }}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))" class="nav-item">
+                                <a class="nav-link " href="#/home/roleLevel/roleLevels"><i class="fa fa-bar-chart"></i><span>{{'LEFTMENU_ROLE_LEVELS' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))" class="nav-item"><a class="nav-link " href="#/home/roleLevel/roleLevelPermissionTemplate"><i class="fa fa-file"></i><span>{{'LEFTMENU_NEW_ROLE_LEVEL_TEMPLATES' | translate }}</span></a></li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))" class="nav-item"><a class="nav-link " href="#/home/roleLevel/setPermission/null/null"><i class="fa fa-unlock-alt"></i><span>{{'LEFTMENU_SET_ROLE_LEVEL_PERMISSION' | translate }}</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+
+    <!-- Plan -->
+    <li class="nav-item  hide">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-list-ul"></i>
+            <span class="title">{{'PLANS_PLAN' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">{{'Profile Management' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))">
+                        <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                            <i class="fa fa-suitcase"></i>
+                            <span class="title">{{'LEFTMENU_SOFT_PROFILE' | translate }}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/soft/activeProfiles"><i class="fa fa-toggle-on"></i><span>{{'LEFTMENU_ACTIVE_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/soft/expiredProfiles"><i class="fa fa-calendar"></i><span>{{'MYPROFILES_EXPIRED_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/soft/completedProfiles"><i class="fa fa-check-square"></i><span>{{'MYPROFILES_COMPLETED_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/soft/historyProfiles"><i class="fa fa-clock-o"></i><span>{{'Historic Profiles' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/soft/profile/0"><i class="fa fa-file-o"></i><span>{{'SOFTPROFILE_NEW_PROFILE' | translate }}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))">
+                        <a href="javascript:;;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)">
+                            <i class="fa fa-lightbulb-o"></i>
+                            <span class="title">{{'LEFTMENU_KNOWLEDGE_PROFILE' | translate }}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/knowledge/activeProfiles"><i class="fa fa-toggle-on"></i><span>{{'LEFTMENU_ACTIVE_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/knowledge/expiredProfiles"><i class="fa fa-calendar"></i><span>{{'MYPROFILES_EXPIRED_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/knowledge/completedProfiles"><i class="fa fa-check-square"></i><span>{{'MYPROFILES_COMPLETED_PROFILES' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/knowledge/historyProfiles"><i class="fa fa-clock-o"></i><span>{{'Historic Profiles' | translate }}</span></a>
+                            </li>
+                            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                                <a class="nav-link " href="#/home/knowledge/profile/0"><i class="fa fa-file-o"></i><span>{{'SOFTPROFILE_NEW_PROFILE' | translate }}</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))">
+                    <i class="fa fa-sun-o"></i>
+                    <span class="title">{{'Project Management' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/home/activeProjects"><i class="fa fa-toggle-on"></i><span>{{'MYPROJECTS_ACTIVE_PROJECTS' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/home/pendingProjects"><i class="fa fa-calendar"></i><span>{{'MYPROJECTS_PENDING_PROJECTS' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/home/expiredProjects"><i class="fa fa-calendar"></i><span>{{'MYPROJECTS_EXPIRED_PROJECTS' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/home/completedProjects"><i class="fa fa-check-square"></i><span>{{'MYPROJECTS_COMPLETED_PROJECTS' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/home/historyProjects"><i class="fa fa-clock-o"></i><span>{{'COMMON_HISTORY' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Projects'))" class="nav-item">
+                        <a class="nav-link " href="#/newproject"><i class="fa fa-file-o"></i><span>{{'MYPROJECTS_NEW_PROJECT' | translate }}</span></a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))">
+                    <i class="fa fa-sun-o"></i>
+                    <span class="title">{{'Training Management' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                        <a class="nav-link " href="#/home/training/personaltrainingdiary"><i class="fa fa-toggle-on"></i><span>{{'Personal Trainings' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                        <a class="nav-link " href="#/home/training/profiletrainingdiary"><i class="fa fa-calendar"></i><span>{{'HOME_PROFILE_TRAININGS' | translate }}</span></a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Training Setting'))" class="nav-item">
+                        <a class="nav-link " href="#/home/training/trainingSetting"><i class="fa fa-gear"></i><span>{{'LEFTMENU_TRAINING_SETTINGS' | translate }}</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Notification Templates'))" class="nav-item">
+                <a class="nav-link " href="#/home/notificationTemplates/{{authentication.user.organizationId}}">
+                    <i class="fa fa-bell"></i>
+                    <span class="title">{{'COMMON_NOTIFICATION' | translate }}</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+
+    <!-- Plan -->
+
+    <li class="nav-item  hide" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Sales Prospecting'))">
+        <a class="nav-link nav-toggle">
+            <i class="fa fa-area-chart"></i>
+            <span class="title">{{'LEFTMENU_SALES_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Sales Prospecting'))">
+            <li class="nav-item">
+                <a class="nav-link " href="#/taskProspecting">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_PROSPECTING' | translate }}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item  hide" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Service Prospecting'))">
+        <a class="nav-link nav-toggle">
+            <i class="fa fa-area-chart"></i>
+            <span class="title">{{'LEFTMENU_SERVICE_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Service Prospecting'))">
+                <a class="nav-link " href="#/serviceProspecting">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_SERVICE_PROSPECTING' | translate }}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item  hide">
+        <a class="nav-link nav-toggle">
+            <i class="fa fa-area-chart"></i>
+            <span class="title">{{'LEFTMENU_PERFORMANCE_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Dashboard'))" class="nav-item">
+                <a class="nav-link " href="#/home/performance/dashboard">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_DASHBOARD' | translate }}</span>
+                </a>
+            </li>
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Scorecard'))" class="nav-item">
+                <a class="nav-link " href="#/home/performance/scorecard">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_SCORECARD' | translate }}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  hide">
+        <a class="nav-link nav-toggle">
+            <i class="fa fa-area-chart"></i>
+            <span class="title">{{'LEFTMENU_PROJECT_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li data-ng-hide="!authentication.isAuth">
+                <a href="#/home/myProjects">
+                    <i class="fa fa-book"></i>{{'LEFTMENU_MY_PROJECTS' | translate }}
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  hide">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-briefcase"></i>
+            <span class="title">{{'LEFTMENU_PROFILE_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li data-ng-hide="!authentication.isAuth">
+                <a href="#/home/activeProfiles">
+                    <i class="fa fa-book"></i>{{'LEFTMENU_MY_PROFILES' | translate }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a data-ng-show="(authentication.isAuth)" href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-empire"></i>
+                    <span class="title">{{'LEFTMENU_SOFT_PROFILE' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft">
+                            <i class="fa fa-gears"></i>
+                            <span class="title">{{'LEFTMENU_PROFILE_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Performance Groups'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/performanceGroups">
+                            <i class="fa fa-group"></i>
+                            <span class="title">{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Skills'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/skills">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_SKILLS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Questions'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/questionbank">
+                            <i class="fa fa-question"></i>
+                            <span class="title">{{'LEFTMENU_QUESTIONS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Scales'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/scales">
+                            <i class="fa fa-meanpath"></i>
+                            <span class="title">{{'LEFTMENU_SCALE_MANAGEMENT' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Security'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/measureUnits">
+                            <i class="fa fa-star"></i>
+                            <span class="title">{{'LEFTMENU_MEASURE_UNITS' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-ng-show="(authentication.isAuth)" class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-empire"></i>
+                    <span class="title">{{'LEFTMENU_KNOWLEDGE_PROFILE' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest">
+                            <i class="fa fa-gears"></i>
+                            <span class="title">{{'LEFTMENU_PROFILE_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Performance Groups'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest/performanceGroups">
+                            <i class="fa fa-group"></i>
+                            <span class="title">{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Skills'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest/skills">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_SKILLS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Questions'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest/questionbank">
+                            <i class="fa fa-question"></i>
+                            <span class="title">{{'LEFTMENU_QUESTIONS' | translate }}</span>
+                        </a>
+                    </li>
+
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Medal Rules'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest/medalrules">
+                            <i class="fa fa-shield"></i>
+                            <span class="title">{{'LEFTMENU_MEDAL_RULES' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item hide">
+                <a data-ng-show="(authentication.isAuth)" href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-empire"></i>
+                    <span class="title">{{'LEFTMENU_SALES_PROFILE' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/hard">
+                            <i class="fa fa-gears"></i>
+                            <span class="title">{{'LEFTMENU_PROFILE_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Performance Groups'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/hard/performanceGroups">
+                            <i class="fa fa-group"></i>
+                            <span class="title">{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Skills'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/hard/skills">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_SKILLS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Questions'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/hard/questionbank">
+                            <i class="fa fa-question"></i>
+                            <span class="title">{{'LEFTMENU_QUESTIONS' | translate }}</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('BSC'))" class="nav-item hide">
+                <a href="javascript:;;" data-root-of="#home/profiles/profiles/bsc" id="profile-bsc-btn" data-toggle="collapse" data-target="#submenuBSC" aria-expanded="false">
+                    <i class="fa fa-diamond"></i>
+                    <span>{{'LEFTMENU_BSC' | translate }}</span>
+                </a>
+                <ul class="collapse second-submenu" id="submenuBSC" role="menu" aria-labelledby="profile-bsc-btn">
+                    <li class="nav-item">
+                        <a href="#/home/bsc/bscGoals">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_BSC_GOALS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#/home/bsc/bscPerspectives">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_BSC_PERSPECTIVES' | translate }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:;;">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_STRATEGY_MAP' | translate }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:;;">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_KPI_LIBRARY' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-ng-show="(authentication.isAuth)" class="nav-item hide">
+                <a href="javascript:;" data-root-of="#/home/profiles/profiles/hard" id="profile-hard-btn" data-toggle="collapse" data-target="#submenuHard" aria-expanded="false">
+                    <i class="fa fa-diamond"></i>
+                    <span>{{'LEFTMENU_HARD_PROFILE' | translate }}</span>
+                </a>
+                <ul class="collapse second-submenu" id="submenuHard" role="menu" aria-labelledby="profile-hard-btn">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a href="#/home/profiles/profiles/hard">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_PROFILE_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Performance Groups'))" class="nav-item">
+                        <a href="javascript:;;">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'COMMON_PERFORMANCE_GROUPS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Skills'))" class="nav-item">
+                        <a href="#/home/profiles/profiles/hard/skills">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_SKILLS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Questions'))" class="nav-item">
+                        <a href="javascript:;;">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_QUESTIONS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                        <a href="#/home/profiles/profiles/hard/trainings">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_TRAININGS' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-ng-show="(authentication.isAuth)" class="nav-item hide">
+                <a href="javascript:;" data-root-of="#/home/profiles/driv" id="profile-driv-btn" data-toggle="collapse" data-target="#submenuDRIV" aria-expanded="false">
+                    <i class="fa fa-diamond"></i>
+                    <span>{{'LEFTMENU_DRIV_PROFILE' | translate }}</span>
+                </a>
+                <ul class="collapse second-submenu" id="submenuDRIV" role="menu" aria-labelledby="profile-driv-btn">
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a href="#/home/profiles/profiles/driv">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_PROFILE_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Profiles'))" class="nav-item">
+                        <a href="javascript:;;">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_DRIV_PROFILE' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                        <a href="#/home/profiles/profiles/driv/trainings">
+                            <i class="fa fa-diamond"></i>
+                            <span>{{'LEFTMENU_TRAININGS' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  hide">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-tasks"></i>
+            <span class="title">{{'LEFTMENU_TRAINING_AND_TASK_MANAGEMENT' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                <a href="javascript:;;" class="nav-link nav-toggle">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_TRAINING_MANAGEMENT' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item hide">
+                        <a class="nav-link " href="#/home/profiles/profiles/soft/trainings">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_TRAINING_LIBRARY' | translate }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link " href="#/home/training/trainingdiary">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_TRAINING_DIARY' | translate }}</span>
+                        </a>
+                    </li>
+                    <!--<li class="nav-item hide">
+
+                        <a href="javascript:;;" class="nav-link nav-toggle">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">Training Diary</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item">
+                                <a href="javascript:;;" class="nav-link nav-toggle">
+                                    <i class="fa fa-diamond"></i>
+                                    <span class="title">Project</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#/home/training/trainingdiary">
+                                            <span class="title"> Trainings</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <span class="title">Calander</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <span class="title">Analysis</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <span class="title"> Reports</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="javascript:;;" class="nav-link nav-toggle">
+                                    <i class="fa fa-diamond"></i>
+                                    <span class="title">Personal</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <i class="icon-power"></i>
+                                            <span class="title">Trainings</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <i class="icon-paper-plane"></i>
+                                            <span class="title">Calander</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <i class="icon-star"></i>
+                                            <span class="title">Analysis</span>
+
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="javascript:;;">
+                                            <i class="icon-star"></i>
+                                            <span class="title">Reports</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>-->
+
+                    <li class="nav-item">
+                        <a href="#/home/profiles/profiles/soft/trainings/trainingSetting" class="nav-link">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'LEFTMENU_TRAINING_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Trainings'))" class="nav-item">
+                        <a class="nav-link " href="#/home/profiles/profiles/knowledgetest/trainings">
+                            <i class="fa fa-bicycle"></i>
+                            <span class="title">{{'LEFTMENU_MANAGE_TRAININGS' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li data-ng-show="(authentication.isAuth)&&(isHavePermitions('Delegate Tasks'))" class="nav-item">
+                <a href="javascript:;;" class="nav-link nav-toggle">
+                    <i class="fa fa-diamond"></i>
+                    <span class="title">{{'LEFTMENU_TASK_MANAGEMENT' | translate }}</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/home/todos/todos">
+                            <i class="fa fa-diamond"></i>
+                            <span class="title">{{'COMMON_TASKS' | translate }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#/home/todos/todos/tasksSettings">
+                            <i class="fa fa-diamond"></i>
+                            <span class="tile">{{'LEFTMENU_TASK_SETTINGS' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  hide" data-ng-show="(authentication.isAuth)&&(isHavePermitions('Demo'))">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fa fa-diamond "></i>
+            <span class="title">{{'LEFTMENU_DEMO' | translate }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <img src="images/Nav/humanCapital.png" width="20" height="20" />
+                    <span class="tile">{{'LEFTMENU_HUMAN_CAPITAL_DASHBOARD' | translate }}</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/trainings-trainingSetting.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_TRAINING_SETTING' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/todos-edit34.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_TODO_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/todos-tasksSettings.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_TODO_TASK_SETTING' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/home-personalnfo.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_PERSONAL_INFO' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/active-profiles.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ACTIVE_PROFILES' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/home-todos.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_HOME_TODO' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/edit-Training-51.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_TRAINING_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/performance-Groups.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'COMMON_PERFORMANCE_GROUP' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/soft-question-bank.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_QUESTION_BANK' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/profiles-soft-scales.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_PROFILE_SCALES' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/scales-edit-26-0.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SCALE_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/profiles-soft-skills.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_PROFILE_SKILLS' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/soft-trainings.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_TRAINING' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/softmeasure-Units.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_MEASURE_UNITS' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/performance-groups4-edit39.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_PERFORMANCE_GROUP_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/history-edit-16.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_HISTORY_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/edit-Skill-66.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SKILL_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/edit-Question-670.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_QUESTION_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/administration-notificationTemplates.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ADMINISTRATION_NOTIFICATION_TEMPLATES' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/organizations-details.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ORGANIZATION_DETAILS' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/performance-dashboard.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_PERFORMANCE_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/performance-dashboard_1.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_PERFORMANCE_DASHBOARD_1' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/soft-edit-34-preview.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_EDIT_PREVIEW' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/soft-edit-34.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_EDIT' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/dashboardNew.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_DASHBOARD_NEW' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/HUMAN-RESOURCE-PERSPECTIVE.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_HUMAN_RESOURCE_PERSPECTIVE' | translate }}</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-toggle">
+                    <img src="images/Nav/process.png" width="20" height="20" />
+                    <span class="title">{{'LEFTMENU_PROCESS_DASHBOARD' | translate }}</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/active-profiles.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ACTIVE_PROFILES' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/soft-edit-34-preview.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SOFT_EDIT_PREVIEW' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/app-home.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_APP_HOME' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/dashboard-form.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_DASHBOARD_FORM' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/dashboardOrg.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ORGANIZATION_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/organizations-industries.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_INDUSTRIES' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/organizations-organizations.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_ORGANIZATIONS' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/PROCESSPERSPECTIVE.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_PROCESS_PERSPECTIVE' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/RENEWAL-AND-DEVELOPMENT-PERSPECTIVE.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_RENEWAL_AND_DEVELOPMENT_PERSPECTIVE' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/security.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_SECURITY' | translate }}</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-toggle">
+                    <img src="images/Nav/customer.png" width="20" height="20" />
+                    <span class="title">{{'LEFTMENU_CUSTOMER_DASHBOARD' | translate }}</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/CUSTOMERPERSPECTIVE.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_CUSTOMER_PERSPECTIVE' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/dashboardCust.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_CUSTOMER_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/BMWTopNordicDashboard.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_BMW_TOP_NORDIC_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/kpi-top5.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_KPI_TOP_5' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/mb.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_MB' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/volvo.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'Volvo' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/kpi-top5_1.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_KPI_TOP_5(2)' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/BMWSalesAndAfterSalesDashboard.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_BMW_SALES_&_AFTERSALES_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/Olympiatoppen.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_OLYMPIATOPPEN' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/OlympiatoppenEnglish.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_OLYMPIATOPPEN(EN)' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/OlympiatoppenCN.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_OLYMPIATOPPEN(CN)' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/Amedia.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_AMEDIA' | translate }}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/BMWCustomerDashboard.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_BMW_CUSTOMER_DASHBOARD' | translate }}</span></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#/taskProspecting"><i class="fa fa-diamond"></i>  <span class="title">{{'Sales Demo' | translate }}</span> </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link nav-toggle">
+                    <img src="images/Nav/finance.jpg" width="20" height="20" />
+                    <span>{{'LEFTMENU_FINANCE_DASHBOARD' | translate }}</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item"><a class="nav-link" ng-href="{{apiServiceBaseUri}}/Demo/FinancialPerspectives.html" target="_blank"><i class="fa fa-diamond"></i><span>{{'LEFTMENU_FINANCE_PERSPECTIVE' | translate }}</span></a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+
+</ul>

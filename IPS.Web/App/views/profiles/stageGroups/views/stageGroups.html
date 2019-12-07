@@ -1,0 +1,17 @@
+﻿<div pane name="stageGroups">
+    <div class="row">
+        <header-navigation page-name="{{'SOFTPROFILE_STAGE_GROUPS' | translate }}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'SOFTPROFILE_SEND_OUTS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="stageGroups.newStage()"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div kendo-grid k-options="stageGroups.stageGroupOptions"></div>
+            </kendo-tooltip>
+            <button ng-click="stageGroups.newStage()" class="btn btn-cstm primary pull-right">{{'SOFTPROFILE_SEND_OUT_SETTINGS' | translate }}</button>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

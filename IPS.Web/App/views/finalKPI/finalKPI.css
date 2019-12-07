@@ -1,0 +1,4016 @@
+﻿.organizations-menu {
+    background-color: #f2f1f7;
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.info-icon {
+    margin: 10px;
+}
+
+.ips-button.primary.submit-button {
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+.content-border {
+    overflow-x: scroll;
+    position: relative;
+}
+
+    .content-border.content-border-left {
+        border-left: 1px solid #dddddd;
+    }
+
+    .content-border.content-border-right {
+        border-right: 1px solid #dddddd;
+    }
+
+.submit-info {
+    color: #959595;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.view-development-contract {
+    position: absolute;
+    top: 35px;
+    left: 70px;
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+    .view-development-contract a {
+        color: #FF6614;
+    }
+
+.view-development-contract {
+}
+
+.table {
+    width: 100%;
+}
+
+    .table .table-header {
+        padding: 10px 0;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .table th, td {
+        min-width: 80px;
+    }
+
+    .table td:nth-last-child(-n+5) {
+        min-width: 150px;
+        max-width: 250px;
+    }
+
+table.table > tbody > tr.table-header > th {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    table.table > tbody > tr.table-header > th .sortable {
+        cursor: pointer;
+    }
+
+.table .score-value {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #4e5452;
+    color: #ffffff;
+    text-align: center;
+}
+
+.table .answer-number {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 3%;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left;
+}
+
+    .table > tbody > tr > td textarea {
+        width: auto;
+    }
+
+.kpi-outer-circle {
+    background: #DBDBDB;
+    border-radius: 50% !important;
+    height: 46px;
+    width: 46px;
+    position: relative;
+}
+
+    .kpi-outer-circle .kpi-inner-circle {
+        position: absolute;
+        border-radius: 50% !important;
+        background: #F7F7F7;
+        height: 36px;
+        border: 2px solid #C0C0C0;
+        width: 36px;
+        top: 50%;
+        left: 50%;
+        margin: -18px 0px 0px -18px;
+    }
+
+        .kpi-outer-circle .kpi-inner-circle .kpi-control {
+            position: absolute;
+            border-radius: 50% !important;
+            height: 22px;
+            width: 22px;
+            top: 50%;
+            left: 50%;
+            margin: -11px 0px 0px -11px;
+            cursor: pointer;
+        }
+
+.kpi-control.kpi-0 {
+    background: #BDBDBD;
+}
+
+.kpi-control.kpi-1 {
+    background: #FE4B4B;
+}
+
+.kpi-control.kpi-2 {
+    background: #5ECF37;
+}
+
+
+.mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list {
+    border: none !important;
+}
+
+
+.mt-element-list .list-default.mt-list-head {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 15px
+}
+
+    .mt-element-list .list-default.mt-list-head .list-title {
+        margin: 0 0 .7em;
+        font-size: 18px
+    }
+
+    .mt-element-list .list-default.mt-list-head .list-date {
+        font-size: 12px
+    }
+
+    .mt-element-list .list-default.mt-list-head .list-pending {
+        margin-bottom: 10px
+    }
+
+    .mt-element-list .list-default.mt-list-head .list-count {
+        display: inline-block;
+        padding: 3px 7px
+    }
+
+        .mt-element-list .list-default.mt-list-head .list-count.last {
+            margin-bottom: 0
+        }
+
+    .mt-element-list .list-default.mt-list-head .list-label {
+        display: inline-block;
+        font-size: 12px
+    }
+
+.mt-element-list .list-default.mt-list-container {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #e7ecf1;
+    padding: 15px
+}
+
+    .mt-element-list .list-default.mt-list-container .mt-list-title {
+        padding-bottom: 15px;
+        font-size: 14px;
+        font-weight: 700
+    }
+
+    .mt-element-list .list-default.mt-list-container ul {
+        margin-bottom: 0;
+        padding: 0
+    }
+
+        .mt-element-list .list-default.mt-list-container ul > .mt-list-item {
+            list-style: none;
+            border-bottom: 1px solid;
+            border-color: #e7ecf1;
+            padding: 25px 0;
+            min-height: 45px
+        }
+
+            .mt-element-list .list-default.mt-list-container ul > .mt-list-item:first-child {
+                padding-top: 0
+            }
+
+            .mt-element-list .list-default.mt-list-container ul > .mt-list-item:last-child {
+                padding-bottom: 0;
+                border: none
+            }
+
+            .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container {
+                border: 1px solid #e7ecf1;
+                border-radius: 50% !important;
+                padding: .9em;
+                float: left;
+                width: 45px;
+                height: 45px
+            }
+
+                .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container > a {
+                    color: #34495e
+                }
+
+                    .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container > a:hover {
+                        color: #26C281;
+                        text-decoration: none
+                    }
+
+                .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container.done {
+                    border-color: #26C281
+                }
+
+                    .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container.done > a {
+                        color: #26C281
+                    }
+
+                        .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-icon-container.done > a:hover {
+                            color: #26C281;
+                            text-decoration: none
+                        }
+
+            .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content {
+                padding: 0 75px 0 60px
+            }
+
+                .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                    font-size: 16px
+                }
+
+                    .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a {
+                        color: #34495e
+                    }
+
+                        .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a:hover {
+                            color: #26C281;
+                            text-decoration: none
+                        }
+
+                .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-item-content > p {
+                    margin: 0
+                }
+
+            .mt-element-list .list-default.mt-list-container ul > .mt-list-item > .list-datetime {
+                text-align: right;
+                float: right;
+                width: 60px
+            }
+
+.mt-element-list .list-default.ext-1.mt-list-container {
+    padding: 15px 0 0
+}
+
+    .mt-element-list .list-default.ext-1.mt-list-container .mt-list-title {
+        padding: 0 15px 15px
+    }
+
+    .mt-element-list .list-default.ext-1.mt-list-container ul > .mt-list-item {
+        padding: 15px;
+        border-left: 3px solid;
+        border-color: #2F353B #2F353B #e7ecf1
+    }
+
+        .mt-element-list .list-default.ext-1.mt-list-container ul > .mt-list-item:hover {
+            background-color: #e5e5e5
+        }
+
+        .mt-element-list .list-default.ext-1.mt-list-container ul > .mt-list-item.done {
+            border-color: #26C281 #26C281 #e7ecf1
+        }
+
+            .mt-element-list .list-default.ext-1.mt-list-container ul > .mt-list-item.done:hover {
+                background-color: #96ebc8
+            }
+
+        .mt-element-list .list-default.ext-1.mt-list-container ul > .mt-list-item > .list-icon-container {
+            border: none
+        }
+
+.mt-element-list .list-default.group .list-toggle-container:active, .mt-element-list .list-default.group .list-toggle-container:focus, .mt-element-list .list-default.group .list-toggle-container:hover {
+    text-decoration: none
+}
+
+.mt-element-list .list-default.group .list-toggle-container .list-toggle {
+    padding: 15px;
+    background-color: #2F353B;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none
+}
+
+    .mt-element-list .list-default.group .list-toggle-container .list-toggle.done {
+        background-color: #26C281
+    }
+
+.mt-element-list .list-simple.mt-list-container {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #e7ecf1;
+    padding: 15px
+}
+
+    .mt-element-list .list-simple.mt-list-container ul {
+        margin-bottom: 0;
+        padding: 0
+    }
+
+        .mt-element-list .list-simple.mt-list-container ul > .mt-list-item {
+            list-style: none;
+            border-bottom: 1px solid;
+            border-color: #e7ecf1;
+            padding: 15px 0
+        }
+
+            .mt-element-list .list-simple.mt-list-container ul > .mt-list-item:first-child {
+                padding-top: 0
+            }
+
+            .mt-element-list .list-simple.mt-list-container ul > .mt-list-item:last-child {
+                padding-bottom: 0;
+                border: none
+            }
+
+            .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container {
+                font-size: 14px;
+                float: left
+            }
+
+                .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container > a {
+                    color: #34495e
+                }
+
+                    .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container > a:hover {
+                        color: #26C281;
+                        text-decoration: none
+                    }
+
+                .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container.done, .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container.done > a {
+                    color: #26C281
+                }
+
+                    .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-icon-container.done > a:hover {
+                        color: #26C281;
+                        text-decoration: none
+                    }
+
+            .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-item-content {
+                padding: 0 75px 0 60px
+            }
+
+                .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+                    margin: 0;
+                    font-size: 18px
+                }
+
+                    .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a {
+                        color: #34495e
+                    }
+
+                        .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a:hover {
+                            color: #26C281;
+                            text-decoration: none
+                        }
+
+            .mt-element-list .list-simple.mt-list-container ul > .mt-list-item > .list-datetime {
+                text-align: right;
+                float: right;
+                width: 60px
+            }
+
+.mt-element-list .list-simple.mt-list-head {
+    padding: 15px
+}
+
+    .mt-element-list .list-simple.mt-list-head .list-title {
+        margin: 0;
+        padding-right: 85px
+    }
+
+    .mt-element-list .list-simple.mt-list-head .list-date {
+        font-size: 12px;
+        opacity: .8;
+        float: right;
+        width: 75px
+    }
+
+.mt-element-list .list-simple.ext-1.mt-list-container {
+    padding: 0
+}
+
+    .mt-element-list .list-simple.ext-1.mt-list-container ul > .mt-list-item {
+        padding: 15px;
+        border-left: 3px solid;
+        border-color: #34495e #34495e #e7ecf1
+    }
+
+        .mt-element-list .list-simple.ext-1.mt-list-container ul > .mt-list-item:hover {
+            background-color: #e5e5e5
+        }
+
+        .mt-element-list .list-simple.ext-1.mt-list-container ul > .mt-list-item.done {
+            border-color: #26C281 #26C281 #e7ecf1
+        }
+
+            .mt-element-list .list-simple.ext-1.mt-list-container ul > .mt-list-item.done:hover {
+                background-color: #96ebc8
+            }
+
+.mt-element-list .list-simple.group .list-toggle-container:active, .mt-element-list .list-simple.group .list-toggle-container:focus, .mt-element-list .list-simple.group .list-toggle-container:hover {
+    text-decoration: none
+}
+
+.mt-element-list .list-simple.group .list-toggle-container .list-toggle {
+    padding: 15px;
+    background-color: #34495e;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none
+}
+
+    .mt-element-list .list-simple.group .list-toggle-container .list-toggle.done {
+        background-color: #26C281
+    }
+
+.mt-element-list .list-news.ext-1.mt-list-container ul > .mt-list-item:hover, .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item:hover {
+    background-color: #e5e5e5
+}
+
+.mt-element-list .list-news.mt-list-head {
+    padding: 15px;
+    text-align: center
+}
+
+    .mt-element-list .list-news.mt-list-head .list-title {
+        margin: 0
+    }
+
+    .mt-element-list .list-news.mt-list-head .badge {
+        margin-top: 5px
+    }
+
+.mt-element-list .list-news.mt-list-container {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #e7ecf1;
+    padding: 15px 0
+}
+
+    .mt-element-list .list-news.mt-list-container ul {
+        margin-bottom: 0;
+        padding: 0
+    }
+
+        .mt-element-list .list-news.mt-list-container ul > .mt-list-item {
+            list-style: none;
+            border-bottom: 1px solid;
+            border-color: #e7ecf1;
+            padding: 15px;
+            position: relative
+        }
+
+            .mt-element-list .list-news.mt-list-container ul > .mt-list-item:first-child {
+                padding-top: 0
+            }
+
+            .mt-element-list .list-news.mt-list-container ul > .mt-list-item:last-child {
+                padding-bottom: 0;
+                border: none
+            }
+
+            .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-icon-container {
+                font-size: 20px;
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                margin-top: -10px
+            }
+
+                .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-icon-container a {
+                    color: #2f353b
+                }
+
+                    .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-icon-container a:hover {
+                        color: #32c5d2
+                    }
+
+            .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-item-content {
+                padding: 0 25px 0 0
+            }
+
+                .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+                    margin: 0 0 10px;
+                    font-size: 18px
+                }
+
+                    .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a {
+                        color: #34495e
+                    }
+
+                        .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a:hover {
+                            color: #32c5d2;
+                            text-decoration: none
+                        }
+
+            .mt-element-list .list-news.mt-list-container ul > .mt-list-item > .list-datetime {
+                margin-bottom: 10px
+            }
+
+.mt-element-list .list-news.ext-1.mt-list-head {
+    position: relative;
+    text-align: left
+}
+
+    .mt-element-list .list-news.ext-1.mt-list-head .list-count {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        padding: 19px
+    }
+
+.mt-element-list .list-news.ext-1 .list-thumb {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    float: left
+}
+
+    .mt-element-list .list-news.ext-1 .list-thumb img {
+        width: 100%
+    }
+
+.mt-element-list .list-news.ext-1.mt-list-container {
+    padding: 0
+}
+
+    .mt-element-list .list-news.ext-1.mt-list-container ul > .mt-list-item {
+        padding: 15px
+    }
+
+        .mt-element-list .list-news.ext-1.mt-list-container ul > .mt-list-item > .list-datetime, .mt-element-list .list-news.ext-1.mt-list-container ul > .mt-list-item > .list-item-content {
+            padding-left: 90px
+        }
+
+        .mt-element-list .list-news.ext-1.mt-list-container ul > .mt-list-item:last-child {
+            padding-bottom: 15px
+        }
+
+.mt-element-list .list-news.ext-2.mt-list-head {
+    position: relative;
+    text-align: left
+}
+
+    .mt-element-list .list-news.ext-2.mt-list-head .list-count {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        padding: 19px
+    }
+
+.mt-element-list .list-news.ext-2 .list-thumb {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    float: left
+}
+
+    .mt-element-list .list-news.ext-2 .list-thumb img {
+        width: 100%
+    }
+
+.mt-element-list .list-news.ext-2.mt-list-container {
+    padding: 0
+}
+
+    .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item {
+        padding: 15px
+    }
+
+        .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item > .list-datetime, .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item > .list-item-content {
+            padding-left: 90px
+        }
+
+            .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+                font-size: 16px
+            }
+
+                .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a:hover {
+                    color: #F2784B
+                }
+
+        .mt-element-list .list-news.ext-2.mt-list-container ul > .mt-list-item:last-child {
+            padding-bottom: 15px
+        }
+
+.mt-element-list .list-todo.mt-list-head {
+    padding: 15px;
+    position: relative
+}
+
+    .mt-element-list .list-todo.mt-list-head .list-title {
+        margin: 0
+    }
+
+    .mt-element-list .list-todo.mt-list-head .list-head-count {
+        margin-top: 5px
+    }
+
+        .mt-element-list .list-todo.mt-list-head .list-head-count > .list-head-count-item {
+            display: inline-block;
+            margin-right: 15px
+        }
+
+    .mt-element-list .list-todo.mt-list-head .list-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 29px;
+        font-size: 16px
+    }
+
+    .mt-element-list .list-todo.mt-list-head a {
+        color: #fff
+    }
+
+        .mt-element-list .list-todo.mt-list-head a:hover {
+            text-decoration: none
+        }
+
+.mt-element-list .list-todo.mt-list-container {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #e7ecf1;
+    position: relative
+}
+
+    .mt-element-list .list-todo.mt-list-container .list-todo-line {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 1px;
+        top: 0;
+        left: 25px;
+        border-left: 1px solid;
+        border-color: #e7ecf1
+    }
+
+    .mt-element-list .list-todo.mt-list-container ul {
+        margin-bottom: 0;
+        padding: 0;
+        position: relative;
+        z-index: 5
+    }
+
+        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item {
+            list-style: none;
+            border-bottom: 1px solid;
+            border-bottom-style: dashed;
+            border-color: #e7ecf1;
+            padding: 15px;
+            position: relative
+        }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item:last-child {
+                border: none
+            }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-icon {
+                display: inline-block;
+                margin-top: .7em;
+                padding: .7em 0;
+                vertical-align: top
+            }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item {
+                margin-left: 15px;
+                display: inline-block;
+                vertical-align: top;
+                width: 90%;
+                position: relative
+            }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item:after {
+                    right: 100%;
+                    border: solid transparent;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    border-color: rgba(47,53,59,0);
+                    border-right-color: #2f353b;
+                    border-width: 8px;
+                    top: 18px
+                }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item > .list-toggle-container:active, .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item > .list-toggle-container:focus, .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item > .list-toggle-container:hover {
+                    text-decoration: none
+                }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item > .list-toggle-container .list-toggle {
+                    padding: 15px
+                }
+
+                    .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item > .list-toggle-container .list-toggle > .list-toggle-title {
+                        display: inline-block
+                    }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list {
+                    border: 1px solid #e7ecf1;
+                    padding: 0;
+                    margin: 0;
+                    position: relative;
+                    border-top: none;
+                    border-bottom: none
+                }
+
+                    .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item {
+                        list-style: none;
+                        padding: 15px;
+                        border-bottom: 1px solid;
+                        border-color: #e7ecf1
+                    }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item a {
+                            color: #2f353b
+                        }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item a:hover {
+                                text-decoration: none;
+                                color: #e43a45
+                            }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item:last-child {
+                            border-bottom: none
+                        }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-icon {
+                            float: left
+                        }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-content {
+                            padding: 0 45px 0 35px
+                        }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-content > h4 {
+                                margin-top: 0;
+                                font-size: 14px
+                            }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-content > p {
+                                font-size: 13px;
+                                margin: 0
+                            }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-status {
+                            float: right
+                        }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-status a {
+                                color: #e5e5e5
+                            }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-status .done:hover {
+                                color: #26C281
+                            }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item > .task-status .pending:hover {
+                                color: #e43a45
+                            }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-list-item.done > .task-status .done {
+                            color: #26C281
+                        }
+
+                    .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-footer {
+                        padding: 15px;
+                        text-align: center
+                    }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-footer a {
+                            color: #2f353b
+                        }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-footer a:hover {
+                                text-decoration: none
+                            }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-footer a.task-trash:hover {
+                                color: #e43a45
+                            }
+
+                            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-todo-item .task-list .task-footer a.task-add:hover {
+                                color: #26C281
+                            }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-icon-container {
+                font-size: 20px;
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                margin-top: -10px
+            }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-icon-container a {
+                    color: #2f353b
+                }
+
+                    .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-icon-container a:hover {
+                        color: #32c5d2
+                    }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-item-content {
+                padding: 0 25px 0 0
+            }
+
+                .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-item-content > h3 {
+                    margin: 0 0 10px;
+                    font-size: 18px
+                }
+
+                    .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a {
+                        color: #34495e
+                    }
+
+                        .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-item-content > h3 > a:hover {
+                            color: #32c5d2;
+                            text-decoration: none
+                        }
+
+            .mt-element-list .list-todo.mt-list-container ul > .mt-list-item > .list-datetime {
+                margin-bottom: 10px
+            }
+
+.mt-element-list .list-default.mt-list-head.white, .mt-element-list .list-default.mt-list-head.white .badge {
+    background-color: #fff;
+    color: #666
+}
+
+    .mt-element-list .list-default.mt-list-head.white.ext-1 .badge {
+        background-color: #e6e6e6
+    }
+
+    .mt-element-list .list-default.mt-list-head.white .list-date, .mt-element-list .list-default.mt-list-head.white .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.white, .mt-element-list .list-todo.mt-list-head.white {
+    background-color: #fff;
+    color: #666
+}
+
+    .mt-element-list .list-todo .list-count.white:hover {
+        background-color: #f2f2f2
+    }
+
+.mt-element-list .list-todo .list-todo-line.white {
+    border-color: #fff
+}
+
+.mt-element-list .list-todo .list-todo-item.white:after {
+    border-right-color: #fff !important
+}
+
+.mt-element-list .list-todo .list-todo-item.white .list-toggle {
+    background: #fff;
+    color: #666 !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.white .list-toggle > .badge {
+        color: #fff;
+        background: #666
+    }
+
+.mt-element-list .list-default.mt-list-head.default {
+    background-color: #e1e5ec;
+    color: #666
+}
+
+    .mt-element-list .list-default.mt-list-head.default .badge {
+        background-color: #fff;
+        color: #666
+    }
+
+    .mt-element-list .list-default.mt-list-head.default.ext-1 .badge {
+        background-color: #c2cad8
+    }
+
+    .mt-element-list .list-default.mt-list-head.default .list-date, .mt-element-list .list-default.mt-list-head.default .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.default, .mt-element-list .list-todo.mt-list-head.default {
+    background-color: #e1e5ec;
+    color: #666
+}
+
+    .mt-element-list .list-todo .list-count.default:hover {
+        background-color: #d1d7e2
+    }
+
+.mt-element-list .list-todo .list-todo-line.default {
+    border-color: #e1e5ec
+}
+
+.mt-element-list .list-todo .list-todo-item.default:after {
+    border-right-color: #e1e5ec !important
+}
+
+.mt-element-list .list-todo .list-todo-item.default .list-toggle {
+    background: #e1e5ec;
+    color: #666 !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.default .list-toggle > .badge {
+        color: #e1e5ec;
+        background: #666
+    }
+
+.mt-element-list .list-default.mt-list-head.dark {
+    background-color: #2f353b;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.dark .badge {
+        background-color: #464f57;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.dark.ext-1 .badge {
+        background-color: #181c1f
+    }
+
+    .mt-element-list .list-default.mt-list-head.dark .list-date, .mt-element-list .list-default.mt-list-head.dark .list-label {
+        color: #acb5bd
+    }
+
+.mt-element-list .list-todo .list-count.dark, .mt-element-list .list-todo.mt-list-head.dark {
+    background-color: #2f353b;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.dark:hover {
+        background-color: #24282d
+    }
+
+.mt-element-list .list-todo .list-todo-line.dark {
+    border-color: #2f353b
+}
+
+.mt-element-list .list-todo .list-todo-item.dark:after {
+    border-right-color: #2f353b !important
+}
+
+.mt-element-list .list-todo .list-todo-item.dark .list-toggle {
+    background: #2f353b;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.dark .list-toggle > .badge {
+        color: #2f353b;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue {
+    background-color: #3598dc;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue .badge {
+        background-color: #60aee4;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue.ext-1 .badge {
+        background-color: #217ebd
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue .list-date, .mt-element-list .list-default.mt-list-head.blue .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue, .mt-element-list .list-todo.mt-list-head.blue {
+    background-color: #3598dc;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue:hover {
+        background-color: #258cd3
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue {
+    border-color: #3598dc
+}
+
+.mt-element-list .list-todo .list-todo-item.blue:after {
+    border-right-color: #3598dc !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue .list-toggle {
+    background: #3598dc;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue .list-toggle > .badge {
+        color: #3598dc;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-madison {
+    background-color: #578ebe;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-madison .badge {
+        background-color: #7ca7cc;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-madison.ext-1 .badge {
+        background-color: #3f74a3
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-madison .list-date, .mt-element-list .list-default.mt-list-head.blue-madison .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-madison, .mt-element-list .list-todo.mt-list-head.blue-madison {
+    background-color: #578ebe;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-madison:hover {
+        background-color: #4682b5
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-madison {
+    border-color: #578ebe
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-madison:after {
+    border-right-color: #578ebe !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-madison .list-toggle {
+    background: #578ebe;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-madison .list-toggle > .badge {
+        color: #578ebe;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-chambray {
+    background-color: #2C3E50;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-chambray .badge {
+        background-color: #3e5871;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-chambray.ext-1 .badge {
+        background-color: #1a252f
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-chambray .list-date, .mt-element-list .list-default.mt-list-head.blue-chambray .list-label {
+        color: #aabed1
+    }
+
+.mt-element-list .list-todo .list-count.blue-chambray, .mt-element-list .list-todo.mt-list-head.blue-chambray {
+    background-color: #2C3E50;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-chambray:hover {
+        background-color: #233140
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-chambray {
+    border-color: #2C3E50
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-chambray:after {
+    border-right-color: #2C3E50 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-chambray .list-toggle {
+    background: #2C3E50;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-chambray .list-toggle > .badge {
+        color: #2C3E50;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-ebonyclay {
+    background-color: #22313F;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-ebonyclay .badge {
+        background-color: #344b60;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-ebonyclay.ext-1 .badge {
+        background-color: #10171e
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-ebonyclay .list-date, .mt-element-list .list-default.mt-list-head.blue-ebonyclay .list-label {
+        color: #98b1c8
+    }
+
+.mt-element-list .list-todo .list-count.blue-ebonyclay, .mt-element-list .list-todo.mt-list-head.blue-ebonyclay {
+    background-color: #22313F;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-ebonyclay:hover {
+        background-color: #19242e
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-ebonyclay {
+    border-color: #22313F
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-ebonyclay:after {
+    border-right-color: #22313F !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-ebonyclay .list-toggle {
+    background: #22313F;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-ebonyclay .list-toggle > .badge {
+        color: #22313F;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-hoki {
+    background-color: #67809F;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-hoki .badge {
+        background-color: #869ab3;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-hoki.ext-1 .badge {
+        background-color: #526781
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-hoki .list-date, .mt-element-list .list-default.mt-list-head.blue-hoki .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-hoki, .mt-element-list .list-todo.mt-list-head.blue-hoki {
+    background-color: #67809F;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-hoki:hover {
+        background-color: #5c7391
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-hoki {
+    border-color: #67809F
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-hoki:after {
+    border-right-color: #67809F !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-hoki .list-toggle {
+    background: #67809F;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-hoki .list-toggle > .badge {
+        color: #67809F;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-steel {
+    background-color: #4B77BE;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-steel .badge {
+        background-color: #7093cc;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-steel.ext-1 .badge {
+        background-color: #395f9d
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-steel .list-date, .mt-element-list .list-default.mt-list-head.blue-steel .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-steel, .mt-element-list .list-todo.mt-list-head.blue-steel {
+    background-color: #4B77BE;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-steel:hover {
+        background-color: #406bb0
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-steel {
+    border-color: #4B77BE
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-steel:after {
+    border-right-color: #4B77BE !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-steel .list-toggle {
+    background: #4B77BE;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-steel .list-toggle > .badge {
+        color: #4B77BE;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-soft {
+    background-color: #4c87b9;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-soft .badge {
+        background-color: #71a0c7;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-soft.ext-1 .badge {
+        background-color: #3b6d97
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-soft .list-date, .mt-element-list .list-default.mt-list-head.blue-soft .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-soft, .mt-element-list .list-todo.mt-list-head.blue-soft {
+    background-color: #4c87b9;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-soft:hover {
+        background-color: #427aa9
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-soft {
+    border-color: #4c87b9
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-soft:after {
+    border-right-color: #4c87b9 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-soft .list-toggle {
+    background: #4c87b9;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-soft .list-toggle > .badge {
+        color: #4c87b9;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-dark {
+    background-color: #5e738b;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-dark .badge {
+        background-color: #788da4;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-dark.ext-1 .badge {
+        background-color: #495a6d
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-dark .list-date, .mt-element-list .list-default.mt-list-head.blue-dark .list-label {
+        color: #f2f4f6
+    }
+
+.mt-element-list .list-todo .list-count.blue-dark, .mt-element-list .list-todo.mt-list-head.blue-dark {
+    background-color: #5e738b;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-dark:hover {
+        background-color: #54667c
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-dark {
+    border-color: #5e738b
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-dark:after {
+    border-right-color: #5e738b !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-dark .list-toggle {
+    background: #5e738b;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-dark .list-toggle > .badge {
+        color: #5e738b;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-sharp {
+    background-color: #5C9BD1;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-sharp .badge {
+        background-color: #84b3dc;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-sharp.ext-1 .badge {
+        background-color: #3782c3
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-sharp .list-date, .mt-element-list .list-default.mt-list-head.blue-sharp .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-sharp, .mt-element-list .list-todo.mt-list-head.blue-sharp {
+    background-color: #5C9BD1;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-sharp:hover {
+        background-color: #488fcb
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-sharp {
+    border-color: #5C9BD1
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-sharp:after {
+    border-right-color: #5C9BD1 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-sharp .list-toggle {
+    background: #5C9BD1;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-sharp .list-toggle > .badge {
+        color: #5C9BD1;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.blue-oleo {
+    background-color: #94A0B2;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.blue-oleo .badge {
+        background-color: #b2bac7;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-oleo.ext-1 .badge {
+        background-color: #76869d
+    }
+
+    .mt-element-list .list-default.mt-list-head.blue-oleo .list-date, .mt-element-list .list-default.mt-list-head.blue-oleo .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.blue-oleo, .mt-element-list .list-todo.mt-list-head.blue-oleo {
+    background-color: #94A0B2;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.blue-oleo:hover {
+        background-color: #8593a7
+    }
+
+.mt-element-list .list-todo .list-todo-line.blue-oleo {
+    border-color: #94A0B2
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-oleo:after {
+    border-right-color: #94A0B2 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.blue-oleo .list-toggle {
+    background: #94A0B2;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.blue-oleo .list-toggle > .badge {
+        color: #94A0B2;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green {
+    background-color: #32c5d2;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green .badge {
+        background-color: #5cd1db;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green.ext-1 .badge {
+        background-color: #26a1ab
+    }
+
+    .mt-element-list .list-default.mt-list-head.green .list-date, .mt-element-list .list-default.mt-list-head.green .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.green, .mt-element-list .list-todo.mt-list-head.green {
+    background-color: #32c5d2;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green:hover {
+        background-color: #2ab4c0
+    }
+
+.mt-element-list .list-todo .list-todo-line.green {
+    border-color: #32c5d2
+}
+
+.mt-element-list .list-todo .list-todo-item.green:after {
+    border-right-color: #32c5d2 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green .list-toggle {
+    background: #32c5d2;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green .list-toggle > .badge {
+        color: #32c5d2;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-meadow {
+    background-color: #1BBC9B;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-meadow .badge {
+        background-color: #2ae0bb;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-meadow.ext-1 .badge {
+        background-color: #158f76
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-meadow .list-date, .mt-element-list .list-default.mt-list-head.green-meadow .list-label {
+        color: #dcfaf4
+    }
+
+.mt-element-list .list-todo .list-count.green-meadow, .mt-element-list .list-todo.mt-list-head.green-meadow {
+    background-color: #1BBC9B;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-meadow:hover {
+        background-color: #18a689
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-meadow {
+    border-color: #1BBC9B
+}
+
+.mt-element-list .list-todo .list-todo-item.green-meadow:after {
+    border-right-color: #1BBC9B !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-meadow .list-toggle {
+    background: #1BBC9B;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-meadow .list-toggle > .badge {
+        color: #1BBC9B;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-seagreen {
+    background-color: #1BA39C;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-seagreen .badge {
+        background-color: #22cfc6;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-seagreen.ext-1 .badge {
+        background-color: #147772
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-seagreen .list-date, .mt-element-list .list-default.mt-list-head.green-seagreen .list-label {
+        color: #c7f6f3
+    }
+
+.mt-element-list .list-todo .list-count.green-seagreen, .mt-element-list .list-todo.mt-list-head.green-seagreen {
+    background-color: #1BA39C;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-seagreen:hover {
+        background-color: #178d87
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-seagreen {
+    border-color: #1BA39C
+}
+
+.mt-element-list .list-todo .list-todo-item.green-seagreen:after {
+    border-right-color: #1BA39C !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-seagreen .list-toggle {
+    background: #1BA39C;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-seagreen .list-toggle > .badge {
+        color: #1BA39C;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-turquoise {
+    background-color: #36D7B7;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-turquoise .badge {
+        background-color: #61dfc6;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-turquoise.ext-1 .badge {
+        background-color: #24b699
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-turquoise .list-date, .mt-element-list .list-default.mt-list-head.green-turquoise .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.green-turquoise, .mt-element-list .list-todo.mt-list-head.green-turquoise {
+    background-color: #36D7B7;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-turquoise:hover {
+        background-color: #28cbab
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-turquoise {
+    border-color: #36D7B7
+}
+
+.mt-element-list .list-todo .list-todo-item.green-turquoise:after {
+    border-right-color: #36D7B7 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-turquoise .list-toggle {
+    background: #36D7B7;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-turquoise .list-toggle > .badge {
+        color: #36D7B7;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-haze {
+    background-color: #44b6ae;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-haze .badge {
+        background-color: #67c6bf;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-haze.ext-1 .badge {
+        background-color: #36918b
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-haze .list-date, .mt-element-list .list-default.mt-list-head.green-haze .list-label {
+        color: #fbfefd
+    }
+
+.mt-element-list .list-todo .list-count.green-haze, .mt-element-list .list-todo.mt-list-head.green-haze {
+    background-color: #44b6ae;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-haze:hover {
+        background-color: #3da39c
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-haze {
+    border-color: #44b6ae
+}
+
+.mt-element-list .list-todo .list-todo-item.green-haze:after {
+    border-right-color: #44b6ae !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-haze .list-toggle {
+    background: #44b6ae;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-haze .list-toggle > .badge {
+        color: #44b6ae;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-jungle {
+    background-color: #26C281;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-jungle .badge {
+        background-color: #41da9a;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-jungle.ext-1 .badge {
+        background-color: #1e9765
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-jungle .list-date, .mt-element-list .list-default.mt-list-head.green-jungle .list-label {
+        color: #ecfbf5
+    }
+
+.mt-element-list .list-todo .list-count.green-jungle, .mt-element-list .list-todo.mt-list-head.green-jungle {
+    background-color: #26C281;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-jungle:hover {
+        background-color: #22ad73
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-jungle {
+    border-color: #26C281
+}
+
+.mt-element-list .list-todo .list-todo-item.green-jungle:after {
+    border-right-color: #26C281 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-jungle .list-toggle {
+    background: #26C281;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-jungle .list-toggle > .badge {
+        color: #26C281;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-soft {
+    background-color: #3faba4;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-soft .badge {
+        background-color: #5bc2bc;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-soft.ext-1 .badge {
+        background-color: #318680
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-soft .list-date, .mt-element-list .list-default.mt-list-head.green-soft .list-label {
+        color: #f0f9f9
+    }
+
+.mt-element-list .list-todo .list-count.green-soft, .mt-element-list .list-todo.mt-list-head.green-soft {
+    background-color: #3faba4;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-soft:hover {
+        background-color: #389892
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-soft {
+    border-color: #3faba4
+}
+
+.mt-element-list .list-todo .list-todo-item.green-soft:after {
+    border-right-color: #3faba4 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-soft .list-toggle {
+    background: #3faba4;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-soft .list-toggle > .badge {
+        color: #3faba4;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-dark {
+    background-color: #4DB3A2;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-dark .badge {
+        background-color: #71c2b5;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-dark.ext-1 .badge {
+        background-color: #3d9082
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-dark .list-date, .mt-element-list .list-default.mt-list-head.green-dark .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.green-dark, .mt-element-list .list-todo.mt-list-head.green-dark {
+    background-color: #4DB3A2;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-dark:hover {
+        background-color: #45a292
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-dark {
+    border-color: #4DB3A2
+}
+
+.mt-element-list .list-todo .list-todo-item.green-dark:after {
+    border-right-color: #4DB3A2 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-dark .list-toggle {
+    background: #4DB3A2;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-dark .list-toggle > .badge {
+        color: #4DB3A2;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-sharp {
+    background-color: #2ab4c0;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-sharp .badge {
+        background-color: #46cbd7;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-sharp.ext-1 .badge {
+        background-color: #218d96
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-sharp .list-date, .mt-element-list .list-default.mt-list-head.green-sharp .list-label {
+        color: #eefafb
+    }
+
+.mt-element-list .list-todo .list-count.green-sharp, .mt-element-list .list-todo.mt-list-head.green-sharp {
+    background-color: #2ab4c0;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-sharp:hover {
+        background-color: #25a0ab
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-sharp {
+    border-color: #2ab4c0
+}
+
+.mt-element-list .list-todo .list-todo-item.green-sharp:after {
+    border-right-color: #2ab4c0 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-sharp .list-toggle {
+    background: #2ab4c0;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-sharp .list-toggle > .badge {
+        color: #2ab4c0;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.green-steel {
+    background-color: #29b4b6;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.green-steel .badge {
+        background-color: #3ed1d4;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-steel.ext-1 .badge {
+        background-color: #208b8c
+    }
+
+    .mt-element-list .list-default.mt-list-head.green-steel .list-date, .mt-element-list .list-default.mt-list-head.green-steel .list-label {
+        color: #e5f9f9
+    }
+
+.mt-element-list .list-todo .list-count.green-steel, .mt-element-list .list-todo.mt-list-head.green-steel {
+    background-color: #29b4b6;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.green-steel:hover {
+        background-color: #249fa1
+    }
+
+.mt-element-list .list-todo .list-todo-line.green-steel {
+    border-color: #29b4b6
+}
+
+.mt-element-list .list-todo .list-todo-item.green-steel:after {
+    border-right-color: #29b4b6 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.green-steel .list-toggle {
+    background: #29b4b6;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.green-steel .list-toggle > .badge {
+        color: #29b4b6;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.grey {
+    background-color: #E5E5E5;
+    color: #333
+}
+
+    .mt-element-list .list-default.mt-list-head.grey .badge {
+        background-color: #fff;
+        color: #333
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey.ext-1 .badge {
+        background-color: #ccc
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey .list-date, .mt-element-list .list-default.mt-list-head.grey .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey, .mt-element-list .list-todo.mt-list-head.grey {
+    background-color: #E5E5E5;
+    color: #333
+}
+
+    .mt-element-list .list-todo .list-count.grey:hover {
+        background-color: #d8d8d8
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey {
+    border-color: #E5E5E5
+}
+
+.mt-element-list .list-todo .list-todo-item.grey:after {
+    border-right-color: #E5E5E5 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey .list-toggle {
+    background: #E5E5E5;
+    color: #333 !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey .list-toggle > .badge {
+        color: #E5E5E5;
+        background: #333
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-steel {
+    background-color: #e9edef;
+    color: #80898e
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-steel .badge {
+        background-color: #fff;
+        color: #80898e
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-steel.ext-1 .badge {
+        background-color: #cbd5da
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-steel .list-date, .mt-element-list .list-default.mt-list-head.grey-steel .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-steel, .mt-element-list .list-todo.mt-list-head.grey-steel {
+    background-color: #e9edef;
+    color: #80898e
+}
+
+    .mt-element-list .list-todo .list-count.grey-steel:hover {
+        background-color: #dae1e4
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-steel {
+    border-color: #e9edef
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-steel:after {
+    border-right-color: #e9edef !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-steel .list-toggle {
+    background: #e9edef;
+    color: #80898e !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-steel .list-toggle > .badge {
+        color: #e9edef;
+        background: #80898e
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-cararra {
+    background-color: #fafafa;
+    color: #333
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-cararra .badge {
+        background-color: #fff;
+        color: #333
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-cararra.ext-1 .badge {
+        background-color: #e1e1e1
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-cararra .list-date, .mt-element-list .list-default.mt-list-head.grey-cararra .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-cararra, .mt-element-list .list-todo.mt-list-head.grey-cararra {
+    background-color: #fafafa;
+    color: #333
+}
+
+    .mt-element-list .list-todo .list-count.grey-cararra:hover {
+        background-color: #ededed
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-cararra {
+    border-color: #fafafa
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-cararra:after {
+    border-right-color: #fafafa !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-cararra .list-toggle {
+    background: #fafafa;
+    color: #333 !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-cararra .list-toggle > .badge {
+        color: #fafafa;
+        background: #333
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-gallery {
+    background-color: #555;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-gallery .badge {
+        background-color: #6f6f6f;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-gallery.ext-1 .badge {
+        background-color: #3c3c3c
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-gallery .list-date, .mt-element-list .list-default.mt-list-head.grey-gallery .list-label {
+        color: #d5d5d5
+    }
+
+.mt-element-list .list-todo .list-count.grey-gallery, .mt-element-list .list-todo.mt-list-head.grey-gallery {
+    background-color: #555;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.grey-gallery:hover {
+        background-color: #484848
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-gallery {
+    border-color: #555
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-gallery:after {
+    border-right-color: #555 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-gallery .list-toggle {
+    background: #555;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-gallery .list-toggle > .badge {
+        color: #555;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-cascade {
+    background-color: #95A5A6;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-cascade .badge {
+        background-color: #b1bdbd;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-cascade.ext-1 .badge {
+        background-color: #798d8f
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-cascade .list-date, .mt-element-list .list-default.mt-list-head.grey-cascade .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-cascade, .mt-element-list .list-todo.mt-list-head.grey-cascade {
+    background-color: #95A5A6;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.grey-cascade:hover {
+        background-color: #87999a
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-cascade {
+    border-color: #95A5A6
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-cascade:after {
+    border-right-color: #95A5A6 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-cascade .list-toggle {
+    background: #95A5A6;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-cascade .list-toggle > .badge {
+        color: #95A5A6;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-silver {
+    background-color: #BFBFBF;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-silver .badge {
+        background-color: #d9d9d9;
+        color: #FAFCFB
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-silver.ext-1 .badge {
+        background-color: #a6a6a6
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-silver .list-date, .mt-element-list .list-default.mt-list-head.grey-silver .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-silver, .mt-element-list .list-todo.mt-list-head.grey-silver {
+    background-color: #BFBFBF;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-todo .list-count.grey-silver:hover {
+        background-color: #b2b2b2
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-silver {
+    border-color: #BFBFBF
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-silver:after {
+    border-right-color: #BFBFBF !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-silver .list-toggle {
+    background: #BFBFBF;
+    color: #FAFCFB !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-silver .list-toggle > .badge {
+        color: #BFBFBF;
+        background: #FAFCFB
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-salsa {
+    background-color: #ACB5C3;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-salsa .badge {
+        background-color: #cacfd8;
+        color: #FAFCFB
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-salsa.ext-1 .badge {
+        background-color: #8e9bae
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-salsa .list-date, .mt-element-list .list-default.mt-list-head.grey-salsa .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-salsa, .mt-element-list .list-todo.mt-list-head.grey-salsa {
+    background-color: #ACB5C3;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-todo .list-count.grey-salsa:hover {
+        background-color: #9da8b8
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-salsa {
+    border-color: #ACB5C3
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-salsa:after {
+    border-right-color: #ACB5C3 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-salsa .list-toggle {
+    background: #ACB5C3;
+    color: #FAFCFB !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-salsa .list-toggle > .badge {
+        color: #ACB5C3;
+        background: #FAFCFB
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-salt {
+    background-color: #bfcad1;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-salt .badge {
+        background-color: #dde3e6;
+        color: #FAFCFB
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-salt.ext-1 .badge {
+        background-color: #a1b1bc
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-salt .list-date, .mt-element-list .list-default.mt-list-head.grey-salt .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.grey-salt, .mt-element-list .list-todo.mt-list-head.grey-salt {
+    background-color: #bfcad1;
+    color: #FAFCFB
+}
+
+    .mt-element-list .list-todo .list-count.grey-salt:hover {
+        background-color: #b0bec6
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-salt {
+    border-color: #bfcad1
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-salt:after {
+    border-right-color: #bfcad1 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-salt .list-toggle {
+    background: #bfcad1;
+    color: #FAFCFB !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-salt .list-toggle > .badge {
+        color: #bfcad1;
+        background: #FAFCFB
+    }
+
+.mt-element-list .list-default.mt-list-head.grey-mint {
+    background-color: #525e64;
+    color: #FFF
+}
+
+    .mt-element-list .list-default.mt-list-head.grey-mint .badge {
+        background-color: #697880;
+        color: #FFF
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-mint.ext-1 .badge {
+        background-color: #3b4448
+    }
+
+    .mt-element-list .list-default.mt-list-head.grey-mint .list-date, .mt-element-list .list-default.mt-list-head.grey-mint .list-label {
+        color: #d7dcde
+    }
+
+.mt-element-list .list-todo .list-count.grey-mint, .mt-element-list .list-todo.mt-list-head.grey-mint {
+    background-color: #525e64;
+    color: #FFF
+}
+
+    .mt-element-list .list-todo .list-count.grey-mint:hover {
+        background-color: #475156
+    }
+
+.mt-element-list .list-todo .list-todo-line.grey-mint {
+    border-color: #525e64
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-mint:after {
+    border-right-color: #525e64 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.grey-mint .list-toggle {
+    background: #525e64;
+    color: #FFF !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.grey-mint .list-toggle > .badge {
+        color: #525e64;
+        background: #FFF
+    }
+
+.mt-element-list .list-default.mt-list-head.red {
+    background-color: #e7505a;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red .badge {
+        background-color: #ed7d84;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red.ext-1 .badge {
+        background-color: #e12330
+    }
+
+    .mt-element-list .list-default.mt-list-head.red .list-date, .mt-element-list .list-default.mt-list-head.red .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red, .mt-element-list .list-todo.mt-list-head.red {
+    background-color: #e7505a;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red:hover {
+        background-color: #e43a45
+    }
+
+.mt-element-list .list-todo .list-todo-line.red {
+    border-color: #e7505a
+}
+
+.mt-element-list .list-todo .list-todo-item.red:after {
+    border-right-color: #e7505a !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red .list-toggle {
+    background: #e7505a;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red .list-toggle > .badge {
+        color: #e7505a;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-pink {
+    background-color: #E08283;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-pink .badge {
+        background-color: #eaabac;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-pink.ext-1 .badge {
+        background-color: #d6595a
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-pink .list-date, .mt-element-list .list-default.mt-list-head.red-pink .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-pink, .mt-element-list .list-todo.mt-list-head.red-pink {
+    background-color: #E08283;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-pink:hover {
+        background-color: #db6e6f
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-pink {
+    border-color: #E08283
+}
+
+.mt-element-list .list-todo .list-todo-item.red-pink:after {
+    border-right-color: #E08283 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-pink .list-toggle {
+    background: #E08283;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-pink .list-toggle > .badge {
+        color: #E08283;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-sunglo {
+    background-color: #E26A6A;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-sunglo .badge {
+        background-color: #ea9595;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-sunglo.ext-1 .badge {
+        background-color: #da3f3f
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-sunglo .list-date, .mt-element-list .list-default.mt-list-head.red-sunglo .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-sunglo, .mt-element-list .list-todo.mt-list-head.red-sunglo {
+    background-color: #E26A6A;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-sunglo:hover {
+        background-color: #de5555
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-sunglo {
+    border-color: #E26A6A
+}
+
+.mt-element-list .list-todo .list-todo-item.red-sunglo:after {
+    border-right-color: #E26A6A !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-sunglo .list-toggle {
+    background: #E26A6A;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-sunglo .list-toggle > .badge {
+        color: #E26A6A;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-intense {
+    background-color: #e35b5a;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-intense .badge {
+        background-color: #ea8686;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-intense.ext-1 .badge {
+        background-color: #dc302e
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-intense .list-date, .mt-element-list .list-default.mt-list-head.red-intense .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-intense, .mt-element-list .list-todo.mt-list-head.red-intense {
+    background-color: #e35b5a;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-intense:hover {
+        background-color: #df4544
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-intense {
+    border-color: #e35b5a
+}
+
+.mt-element-list .list-todo .list-todo-item.red-intense:after {
+    border-right-color: #e35b5a !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-intense .list-toggle {
+    background: #e35b5a;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-intense .list-toggle > .badge {
+        color: #e35b5a;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-thunderbird {
+    background-color: #D91E18;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-thunderbird .badge {
+        background-color: #e9403b;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-thunderbird.ext-1 .badge {
+        background-color: #ab1813
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-thunderbird .list-date, .mt-element-list .list-default.mt-list-head.red-thunderbird .list-label {
+        color: #fef3f2
+    }
+
+.mt-element-list .list-todo .list-count.red-thunderbird, .mt-element-list .list-todo.mt-list-head.red-thunderbird {
+    background-color: #D91E18;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-thunderbird:hover {
+        background-color: #c21b15
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-thunderbird {
+    border-color: #D91E18
+}
+
+.mt-element-list .list-todo .list-todo-item.red-thunderbird:after {
+    border-right-color: #D91E18 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-thunderbird .list-toggle {
+    background: #D91E18;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-thunderbird .list-toggle > .badge {
+        color: #D91E18;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-flamingo {
+    background-color: #EF4836;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-flamingo .badge {
+        background-color: #f37365;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-flamingo.ext-1 .badge {
+        background-color: #e02612
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-flamingo .list-date, .mt-element-list .list-default.mt-list-head.red-flamingo .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-flamingo, .mt-element-list .list-todo.mt-list-head.red-flamingo {
+    background-color: #EF4836;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-flamingo:hover {
+        background-color: #ed321e
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-flamingo {
+    border-color: #EF4836
+}
+
+.mt-element-list .list-todo .list-todo-item.red-flamingo:after {
+    border-right-color: #EF4836 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-flamingo .list-toggle {
+    background: #EF4836;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-flamingo .list-toggle > .badge {
+        color: #EF4836;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-soft {
+    background-color: #d05454;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-soft .badge {
+        background-color: #db7c7c;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-soft.ext-1 .badge {
+        background-color: #bd3434
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-soft .list-date, .mt-element-list .list-default.mt-list-head.red-soft .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-soft, .mt-element-list .list-todo.mt-list-head.red-soft {
+    background-color: #d05454;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-soft:hover {
+        background-color: #cb4040
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-soft {
+    border-color: #d05454
+}
+
+.mt-element-list .list-todo .list-todo-item.red-soft:after {
+    border-right-color: #d05454 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-soft .list-toggle {
+    background: #d05454;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-soft .list-toggle > .badge {
+        color: #d05454;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-haze {
+    background-color: #f36a5a;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-haze .badge {
+        background-color: #f6958a;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-haze.ext-1 .badge {
+        background-color: #f03f2a
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-haze .list-date, .mt-element-list .list-default.mt-list-head.red-haze .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-haze, .mt-element-list .list-todo.mt-list-head.red-haze {
+    background-color: #f36a5a;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-haze:hover {
+        background-color: #f15542
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-haze {
+    border-color: #f36a5a
+}
+
+.mt-element-list .list-todo .list-todo-item.red-haze:after {
+    border-right-color: #f36a5a !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-haze .list-toggle {
+    background: #f36a5a;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-haze .list-toggle > .badge {
+        color: #f36a5a;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.red-mint {
+    background-color: #e43a45;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.red-mint .badge {
+        background-color: #ea676f;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-mint.ext-1 .badge {
+        background-color: #cf1c28
+    }
+
+    .mt-element-list .list-default.mt-list-head.red-mint .list-date, .mt-element-list .list-default.mt-list-head.red-mint .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.red-mint, .mt-element-list .list-todo.mt-list-head.red-mint {
+    background-color: #e43a45;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.red-mint:hover {
+        background-color: #e12430
+    }
+
+.mt-element-list .list-todo .list-todo-line.red-mint {
+    border-color: #e43a45
+}
+
+.mt-element-list .list-todo .list-todo-item.red-mint:after {
+    border-right-color: #e43a45 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.red-mint .list-toggle {
+    background: #e43a45;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.red-mint .list-toggle > .badge {
+        color: #e43a45;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow {
+    background-color: #c49f47;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow .badge {
+        background-color: #d0b36e;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow.ext-1 .badge {
+        background-color: #a48334
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow .list-date, .mt-element-list .list-default.mt-list-head.yellow .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow, .mt-element-list .list-todo.mt-list-head.yellow {
+    background-color: #c49f47;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow:hover {
+        background-color: #b7923b
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow {
+    border-color: #c49f47
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow:after {
+    border-right-color: #c49f47 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow .list-toggle {
+    background: #c49f47;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow .list-toggle > .badge {
+        color: #c49f47;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-gold {
+    background-color: #E87E04;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-gold .badge {
+        background-color: #fb9724;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-gold.ext-1 .badge {
+        background-color: #b66303
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-gold .list-date, .mt-element-list .list-default.mt-list-head.yellow-gold .list-label {
+        color: #fff6ec
+    }
+
+.mt-element-list .list-todo .list-count.yellow-gold, .mt-element-list .list-todo.mt-list-head.yellow-gold {
+    background-color: #E87E04;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-gold:hover {
+        background-color: #cf7004
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-gold {
+    border-color: #E87E04
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-gold:after {
+    border-right-color: #E87E04 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-gold .list-toggle {
+    background: #E87E04;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-gold .list-toggle > .badge {
+        color: #E87E04;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-casablanca {
+    background-color: #f2784b;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-casablanca .badge {
+        background-color: #f59c7b;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-casablanca.ext-1 .badge {
+        background-color: #ef541b
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-casablanca .list-date, .mt-element-list .list-default.mt-list-head.yellow-casablanca .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-casablanca, .mt-element-list .list-todo.mt-list-head.yellow-casablanca {
+    background-color: #f2784b;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-casablanca:hover {
+        background-color: #f06633
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-casablanca {
+    border-color: #f2784b
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-casablanca:after {
+    border-right-color: #f2784b !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-casablanca .list-toggle {
+    background: #f2784b;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-casablanca .list-toggle > .badge {
+        color: #f2784b;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-crusta {
+    background-color: #f3c200;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-crusta .badge {
+        background-color: #ffd327;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-crusta.ext-1 .badge {
+        background-color: #c09900
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-crusta .list-date, .mt-element-list .list-default.mt-list-head.yellow-crusta .list-label {
+        color: #fffdf3
+    }
+
+.mt-element-list .list-todo .list-count.yellow-crusta, .mt-element-list .list-todo.mt-list-head.yellow-crusta {
+    background-color: #f3c200;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-crusta:hover {
+        background-color: #daae00
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-crusta {
+    border-color: #f3c200
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-crusta:after {
+    border-right-color: #f3c200 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-crusta .list-toggle {
+    background: #f3c200;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-crusta .list-toggle > .badge {
+        color: #f3c200;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-lemon {
+    background-color: #F7CA18;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-lemon .badge {
+        background-color: #f9d549;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-lemon.ext-1 .badge {
+        background-color: #d5ab07
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-lemon .list-date, .mt-element-list .list-default.mt-list-head.yellow-lemon .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-lemon, .mt-element-list .list-todo.mt-list-head.yellow-lemon {
+    background-color: #F7CA18;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-lemon:hover {
+        background-color: #edbf08
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-lemon {
+    border-color: #F7CA18
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-lemon:after {
+    border-right-color: #F7CA18 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-lemon .list-toggle {
+    background: #F7CA18;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-lemon .list-toggle > .badge {
+        color: #F7CA18;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-saffron {
+    background-color: #F4D03F;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-saffron .badge {
+        background-color: #f7dc6f;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-saffron.ext-1 .badge {
+        background-color: #f1c40f
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-saffron .list-date, .mt-element-list .list-default.mt-list-head.yellow-saffron .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-saffron, .mt-element-list .list-todo.mt-list-head.yellow-saffron {
+    background-color: #F4D03F;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-saffron:hover {
+        background-color: #f3ca27
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-saffron {
+    border-color: #F4D03F
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-saffron:after {
+    border-right-color: #F4D03F !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-saffron .list-toggle {
+    background: #F4D03F;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-saffron .list-toggle > .badge {
+        color: #F4D03F;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-soft {
+    background-color: #c8d046;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-soft .badge {
+        background-color: #d4da6f;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-soft.ext-1 .badge {
+        background-color: #adb52e
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-soft .list-date, .mt-element-list .list-default.mt-list-head.yellow-soft .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-soft, .mt-element-list .list-todo.mt-list-head.yellow-soft {
+    background-color: #c8d046;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-soft:hover {
+        background-color: #c1c933
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-soft {
+    border-color: #c8d046
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-soft:after {
+    border-right-color: #c8d046 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-soft .list-toggle {
+    background: #c8d046;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-soft .list-toggle > .badge {
+        color: #c8d046;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-haze {
+    background-color: #c5bf66;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-haze .badge {
+        background-color: #d3ce8b;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-haze.ext-1 .badge {
+        background-color: #b4ad44
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-haze .list-date, .mt-element-list .list-default.mt-list-head.yellow-haze .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-haze, .mt-element-list .list-todo.mt-list-head.yellow-haze {
+    background-color: #c5bf66;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-haze:hover {
+        background-color: #beb754
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-haze {
+    border-color: #c5bf66
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-haze:after {
+    border-right-color: #c5bf66 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-haze .list-toggle {
+    background: #c5bf66;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-haze .list-toggle > .badge {
+        color: #c5bf66;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.yellow-mint {
+    background-color: #c5b96b;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.yellow-mint .badge {
+        background-color: #d3ca90;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-mint.ext-1 .badge {
+        background-color: #b6a747
+    }
+
+    .mt-element-list .list-default.mt-list-head.yellow-mint .list-date, .mt-element-list .list-default.mt-list-head.yellow-mint .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.yellow-mint, .mt-element-list .list-todo.mt-list-head.yellow-mint {
+    background-color: #c5b96b;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.yellow-mint:hover {
+        background-color: #beb059
+    }
+
+.mt-element-list .list-todo .list-todo-line.yellow-mint {
+    border-color: #c5b96b
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-mint:after {
+    border-right-color: #c5b96b !important
+}
+
+.mt-element-list .list-todo .list-todo-item.yellow-mint .list-toggle {
+    background: #c5b96b;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.yellow-mint .list-toggle > .badge {
+        color: #c5b96b;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple {
+    background-color: #8E44AD;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple .badge {
+        background-color: #a563c1;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple.ext-1 .badge {
+        background-color: #703688
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple .list-date, .mt-element-list .list-default.mt-list-head.purple .list-label {
+        color: #f9f5fb
+    }
+
+.mt-element-list .list-todo .list-count.purple, .mt-element-list .list-todo.mt-list-head.purple {
+    background-color: #8E44AD;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple:hover {
+        background-color: #7f3d9b
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple {
+    border-color: #8E44AD
+}
+
+.mt-element-list .list-todo .list-todo-item.purple:after {
+    border-right-color: #8E44AD !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple .list-toggle {
+    background: #8E44AD;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple .list-toggle > .badge {
+        color: #8E44AD;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-plum {
+    background-color: #8775a7;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-plum .badge {
+        background-color: #a294bb;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-plum.ext-1 .badge {
+        background-color: #6d5b8e
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-plum .list-date, .mt-element-list .list-default.mt-list-head.purple-plum .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-plum, .mt-element-list .list-todo.mt-list-head.purple-plum {
+    background-color: #8775a7;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-plum:hover {
+        background-color: #79659d
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-plum {
+    border-color: #8775a7
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-plum:after {
+    border-right-color: #8775a7 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-plum .list-toggle {
+    background: #8775a7;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-plum .list-toggle > .badge {
+        color: #8775a7;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-medium {
+    background-color: #BF55EC;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-medium .badge {
+        background-color: #d083f1;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-medium.ext-1 .badge {
+        background-color: #ae27e7
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-medium .list-date, .mt-element-list .list-default.mt-list-head.purple-medium .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-medium, .mt-element-list .list-todo.mt-list-head.purple-medium {
+    background-color: #BF55EC;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-medium:hover {
+        background-color: #b63ee9
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-medium {
+    border-color: #BF55EC
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-medium:after {
+    border-right-color: #BF55EC !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-medium .list-toggle {
+    background: #BF55EC;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-medium .list-toggle > .badge {
+        color: #BF55EC;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-studio {
+    background-color: #8E44AD;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-studio .badge {
+        background-color: #a563c1;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-studio.ext-1 .badge {
+        background-color: #703688
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-studio .list-date, .mt-element-list .list-default.mt-list-head.purple-studio .list-label {
+        color: #f9f5fb
+    }
+
+.mt-element-list .list-todo .list-count.purple-studio, .mt-element-list .list-todo.mt-list-head.purple-studio {
+    background-color: #8E44AD;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-studio:hover {
+        background-color: #7f3d9b
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-studio {
+    border-color: #8E44AD
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-studio:after {
+    border-right-color: #8E44AD !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-studio .list-toggle {
+    background: #8E44AD;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-studio .list-toggle > .badge {
+        color: #8E44AD;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-wisteria {
+    background-color: #9B59B6;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-wisteria .badge {
+        background-color: #b07cc6;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-wisteria.ext-1 .badge {
+        background-color: #804399
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-wisteria .list-date, .mt-element-list .list-default.mt-list-head.purple-wisteria .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-wisteria, .mt-element-list .list-todo.mt-list-head.purple-wisteria {
+    background-color: #9B59B6;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-wisteria:hover {
+        background-color: #8f4bab
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-wisteria {
+    border-color: #9B59B6
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-wisteria:after {
+    border-right-color: #9B59B6 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-wisteria .list-toggle {
+    background: #9B59B6;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-wisteria .list-toggle > .badge {
+        color: #9B59B6;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-seance {
+    background-color: #9A12B3;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-seance .badge {
+        background-color: #c217e1;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-seance.ext-1 .badge {
+        background-color: #720d85
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-seance .list-date, .mt-element-list .list-default.mt-list-head.purple-seance .list-label {
+        color: #f2cafa
+    }
+
+.mt-element-list .list-todo .list-count.purple-seance, .mt-element-list .list-todo.mt-list-head.purple-seance {
+    background-color: #9A12B3;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-seance:hover {
+        background-color: #86109c
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-seance {
+    border-color: #9A12B3
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-seance:after {
+    border-right-color: #9A12B3 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-seance .list-toggle {
+    background: #9A12B3;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-seance .list-toggle > .badge {
+        color: #9A12B3;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-intense {
+    background-color: #8775a7;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-intense .badge {
+        background-color: #a294bb;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-intense.ext-1 .badge {
+        background-color: #6d5b8e
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-intense .list-date, .mt-element-list .list-default.mt-list-head.purple-intense .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-intense, .mt-element-list .list-todo.mt-list-head.purple-intense {
+    background-color: #8775a7;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-intense:hover {
+        background-color: #79659d
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-intense {
+    border-color: #8775a7
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-intense:after {
+    border-right-color: #8775a7 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-intense .list-toggle {
+    background: #8775a7;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-intense .list-toggle > .badge {
+        color: #8775a7;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-sharp {
+    background-color: #796799;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-sharp .badge {
+        background-color: #9486ad;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-sharp.ext-1 .badge {
+        background-color: #61527b
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-sharp .list-date, .mt-element-list .list-default.mt-list-head.purple-sharp .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-sharp, .mt-element-list .list-todo.mt-list-head.purple-sharp {
+    background-color: #796799;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-sharp:hover {
+        background-color: #6d5d8a
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-sharp {
+    border-color: #796799
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-sharp:after {
+    border-right-color: #796799 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-sharp .list-toggle {
+    background: #796799;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-sharp .list-toggle > .badge {
+        color: #796799;
+        background: #fff
+    }
+
+.mt-element-list .list-default.mt-list-head.purple-soft {
+    background-color: #8877a9;
+    color: #fff
+}
+
+    .mt-element-list .list-default.mt-list-head.purple-soft .badge {
+        background-color: #a396bd;
+        color: #fff
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-soft.ext-1 .badge {
+        background-color: #6e5c91
+    }
+
+    .mt-element-list .list-default.mt-list-head.purple-soft .list-date, .mt-element-list .list-default.mt-list-head.purple-soft .list-label {
+        color: #fff
+    }
+
+.mt-element-list .list-todo .list-count.purple-soft, .mt-element-list .list-todo.mt-list-head.purple-soft {
+    background-color: #8877a9;
+    color: #fff
+}
+
+    .mt-element-list .list-todo .list-count.purple-soft:hover {
+        background-color: #7a679f
+    }
+
+.mt-element-list .list-todo .list-todo-line.purple-soft {
+    border-color: #8877a9
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-soft:after {
+    border-right-color: #8877a9 !important
+}
+
+.mt-element-list .list-todo .list-todo-item.purple-soft .list-toggle {
+    background: #8877a9;
+    color: #fff !important
+}
+
+    .mt-element-list .list-todo .list-todo-item.purple-soft .list-toggle > .badge {
+        color: #8877a9;
+        background: #fff
+    }
+
+.mt-element-list .list-todo-item.white:after {
+    border-right-color: #fff
+}
+
+.mt-element-list .list-todo-item.white .list-toggle {
+    background: #fff
+}
+
+.mt-element-list .list-todo-item.default:after {
+    border-right-color: #e1e5ec
+}
+
+.mt-element-list .list-todo-item.default .list-toggle {
+    background: #e1e5ec
+}
+
+.mt-element-list .list-todo-item.dark:after {
+    border-right-color: #2f353b
+}
+
+.mt-element-list .list-todo-item.dark .list-toggle {
+    background: #2f353b
+}
+
+.mt-element-list .list-todo-item.blue:after {
+    border-right-color: #3598dc
+}
+
+.mt-element-list .list-todo-item.blue .list-toggle {
+    background: #3598dc
+}
+
+.mt-element-list .list-todo-item.blue-madison:after {
+    border-right-color: #578ebe
+}
+
+.mt-element-list .list-todo-item.blue-madison .list-toggle {
+    background: #578ebe
+}
+
+.mt-element-list .list-todo-item.blue-chambray:after {
+    border-right-color: #2C3E50
+}
+
+.mt-element-list .list-todo-item.blue-chambray .list-toggle {
+    background: #2C3E50
+}
+
+.mt-element-list .list-todo-item.blue-ebonyclay:after {
+    border-right-color: #22313F
+}
+
+.mt-element-list .list-todo-item.blue-ebonyclay .list-toggle {
+    background: #22313F
+}
+
+.mt-element-list .list-todo-item.blue-hoki:after {
+    border-right-color: #67809F
+}
+
+.mt-element-list .list-todo-item.blue-hoki .list-toggle {
+    background: #67809F
+}
+
+.mt-element-list .list-todo-item.blue-steel:after {
+    border-right-color: #4B77BE
+}
+
+.mt-element-list .list-todo-item.blue-steel .list-toggle {
+    background: #4B77BE
+}
+
+.mt-element-list .list-todo-item.blue-soft:after {
+    border-right-color: #4c87b9
+}
+
+.mt-element-list .list-todo-item.blue-soft .list-toggle {
+    background: #4c87b9
+}
+
+.mt-element-list .list-todo-item.blue-dark:after {
+    border-right-color: #5e738b
+}
+
+.mt-element-list .list-todo-item.blue-dark .list-toggle {
+    background: #5e738b
+}
+
+.mt-element-list .list-todo-item.blue-sharp:after {
+    border-right-color: #5C9BD1
+}
+
+.mt-element-list .list-todo-item.blue-sharp .list-toggle {
+    background: #5C9BD1
+}
+
+.mt-element-list .list-todo-item.blue-oleo:after {
+    border-right-color: #94A0B2
+}
+
+.mt-element-list .list-todo-item.blue-oleo .list-toggle {
+    background: #94A0B2
+}
+
+.mt-element-list .list-todo-item.green:after {
+    border-right-color: #32c5d2
+}
+
+.mt-element-list .list-todo-item.green .list-toggle {
+    background: #32c5d2
+}
+
+.mt-element-list .list-todo-item.green-meadow:after {
+    border-right-color: #1BBC9B
+}
+
+.mt-element-list .list-todo-item.green-meadow .list-toggle {
+    background: #1BBC9B
+}
+
+.mt-element-list .list-todo-item.green-seagreen:after {
+    border-right-color: #1BA39C
+}
+
+.mt-element-list .list-todo-item.green-seagreen .list-toggle {
+    background: #1BA39C
+}
+
+.mt-element-list .list-todo-item.green-turquoise:after {
+    border-right-color: #36D7B7
+}
+
+.mt-element-list .list-todo-item.green-turquoise .list-toggle {
+    background: #36D7B7
+}
+
+.mt-element-list .list-todo-item.green-haze:after {
+    border-right-color: #44b6ae
+}
+
+.mt-element-list .list-todo-item.green-haze .list-toggle {
+    background: #44b6ae
+}
+
+.mt-element-list .list-todo-item.green-jungle:after {
+    border-right-color: #26C281
+}
+
+.mt-element-list .list-todo-item.green-jungle .list-toggle {
+    background: #26C281
+}
+
+.mt-element-list .list-todo-item.green-soft:after {
+    border-right-color: #3faba4
+}
+
+.mt-element-list .list-todo-item.green-soft .list-toggle {
+    background: #3faba4
+}
+
+.mt-element-list .list-todo-item.green-dark:after {
+    border-right-color: #4DB3A2
+}
+
+.mt-element-list .list-todo-item.green-dark .list-toggle {
+    background: #4DB3A2
+}
+
+.mt-element-list .list-todo-item.green-sharp:after {
+    border-right-color: #2ab4c0
+}
+
+.mt-element-list .list-todo-item.green-sharp .list-toggle {
+    background: #2ab4c0
+}
+
+.mt-element-list .list-todo-item.green-steel:after {
+    border-right-color: #29b4b6
+}
+
+.mt-element-list .list-todo-item.green-steel .list-toggle {
+    background: #29b4b6
+}
+
+.mt-element-list .list-todo-item.grey:after {
+    border-right-color: #E5E5E5
+}
+
+.mt-element-list .list-todo-item.grey .list-toggle {
+    background: #E5E5E5
+}
+
+.mt-element-list .list-todo-item.grey-steel:after {
+    border-right-color: #e9edef
+}
+
+.mt-element-list .list-todo-item.grey-steel .list-toggle {
+    background: #e9edef
+}
+
+.mt-element-list .list-todo-item.grey-cararra:after {
+    border-right-color: #fafafa
+}
+
+.mt-element-list .list-todo-item.grey-cararra .list-toggle {
+    background: #fafafa
+}
+
+.mt-element-list .list-todo-item.grey-gallery:after {
+    border-right-color: #555
+}
+
+.mt-element-list .list-todo-item.grey-gallery .list-toggle {
+    background: #555
+}
+
+.mt-element-list .list-todo-item.grey-cascade:after {
+    border-right-color: #95A5A6
+}
+
+.mt-element-list .list-todo-item.grey-cascade .list-toggle {
+    background: #95A5A6
+}
+
+.mt-element-list .list-todo-item.grey-silver:after {
+    border-right-color: #BFBFBF
+}
+
+.mt-element-list .list-todo-item.grey-silver .list-toggle {
+    background: #BFBFBF
+}
+
+.mt-element-list .list-todo-item.grey-salsa:after {
+    border-right-color: #ACB5C3
+}
+
+.mt-element-list .list-todo-item.grey-salsa .list-toggle {
+    background: #ACB5C3
+}
+
+.mt-element-list .list-todo-item.grey-salt:after {
+    border-right-color: #bfcad1
+}
+
+.mt-element-list .list-todo-item.grey-salt .list-toggle {
+    background: #bfcad1
+}
+
+.mt-element-list .list-todo-item.grey-mint:after {
+    border-right-color: #525e64
+}
+
+.mt-element-list .list-todo-item.grey-mint .list-toggle {
+    background: #525e64
+}
+
+.mt-element-list .list-todo-item.red:after {
+    border-right-color: #e7505a
+}
+
+.mt-element-list .list-todo-item.red .list-toggle {
+    background: #e7505a
+}
+
+.mt-element-list .list-todo-item.red-pink:after {
+    border-right-color: #E08283
+}
+
+.mt-element-list .list-todo-item.red-pink .list-toggle {
+    background: #E08283
+}
+
+.mt-element-list .list-todo-item.red-sunglo:after {
+    border-right-color: #E26A6A
+}
+
+.mt-element-list .list-todo-item.red-sunglo .list-toggle {
+    background: #E26A6A
+}
+
+.mt-element-list .list-todo-item.red-intense:after {
+    border-right-color: #e35b5a
+}
+
+.mt-element-list .list-todo-item.red-intense .list-toggle {
+    background: #e35b5a
+}
+
+.mt-element-list .list-todo-item.red-thunderbird:after {
+    border-right-color: #D91E18
+}
+
+.mt-element-list .list-todo-item.red-thunderbird .list-toggle {
+    background: #D91E18
+}
+
+.mt-element-list .list-todo-item.red-flamingo:after {
+    border-right-color: #EF4836
+}
+
+.mt-element-list .list-todo-item.red-flamingo .list-toggle {
+    background: #EF4836
+}
+
+.mt-element-list .list-todo-item.red-soft:after {
+    border-right-color: #d05454
+}
+
+.mt-element-list .list-todo-item.red-soft .list-toggle {
+    background: #d05454
+}
+
+.mt-element-list .list-todo-item.red-haze:after {
+    border-right-color: #f36a5a
+}
+
+.mt-element-list .list-todo-item.red-haze .list-toggle {
+    background: #f36a5a
+}
+
+.mt-element-list .list-todo-item.red-mint:after {
+    border-right-color: #e43a45
+}
+
+.mt-element-list .list-todo-item.red-mint .list-toggle {
+    background: #e43a45
+}
+
+.mt-element-list .list-todo-item.yellow:after {
+    border-right-color: #c49f47
+}
+
+.mt-element-list .list-todo-item.yellow .list-toggle {
+    background: #c49f47
+}
+
+.mt-element-list .list-todo-item.yellow-gold:after {
+    border-right-color: #E87E04
+}
+
+.mt-element-list .list-todo-item.yellow-gold .list-toggle {
+    background: #E87E04
+}
+
+.mt-element-list .list-todo-item.yellow-casablanca:after {
+    border-right-color: #f2784b
+}
+
+.mt-element-list .list-todo-item.yellow-casablanca .list-toggle {
+    background: #f2784b
+}
+
+.mt-element-list .list-todo-item.yellow-crusta:after {
+    border-right-color: #f3c200
+}
+
+.mt-element-list .list-todo-item.yellow-crusta .list-toggle {
+    background: #f3c200
+}
+
+.mt-element-list .list-todo-item.yellow-lemon:after {
+    border-right-color: #F7CA18
+}
+
+.mt-element-list .list-todo-item.yellow-lemon .list-toggle {
+    background: #F7CA18
+}
+
+.mt-element-list .list-todo-item.yellow-saffron:after {
+    border-right-color: #F4D03F
+}
+
+.mt-element-list .list-todo-item.yellow-saffron .list-toggle {
+    background: #F4D03F
+}
+
+.mt-element-list .list-todo-item.yellow-soft:after {
+    border-right-color: #c8d046
+}
+
+.mt-element-list .list-todo-item.yellow-soft .list-toggle {
+    background: #c8d046
+}
+
+.mt-element-list .list-todo-item.yellow-haze:after {
+    border-right-color: #c5bf66
+}
+
+.mt-element-list .list-todo-item.yellow-haze .list-toggle {
+    background: #c5bf66
+}
+
+.mt-element-list .list-todo-item.yellow-mint:after {
+    border-right-color: #c5b96b
+}
+
+.mt-element-list .list-todo-item.yellow-mint .list-toggle {
+    background: #c5b96b
+}
+
+.mt-element-list .list-todo-item.purple:after {
+    border-right-color: #8E44AD
+}
+
+.mt-element-list .list-todo-item.purple .list-toggle {
+    background: #8E44AD
+}
+
+.mt-element-list .list-todo-item.purple-plum:after {
+    border-right-color: #8775a7
+}
+
+.mt-element-list .list-todo-item.purple-plum .list-toggle {
+    background: #8775a7
+}
+
+.mt-element-list .list-todo-item.purple-medium:after {
+    border-right-color: #BF55EC
+}
+
+.mt-element-list .list-todo-item.purple-medium .list-toggle {
+    background: #BF55EC
+}
+
+.mt-element-list .list-todo-item.purple-studio:after {
+    border-right-color: #8E44AD
+}
+
+.mt-element-list .list-todo-item.purple-studio .list-toggle {
+    background: #8E44AD
+}
+
+.mt-element-list .list-todo-item.purple-wisteria:after {
+    border-right-color: #9B59B6
+}
+
+.mt-element-list .list-todo-item.purple-wisteria .list-toggle {
+    background: #9B59B6
+}
+
+.mt-element-list .list-todo-item.purple-seance:after {
+    border-right-color: #9A12B3
+}
+
+.mt-element-list .list-todo-item.purple-seance .list-toggle {
+    background: #9A12B3
+}
+
+.mt-element-list .list-todo-item.purple-intense:after {
+    border-right-color: #8775a7
+}
+
+.mt-element-list .list-todo-item.purple-intense .list-toggle {
+    background: #8775a7
+}
+
+.mt-element-list .list-todo-item.purple-sharp:after {
+    border-right-color: #796799
+}
+
+.mt-element-list .list-todo-item.purple-sharp .list-toggle {
+    background: #796799
+}
+
+.mt-element-list .list-todo-item.purple-soft:after {
+    border-right-color: #8877a9
+}
+
+.mt-element-list .list-todo-item.purple-soft .list-toggle {
+    background: #8877a9
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.fa-info-circle {
+    font-size: 18px !important;
+}
+
+.modal-open {
+    overflow: hidden !important;
+}

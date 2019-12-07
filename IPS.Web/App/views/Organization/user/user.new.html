@@ -1,0 +1,279 @@
+﻿<div pane>
+
+    <section class="portlet-light header-blue">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="caption caption-md">
+                    <span class="caption-subject box-title">
+                        <i ng-click="goBack()" class="fa fa-arrow-left" aria-hidden="true"></i>
+                        <a href="javascript:;" ng-show="!isEdit"> {{'COMMON_USER' | translate }} {{user.userName}}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="portlet-light">
+        <div class="clearfix">
+            <form name="registrationForm" novalidate class="create-department" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-12 heding-bg">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'ORGANIZATIONS_ACCOUNT_INFO' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 create-department">
+                        <div class="details-info">{{'ORGANIZATIONS_ACCOUNT_INFO' | translate }}</div><br>
+
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'COMMON_ORGANIZATION' | translate }}</label>
+                            <span class="form-control" disabled>{{userOrganization.name}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'COMMON_DEPARTMENTS' | translate }}</label>
+                            <select class="form-control" kendo-multi-select k-options="departmentOptions" k-ng-model="newUser.departments"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'COMMON_TEAMS' | translate }}</label>
+                            <select kendo-multi-select k-options="teamOptions" k-ng-model="userTeams.teams"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'ORGANIZATIONS_USERNAME' | translate }}</label>
+                            <span ng-show='registrationForm.username.$error.required' class="required">*</span>
+                            <input type="text" name="username" class="form-control" autocomplete="new-username" ng-model="newUser.userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'ORGANIZATIONS_PASSWORD' | translate }}</label>
+                            <span ng-show='registrationForm.password.$error.required' class="required">*</span>
+                            <input type="password" class="form-control" name="password" autocomplete="new-password" ng-model="newUser.password" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'ORGANIZATIONS_CONFIRM_PASSWORD' | translate }}</label>
+                            <input type="password"
+                                   name="confirmPassword"
+                                   class="form-control"
+                                   ng-model="newUser.confirmPassword"
+                                   ng-change="isCorrectPassword"
+                                   compare-to="newUser.password"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable-required" for="inputFirstName">{{'ORGANIZATIONS_FIRST_NAME' | translate }}</label>
+                            <span ng-show='registrationForm.firstname.$error.required' class="required">*</span>
+                            <input type="text" name="firstname" class="form-control" ng-model="newUser.firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable-required" for="inputFirstName">{{'ORGANIZATIONS_LAST_NAME' | translate }}</label>
+                            <span ng-show='registrationForm.lastname.$error.required' class="required">*</span>
+                            <input type="text" name="lastname" class="form-control" ng-model="newUser.lastName" required>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="control-label">User Type</label>
+                            <span ng-show='registrationForm.userType.$error.required' class="required">*</span>
+                            <select class="form-control"
+                                    value="Select User Type"
+                                    name="userType"
+                                    ng-options="userType.userType1 for userType in userTypes"
+                                    ng-model="newUser.userType"
+                                    required>
+                                <option value="">Select User Type</option>
+                            </select>
+                        </div>-->
+                        <div class="form-group">
+                            <job-position id="job-positions" selected="newUser.jobPositions" is-enabled="true"></job-position>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{'ORGANIZATIONS_USER_CULTURE' | translate }}</label>
+                            <select class="form-control"
+                                    value="Select User Culture"
+                                    name="culture"
+                                    ng-options="culture.id as culture.cultureName for culture in userCultures"
+                                    ng-model="newUser.cultureId">
+                                <option value="">{{'ORGANIZATIONS_SELECT_USER_CULTURE' | translate }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable-required" for="inputFirstName">{{'ORGANIZATIONS_EMAIL_ADDRESS' | translate }}</label>
+                            <span ng-show='registrationForm.email.$error.required' class="required">*</span>
+                            <span class="error" ng-show="!registrationForm.email.$valid">
+                                {{'COMMON_PLEASE_INPUT_VALID_EMAIL_ADDRESS' | translate }}
+                            </span>
+                            <input type="email" name="email" ng-required='!newUser.workEmail' class="form-control" ng-model="newUser.workEmail" ng-change="checkEmailExist(newUser.workEmail)" required>
+                            <span style="color:red" ng-show="isEmailExst">Email address already registered</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable-required" for="inputFirstName">{{'COMMON_PHONE' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.mobileNo">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 heding-bg">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'LEFTMENU_PERSONAL_INFO' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 personInfo">
+                        <div class="form-group">
+                            <label class="form-cstm-lable">{{'ORGANIZATIONS_DATE_OF_BIRTH' | translate }}</label>
+                            <input kendo-date-picker data-ng-model="newUser.birthDate" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputGender">{{'ORGANIZATIONS_GENDER' | translate }}</label>
+                            <input type="radio" name="sex" value="m" ng-model="newUser.gender">{{'ORGANIZATIONS_MALE' | translate }}
+                            <input type="radio" name="sex" value="f" ng-model="newUser.gender">{{'ORGANIZATIONS_FEMALE' | translate }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 personInfo">
+
+                        <div class="form-group">
+                            <label>{{'ORGANIZATIONS_IMAGE_UPLOAD' | translate }}</label>
+                            <div class="form-control ips-image-preview" style="height:100%;">
+                                <img ng-src="{{newUser.imagePath}}" ng-show="newUser.imagePath" class="profile-avatar" style="width:100%;" />
+                            </div>
+                            <input type="file" ngf-select="onFileSelect($files)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 heding-bg">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'ORGANIZATIONS_PERSONAL_ACCOUNT_INFO' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputCountry">{{'COMMON_COUNTRY' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.country" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputCity">{{'COMMON_CITY' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.city" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputZip">{{'COMMON_ZIP' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.zip" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputCity">{{'COMMON_STATE' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.state" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputAddress1">{{'ORGANIZATIONS_ADDRESS1' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.address1" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputAddress2">{{'ORGANIZATIONS_ADDRESS2' | translate }}</label>
+                            <input type="text" class="form-control" ng-model="newUser.address2" ng-change="messageClean();">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputCountry">{{'ORGANIZATIONS_NEWORGANIZATION_SKYPE' | translate }}</label>
+                            <div class="left-inner-addon">
+                                <i class="icon-large icon-skype"></i>
+                                <input type="text" class="form-control" ng-model="newUser.skype" ng-change="messageClean();">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputTwitter">{{'ORGANIZATIONS_NEWORGANIZATION_TWITTER' | translate }}</label>
+                            <div class="left-inner-addon">
+                                <i class="icon-large icon-twitter"></i>
+                                <input type="text" class="form-control" ng-model="newUser.twitter" ng-change="messageClean();">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputFacebook">{{'ORGANIZATIONS_NEWORGANIZATION_FACEBOOK' | translate }}</label>
+                            <div class="left-inner-addon">
+                                <i class="icon-large icon-facebook"></i>
+                                <input type="text" class="form-control" ng-model="newUser.facebook" ng-change="messageClean();">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-cstm-lable" for="inputLinkedin">{{'ORGANIZATIONS_NEWORGANIZATION_LINKED_IN' | translate }}</label>
+                            <div class="left-inner-addon">
+                                <i class="icon-large icon-linkedin"></i>
+                                <input type="text" class="form-control" ng-model="newUser.linkedin" ng-change="messageClean();">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 heding-bg">
+                        <div class="caption caption-md">
+                            <span class="caption-subject box-sub-title"> {{'ORGANIZATIONS_USER_ROLES' | translate }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <kendo-tooltip options="tooltipOptions">
+                            <div kendo-grid k-options="rolesOptions"></div>
+                        </kendo-tooltip>
+                        <button data-toggle="modal" data-target=".bs-roles-lg" class="btn btn-cstm primary pull-right" ng-show="canEditRoles">{{'ORGANIZATIONS_ADD_ROLE' | translate }}</button>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-sm-12">
+                        <div class="top-border"></div>
+                        <button class="btn btn-cstm " ng-click="saveUser()" ng-disabled="(!registrationForm.$valid) || isEmailExst">{{'ORGANIZATIONS_SAVE_USER' | translate }}</button>
+
+                        <button class="btn btn-cstm pull-right" ng-click="goBack()">{{'COMMON_CANCEL' | translate }}</button>
+                    </div>
+                </div>
+                <span kendo-notification="notificationSavedSuccess" k-options="notificationOptions"></span>
+
+            </form>
+            <div class="modal fade bs-roles-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-show="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">{{'ORGANIZATIONS_ADD_USER_ROLES' | translate }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                                            <select class="form-control"
+                                                    value="Select Organization"
+                                                    name="organizationRoles"
+                                                    ng-options="organization.name for organization in allOrganizations"
+                                                    ng-model="newRole.organization">
+                                                <option value="">{{'COMMON_SELECT_ORGANIZATION' | translate }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{'ORGANIZATIONS_USER_ROLE' | translate }}</label>
+                                            <select class="form-control"
+                                                    value="Select User Role"
+                                                    name="userRole"
+                                                    ng-options="role.name for role in allRoles | organizationRoles: newRole.organization.id | isNotUserRole:newRole.organization.id:newUser.roles"
+                                                    ng-model="newRole.role"
+                                                    ng-disabled="!newRole.organization"
+                                                    ng-required='!newRole.role'>
+                                                <option value="">{{'ORGANIZATIONS_SELECT_USER_ROLE' | translate }}</option>
+                                            </select>
+                                        </div>
+                                        <button ng-click="addUserRole()" data-dismiss="modal" class="btn btn-cstm pull-right" ng-disabled="!newRole.role">{{'ORGANIZATIONS_ADD_ROLE' | translate }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

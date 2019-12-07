@@ -1,0 +1,853 @@
+﻿<div pane>
+
+    <div class="clear" ng-init="init()">
+        <section class="portlet-light header-blue">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="caption caption-md">
+                        <span class="caption-subject box-title">
+                            {{topBoxFilterOption.userName | translate}}'s {{'LEFTMENU_PROSPECTING' | translate}} {{'COMMON_RESULT' | translate }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="theme-panel hidden-xs hidden-sm">
+            <div class="toggler" style="display: block;"> </div>
+            <div class="toggler-close" style="display: none;"> </div>
+            <div class="theme-options" style="display: none;">
+                <div class="theme-option theme-colors clearfix">
+                    &nbsp;
+                </div>
+                <div class="theme-option">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'TASKPROSPECTING_PROJECT_NAME' | translate }}</label>
+                        <select class="form-control" data-ng-model="topBoxFilterOption.projectId" data-ng-options="obj.id as obj.name for obj in projects" ng-change="fiterProjectChanged()"></select>
+                    </div>
+                    <div class="form-group" ng-show="topBoxFilterOption.userId == 0">
+                        <label class="form-cstm-lable">{{'TASKPROSPECTING_PROJECT_MEMBERS' | translate }}</label>
+                        <div ng-dropdown-multiselect extra-settings="projectMembersButtonSettings" options="projectMembersOptions" selected-model="selectedProjectMembers" ng-disabled="projectMembers.length < 1" translation-texts="prospectingGoalOptionTexts" events="projectMembersSelectionEvents"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'TASKPROSPECTING_PROSPECTING_GOAL' | translate }}</label>
+                        <div ng-dropdown-multiselect extra-settings="prospectingGoalButtonSettings" options="prospectingGoalOptions" selected-model="topBoxFilterOption.prospectingGoalIds" ng-disabled="prospectingGoalItems.length < 1" translation-texts="prosoectingGoalCustomTexts" events="prosoectingGoalSelectionEvents"></div>
+                    </div>
+                </div>
+                <div class="theme-option">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'TASKPROSPECTING_TOP_BOX_RESULT' | translate }}</label>
+                        <select class="form-control" data-ng-model="topBoxFilterOption.topboxResultOptionId" data-ng-options="obj.id as obj.name for obj in resultFilterOptions" ng-change="resultFilterOptionChanged()"></select>
+                        <label class="form-cstm-lable">{{'TASKPROSPECTING_TOP_BOX_RESULT_TYPE' | translate }}</label>
+                        <select class="form-control" data-ng-model="topBoxFilterOption.topboxResultTypeId" data-ng-options="obj.id as obj.name for obj in topboxResultTypes | filter : showFilteredResultTypes" ng-change="topboxResultTypeChanged()"></select>
+
+                    </div>
+                </div>
+                <div class="theme-option">
+                    <span>{{'TASKPROSPECTING_CALLS' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.calls" ng-model="topBoxFilterOption.calls" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="theme-option">
+                    <span>{{'TASKPROSPECTING_TALKS' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.talks" ng-model="topBoxFilterOption.talks" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="theme-option">
+                    <span>{{'TASKPROSPECTING_SERVICE' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.service" ng-model="topBoxFilterOption.service" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                
+
+                <div class="theme-option">
+                    <div class="form-group">
+                        <label class="form-cstm-lable">{{'Widgets' | translate }}</label>
+                    </div>
+                </div>
+                <div class="theme-option">
+                    <span>{{'TASKPROSPECTING_TASK_PERFORMANCE_DASHBOARD' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.taskDashboard" ng-model="topBoxFilterOption.taskDashboard" ng-change="filterShowHideTaskDashboard()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="theme-option">
+                    <span>{{'TASKPROSPECTING_CHART_RESULT' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.chartResult" ng-model="topBoxFilterOption.chartResult" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="theme-option hide">
+                    <span>{{'TASKPROSPECTING_TODAYS_TASKS' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.todaysTask" ng-model="topBoxFilterOption.todaysTask" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="theme-option hide">
+                    <span>{{'TASKPROSPECTING_GOALS_PERFORMANCE' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.goalsAndPerformance" ng-model="topBoxFilterOption.goalsAndPerformance" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="theme-option hide">
+                    <span>{{'TASKPROSPECTING_ACTIVITY_RESULTS' | translate }}</span>
+                    <label class="switch">
+                        <input type="checkbox" ng-checked="topBoxFilterOption.activityResult" ng-model="topBoxFilterOption.activityResult" value="1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                
+
+            </div>
+        </div>
+        <section class="portlet-light">
+            <div class="row tab-header m-0 ">
+                <div class="col-lg-12">
+                    <div class="caption-subject font-black bold uppercase">
+                        <div class="font-black" ng-show="filterUserResultText">
+
+                            {{filterUserResultText}}
+                            <span class="font-black" ng-show="topBoxFilterOption.topboxResultOptionId == resultFilterOptionEnums.Monthly">
+                                -  {{monthStartDate | date:'short'}} - {{monthEndDate | date:'short'}}
+                            </span>
+                            <span class="font-black" ng-show="topBoxFilterOption.topboxResultOptionId == resultFilterOptionEnums.Weekly">
+                                -  {{weekStartDate | date:'short'}} - {{weekEndDate | date:'short'}}
+                            </span>
+                            <span class="font-black" ng-show="topBoxFilterOption.topboxResultOptionId == resultFilterOptionEnums.Today">
+                                -  {{todayStartDate | date:'short'}} - {{todayEndDate | date:'short'}}
+                            </span>
+
+                            <span class="font-black" ng-show="topBoxFilterOption.topboxResultOptionId == resultFilterOptionEnums.Total">
+                                -  {{totalStartDate | date:'short' }} - {{totalEndDate | date:'short'}}
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li id="tab_{{projectMemberItem.id}}" class="usertab {{topBoxFilterOption.userId == projectMemberItem.id ? 'active' : ''}}" ng-repeat="projectMemberItem in projectMembers track by $index" ng-click="userTabChanged(projectMemberItem.id)" ng-show="isAllowedToShow(projectMemberItem.id)">
+                                <a href="javascript:;" data-target="#tab_member" data-toggle="tab">
+                                    <img alt="" class="img-circle" ng-src="{{projectMemberItem.imagePath ? projectMemberItem.imagePath : 'images/DefaultAvatar.jpg'}}">
+                                    <span>{{projectMemberItem.firstName}} {{projectMemberItem.lastName}}</span>
+                                </a>
+                            </li>
+
+                            <li id="tabAll" ng-click="userTabChanged(0)" ng-show="isAllowedToManager()" class="{{topBoxFilterOption.userId == 0 ? 'active' : ''}}">
+                                <a href="javascript:;" data-target="#tab_AllMember" data-toggle="tab">
+                                    <img alt="" class="img-circle" ng-src="images/organization-placeholder.png">
+                                    <span>{{'TASKPROSPECTING_ALL' | translate }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab_member">
+                            <section class="">
+                                <div class="row">
+                                    <div class="col-sm-12 mt-5">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-lg-12 five-three">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.calls">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_CALLS' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-call current-project-details-icon" ng-style="{'background-color': scaleColors[0]}" ng-class="checkAndSetScaleColor(0,0)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[0]}}">{{TotalResultData[0]}} / {{TotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[0]}}">{{TotalPercetageData[0]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[0]}}">{{RemainingTotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[0]}}">{{TotalResultData[0]}} / {{CurrentPerformanceTotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[0]}}">{{CurrentPerformancePercetageData[0]}}%</span>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.talks">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_TALKS' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-talk current-project-details-icon" ng-style="{'background-color': scaleColors[1]}" ng-class="checkAndSetScaleColor(0,1)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[1]}}">{{TotalResultData[1]}} / {{TotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[1]}}">{{TotalPercetageData[1]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[1]}}">{{RemainingTotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[1]}}">{{TotalResultData[1]}} / {{CurrentPerformanceTotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[1]}}">{{CurrentPerformancePercetageData[1]}}%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.service">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_SERVICE' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-meeting current-project-details-icon" ng-style="{'background-color': scaleColors[2]}" ng-class="checkAndSetScaleColor(0,2)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[2]}}">{{TotalResultData[2]}} / {{TotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[2]}}">{{TotalPercetageData[2]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[2]}}">{{RemainingTotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[2]}}">{{TotalResultData[2]}} / {{CurrentPerformanceTotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[2]}}">{{CurrentPerformancePercetageData[2]}}%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8 col-lg-5 five-two">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-xs-12" ng-show="topBoxFilterOption.offers">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_OFFERS' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-offers current-project-details-icon" ng-style="{'background-color': scaleColors[3]}" ng-class="checkAndSetScaleColor(0,3)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <span class="current-project-details-body-stat" data-counter="counterup" data-value="">0%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-xs-12" ng-show="topBoxFilterOption.closing">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_CLOSING' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="fa fa-check-square-o current-project-details-icon" ng-style="{'background-color': scaleColors[4]}" ng-class="checkAndSetScaleColor(0,4)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <span class="current-project-details-body-stat" data-counter="counterup" data-value="">0%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="tab_AllMember" class="tab-pane">
+                            <section class="">
+                                <div class="row">
+                                    <div class="col-sm-12 mt-5">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-lg-12 five-three">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.calls">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_CALLS' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-call current-project-details-icon" ng-style="{'background-color': scaleColors[0]}" ng-class="checkAndSetScaleColor(0,0)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[0]}}">{{TotalResultData[0]}} / {{TotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[0]}}">{{TotalPercetageData[0]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[0]}}">{{RemainingTotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[0]}}">{{TotalResultData[0]}} / {{CurrentPerformanceTotalGoalData[0]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[0]}}">{{CurrentPerformancePercetageData[0]}}%</span>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.talks">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_TALKS' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-talk current-project-details-icon" ng-style="{'background-color': scaleColors[1]}" ng-class="checkAndSetScaleColor(0,1)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[1]}}">{{TotalResultData[1]}} / {{TotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[1]}}">{{TotalPercetageData[1]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[1]}}">{{RemainingTotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[1]}}">{{TotalResultData[1]}} / {{CurrentPerformanceTotalGoalData[1]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[1]}}">{{CurrentPerformancePercetageData[1]}}%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4 col-xs-12" ng-show="topBoxFilterOption.service">
+                                                        <div class="current-project-details bordered">
+                                                            <h4 class="current-project-details-heading">{{'TASKPROSPECTING_SERVICE' | translate }}</h4>
+                                                            <div class="current-project-details-wrap">
+                                                                <i class="ips-icon-meeting current-project-details-icon" ng-style="{'background-color': scaleColors[2]}" ng-class="checkAndSetScaleColor(0,2)" aria-hidden="true"></i>
+                                                                <div class="current-project-details-body">
+                                                                    <!-- <span class="current-project-details-body-subtitle">USD</span> -->
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Counts" data-counter="counterup" data-value="{{TotalGoalData[2]}}">{{TotalResultData[2]}} / {{TotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.Percentage" data-counter="counterup" data-value="{{TotalPercetageData[2]}}">{{TotalPercetageData[2]}}%</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.RemainCounts" data-counter="counterup" data-value="{{RemainingTotalGoalData[2]}}">{{RemainingTotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformanceResult" data-counter="counterup" data-value="{{CurrentPerformanceTotalGoalData[2]}}">{{TotalResultData[2]}} / {{CurrentPerformanceTotalGoalData[2]}}</span>
+                                                                    <span class="current-project-details-body-stat" ng-show="topBoxFilterOption.topboxResultTypeId == topboxResultTypeEnum.CurrentPerformancePercentage" data-counter="counterup" data-value="{{CurrentPerformancePercetageData[2]}}">{{CurrentPerformancePercetageData[2]}}%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <section class="portlet-light">
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div id="example">
+                                    <div id="userResultDataGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="portlet-light">
+                        <div class="row tab-header m-0 header-blue">
+                            <div class="col-lg-12 col-xs-12">
+                                <h3>{{'AGGREGATE_DASHBOARD' | translate}}</h3>
+                            </div>
+                        </div>
+                        <div class="row m-5" ng-show="(aggregateProspectingData != null)">
+                            <div class="col-lg-4 col-md-6 col-sm-6 text-center border-right" ng-repeat="prospectingSkill in aggregateProspectingData">
+                                <div id="example1" class="k-content">
+                                    <div id="gauge-container">
+                                        <div class="gaugeDiv" id="home_serviceprospectingaggregated_{{prospectingSkill.skillName}}_gauge"></div>
+                                    </div>
+                                    <div class="goals-chart-details">
+                                        <h2>{{prospectingSkill.skillName}}</h2>
+                                        <h6>{{'TASKPROSPECTING_RESULT_VS_GOAL' | translate }}</h6>
+                                        <div class="col-md-12 text-centre">
+                                            <h5> {{prospectingSkill.count}} | <span>{{prospectingSkill.goal}}</span> </h5>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="goals-chart-view-details">
+                                                <h4><b>{{prospectingSkill.result}}%</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </section>
+
+                    <section id="taskDashboardSection" class="portlet-light" ng-show="(taskActivityData != null && topBoxFilterOption.taskDashboard)">
+                        <div class="row tab-header m-0 header-blue">
+                            <div class="col-lg-12 col-xs-12">
+                                <h3>{{'TASKPROSPECTING_TASK_PERFORMANCE_DASHBOARD' | translate}}</h3>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5 text-center">
+                            <div class="col-md-12">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle  btn-cstm " type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span ng-show="selectedperformanceDashboardTask">{{selectedperformanceDashboardTask.title}}</span>
+                                        <span ng-hide="selectedperformanceDashboardTask">{{'TASKPROSPECTING_TASK' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="performanceDashboardTaskChanged(todoItem.id)" ng-repeat="todoItem in prospectingTaskTodos | filter : showFilteredTodos">
+                                            <a href="javascript:;"> {{todoItem.title}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span ng-show="selectedProspectingGoal">{{selectedProspectingGoal.name}} <span ng-show="selectedProspectingGoal.id >0"> ({{selectedProspectingGoal.userName}})</span></span>
+                                        <span ng-hide="selectedProspectingGoal">{{'TASKPROSPECTING_PROSPECTING_ACTIVITY' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="selectProspectingGoal(prospectingGoal.id)" ng-repeat="prospectingGoal in  taskProspectingGoals">
+                                            <a href="javascript:;"> {{prospectingGoal.name}} <span ng-show="prospectingGoal.id > 0"> ({{prospectingGoal.userName}})</span> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle  btn-cstm btn-left" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span ng-show="selectedprospectingActivity">{{selectedprospectingActivity.name}}</span>
+                                        <span ng-hide="selectedprospectingActivity">{{'TASKPROSPECTING_ACTIVITY' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="selectProspectingActivity(prospectingActivity.id)" ng-repeat="prospectingActivity in  taskProspectingActivities">
+                                            <a href="javascript:;"> {{prospectingActivity.name}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 text-center">
+                            <div class="col-md-12">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span ng-show="selectedCompareProspectingGoal">{{selectedCompareProspectingGoal.name}} <span ng-show="selectedCompareProspectingGoal.id >0"> ({{selectedCompareProspectingGoal.userName}})</span></span>
+                                        <span ng-hide="selectedCompareProspectingGoal">{{'TASKPROSPECTING_PROSPECTING_ACTIVITY' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="selectCompareProspectingGoal(prospectingGoal.id)" ng-repeat="prospectingGoal in  taskProspectingGoals">
+                                            <a href="javascript:;"> {{prospectingGoal.name}} <span ng-show="prospectingGoal.id > 0">({{prospectingGoal.userName}})</span> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        <span ng-show="selectedCompareProspectingActivity">{{selectedCompareProspectingActivity.name}}</span>
+                                        <span ng-hide="selectedCompareProspectingActivity">{{'TASKPROSPECTING_ACTIVITY' | translate }}</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="selectCompareProspectingActivity(prospectingActivity.id)" ng-repeat="prospectingActivity in  taskCompareProspectingActivities">
+                                            <a href="javascript:;"> {{prospectingActivity.name}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 ">
+                            <div class="col-lg-4 col-md-6 col-sm-6 text-center border-right" ng-repeat="prospectingSkill in taskActivityData.prospectingSkillGoalResults">
+                                <div class="k-content">
+                                    <div id="gauge-container">
+                                        <div class="gaugeDiv" id="home_serviceprospectingactivity_{{prospectingSkill.skillName}}_gauge"></div>
+                                    </div>
+                                    <div class="goals-chart-details">
+                                        <h2>{{prospectingSkill.skillName}}</h2>
+                                        <h6>{{'TASKPROSPECTING_RESULT_VS_GOAL' | translate }}</h6>
+                                        <div class="col-md-12 text-centre" ng-hide="compareData.length > 0">
+                                            <h5> {{prospectingSkill.count}} | <span>{{prospectingSkill.goal}}</span> </h5>
+                                        </div>
+                                        <div class="col-md-12" ng-hide="compareData.length > 0">
+                                            <div class="goals-chart-view-details">
+                                                <h4><b>{{prospectingSkill.result}}%</b></h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-centre" ng-show="compareData.length > 0">
+                                            <h5 ng-repeat="compareDataItem in compareData | filter : {skillId :prospectingSkill.skillId }">
+                                                {{compareDataItem.value1}} | <span>{{compareDataItem.value2}}</span>
+                                            </h5>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 text-center border-right" ng-show="mainTaskFilterGaugeData && compareTaskFilterGaugeData">
+                                <div id="example1" class="k-content">
+                                    <div id="gauge-container">
+                                        <div class="gaugeDiv" id="home_serviceprospectingactivity_performance_gauge"></div>
+                                    </div>
+                                    <div class="goals-chart-details">
+                                        <h2>{{'TASKPROSPECTING_PERFORMANCE' | translate }}</h2>
+                                        <h6>
+
+                                            <div class="btn-group">
+                                                <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    {{mainTaskFilterGaugeText ? mainTaskFilterGaugeText : "--Select--" }}
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li ng-click="selectTaskMainFilterGauge(prospectingSkill.skillId)" ng-repeat="prospectingSkill in taskActivityData.prospectingSkillGoalResults | filter : showTaskMainFilterSkills">
+                                                        <a href="javascript:;"> {{prospectingSkill.skillName}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            |
+                                            <div class="btn-group">
+                                                <a class="btn btn-cstm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    {{compareTaskFilterGaugeText ? compareTaskFilterGaugeText : "--Select--" }}
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li ng-click="selectTaskCompareFilterGauge(prospectingSkill.skillId)" ng-repeat="prospectingSkill in taskActivityData.prospectingSkillGoalResults | filter : showTaskCompareFilterSkills">
+                                                        <a href="javascript:;"> {{prospectingSkill.skillName}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </h6>
+                                        <div class="col-md-12 text-centre">
+                                            <h5> {{taskPerformanceGagueInfo.value1}} |  {{taskPerformanceGagueInfo.value2}}</span> </h5>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="goals-chart-view-details">
+                                                <h4><b>{{taskPerformanceGagueInfo.avg}}%</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="portlet-light" ng-show="taskActivityData != null && topBoxFilterOption.chartResult">
+                        <div class="row tab-header m-0  header-blue">
+                            <div class="col-lg-6 col-xs-8">
+                                <h3>{{'TASKPROSPECTING_CHART_RESULT' | translate }}</h3>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-lg-12 col-xs-4 text-left">
+                                <div class="btn-group">
+                                    <button class="btn dropdown-toggle  btn-cstm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        {{chartFilterOptionModel.selectedOptionText ? chartFilterOptionModel.selectedOptionText : "-- " + ('COMMON_SELECT' | translate ) + " --" }}
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li ng-click="chartFilterOptionChanged(chartFilteritem.id)" ng-repeat="chartFilteritem in chartFilterOptions">
+                                            <a href="javascript:;"> {{chartFilteritem.name}} </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="btn-group" ng-show="chartFilterOptionModel.selectedOptionValue == chartFilterOptionEnums.DateRange">
+                                    <div class="btn btn-sm">
+                                        <input kendo-date-time-picker
+                                               id="ChartFilterStartDate"
+                                               name="ChartFilterStartDate"
+                                               k-on-open="chartFilterStartDateOpen(kendoEvent)"
+                                               k-on-change="chartFilterStartDateChange(kendoEvent)"
+                                               ng-model="chartFilterOptionModel.startDate" />
+                                    </div>
+                                    <div class="btn btn-sm">
+                                        <input kendo-date-time-picker
+                                               id="ChartFilterEndDate"
+                                               name="ChartFilterEndDate"
+                                               k-on-open="chartFilterEndDateOpen(kendoEvent)"
+                                               k-on-change="chartFilterEndDateChange(kendoEvent)"
+                                               ng-model="chartFilterOptionModel.endDate" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <div class="demo-section k-content wide" style="overflow:auto">
+                                    <div id="taskprospectingfloatchart" style="height:400px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+
+
+                    
+
+                    
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <div id="prospecting-result-popup-div"></div>
+        <div id="talk-activity-popup-div"></div>
+        <div id="customerActivityResultModel" data-backdrop="static" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_ACTIVITY_RESULT' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formActvityResult" name="formActvityResult">
+                                <div class="row" ng-repeat="customerActivityResult in customerActivityResults">
+                                    {{customerActivityResult.skill.name}}
+                                    <div ng-if="customerActivityResult.skill.seqNo == 1">
+                                        <div class="form-group">
+                                            <label class="control-label">{{'TASKPROSPECTING_CALLED_AT' | translate }}:</label>
+                                            {{customerActivityResult.createdOn | date:'short'}}
+                                        </div>
+                                    </div>
+                                    <div ng-if="customerActivityResult.skill.seqNo == 2">
+                                        {{'TASKPROSPECTING_YOUR_HAVE_TALKED_WITH_CUSTOMER_FOR' | translate }} {{customerActivityResult.duration}} {{'TASKPROSPECTING_MINUTES.' | translate }}
+                                        <div>
+                                            <div class="task-checkbox">
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="customerActivityResult.isNoMeeting || customerActivityResult.isServiceAgreed">
+                                                    <input type="checkbox" id="chkIsFollowUp_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isFollowUp" ng-model="customerActivityResult.isFollowUp">
+                                                    <span></span>{{'TASKPROSPECTING_FOLLOW_UP' | translate }}
+                                                </label>
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp">
+                                                    <input type="checkbox" id="chkIsServiceAgreed_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isServiceAgreed" ng-model="customerActivityResult.isServiceAgreed">
+                                                    <span></span>{{'TASKPROSPECTING_SERVICE_AGREED' | translate }}
+                                                </label>
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline form-cstm-lable " ng-hide="customerActivityResult.isServiceAgreed || customerActivityResult.isFollowUp">
+                                                    <input type="checkbox" id="chkIsNoMeeting_{{customerActivityResult.id}}" class="checkboxes" value="1" ng-checked="customerActivityResult.isNoMeeting" ng-model="customerActivityResult.isNoMeeting">
+                                                    <span></span>{{'TASKPROSPECTING_NOT_INTERESTED' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12" ng-show="customerActivityResult.isFollowUp || customerActivityResult.isServiceAgreed">
+                                                <label class="col-md-12 text-info">{{'TASKPROSPECTING_PLEASE_NOTE_THIS_WILL_BE_LINKED_WITH_YOUR_TASKS_NOTIFIES_YOU_WITH_TODAYS_TASKS_AND_CALENDAR_INSIDE_IMPROVE_SYSTEMS' | translate }}</label>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'TASKPROSPECTING_SCHEDULE_DATE' | translate }}</label>
+                                                        <input kendo-date-time-picker
+                                                               id="talkResultScheduleDate"
+                                                               name="talkResultScheduleDate"
+                                                               ng-model="customerActivityResult.prospectingSchedules[0].scheduleDate" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label" ng-show="customerActivityResult.isServiceAgreed">Service Products Agreed</label>
+                                                        <label class="control-label" ng-show="customerActivityResult.isFollowUp">{{'TASKPROSPECTING_DESCRIBE_FOLLOW_UP_DETAIL' | translate }}</label>
+                                                        <textarea type="text" class="form-control" ng-model="customerActivityResult.prospectingSchedules[0].agenda" name="agenda" placeholder="Service Products Agreed" ng-required="customerActivityResult.isServiceAgreed || customerActivityResult.isFollowUp" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" ng-show="customerActivityResult.isServiceAgreed">
+                                                    <div class="form-group">
+                                                        <label class="control-label">{{'TASKPROSPECTING_SERVICE_AMOUNT' | translate }} <small>({{'TASKPROSPECTING_NOK' | translate }})</small></label>
+                                                        <input type="number" class="form-control" ng-model="customerActivityResult.serviceAmount" name="serviceAmount" placeholder="Service Amount" ng-required="customerActivityResult.isServiceAgreed" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12" ng-show="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_REASON' | translate }}</label>
+                                                    <textarea class="form-control" ng-model="customerActivityResult.reason" name="reason" placeholder="Reason" ng-required="customerActivityResult.isNoMeeting || customerActivityResult.isFollowUp" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_RATE_OF_CUSTOMER_INTEREST' | translate }} <small>(%)</small></label>
+                                                    <input type="number" class="form-control" ng-model="customerActivityResult.customerInterestRate" name="customerInterest" placeholder="Customer Interest" ng-required="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button class="btn btn-cstm primary cancel pull-right" ng-click="cancelActivityResult()" data-dismiss="modal" aria-label="Close">{{'COMMON_CLOSE' | translate }}</button>
+                                    <!--<button class="btn btn-cstm primary pull-right" ng-click="UpdateActivityResult()" ng-disabled="formActvityResult.$invalid" aria-label="Ok">Save</button>-->
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="scheduleModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_SCHEDULE_WITH_CUSTOMER' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formschedule" name="formschedule">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_SCHEDULE_DATE' | translate }}</label>
+                                                    <input kendo-date-time-picker
+                                                           id="SchdeuleDate"
+                                                           name="SchdeuleDate"
+                                                           ng-model="prospectingSchedule.scheduleDate" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_DESCRIBE_AGENDA' | translate }}</label>
+                                                    <textarea type="text" class="form-control" ng-model="prospectingSchedule.agenda" name="agenda" placeholder="Agenda" ng-required="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                        <button class="btn btn-cstm primary pull-right" ng-click="saveCustomerActivityResult()" ng-disabled="formschedule.$invalid" data-dismiss="modal" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                    </div>
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="SendOfferModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_CUSTOMER_OFFER_DETAIL' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formSendOffer" name="formSendOffer">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_OFFER_PRICE' | translate }}</label>
+                                                    <input type="number" min="0" class="form-control" ng-model="offerDetail.offerPrice" name="OfferPrice" placeholder="Offer Price" ng-required="true" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                                                    <textarea type="text" class="form-control" ng-model="offerDetail.description" name="description" placeholder="Description" ng-required="true" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_FOLLOW_UP_DATE' | translate }}</label>
+                                                    <input kendo-date-time-picker
+                                                           id="offerFollowUpScheduleDate"
+                                                           name="offerFollowUpScheduleDate"
+                                                           ng-model="offerDetail.offerFollowUpScheduleDate" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                        <button class="btn btn-cstm primary pull-right" ng-click="saveCustomerOfferDetail()" ng-disabled="formSendOffer.$invalid" data-dismiss="modal" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                    </div>
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewOfferModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_CUSTOMER_OFFER_DETAILS' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="mt-comments">
+                                        <div class="mt-comment" ng-repeat="offer in customerOffers track by $index">
+                                            <div class="mt-comment-body">
+                                                <div class="mt-comment-info">
+                                                    <span class="mt-comment-author">{{'TASKPROSPECTING_OFFER' | translate }} {{$index + 1}}</span>
+                                                    <span class="mt-comment-date">{{'TASKPROSPECTING_SENT' | translate }} : {{offer.offerSentTime}}</span>
+                                                </div>
+                                                <div class="mt-comment-text">
+                                                    <div>{{'TASKPROSPECTING_OFFER_PRICE' | translate }} : <b> {{offer.offerPrice}}</b></div>
+                                                    <div>{{offer.description}}</div>
+                                                    <div class="mt-comment-date">{{'TASKPROSPECTING_FOLLOW_UP' | translate }} : {{offer.offerFollowUpScheduleDate}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-comment-body" ng-if="offer.offerClosingDetails.length > 0">
+                                                <div>Closing Info</div>
+                                                <div class="mt-comment-text" ng-repeat="offerClosingDetail in offer.offerClosingDetails">
+                                                    <div>{{'TASKPROSPECTING_STATUS' | translate }} : {{offerClosingDetail.offerInfo.text}}</div>
+                                                    <div>{{'TASKPROSPECTING_REASON' | translate }} : {{offerClosingDetail.reason}}</div>
+                                                    <div ng-show="offerClosingDetail.status == offertCloseStatusEnum.NotSure">{{'TASKPROSPECTING_POSSIBILITY' | translate }} : {{offerClosingDetail.possibility}}%</div>
+                                                    <div ng-show="offerClosingDetail.status == offertCloseStatusEnum.NotSure">{{'TASKPROSPECTING_WHAT_NEXT' | translate }} : {{offerClosingDetail.whatNext}}</div>
+                                                    <div class="mt-comment-date">{{'TASKPROSPECTING_CLOSING_DATE' | translate }} : {{offerClosingDetail.closedTime}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-comment-body" ng-show="(!offer.offerClosingDetails.length > 0)">
+                                                <label ng-click="openOfferClosePopup(offer.id)" class="btn btn-cstm active">
+                                                    {{'TASKPROSPECTING_CLOSE_OFFER' | translate }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="OfferCloseModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">{{'TASKPROSPECTING_OFFER_CLOSE_DETAIL' | translate }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <ng-form id="formCloseOffer" name="formCloseOffer">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_CUSTOMER_RESULT' | translate }}</label>
+                                                    <select class="form-control" ng-model="offerClosingDetail.status" ng-change="changeOfferCloseOption(offerClosingDetail.status)" ng-options="offerCloseOption.value as offerCloseOption.text for offerCloseOption in offerCloseOptions"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" ng-show="offerClosingDetail.status == offertCloseStatusEnum.NotAgreed || offerClosingDetail.status == offertCloseStatusEnum.NotSure">
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_REASON' | translate }}</label>
+                                                    <textarea type="text" class="form-control" ng-model="offerClosingDetail.reason" name="reason" placeholder="Reason" ng-required="offerClosingDetail.status == offertCloseStatusEnum.NotAgreed || offerClosingDetail.status == offertCloseStatusEnum.NotSure" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">{{'TASKPROSPECTING_WHAT_NEXT' | translate }}</label>
+                                                    <textarea type="text" class="form-control" ng-model="offerClosingDetail.whatNext" name="whatNext" placeholder="What Next?" ng-required="offerClosingDetail.status == offertCloseStatusEnum.NotAgreed || offerClosingDetail.status == offertCloseStatusEnum.NotSure" />
+                                                </div>
+                                                <div class="form-group" ng-show="offerClosingDetail.status == offertCloseStatusEnum.NotSure">
+                                                    <label class="control-label">{{'TASKPROSPECTING_POSSIBILITY' | translate }}</label>
+                                                    <input type="text" class="form-control" ng-model="offerClosingDetail.possibility" name="possibility" placeholder="possibility" ng-required="offerClosingDetail.status == offertCloseStatusEnum.NotSure" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-cstm primary cancel pull-right" data-dismiss="modal" aria-label="Close">{{'COMMON_CANCEL' | translate }}</button>
+                                        <button class="btn btn-cstm primary pull-right" ng-click="saveOfferClosingDetail()" ng-disabled="formCloseOffer.$invalid" aria-label="Ok">{{'COMMON_SAVE' | translate }}</button>
+                                    </div>
+                                </div>
+                            </ng-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

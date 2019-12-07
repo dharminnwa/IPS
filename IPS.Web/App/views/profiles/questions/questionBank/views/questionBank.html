@@ -1,0 +1,137 @@
+﻿<div pane>
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:0px;">
+        <div class="toggler"> </div>
+        <div class="toggler-close"> </div>
+        <div class="theme-options">
+            <div class="theme-option theme-colors clearfix">
+                <span> {{'COMMON_SEARCH' | translate }} </span>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="searchText" ng-change="doSearch(searchText)">
+                    </div>
+                </div>
+            </div>
+            <div class="theme-option">
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Organization"
+                            name="organizationId"
+                            ng-options="organization.id as organization.name for organization in organizations"
+                            ng-model="filter.organizationId"
+                            ng-change="doFilter()">
+                        <option value="">{{'COMMON_SELECT_ORGANIZATION' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group form-md-checkboxes">
+                    <div class="mt-checkbox-list">
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" ng-change="doFilter()" ng-model="filter.isActive"> {{'SOFTPROFILE_SHOW_ACTIVE_QUESTIONS' | translate }}
+                            <span></span>
+                        </label>
+                        <!--<label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" ng-change="doFilter()" ng-model="filter.isInactive"> Show Inactive Questions
+                            <span></span>
+                        </label>-->
+                        <label class="mt-checkbox">
+                            <input type="checkbox" class="md-check" ng-change="doFilter()" ng-model="filter.showTemplatesOnly"> {{'COMMON_SHOW_TEMPLATES_ONLY' | translate }}
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_TARGET_GROUP_LEVEL' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Structure Level"
+                            name="structureLevelId"
+                            ng-options="level.id as level.name for level in structureLevels"
+                            ng-model="filter.structureLevelId"
+                            ng-change="doFilter()">
+                        <option value="">{{'SOFTPROFILE_SELECT_TARGET_GROUP_LEVEL' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-if="isKTProfile()">
+                    <label class="ips-label">{{'SOFTPROFILE_QUESTION_TYPE' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Structure Level"
+                            name="structureLevelId"
+                            ng-options="questionType.id as questionType.typeName for questionType in questionTypes"
+                            ng-model="filter.questionTypeId"
+                            ng-change="doFilter()">
+                        <option value="">{{'SOFTPROFILE_SELECT_QUESTION_TYPE' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'SOFTPROFILE_QUESTIONS' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.questionId" data-ng-options="obj.id as obj.questionText for obj in questionsList | unique:'questionText'" ng-change="doFilter()">
+                        <option value="">{{'SOFTPROFILE_SELECT_QUESTION' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_PERFORMANCE_GROUP' | translate }}</label>
+                    <select class="form-control" data-ng-model="filter.performanceGroupName" data-ng-options="obj.id as obj.name for obj in performanceGroups | unique:'name'" ng-change="doFilter()"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddlSkills" class="control-label">{{'COMMON_SKILL' | translate }}</label>
+                    <select id="ddlSkills" class="form-control select2"
+                            data-ng-model="filter.skillId"
+                            ng-change="doFilter()"
+                            style="width: 100%"
+                            data-ng-options="obj.id as obj.name for obj in skillsFlatList">
+                        <option value="">{{'SOFTPROFILE_SELECT_SKILL' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Industry"
+                            name="industryId"
+                            ng-options="industry.id as industry.name for industry in industries"
+                            ng-model="filter.industryId"
+                            ng-change="industryChanged()">
+                        <option value="">{{'SOFTPROFILE_EDITQUESTION_SELECT_INDUSTRY' | translate }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="ips-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                    <select class="form-control"
+                            value="Select Industry"
+                            name="subIndustryId"
+                            ng-options="industry.id as industry.name for industry in subIndustries"
+                            ng-model="filter.subIndustryId"
+                            ng-change="doFilter()"
+                            ng-disabled="subIndustries.length==0">
+                        <option value="">{{'SOFTPROFILE_SELECT_SUB_INDUSTRY' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <header-navigation page-name="{{'SOFTPROFILE_QUESTION_BANK' | translate }}"></header-navigation>
+        <div class="col-sm-12">
+            <div class="grid-header-menu">
+                <img src="images/organization/organization-icon.png" />
+                <span>{{'SOFTPROFILE_QUESTIONS' | translate }}</span>
+                <a class="add-button pull-right" ng-click="addQuestion()" ng-show="!isDisabled(authService.authentication.user.organizationId, authService.actions.Create)"></a>
+            </div>
+            <kendo-tooltip options="tooltipOptions">
+                <div class="questionBankGrid" kendo-grid="questionBankGrid" k-options="questionOptions"></div>
+            </kendo-tooltip>
+            <button class="btn btn-cstm primary pull-right" ng-click="addQuestion()">{{'SOFTPROFILE_ADD_QUESTION' | translate }}</button>
+        </div>
+        <div kendo-window="removal" k-title="'{{'COMMON_CONFIRM' | translate }}'" k-visible="false" k-on-open="removalvisible = false" k-on-close="removalvisible = false">
+            {{'COMMON_ARE_YOU_SURE_YOU_WANT_TO_DELETE' | translate }}
+            <button class="k-button" ng-click="remove(dataItem.id);removal.close()">{{'COMMON_YES' | translate }}</button>
+            <button class="k-button" ng-click="removal.close()">{{'COMMON_CANCEL' | translate }}</button>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

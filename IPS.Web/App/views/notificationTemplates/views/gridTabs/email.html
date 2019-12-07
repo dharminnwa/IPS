@@ -1,0 +1,12 @@
+﻿<div class="form-group">
+    <label class="control-label">{{'NOTIFICATION_SUBJECT' | translate }}</label>
+    <input type="text" class="form-control" name="notificationName" ng-model="notification.emailSubject" autofocus />
+</div>
+<div class="form-group">
+    <textarea kendo-editor k-ng-model="notification.emailBody"></textarea>
+</div>
+<div class="form-group">
+    <lable ng-click="showHTMLClick()" class="btn btn-default" ng-hide="notification.showHTML">{{'NOTIFICATION_SHOW_HTML' | translate }}</lable>
+    <lable ng-click="showHTMLClick()" class="btn btn-default" ng-show="notification.showHTML">{{'NOTIFICATION_HIDE_HTML' | translate }}</lable>
+    <textarea class="form-control" rows="10" ng-show="notification.showHTML" ng-model="notification.emailBody"></textarea>
+</div>

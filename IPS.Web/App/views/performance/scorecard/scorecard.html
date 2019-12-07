@@ -1,0 +1,148 @@
+<div pane name="scorecard">
+    <div class="row">
+        <div class="col-sm-12 return-menu">
+            <a class="newhead title fa fa-long-arrow-left" ng-click="scorecard.goBack()"></a>
+            <h1 class="title">{{'COMMON_SCORECARD' | translate }}</h1>
+            <div class="top-border"></div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3" ng-init="scorecard.organizationChanged()">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                        <span ng-show='profileForm.profileOrganizationId.$invalid' class="required">*</span>
+                        <select class="form-control" name="profileOrganizationId" data-ng-model="scorecard.organizationId" ng-change="scorecard.organizationChanged()" data-ng-options="obj.id as obj.name for obj in scorecard.organizations"></select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROJECTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.projectsOptions" selected-model="scorecard.projectsModel" ng-disabled="scorecard.projects.length < 1" translation-texts="scorecard.projectsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.projectsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_DEPARTMENTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.departmentsOptions" selected-model="scorecard.departmentsModel" ng-disabled="scorecard.departments.length < 1" translation-texts="scorecard.departmentsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.departmentsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_TEAMS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.teamsOptions" selected-model="scorecard.teamsModel" ng-disabled="scorecard.teams.length < 1" translation-texts="scorecard.teamsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.teamsEvents"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE' | translate }}</label>
+                        <select class="form-control" name="profileOrganizationId" ng-disabled="scorecard.profiles.length < 2" data-ng-model="scorecard.profileId" ng-change="scorecard.profileChanged()" data-ng-options="obj.id as obj.name for obj in scorecard.profiles"></select>
+                    </div>
+                </div>
+               
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="control-label db_title">{{'TASKPROSPECTING_STATUS' | translate }}</label>
+                        <select class="form-control" name="profileStatus" ng-disabled="profileStatusOptions.length < 1"
+                                data-ng-model="filter.profileStatus" ng-change="profileStatusChanged()"
+                                data-ng-options="obj.id as obj.name for obj in profileStatusOptions"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_MAIN_PARTICIPANTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.mainParticipantsOptions" selected-model="scorecard.mainParticipantsModel" ng-disabled="scorecard.participants.length < 1" translation-texts="scorecard.mainParticipantsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.mainParticipantsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_MAIN_EVALUATORS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.mainEvaluatorsOptions" selected-model="scorecard.mainEvaluatorsModel" ng-disabled="!scorecard.isMainEvaluatorsEnabled || scorecard.mainEvaluators.length < 1" translation-texts="scorecard.mainEvaluatorsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="acorecard.mainEvaluatorsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATION' | translate }})</label>
+                        <select class="form-control" name="mainStageId" ng-disabled="scorecard.mainStages.length < 2" data-ng-model="scorecard.mainStageId" ng-change="scorecard.stageChanged(1);" data-ng-options="obj.id as obj.name for obj in scorecard.mainStages"></select>
+                    </div>
+                    <div>
+                        <button id="mainContract" class="scorecard-btn" ng-click="scorecard.goToDevContract(1)" ng-disabled="scorecard.mainParticipantsModel.length != 1 || scorecard.mainEvaluatorsModel.length != 1">{{'COMMON_DEVELOPMENT_CONTRACT' | translate }}</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE_STEPS' | translate }}</label>
+                        <select class="form-control" name="mainProfileType" ng-disabled="scorecard.mainParticipantsModel.length != 1" data-ng-model="scorecard.mainProfileStepId" ng-change="scorecard.mainProfileStepChanged()" data-ng-options="obj.id as obj.label for obj in scorecard.mainStepsOfProfile"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_COMPARE_WITH' | translate }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PARTICIPANTS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.participantsOptions" selected-model="scorecard.participantsModel" ng-disabled="scorecard.participants.length < 1" translation-texts="scorecard.participantsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.participantsEvents"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_EVALUATORS' | translate }}</label>
+                        <div ng-dropdown-multiselect options="scorecard.evaluatorsOptions" selected-model="scorecard.evaluatorsModel" ng-disabled="!scorecard.isEvaluatorsEnabled || scorecard.evaluators.length < 1" translation-texts="scorecard.evaluatorsCustomTexts" extra-settings="scorecard.smartButtonSettings" events="scorecard.evaluatorsEvents"></div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_STAGE' | translate }} ({{'COMMON_PERFORMANCE_EVALUATION' | translate }})</label>
+                        <select class="form-control" name="stageId" ng-disabled="scorecard.stages.length < 2" data-ng-model="scorecard.stageId" ng-change="scorecard.stageChanged(2);" data-ng-options="obj.id as obj.name for obj in scorecard.stages"></select>
+                    </div>
+                    <div>
+                        <button id="compareContract" class="scorecard-btn" ng-click="scorecard.goToDevContract(2)" ng-disabled="scorecard.mainParticipantsModel.length != 1 || scorecard.mainEvaluatorsModel.length != 1">{{'COMMON_DEVELOPMENT_CONTRACT' | translate }}</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'COMMON_PROFILE_STEPS' | translate }}</label>
+                        <select class="form-control" name="profileType" ng-disabled="participantsModel.length != 1" data-ng-model="scorecard.profileTypeId" ng-change="scorecard.profileStepChangedss()" data-ng-options="obj.id as obj.label for obj in scorecard.stepsOfProfile"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="scorecard.legends.length > 0">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label db_title">{{'COMMON_GROUP_BY' | translate }}</label>
+                        <select ng-disabled="!scorecard.isShowReport" class="form-control" data-ng-model="scorecard.groupById" ng-change="scorecard.getScorecardData()" data-ng-options="obj.id as obj.name for obj in scorecard.groupBy"></select>
+                    </div>
+                </div>
+                <div class="col-md-6 margin-top-30">
+                    <div class="form-group">
+                        <input ng-disabled="!scorecard.isShowReport" type="checkbox" data-ng-model="scorecard.isShowBenchmark" ng-change="scorecard.getBenchmark()">
+                        <label class="control-label db_title margin-left-5">{{'COMMON_SHOW_BENCHMARK' | translate }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <div class="margintop10" ng-show="scorecard.legends.length > 0" data-ng-repeat="legend in scorecard.legends track by $index">
+                        <div class="scorecard-legend pull-left margin-left-10" style="background-color: {{legend.color}}"></div>
+                        <span class="pull-left margin-left-5">{{legend.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" ng-show="scorecard.isShowReport">
+            <div id="scorecardGrid" kendo-treelist="ipsTreeList" k-options="scorecard.treelistOptions"></div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

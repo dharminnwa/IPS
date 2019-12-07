@@ -1,0 +1,169 @@
+﻿.profiles-menu{
+    background-color: #f2f1f7; 
+    margin-top: 15px;
+    border-top-right-radius: 7px;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.icon-groups .clone-icon {
+    
+    background: url(../../images/clone.png) no-repeat;
+}
+
+.icon-groups a{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.k-grid tbody .k-button {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon:hover {
+    border: 0;
+    background-color: transparent;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    margin:0;
+    padding:0;
+}
+
+.k-grid tbody .k-button .k-icon.k-edit {
+    background: url(../../images/edit.png) no-repeat;
+}
+
+.k-grid tbody .k-button.k-button-icontext.k-grid-add {
+    float:right;
+}
+
+.k-grid .k-button .k-icon.k-add, .k-grid tbody .k-button .k-icon.k-add {
+    background: url(../../images/add.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-update {
+    background: url(../../images/update.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-cancel {
+    background: url(../../images/delete.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-delete {
+    
+    background: url(../../images/remove.png) no-repeat;
+}
+
+.k-grid tbody .k-button .k-icon.k-edit:hover, .k-grid tbody .k-button .k-icon.k-delete:hover, .k-grid tbody .k-button .k-icon.k-cancel:hover, .k-grid tbody .k-button .k-icon.k-update:hover {
+    -moz-box-shadow: 0 0 10px #ccc; 
+    -webkit-box-shadow: 0 0 10px #ccc; box-shadow: 0 0 10px #ccc; 
+}
+
+.filter-group {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top:15px;
+      padding-left:5px;
+      padding-right:5px;
+}
+
+.filter-group .profiles-menu {
+    margin-top:0px;
+    margin-left:-5px;
+    margin-right:-5px;
+}
+
+.form-group.date-group .form-control {
+    display:inline-block;
+    width:auto;
+}
+
+.form-group.date-group span.control-item{
+    margin-right: 20px;
+}
+
+.form-group .frequency{
+    display:inline-block;
+}
+
+.medal-rule .icon {
+    width: 32px;
+    height: 32px;
+}
+
+.medal-rule .icon.bronze-icon {
+    background: url(../../images/metalbronzeblue.png) no-repeat;
+}
+
+.medal-rule .icon.silver-icon {
+    background: url(../../images/metalsilverblue.png) no-repeat;
+}
+
+.medal-rule .icon.gold-icon {
+    background: url(../../images/metalgoldblue.png) no-repeat;
+}
+
+.medal-rule .row {
+    margin-bottom: 15px;
+}
+
+.medal-rule .dash {
+    height: 1px;
+    width: 10px;
+    background: black;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.medal-rule .row label {
+    margin: 0;
+    line-height: 30px;
+}
+
+.medal-rule .row .required {
+    position: absolute;
+    right: 3px;
+    top: 7px;
+}
+
+.medal-rule-label {
+    font-weight: normal;
+}

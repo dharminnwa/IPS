@@ -1,0 +1,65 @@
+<div pane>
+    <form name="editSkill" novalidate>
+        <div class="row">
+            <div class="col-sm-12 return-menu">
+                <a ng-click="back()" class="newhead title fa fa-long-arrow-left"></a>
+                <h1 class="title">{{'COMMON_SKILL' | translate }}</h1>
+                <div class="top-border"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_NAME' | translate }}</label>
+                    <span ng-show='editSkill.newSkillName.$error.required' class="required">*</span>
+                    <input type="text" class="form-control" ng-model="skill.name" ng-required="!newSkill.name" name="newSkillName" ng-disabled="isDisabled()" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_DESCRIPTION' | translate }}</label>
+                    <textarea class="form-control" rows="5" data-ng-model="skill.description" ng-disabled="isDisabled()"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_SELECT_PARENT_SKILL' | translate }}</label>
+                    <div ng-tree-view-drop-down ng-data="treeSkillsData" ng-model="skill.parentId" ng-select="skillSelected($event)" ng-disabled="isDisabled()"></div>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" data-ng-model="skill.isActive" ng-disabled="isDisabled()"> {{'COMMON_IS_ACTIVE' | translate }}
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" data-ng-model="skill.isTemplate" ng-disabled="isDisabled()"> {{'COMMON_IS_TEMPLATE' | translate }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_ORGANIZATION' | translate }}</label>
+                    <select class="form-control" data-ng-model="skill.organizationId" data-ng-options="obj.id as obj.name for obj in organizations" ng-disabled="isDisabled()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_INDUSTRY' | translate }}</label>
+                    <select class="form-control" data-ng-model="skill.rootIndustryId" data-ng-options="i.id as i.name for i in industries" ng-change="industryUpdate(skill.rootIndustryId)" ng-disabled="isDisabled()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_SUB_INDUSTRY' | translate }}</label>
+                    <select class="form-control" data-ng-model="skill.subIndustryId" data-ng-options="i.id as i.name for i in industry.subIndustries" ng-change="subIndustryUpdate(skill.subIndustryId)" ng-disabled="industry.subIndustries.length == 0 || industry.subIndustries == undefined || isdisabled()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_LEVEL' | translate }}</label>
+                    <select class="form-control" data-ng-model="skill.structureLevelId" data-ng-options="i.id as i.name for i in levels" ng-disabled="isDisabled()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_PROFILE_TYPE' | translate }}</label>
+                    <select class="form-control" data-ng-model="skill.profileTypeId" data-ng-options="i.id as i.name for i in profileTypes" ng-disabled="isDisabled()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'SOFTPROFILE_TARGET_AUDIENCE' | translate }}</label>
+                    <select kendo-multi-select class="form-control" k-options="selectJobPositionsOptions" k-ng-model="skill.jobPositions" ng-disabled="isDisabled()"></select>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="back()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-click="saveSkill()" ng-disabled="editSkill.$invalid || isDisabled()">{{'COMMON_SAVE' | translate }}</button>
+                <button class="btn btn-cstm primary" ng-if="isRemoveVisible()" ng-click="removeSkill()" ng-disabled="isDisabled()">{{'COMMON_REMOVE' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div ui-view></div>

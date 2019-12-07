@@ -1,0 +1,32 @@
+﻿<div pane name="bookmark">
+    <header-navigation page-name="{{'COMMON_EDIT' | translate }} {{bmkEdit.bookmark.title}}"></header-navigation>
+    <form name="newBookmark" novalidate>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_TITLE' | translate }}</label>
+                    <span ng-show='newBookmark.name.$error.required' class="required">*</span>
+                    <input type="text" class="form-control" name="name" ng-model="bmkEdit.bookmark.title" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'COMMON_URL' | translate }}</label>
+                    <span ng-show='newBookmark.url.$error.required' class="required">*</span>
+                    <input type="url" class="form-control" name="url" ng-model="bmkEdit.bookmark.url" required />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{'BOOKMARKMANAGER_SEQUENCE_NUMBER' | translate }}</label>
+                    <span ng-show='newBookmark.seqNo.$error.required' class="required">*</span>
+                    <input type="number" min="0" class="form-control" name="seqNo" ng-model="bmkEdit.bookmark.seqNo" required />
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="top-border"></div>
+                <button class="btn btn-cstm primary" ng-click="bmkEdit.remove()">{{'COMMON_REMOVE' | translate }}</button>
+                <button class="btn btn-cstm primary cancel pull-right" ng-click="bmkEdit.goBack()">{{'COMMON_CANCEL' | translate }}</button>
+                <button class="btn btn-cstm primary pull-right" ng-disabled="newBookmark.$error.required" ng-click="bmkEdit.save()">{{'COMMON_SAVE' | translate }}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<span kendo-notification="bmkEdit.notificationSavedSuccess" k-options="notificationOptions"></span>
+<div ui-view></div>
